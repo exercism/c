@@ -25,11 +25,8 @@
 :paths:
   :test:
     - +:test/**
-    - -:test/support
   :source:
     - src/**
-  :support:
-    - test/support
 
 :defines:
   # in order to add common defines:
