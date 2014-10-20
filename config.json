@@ -4,14 +4,14 @@
   "repository": "https://github.com/exercism/xc",
   "active": false,
   "problems": [
-    "hamming”,
-    “raindrops”
+    "hamming",
+    "raindrops"
   ],
   "deprecated": [
 
   ],
   "ignored": [
-
+    "vendor"
   ],
   "foregone": [
 
