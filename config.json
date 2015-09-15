@@ -4,6 +4,7 @@
   "repository": "https://github.com/exercism/xc",
   "active": false,
   "problems": [
+    "anagram",
     "hamming",
     "raindrops"
   ],
