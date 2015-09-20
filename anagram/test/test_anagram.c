@@ -1,13 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "unity.h"
-#include "anagram.h"
+#include "vendor/unity.h"
+#include "../src/anagram.h"
 
-void setUp(void) {
-}
-
-void tearDown(void) {
+void testReset()
+{
 }
 
 int stringcmp(const void *a, const void *b) {
@@ -35,6 +33,7 @@ void test_no_matches(void) {
 }
 
 void test_detect_simple_anagram(void) {
+  int x;
   char inputs[][MAX_STR_LEN] = {
     "tan",
     "stand",
@@ -54,7 +53,7 @@ void test_detect_simple_anagram(void) {
   struct Vector vout = anagrams_for("ant", vin);
 
   TEST_ASSERT_EQUAL(outputs_len, vout.size);
-  for (int x = 0; x < vout.size; x++) {
+  for (x = 0; x < vout.size; x++) {
     TEST_ASSERT_EQUAL(strlen(outputs[x]), strlen(vout.vec[x]));
     TEST_ASSERT_EQUAL_MEMORY(outputs[x], vout.vec[x], strlen(outputs[x]));
   }
@@ -98,6 +97,7 @@ void test_eliminate_anagram_subsets(void) {
 }
 
 void test_detect_anagram(void) {
+  int x;
   char inputs[][MAX_STR_LEN] = {
     "enlists",
     "google",
@@ -118,7 +118,7 @@ void test_detect_anagram(void) {
   struct Vector vout = anagrams_for("listen", vin);
 
   TEST_ASSERT_EQUAL(outputs_len, vout.size);
-  for (int x = 0; x < vout.size; x++) {
+  for (x = 0; x < vout.size; x++) {
     TEST_ASSERT_EQUAL(strlen(outputs[x]), strlen(vout.vec[x]));
     TEST_ASSERT_EQUAL_MEMORY(outputs[x], vout.vec[x], strlen(outputs[x]));
   }
@@ -127,6 +127,7 @@ void test_detect_anagram(void) {
 }
 
 void test_multiple_anagrams(void) {
+  int x;
   char inputs[][MAX_STR_LEN] = {
     "gallery",
     "ballerina",
@@ -153,7 +154,7 @@ void test_multiple_anagrams(void) {
   qsort(vout.vec, vout.size, sizeof(char)*MAX_STR_LEN, stringcmp);
 
   TEST_ASSERT_EQUAL(outputs_len, vout.size);
-  for (int x = 0; x < vout.size; x++) {
+  for (x = 0; x < vout.size; x++) {
     TEST_ASSERT_EQUAL(strlen(outputs[x]), strlen(vout.vec[x]));
     TEST_ASSERT_EQUAL_MEMORY(outputs[x], vout.vec[x], strlen(outputs[x]));
   }
@@ -183,7 +184,8 @@ void test_case_insensitive_anagrams(void) {
   qsort(vout.vec, vout.size, sizeof(char)*MAX_STR_LEN, stringcmp);
 
   TEST_ASSERT_EQUAL(outputs_len, vout.size);
-  for (int x = 0; x < vout.size; x++) {
+  int x;
+  for (x = 0; x < vout.size; x++) {
     TEST_ASSERT_EQUAL(strlen(outputs[x]), strlen(vout.vec[x]));
     TEST_ASSERT_EQUAL_MEMORY(outputs[x], vout.vec[x], strlen(outputs[x]));
   }
@@ -191,56 +193,57 @@ void test_case_insensitive_anagrams(void) {
   free(vout.vec);
 }
 
-// void test_unicode_anagrams(void) {
-//   // These words don't make sense, they're just greek letters cobbled together.
-//   char inputs[][MAX_STR_LEN] = {
-//     "ΒΓΑ",
-//     "ΒΓΔ",
-//     "γβα"
-//   };
-//
-//   struct Vector vin = {
-//     inputs,
-//     sizeof(inputs)/MAX_STR_LEN
-//   };
-//
-//   char outputs[][MAX_STR_LEN] = {
-//     "ΒΓΑ",
-//     "γβα"
-//   };
-//   int outputs_len = sizeof(outputs)/MAX_STR_LEN;
-//   qsort(outputs, outputs_len, sizeof(char)*MAX_STR_LEN, stringcmp);
-//
-//   struct Vector vout = anagrams_for("ΑΒΓ", vin);
-//   qsort(vout.vec, vout.size, sizeof(char)*MAX_STR_LEN, stringcmp);
-//
-//   TEST_ASSERT_EQUAL(outputs_len, vout.size);
-//   for (int x = 0; x < vout.size; x++) {
-//     TEST_ASSERT_EQUAL(strlen(outputs[x]), strlen(vout.vec[x]));
-//     TEST_ASSERT_EQUAL_MEMORY(outputs[x], vout.vec[x], strlen(outputs[x]));
-//   }
-//
-//   free(vout.vec);
-// }
-//
-// void test_misleading_unicode_anagrams(void) {
-//   // Despite what a human might think these words different letters, the input uses Greek A and B
-//   // while the list of potential anagrams uses Latin A and B.
-//   char inputs[][MAX_STR_LEN] = {
-//     "ABΓ"
-//   };
-//
-//   struct Vector vin = {
-//     inputs,
-//     sizeof(inputs)/MAX_STR_LEN
-//   };
-//
-//   struct Vector vout = anagrams_for("ΑΒΓ", vin);
-//
-//   TEST_ASSERT_EQUAL(0, vout.size);
-//
-//   free(vout.vec);
-// }
+ void test_unicode_anagrams(void) {
+   int x;
+   // These words don't make sense, they're just greek letters cobbled together.
+   char inputs[][MAX_STR_LEN] = {
+     "ΒΓΑ",
+     "ΒΓΔ",
+     "γβα"
+   };
+
+   struct Vector vin = {
+     inputs,
+     sizeof(inputs)/MAX_STR_LEN
+   };
+
+   char outputs[][MAX_STR_LEN] = {
+     "ΒΓΑ",
+     "γβα"
+   };
+   int outputs_len = sizeof(outputs)/MAX_STR_LEN;
+   qsort(outputs, outputs_len, sizeof(char)*MAX_STR_LEN, stringcmp);
+
+   struct Vector vout = anagrams_for("ΑΒΓ", vin);
+   qsort(vout.vec, vout.size, sizeof(char)*MAX_STR_LEN, stringcmp);
+
+   TEST_ASSERT_EQUAL(outputs_len, vout.size);
+   for (x = 0; x < vout.size; x++) {
+     TEST_ASSERT_EQUAL(strlen(outputs[x]), strlen(vout.vec[x]));
+     TEST_ASSERT_EQUAL_MEMORY(outputs[x], vout.vec[x], strlen(outputs[x]));
+   }
+
+   free(vout.vec);
+ }
+
+ void test_misleading_unicode_anagrams(void) {
+   // Despite what a human might think these words different letters, the input uses Greek A and B
+   // while the list of potential anagrams uses Latin A and B.
+   char inputs[][MAX_STR_LEN] = {
+     "ABΓ"
+   };
+
+   struct Vector vin = {
+     inputs,
+     sizeof(inputs)/MAX_STR_LEN
+   };
+
+   struct Vector vout = anagrams_for("ΑΒΓ", vin);
+
+   TEST_ASSERT_EQUAL(0, vout.size);
+
+   free(vout.vec);
+ }
 
 void test_does_not_detect_a_word_as_its_own_anagram(void) {
   char inputs[][MAX_STR_LEN] = {
@@ -274,4 +277,27 @@ void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void) {
   TEST_ASSERT_EQUAL(0, vout.size);
 
   free(vout.vec);
+}
+
+
+int main(void)
+{
+  UnityBegin("anagram.c");
+
+  RUN_TEST(test_no_matches);
+  RUN_TEST(test_detect_simple_anagram);
+  RUN_TEST(test_does_not_confuse_different_duplicates);
+  RUN_TEST(test_eliminate_anagram_subsets);
+  RUN_TEST(test_detect_anagram);
+  RUN_TEST(test_multiple_anagrams);
+  RUN_TEST(test_case_insensitive_anagrams);
+  RUN_TEST(test_does_not_detect_a_word_as_its_own_anagram);
+  RUN_TEST(test_does_not_detect_a_differently_cased_word_as_its_own_anagram);
+
+  // Bonus points
+  // RUN_TEST(test_unicode_anagrams);
+  // RUN_TEST(test_misleading_unicode_anagrams);
+
+  UnityEnd();
+  return 0;
 }

@@ -35,7 +35,8 @@ struct Vector anagrams_for(char *in, struct Vector vin) {
   qsort(sorted, strlen(sorted), 1, compare);
 
   char (*vecp)[MAX_STR_LEN] = vin.vec;
-  for (int x = 0; x < vin.size; x++) {
+  int x;
+  for (x = 0; x < vin.size; x++) {
     char *input_lower = lowercase((char *)vecp);
     if (strcmp(input_lower, lower) != 0) {
       char *input_sorted = input_lower;
