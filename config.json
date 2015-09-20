@@ -5,6 +5,7 @@
   "active": false,
   "problems": [
     "anagram",
+    "leap",
     "hamming",
     "raindrops"
   ],
