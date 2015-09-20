@@ -1,2 +1,4 @@
 bin/configlet
 bin/configlet.exe
+**/*.out
+**/*.o
