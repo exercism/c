@@ -1,15 +1,12 @@
-#include "unity.h"
-#include "raindrops.h"
+#include "vendor/unity.h"
+#include "../src/raindrops.h"
 
 #define BUFFER_LENGTH 100
 
-void setUp(void)
+void resetTest(void)
 {
 }
 
-void tearDown(void)
-{
-}
 
 void test_one_yields_itself(void)
 {
@@ -107,3 +104,43 @@ void test_big_prime_yields_itself(void)
     TEST_ASSERT_EQUAL_STRING("12121", convert(buffer, sizeof(buffer), 12121));
 }
 
+int main(void)
+{
+  UnityBegin("raindrops.c");
+
+  RUN_TEST(test_one_yields_itself);
+  RUN_TEST(test_three_yields_pling);
+  RUN_TEST(test_five_yields_plang);
+  RUN_TEST(test_seven_yields_plong);
+  RUN_TEST(test_six_yields_pling);
+  RUN_TEST(test_nine_yields_pling);
+  RUN_TEST(test_ten_yields_plang);
+  RUN_TEST(test_fourteen_yields_plong);
+  RUN_TEST(test_fifteen_yields_plingplang);
+  RUN_TEST(test_twenty_one_yields_plingplong);
+  RUN_TEST(test_twenty_five_yields_plang);
+  RUN_TEST(test_thirty_five_yields_plangplong);
+  RUN_TEST(test_forty_nine_yields_plong);
+  RUN_TEST(test_fifty_two_yields_itself);
+  RUN_TEST(test_one_hundred_five_yields_plingplangplong);
+  RUN_TEST(test_big_prime_yields_itself);
+  RUN_TEST(test_one_yields_itself);
+  RUN_TEST(test_three_yields_pling);
+  RUN_TEST(test_five_yields_plang);
+  RUN_TEST(test_seven_yields_plong);
+  RUN_TEST(test_six_yields_pling);
+  RUN_TEST(test_nine_yields_pling);
+  RUN_TEST(test_ten_yields_plang);
+  RUN_TEST(test_fourteen_yields_plong);
+  RUN_TEST(test_fifteen_yields_plingplang);
+  RUN_TEST(test_twenty_one_yields_plingplong);
+  RUN_TEST(test_twenty_five_yields_plang);
+  RUN_TEST(test_thirty_five_yields_plangplong);
+  RUN_TEST(test_forty_nine_yields_plong);
+  RUN_TEST(test_fifty_two_yields_itself);
+  RUN_TEST(test_one_hundred_five_yields_plingplangplong);
+  RUN_TEST(test_big_prime_yields_itself);
+
+  UnityEnd();
+  return 0;
+}
