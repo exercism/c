@@ -1,5 +1,5 @@
-#include "unity.h"
-#include "hamming.h"
+#include "vendor/unity.h"
+#include "../src/hamming.h"
 
 void setUp(void)
 {
@@ -7,6 +7,12 @@ void setUp(void)
 
 void tearDown(void)
 {
+}
+
+void resetTest(void)
+{
+  tearDown();
+  setUp();
 }
 
 void test_no_difference_between_identical_strands(void)
@@ -54,3 +60,21 @@ void test_hamming_distance_in_very_long_strand(void)
     TEST_ASSERT_EQUAL(9, compute("GGACGGATTCTG", 12, "AGGACGGATTCT", 12));
 }
 
+
+int main(void)
+{
+  UnityBegin("hamming.c");
+
+  RUN_TEST(test_no_difference_between_identical_strands);
+  RUN_TEST(test_hamming_distance_for_single_nucleotide_strand);
+  RUN_TEST(test_complete_hamming_distance_for_small_strand);
+  RUN_TEST(test_small_hamming_distance);
+  RUN_TEST(test_small_hamming_distance_in_longer_strand);
+  RUN_TEST(test_ignores_extra_length_on_first_strand_when_longer);
+  RUN_TEST(test_ignores_extra_length_on_other_strand_when_longer);
+  RUN_TEST(test_large_hamming_distance);
+  RUN_TEST(test_hamming_distance_in_very_long_strand);
+
+  UnityEnd();
+  return 0;
+}
