@@ -14,7 +14,8 @@
 
   ],
   "ignored": [
-    "vendor"
+    "vendor",
+    "docs"
   ],
   "foregone": [
 
