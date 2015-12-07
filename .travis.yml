@@ -1,5 +1,6 @@
+---
 language: bash
-
 script:
-  - bin/fetch-configlet
-  - bin/configlet .
+- bin/fetch-configlet
+- bin/configlet .
+sudo: false
