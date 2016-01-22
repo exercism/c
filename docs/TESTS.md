@@ -28,7 +28,7 @@ and `src/bob.c`.  For exercises with dashes in their name, the source
 files are assumed to use underscores, so `word-count` expects
 `src/word_count.h` and `src/word_count.c`.  You may decide that your
 impementation is sufficiently simple that it can live entirely in the
-header, in which case you can omit the `cpp` file.
+header, in which case you can omit the `c` file.
 
 **Create your initial implementation files before running Make.**  If
 you do not have files `src/bob.h` and `src/bob.c` when running
@@ -47,7 +47,7 @@ You can build your code using the appropriate command for your environment:
 Assuming the current exercise is `bob` and we're in the exercise folder:
 
 ```
-$ touch src/bob.{h,cpp}
+$ touch src/bob.{h,c}
 $ make test
 ```
 
