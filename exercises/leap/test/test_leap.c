@@ -32,7 +32,7 @@ void test_turn_of_the_25th_century(void)
 
 int main(void)
 {
-  UnityBegin("test/leap_test.c");
+  UnityBegin("test/test_leap.c");
 
   RUN_TEST(test_a_known_leap_year);
   RUN_TEST(test_any_old_year);
