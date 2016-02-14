@@ -20,6 +20,12 @@ void test_hello_bob(){
   TEST_ASSERT_EQUAL_STRING("Hello, Bob!", buffer);
 }
 
+void test_no_buffer_overflow_for_small_buffer(){
+  buffer[8] = '?';
+  hello(buffer, 8, "Mr. President");
+  TEST_ASSERT_EQUAL('?', buffer[8]);
+}
+
 int main(void)
 {
   
@@ -28,6 +34,7 @@ int main(void)
   RUN_TEST(test_hello_no_name);
   RUN_TEST(test_hello_alice);
   RUN_TEST(test_hello_bob);
+  RUN_TEST(test_no_buffer_overflow_for_small_buffer);
 
   UnityEnd();
   return 0;
