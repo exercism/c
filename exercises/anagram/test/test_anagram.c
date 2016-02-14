@@ -4,7 +4,7 @@
 #include "vendor/unity.h"
 #include "../src/anagram.h"
 
-void testReset()
+void testReset(void)
 {
 }
 
