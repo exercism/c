@@ -104,6 +104,22 @@ void test_big_prime_yields_itself(void)
     TEST_ASSERT_EQUAL_STRING("12121", convert(buffer, sizeof(buffer), 12121));
 }
 
+void test_no_buffer_overflow_for_plingplangplong(void)
+{
+    char buffer[BUFFER_LENGTH];
+    buffer[8] = '?';
+    convert(buffer, 8, 105);
+    TEST_ASSERT_EQUAL('?', buffer[8]);
+}
+
+void test_no_buffer_overflow_for_number(void)
+{
+    char buffer[BUFFER_LENGTH];
+    buffer[5] = '?';
+    convert(buffer, 5, 10007);
+    TEST_ASSERT_EQUAL('?', buffer[5]);
+}
+
 int main(void)
 {
   UnityBegin("raindrops.c");
@@ -140,6 +156,8 @@ int main(void)
   RUN_TEST(test_fifty_two_yields_itself);
   RUN_TEST(test_one_hundred_five_yields_plingplangplong);
   RUN_TEST(test_big_prime_yields_itself);
+  RUN_TEST(test_no_buffer_overflow_for_plingplangplong);
+  RUN_TEST(test_no_buffer_overflow_for_number);
 
   UnityEnd();
   return 0;
