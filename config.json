@@ -2,6 +2,7 @@
   "slug": "c",
   "language": "C",
   "repository": "https://github.com/exercism/xc",
+  "checklist_issue": 8,
   "active": false,
   "problems": [
     "hello-world",
