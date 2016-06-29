@@ -21,6 +21,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out:
+tests.out: test/test_leap.c src/leap.c
 	@echo Compiling $@
 	@cc src/leap.c test/vendor/unity.c test/test_leap.c -o tests.out

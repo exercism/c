@@ -21,6 +21,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out:
+tests.out: test/test_bob.c src/bob.c
 	@echo Compiling $@
 	@cc src/bob.c test/vendor/unity.c test/test_bob.c -o tests.out
