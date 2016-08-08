@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-void main(){
-	for(int bottles=99;bottles != 0;bottles--){
+void Sing_Beer_Song(int bottles){
+	int bottlec;
+	for(bottlec = bottles;bottles != 0;bottles--){
 	   if(bottles == 1){
 	       break;
 	   }else{
@@ -11,5 +12,5 @@ void main(){
 	printf("1 bottle of beer on the wall, 1 bottle of beer.\n");
     printf("Take one down and pass it around, no more bottles of beer on the wall.\n\n");
     printf("No more bottles of beer on the wall, no more bottles of beer.\n");
-    printf("Go to the store and buy some more, 99 bottles of beer on the wall.\n");
+    printf("Go to the store and buy some more, %d bottles of beer on the wall.\n",bottlec);
 }
