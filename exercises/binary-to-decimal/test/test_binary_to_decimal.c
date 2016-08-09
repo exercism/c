@@ -1,5 +1,5 @@
 #include "vendor/unity.h"
-#include "../src/example.h"
+#include "../src/binary_to_decimal.h"
 
 void Convert_Binary_small(){
     printf("Just Printing decimal in integer %d and %s in string \n", Convert_to_Decimal(100) , Decimal); /* converts and sets the int dec into a string in the global char Decimal */

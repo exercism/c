@@ -21,6 +21,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_binary_to_decimal.c src/binary_to_decimal.c
+tests.out: test/test_binary_to_decimal.c src/binary_to_decimal.h
 	@echo Compiling $@
-	@cc src/binary_to_decimal.c test/vendor/unity.c test/test_binary_to_decimal.c -o tests.out
+	@cc  test/vendor/unity.c test/test_binary_to_decimal.c -o tests.out
