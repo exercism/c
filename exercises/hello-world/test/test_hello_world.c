@@ -6,7 +6,7 @@
 char buffer[BUFFER_LENGTH];
 
 void test_hello_no_name(void) {
-  hello(buffer, BUFFER_LENGTH, "");
+  hello(buffer, BUFFER_LENGTH, NULL);
   TEST_ASSERT_EQUAL_STRING("Hello, World!", buffer);
 }
 
@@ -28,7 +28,6 @@ void test_no_buffer_overflow_for_small_buffer(void){
 
 int main(void)
 {
-  
   UnityBegin("test/test_hello_world.c");
 
   RUN_TEST(test_hello_no_name);
@@ -37,5 +36,6 @@ int main(void)
   RUN_TEST(test_no_buffer_overflow_for_small_buffer);
 
   UnityEnd();
+
   return 0;
 }

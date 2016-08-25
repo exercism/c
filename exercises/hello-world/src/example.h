@@ -1,8 +1,6 @@
-#include <stdio.h>
+#ifndef _HELLO_WORLD_H
+#define _HELLO_WORLD_H
 
-void hello(char* buffer, unsigned int buffer_length, const char* name){
-    
-    if (name[0] == '\0') name = "World";
-    
-    snprintf(buffer, buffer_length, "Hello, %s!", name);
-}
+void hello(char* buffer, unsigned int buffer_length, const char* name);
+
+#endif
