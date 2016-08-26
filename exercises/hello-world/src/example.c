@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stddef.h>
 #include "hello_world.h"
 
 void hello(char* buffer, unsigned int buffer_length, const char* name) {
