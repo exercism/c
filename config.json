@@ -38,6 +38,12 @@
       "control-flow (if-else statements)"
     ]
   }, {
+    "difficulty": 1,
+    "slug": "gigasecond",
+    "topics": [
+      "dates"
+    ]
+  }, {
     "difficulty": 2,
     "slug": "hamming",
     "topics": [
