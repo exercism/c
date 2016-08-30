@@ -11,7 +11,8 @@
     "gigasecond",
     "hamming",
     "raindrops",
-    "bob"
+    "bob",
+    "grains"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -64,6 +65,12 @@
     "topics": [
       "strings",
       "control-flow (if-else statements)"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "grains",
+    "topics": [
+      "control-flow (loops)"
     ]
   }],
   "deprecated": [
