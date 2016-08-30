@@ -8,6 +8,7 @@
     "hello-world",
     "anagram",
     "leap",
+    "gigasecond",
     "hamming",
     "raindrops",
     "bob"
@@ -35,6 +36,12 @@
     "topics": [
       "logic",
       "control-flow (if-else statements)"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "gigasecond",
+    "topics": [
+      "dates"
     ]
   }, {
     "difficulty": 2,
