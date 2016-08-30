@@ -12,7 +12,8 @@
     "hamming",
     "raindrops",
     "bob",
-    "grains"
+    "grains",
+    "beer-song"
   ],
   "exercises": [{
     "slug": "hello-world",
