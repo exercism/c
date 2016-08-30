@@ -75,6 +75,13 @@
       "bitwise operations",
       "performance optimizations"
     ]
+  }, {
+    "difficulty": 2,
+    "slug": "beer-song",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)"
+    ]
   }],
   "deprecated": [
 
