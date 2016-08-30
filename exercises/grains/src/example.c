@@ -1,4 +1,4 @@
-#include "example.h"
+#include "grains.h"
 
 #define NUMBER_OF_SQUARES   (64)
 
