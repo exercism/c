@@ -34,7 +34,7 @@ void test_total(void) {
 }
 
 int main(void) {
-  UnityBegin("test/test_hello_world.c");
+  UnityBegin("test/test_grains.c");
 
   RUN_TEST(test_square_1);
   RUN_TEST(test_square_2);
