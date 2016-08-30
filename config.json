@@ -70,7 +70,9 @@
     "difficulty": 1,
     "slug": "grains",
     "topics": [
-      "control-flow (loops)"
+      "control-flow (loops)",
+      "bitwise operations",
+      "performance optimizations"
     ]
   }],
   "deprecated": [
