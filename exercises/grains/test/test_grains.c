@@ -1,9 +1,6 @@
 #include "vendor/unity.h"
 #include "../src/grains.h"
 
-void testReset(void) {
-}
-
 void test_square_1(void) {
   TEST_ASSERT_EQUAL(1ul, square(1));
 }
