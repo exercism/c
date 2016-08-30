@@ -3,9 +3,6 @@
 
 #define BUFFER_SIZE   (256)
 
-void resetTest(void) {
-}
-
 void test_handles_arbirtary_verse(void) {
   char response[BUFFER_SIZE];
   const char expected[BUFFER_SIZE] =
