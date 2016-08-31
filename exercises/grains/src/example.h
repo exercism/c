@@ -1,7 +1,9 @@
 #ifndef _GRAINS_H
 #define _GRAINS_H
 
-unsigned long square(int sq);
-unsigned long total(void);
+#include <stdint.h>
+
+uint64_t square(uint8_t index);
+uint64_t total(void);
 
 #endif
