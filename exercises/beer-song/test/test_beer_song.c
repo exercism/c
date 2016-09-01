@@ -1,9 +1,9 @@
 #include "vendor/unity.h"
 #include "../src/beer_song.h"
 
-#define BUFFER_SIZE   (256)
+#define BUFFER_SIZE   (1024)
 
-void test_handles_arbirtary_verse(void) {
+void test_handles_arbitrary_verse(void) {
   char response[BUFFER_SIZE];
   const char expected[BUFFER_SIZE] =
     "84 bottles of beer on the wall, 84 bottles of beer.\n"
@@ -44,8 +44,8 @@ void test_handles_0_bottles(void) {
 }
 
 void test_sings_several_verses(void) {
-  char response[BUFFER_SIZE * 4];
-  const char expected[BUFFER_SIZE * 4] =
+  char response[BUFFER_SIZE];
+  const char expected[BUFFER_SIZE] =
     "8 bottles of beer on the wall, 8 bottles of beer.\n"
     "Take one down and pass it around, 7 bottles of beer on the wall.\n"
     "\n"
@@ -60,8 +60,8 @@ void test_sings_several_verses(void) {
 }
 
 void test_sings_the_last_4_verses(void) {
-  char response[BUFFER_SIZE * 4];
-  const char expected[BUFFER_SIZE * 4] =
+  char response[BUFFER_SIZE];
+  const char expected[BUFFER_SIZE] =
     "3 bottles of beer on the wall, 3 bottles of beer.\n"
     "Take one down and pass it around, 2 bottles of beer on the wall.\n"
     "\n"
@@ -81,7 +81,7 @@ void test_sings_the_last_4_verses(void) {
 int main(void) {
   UnityBegin("test/test_beer_song.c");
 
-  RUN_TEST(test_handles_arbirtary_verse);
+  RUN_TEST(test_handles_arbitrary_verse);
   RUN_TEST(test_handles_2_bottles);
   RUN_TEST(test_handles_1_bottle);
   RUN_TEST(test_handles_0_bottles);

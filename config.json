@@ -80,7 +80,8 @@
     "slug": "beer-song",
     "topics": [
       "strings",
-      "control-flow (if-else statements)"
+      "control-flow (if-else statements)",
+      "control-flow (loops)"
     ]
   }],
   "deprecated": [
