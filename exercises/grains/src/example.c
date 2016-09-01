@@ -8,9 +8,8 @@ uint64_t square(uint8_t index) {
 
 uint64_t total(void) {
   uint64_t result = 0;
-  uint8_t i;
 
-  for(i = 1; i <= NUMBER_OF_SQUARES; i++) {
+  for(uint8_t i = 1; i <= NUMBER_OF_SQUARES; i++) {
     result += square(i);
   }
 
