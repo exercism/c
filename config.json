@@ -12,7 +12,8 @@
     "hamming",
     "raindrops",
     "bob",
-    "grains"
+    "grains",
+    "pangram"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -74,6 +75,14 @@
       "bitwise operations",
       "performance optimizations"
     ]
+  }, {
+    "difficulty": 3,
+    "slug": "pangram",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)",
+      "control-flow (loops)"
+  ]
   }],
   "deprecated": [
 
