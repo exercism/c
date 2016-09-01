@@ -8,10 +8,82 @@
     "hello-world",
     "anagram",
     "leap",
+    "gigasecond",
     "hamming",
     "raindrops",
-    "bob"
+    "bob",
+    "grains",
+    "pangram"
   ],
+  "exercises": [{
+    "slug": "hello-world",
+    "difficulty": 1,
+    "topics": [
+      "control-flow (if-statements)",
+      "optional values",
+      "text formatting"
+    ]
+  }, {
+    "difficulty": 5,
+    "slug": "anagram",
+    "topics": [
+      "strings",
+      "filtering",
+      "structs",
+      "memory management"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "leap",
+    "topics": [
+      "logic",
+      "control-flow (if-else statements)"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "gigasecond",
+    "topics": [
+      "dates"
+    ]
+  }, {
+    "difficulty": 2,
+    "slug": "hamming",
+    "topics": [
+      "arrays",
+      "strings",
+      "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 2,
+    "slug": "raindrops",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)"
+    ]
+  }, {
+    "difficulty": 10,
+    "slug": "bob",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "grains",
+    "topics": [
+      "control-flow (loops)",
+      "bitwise operations",
+      "performance optimizations"
+    ]
+  }, {
+    "difficulty": 3,
+    "slug": "pangram",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)",
+      "control-flow (loops)"
+  ]
+  }],
   "deprecated": [
 
   ],
