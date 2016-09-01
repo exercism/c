@@ -27,7 +27,7 @@ void verse(char *buffer, unsigned int verseNumber) {
   (void)getVerse(buffer, verseNumber);
 }
 
-void sing(char *buffer, int startingVerseNumber, int endingVerseNumber) {
+void sing(char *buffer, unsigned int startingVerseNumber, unsigned int endingVerseNumber) {
   char *currentPosition = buffer;
 
   for(unsigned int i = startingVerseNumber + 1; i > endingVerseNumber; i--) {
