@@ -5,7 +5,7 @@
 #define NUMBER_OF_LETTERS (26)
 
 bool is_pangram(const char *sentence) {
-   size_t sentence_length = strlen(sentence);
+   size_t sentence_length = ((sentence == NULL) ? 0 : strlen(sentence));
    bool found_letters[NUMBER_OF_LETTERS];
 
    memset(found_letters, 0, sizeof(found_letters));

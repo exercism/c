@@ -79,7 +79,6 @@
     "difficulty": 3,
     "slug": "pangram",
     "topics": [
-      "filtering",
       "strings",
       "control-flow (if-else statements)",
       "control-flow (loops)"
