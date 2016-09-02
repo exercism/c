@@ -83,7 +83,7 @@
       "strings",
       "control-flow (if-else statements)",
       "control-flow (loops)"
-  ]
+    ]
   }, {
     "difficulty": 4,
     "slug": "nth-prime",
@@ -91,7 +91,7 @@
       "control-flow (if-else statements)",
       "control-flow (loops)",
       "performance optimizations"
-  ]
+    ]
   }],
   "deprecated": [
 
