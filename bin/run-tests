@@ -1,0 +1,21 @@
+#!/bin/bash
+
+for D in ../exercises/*; do
+    if [ -d "${D}" ]; then
+        # Get the exercise name from the test file
+        TEST_FILE=$(basename $(ls ${D}/test/test*))
+        STRIPPED_OF_EXTENSION="${TEST_FILE%.*}"
+        EXERCISE_NAME="${STRIPPED_OF_EXTENSION:5}"
+
+        # Copy the examples with the correct name for the exercise
+        cp -f ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
+        cp -f ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
+
+        # Make it!
+        ( cd ${D} ; make clean; make )
+
+        # Clean up
+        rm -f ${D}/src/${EXERCISE_NAME}.c
+        rm -f ${D}/src/${EXERCISE_NAME}.h
+    fi
+done
