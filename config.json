@@ -13,7 +13,8 @@
     "raindrops",
     "bob",
     "grains",
-    "pangram"
+    "pangram",
+    "nth-prime"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -82,6 +83,14 @@
       "strings",
       "control-flow (if-else statements)",
       "control-flow (loops)"
+  ]
+  }, {
+    "difficulty": 4,
+    "slug": "nth-prime",
+    "topics": [
+      "control-flow (if-else statements)",
+      "control-flow (loops)",
+      "performance optimizations"
   ]
   }],
   "deprecated": [
