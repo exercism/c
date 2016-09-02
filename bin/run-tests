@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for D in ../exercises/*; do
+for D in exercises/*; do
     CURRENT_DIR=$(pwd)
 
     if [ -d "${D}" ]; then
