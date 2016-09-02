@@ -8,14 +8,23 @@ for D in ../exercises/*; do
         EXERCISE_NAME="${STRIPPED_OF_EXTENSION:5}"
 
         # Copy the examples with the correct name for the exercise
-        cp -f ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
-        cp -f ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
+        if [ -e "${D}/src/example.c" ]
+        then
+          echo Generating "${D}/src/${EXERCISE_NAME}.c"
+          cp -n ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
+        fi
+
+        if [ -e "${D}/src/example.h" ]
+        then
+          echo Generating "${D}/src/${EXERCISE_NAME}.h"
+          cp -n ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
+        fi
 
         # Make it!
         ( cd ${D} ; make clean; make )
 
         # Clean up
-        rm -f ${D}/src/${EXERCISE_NAME}.c
-        rm -f ${D}/src/${EXERCISE_NAME}.h
+        #rm -f ${D}/src/${EXERCISE_NAME}.c
+        #rm -f ${D}/src/${EXERCISE_NAME}.h
     fi
 done
