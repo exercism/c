@@ -1,6 +1,8 @@
 #!/bin/bash
 
 for D in ../exercises/*; do
+    CURRENT_DIR=$(pwd)
+
     if [ -d "${D}" ]; then
         # Get the exercise name from the test file
         TEST_FILE=$(basename $(ls ${D}/test/test*))
@@ -19,10 +21,13 @@ for D in ../exercises/*; do
         fi
 
         # Make it!
-        ( cd ${D};
+        { cd ${D};
           echo "Running tests for ${EXERCISE_NAME}";
           make clean >> /dev/null; # I'm just trying to suppress the output (I'm sure there's a much better way)
-          make | grep FAIL:  # Only output failures
-        )
+          if make | grep FAIL: ; then
+            set -e
+          fi
+          cd ${CURRENT_DIR};
+        }
     fi
 done
