@@ -1,0 +1,12 @@
+#!/bin/sh
+
+sh indent.sh
+
+if ! $(git diff-index --quiet HEAD --)
+then
+  echo "Incorrect indentation detected:"
+  echo
+  git ls-files --modified
+  echo
+  echo "Run indent.sh prior to commit to ensure correct indentation"
+fi
