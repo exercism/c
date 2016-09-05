@@ -1,5 +1,10 @@
 ---
 language: bash
+
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y indent
+
 script:
 - bin/fetch-configlet
 - bin/configlet .
