@@ -4,4 +4,4 @@
 #include <stdbool.h>
 bool leap_year(int year);
 
-#endif // _LEAP_H
+#endif                          // _LEAP_H
