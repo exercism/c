@@ -4,11 +4,11 @@
 
 static bool is_prime(uint32_t n)
 {
-  for(uint32_t i = (uint32_t)sqrt(n); i > 1; i--) {
-    if(n % i == 0) {
-      return false;
-    }
-  }
+   for (uint32_t i = 2; (i * i) < (n + 1); ++i) {
+      if (n % i == 0) {
+	 return false;
+      }
+   }
 
   return true;
 }
