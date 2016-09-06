@@ -10,23 +10,23 @@ static bool is_prime(uint32_t n)
       }
    }
 
-  return true;
+   return true;
 }
 
 uint32_t nth(uint32_t n)
 {
-  uint32_t candidate = 1;
-  uint32_t count = 0;
+   uint32_t candidate = 1;
+   uint32_t count = 0;
 
-  if(n < 1) {
-    return 0;
-  }
+   if (n < 1) {
+      return 0;
+   }
 
-  while(count < n) {
-    if(is_prime(++candidate)) {
-      count++;
-    }
-  }
+   while (count < n) {
+      if (is_prime(++candidate)) {
+	 count++;
+      }
+   }
 
-  return candidate;
+   return candidate;
 }
