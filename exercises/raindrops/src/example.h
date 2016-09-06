@@ -3,4 +3,4 @@
 
 char *convert(char *buffer, int buffer_length, int drops);
 
-#endif                          // _RAINDROPS_H
+#endif
