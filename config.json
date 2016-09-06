@@ -13,6 +13,7 @@
     "raindrops",
     "bob",
     "grains",
+    "pangram",
     "beer-song"
   ],
   "exercises": [{
@@ -74,6 +75,14 @@
       "control-flow (loops)",
       "bitwise operations",
       "performance optimizations"
+    ]
+  }, {
+    "difficulty": 3,
+    "slug": "pangram",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)",
+      "control-flow (loops)"
     ]
   }, {
     "difficulty": 2,
