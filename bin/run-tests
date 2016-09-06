@@ -26,6 +26,7 @@ for D in exercises/*; do
           make clean >> /dev/null; # I'm just trying to suppress the output (I'm sure there's a much better way)
           if make | grep FAIL: ; then
             set -e
+            exit 1
           fi
           cd ${CURRENT_DIR};
         }
