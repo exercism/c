@@ -4,4 +4,4 @@
 #include <stdbool.h>
 char *hey_bob(char *greeting);
 
-#endif                          // _BOB_H
+#endif
