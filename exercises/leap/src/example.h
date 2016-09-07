@@ -2,6 +2,7 @@
 #define _LEAP_H
 
 #include <stdbool.h>
-bool leap_year(int year);
+
+bool is_leap_year(int year);
 
 #endif
