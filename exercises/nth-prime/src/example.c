@@ -5,7 +5,7 @@ static bool is_prime(uint32_t n)
 {
    for (uint32_t i = 2; (i * i) < (n + 1); ++i) {
       if (n % i == 0) {
-	 return false;
+         return false;
       }
    }
 
@@ -23,7 +23,7 @@ uint32_t nth(uint32_t n)
 
    while (count < n) {
       if (is_prime(++candidate)) {
-	 count++;
+         count++;
       }
    }
 

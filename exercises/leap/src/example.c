@@ -11,7 +11,6 @@ bool is_leap_year(int year)
          return false;
       }
 
-   } else {
-      return false;
    }
+   return false;
 }
