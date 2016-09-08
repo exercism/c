@@ -5,4 +5,4 @@
 
 time_t gigasecond_after(time_t);
 
-#endif /* _EXAMPLE_H */
+#endif
