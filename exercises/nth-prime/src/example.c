@@ -1,6 +1,5 @@
 #include "nth_prime.h"
 #include <stdbool.h>
-#include <math.h>
 
 static bool is_prime(uint32_t n)
 {
