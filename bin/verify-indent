@@ -1,0 +1,13 @@
+#!/bin/sh
+
+sh indent.sh
+
+if ! $(git diff --quiet)
+then
+  echo "Incorrect style detected:"
+  echo
+  git ls-files --modified
+  echo
+  echo "Run indent.sh prior to commit to ensure correct style"
+  exit 1
+fi

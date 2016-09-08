@@ -21,6 +21,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_raindrops.c src/raindrops.c
+tests.out: test/test_gigasecond.c src/gigasecond.c src/gigasecond.h
 	@echo Compiling $@
-	@cc src/raindrops.c test/vendor/unity.c test/test_raindrops.c -o tests.out
+	@cc src/gigasecond.c test/vendor/unity.c test/test_gigasecond.c -o tests.out
