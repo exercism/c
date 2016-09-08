@@ -1,7 +1,7 @@
 CFLAGS=-std=c99
 CFLAGS += -Wall
 CFLAGS += -Wextra
-CFLAGS += -Werror 
+CFLAGS += -Werror
 CFLAGS += -Wpointer-arith
 CFLAGS += -Wcast-align
 CFLAGS += -Wwrite-strings
@@ -21,6 +21,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_raindrops.c src/raindrops.c
+tests.out: test/test_raindrops.c src/raindrops.c src/raindrops.h
 	@echo Compiling $@
 	@cc src/raindrops.c test/vendor/unity.c test/test_raindrops.c -o tests.out

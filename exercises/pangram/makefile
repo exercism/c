@@ -21,6 +21,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_pangram.c src/pangram.c
+tests.out: test/test_pangram.c src/pangram.c src/pangram.h
 	@echo Compiling $@
 	@cc src/pangram.c test/vendor/unity.c test/test_pangram.c -o tests.out
