@@ -51,8 +51,9 @@ void test_date_and_time_with_day_rollover(void)
 }
 
 /*
-void test_your_birthday(void) {
-   time_t birthday = construct_date(1989,1,1,1,1,1);
+void test_your_birthday(void)
+{
+   time_t birthday = construct_date(1989, 1, 1, 1, 1, 1);
    time_t gigday = gigasecond_after(birthday);
    printf(ctime(&gigday));
 }
