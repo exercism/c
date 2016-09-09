@@ -20,30 +20,30 @@ void test_shouting(void)
 void test_asking_a_question(void)
 {
    TEST_ASSERT_EQUAL_STRING("Sure.",
-                            hey_bob
-                            ("Does this cryogenic chamber make me look fat?")
+			    hey_bob
+			    ("Does this cryogenic chamber make me look fat?")
        );
 }
 
 void test_talking_forcefully(void)
 {
    TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob("Let's go make out behind the gym!")
+			    hey_bob("Let's go make out behind the gym!")
        );
 }
 
 void test_using_acronyms_in_regular_speech(void)
 {
    TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob
-                            ("It's OK if you don't want to go to the DMV.")
+			    hey_bob
+			    ("It's OK if you don't want to go to the DMV.")
        );
 }
 
 void test_forceful_questions(void)
 {
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!",
-                            hey_bob("WHAT THE HELL WERE YOU THINKING?")
+			    hey_bob("WHAT THE HELL WERE YOU THINKING?")
        );
 }
 
@@ -68,8 +68,8 @@ void test_question_with_only_numbers(void)
 void test_shouting_with_special_characters(void)
 {
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!",
-                            hey_bob
-                            ("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!")
+			    hey_bob
+			    ("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!")
        );
 }
 
@@ -82,14 +82,14 @@ void test_shouting_with_no_exclamation_mark(void)
 void test_statement_containing_question_mark(void)
 {
    TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob("Ending with a ? means a question.")
+			    hey_bob("Ending with a ? means a question.")
        );
 }
 
 void test_prattling_on(void)
 {
    TEST_ASSERT_EQUAL_STRING("Sure.",
-                            hey_bob("Wait! Hang on.  Are you going to be OK?")
+			    hey_bob("Wait! Hang on.  Are you going to be OK?")
        );
 }
 
@@ -114,7 +114,7 @@ void test_prolonged_silence(void)
 void test_not_all_silence(void)
 {
    TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob(" A bit of silence can be nice.  ")
+			    hey_bob(" A bit of silence can be nice.  ")
        );
 }
 

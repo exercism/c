@@ -42,13 +42,13 @@ struct Vector anagrams_for(char *in, struct Vector vin)
    for (x = 0; x < vin.size; x++) {
       char *input_lower = lowercase((char *)vecp);
       if (strcmp(input_lower, lower) != 0) {
-         char *input_sorted = input_lower;
-         qsort(input_sorted, strlen(input_sorted), 1, compare);
-         if (strcmp(sorted, input_sorted) == 0) {
-            strcpy(*vout_vecp, *vecp);
-            vout_vecp++;
-            vout.size++;
-         }
+	 char *input_sorted = input_lower;
+	 qsort(input_sorted, strlen(input_sorted), 1, compare);
+	 if (strcmp(sorted, input_sorted) == 0) {
+	    strcpy(*vout_vecp, *vecp);
+	    vout_vecp++;
+	    vout.size++;
+	 }
       }
       free(input_lower);
       vecp++;

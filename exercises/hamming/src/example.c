@@ -6,7 +6,7 @@ int compute(char *lhs, int lhs_len, char *rhs, int rhs_len)
    int i = 0;
    for (i = 0; i < lhs_len && i < rhs_len; ++i) {
       if (lhs[i] != rhs[i]) {
-         ++count;
+	 ++count;
       }
    }
    return count;

@@ -14,16 +14,16 @@ char *hey_bob(char *greeting)
    while (ch != 0) {
 
       if (all_blank)
-         all_blank = ch == ' ';
+	 all_blank = ch == ' ';
 
       if (all_shouty)
-         all_shouty = !(ch >= 'a' && ch <= 'z');
+	 all_shouty = !(ch >= 'a' && ch <= 'z');
 
       if (!any_letters)
-         any_letters = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
+	 any_letters = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 
       if (ch != ' ')
-         final_char = ch;
+	 final_char = ch;
 
       i++;
       ch = greeting[i];

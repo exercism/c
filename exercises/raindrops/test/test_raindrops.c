@@ -95,7 +95,7 @@ void test_one_hundred_five_yields_plingplangplong(void)
 {
    char buffer[BUFFER_LENGTH];
    TEST_ASSERT_EQUAL_STRING("PlingPlangPlong",
-                            convert(buffer, sizeof(buffer), 105));
+			    convert(buffer, sizeof(buffer), 105));
 }
 
 void test_big_prime_yields_itself(void)

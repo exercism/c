@@ -15,13 +15,13 @@ bool is_pangram(const char *sentence)
       char letter = tolower(sentence[i]);
 
       if (isalpha(letter)) {
-         found_letters[letter - 'a'] = true;
+	 found_letters[letter - 'a'] = true;
       }
    }
 
    for (size_t i = 0; i < NUMBER_OF_LETTERS; i++) {
       if (!found_letters[i]) {
-         return false;
+	 return false;
       }
    }
 

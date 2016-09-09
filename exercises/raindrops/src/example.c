@@ -14,12 +14,12 @@ char *convert(char *buffer, int buffer_length, int drops)
       snprintf(buffer, buffer_length, "%d", drops);
    } else {
       snprintf
-          (buffer,
-           buffer_length,
-           "%s%s%s",
-           drops % PLING_FACTOR == 0 ? "Pling" : "",
-           drops % PLANG_FACTOR == 0 ? "Plang" : "",
-           drops % PLONG_FACTOR == 0 ? "Plong" : "");
+	  (buffer,
+	   buffer_length,
+	   "%s%s%s",
+	   drops % PLING_FACTOR == 0 ? "Pling" : "",
+	   drops % PLANG_FACTOR == 0 ? "Plang" : "",
+	   drops % PLONG_FACTOR == 0 ? "Plong" : "");
    }
    return buffer;
 }
