@@ -14,6 +14,7 @@
     "bob",
     "grains",
     "pangram",
+    "nth-prime",
     "beer-song"
   ],
   "exercises": [{
@@ -83,6 +84,14 @@
       "strings",
       "control-flow (if-else statements)",
       "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 4,
+    "slug": "nth-prime",
+    "topics": [
+      "control-flow (if-else statements)",
+      "control-flow (loops)",
+      "performance optimizations"
     ]
   }, {
     "difficulty": 2,

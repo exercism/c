@@ -1,18 +1,8 @@
-CFLAGS=-std=c99
+CFLAGS  = -std=c99
 CFLAGS += -Wall
 CFLAGS += -Wextra
-CFLAGS += -Werror 
-CFLAGS += -Wpointer-arith
-CFLAGS += -Wcast-align
-CFLAGS += -Wwrite-strings
-CFLAGS += -Wswitch-default
-CFLAGS += -Wunreachable-code
-CFLAGS += -Winit-self
-CFLAGS += -Wmissing-field-initializers
-CFLAGS += -Wno-unknown-pragmas
-CFLAGS += -Wstrict-prototypes
-CFLAGS += -Wundef
-CFLAGS += -Wold-style-definition
+CFLAGS += -Wpedantic
+CFLAGS += -Werror
 
 
 test: tests.out
@@ -21,6 +11,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_raindrops.c src/raindrops.c
+tests.out: test/test_raindrops.c src/raindrops.c src/raindrops.h
 	@echo Compiling $@
-	@cc src/raindrops.c test/vendor/unity.c test/test_raindrops.c -o tests.out
+	@cc $(CFLAGS) src/raindrops.c test/vendor/unity.c test/test_raindrops.c -o tests.out

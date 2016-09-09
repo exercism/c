@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <math.h>
-
-#include "example.h"
+#include "gigasecond.h"
 
 time_t gigasecond_after(time_t start)
 {
