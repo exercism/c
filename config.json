@@ -96,17 +96,18 @@
     ]
   }, {
     "difficulty": 2,
-<<<<<<< HEAD
     "slug": "beer-song",
     "topics": [
       "strings",
       "control-flow (if-else statements)",
-=======
+      "control-flow (loops)"
+	]
+  }, {
+	"difficulty": 2,
     "slug": "rna-transcription",
     "topics": [
       "strings",
       "control-flow (case statements)",
->>>>>>> 3614026... Add RNA transcription exercise
       "control-flow (loops)"
     ]
   }],
