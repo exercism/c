@@ -15,7 +15,8 @@
     "grains",
     "pangram",
     "nth-prime",
-    "beer-song"
+    "beer-song",
+    "rna-transcription"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -99,6 +100,14 @@
     "topics": [
       "strings",
       "control-flow (if-else statements)",
+      "control-flow (loops)"
+	]
+  }, {
+	"difficulty": 2,
+    "slug": "rna-transcription",
+    "topics": [
+      "strings",
+      "control-flow (case statements)",
       "control-flow (loops)"
     ]
   }],
