@@ -6,7 +6,7 @@ char *to_rna(const char *dna) {
   size_t len = strlen(dna);
   char *rna = malloc(sizeof(char) * len);
 
-  for (int i = 0; i < len; i++) {
+  for (size_t i = 0; i < len; i++) {
     switch (dna[i]) {
     case 'G':
       rna[i] = 'C';
