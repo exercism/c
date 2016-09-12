@@ -3,7 +3,7 @@
 #include "rna_transcription.h"
 
 char *to_rna(const char *dna) {
-  int len = strlen(dna);
+  size_t len = strlen(dna);
   char *rna = malloc(sizeof(char) * len);
 
   for (int i = 0; i < len; i++) {
