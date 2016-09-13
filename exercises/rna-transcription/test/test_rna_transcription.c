@@ -33,7 +33,7 @@ void test_transcribes_all_occurrences(void) {
   test_transcription("ACGTGGTCTTAA", "UGCACCAGAAUU");
 }
 
-void test_handle_invalid_nucletotide(void) {
+void test_handle_invalid_nucleotide(void) {
   test_failure("U");
 }
 
