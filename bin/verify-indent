@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 sh indent.sh
+
+git diff --quiet
 
 if ! $(git diff --quiet)
 then
