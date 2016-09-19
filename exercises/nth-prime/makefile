@@ -11,6 +11,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_anagram.c src/anagram.c src/anagram.h
+tests.out: test/test_nth_prime.c src/nth_prime.c src/nth_prime.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/anagram.c test/vendor/unity.c test/test_anagram.c -o tests.out
+	@cc $(CFLAGS) src/nth_prime.c test/vendor/unity.c test/test_nth_prime.c -o tests.out

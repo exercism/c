@@ -7,7 +7,6 @@ char *hey_bob(char *greeting)
    bool all_blank = true;
    bool all_shouty = true;
    bool any_letters = false;
-   bool letter_char = false;
    char final_char = '.';
    int i = 0;
    char ch = greeting[i];
