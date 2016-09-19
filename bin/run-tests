@@ -23,9 +23,8 @@ for D in exercises/*; do
         # Make it!
         { cd ${D};
           echo "Running tests for ${EXERCISE_NAME}";
-          make clean >> /dev/null; # I'm just trying to suppress the output (I'm sure there's a much better way)
+          make clean >> /dev/null;
           if make | grep FAIL: ; then
-            set -e
             exit 1
           fi
           cd ${CURRENT_DIR};
