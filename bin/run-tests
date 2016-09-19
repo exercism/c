@@ -12,12 +12,12 @@ for D in exercises/*; do
         # Copy the examples with the correct name for the exercise
         if [ -e "${D}/src/example.c" ]
         then
-          cp -n ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
+          cp ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
         fi
 
         if [ -e "${D}/src/example.h" ]
         then
-          cp -n ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
+          cp ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
         fi
 
         # Make it!
