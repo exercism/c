@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Remove -Wpedantic from all makefiles since it isn't supported in the GCC version used by Travis
-sed -i -- 's/-Wpedantic/-pedantic/g' exercises/*/makefile
-
 for D in exercises/*; do
     CURRENT_DIR=$(pwd)
 
