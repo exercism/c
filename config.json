@@ -18,7 +18,8 @@
     "beer-song",
     "rna-transcription",
     "difference-of-squares",
-    "sum-of-multiples"
+    "sum-of-multiples",
+    "binary-search"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -124,6 +125,15 @@
     "topics": [
       "control-flow (case statements)",
       "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 2,
+    "slug": "binary-search",
+    "topics": [
+      "arrays",
+      "control-flow (if-else statements)",
+      "control-flow (loops)",
+      "searching"
     ]
   }],
   "deprecated": [
