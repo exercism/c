@@ -1,0 +1,33 @@
+#!/bin/bash
+
+for D in exercises/*; do
+    CURRENT_DIR=$(pwd)
+
+    if [ -d "${D}" ]; then
+        # Get the exercise name from the test file
+        TEST_FILE=$(basename $(ls ${D}/test/test*))
+        STRIPPED_OF_EXTENSION="${TEST_FILE%.*}"
+        EXERCISE_NAME="${STRIPPED_OF_EXTENSION:5}"
+
+        # Copy the examples with the correct name for the exercise
+        if [ -e "${D}/src/example.c" ]
+        then
+          cp ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
+        fi
+
+        if [ -e "${D}/src/example.h" ]
+        then
+          cp ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
+        fi
+
+        # Make it!
+        { cd ${D};
+          echo "Running tests for ${EXERCISE_NAME}";
+          make clean >> /dev/null;
+          if make | grep FAIL: ; then
+            exit 1
+          fi
+          cd ${CURRENT_DIR};
+        }
+    fi
+done

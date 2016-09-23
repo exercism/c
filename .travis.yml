@@ -9,3 +9,4 @@ script:
 - bin/fetch-configlet
 - bin/configlet .
 - bin/verify-indent
+- bin/run-tests

@@ -1,4 +1,4 @@
-# xC
+# xC [![Build Status](https://travis-ci.org/exercism/xc.svg?branch=master)](https://travis-ci.org/exercism/xc)
 
 Exercism problems in C
 
