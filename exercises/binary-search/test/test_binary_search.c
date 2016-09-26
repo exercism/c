@@ -10,21 +10,21 @@ void test_single_element(void)
 
 void test_value_in_middle(void)
 {
-   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };;
+   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT_EQUAL_UINT64(3, binary_search(6, arr, length));
 }
 
 void test_value_at_beginning(void)
 {
-   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };;
+   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT_EQUAL_UINT64(0, binary_search(1, arr, length));
 }
 
 void test_value_at_end(void)
 {
-   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };;
+   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT_EQUAL_UINT64(6, binary_search(11, arr, length));
 }
@@ -45,21 +45,21 @@ void test_find_value_with_even_length(void)
 
 void test_identify_missing_value(void)
 {
-   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };;
+   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT_EQUAL_UINT64(length, binary_search(7, arr, length));
 }
 
 void test_value_smaller_than_everything(void)
 {
-   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };;
+   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT_EQUAL_UINT64(length, binary_search(0, arr, length));
 }
 
 void test_value_larger_than_everything(void)
 {
-   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };;
+   int arr[] = { 1, 3, 4, 6, 8, 9, 11 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
    TEST_ASSERT_EQUAL_UINT64(length, binary_search(13, arr, length));
 }
