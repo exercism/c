@@ -22,7 +22,7 @@ unsigned int square_of_sum(unsigned int number)
    return (sum * sum);
 }
 
-unsigned int difference(unsigned int number)
+unsigned int difference_of_squares(unsigned int number)
 {
    return (square_of_sum(number) - sum_of_squares(number));
 }
