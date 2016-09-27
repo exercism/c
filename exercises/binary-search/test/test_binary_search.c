@@ -71,6 +71,13 @@ void test_empty_array(void)
    TEST_ASSERT_EQUAL_PTR(NULL, binary_search(1, arr, length));
 }
 
+void test_zero_length_array(void)
+{
+   int arr[] = { 1 };
+   size_t length = 0;
+   TEST_ASSERT_EQUAL_PTR(NULL, binary_search(1, arr, length));
+}
+
 int main(void)
 {
    UnityBegin("test/test_binary_search.c");
@@ -85,6 +92,7 @@ int main(void)
    RUN_TEST(test_value_smaller_than_everything);
    RUN_TEST(test_value_larger_than_everything);
    RUN_TEST(test_empty_array);
+   RUN_TEST(test_zero_length_array);
 
    UnityEnd();
    return 0;
