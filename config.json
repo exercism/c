@@ -16,7 +16,8 @@
     "pangram",
     "nth-prime",
     "beer-song",
-    "rna-transcription"
+    "rna-transcription",
+    "difference-of-squares"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -101,13 +102,19 @@
       "strings",
       "control-flow (if-else statements)",
       "control-flow (loops)"
-	]
+   ]
   }, {
-	"difficulty": 2,
+    "difficulty": 2,
     "slug": "rna-transcription",
     "topics": [
       "strings",
       "control-flow (case statements)",
+      "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "difference-of-squares",
+    "topics": [
       "control-flow (loops)"
     ]
   }],
