@@ -17,6 +17,7 @@
     "nth-prime",
     "beer-song",
     "rna-transcription",
+    "difference-of-squares",
     "sum-of-multiples"
   ],
   "exercises": [{
@@ -109,6 +110,12 @@
     "topics": [
       "strings",
       "control-flow (case statements)",
+      "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 1,
+    "slug": "difference-of-squares",
+    "topics": [
       "control-flow (loops)"
     ]
   }, {
