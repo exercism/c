@@ -4,10 +4,6 @@
 #include "vendor/unity.h"
 #include "../src/anagram.h"
 
-void testReset(void)
-{
-}
-
 int stringcmp(const void *a, const void *b)
 {
 	return strcmp(a, b);

@@ -1,10 +1,6 @@
 #include "vendor/unity.h"
 #include "../src/bob.h"
 
-void resetTest(void)
-{
-}
-
 void test_stating_something(void)
 {
 	TEST_ASSERT_EQUAL_STRING("Whatever.",

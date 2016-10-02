@@ -14,7 +14,9 @@
     "bob",
     "grains",
     "pangram",
-    "nth-prime"
+    "nth-prime",
+    "beer-song",
+    "rna-transcription"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -91,6 +93,22 @@
       "control-flow (if-else statements)",
       "control-flow (loops)",
       "performance optimizations"
+    ]
+  }, {
+    "difficulty": 2,
+    "slug": "beer-song",
+    "topics": [
+      "strings",
+      "control-flow (if-else statements)",
+      "control-flow (loops)"
+	]
+  }, {
+	"difficulty": 2,
+    "slug": "rna-transcription",
+    "topics": [
+      "strings",
+      "control-flow (case statements)",
+      "control-flow (loops)"
     ]
   }],
   "deprecated": [

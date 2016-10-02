@@ -33,8 +33,8 @@ struct Vector anagrams_for(char *in, struct Vector vin)
 	char (*vout_vecp)[MAX_STR_LEN] = vout.vec;
 
 	char *lower = lowercase(in);
-	char *sorted = malloc(strlen(in));
-	memcpy(sorted, lower, strlen(in));
+	char *sorted = malloc(strlen(in) + 1);
+	memcpy(sorted, lower, strlen(in) + 1);
 	qsort(sorted, strlen(sorted), 1, compare);
 
 	char (*vecp)[MAX_STR_LEN] = vin.vec;
