@@ -1,6 +1,6 @@
 #ifndef _HAMMING_H
 #define _HAMMING_H
 
-int compute(char *lhs, int lhs_len, char *rhs, int rhs_len);
+size_t compute(const char *lhs, const char *rhs);
 
 #endif
