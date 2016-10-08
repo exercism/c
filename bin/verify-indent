@@ -2,6 +2,8 @@
 
 sh indent.sh
 
+# This script fails when run by Travis if the diff is not checked twice
+# Unfortunately no better solution was found
 git diff --quiet
 
 if ! $(git diff --quiet)
