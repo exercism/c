@@ -2,7 +2,8 @@
 #define _LARGEST_SERIES_PRODUCT_H
 
 #include <stddef.h>
+#include <stdint.h>
 
-long largest_series_product(char *digits, size_t span);
+int64_t largest_series_product(char *digits, size_t span);
 
 #endif

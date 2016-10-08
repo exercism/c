@@ -14,7 +14,7 @@ static bool is_digit(char c)
    return (c >= '0') && (c <= '9');
 }
 
-long largest_series_product(char *digits, size_t span)
+int64_t largest_series_product(char *digits, size_t span)
 {
    size_t digit_count = strlen(digits);
    size_t zeros = 0;
