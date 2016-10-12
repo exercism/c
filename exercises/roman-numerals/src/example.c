@@ -34,7 +34,7 @@ char * to_roman_numeral(unsigned int number)
 
    for (size_t i = 0; i < NUM_OF_ELEMENTS(numeral_values); i++) {
       while (number >= numeral_values[i].value) {
-         strcat(numerals, numeral_values[i].numeral);
+         strncat(numerals, numeral_values[i].numeral, MAX_NUMERAL_LENGTH - strlen(numerals));
          number -= numeral_values[i].value;
       }
    }
