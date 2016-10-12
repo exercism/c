@@ -3,15 +3,15 @@
 #include <string.h>
 
 #define NUM_OF_ELEMENTS(a)    (sizeof(a) / sizeof(a[0]))
-#define MAX_NUMERAL_LENGTH    (6)
+#define MAX_NUMERAL_LENGTH    (7)
 
 typedef struct
 {
     char *numeral;
     unsigned int value;
-} Numeral_Values_t;
+} numeral_values_t;
 
-const Numeral_Values_t numeral_values[] =
+const numeral_values_t numeral_values[] =
 {
     { "M", 1000 },
     { "CM", 900 },
