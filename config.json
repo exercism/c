@@ -13,6 +13,7 @@
     "raindrops",
     "bob",
     "grains",
+    "largest-series-product",
     "pangram",
     "nth-prime",
     "beer-song",
@@ -79,6 +80,14 @@
     "topics": [
       "control-flow (loops)",
       "bitwise operations",
+      "performance optimizations"
+    ]
+  }, {
+    "difficulty": 5,
+    "slug": "largest-series-product",
+    "topics": [
+      "control-flow (loops)",
+      "strings",
       "performance optimizations"
     ]
   }, {
