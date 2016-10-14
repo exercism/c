@@ -1,8 +1,7 @@
 #ifndef _ALLERGIES_H
 #define _ALLERGIES_H
 
-typedef enum
-{
+typedef enum {
    Allergen_First = 0,
    Allergen_Eggs = Allergen_First,
    Allergen_Peanuts,
@@ -15,8 +14,7 @@ typedef enum
    Allergen_Last = Allergen_Cats
 } Allergen_t;
 
-typedef struct
-{
+typedef struct {
    int count;
    Allergen_t *allergens;
 } Allergen_List_t;

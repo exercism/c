@@ -2,16 +2,16 @@
 #include "../src/allergies.h"
 #include <stdlib.h>
 
-void test_list_count_is(int count, Allergen_List_t *list)
+void test_list_count_is(int count, Allergen_List_t * list)
 {
    TEST_ASSERT_EQUAL(count, list->count);
 }
 
-void test_list_contains(Allergen_t allergen, Allergen_List_t *list)
+void test_list_contains(Allergen_t allergen, Allergen_List_t * list)
 {
    bool allergen_found = false;
 
-   for(int i = 0; i < list->count; i++) {
+   for (int i = 0; i < list->count; i++) {
       if (list->allergens[i] == allergen) {
          allergen_found = true;
          break;
