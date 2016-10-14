@@ -20,8 +20,7 @@ bool is_allergic_to(Allergen_t allergen, int score)
 
 void get_allergens(int score, Allergen_List_t *list)
 {
-   Allergen_t *allergens = calloc(0, sizeof(Allergen_t) * Allergen_Last);
-   list->allergens = allergens;
+   list->allergens = calloc(0, sizeof(Allergen_t) * Allergen_Last);
 
    for (Allergen_t allergen = Allergen_First; allergen <= Allergen_Last; allergen++) {
       if (is_allergic_to(allergen, score)) {
