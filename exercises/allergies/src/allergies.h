@@ -2,8 +2,7 @@
 #define _ALLERGIES_H
 
 typedef enum {
-   Allergen_First = 0,
-   Allergen_Eggs = Allergen_First,
+   Allergen_Eggs = 0,
    Allergen_Peanuts,
    Allergen_Shellfish,
    Allergen_Strawberries,
@@ -11,7 +10,7 @@ typedef enum {
    Allergen_Chocolate,
    Allergen_Pollen,
    Allergen_Cats,
-   Allergen_Last = Allergen_Cats
+   Allergen_Count
 } Allergen_t;
 
 typedef struct {
