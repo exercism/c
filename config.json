@@ -20,7 +20,8 @@
     "rna-transcription",
     "difference-of-squares",
     "sum-of-multiples",
-    "binary-search"
+    "binary-search",
+    "roman-numerals"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -143,6 +144,16 @@
       "control-flow (if-else statements)",
       "control-flow (loops)",
       "searching"
+    ]
+  }, {
+    "difficulty": 3,
+    "slug": "roman-numerals",
+    "topics": [
+      "arrays",
+      "memory management",
+      "structs",
+      "control-flow (loops)",
+      "strings"
     ]
   }],
   "deprecated": [
