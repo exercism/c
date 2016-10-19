@@ -17,7 +17,7 @@ bool is_allergic_to(Allergen_t allergen, unsigned int score)
    return ((score & scores[allergen]) == scores[allergen]);
 }
 
-void get_allergens(int score, Allergen_List_t * list)
+void get_allergens(unsigned int score, Allergen_List_t * list)
 {
    list->allergens = calloc(Allergen_Count, sizeof(Allergen_t));
    list->count = 0;

@@ -21,6 +21,6 @@ typedef struct {
 } Allergen_List_t;
 
 bool is_allergic_to(Allergen_t allergen, unsigned int score);
-void get_allergens(int score, Allergen_List_t * list);
+void get_allergens(unsigned int score, Allergen_List_t * list);
 
 #endif
