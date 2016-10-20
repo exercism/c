@@ -8,7 +8,7 @@ static void test_encode(char *input, char *expected)
    char *result = malloc(strlen(input) + (strlen(input) / GROUP_SIZE));
 
    atbash_encode(input, result);
-   
+
    TEST_ASSERT_EQUAL_STRING(expected, result);
 
    free(result);
@@ -62,7 +62,8 @@ void test_encode_deep_thought(void)
 
 void test_encode_all_the_letters(void)
 {
-   test_encode("The quick brown fox jumps over the lazy dog.", "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt");
+   test_encode("The quick brown fox jumps over the lazy dog.",
+               "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt");
 }
 
 void test_encode_ignores_non_ascii(void)
@@ -77,7 +78,8 @@ void test_decode_exercism(void)
 
 void test_decode_a_sentence(void)
 {
-   test_decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v", "anobstacleisoftenasteppingstone");
+   test_decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v",
+               "anobstacleisoftenasteppingstone");
 }
 
 void test_decode_numbers(void)
@@ -87,7 +89,8 @@ void test_decode_numbers(void)
 
 void test_decode_all_the_letters(void)
 {
-   test_decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt", "thequickbrownfoxjumpsoverthelazydog");
+   test_decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt",
+               "thequickbrownfoxjumpsoverthelazydog");
 }
 
 int main(void)
