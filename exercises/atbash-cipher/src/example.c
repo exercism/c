@@ -13,17 +13,17 @@ static void remove_trailing_space(char *string)
 
 static bool is_valid_character(char character)
 {
-   return isalpha(character) || isnumber(character);
+   return isalpha(character) || isdigit(character);
 }
 
 static char get_encoded_character(char character)
 {
-   return (isnumber(character) ? character : 'z' - (character - 'a'));
+   return (isdigit(character) ? character : 'z' - (character - 'a'));
 }
 
 static char get_decoded_character(char character)
 {
-   return (isnumber(character) ? character : 'a' + ('z' - character));
+   return (isdigit(character) ? character : 'a' + ('z' - character));
 }
 
 void atbash_encode(const char *input, char *output)
