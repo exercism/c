@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define GROUP_SIZE      (5)
+
 static void remove_trailing_space(char *string)
 {
    if (string[strlen(string) - 1] == ' ') {
@@ -26,8 +28,9 @@ static char get_decoded_character(char character)
    return (isdigit(character) ? character : 'a' + ('z' - character));
 }
 
-void atbash_encode(const char *input, char *output)
+char *atbash_encode(const char *input)
 {
+   char *output = malloc(strlen(input) + (strlen(input) / GROUP_SIZE));
    int group_count = 0;
 
    output[0] = '\0';
@@ -46,10 +49,14 @@ void atbash_encode(const char *input, char *output)
    }
 
    remove_trailing_space(output);
+
+   return output;
 }
 
-void atbash_decode(const char *input, char *output)
+char *atbash_decode(const char *input)
 {
+   char *output = malloc(strlen(input) + (strlen(input) / GROUP_SIZE));
+
    output[0] = '\0';
 
    for (size_t i = 0; i < strlen(input); i++) {
@@ -59,4 +66,6 @@ void atbash_decode(const char *input, char *output)
          strncat(output, &decoded_character, 1);
       }
    }
+
+   return output;
 }

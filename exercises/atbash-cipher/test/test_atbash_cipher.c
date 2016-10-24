@@ -5,9 +5,7 @@
 
 static void test_encode(char *input, char *expected)
 {
-   char *result = malloc(strlen(input) + (strlen(input) / GROUP_SIZE));
-
-   atbash_encode(input, result);
+   char *result = atbash_encode(input);
 
    TEST_ASSERT_EQUAL_STRING(expected, result);
 
@@ -16,9 +14,7 @@ static void test_encode(char *input, char *expected)
 
 static void test_decode(char *input, char *expected)
 {
-   char *result = malloc(strlen(input) - (strlen(input) / GROUP_SIZE));
-
-   atbash_decode(input, result);
+   char *result = atbash_decode(input);
 
    TEST_ASSERT_EQUAL_STRING(expected, result);
 
