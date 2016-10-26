@@ -4,25 +4,6 @@
   "repository": "https://github.com/exercism/xc",
   "checklist_issue": 8,
   "active": false,
-  "problems": [
-    "allergies",
-    "hello-world",
-    "anagram",
-    "leap",
-    "gigasecond",
-    "hamming",
-    "raindrops",
-    "bob",
-    "grains",
-    "largest-series-product",
-    "pangram",
-    "nth-prime",
-    "beer-song",
-    "rna-transcription",
-    "difference-of-squares",
-    "sum-of-multiples",
-    "binary-search"
-  ],
   "exercises": [{
     "slug": "allergies",
     "difficulty": 4,
@@ -153,6 +134,16 @@
       "control-flow (if-else statements)",
       "control-flow (loops)",
       "searching"
+    ]
+  }, {
+    "difficulty": 3,
+    "slug": "roman-numerals",
+    "topics": [
+      "arrays",
+      "memory management",
+      "structs",
+      "control-flow (loops)",
+      "strings"
     ]
   }],
   "deprecated": [
