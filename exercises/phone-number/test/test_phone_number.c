@@ -77,7 +77,6 @@ void test_formats_a_number(void)
    free(result);
 }
 
-
 int main(void)
 {
    UnityBegin("test/test_phone_number.c");
