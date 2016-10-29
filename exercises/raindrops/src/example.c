@@ -8,18 +8,18 @@
 
 char *convert(char *buffer, int buffer_length, int drops)
 {
-   memset(buffer, '\0', sizeof(char) * buffer_length);
-   if ((drops % PLING_FACTOR != 0) &&
-       (drops % PLANG_FACTOR != 0) && (drops % PLONG_FACTOR != 0)) {
-      snprintf(buffer, buffer_length, "%d", drops);
-   } else {
-      snprintf
-          (buffer,
-           buffer_length,
-           "%s%s%s",
-           drops % PLING_FACTOR == 0 ? "Pling" : "",
-           drops % PLANG_FACTOR == 0 ? "Plang" : "",
-           drops % PLONG_FACTOR == 0 ? "Plong" : "");
-   }
-   return buffer;
+	memset(buffer, '\0', sizeof(char) * buffer_length);
+	if ((drops % PLING_FACTOR != 0) &&
+	    (drops % PLANG_FACTOR != 0) && (drops % PLONG_FACTOR != 0)) {
+		snprintf(buffer, buffer_length, "%d", drops);
+	} else {
+		snprintf
+		    (buffer,
+		     buffer_length,
+		     "%s%s%s",
+		     drops % PLING_FACTOR == 0 ? "Pling" : "",
+		     drops % PLANG_FACTOR == 0 ? "Plang" : "",
+		     drops % PLONG_FACTOR == 0 ? "Plong" : "");
+	}
+	return buffer;
 }

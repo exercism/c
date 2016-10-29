@@ -3,6 +3,6 @@
 
 void verse(char *buffer, unsigned int verseNumber);
 void sing(char *buffer, unsigned int startingVerseNumber,
-          unsigned int endingVerseNumber);
+	  unsigned int endingVerseNumber);
 
 #endif

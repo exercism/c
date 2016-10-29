@@ -2,27 +2,27 @@
 
 unsigned int sum_of_squares(unsigned int number)
 {
-   unsigned int sum = 0;
+	unsigned int sum = 0;
 
-   for (unsigned int i = 0; i <= number; i++) {
-      sum += i * i;
-   }
+	for (unsigned int i = 0; i <= number; i++) {
+		sum += i * i;
+	}
 
-   return sum;
+	return sum;
 }
 
 unsigned int square_of_sum(unsigned int number)
 {
-   unsigned int sum = 0;
+	unsigned int sum = 0;
 
-   for (unsigned int i = 0; i <= number; i++) {
-      sum += i;
-   }
+	for (unsigned int i = 0; i <= number; i++) {
+		sum += i;
+	}
 
-   return (sum * sum);
+	return (sum * sum);
 }
 
 unsigned int difference_of_squares(unsigned int number)
 {
-   return (square_of_sum(number) - sum_of_squares(number));
+	return (square_of_sum(number) - sum_of_squares(number));
 }
