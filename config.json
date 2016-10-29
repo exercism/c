@@ -136,6 +136,14 @@
       "control-flow (loops)",
       "strings"
     ]
+  }, {
+    "difficulty": 5,
+    "slug": "atbash-cipher",
+    "topics": [
+      "control-flow (loops)",
+      "control-flow (if-else statements)",
+      "strings"
+    ]
   }],
   "deprecated": [
 
