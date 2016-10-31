@@ -43,8 +43,8 @@ char *phone_number_clean(const char *input)
 
 char *phone_number_get_area_code(const char *input)
 {
-   char *output = calloc(AREA_CODE_LENGTH, sizeof(char));
-   strncpy(output, phone_number_clean(input), AREA_CODE_LENGTH);
+   char *output = phone_number_clean(input);
+   output[3] = '\0';
 
    return output;
 }
