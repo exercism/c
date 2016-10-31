@@ -5,15 +5,6 @@
   "checklist_issue": 8,
   "active": false,
   "exercises": [{
-    "slug": "allergies",
-    "difficulty": 4,
-    "topics": [
-      "control-flow (if-statements)",
-      "control-flow (loops)",
-      "structs",
-      "memory management"
-    ]
-  }, {
     "slug": "hello-world",
     "difficulty": 1,
     "topics": [
@@ -144,6 +135,15 @@
       "structs",
       "control-flow (loops)",
       "strings"
+    ]
+  }, {
+    "slug": "allergies",
+    "difficulty": 4,
+    "topics": [
+      "control-flow (if-statements)",
+      "control-flow (loops)",
+      "structs",
+      "memory management"
     ]
   }, {
     "difficulty": 5,
