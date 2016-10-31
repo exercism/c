@@ -2,12 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdio.h>
 
 #define AREA_CODE_LENGTH         (3)
 #define EXCHANGE_LENGTH          (3)
 #define EXTENSION_LENGTH         (4)
 #define VALID_NUMBER_LENGTH      AREA_CODE_LENGTH + EXCHANGE_LENGTH + EXTENSION_LENGTH
 #define FORMATTED_LENGTH         VALID_NUMBER_LENGTH + 4
+
+#define EXCHANGE_OFFSET (AREA_CODE_LENGTH)
+#define EXTENSION_OFFSET (AREA_CODE_LENGTH + EXCHANGE_LENGTH)
 
 #define INVALID_NUMBER_RESULT    "0000000000"
 
@@ -52,19 +56,8 @@ char *phone_number_get_area_code(const char *input)
 char *phone_number_format(const char *input)
 {
    char *output = calloc(FORMATTED_LENGTH, sizeof(char));
-   char *cursor = output;
 
-   *cursor++ = '(';
-   memcpy(cursor, &input[0], AREA_CODE_LENGTH);
-   cursor += AREA_CODE_LENGTH;
-   *cursor++ = ')';
-   *cursor++ = ' ';
-   memcpy(cursor, &input[AREA_CODE_LENGTH], EXCHANGE_LENGTH);
-   cursor += EXCHANGE_LENGTH;
-   *cursor++ = '-';
-   memcpy(cursor, &input[AREA_CODE_LENGTH + EXCHANGE_LENGTH], EXTENSION_LENGTH);
-   cursor += EXTENSION_LENGTH;
-   *cursor++ = '\0';
+   sprintf(output, "(%.3s) %.3s-%.4s", input, &input[AREA_CODE_LENGTH], &input[EXTENSION_OFFSET]);
 
    return output;
 }
