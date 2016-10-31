@@ -55,9 +55,12 @@ char *phone_number_get_area_code(const char *input)
 
 char *phone_number_format(const char *input)
 {
+   char *cleaned_input = phone_number_clean(input);
    char *output = calloc(FORMATTED_LENGTH, sizeof(char));
 
-   sprintf(output, "(%.3s) %.3s-%.4s", input, &input[AREA_CODE_LENGTH], &input[EXTENSION_OFFSET]);
+   sprintf(output, "(%.3s) %.3s-%.4s", cleaned_input, &cleaned_input[AREA_CODE_LENGTH], &cleaned_input[EXTENSION_OFFSET]);
+
+   free(cleaned_input);
 
    return output;
 }
