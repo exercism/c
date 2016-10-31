@@ -5,6 +5,15 @@
   "checklist_issue": 8,
   "active": false,
   "exercises": [{
+    "slug": "allergies",
+    "difficulty": 4,
+    "topics": [
+      "control-flow (if-statements)",
+      "control-flow (loops)",
+      "structs",
+      "memory management"
+    ]
+  }, {
     "slug": "hello-world",
     "difficulty": 1,
     "topics": [
@@ -134,6 +143,14 @@
       "memory management",
       "structs",
       "control-flow (loops)",
+      "strings"
+    ]
+  }, {
+    "difficulty": 5,
+    "slug": "atbash-cipher",
+    "topics": [
+      "control-flow (loops)",
+      "control-flow (if-else statements)",
       "strings"
     ]
   }, {
