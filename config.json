@@ -153,6 +153,15 @@
       "control-flow (if-else statements)",
       "strings"
     ]
+  }, {
+    "difficulty": 4,
+    "slug": "phone-number",
+    "topics": [
+      "strings",
+      "memory management",
+      "control-flow (loops)",
+      "control-flow (if-else statements)"
+    ]
   }],
   "deprecated": [
 
