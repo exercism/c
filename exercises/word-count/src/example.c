@@ -8,10 +8,9 @@
 //    elseo returns -1
 static int word_match(char *testWord, int current_word_count, WordCount_Word_t words[MAX_WORDS])
 {
-   int index;
    int matchIndex = -1;
 
-   for (index = 0; index < current_word_count; index++)
+   for (int index = 0; index < current_word_count; index++)
    {
       if (!strcmp(testWord, words[index].text))
       {
@@ -36,7 +35,7 @@ int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS])
    {
       lowerCaseInputText[index] = tolower(input_text[index]);
    }
-   lowerCaseInputText[index] = 0;
+   lowerCaseInputText[index] = '\0';
 
    // start with known results...
    memset(words, 0, sizeof(WordCount_Word_t));
