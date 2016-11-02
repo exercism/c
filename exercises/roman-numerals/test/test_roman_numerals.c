@@ -8,6 +8,7 @@ static void test_conversion(int number, char *expected)
    TEST_ASSERT_EQUAL_STRING(expected, result);
    free(result);
 }
+
 void test_one_yields_I(void)
 {
    test_conversion(1, "I");

@@ -4,26 +4,6 @@
   "repository": "https://github.com/exercism/xc",
   "checklist_issue": 8,
   "active": false,
-  "problems": [
-    "hello-world",
-    "anagram",
-    "leap",
-    "gigasecond",
-    "hamming",
-    "raindrops",
-    "bob",
-    "grains",
-    "largest-series-product",
-    "pangram",
-    "nth-prime",
-    "beer-song",
-    "rna-transcription",
-    "difference-of-squares",
-    "sum-of-multiples",
-    "binary-search",
-    "roman-numerals",
-    "word-count"
-  ],
   "exercises": [{
     "slug": "hello-world",
     "difficulty": 1,
@@ -165,8 +145,33 @@
       "structs",
       "memory management"
     ]
-  }
-],
+  }, {
+    "difficulty": 4,
+    "slug": "allergies",
+    "topics": [
+      "control-flow (if-statements)",
+      "control-flow (loops)",
+      "structs",
+      "memory management"
+    ]
+  }, {
+    "difficulty": 5,
+    "slug": "atbash-cipher",
+    "topics": [
+      "control-flow (loops)",
+      "control-flow (if-else statements)",
+      "strings"
+    ]
+  }, {
+    "difficulty": 4,
+    "slug": "phone-number",
+    "topics": [
+      "strings",
+      "memory management",
+      "control-flow (loops)",
+      "control-flow (if-else statements)"
+    ]
+  }],
   "deprecated": [
 
   ],
