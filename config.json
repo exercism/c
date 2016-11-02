@@ -22,6 +22,7 @@
     "sum-of-multiples",
     "binary-search",
     "roman-numerals"
+    "word-count"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -155,7 +156,17 @@
       "control-flow (loops)",
       "strings"
     ]
-  }],
+  }, {
+    "difficulty": 3,
+    "slug": "word-count",
+    "topics": [
+      "strings",
+      "filtering",
+      "structs",
+      "memory management"
+    ]
+  }
+],
   "deprecated": [
 
   ],

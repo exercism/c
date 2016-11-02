@@ -16,8 +16,7 @@ static void test_solution(
    TEST_ASSERT_EQUAL(expected_word_count, actual_word_count);
 
    // now test the word count for the words...
-   for (int index=0; index < actual_word_count; index++)
-   {
+   for (int index=0; index < actual_word_count; index++) {
       TEST_ASSERT_EQUAL(expected_solution[index].count, actual_solution[index].count);
       TEST_ASSERT_EQUAL_STRING(expected_solution[index].text, actual_solution[index].text);
    }
