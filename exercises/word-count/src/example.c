@@ -6,7 +6,8 @@
 // checks to see if we are counting a given word:
 //    if word counted already it returns index.
 //    elseo returns -1
-static int word_match(char *testWord, int current_word_count, WordCount_Word_t words[MAX_WORDS])
+static int word_match(char *testWord, int current_word_count,
+                      WordCount_Word_t words[MAX_WORDS])
 {
    int matchIndex = -1;
 
@@ -24,12 +25,12 @@ int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS])
    int index;
    int uniqueWords = 0;
    char *testWord;
-   char *lowerCaseInputText;  // hold lowercase copy of passed text
+   char *lowerCaseInputText;    // hold lowercase copy of passed text
    const char *delimiters = " ,.-\n:!!&@$%^&\"";
 
    // convert the input text to lower case
-   lowerCaseInputText = malloc(strlen(input_text)+1);
-   for(index=0; input_text[index] != 0; index++) {
+   lowerCaseInputText = malloc(strlen(input_text) + 1);
+   for (index = 0; input_text[index] != 0; index++) {
       lowerCaseInputText[index] = tolower(input_text[index]);
    }
    lowerCaseInputText[index] = '\0';
@@ -39,13 +40,12 @@ int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS])
 
    // todo parse string for words.
    testWord = strtok(lowerCaseInputText, delimiters);
-   while(testWord != NULL) {
+   while (testWord != NULL) {
       // account for leading/trailing single quote.
-      if (('\'' == testWord[0]) && ('\'' == testWord[strlen(testWord)-1])) {
-         testWord[strlen(testWord)-1] = '\0';
+      if (('\'' == testWord[0]) && ('\'' == testWord[strlen(testWord) - 1])) {
+         testWord[strlen(testWord) - 1] = '\0';
          testWord++;
       }
-
       // determine index of counted word.
       index = word_match(testWord, uniqueWords, words);
 

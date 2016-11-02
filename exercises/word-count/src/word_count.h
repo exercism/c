@@ -1,14 +1,14 @@
 #ifndef _WORD_COUNT_H
 #define _WORD_COUNT_H
 
-#define MAX_WORDS 20          // at most MAX_WORDS will be found in the test input string
-#define MAX_WORD_LENGTH 50    // no individual word will exceed this length
+#define MAX_WORDS 20            // at most MAX_WORDS will be found in the test input string
+#define MAX_WORD_LENGTH 50      // no individual word will exceed this length
 
 // results structure
 typedef struct WordCount_Word {
    char text[MAX_WORD_LENGTH];
    int count;
-}WordCount_Word_t;
+} WordCount_Word_t;
 
 // word_count - routine to classify the unique words and their frequency in a test input string
 // inputs:

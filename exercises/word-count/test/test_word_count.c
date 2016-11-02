@@ -6,19 +6,20 @@
 
 WordCount_Word_t ActualSolution[MAX_WORDS];
 
-static void test_solution(
-   WordCount_Word_t *expected_solution,
-   int expected_word_count,
-   WordCount_Word_t *actual_solution,
-   int actual_word_count)
+static void test_solution(WordCount_Word_t * expected_solution,
+                          int expected_word_count,
+                          WordCount_Word_t * actual_solution,
+                          int actual_word_count)
 {
    // All words counted?
    TEST_ASSERT_EQUAL(expected_word_count, actual_word_count);
 
    // now test the word count for the words...
-   for (int index=0; index < actual_word_count; index++) {
-      TEST_ASSERT_EQUAL(expected_solution[index].count, actual_solution[index].count);
-      TEST_ASSERT_EQUAL_STRING(expected_solution[index].text, actual_solution[index].text);
+   for (int index = 0; index < actual_word_count; index++) {
+      TEST_ASSERT_EQUAL(expected_solution[index].count,
+                        actual_solution[index].count);
+      TEST_ASSERT_EQUAL_STRING(expected_solution[index].text,
+                               actual_solution[index].text);
    }
 }
 
@@ -37,7 +38,7 @@ void test_word_count_one_word(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    // fill in the words!
    ExpectedSolution[index].count = 1;
@@ -48,11 +49,8 @@ void test_word_count_one_word(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_one_of_each_word(void)
@@ -64,7 +62,7 @@ void test_word_count_one_of_each_word(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    // fill in the words! - hardcode but easiest way to init?
    ExpectedSolution[index].count = 1;
@@ -81,11 +79,8 @@ void test_word_count_one_of_each_word(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_multiple_occurrences_of_a_word(void)
@@ -97,7 +92,7 @@ void test_word_count_multiple_occurrences_of_a_word(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "one", MAX_WORD_LENGTH);
@@ -119,11 +114,8 @@ void test_word_count_multiple_occurrences_of_a_word(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_handles_cramped_lists(void)
@@ -135,7 +127,7 @@ void test_word_count_handles_cramped_lists(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "one", MAX_WORD_LENGTH);
@@ -151,11 +143,8 @@ void test_word_count_handles_cramped_lists(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_handles_expanded_lists(void)
@@ -167,7 +156,7 @@ void test_word_count_handles_expanded_lists(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "one", MAX_WORD_LENGTH);
@@ -183,11 +172,8 @@ void test_word_count_handles_expanded_lists(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_ignore_punctuation(void)
@@ -199,7 +185,7 @@ void test_word_count_ignore_punctuation(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "car", MAX_WORD_LENGTH);
@@ -221,11 +207,8 @@ void test_word_count_ignore_punctuation(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_include_numbers(void)
@@ -237,7 +220,7 @@ void test_word_count_include_numbers(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 2;
    strncpy(ExpectedSolution[index++].text, "testing", MAX_WORD_LENGTH);
@@ -253,11 +236,8 @@ void test_word_count_include_numbers(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_normalize_case(void)
@@ -269,7 +249,7 @@ void test_word_count_normalize_case(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 3;
    strncpy(ExpectedSolution[index++].text, "go", MAX_WORD_LENGTH);
@@ -282,11 +262,8 @@ void test_word_count_normalize_case(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_with_apostrophes(void)
@@ -298,7 +275,7 @@ void test_word_count_with_apostrophes(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "first", MAX_WORD_LENGTH);
@@ -320,11 +297,8 @@ void test_word_count_with_apostrophes(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_with_quotation(void)
@@ -336,7 +310,7 @@ void test_word_count_with_quotation(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "joe", MAX_WORD_LENGTH);
@@ -361,11 +335,8 @@ void test_word_count_with_quotation(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 void test_word_count_from_example(void)
@@ -377,7 +348,7 @@ void test_word_count_from_example(void)
    WordCount_Word_t ExpectedSolution[expected_word_count];
 
    // build the expected solution
-   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));   // clear to start with a known value
+   memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
    ExpectedSolution[index].count = 2;
    strncpy(ExpectedSolution[index++].text, "olly", MAX_WORD_LENGTH);
@@ -396,11 +367,8 @@ void test_word_count_from_example(void)
    // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
-   test_solution(
-      ExpectedSolution,
-      expected_word_count,
-      ActualSolution,
-      actual_word_count);
+   test_solution(ExpectedSolution,
+                 expected_word_count, ActualSolution, actual_word_count);
 }
 
 int main(void)
