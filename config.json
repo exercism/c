@@ -162,7 +162,7 @@
       "control-flow (loops)",
       "control-flow (if-else statements)"
     ]
-  },{
+  }, {
      "difficulty": 1,
      "slug": "clock",
      "topics": [
