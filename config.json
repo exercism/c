@@ -21,7 +21,8 @@
     "difference-of-squares",
     "sum-of-multiples",
     "binary-search",
-    "roman-numerals"
+    "roman-numerals",
+    "clock"
   ],
   "exercises": [{
     "slug": "hello-world",
@@ -154,6 +155,15 @@
       "structs",
       "control-flow (loops)",
       "strings"
+    ]
+  },{
+    "difficulty": 1,
+    "slug": "clock",
+    "topics": [
+      "control-flow (if-statements)",
+      "strings",
+      "text formatting",
+      "preprocessor (x-macros in test)"
     ]
   }],
   "deprecated": [
