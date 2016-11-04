@@ -4,26 +4,6 @@
   "repository": "https://github.com/exercism/xc",
   "checklist_issue": 8,
   "active": false,
-  "problems": [
-    "hello-world",
-    "anagram",
-    "leap",
-    "gigasecond",
-    "hamming",
-    "raindrops",
-    "bob",
-    "grains",
-    "largest-series-product",
-    "pangram",
-    "nth-prime",
-    "beer-song",
-    "rna-transcription",
-    "difference-of-squares",
-    "sum-of-multiples",
-    "binary-search",
-    "roman-numerals",
-    "clock"
-  ],
   "exercises": [{
     "slug": "hello-world",
     "difficulty": 1,
@@ -157,14 +137,41 @@
       "strings"
     ]
   },{
-    "difficulty": 1,
-    "slug": "clock",
+    "slug": "allergies",
+    "difficulty": 4,
     "topics": [
       "control-flow (if-statements)",
-      "strings",
-      "text formatting",
-      "preprocessor (x-macros in test)"
+      "control-flow (loops)",
+      "structs",
+      "memory management"
     ]
+  }, {
+    "difficulty": 5,
+    "slug": "atbash-cipher",
+    "topics": [
+      "control-flow (loops)",
+      "control-flow (if-else statements)",
+      "strings"
+    ]
+  }, {
+    "difficulty": 4,
+    "slug": "phone-number",
+    "topics": [
+      "strings",
+      "memory management",
+      "control-flow (loops)",
+      "control-flow (if-else statements)"
+    ]
+  },{
+     "difficulty": 1,
+     "slug": "clock",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "text formatting",
+        "preprocessor (x-macros in test)"
+     ]
+
   }],
   "deprecated": [
 
