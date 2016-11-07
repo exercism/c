@@ -26,6 +26,8 @@ for D in exercises/*; do
           make clean >> /dev/null;
           if make | grep FAIL: ; then
             exit 1
+          elif [ ${PIPESTATUS[0]} -ne 0 ]; then
+            exit 1
           fi
           cd ${CURRENT_DIR};
         }
