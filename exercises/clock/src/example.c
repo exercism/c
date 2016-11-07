@@ -15,7 +15,7 @@ static void normalize_clock(int *hour, int *minute)
    *minute %= 60;
 }
 
-void clock(char time_text[MAX_STR_LEN], int hour, int minute)
+void clock(time_text_t time_text, int hour, int minute)
 {
    normalize_clock(&hour, &minute);
    sprintf(time_text, "%02d:%02d", hour, minute);
