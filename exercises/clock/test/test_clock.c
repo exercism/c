@@ -396,8 +396,6 @@ void test_subtract_more_than_two_days(void)
 // Part of standard test collection
 // Included even though they don't make much sense in C
 
-#if (0)
-
 // // trying it with XMACROS !
 #define EXPAND_EQUALITY_TEST_AS_TEST(test_name, hour1, minute1, hour2, minute2, expected_equality)\
    void test_name(void)\
@@ -428,74 +426,7 @@ void test_subtract_more_than_two_days(void)
    ENTRY(test_clocks_with_negative_hours_and_minutes,  7,  32,   -12, -268, true)\
    ENTRY(test_clocks_with_negative_hours_and_minutes_that_wrap,  18,  7,   -54, -11513, true)\
 
-
 EQUALITY_TESTS(EXPAND_EQUALITY_TEST_AS_TEST)
-
-#else
-
-//Xmacro expanded...
-void test_clocks_with_same_time(void)\
-   {\
-   test_time_expected_equality(15, 37, 15, 37, 1);\
-   }\
-   void test_clocks_a_minute_apart(void)\
-   {\
-   test_time_expected_equality(15, 36, 15, 37, 0);\
-   }\
-   void test_clocks_an_hour_apart(void)\
-   {\
-   test_time_expected_equality(15, 37, 14, 37, 0);\
-   }\
-   void test_clocks_with_hour_overflow(void)\
-   {\
-   test_time_expected_equality(10, 37, 34, 37, 1);\
-   }\
-   void test_clocks_with_hour_overflow_by_several_days(void)\
-   {\
-   test_time_expected_equality(3, 11, 99, 11, 1);\
-   }\
-   void test_clocks_with_negative_hour(void)\
-   {\
-   test_time_expected_equality(22, 40, -2, 40, 1);\
-   }\
-   void test_clocks_with_negative_hour_that_wraps(void)\
-   {\
-   test_time_expected_equality(17, 3, -31, 3, 1);\
-   }\
-   void test_clocks_with_negative_hour_that_wraps_multiple_times(void)\
-   {\
-   test_time_expected_equality(13, 49, -83, 49, 1);\
-   }\
-   void test_clocks_with_minute_overflow(void)\
-   {\
-   test_time_expected_equality(0, 1, 0, 1441, 1);\
-   }\
-   void test_clocks_with_minute_overflow_by_several_days(void)\
-   {\
-   test_time_expected_equality(2, 2, 2, 4322, 1);\
-   }\
-   void test_clocks_with_negative_minute(void)\
-   {\
-   test_time_expected_equality(2, 40, 3, -20, 1);\
-   }\
-   void test_clocks_with_negative_minute_that_wraps(void)\
-   {\
-   test_time_expected_equality(4, 10, 5, -1490, 1);\
-   }\
-   void test_clocks_with_negative_minute_that_wraps_multiple_times(void)\
-   {\
-   test_time_expected_equality(6, 15, 6, -4305, 1);\
-   }\
-   void test_clocks_with_negative_hours_and_minutes(void)\
-   {\
-   test_time_expected_equality(7, 32, -12, -268, 1);\
-   }\
-   void test_clocks_with_negative_hours_and_minutes_that_wrap(void)\
-   {\
-   test_time_expected_equality(18, 7, -54, -11513, 1);\
-   }\
-
-#endif
 
 int main(void)
 {
