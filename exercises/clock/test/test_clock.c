@@ -396,39 +396,42 @@ void test_subtract_more_than_two_days(void)
 // Part of standard test collection
 // Included even though they don't make much sense in C
 
-//// // trying it with XMACROS !
-//#define EXPAND_EQUALITY_TEST_AS_TEST(test_name, hour1, minute1, hour2, minute2, expected_equality)\
-//   void test_name(void)\
-//   {\
-//   test_time_expected_equality(hour1, minute1, hour2, minute2, expected_equality);\
-//   }\
-//
-//// below expands to multiple routines...that are all designed to test the equality of 2 different
-//// clock representations to see if they are the same or not
-//// that 2 clocks are equal...
-//// the fields are:
-////    test name, time1_hour, time1_minute, time2_hour, time2_minute, (time1 == time2)
-//
-//#define EQUALITY_TESTS(ENTRY) \
-//   ENTRY(test_clocks_with_same_time,      15,   37,   15, 37, true)\
-//   ENTRY(test_clocks_a_minute_apart,      15,   36,   15, 37, false)\
-//   ENTRY(test_clocks_an_hour_apart,       15,   37,   14, 37, false)\
-//   ENTRY(test_clocks_with_hour_overflow,  10,   37,   34, 37, true)\
-//   ENTRY(test_clocks_with_hour_overflow_by_several_days,  3,   11,   99, 11, true)\
-//   ENTRY(test_clocks_with_negative_hour,  22,   40,   -2, 40, true)\
-//   ENTRY(test_clocks_with_negative_hour_that_wraps,  17,   3,   -31, 3, true)\
-//   ENTRY(test_clocks_with_negative_hour_that_wraps_multiple_times,  13,   49, -83, 49, true)\
-//   ENTRY(test_clocks_with_minute_overflow,  0,  1,   0, 1441, true)\
-//   ENTRY(test_clocks_with_minute_overflow_by_several_days,  2,  2,   2, 4322, true)\
-//   ENTRY(test_clocks_with_negative_minute,  2,  40,   3, -20, true)\
-//   ENTRY(test_clocks_with_negative_minute_that_wraps,  4,  10,   5, -1490, true)\
-//   ENTRY(test_clocks_with_negative_minute_that_wraps_multiple_times,  6,  15,   6, -4305, true)\
-//   ENTRY(test_clocks_with_negative_hours_and_minutes,  7,  32,   -12, -268, true)\
-//   ENTRY(test_clocks_with_negative_hours_and_minutes_that_wrap,  18,  7,   -54, -11513, true)\
-//
-//
-//EQUALITY_TESTS(EXPAND_EQUALITY_TEST_AS_TEST)
+#if (0)
 
+// // trying it with XMACROS !
+#define EXPAND_EQUALITY_TEST_AS_TEST(test_name, hour1, minute1, hour2, minute2, expected_equality)\
+   void test_name(void)\
+   {\
+   test_time_expected_equality(hour1, minute1, hour2, minute2, expected_equality);\
+   }\
+
+// below expands to multiple routines...that are all designed to test the equality of 2 different
+// clock representations to see if they are the same or not
+// that 2 clocks are equal...
+// the fields are:
+//    test name, time1_hour, time1_minute, time2_hour, time2_minute, (time1 == time2)
+
+#define EQUALITY_TESTS(ENTRY) \
+   ENTRY(test_clocks_with_same_time,      15,   37,   15, 37, true)\
+   ENTRY(test_clocks_a_minute_apart,      15,   36,   15, 37, false)\
+   ENTRY(test_clocks_an_hour_apart,       15,   37,   14, 37, false)\
+   ENTRY(test_clocks_with_hour_overflow,  10,   37,   34, 37, true)\
+   ENTRY(test_clocks_with_hour_overflow_by_several_days,  3,   11,   99, 11, true)\
+   ENTRY(test_clocks_with_negative_hour,  22,   40,   -2, 40, true)\
+   ENTRY(test_clocks_with_negative_hour_that_wraps,  17,   3,   -31, 3, true)\
+   ENTRY(test_clocks_with_negative_hour_that_wraps_multiple_times,  13,   49, -83, 49, true)\
+   ENTRY(test_clocks_with_minute_overflow,  0,  1,   0, 1441, true)\
+   ENTRY(test_clocks_with_minute_overflow_by_several_days,  2,  2,   2, 4322, true)\
+   ENTRY(test_clocks_with_negative_minute,  2,  40,   3, -20, true)\
+   ENTRY(test_clocks_with_negative_minute_that_wraps,  4,  10,   5, -1490, true)\
+   ENTRY(test_clocks_with_negative_minute_that_wraps_multiple_times,  6,  15,   6, -4305, true)\
+   ENTRY(test_clocks_with_negative_hours_and_minutes,  7,  32,   -12, -268, true)\
+   ENTRY(test_clocks_with_negative_hours_and_minutes_that_wrap,  18,  7,   -54, -11513, true)\
+
+
+EQUALITY_TESTS(EXPAND_EQUALITY_TEST_AS_TEST)
+
+#else
 
 //Xmacro expanded...
 void test_clocks_with_same_time(void)\
@@ -492,6 +495,7 @@ void test_clocks_with_same_time(void)\
    test_time_expected_equality(18, 7, -54, -11513, 1);\
    }\
 
+#endif
 
 int main(void)
 {
