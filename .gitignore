@@ -2,3 +2,4 @@ bin/configlet
 bin/configlet.exe
 **/*.out
 **/*.o
+.DS_Store
