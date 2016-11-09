@@ -1,7 +1,7 @@
 #ifndef _CLOCK_H
 #define _CLOCK_H
 
-#define MAX_STR_LEN (5 +1) // "##:##\0"
+#define MAX_STR_LEN (5 + 1) // "##:##\0"
 
 typedef char time_text_t[MAX_STR_LEN];
 
