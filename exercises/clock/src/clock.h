@@ -6,6 +6,6 @@
 typedef char time_text_t[MAX_STR_LEN];
 
 void clock(time_text_t time_text, int hour, int minute);
-void clock_add(char time_text[MAX_STR_LEN], int minute_offset);
+void clock_add(time_text_t time_text, int minute_offset);
 
 #endif
