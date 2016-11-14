@@ -171,6 +171,15 @@
       "control-flow (loops)",
       "control-flow (if-else statements)"
     ]
+  }, {
+     "difficulty": 1,
+     "slug": "clock",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "text formatting",
+        "preprocessor (x-macros in test)"
+     ]
   }],
   "deprecated": [
 
