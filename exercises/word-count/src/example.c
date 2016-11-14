@@ -4,8 +4,8 @@
 #include "word_count.h"
 
 // checks to see if we are counting a given word:
-//    if word counted already it returns index.
-//    elseo returns -1
+// if word counted already it returns index,
+// else returns -1
 static int word_match(char *testWord, int current_word_count,
                       WordCount_Word_t words[MAX_WORDS])
 {
