@@ -15,7 +15,8 @@
 
 #define INVALID_NUMBER_RESULT    "0000000000"
 
-static void remove_leading_digit(char *phone_number) {
+static void remove_leading_digit(char *phone_number)
+{
    char *temp = calloc(VALID_NUMBER_LENGTH, sizeof(char));
    strcpy(temp, &phone_number[1]);
    strcpy(phone_number, temp);
@@ -58,7 +59,8 @@ char *phone_number_format(const char *input)
    char *cleaned_input = phone_number_clean(input);
    char *output = calloc(FORMATTED_LENGTH, sizeof(char));
 
-   sprintf(output, "(%.3s) %.3s-%.4s", cleaned_input, &cleaned_input[AREA_CODE_LENGTH], &cleaned_input[EXTENSION_OFFSET]);
+   sprintf(output, "(%.3s) %.3s-%.4s", cleaned_input,
+           &cleaned_input[AREA_CODE_LENGTH], &cleaned_input[EXTENSION_OFFSET]);
 
    free(cleaned_input);
 

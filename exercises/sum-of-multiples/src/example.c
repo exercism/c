@@ -1,7 +1,9 @@
 #include "sum_of_multiples.h"
 #include <stdbool.h>
 
-unsigned int sum_of_multiples(const unsigned int *multiples, const size_t number_of_multiples, const unsigned int upper_bound)
+unsigned int sum_of_multiples(const unsigned int *multiples,
+                              const size_t number_of_multiples,
+                              const unsigned int upper_bound)
 {
    unsigned int sum = 0;
 
