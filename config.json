@@ -4,20 +4,6 @@
   "repository": "https://github.com/exercism/xc",
   "checklist_issue": 8,
   "active": false,
-  "problems": [
-    "hello-world",
-    "anagram",
-    "leap",
-    "gigasecond",
-    "hamming",
-    "raindrops",
-    "bob",
-    "grains",
-    "pangram",
-    "nth-prime",
-    "beer-song",
-    "rna-transcription"
-  ],
   "exercises": [{
     "slug": "hello-world",
     "difficulty": 1,
@@ -79,6 +65,14 @@
       "performance optimizations"
     ]
   }, {
+    "difficulty": 5,
+    "slug": "largest-series-product",
+    "topics": [
+      "control-flow (loops)",
+      "strings",
+      "performance optimizations"
+    ]
+  }, {
     "difficulty": 3,
     "slug": "pangram",
     "topics": [
@@ -101,15 +95,82 @@
       "strings",
       "control-flow (if-else statements)",
       "control-flow (loops)"
-	]
+    ]
   }, {
-	"difficulty": 2,
+    "difficulty": 2,
     "slug": "rna-transcription",
     "topics": [
       "strings",
       "control-flow (case statements)",
       "control-flow (loops)"
     ]
+  }, {
+    "difficulty": 1,
+    "slug": "difference-of-squares",
+    "topics": [
+      "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 4,
+    "slug": "sum-of-multiples",
+    "topics": [
+      "control-flow (case statements)",
+      "control-flow (loops)"
+    ]
+  }, {
+    "difficulty": 2,
+    "slug": "binary-search",
+    "topics": [
+      "arrays",
+      "control-flow (if-else statements)",
+      "control-flow (loops)",
+      "searching"
+    ]
+  }, {
+    "difficulty": 3,
+    "slug": "roman-numerals",
+    "topics": [
+      "arrays",
+      "memory management",
+      "structs",
+      "control-flow (loops)",
+      "strings"
+    ]
+  }, {
+    "slug": "allergies",
+    "difficulty": 4,
+    "topics": [
+      "control-flow (if-statements)",
+      "control-flow (loops)",
+      "structs",
+      "memory management"
+    ]
+  }, {
+    "difficulty": 5,
+    "slug": "atbash-cipher",
+    "topics": [
+      "control-flow (loops)",
+      "control-flow (if-else statements)",
+      "strings"
+    ]
+  }, {
+    "difficulty": 4,
+    "slug": "phone-number",
+    "topics": [
+      "strings",
+      "memory management",
+      "control-flow (loops)",
+      "control-flow (if-else statements)"
+    ]
+  }, {
+     "difficulty": 1,
+     "slug": "clock",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "text formatting",
+        "preprocessor (x-macros in test)"
+     ]
   }],
   "deprecated": [
 
