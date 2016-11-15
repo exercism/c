@@ -180,6 +180,13 @@
         "text formatting",
         "preprocessor (x-macros in test)"
      ]
+  }, {
+     "difficulty": 1,
+     "slug": "sieve",
+     "topics": [
+        "control-flow (if-statements)",
+        "memory management",
+     ]
   }],
   "deprecated": [
 
