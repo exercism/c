@@ -185,7 +185,7 @@
      "slug": "sieve",
      "topics": [
         "control-flow (if-statements)",
-        "memory management",
+        "memory management"
      ]
   }],
   "deprecated": [
