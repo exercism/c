@@ -28,7 +28,7 @@ static void reset_actual_solution(void)
    memset(ActualSolution, 0, sizeof(ActualSolution));
 }
 
-// Tests Start HERE
+// Tests Start here
 void test_word_count_one_word(void)
 {
    int index = 0;
@@ -40,13 +40,12 @@ void test_word_count_one_word(void)
    // build the expected solution
    memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
-   // fill in the words!
+   // fill in the expected words
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "word", MAX_WORD_LENGTH);
 
    reset_actual_solution();
 
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -64,7 +63,7 @@ void test_word_count_one_of_each_word(void)
    // build the expected solution
    memset(ExpectedSolution, 0, sizeof(ExpectedSolution));       // clear to start with a known value
 
-   // fill in the words! - hardcode but easiest way to init?
+   // fill in the expected words
    ExpectedSolution[index].count = 1;
    strncpy(ExpectedSolution[index++].text, "one", MAX_WORD_LENGTH);
 
@@ -75,8 +74,6 @@ void test_word_count_one_of_each_word(void)
    strncpy(ExpectedSolution[index++].text, "each", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -110,8 +107,6 @@ void test_word_count_multiple_occurrences_of_a_word(void)
    strncpy(ExpectedSolution[index++].text, "blue", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -139,8 +134,6 @@ void test_word_count_handles_cramped_lists(void)
    strncpy(ExpectedSolution[index++].text, "three", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -168,8 +161,6 @@ void test_word_count_handles_expanded_lists(void)
    strncpy(ExpectedSolution[index++].text, "three", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -203,8 +194,6 @@ void test_word_count_ignore_punctuation(void)
    strncpy(ExpectedSolution[index++].text, "javascript", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -232,8 +221,6 @@ void test_word_count_include_numbers(void)
    strncpy(ExpectedSolution[index++].text, "2", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -258,8 +245,6 @@ void test_word_count_normalize_case(void)
    strncpy(ExpectedSolution[index++].text, "stop", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -293,8 +278,6 @@ void test_word_count_with_apostrophes(void)
    strncpy(ExpectedSolution[index++].text, "cry", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -331,8 +314,6 @@ void test_word_count_with_quotation(void)
    strncpy(ExpectedSolution[index++].text, "and", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,
@@ -363,8 +344,6 @@ void test_word_count_from_example(void)
    strncpy(ExpectedSolution[index++].text, "free", MAX_WORD_LENGTH);
 
    reset_actual_solution();
-
-   // call the implementation routine!
    actual_word_count = word_count(input_text, ActualSolution);
 
    test_solution(ExpectedSolution,

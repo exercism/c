@@ -38,7 +38,6 @@ int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS])
    // start with known results...
    memset(words, 0, sizeof(WordCount_Word_t));
 
-   // todo parse string for words.
    testWord = strtok(lowerCaseInputText, delimiters);
    while (testWord != NULL) {
       // account for leading/trailing single quote.
@@ -49,7 +48,7 @@ int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS])
       // determine index of counted word.
       index = word_match(testWord, uniqueWords, words);
 
-      // if not yet counted....
+      // add if not yet counted else increment count.
       if (-1 == index) {
          words[uniqueWords].count = 1;
          strcpy(words[uniqueWords].text, testWord);
@@ -57,7 +56,7 @@ int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS])
       } else {
          words[index].count++;
       }
-      // next word in string
+      // get next word in string
       testWord = strtok(NULL, delimiters);
    }
 
