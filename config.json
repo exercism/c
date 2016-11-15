@@ -137,8 +137,17 @@
       "strings"
     ]
   }, {
-    "slug": "allergies",
+    "difficulty": 3,
+    "slug": "word-count",
+    "topics": [
+      "strings",
+      "filtering",
+      "structs",
+      "memory management"
+    ]
+  }, {
     "difficulty": 4,
+    "slug": "allergies",
     "topics": [
       "control-flow (if-statements)",
       "control-flow (loops)",
