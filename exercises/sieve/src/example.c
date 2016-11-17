@@ -9,7 +9,7 @@ unsigned int sieve(const unsigned int limit, primesArray_t primes)
    unsigned char *numberIsPrime;
 
    // clear the results
-   memset(primes, 0, MAX_LIMIT_TESTED);
+   memset(primes, 0, sizeof(*primes));
 
    if (limit > 1) {
       //allocate 1 more than limit for convenience so the number and the index are same
@@ -27,6 +27,14 @@ unsigned int sieve(const unsigned int limit, primesArray_t primes)
          for (unsigned int nonPrimeIndex = (2 * i); nonPrimeIndex < (limit + 1);
               nonPrimeIndex += i) {
             numberIsPrime[nonPrimeIndex] = 0;
+         }
+
+         // adjust the index i - normally bad practice within a loop but ok here as always making equivalent or larger
+         for (unsigned int newStartIndex = i + 1; newStartIndex < sqrt(limit)+1; newStartIndex++ ) {
+            if (numberIsPrime[newStartIndex]) {
+               i = newStartIndex - 1; // need to account for the ++ of the outer for loop
+               break;
+            }
          }
       }
       // collect and count the primes found
