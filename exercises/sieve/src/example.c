@@ -30,9 +30,10 @@ unsigned int sieve(const unsigned int limit, primesArray_t primes)
          }
 
          // adjust the index i - normally bad practice within a loop but ok here as always making equivalent or larger
-         for (unsigned int newStartIndex = i + 1; newStartIndex < sqrt(limit)+1; newStartIndex++ ) {
+         for (unsigned int newStartIndex = i + 1;
+              newStartIndex < sqrt(limit) + 1; newStartIndex++) {
             if (numberIsPrime[newStartIndex]) {
-               i = newStartIndex - 1; // need to account for the ++ of the outer for loop
+               i = newStartIndex - 1;   // need to account for the ++ of the outer for loop
                break;
             }
          }
