@@ -2,9 +2,8 @@
 #include "vendor/unity.h"
 #include "../src/sieve.h"
 
-primesArray_t result_array;
+static primesArray_t result_array;
 
-// Individual Tests
 void test_no_primes_under_two(void)
 {
    const unsigned int limit = 1;
