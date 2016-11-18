@@ -1,8 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-
-#include <stdio.h>
 #include "series.h"
 
 SeriesResults_t *series(char *inputText, unsigned int substringLength)
