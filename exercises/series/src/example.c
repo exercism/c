@@ -14,8 +14,10 @@ SeriesResults_t *series(char *inputText, unsigned int substringLength)
       results->substringCount = substringCount;
       results->substring = malloc(sizeof(char *) * substringCount);
       for (int index = 0; index < substringCount; index++) {
-         results->substring[index] = malloc(sizeof(char) * (substringLength + 1));
-         sprintf(results->substring[index],"%.*s", substringLength,&inputText[index]);
+         results->substring[index] =
+             malloc(sizeof(char) * (substringLength + 1));
+         sprintf(results->substring[index], "%.*s", substringLength,
+                 &inputText[index]);
       }
    }
    return results;
