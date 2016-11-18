@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+
 #include "series.h"
 
 SeriesResults_t *series(char *inputText, unsigned int substringLength)
@@ -13,7 +15,7 @@ SeriesResults_t *series(char *inputText, unsigned int substringLength)
       results->substring = malloc(sizeof(char *) * substringCount);
       for (int index = 0; index < substringCount; index++) {
          results->substring[index] = malloc(sizeof(char) * (substringLength + 1));
-         strncpy(results->substring[index], &inputText[index], substringLength);
+         sprintf(results->substring[index],"%.*s", substringLength,&inputText[index]);
       }
    }
    return results;
