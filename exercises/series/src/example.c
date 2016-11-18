@@ -10,9 +10,9 @@ SeriesResults_t *series(char *inputText, unsigned int substringLength)
    memset(results, 0, sizeof(*results));
    if ((substringCount > 0) && (substringLength > 0)) {
       results->substringCount = substringCount;
-      results->substring = malloc(substringCount * sizeof(char *));
+      results->substring = malloc(sizeof(char *) * substringCount);
       for (int index = 0; index < substringCount; index++) {
-         results->substring[index] = malloc(substringLength + 1);
+         results->substring[index] = malloc(sizeof(char) * (substringLength + 1));
          strncpy(results->substring[index], &inputText[index], substringLength);
       }
    }
