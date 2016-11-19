@@ -10,7 +10,8 @@
     "topics": [
       "control-flow (if-statements)",
       "optional values",
-      "text formatting"
+      "text formatting",
+      "memory management"
     ]
   }, {
     "difficulty": 5,
