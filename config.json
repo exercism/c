@@ -10,8 +10,7 @@
     "topics": [
       "control-flow (if-statements)",
       "optional values",
-      "text formatting",
-      "memory management"
+      "text formatting"
     ]
   }, {
     "difficulty": 5,
@@ -187,7 +186,8 @@
      "topics": [
         "control-flow (if-statements)",
         "strings",
-        "text formatting"
+        "text formatting",
+        "memory management"
      ]
   }],
   "deprecated": [
