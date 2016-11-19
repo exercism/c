@@ -22,7 +22,7 @@ typedef struct SeriesResults {
 //       pointers to the substrings.
 //
 //       calling routine will free memory associated with each of the substrings and
-//       the resutls structure.
+//       the results structure.
 SeriesResults_t *series(char *inputText, unsigned int substringLength);
 
 #endif
