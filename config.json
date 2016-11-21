@@ -180,6 +180,16 @@
         "text formatting",
         "preprocessor (x-macros in test)"
      ]
+  }, {
+     "difficulty": 2,
+     "slug": "robot-simulator",
+     "topics": [
+        "control-flow (if-statements)",
+        "structs",
+        "pointers",
+        "strings",
+        "text formatting"
+     ]
   }],
   "deprecated": [
 
