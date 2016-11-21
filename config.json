@@ -186,7 +186,8 @@
      "topics": [
         "control-flow (if-statements)",
         "strings",
-        "text formatting"
+        "text formatting",
+        "memory management"
      ]
   }],
   "deprecated": [
