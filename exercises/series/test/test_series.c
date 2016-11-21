@@ -17,8 +17,9 @@ static void testSolution(SeriesResults_t * expectedSolution,
                                actualSolution->substring[index]);
       free(actualSolution->substring[index]);
    }
-   free(actualSolution->substring);
-   free(actualSolution);
+   if (actualSolution->substringCount) {
+      free(actualSolution->substring);
+   }
 }
 
 #define EXPAND_SERIES_TEST_CASES_AS_TEST(test_name, inputText, substringLength, expectedResultCount, expectedResultSubstrings)\
@@ -26,8 +27,8 @@ static void testSolution(SeriesResults_t * expectedSolution,
    {\
    char *substrings[] =  expectedResultSubstrings;\
    SeriesResults_t expected = {expectedResultCount, &substrings[0]};\
-   SeriesResults_t *actual = series(inputText, substringLength);\
-   testSolution(&expected, actual);\
+   SeriesResults_t actual = series(inputText, substringLength);\
+   testSolution(&expected, &actual);\
    }\
 
 #define ASSEMBLE_STRING_ARRAY(...) __VA_ARGS__
