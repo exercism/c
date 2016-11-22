@@ -184,11 +184,11 @@
      "difficulty": 2,
      "slug": "robot-simulator",
      "topics": [
+        "strings",
         "control-flow (if-statements)",
         "structs",
-        "pointers",
-        "strings",
-        "text formatting"
+        "variable argument lists",
+        "pointers"
      ]
   }],
   "deprecated": [

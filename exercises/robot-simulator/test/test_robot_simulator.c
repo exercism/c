@@ -1,172 +1,154 @@
 #include "../src/robot_simulator.h"
 #include "vendor/unity.h"
 
+// Test Helper Function
+void confirm_position(RobotGridStatus_t * expected, RobotGridStatus_t * actual)
+{
+   TEST_ASSERT_EQUAL(expected->bearing, actual->bearing);
+   TEST_ASSERT_EQUAL(expected->grid.x_position, actual->grid.x_position);
+   TEST_ASSERT_EQUAL(expected->grid.y_position, actual->grid.y_position);
+}
+
+// Tests...
+void test_init(void)
+{
+   RobotGridStatus_t expected =
+       { Default_Bearing, {Default_X_Coordinate, Default_Y_Coordinate} };
+   RobotGridStatus_t actual = robot_init(0);
+
+   confirm_position(&expected, &actual);
+}
+
+void test_init_with_negative_positions(void)
+{
+   RobotGridStatus_t expected = { HeadingSouth, {-1, -1} };
+   RobotGridStatus_t actual = robot_init(3, HeadingSouth, -1, -1);
+
+   confirm_position(&expected, &actual);
+}
+
+void test_turn_right(void)
+{
+   RobotGridStatus_t expected = { HeadingEast, {0, 0} };
+   RobotGridStatus_t actual = robot_init(0);
+
+   robot_turn_right(&actual);
+   confirm_position(&expected, &actual);
+
+   expected.bearing = HeadingSouth;
+   robot_turn_right(&actual);
+   confirm_position(&expected, &actual);
+
+   expected.bearing = HeadingWest;
+   robot_turn_right(&actual);
+   confirm_position(&expected, &actual);
+
+   expected.bearing = HeadingNorth;
+   robot_turn_right(&actual);
+   confirm_position(&expected, &actual);
+}
+
+void test_turn_left(void)
+{
+   RobotGridStatus_t expected = { HeadingWest, {0, 0} };
+   RobotGridStatus_t actual = robot_init(0);
+
+   robot_turn_left(&actual);
+   confirm_position(&expected, &actual);
+
+   expected.bearing = HeadingSouth;
+   robot_turn_left(&actual);
+   confirm_position(&expected, &actual);
+
+   expected.bearing = HeadingEast;
+   robot_turn_left(&actual);
+   confirm_position(&expected, &actual);
+
+   expected.bearing = HeadingNorth;
+   robot_turn_left(&actual);
+   confirm_position(&expected, &actual);
+}
+
+void test_advance_positive_north(void)
+{
+   RobotGridStatus_t expected = { HeadingNorth, {0, 1} };
+   RobotGridStatus_t actual = robot_init(0);
+
+   robot_advance(&actual);
+   confirm_position(&expected, &actual);
+}
+
+void test_advance_positive_east(void)
+{
+   RobotGridStatus_t expected = { HeadingEast, {1, 0} };
+   RobotGridStatus_t actual = robot_init(3, HeadingEast, 0, 0);
+
+   robot_advance(&actual);
+   confirm_position(&expected, &actual);
+}
+
+void test_advance_negative_south(void)
+{
+   RobotGridStatus_t expected = { HeadingSouth, {0, -1} };
+   RobotGridStatus_t actual = robot_init(3, HeadingSouth, 0, 0);
+
+   robot_advance(&actual);
+   confirm_position(&expected, &actual);
+}
+
+void test_advance_negative_west(void)
+{
+   RobotGridStatus_t expected = { HeadingWest, {-1, 0} };
+   RobotGridStatus_t actual = robot_init(3, HeadingWest, 0, 0);
+
+   robot_advance(&actual);
+   confirm_position(&expected, &actual);
+}
+
+void test_simulate_move_west_and_north(void)
+{
+   RobotGridStatus_t expected = { HeadingWest, {-4, 1} };
+   RobotGridStatus_t actual = robot_init(0);
+
+   robot_simulator(&actual, "LAAARALA");
+   confirm_position(&expected, &actual);
+}
+
+void test_simulate_move_west_and_south(void)
+{
+   RobotGridStatus_t expected = { HeadingSouth, {-3, -8} };
+   RobotGridStatus_t actual = robot_init(3, HeadingEast, 2, -7);
+
+   robot_simulator(&actual, "RRAAAAALA");
+   confirm_position(&expected, &actual);
+}
+
+void test_simulate_move_east_and_north(void)
+{
+   RobotGridStatus_t expected = { HeadingNorth, {11, 5} };
+   RobotGridStatus_t actual = robot_init(3, HeadingSouth, 8, 4);
+
+   robot_simulator(&actual, "LAAARRRALLLL");
+   confirm_position(&expected, &actual);
+}
+
 int main(void)
 {
    UnityBegin("test/test_word_count.c");
 
-//   RUN_TEST(test_word_count_one_word);
+   RUN_TEST(test_init);
+   RUN_TEST(test_init_with_negative_positions);
+   RUN_TEST(test_turn_right);
+   RUN_TEST(test_turn_left);
+   RUN_TEST(test_advance_positive_north);
+   RUN_TEST(test_advance_positive_east);
+   RUN_TEST(test_advance_negative_south);
+   RUN_TEST(test_advance_negative_west);
+   RUN_TEST(test_simulate_move_west_and_north);
+   RUN_TEST(test_simulate_move_west_and_south);
+   RUN_TEST(test_simulate_move_east_and_north);
 
    UnityEnd();
 
    return 0;
 }
-
-#if (0)
-
-Stuff from Python equivalent ....Description ...
-A robot factory 's test facility needs a program to verify robot movements.
-
-The robots have three possible movements:
-
-turn right
-turn left
-advance
-Robots are placed on a hypothetical infinite grid, facing a particular direction
-(north, east, south, or west) at a set of {x,y} coordinates, e.g., {3,8}, with coordinates
-increasing to the north and east.
-
-The robot then receives a number of instructions, at which point the testing facility
-verifies the robot' s new position, and in which direction it is pointing.The letter - string "RAALAL" means:Turn right Advance twice Turn left Advance once Turn left yet again Say a robot starts at {
-7, 3}
-facing north.Then running this stream of instructions should leave it at {
-9, 4}
-facing west.....The tests from python .... {
-   "#":["Some tests have two expectations: one for the position, one for the direction", "Optionally, you can also test", " - An invalid direction throws an error", " - An invalid instruction throws an error", " - Default starting position and direction if none are provided"], "create": {
- "description": "A robot is created with a position and a direction", "cases":[ {
- "description": "Robots are created with a position and direction", "robot":{
- "position": "(0,0)", "direction":"north"}
-       , "expected": {
- "position": "(0,0)", "direction":"north"}
-       }
-       , {
- "description": "Negative positions are allowed", "robot":{
- "position": "(-1,-1)", "direction":"south"}
- , "expected":{
- "position": "(-1,-1)", "direction":"south"}
-       }
-      ]
-   }
- , "turn_right":{
- "description": "rotates the robot's direction 90 degrees clockwise", "cases":[ {
- "description": "does not change the position", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "expected":{
- "position":"(0,0)"}
-       }
-       , {
- "description": "changes the direction from north to east", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "expected":{
- "direction":"east"}
-       }
-       , {
- "description": "changes the direction from east to south", "robot":{
- "position": "(0,0)", "direction":"east"}
- , "expected":{
- "direction":"south"}
-       }
-       , {
- "description": "changes the direction from south to west", "robot":{
- "position": "(0,0)", "direction":"south"}
- , "expected":{
- "direction":"west"}
-       }
-       , {
- "description": "changes the direction from west to north", "robot":{
- "position": "(0,0)", "direction":"west"}
- , "expected":{
- "direction":"north"}
-       }
-      ]
-   }
- , "turn_left":{
- "description": "rotates the robot's direction 90 degrees counter-clockwise", "cases":[ {
- "description": "does not change the position", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "expected":{
- "position":"(0,0)"}
-       }
-       , {
- "description": "changes the direction from north to west", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "expected":{
- "direction":"west"}
-       }
-       , {
- "description": "changes the direction from west to south", "robot":{
- "position": "(0,0)", "direction":"west"}
- , "expected":{
- "direction":"south"}
-       }
-       , {
- "description": "changes the direction from south to east", "robot":{
- "position": "(0,0)", "direction":"south"}
- , "expected":{
- "direction":"east"}
-       }
-       , {
- "description": "changes the direction from east to north", "robot":{
- "position": "(0,0)", "direction":"east"}
- , "expected":{
- "direction":"north"}
-       }
-      ]
-   }
- , "advance":{
- "description": "moves the robot forward 1 space in the direction it is pointing", "cases":[ {
- "description": "does not change the direction", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "expected":{
- "direction":"north"}
-       }
-       , {
- "description": "increases the y coordinate one when facing north", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "expected":{
- "position":"(0,1)"}
-       }
-       , {
- "description": "decreases the y coordinate by one when facing south", "robot":{
- "position": "(0,0)", "direction":"south"}
- , "expected":{
- "position":"(0,-1)"}
-       }
-       , {
- "description": "increases the x coordinate by one when facing east", "robot":{
- "position": "(0,0)", "direction":"east"}
- , "expected":{
- "position":"(1,0)"}
-       }
-       , {
- "description": "decreases the x coordinate by one when facing west", "robot":{
- "position": "(0,0)", "direction":"west"}
- , "expected":{
- "position":"(-1,0)"}
-       }
-      ]
-   }
- , "instructions":{
- "description": "Where R = Turn Right, L = Turn Left and A = Advance, the robot can follow a series of instructions and end up with the correct position and direction", "cases":[ {
- "description": "instructions to move west and north", "robot":{
- "position": "(0,0)", "direction":"north"}
- , "instructions": "LAAARALA", "expected":{
- "position": "(-4,1)", "direction":"west"}
-       }
-       , {
- "description": "instructions to move west and south", "robot":{
- "position": "(2,-7)", "direction":"east"}
- , "instructions": "RRAAAAALA", "expected":{
- "position": "(-3,-8)", "direction":"south"}
-       }
-       , {
- "description": "instructions to move east and north", "robot":{
- "position": "(8,4)", "direction":"south"}
- , "instructions": "LAAARRRALLLL", "expected":{
- "position": "(11,5)", "direction":"north"}
-       }
-      ]
-   }
-}
-
-#endif
