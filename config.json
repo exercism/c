@@ -180,6 +180,15 @@
         "text formatting",
         "preprocessor (x-macros in test)"
      ]
+  },  {
+     "difficulty": 2,
+     "slug": "series",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "text formatting",
+        "memory management"
+     ]
   }],
   "deprecated": [
 
