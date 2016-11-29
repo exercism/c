@@ -1,804 +1,223 @@
 #include "vendor/unity.h"
 #include "../src/meetup.h"
 
-// Constructs a time_t type from the given date settings
-//time_t construct_date(int year, int month, int day, int hour, int min, int sec)
-//{
-//   struct tm date;
-//   date.tm_year = year - 1900;
-//   date.tm_mon = month - 1;
-//   date.tm_mday = day;
-//   date.tm_hour = hour;
-//   date.tm_min = min;
-//   date.tm_sec = sec;
-//   date.tm_isdst = 0;
-//   return mktime(&date);
-//}
-//
-//void test_date(void)
-//{
-//   time_t expected = construct_date(2043, 1, 1, 1, 46, 40);
-//   time_t actual = gigasecond_after(construct_date(2011, 4, 25, 0, 0, 0));
-//   TEST_ASSERT(expected == actual);
-//}
+// Using XMacros to create the tests
+#define EXPAND_MEETUP_TEST_AS_TEST(test_name, year, month, week, dayOfWeek, dayOfMonth)\
+   void test_name(void)\
+   {\
+   int actualDayOfMonth = meetupDayOfMonth(year, month, week, dayOfWeek);\
+   \
+   TEST_ASSERT_EQUAL_INT(dayOfMonth, actualDayOfMonth);\
+   }\
+
+
+// below expands to multiple routines...that are all designed to test the returned day of month
+// the fields are:
+//    text - test name, int year, int month, char *week, char *dayofWeek, int dayOfMonthExpecte (0=invalid)
+
+#define MEETUP_TESTS(ENTRY) \
+   ENTRY(test_monteenth_of_May_2013, 2013, 5, "teenth", "Monday", 13)\
+   ENTRY(test_monteenth_of_August_2013, 2013, 8, "teenth", "Monday", 19)\
+   ENTRY(test_monteenth_of_September_2013, 2013, 9, "teenth", "Monday", 16)\
+   ENTRY(test_tuesteenth_of_March_2013, 2013, 3, "teenth", "Tuesday", 19)\
+   ENTRY(test_tuesteenth_of_April_2013, 2013, 4, "teenth", "Tuesday", 16)\
+   ENTRY(test_tuesteenth_of_August_2013, 2013, 8, "teenth", "Tuesday", 13)\
+   ENTRY(test_wednesteenth_of_January_2013, 2013, 1, "teenth", "Wednesday", 16)\
+   ENTRY(test_wednesteenth_of_February_2013, 2013, 2, "teenth", "Wednesday", 13)\
+   ENTRY(test_wednesteenth_of_June_2013, 2013, 6, "teenth", "Wednesday", 19)\
+   ENTRY(test_thursteenth_of_May_2013, 2013, 5, "teenth", "Thursday", 16)\
+   ENTRY(test_thursteenth_of_June_2013, 2013, 6, "teenth", "Thursday", 13)\
+   ENTRY(test_thursteenth_of_September_2013, 2013, 9, "teenth", "Thursday", 19)\
+   ENTRY(test_friteenth_of_April_2013, 2013, 4, "teenth", "Friday", 19)\
+   ENTRY(test_friteenth_of_August_2013, 2013, 8, "teenth", "Friday", 16)\
+   ENTRY(test_friteenth_of_September_2013, 2013, 9, "teenth", "Friday", 13)\
+   ENTRY(test_saturteenth_of_February_2013, 2013, 2, "teenth", "Saturday", 16)\
+   ENTRY(test_saturteenth_of_April_2013, 2013, 4, "teenth", "Saturday", 13)\
+   ENTRY(test_saturteenth_of_October_2013, 2013, 10, "teenth", "Saturday", 19)\
+   ENTRY(test_sunteenth_of_May_2013, 2013, 5, "teenth", "Sunday", 19)\
+   ENTRY(test_sunteenth_of_June_2013, 2013, 6, "teenth", "Sunday", 16)\
+   ENTRY(test_sunteenth_of_October_2013, 2013, 10, "teenth", "Sunday", 13)\
+   ENTRY(test_first_Monday_of_March_2013, 2013, 3, "first", "Monday", 4)\
+   ENTRY(test_first_Monday_of_April_2013, 2013, 4, "first", "Monday", 1)\
+   ENTRY(test_first_Tuesday_of_May_2013, 2013, 5, "first", "Tuesday", 7)\
+   ENTRY(test_first_Tuesday_of_June_2013, 2013, 6, "first", "Tuesday", 4)\
+   ENTRY(test_first_Wednesday_of_July_2013, 2013, 7, "first", "Wednesday", 3)\
+   ENTRY(test_first_Wednesday_of_August_2013, 2013, 8, "first", "Wednesday", 7)\
+   ENTRY(test_first_Thursday_of_September_2013, 2013, 9, "first", "Thursday", 5)\
+   ENTRY(test_first_Thursday_of_October_2013, 2013, 10, "first", "Thursday", 3)\
+   ENTRY(test_first_Friday_of_November_2013, 2013, 11, "first", "Friday", 1)\
+   ENTRY(test_first_Friday_of_December_2013, 2013, 12, "first", "Friday", 6)\
+   ENTRY(test_first_Saturday_of_January_2013, 2013, 1, "first", "Saturday", 5)\
+   ENTRY(test_first_Saturday_of_February_2013, 2013, 2, "first", "Saturday", 2)\
+   ENTRY(test_first_Sunday_of_March_2013, 2013, 3, "first", "Sunday", 3)\
+   ENTRY(test_first_Sunday_of_April_2013, 2013, 4, "first", "Sunday", 7)\
+   ENTRY(test_second_Monday_of_March_2013, 2013, 3, "second", "Monday", 11)\
+   ENTRY(test_second_Monday_of_April_2013, 2013, 4, "second", "Monday", 8)\
+   ENTRY(test_second_Tuesday_of_May_2013, 2013, 5, "second", "Tuesday", 14)\
+   ENTRY(test_second_Tuesday_of_June_2013, 2013, 6, "second", "Tuesday", 11)\
+   ENTRY(test_second_Wednesday_of_July_2013, 2013, 7, "second", "Wednesday", 10)\
+   ENTRY(test_second_Wednesday_of_August_2013, 2013, 8, "second", "Wednesday", 14)\
+   ENTRY(test_second_Thursday_of_September_2013, 2013, 9, "second", "Thursday", 12)\
+   ENTRY(test_second_Thursday_of_October_2013, 2013, 10, "second", "Thursday", 10)\
+   ENTRY(test_second_Friday_of_November_2013, 2013, 11, "second", "Friday", 8)\
+   ENTRY(test_second_Friday_of_December_2013, 2013, 12, "second", "Friday", 13)\
+   ENTRY(test_second_Saturday_of_January_2013, 2013, 1, "second", "Saturday", 12)\
+   ENTRY(test_second_Saturday_of_February_2013, 2013, 2, "second", "Saturday", 9)\
+   ENTRY(test_second_Sunday_of_March_2013, 2013, 3, "second", "Sunday", 10)\
+   ENTRY(test_second_Sunday_of_April_2013, 2013, 4, "second", "Sunday", 14)\
+   ENTRY(test_third_Monday_of_March_2013, 2013, 3, "third", "Monday", 18)\
+   ENTRY(test_third_Monday_of_April_2013, 2013, 4, "third", "Monday", 15)\
+   ENTRY(test_third_Tuesday_of_May_2013, 2013, 5, "third", "Tuesday", 21)\
+   ENTRY(test_third_Tuesday_of_June_2013, 2013, 6, "third", "Tuesday", 18)\
+   ENTRY(test_third_Wednesday_of_July_2013, 2013, 7, "third", "Wednesday", 17)\
+   ENTRY(test_third_Wednesday_of_August_2013, 2013, 8, "third", "Wednesday", 21)\
+   ENTRY(test_third_Thursday_of_September_2013, 2013, 9, "third", "Thursday", 19)\
+   ENTRY(test_third_Thursday_of_October_2013, 2013, 10, "third", "Thursday", 17)\
+   ENTRY(test_third_Friday_of_November_2013, 2013, 11, "third", "Friday", 15)\
+   ENTRY(test_third_Friday_of_December_2013, 2013, 12, "third", "Friday", 20)\
+   ENTRY(test_third_Saturday_of_January_2013, 2013, 1, "third", "Saturday", 19)\
+   ENTRY(test_third_Saturday_of_February_2013, 2013, 2, "third", "Saturday", 16)\
+   ENTRY(test_third_Sunday_of_March_2013, 2013, 3, "third", "Sunday", 17)\
+   ENTRY(test_third_Sunday_of_April_2013, 2013, 4, "third", "Sunday", 21)\
+   ENTRY(test_fourth_Monday_of_March_2013, 2013, 3, "fourth", "Monday", 25)\
+   ENTRY(test_fourth_Monday_of_April_2013, 2013, 4, "fourth", "Monday", 22)\
+   ENTRY(test_fourth_Tuesday_of_May_2013, 2013, 5, "fourth", "Tuesday", 28)\
+   ENTRY(test_fourth_Tuesday_of_June_2013, 2013, 6, "fourth", "Tuesday", 25)\
+   ENTRY(test_fourth_Wednesday_of_July_2013, 2013, 7, "fourth", "Wednesday", 24)\
+   ENTRY(test_fourth_Wednesday_of_August_2013, 2013, 8, "fourth", "Wednesday", 28)\
+   ENTRY(test_fourth_Thursday_of_September_2013, 2013, 9, "fourth", "Thursday", 26)\
+   ENTRY(test_fourth_Thursday_of_October_2013, 2013, 10, "fourth", "Thursday", 24)\
+   ENTRY(test_fourth_Friday_of_November_2013, 2013, 11, "fourth", "Friday", 22)\
+   ENTRY(test_fourth_Friday_of_December_2013, 2013, 12, "fourth", "Friday", 27)\
+   ENTRY(test_fourth_Saturday_of_January_2013, 2013, 1, "fourth", "Saturday", 26)\
+   ENTRY(test_fourth_Saturday_of_February_2013, 2013, 2, "fourth", "Saturday", 23)\
+   ENTRY(test_fourth_Sunday_of_March_2013, 2013, 3, "fourth", "Sunday", 24)\
+   ENTRY(test_fourth_Sunday_of_April_2013, 2013, 4, "fourth", "Sunday", 28)\
+   ENTRY(test_last_Monday_of_March_2013, 2013, 3, "last", "Monday", 25)\
+   ENTRY(test_last_Monday_of_April_2013, 2013, 4, "last", "Monday", 29)\
+   ENTRY(test_last_Tuesday_of_May_2013, 2013, 5, "last", "Tuesday", 28)\
+   ENTRY(test_last_Tuesday_of_June_2013, 2013, 6, "last", "Tuesday", 25)\
+   ENTRY(test_last_Wednesday_of_July_2013, 2013, 7, "last", "Wednesday", 31)\
+   ENTRY(test_last_Wednesday_of_August_2013, 2013, 8, "last", "Wednesday", 28)\
+   ENTRY(test_last_Thursday_of_September_2013, 2013, 9, "last", "Thursday", 26)\
+   ENTRY(test_last_Thursday_of_October_2013, 2013, 10, "last", "Thursday", 31)\
+   ENTRY(test_last_Friday_of_November_2013, 2013, 11, "last", "Friday", 29)\
+   ENTRY(test_last_Friday_of_December_2013, 2013, 12, "last", "Friday", 27)\
+   ENTRY(test_last_Saturday_of_January_2013, 2013, 1, "last", "Saturday", 26)\
+   ENTRY(test_last_Saturday_of_February_2013, 2013, 2, "last", "Saturday", 23)\
+   ENTRY(test_last_Sunday_of_March_2013, 2013, 3, "last", "Sunday", 31)\
+   ENTRY(test_last_Sunday_of_April_2013, 2013, 4, "last", "Sunday", 28)\
+   ENTRY(test_last_Wednesday_of_February_2012, 2012, 2, "last", "Wednesday", 29)\
+   ENTRY(test_last_Wednesday_of_December_2014, 2014, 12, "last", "Wednesday", 31)\
+   ENTRY(test_last_Sunday_of_February_2015, 2015, 2, "last", "Sunday", 22)\
+   ENTRY(test_first_Friday_of_December_2012, 2012, 12, "first", "Friday", 7)\
+   ENTRY(test_fifth_Friday_of_December_2016, 2016, 12, "fifth", "Friday", 30)\
+   ENTRY(test_fifth_Friday_of_February_2013, 2013, 02, "fifth", "Friday", 0)\
+
+MEETUP_TESTS(EXPAND_MEETUP_TEST_AS_TEST)
 
 int main(void)
 {
-   UnityBegin("test/test_gigasecond.c");
+   UnityBegin("test/test_meetup.c");
 
-//   RUN_TEST(test_date);
+   RUN_TEST(test_monteenth_of_May_2013);
+   RUN_TEST(test_monteenth_of_August_2013);
+   RUN_TEST(test_monteenth_of_September_2013);
+   RUN_TEST(test_tuesteenth_of_March_2013);
+   RUN_TEST(test_tuesteenth_of_April_2013);
+   RUN_TEST(test_tuesteenth_of_August_2013);
+   RUN_TEST(test_wednesteenth_of_January_2013);
+   RUN_TEST(test_wednesteenth_of_February_2013);
+   RUN_TEST(test_wednesteenth_of_June_2013);
+   RUN_TEST(test_thursteenth_of_May_2013);
+   RUN_TEST(test_thursteenth_of_June_2013);
+   RUN_TEST(test_thursteenth_of_September_2013);
+   RUN_TEST(test_friteenth_of_April_2013);
+   RUN_TEST(test_friteenth_of_August_2013);
+   RUN_TEST(test_friteenth_of_September_2013);
+   RUN_TEST(test_saturteenth_of_February_2013);
+   RUN_TEST(test_saturteenth_of_April_2013);
+   RUN_TEST(test_saturteenth_of_October_2013);
+   RUN_TEST(test_sunteenth_of_May_2013);
+   RUN_TEST(test_sunteenth_of_June_2013);
+   RUN_TEST(test_sunteenth_of_October_2013);
+   RUN_TEST(test_first_Monday_of_March_2013);
+   RUN_TEST(test_first_Monday_of_April_2013);
+   RUN_TEST(test_first_Tuesday_of_May_2013);
+   RUN_TEST(test_first_Tuesday_of_June_2013);
+   RUN_TEST(test_first_Wednesday_of_July_2013);
+   RUN_TEST(test_first_Wednesday_of_August_2013);
+   RUN_TEST(test_first_Thursday_of_September_2013);
+   RUN_TEST(test_first_Thursday_of_October_2013);
+   RUN_TEST(test_first_Friday_of_November_2013);
+   RUN_TEST(test_first_Friday_of_December_2013);
+   RUN_TEST(test_first_Saturday_of_January_2013);
+   RUN_TEST(test_first_Saturday_of_February_2013);
+   RUN_TEST(test_first_Sunday_of_March_2013);
+   RUN_TEST(test_first_Sunday_of_April_2013);
+   RUN_TEST(test_second_Monday_of_March_2013);
+   RUN_TEST(test_second_Monday_of_April_2013);
+   RUN_TEST(test_second_Tuesday_of_May_2013);
+   RUN_TEST(test_second_Tuesday_of_June_2013);
+   RUN_TEST(test_second_Wednesday_of_July_2013);
+   RUN_TEST(test_second_Wednesday_of_August_2013);
+   RUN_TEST(test_second_Thursday_of_September_2013);
+   RUN_TEST(test_second_Thursday_of_October_2013);
+   RUN_TEST(test_second_Friday_of_November_2013);
+   RUN_TEST(test_second_Friday_of_December_2013);
+   RUN_TEST(test_second_Saturday_of_January_2013);
+   RUN_TEST(test_second_Saturday_of_February_2013);
+   RUN_TEST(test_second_Sunday_of_March_2013);
+   RUN_TEST(test_second_Sunday_of_April_2013);
+   RUN_TEST(test_third_Monday_of_March_2013);
+   RUN_TEST(test_third_Monday_of_April_2013);
+   RUN_TEST(test_third_Tuesday_of_May_2013);
+   RUN_TEST(test_third_Tuesday_of_June_2013);
+   RUN_TEST(test_third_Wednesday_of_July_2013);
+   RUN_TEST(test_third_Wednesday_of_August_2013);
+   RUN_TEST(test_third_Thursday_of_September_2013);
+   RUN_TEST(test_third_Thursday_of_October_2013);
+   RUN_TEST(test_third_Friday_of_November_2013);
+   RUN_TEST(test_third_Friday_of_December_2013);
+   RUN_TEST(test_third_Saturday_of_January_2013);
+   RUN_TEST(test_third_Saturday_of_February_2013);
+   RUN_TEST(test_third_Sunday_of_March_2013);
+   RUN_TEST(test_third_Sunday_of_April_2013);
+   RUN_TEST(test_fourth_Monday_of_March_2013);
+   RUN_TEST(test_fourth_Monday_of_April_2013);
+   RUN_TEST(test_fourth_Tuesday_of_May_2013);
+   RUN_TEST(test_fourth_Tuesday_of_June_2013);
+   RUN_TEST(test_fourth_Wednesday_of_July_2013);
+   RUN_TEST(test_fourth_Wednesday_of_August_2013);
+   RUN_TEST(test_fourth_Thursday_of_September_2013);
+   RUN_TEST(test_fourth_Thursday_of_October_2013);
+   RUN_TEST(test_fourth_Friday_of_November_2013);
+   RUN_TEST(test_fourth_Friday_of_December_2013);
+   RUN_TEST(test_fourth_Saturday_of_January_2013);
+   RUN_TEST(test_fourth_Saturday_of_February_2013);
+   RUN_TEST(test_fourth_Sunday_of_March_2013);
+   RUN_TEST(test_fourth_Sunday_of_April_2013);
+   RUN_TEST(test_last_Monday_of_March_2013);
+   RUN_TEST(test_last_Monday_of_April_2013);
+   RUN_TEST(test_last_Tuesday_of_May_2013);
+   RUN_TEST(test_last_Tuesday_of_June_2013);
+   RUN_TEST(test_last_Wednesday_of_July_2013);
+   RUN_TEST(test_last_Wednesday_of_August_2013);
+   RUN_TEST(test_last_Thursday_of_September_2013);
+   RUN_TEST(test_last_Thursday_of_October_2013);
+   RUN_TEST(test_last_Friday_of_November_2013);
+   RUN_TEST(test_last_Friday_of_December_2013);
+   RUN_TEST(test_last_Saturday_of_January_2013);
+   RUN_TEST(test_last_Saturday_of_February_2013);
+   RUN_TEST(test_last_Sunday_of_March_2013);
+   RUN_TEST(test_last_Sunday_of_April_2013);
+   RUN_TEST(test_last_Wednesday_of_February_2012);
+   RUN_TEST(test_last_Wednesday_of_December_2014);
+   RUN_TEST(test_last_Sunday_of_February_2015);
+   RUN_TEST(test_first_Friday_of_December_2012);
+   RUN_TEST(test_fifth_Friday_of_December_2016);
+   RUN_TEST(test_fifth_Friday_of_February_2013);
 
    UnityEnd();
    return 0;
 }
-
-#if (0)
-
-Standard Test Cases ....
-{
-   "cases": [
-      {
-         "description": "monteenth of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "teenth",
-         "dayofweek": "Monday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "monteenth of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "teenth",
-         "dayofweek": "Monday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "monteenth of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "teenth",
-         "dayofweek": "Monday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "tuesteenth of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "teenth",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "tuesteenth of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "teenth",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "tuesteenth of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "teenth",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "wednesteenth of January 2013",
-         "year": 2013,
-         "month": 1,
-         "week": "teenth",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "wednesteenth of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "teenth",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "wednesteenth of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "teenth",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "thursteenth of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "teenth",
-         "dayofweek": "Thursday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "thursteenth of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "teenth",
-         "dayofweek": "Thursday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "thursteenth of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "teenth",
-         "dayofweek": "Thursday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "friteenth of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "teenth",
-         "dayofweek": "Friday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "friteenth of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "teenth",
-         "dayofweek": "Friday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "friteenth of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "teenth",
-         "dayofweek": "Friday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "saturteenth of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "teenth",
-         "dayofweek": "Saturday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "saturteenth of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "teenth",
-         "dayofweek": "Saturday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "saturteenth of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "teenth",
-         "dayofweek": "Saturday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "sunteenth of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "teenth",
-         "dayofweek": "Sunday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "sunteenth of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "teenth",
-         "dayofweek": "Sunday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "sunteenth of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "teenth",
-         "dayofweek": "Sunday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "first Monday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "first",
-         "dayofweek": "Monday",
-         "dayofmonth": 4
-      },
-      {
-         "description": "first Monday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "first",
-         "dayofweek": "Monday",
-         "dayofmonth": 1
-      },
-      {
-         "description": "first Tuesday of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "first",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 7
-      },
-      {
-         "description": "first Tuesday of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "first",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 4
-      },
-      {
-         "description": "first Wednesday of July 2013",
-         "year": 2013,
-         "month": 7,
-         "week": "first",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 3
-      },
-      {
-         "description": "first Wednesday of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "first",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 7
-      },
-      {
-         "description": "first Thursday of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "first",
-         "dayofweek": "Thursday",
-         "dayofmonth": 5
-      },
-      {
-         "description": "first Thursday of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "first",
-         "dayofweek": "Thursday",
-         "dayofmonth": 3
-      },
-      {
-         "description": "first Friday of November 2013",
-         "year": 2013,
-         "month": 11,
-         "week": "first",
-         "dayofweek": "Friday",
-         "dayofmonth": 1
-      },
-      {
-         "description": "first Friday of December 2013",
-         "year": 2013,
-         "month": 12,
-         "week": "first",
-         "dayofweek": "Friday",
-         "dayofmonth": 6
-      },
-      {
-         "description": "first Saturday of January 2013",
-         "year": 2013,
-         "month": 1,
-         "week": "first",
-         "dayofweek": "Saturday",
-         "dayofmonth": 5
-      },
-      {
-         "description": "first Saturday of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "first",
-         "dayofweek": "Saturday",
-         "dayofmonth": 2
-      },
-      {
-         "description": "first Sunday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "first",
-         "dayofweek": "Sunday",
-         "dayofmonth": 3
-      },
-      {
-         "description": "first Sunday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "first",
-         "dayofweek": "Sunday",
-         "dayofmonth": 7
-      },
-      {
-         "description": "second Monday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "second",
-         "dayofweek": "Monday",
-         "dayofmonth": 11
-      },
-      {
-         "description": "second Monday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "second",
-         "dayofweek": "Monday",
-         "dayofmonth": 8
-      },
-      {
-         "description": "second Tuesday of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "second",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 14
-      },
-      {
-         "description": "second Tuesday of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "second",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 11
-      },
-      {
-         "description": "second Wednesday of July 2013",
-         "year": 2013,
-         "month": 7,
-         "week": "second",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 10
-      },
-      {
-         "description": "second Wednesday of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "second",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 14
-      },
-      {
-         "description": "second Thursday of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "second",
-         "dayofweek": "Thursday",
-         "dayofmonth": 12
-      },
-      {
-         "description": "second Thursday of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "second",
-         "dayofweek": "Thursday",
-         "dayofmonth": 10
-      },
-      {
-         "description": "second Friday of November 2013",
-         "year": 2013,
-         "month": 11,
-         "week": "second",
-         "dayofweek": "Friday",
-         "dayofmonth": 8
-      },
-      {
-         "description": "second Friday of December 2013",
-         "year": 2013,
-         "month": 12,
-         "week": "second",
-         "dayofweek": "Friday",
-         "dayofmonth": 13
-      },
-      {
-         "description": "second Saturday of January 2013",
-         "year": 2013,
-         "month": 1,
-         "week": "second",
-         "dayofweek": "Saturday",
-         "dayofmonth": 12
-      },
-      {
-         "description": "second Saturday of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "second",
-         "dayofweek": "Saturday",
-         "dayofmonth": 9
-      },
-      {
-         "description": "second Sunday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "second",
-         "dayofweek": "Sunday",
-         "dayofmonth": 10
-      },
-      {
-         "description": "second Sunday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "second",
-         "dayofweek": "Sunday",
-         "dayofmonth": 14
-      },
-      {
-         "description": "third Monday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "third",
-         "dayofweek": "Monday",
-         "dayofmonth": 18
-      },
-      {
-         "description": "third Monday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "third",
-         "dayofweek": "Monday",
-         "dayofmonth": 15
-      },
-      {
-         "description": "third Tuesday of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "third",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 21
-      },
-      {
-         "description": "third Tuesday of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "third",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 18
-      },
-      {
-         "description": "third Wednesday of July 2013",
-         "year": 2013,
-         "month": 7,
-         "week": "third",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 17
-      },
-      {
-         "description": "third Wednesday of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "third",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 21
-      },
-      {
-         "description": "third Thursday of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "third",
-         "dayofweek": "Thursday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "third Thursday of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "third",
-         "dayofweek": "Thursday",
-         "dayofmonth": 17
-      },
-      {
-         "description": "third Friday of November 2013",
-         "year": 2013,
-         "month": 11,
-         "week": "third",
-         "dayofweek": "Friday",
-         "dayofmonth": 15
-      },
-      {
-         "description": "third Friday of December 2013",
-         "year": 2013,
-         "month": 12,
-         "week": "third",
-         "dayofweek": "Friday",
-         "dayofmonth": 20
-      },
-      {
-         "description": "third Saturday of January 2013",
-         "year": 2013,
-         "month": 1,
-         "week": "third",
-         "dayofweek": "Saturday",
-         "dayofmonth": 19
-      },
-      {
-         "description": "third Saturday of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "third",
-         "dayofweek": "Saturday",
-         "dayofmonth": 16
-      },
-      {
-         "description": "third Sunday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "third",
-         "dayofweek": "Sunday",
-         "dayofmonth": 17
-      },
-      {
-         "description": "third Sunday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "third",
-         "dayofweek": "Sunday",
-         "dayofmonth": 21
-      },
-      {
-         "description": "fourth Monday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "fourth",
-         "dayofweek": "Monday",
-         "dayofmonth": 25
-      },
-      {
-         "description": "fourth Monday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "fourth",
-         "dayofweek": "Monday",
-         "dayofmonth": 22
-      },
-      {
-         "description": "fourth Tuesday of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "fourth",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 28
-      },
-      {
-         "description": "fourth Tuesday of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "fourth",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 25
-      },
-      {
-         "description": "fourth Wednesday of July 2013",
-         "year": 2013,
-         "month": 7,
-         "week": "fourth",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 24
-      },
-      {
-         "description": "fourth Wednesday of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "fourth",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 28
-      },
-      {
-         "description": "fourth Thursday of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "fourth",
-         "dayofweek": "Thursday",
-         "dayofmonth": 26
-      },
-      {
-         "description": "fourth Thursday of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "fourth",
-         "dayofweek": "Thursday",
-         "dayofmonth": 24
-      },
-      {
-         "description": "fourth Friday of November 2013",
-         "year": 2013,
-         "month": 11,
-         "week": "fourth",
-         "dayofweek": "Friday",
-         "dayofmonth": 22
-      },
-      {
-         "description": "fourth Friday of December 2013",
-         "year": 2013,
-         "month": 12,
-         "week": "fourth",
-         "dayofweek": "Friday",
-         "dayofmonth": 27
-      },
-      {
-         "description": "fourth Saturday of January 2013",
-         "year": 2013,
-         "month": 1,
-         "week": "fourth",
-         "dayofweek": "Saturday",
-         "dayofmonth": 26
-      },
-      {
-         "description": "fourth Saturday of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "fourth",
-         "dayofweek": "Saturday",
-         "dayofmonth": 23
-      },
-      {
-         "description": "fourth Sunday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "fourth",
-         "dayofweek": "Sunday",
-         "dayofmonth": 24
-      },
-      {
-         "description": "fourth Sunday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "fourth",
-         "dayofweek": "Sunday",
-         "dayofmonth": 28
-      },
-      {
-         "description": "last Monday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "last",
-         "dayofweek": "Monday",
-         "dayofmonth": 25
-      },
-      {
-         "description": "last Monday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "last",
-         "dayofweek": "Monday",
-         "dayofmonth": 29
-      },
-      {
-         "description": "last Tuesday of May 2013",
-         "year": 2013,
-         "month": 5,
-         "week": "last",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 28
-      },
-      {
-         "description": "last Tuesday of June 2013",
-         "year": 2013,
-         "month": 6,
-         "week": "last",
-         "dayofweek": "Tuesday",
-         "dayofmonth": 25
-      },
-      {
-         "description": "last Wednesday of July 2013",
-         "year": 2013,
-         "month": 7,
-         "week": "last",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 31
-      },
-      {
-         "description": "last Wednesday of August 2013",
-         "year": 2013,
-         "month": 8,
-         "week": "last",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 28
-      },
-      {
-         "description": "last Thursday of September 2013",
-         "year": 2013,
-         "month": 9,
-         "week": "last",
-         "dayofweek": "Thursday",
-         "dayofmonth": 26
-      },
-      {
-         "description": "last Thursday of October 2013",
-         "year": 2013,
-         "month": 10,
-         "week": "last",
-         "dayofweek": "Thursday",
-         "dayofmonth": 31
-      },
-      {
-         "description": "last Friday of November 2013",
-         "year": 2013,
-         "month": 11,
-         "week": "last",
-         "dayofweek": "Friday",
-         "dayofmonth": 29
-      },
-      {
-         "description": "last Friday of December 2013",
-         "year": 2013,
-         "month": 12,
-         "week": "last",
-         "dayofweek": "Friday",
-         "dayofmonth": 27
-      },
-      {
-         "description": "last Saturday of January 2013",
-         "year": 2013,
-         "month": 1,
-         "week": "last",
-         "dayofweek": "Saturday",
-         "dayofmonth": 26
-      },
-      {
-         "description": "last Saturday of February 2013",
-         "year": 2013,
-         "month": 2,
-         "week": "last",
-         "dayofweek": "Saturday",
-         "dayofmonth": 23
-      },
-      {
-         "description": "last Sunday of March 2013",
-         "year": 2013,
-         "month": 3,
-         "week": "last",
-         "dayofweek": "Sunday",
-         "dayofmonth": 31
-      },
-      {
-         "description": "last Sunday of April 2013",
-         "year": 2013,
-         "month": 4,
-         "week": "last",
-         "dayofweek": "Sunday",
-         "dayofmonth": 28
-      },
-      {
-         "description": "last Wednesday of February 2012",
-         "year": 2012,
-         "month": 2,
-         "week": "last",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 29
-      },
-      {
-         "description": "last Wednesday of December 2014",
-         "year": 2014,
-         "month": 12,
-         "week": "last",
-         "dayofweek": "Wednesday",
-         "dayofmonth": 31
-      },
-      {
-         "description": "last Sunday of February 2015",
-         "year": 2015,
-         "month": 2,
-         "week": "last",
-         "dayofweek": "Sunday",
-         "dayofmonth": 22
-      },
-      {
-         "description": "first Friday of December 2012",
-         "year": 2012,
-         "month": 12,
-         "week": "first",
-         "dayofweek": "Friday",
-         "dayofmonth": 7
-      }
-   ]
-}
-
-
-#endif

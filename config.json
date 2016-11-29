@@ -180,6 +180,16 @@
         "text formatting",
         "preprocessor (x-macros in test)"
      ]
+  }, {
+     "difficulty": 4,
+     "slug": "meetup",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "structures",
+        "time functions",
+        "preprocessor (x-macros in test)"
+     ]
   }],
   "deprecated": [
 
