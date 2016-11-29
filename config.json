@@ -188,6 +188,7 @@
         "strings",
         "text formatting",
         "memory management"
+     ]
   }, {
      "difficulty": 2,
      "slug": "robot-simulator",
