@@ -1,63 +1,48 @@
-#include <stdarg.h>
 #include <string.h>
 #include "robot_simulator.h"
 
-RobotGridStatus_t robot_init(int argCount, ...)
+RobotGridStatus_t robot_init(void)
 {
-   RobotGridStatus_t robot =
-       { Default_Bearing, {Default_X_Coordinate, Default_Y_Coordinate} };
-   va_list valist;
-   int argument;
+   return (robot_init_with_position
+           (Default_Bearing, Default_X_Coordinate, Default_Y_Coordinate));
+}
 
-   va_start(valist, argCount);
+RobotGridStatus_t robot_init_with_position(int bearing, int x, int y)
+{
+   RobotGridStatus_t robot = { bearing, {x, y} };
 
-   for (int index = 0; (index < argCount) && (index < 3); index++) {
-      argument = va_arg(valist, int);
-      switch (index) {
-      case 0:
-         if ((argument >= HeadingNorth) && (argument < HeadingMax)) {
-            robot.bearing = (Bearing_t) argument;
-         }
-         break;
-
-      case 1:
-         robot.grid.x_position = argument;
-         break;
-
-      case 2:
-         robot.grid.y_position = argument;
-         break;
-      }
+   if ((bearing < Heading_North) || (bearing >= Heading_Max)) {
+      robot.bearing = Default_Bearing;
    }
    return robot;
 }
 
 void robot_turn_right(RobotGridStatus_t * robot)
 {
-   robot->bearing = (robot->bearing + 1) % HeadingMax;
+   robot->bearing = (robot->bearing + 1) % Heading_Max;
 }
 
 void robot_turn_left(RobotGridStatus_t * robot)
 {
-   robot->bearing = ((robot->bearing - 1) + HeadingMax) % HeadingMax;
+   robot->bearing = ((robot->bearing - 1) + Heading_Max) % Heading_Max;
 }
 
 void robot_advance(RobotGridStatus_t * robot)
 {
    switch (robot->bearing) {
-   case HeadingNorth:
+   case Heading_North:
       robot->grid.y_position++;
       break;
 
-   case HeadingEast:
+   case Heading_East:
       robot->grid.x_position++;
       break;
 
-   case HeadingSouth:
+   case Heading_South:
       robot->grid.y_position--;
       break;
 
-   case HeadingWest:
+   case Heading_West:
       robot->grid.x_position--;
       break;
 

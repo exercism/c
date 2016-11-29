@@ -2,15 +2,15 @@
 #define _ROBOT_SIMULATOR_H
 
 typedef enum {
-   HeadingNorth = 0,
-   HeadingEast,
-   HeadingSouth,
-   HeadingWest,
-   HeadingMax
+   Heading_North = 0,
+   Heading_East,
+   Heading_South,
+   Heading_West,
+   Heading_Max
 } Bearing_t;
 
 enum {
-   Default_Bearing = HeadingNorth,
+   Default_Bearing = Heading_North,
    Default_X_Coordinate = 0,
    Default_Y_Coordinate = 0,
 };
@@ -24,14 +24,15 @@ enum {
 typedef struct RobotCoordinates {
    int x_position;
    int y_position;
-} Robott_Coordinates_t;
+} RobotCoordinates_t;
 
 typedef struct RobotGridStatus {
    Bearing_t bearing;
-   Robott_Coordinates_t grid;
+   RobotCoordinates_t grid;
 } RobotGridStatus_t;
 
-RobotGridStatus_t robot_init(int args, ...);
+RobotGridStatus_t robot_init(void);
+RobotGridStatus_t robot_init_with_position(int bearing, int x, int y);
 void robot_turn_right(RobotGridStatus_t * robot);
 void robot_turn_left(RobotGridStatus_t * robot);
 void robot_advance(RobotGridStatus_t * robot);
