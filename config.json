@@ -181,6 +181,15 @@
         "preprocessor (x-macros in test)"
      ]
   }, {
+     "difficulty": 2,
+     "slug": "series",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "text formatting",
+        "memory management"
+     ]
+  }, {        
      "difficulty": 4,
      "slug": "meetup",
      "topics": [
@@ -189,7 +198,6 @@
         "structures",
         "time functions",
         "preprocessor (x-macros in test)"
-     ]
   }],
   "deprecated": [
 
