@@ -184,7 +184,16 @@
      "difficulty": 2,
      "slug": "sieve",
      "topics": [
+     "control-flow (if-statements)",
+     "memory management"
+     ]
+  }, {
+     "difficulty": 2,
+     "slug": "series",
+     "topics": [
         "control-flow (if-statements)",
+        "strings",
+        "text formatting",
         "memory management"
      ]
   }],
