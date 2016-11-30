@@ -172,13 +172,20 @@
       "control-flow (if-else statements)"
     ]
   }, {
-     "difficulty": 1,
+     "difficulty": 2,
      "slug": "clock",
      "topics": [
         "control-flow (if-statements)",
         "strings",
         "text formatting",
         "preprocessor (x-macros in test)"
+     ]
+  }, {
+     "difficulty": 2,
+     "slug": "sieve",
+     "topics": [
+     "control-flow (if-statements)",
+     "memory management"
      ]
   }, {
      "difficulty": 2,
