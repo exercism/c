@@ -198,6 +198,7 @@
         "structures",
         "time functions",
         "preprocessor (x-macros in test)"
+     ]
   }],
   "deprecated": [
 
