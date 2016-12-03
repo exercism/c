@@ -196,6 +196,16 @@
         "text formatting",
         "memory management"
      ]
+  }, {
+     "difficulty": 2,
+     "slug": "robot-simulator",
+     "topics": [
+        "strings",
+        "control-flow (if-statements)",
+        "structs",
+        "variable argument lists",
+        "pointers"
+     ]
   }],
   "deprecated": [
 
