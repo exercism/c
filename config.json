@@ -206,7 +206,7 @@
         "time functions",
         "preprocessor (x-macros in test)"
      ]
- }, {
+  }, {
      "difficulty": 2,
      "slug": "robot-simulator",
      "topics": [
