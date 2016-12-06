@@ -196,15 +196,25 @@
         "text formatting",
         "memory management"
      ]
-  }, {        
+  }, {
      "difficulty": 4,
      "slug": "meetup",
      "topics": [
         "control-flow (if-statements)",
         "strings",
-        "structures",
+        "structs",
         "time functions",
         "preprocessor (x-macros in test)"
+     ]
+ }, {
+     "difficulty": 2,
+     "slug": "robot-simulator",
+     "topics": [
+        "strings",
+        "control-flow (if-statements)",
+        "structs",
+        "variable argument lists",
+        "pointers"
      ]
   }],
   "deprecated": [
