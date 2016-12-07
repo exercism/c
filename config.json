@@ -197,6 +197,16 @@
         "memory management"
      ]
   }, {
+     "difficulty": 4,
+     "slug": "meetup",
+     "topics": [
+        "control-flow (if-statements)",
+        "strings",
+        "structs",
+        "time functions",
+        "preprocessor (x-macros in test)"
+     ]
+  }, {
      "difficulty": 2,
      "slug": "robot-simulator",
      "topics": [
