@@ -10,6 +10,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_meetup.c src/meetup.c src/meetup.h src/example.c
+tests.out: test/test_meetup.c src/meetup.c src/meetup.h
 	@echo Compiling $@
 	@cc $(CFLAGS) src/meetup.c test/vendor/unity.c test/test_meetup.c -o tests.out
