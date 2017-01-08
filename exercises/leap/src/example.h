@@ -1,5 +1,5 @@
-#ifndef _LEAP_H
-#define _LEAP_H
+#ifndef LEAP_H
+#define LEAP_H
 
 #include <stdbool.h>
 

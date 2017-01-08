@@ -1,5 +1,5 @@
-#ifndef _ALLERGIES_H
-#define _ALLERGIES_H
+#ifndef ALLERGIES_H
+#define ALLERGIES_H
 
 #include <stdbool.h>
 

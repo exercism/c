@@ -1,5 +1,5 @@
-#ifndef _CLOCK_H
-#define _CLOCK_H
+#ifndef CLOCK_H
+#define CLOCK_H
 
 #define MAX_STR_LEN (5 + 1)     // "##:##\0"
 

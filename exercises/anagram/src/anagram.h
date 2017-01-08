@@ -1,5 +1,5 @@
-#ifndef _ANAGRAM_H
-#define _ANAGRAM_H
+#ifndef ANAGRAM_H
+#define ANAGRAM_H
 
 #define MAX_STR_LEN 20
 

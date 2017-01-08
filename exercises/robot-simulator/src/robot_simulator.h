@@ -1,5 +1,5 @@
-#ifndef _ROBOT_SIMULATOR_H
-#define _ROBOT_SIMULATOR_H
+#ifndef ROBOT_SIMULATOR_H
+#define ROBOT_SIMULATOR_H
 
 typedef enum {
    Heading_North = 0,

@@ -1,5 +1,5 @@
-#ifndef _SUM_OF_MULTIPLES_H
-#define _SUM_OF_MULTIPLES_H
+#ifndef SUM_OF_MULTIPLES_H
+#define SUM_OF_MULTIPLES_H
 
 #include <stddef.h>
 

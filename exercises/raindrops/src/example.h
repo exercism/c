@@ -1,5 +1,5 @@
-#ifndef _RAINDROPS_H
-#define _RAINDROPS_H
+#ifndef RAINDROPS_H
+#define RAINDROPS_H
 
 char *convert(char *buffer, int buffer_length, int drops);
 

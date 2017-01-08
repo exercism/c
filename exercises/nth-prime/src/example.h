@@ -1,5 +1,5 @@
-#ifndef _NTH_PRIME_H
-#define _NTH_PRIME_H
+#ifndef NTH_PRIME_H
+#define NTH_PRIME_H
 
 #include <stdint.h>
 

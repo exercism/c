@@ -1,5 +1,5 @@
-#ifndef _GIGASECOND_H
-#define _GIGASECOND_H
+#ifndef GIGASECOND_H
+#define GIGASECOND_H
 
 #include <time.h>
 
