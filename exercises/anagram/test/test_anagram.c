@@ -5,18 +5,18 @@
 #include "../src/anagram.h"
 
 // Empty vector for when expected output is nothing
-struct Vector empty = {
+static struct Vector empty = {
    NULL,
    0
 };
 
-int stringcmp(const void *a, const void *b)
+static int stringcmp(const void *a, const void *b)
 {
    return strcmp(a, b);
 }
 
 // Asserts that the two input vectors are equal
-void assert_equal_vector(struct Vector vout, struct Vector expected)
+static void assert_equal_vector(struct Vector vout, struct Vector expected)
 {
    // Sort actual and expected outputs for consistency
    qsort(expected.vec, expected.size, sizeof(char) * MAX_STR_LEN, stringcmp);
