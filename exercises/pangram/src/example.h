@@ -1,5 +1,5 @@
-#ifndef _PANGRAM_H
-#define _PANGRAM_H
+#ifndef PANGRAM_H
+#define PANGRAM_H
 
 #include <stdbool.h>
 

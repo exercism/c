@@ -1,5 +1,5 @@
-#ifndef _DIFFERENCE_OF_SQUARES_H
-#define _DIFFERENCE_OF_SQUARES_H
+#ifndef DIFFERENCE_OF_SQUARES_H
+#define DIFFERENCE_OF_SQUARES_H
 
 unsigned int sum_of_squares(unsigned int number);
 unsigned int square_of_sum(unsigned int number);

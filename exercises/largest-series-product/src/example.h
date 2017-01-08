@@ -1,5 +1,5 @@
-#ifndef _LARGEST_SERIES_PRODUCT_H
-#define _LARGEST_SERIES_PRODUCT_H
+#ifndef LARGEST_SERIES_PRODUCT_H
+#define LARGEST_SERIES_PRODUCT_H
 
 #include <stddef.h>
 #include <stdint.h>

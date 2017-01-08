@@ -1,5 +1,5 @@
-#ifndef _WORD_COUNT_H
-#define _WORD_COUNT_H
+#ifndef WORD_COUNT_H
+#define WORD_COUNT_H
 
 #define MAX_WORDS 20            // at most MAX_WORDS will be found in the test input string
 #define MAX_WORD_LENGTH 50      // no individual word will exceed this length

@@ -1,5 +1,5 @@
-#ifndef _SIEVE_H
-#define _SIEVE_H
+#ifndef SIEVE_H
+#define SIEVE_H
 
 #define MAX_LIMIT_TESTED (1000)
 

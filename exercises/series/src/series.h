@@ -1,5 +1,5 @@
-#ifndef _SERIES_H
-#define _SERIES_H
+#ifndef SERIES_H
+#define SERIES_H
 
 #define MAX_INPUT_TEXT_LENGTH (8)
 #define MAX_SERIES_RESULTS (MAX_INPUT_TEXT_LENGTH)
