@@ -27,8 +27,8 @@ MacOS users can install gcc or clang with [Homebrew](http://brew.sh/) via
 
 #### Windows
 
-Windows users can get [Visual Studio Community 2013][vs-1013], a free download
+Windows users can get [Visual Studio Community][vs], a free download
 that will give you the Visual Studio 2013 IDE and the latest version of the
 Microsoft Visual C compiler.
 
-[vs-1013]: http://www.visualstudio.com/en-us/products/visual-studio-community-vs
+[vs]: http://visualstudio.com
