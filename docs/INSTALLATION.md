@@ -15,13 +15,13 @@ build system as separate command-line tools.
 Linux users will need gcc or clang for the compiler, and `make` will be needed
 for the native build. Make is pre-installed on most unix systems, but is most
 likely available via your package manager. On Debian and Ubuntu based
-distributions it can be installed with `sudo apt-get install make` if not
-present.
+distributions everything you need can be installed with `sudo apt-get install build-essential`
+if not present.
 
 
 #### MacOS
 
-MacOS users can install gcc or clangwith [Homebrew](http://brew.sh/) via
+MacOS users can install gcc or clang with [Homebrew](http://brew.sh/) via
 `brew install gcc` or `brew install llvm`.
 
 
@@ -32,4 +32,3 @@ that will give you the Visual Studio 2013 IDE and the latest version of the
 Microsoft Visual C compiler.
 
 [vs-1013]: http://www.visualstudio.com/en-us/products/visual-studio-community-vs
-
