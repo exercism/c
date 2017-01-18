@@ -1,0 +1,3 @@
+- [C++ Reference](http://en.cppreference.com/w/): An online reference for C and C++ programming languages. You have a doubt what a method does? cppreference.com has you covered.
+- [The Definitive C Book Guide and List](http://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list): The legendary StackOverflow's question about C books.
+- [`C` tag on StackOverflow](http://stackoverflow.com/questions/tagged/c)
