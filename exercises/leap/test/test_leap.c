@@ -23,7 +23,7 @@ void test_turn_of_the_21st_century(void)
 
 void test_turn_of_the_25th_century(void)
 {
-   TEST_ASSERT_TRUE(is_leap_year(2400));;
+   TEST_ASSERT_TRUE(is_leap_year(2400));
 }
 
 int main(void)
