@@ -55,7 +55,7 @@ void test_your_birthday(void)
 {
    time_t birthday = construct_date(1989, 1, 1, 1, 1, 1);
    time_t gigday = gigasecond_after(birthday);
-   printf(ctime(&gigday));
+   printf("%s", ctime(&gigday));
 }
 */
 
