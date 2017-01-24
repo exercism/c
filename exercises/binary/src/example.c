@@ -1,6 +1,6 @@
 int len(char *str)
 {
-   int count;
+   int count = 0;
    while (*str) {
       str++, count++;
    }
