@@ -80,6 +80,6 @@ int main(void)
    RUN_TEST(b1001_is_decimal_9);
    RUN_TEST(b10001101000_is_decimal_1128);
    RUN_TEST(invalid_entry_is_decimal_0);
-
+   UnityEnd();
    return 0;
 }
