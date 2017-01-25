@@ -36,6 +36,16 @@ void test_square_64(void)
    TEST_ASSERT_EQUAL_UINT64(9223372036854775808ul, square(64));
 }
 
+void test_square_0_does_not_exist(void)
+{
+   TEST_ASSERT_EQUAL_UINT64(0, square(0));
+} 
+
+void test_square_greater_than_64_does_not_exist(void)
+{
+   TEST_ASSERT_EQUAL_UINT64(0, square(65));
+}
+
 void test_total(void)
 {
    TEST_ASSERT_EQUAL_UINT64(18446744073709551615ul, total());
@@ -52,6 +62,8 @@ int main(void)
    RUN_TEST(test_square_16);
    RUN_TEST(test_square_32);
    RUN_TEST(test_square_64);
+   RUN_TEST(test_square_0_does_not_exist);
+   RUN_TEST(test_square_greater_than_64_does_not_exist);
    RUN_TEST(test_total);
 
    UnityEnd();

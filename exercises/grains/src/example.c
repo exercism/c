@@ -4,6 +4,10 @@
 
 uint64_t square(uint8_t index)
 {
+   if ((!index) || (index > NUMBER_OF_SQUARES)) {
+      return 0;
+   }
+
    return (uint64_t) 1 << (index - 1);
 }
 
