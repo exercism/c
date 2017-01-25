@@ -39,7 +39,7 @@ void test_square_64(void)
 void test_square_0_does_not_exist(void)
 {
    TEST_ASSERT_EQUAL_UINT64(0, square(0));
-} 
+}
 
 void test_square_greater_than_64_does_not_exist(void)
 {
