@@ -1,85 +1,99 @@
 #include "vendor/unity.h"
 #include "../src/binary.h"
 
-void b1_is_decimal_1(void)
+void test_b0_is_decimal_0(void)
+{
+   TEST_ASSERT(0 == convert("0"));
+}
+
+void test_b1_is_decimal_1(void)
 {
    TEST_ASSERT(1 == convert("1"));
 }
 
-void b10_is_decimal_2(void)
+void test_b10_is_decimal_2(void)
 {
-   int result = convert("10");
-   TEST_ASSERT_EQUAL(2, result);
+   TEST_ASSERT_EQUAL(2, convert("10"));
 }
 
-void b11_is_decimal_3(void)
+void test_b11_is_decimal_3(void)
 {
-   int result = convert("11");
-   TEST_ASSERT_EQUAL(3, result);
+   TEST_ASSERT_EQUAL(3, convert("11"));
 }
 
-void b100_is_decimal_4(void)
+void test_b100_is_decimal_4(void)
 {
-   int result = convert("100");
-   TEST_ASSERT_EQUAL(4, result);
+   TEST_ASSERT_EQUAL(4, convert("100"));
 }
 
-void b101_is_decimal_5(void)
+void test_b1001_is_decimal_9(void)
 {
-   int result = convert("101");
-   TEST_ASSERT_EQUAL(5, result);
+   TEST_ASSERT_EQUAL(9, convert("1001"));
 }
 
-void b110_is_decimal_6(void)
+void test_b10001101000_is_decimal_1128(void)
 {
-   int result = convert("110");
-   TEST_ASSERT_EQUAL(6, result);
+   TEST_ASSERT_EQUAL(1128, convert("10001101000"));
 }
 
-void b111_is_decimal_7(void)
+void test_b11010_is_decimal_26(void)
 {
-   int result = convert("111");
-   TEST_ASSERT_EQUAL(7, result);
+   TEST_ASSERT_EQUAL(26, convert("11010"));
 }
 
-void b1000_is_decimal_8(void)
+void test_binary_ignores_leading_zeros(void)
 {
-   int result = convert("1000");
-   TEST_ASSERT_EQUAL(8, result);
+   TEST_ASSERT_EQUAL(31, convert("00000000011111"));
 }
 
-void b1001_is_decimal_9(void)
+void test_2_is_not_a_valid_binary_digit(void)
 {
-   int result = convert("1001");
-   TEST_ASSERT_EQUAL(9, result);
+   TEST_ASSERT_EQUAL(INVALID, convert("2"));
 }
 
-void b10001101000_is_decimal_1128(void)
+void test_a_number_containing_a_non_binary_digit_is_invalid(void)
 {
-   int result = convert("10001101000");
-   TEST_ASSERT_EQUAL(1128, result);
+   TEST_ASSERT_EQUAL(INVALID, convert("1002001"));
 }
 
-void invalid_entry_is_decimal_0(void)
+void test_a_number_with_trailing_non_binary_characters_is_invalid(void)
 {
-   int result = convert("invalid entry");
-   TEST_ASSERT_EQUAL(0, result);
+   TEST_ASSERT_EQUAL(INVALID, convert("10nope"));
+}
+
+void test_a_number_with_leading_non_binary_characters_is_invalid(void)
+{
+   TEST_ASSERT_EQUAL(INVALID, convert("nope10"));
+}
+
+void test_a_number_with_internal_non_binary_characters_is_invalid(void)
+{
+   TEST_ASSERT_EQUAL(INVALID, convert("10nope10"));
+}
+
+void test_a_number_and_a_word_whitespace_spearated_is_invalid(void)
+{
+   TEST_ASSERT_EQUAL(INVALID, convert("001 100"));
 }
 
 int main(void)
 {
    UnityBegin("test/test_binary.c");
-   RUN_TEST(b1_is_decimal_1);
-   RUN_TEST(b10_is_decimal_2);
-   RUN_TEST(b11_is_decimal_3);
-   RUN_TEST(b100_is_decimal_4);
-   RUN_TEST(b101_is_decimal_5);
-   RUN_TEST(b110_is_decimal_6);
-   RUN_TEST(b111_is_decimal_7);
-   RUN_TEST(b1000_is_decimal_8);
-   RUN_TEST(b1001_is_decimal_9);
-   RUN_TEST(b10001101000_is_decimal_1128);
-   RUN_TEST(invalid_entry_is_decimal_0);
+   RUN_TEST(test_b0_is_decimal_0);
+   RUN_TEST(test_b1_is_decimal_1);
+   RUN_TEST(test_b10_is_decimal_2);
+   RUN_TEST(test_b11_is_decimal_3);
+   RUN_TEST(test_b100_is_decimal_4);
+   RUN_TEST(test_b1001_is_decimal_9);
+   RUN_TEST(test_b11010_is_decimal_26);
+   RUN_TEST(test_b10001101000_is_decimal_1128);
+   RUN_TEST(test_binary_ignores_leading_zeros);
+   RUN_TEST(test_2_is_not_a_valid_binary_digit);
+   RUN_TEST(test_a_number_containing_a_non_binary_digit_is_invalid);
+   RUN_TEST(test_a_number_with_trailing_non_binary_characters_is_invalid);
+   RUN_TEST(test_a_number_with_leading_non_binary_characters_is_invalid);
+   RUN_TEST(test_a_number_with_internal_non_binary_characters_is_invalid);
+   RUN_TEST(test_a_number_and_a_word_whitespace_spearated_is_invalid);
    UnityEnd();
    return 0;
 }
