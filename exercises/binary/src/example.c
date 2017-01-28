@@ -1,13 +1,13 @@
 int len(char *str)
 {
    int count = 0;
-   while (*str) {
-      str++, count++;
+   while (*str++) {
+      count++;
    }
    return count;
 }
 
-int convert(char input[64])
+int convert(char *input)
 {
    int lens = len(input);
    int result = 0;
