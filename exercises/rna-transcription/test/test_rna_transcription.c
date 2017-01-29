@@ -6,11 +6,11 @@
 void test_transcription(const char *dna, const char *expected)
 {
    char *rna = to_rna(dna);
-   if (rna != NULL) {		/* Prevent segfault on strlen() and free(). */
+   if (rna != NULL) {           /* Prevent segfault on strlen() and free(). */
       TEST_ASSERT_TRUE(strncmp(rna, expected, (strlen(expected) + 1)) == 0);
       free(rna);
    } else {
-      TEST_FAIL();		/* to_rna() returned NULL when it was not epected. */
+      TEST_FAIL();              /* to_rna() returned NULL when it was not epected. */
    }
 }
 
