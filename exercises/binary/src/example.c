@@ -1,17 +1,11 @@
-int len(const char *s)
-{
-   int count = 0;
-   while (*s++) {
-      count++;
-   }
-   return count;
-}
+#include "binary.h"
+#include <string.h>
 
 int convert(const char *input)
 {
-   int input_len = len(input);
+   size_t input_len = strlen(input);
    int result = 0;
-   for (int i = 0; i < input_len; i++) {
+   for (size_t i = 0; i < input_len; i++) {
       result <<= 1;
       if (input[i] == '1') {
          result |= 1;
