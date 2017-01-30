@@ -216,7 +216,21 @@
         "variable argument lists",
         "pointers"
      ]
-  }],
+  }
+  , {
+      "difficulty": 1,
+      "slug": "triangle",
+      "topics": []
+    }
+  , {
+      "difficulty": 1,
+      "slug": "binary",
+      "topics": [
+        "control-flow (if-statements)",
+        "control-flow (loops)"
+     ]
+  }
+  ],
   "deprecated": [
 
   ],
