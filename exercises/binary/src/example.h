@@ -2,6 +2,6 @@
 #define BINARY_H
 #define INVALID -1
 
-int convert(char *input);
+int convert(const char *input);
 
 #endif
