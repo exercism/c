@@ -1,8 +1,8 @@
 int len(const char *s)
 {
    int count = 0;
-   while(*s++){
-	count++;
+   while (*s++) {
+      count++;
    }
    return count;
 }

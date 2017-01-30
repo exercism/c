@@ -3,12 +3,12 @@
 
 void test_b0_is_decimal_0(void)
 {
-   TEST_ASSERT_EQUAL(0 , convert("0"));
+   TEST_ASSERT_EQUAL(0, convert("0"));
 }
 
 void test_b1_is_decimal_1(void)
 {
-   TEST_ASSERT_EQUAL(1 , convert("1"));
+   TEST_ASSERT_EQUAL(1, convert("1"));
 }
 
 void test_b10_is_decimal_2(void)
