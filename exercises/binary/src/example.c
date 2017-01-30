@@ -1,13 +1,13 @@
-int len(char *str)
+int len(const char *s)
 {
    int count = 0;
-   while (*str++) {
-      count++;
+   while(*s++){
+	count++;
    }
    return count;
 }
 
-int convert(char *input)
+int convert(const char *input)
 {
    int input_len = len(input);
    int result = 0;
