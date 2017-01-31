@@ -8,14 +8,14 @@ Please see the [Exercism contributing guide](https://github.com/exercism/x-commo
 
 ## Coding Style
 
-All test and example code should be written using the [Linux kernel coding style](https://www.kernel.org/doc/Documentation/CodingStyle) with 3 space indents.
+All test and example code should be written using the [Linux kernel coding style](https://www.kernel.org/doc/Documentation/CodingStyle) with 3 space indents and no tabs.
 
 If GNU `indent` is installed, this can be run on all files by executing `indent.sh`.
 
 To run it on a single file, you can execute:
 
 ```shell
-indent -linux -i3 $(file)
+indent -linux -i3 -nut $(file)
 ```
 
 If your system does not support the `-linux` option, you can run the long form command instead:
