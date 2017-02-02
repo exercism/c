@@ -216,6 +216,13 @@
         "variable argument lists",
         "pointers"
      ]
+  }, {
+     "difficulty": 1,
+     "slug": "binary",
+     "topics": [
+        "control-flow (loops)",
+        "control-flow (if-statements)"
+	]
   }],
   "deprecated": [
 
