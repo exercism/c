@@ -6,8 +6,8 @@
 void test_transcription(const char *dna, const char *expected)
 {
    char *rna = to_rna(dna);
-   if (rna != NULL) {           /* Prevent segfault on strlen() and free(). */
-      TEST_ASSERT_TRUE(strncmp(rna, expected, (strlen(expected) + 1)) == 0);
+   if (rna != NULL) {           /* Prevent segfault on string comparison and free(). */
+      TEST_ASSERT_EQUAL_STRING(expected, rna);
       free(rna);
    } else {
       TEST_FAIL();              /* to_rna() returned NULL when it was not epected. */
