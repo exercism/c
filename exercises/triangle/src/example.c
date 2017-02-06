@@ -5,7 +5,7 @@ int triangle_equality(double a, double b, double c)
    return (a < (b + c) && b < (a + c) && c < (a + b));
 }
 
-flavor kind(double a, double b, double c)
+enum flavor kind(double a, double b, double c)
 {
    if (a == 0 || b == 0 || c == 0) {
       return invalid;
