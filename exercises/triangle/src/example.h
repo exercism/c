@@ -1,13 +1,13 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-enum flavor {
-   error,
+typedef enum flavor {
+   invalid,
    equilateral,
    isosceles,
    scalene
 };
 
-int kind(double a, double b, double c);
+flavor kind(double a, double b, double c);
 
 #endif
