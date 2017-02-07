@@ -21,10 +21,9 @@ bool is_equilateral(Triangle_t * input)
 
 bool is_isosceles(Triangle_t * input)
 {
-   return (triangle_equality(input) &&
-           ((input->point_a == input->point_b)
-            || (input->point_b == input->point_c)
-            || (input->point_a == input->point_c))
+   return (triangle_equality(input) && ((input->point_a == input->point_b)
+                                        || (input->point_b == input->point_c)
+                                        || (input->point_a == input->point_c))
        );
 }
 
