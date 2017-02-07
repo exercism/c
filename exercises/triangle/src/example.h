@@ -1,13 +1,15 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
+#include <stdbool.h>
 
-enum flavor {
-   invalid,
-   equilateral,
-   isosceles,
-   scalene
-};
+typedef struct {
+   double point_a;
+   double point_b;
+   double point_c;
+} Triangle_t;
 
-enum flavor kind(double a, double b, double c);
+bool is_equilateral(Triangle_t * input);
+bool is_isosceles(Triangle_t * input);
+bool is_scalene(Triangle_t * input);
 
 #endif

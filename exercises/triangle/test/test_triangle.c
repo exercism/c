@@ -1,81 +1,127 @@
 #include "vendor/unity.h"
 #include "../src/triangle.h"
 
-void test_equilateral_triangles_have_equal_sides(void)
+void test_equilateral_is_true_if_all_sides_are_equal(void)
 {
-   TEST_ASSERT_EQUAL(equilateral, kind(2, 2, 2));
+   Triangle_t sides = { 2, 2, 2 };
+   TEST_ASSERT(is_equilateral(&sides));
 }
 
-void test_larger_equilateral_triangles_also_have_equal_sides(void)
+void test_equilateral_is_false_if_any_side_is_unequal(void)
 {
-   TEST_ASSERT_EQUAL(equilateral, kind(10, 10, 10));
+   Triangle_t sides = { 2, 3, 2 };
+   TEST_ASSERT(!(is_equilateral(&sides)));
 }
 
-void test_isosceles_triangles_have_last_two_sides_equal(void)
+void test_all_zero_sides_are_illegal_so_the_triangle_is_not_equilateral(void)
 {
-   TEST_ASSERT_EQUAL(isosceles, kind(3, 4, 4));
+   Triangle_t sides = { 0, 0, 0 };
+   TEST_ASSERT(!(is_equilateral(&sides)));
 }
 
-void test_isosceles_triangles_have_first_and_last_sides_equal(void)
+void test_in_equilateral_sides_may_be_floats(void)
 {
-   TEST_ASSERT_EQUAL(isosceles, kind(4, 3, 4));
+   Triangle_t sides = { 0.5, 0.5, 0.5 };
+   TEST_ASSERT(is_equilateral(&sides));
 }
 
-void test_isosceles_triangles_have_first_two_sides_equal(void)
+void test_isosceles_is_true_if_last_two_sides_are_equal(void)
 {
-   TEST_ASSERT_EQUAL(isosceles, kind(4, 4, 3));
+   Triangle_t sides = { 3, 4, 4 };
+   TEST_ASSERT(is_isosceles(&sides));
 }
 
-void test_scalene_triangles_have_no_equal_sides(void)
+void test_isosceles_is_true_if_first_two_sides_are_equal(void)
 {
-   TEST_ASSERT_EQUAL(scalene, kind(3, 4, 5));
+   Triangle_t sides = { 4, 4, 3 };
+   TEST_ASSERT(is_isosceles(&sides));
 }
 
-void test_scalene_triangles_have_no_equal_sides_at_a_larger_scale_too(void)
+void test_isosceles_is_true_if_first_and_last_sides_are_equal(void)
 {
-   TEST_ASSERT_EQUAL(scalene, kind(10, 11, 12));
+   Triangle_t sides = { 4, 3, 4 };
+   TEST_ASSERT(is_isosceles(&sides));
 }
 
-void test_very_small_triangles_are_legal(void)
+void test_equilateral_triangles_are_also_isosceles(void)
 {
-   TEST_ASSERT_EQUAL(scalene, kind(0.4, 0.6, 0.3));
+   Triangle_t sides = { 4, 4, 4 };
+   TEST_ASSERT(is_isosceles(&sides));
 }
 
-void test_triangles_with_no_size_are_illegal(void)
+void test_isosceles_is_false_if_no_sides_are_equal(void)
 {
-   TEST_ASSERT_EQUAL(invalid, kind(0, 0, 0));
+   Triangle_t sides = { 2, 3, 4 };
+   TEST_ASSERT(!(is_isosceles(&sides)));
 }
 
-void test_triangles_with_negative_sides_are_illegal(void)
+void
+test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal
+(void)
 {
-   TEST_ASSERT_EQUAL(invalid, kind(3, 4, -5));
+   Triangle_t sides = { 1, 1, 3 };
+   TEST_ASSERT(!(is_isosceles(&sides)));
 }
 
-void test_triangles_violating_triangle_inequality_are_illegal(void)
+void test_in_isosceles_sides_may_be_floats(void)
 {
-   TEST_ASSERT_EQUAL(invalid, kind(1, 1, 3));
+   Triangle_t sides = { 0.5, 0.4, 0.5 };
+   TEST_ASSERT(is_isosceles(&sides));
 }
 
-void test_larger_triangles_violating_triangle_inequality_are_illegal(void)
+void test_scalene_is_true_if_no_sides_are_equal(void)
 {
-   TEST_ASSERT_EQUAL(invalid, kind(7, 3, 2));
+   Triangle_t sides = { 5, 4, 6 };
+   TEST_ASSERT(is_scalene(&sides));
+}
+
+void test_scalene_is_false_if_all_sides_are_equal(void)
+{
+   Triangle_t sides = { 4, 4, 4 };
+   TEST_ASSERT(!(is_scalene(&sides)));
+}
+
+void test_scalene_is_false_if_two_sides_are_equal(void)
+{
+   Triangle_t sides = { 4, 4, 3 };
+   TEST_ASSERT(!(is_scalene(&sides)));
+}
+
+void
+test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different
+(void)
+{
+   Triangle_t sides = { 7, 3, 2 };
+   TEST_ASSERT(!(is_scalene(&sides)));
+}
+
+void test_in_scalene_sides_may_be_floats(void)
+{
+   Triangle_t sides = { 0.5, 0.4, 0.6 };
+   TEST_ASSERT(is_scalene(&sides));
 }
 
 int main(void)
 {
    UnityBegin("test/test_triangle.c");
-   RUN_TEST(test_equilateral_triangles_have_equal_sides);
-   RUN_TEST(test_larger_equilateral_triangles_also_have_equal_sides);
-   RUN_TEST(test_isosceles_triangles_have_last_two_sides_equal);
-   RUN_TEST(test_isosceles_triangles_have_first_and_last_sides_equal);
-   RUN_TEST(test_isosceles_triangles_have_first_two_sides_equal);
-   RUN_TEST(test_scalene_triangles_have_no_equal_sides);
-   RUN_TEST(test_scalene_triangles_have_no_equal_sides_at_a_larger_scale_too);
-   RUN_TEST(test_very_small_triangles_are_legal);
-   RUN_TEST(test_triangles_with_no_size_are_illegal);
-   RUN_TEST(test_triangles_with_negative_sides_are_illegal);
-   RUN_TEST(test_triangles_violating_triangle_inequality_are_illegal);
-   RUN_TEST(test_larger_triangles_violating_triangle_inequality_are_illegal);
+   RUN_TEST(test_equilateral_is_true_if_all_sides_are_equal);
+   RUN_TEST(test_equilateral_is_false_if_any_side_is_unequal);
+   RUN_TEST(test_all_zero_sides_are_illegal_so_the_triangle_is_not_equilateral);
+   RUN_TEST(test_in_equilateral_sides_may_be_floats);
+   RUN_TEST(test_isosceles_is_true_if_last_two_sides_are_equal);
+   RUN_TEST(test_isosceles_is_true_if_first_two_sides_are_equal);
+   RUN_TEST(test_isosceles_is_true_if_first_and_last_sides_are_equal);
+   RUN_TEST(test_equilateral_triangles_are_also_isosceles);
+   RUN_TEST(test_isosceles_is_false_if_no_sides_are_equal);
+   RUN_TEST
+       (test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal);
+   RUN_TEST(test_in_isosceles_sides_may_be_floats);
+   RUN_TEST(test_scalene_is_true_if_no_sides_are_equal);
+   RUN_TEST(test_scalene_is_false_if_all_sides_are_equal);
+   RUN_TEST(test_scalene_is_false_if_two_sides_are_equal);
+   RUN_TEST
+       (test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different);
+   RUN_TEST(test_in_scalene_sides_may_be_floats);
    UnityEnd();
    return 0;
 }
