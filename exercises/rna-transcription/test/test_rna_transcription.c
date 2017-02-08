@@ -1,22 +1,17 @@
 #include "vendor/unity.h"
 #include "../src/rna_transcription.h"
 #include <stdlib.h>
-#include <string.h>
 
 void test_transcription(const char *dna, const char *expected)
 {
    char *rna = to_rna(dna);
-   if (rna != NULL) {           /* Prevent segfault on string comparison and free(). */
-      TEST_ASSERT_EQUAL_STRING(expected, rna);
-      free(rna);
-   } else {
-      TEST_FAIL();              /* to_rna() returned NULL when it was not epected. */
-   }
+   TEST_ASSERT_EQUAL_STRING(expected, rna);
+   free(rna);
 }
 
 void test_failure(const char *dna)
 {
-   TEST_ASSERT_TRUE(to_rna(dna) == NULL);
+   TEST_ASSERT_NULL(to_rna(dna));
 }
 
 void test_transcribes_G_to_C(void)
