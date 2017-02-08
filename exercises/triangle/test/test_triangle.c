@@ -4,101 +4,97 @@
 void test_equilateral_is_true_if_all_sides_are_equal(void)
 {
    Triangle_t sides = { 2, 2, 2 };
-   TEST_ASSERT(is_equilateral(&sides));
+   TEST_ASSERT_TRUE(is_equilateral(&sides ));
 }
 
 void test_equilateral_is_false_if_any_side_is_unequal(void)
 {
    Triangle_t sides = { 2, 3, 2 };
-   TEST_ASSERT(!(is_equilateral(&sides)));
+   TEST_ASSERT_FALSE(is_equilateral(&sides));
 }
 
 void test_all_zero_sides_are_illegal_so_the_triangle_is_not_equilateral(void)
 {
    Triangle_t sides = { 0, 0, 0 };
-   TEST_ASSERT(!(is_equilateral(&sides)));
+    TEST_ASSERT_FALSE(is_equilateral(&sides ));
 }
 
 void test_in_equilateral_sides_may_be_floats(void)
 {
    Triangle_t sides = { 0.5, 0.5, 0.5 };
-   TEST_ASSERT(is_equilateral(&sides));
+    TEST_ASSERT_TRUE(is_equilateral(&sides));
 }
 
 void test_isosceles_is_true_if_last_two_sides_are_equal(void)
 {
    Triangle_t sides = { 3, 4, 4 };
-   TEST_ASSERT(is_isosceles(&sides));
+    TEST_ASSERT_TRUE(is_isosceles(&sides));
 }
 
 void test_isosceles_is_true_if_first_two_sides_are_equal(void)
 {
    Triangle_t sides = { 4, 4, 3 };
-   TEST_ASSERT(is_isosceles(&sides));
+    TEST_ASSERT_TRUE(is_isosceles(&sides));
 }
 
 void test_isosceles_is_true_if_first_and_last_sides_are_equal(void)
 {
    Triangle_t sides = { 4, 3, 4 };
-   TEST_ASSERT(is_isosceles(&sides));
+    TEST_ASSERT_TRUE(is_isosceles(&sides));
 }
 
 void test_equilateral_triangles_are_also_isosceles(void)
 {
    Triangle_t sides = { 4, 4, 4 };
-   TEST_ASSERT(is_isosceles(&sides));
+    TEST_ASSERT_TRUE(is_isosceles(&sides));
 }
 
 void test_isosceles_is_false_if_no_sides_are_equal(void)
 {
    Triangle_t sides = { 2, 3, 4 };
-   TEST_ASSERT(!(is_isosceles(&sides)));
+    TEST_ASSERT_FALSE( is_isosceles(&sides ));
 }
 
-void
-test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal
-(void)
+void test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal(void)
 {
    Triangle_t sides = { 1, 1, 3 };
-   TEST_ASSERT(!(is_isosceles(&sides)));
+    TEST_ASSERT_FALSE( is_isosceles(&sides ));
 }
 
 void test_in_isosceles_sides_may_be_floats(void)
 {
    Triangle_t sides = { 0.5, 0.4, 0.5 };
-   TEST_ASSERT(is_isosceles(&sides));
+    TEST_ASSERT_TRUE(is_isosceles(&sides));
 }
 
 void test_scalene_is_true_if_no_sides_are_equal(void)
 {
    Triangle_t sides = { 5, 4, 6 };
-   TEST_ASSERT(is_scalene(&sides));
+    TEST_ASSERT_TRUE(is_scalene(&sides));
 }
 
 void test_scalene_is_false_if_all_sides_are_equal(void)
 {
    Triangle_t sides = { 4, 4, 4 };
-   TEST_ASSERT(!(is_scalene(&sides)));
+    TEST_ASSERT_FALSE( is_scalene(&sides ));
 }
 
 void test_scalene_is_false_if_two_sides_are_equal(void)
 {
    Triangle_t sides = { 4, 4, 3 };
-   TEST_ASSERT(!(is_scalene(&sides)));
+    TEST_ASSERT_FALSE( is_scalene(&sides ));
 }
 
-void
-test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different
-(void)
+void test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different(void)
 {
    Triangle_t sides = { 7, 3, 2 };
-   TEST_ASSERT(!(is_scalene(&sides)));
+    TEST_ASSERT_FALSE( is_scalene(&sides ));
 }
 
 void test_in_scalene_sides_may_be_floats(void)
 {
    Triangle_t sides = { 0.5, 0.4, 0.6 };
-   TEST_ASSERT(is_scalene(&sides));
+    TEST_ASSERT_TRUE(is_scalene(&sides));
 }
 
 int main(void)
@@ -113,14 +109,12 @@ int main(void)
    RUN_TEST(test_isosceles_is_true_if_first_and_last_sides_are_equal);
    RUN_TEST(test_equilateral_triangles_are_also_isosceles);
    RUN_TEST(test_isosceles_is_false_if_no_sides_are_equal);
-   RUN_TEST
-       (test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal);
+   RUN_TEST(test_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal);
    RUN_TEST(test_in_isosceles_sides_may_be_floats);
    RUN_TEST(test_scalene_is_true_if_no_sides_are_equal);
    RUN_TEST(test_scalene_is_false_if_all_sides_are_equal);
    RUN_TEST(test_scalene_is_false_if_two_sides_are_equal);
-   RUN_TEST
-       (test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different);
+   RUN_TEST(test_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different);
    RUN_TEST(test_in_scalene_sides_may_be_floats);
    UnityEnd();
    return 0;
