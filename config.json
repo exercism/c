@@ -219,7 +219,12 @@
   }, {
      "difficulty": 1,
      "slug": "triangle",
-     "topics": []
+     "topics": [
+		"control-flow (if-else statements)",
+		"Booleans",
+		"Structs",
+		"Mathematics"
+	       ]
   }, {
      "difficulty": 1,
      "slug": "binary",

@@ -2,9 +2,9 @@
 #define TRIANGLE_H
 
 typedef struct {
-   double a;
-   double b;
-   double c;
+   double point_a;
+   double point_b;
+   double point_c;
 } Triangle_t;
 
 #endif
