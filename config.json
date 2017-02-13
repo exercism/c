@@ -220,10 +220,10 @@
      "difficulty": 1,
      "slug": "triangle",
      "topics": [
-		"control-flow (if-else statements)",
-		"Booleans",
-		"Structs",
-		"Mathematics"
+	"control-flow (if-else statements)",
+	"Booleans",
+	"Structs",
+	"Mathematics"
 	       ]
   }, {
      "difficulty": 1,

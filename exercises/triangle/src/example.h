@@ -3,9 +3,9 @@
 #include <stdbool.h>
 
 typedef struct {
-   double point_a;
-   double point_b;
-   double point_c;
+   double a;
+   double b;
+   double c;
 } Triangle_t;
 
 bool is_equilateral(Triangle_t * input);
