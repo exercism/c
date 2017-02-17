@@ -232,6 +232,12 @@
         "control-flow (loops)",
         "control-flow (if-statements)"
 	]
+  }, {
+     "difficulty": 1,
+     "slug": "space-age",
+     "topics": [
+        "Functions"
+	]
   }],
   "deprecated": [
 
