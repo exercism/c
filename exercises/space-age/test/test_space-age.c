@@ -46,6 +46,13 @@ int main(void)
 {
    UnityBegin("test/test_space-age.c");
    RUN_TEST(test_convert_Earth_Year);
+   RUN_TEST(test_convert_Mercury_Year);
+   RUN_TEST(test_convert_Venus_Year);
+   RUN_TEST(test_convert_Mars_Year);
+   RUN_TEST(test_convert_Jupiter_Year);
+   RUN_TEST(test_convert_Saturn_Year);
+   RUN_TEST(test_convert_Uranus_Year);
+   RUN_TEST(test_convert_Neptune_Year);
    UnityEnd();
    return 0;
 }
