@@ -1,5 +1,4 @@
 #include "example.h"
-#include <string.h>
 
 float convert_Earth_Age(const long input)
 {
