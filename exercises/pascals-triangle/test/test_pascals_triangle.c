@@ -16,10 +16,10 @@ bool check(int count, int result[][count], int expected[][count])
 
 void test_no_rows(void)
 {
-   int result[0][0];
-   int expected[0][0] = { };
+   int result[1][1];
+   int expected[1][1];
    pascals_triangle(0, result);
-   TEST_ASSERT_TRUE(check(0, result, expected));
+   TEST_ASSERT_TRUE(check(1, result, expected));
 }
 
 void test_single_row(void)
@@ -71,7 +71,7 @@ void test_four_rows(void)
 void test_negative_rows(void)
 {
    int result[1][1];
-   int expected[1][1] = { -1 };
+   int expected[1][1] = { {-1} };
    pascals_triangle(-1, result);
    TEST_ASSERT_TRUE(check(1, result, expected));
 }
