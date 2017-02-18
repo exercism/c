@@ -1,41 +1,54 @@
-#include "example.h"
+#include "space_age.h"
 
-float convert_Earth_Age(const long input)
+
+/* Number of seconds in a Earth year */
+#define SECONDS_ON_EARTH_YEAR 31557600
+
+/* Orbital period of each planet, in Earth years */
+#define MERCURY_YEAR 0.2408467
+#define VENUS_YEAR 0.61519726
+#define MARS_YEAR 1.8808158
+#define JUPITER_YEAR 11.862615
+#define SATURN_YEAR 29.447498
+#define URANUS_YEAR 84.016846
+#define NEPTUNE_YEAR 164.79132
+
+float convert_earth_age(const long input)
 {
    return input/SECONDS_ON_EARTH_YEAR;
 }
 
-float convert_Mercury_Age(const long input)
+float convert_mercury_age(const long input)
 {
-   return convert_Earth_Age(input)/MERCURY_YEAR;
+   return convert_earth_age(input)/MERCURY_YEAR;
 }
 
-float convert_Venus_Age(const long input)
+float convert_venus_age(const long input)
 {
-   return convert_Earth_Age(input)/VENUS_YEAR;
+   return convert_earth_age(input)/VENUS_YEAR;
 }
 
-float convert_Mars_Age(const long input)
+float convert_mars_age(const long input)
 {
-   return convert_Earth_Age(input)/MARS_YEAR;
+   return convert_earth_age(input)/MARS_YEAR;
 }
 
-float convert_Jupiter_Age(const long input)
+float convert_jupiter_age(const long input)
 {
-   return convert_Earth_Age(input)/JUPITER_YEAR;
+   return convert_earth_age(input)/JUPITER_YEAR;
 }
 
-float convert_Saturn_Age(const long input)
+float convert_saturn_age(const long input)
 {
-   return convert_Earth_Age(input)/SATURN_YEAR;
+   return convert_earth_age(input)/SATURN_YEAR;
 }
 
-float convert_Uranus_Age(const long input)
+float convert_uranus_age(const long input)
 {
-   return convert_Earth_Age(input)/URANUS_YEAR;
+   return convert_earth_age(input)/URANUS_YEAR;
 }
 
-float convert_Neptune_Age(const long input)
+float convert_neptune_age(const long input)
 {
-   return convert_Earth_Age(input)/NEPTUNE_YEAR;
+   return convert_earth_age(input)/NEPTUNE_YEAR;
 }
