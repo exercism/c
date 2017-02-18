@@ -227,6 +227,14 @@
 	       ]
   }, {
      "difficulty": 1,
+     "slug": "pascals-triangle",
+     "topics": [
+        "control-flow (if-else statements)",
+        "Booleans",
+        "Mathematics"
+               ]
+  }, {
+     "difficulty": 1,
      "slug": "binary",
      "topics": [
         "control-flow (loops)",
