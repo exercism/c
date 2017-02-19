@@ -11,6 +11,6 @@ test: tests.out
 clean:
 	rm -f *.o *.out
 
-tests.out: test/test_space-age.c src/space-age.c src/space-age.h
+tests.out: test/test_space_age.c src/space_age.c src/space_age.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/space-age.c test/vendor/unity.c test/test_space-age.c -o tests.out
+	@cc $(CFLAGS) src/space_age.c test/vendor/unity.c test/test_space_age.c -o tests.out
