@@ -4,42 +4,42 @@
 
 void test_convert_earth_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(1, convert_earth_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(31.69, convert_earth_age(1000000000));
 }
 
 void test_convert_mercury_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(0.2408467, convert_mercury_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(280.88, convert_mercury_age(2134835688));
 }
 
 void test_convert_venus_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(0.61519726, convert_venus_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(9.78, convert_venus_age(189839836));
 }
 
 void test_convert_mars_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(1.8808158, convert_mars_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(39.25, convert_mars_age(2329871239));
 }
 
 void test_convert_jupiter_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(11.862615, convert_jupiter_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(2.41, convert_jupiter_age(901876382));
 }
 
 void test_convert_saturn_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(29.447498, convert_saturn_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(3.23, convert_saturn_age(3000000000));
 }
 
 void test_convert_uranus_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(84.016846, convert_uranus_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(1.21, convert_uranus_age(3210123456));
 }
 
 void test_convert_neptune_year(void)
 {
-   TEST_ASSERT_EQUAL_FLOAT(164.79132, convert_neptune_age(SECONDS_ON_EARTH_YEAR));
+   TEST_ASSERT_EQUAL_FLOAT(1.58, convert_neptune_age(8210123456));
 }
 
 int main(void)
