@@ -2,7 +2,7 @@
 #include "../src/pascals_triangle.h"
 #include "vendor/unity.h"
 
-bool check(int count, int result[][count], int expected[][count])
+bool check(int count, size_t result[][count], size_t expected[][count])
 {
    for (int i = 0; i < count; i++) {
       for (int j = 0; j < i; j++) {
@@ -16,16 +16,16 @@ bool check(int count, int result[][count], int expected[][count])
 
 void test_no_rows(void)
 {
-   int result[1][1];
-   int expected[1][1];
+   size_t result[1][1];
+   size_t expected[1][1];
    pascals_triangle(0, result);
    TEST_ASSERT_TRUE(check(1, result, expected));
 }
 
 void test_single_row(void)
 {
-   int result[1][1];
-   int expected[1][1] = {
+   size_t result[1][1];
+   size_t expected[1][1] = {
       {1}
    };
    pascals_triangle(1, result);
@@ -34,8 +34,8 @@ void test_single_row(void)
 
 void test_two_rows(void)
 {
-   int result[2][2];
-   int expected[2][2] = {
+   size_t result[2][2];
+   size_t expected[2][2] = {
       {1},
       {1, 1}
    };
@@ -45,8 +45,8 @@ void test_two_rows(void)
 
 void test_three_rows(void)
 {
-   int result[3][3];
-   int expected[3][3] = {
+   size_t result[3][3];
+   size_t expected[3][3] = {
       {1},
       {1, 1},
       {1, 2, 1}
@@ -57,8 +57,8 @@ void test_three_rows(void)
 
 void test_four_rows(void)
 {
-   int result[4][4];
-   int expected[4][4] = {
+   size_t result[4][4];
+   size_t expected[4][4] = {
       {1},
       {1, 1},
       {1, 2, 1},
@@ -70,8 +70,8 @@ void test_four_rows(void)
 
 void test_negative_rows(void)
 {
-   int result[1][1];
-   int expected[1][1] = { {-1} };
+   size_t result[1][1];
+   size_t expected[1][1] = { {-1} };
    pascals_triangle(-1, result);
    TEST_ASSERT_TRUE(check(1, result, expected));
 }
