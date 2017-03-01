@@ -1,7 +1,8 @@
 #ifndef PASCALS_TRIANGLE_H
 #define PASCALS_TRIANGLE_H
-#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
 
-int pascals_triangle(int count, size_t input[][count]);
+size_t **pascals_triangle(char *count);
 
 #endif
