@@ -27,7 +27,7 @@ size_t **pascals_triangle(char *count)
    zero[0][0] = 0;
    int i, j;
    int rows = atoi(count);
-   if (!strcmp(count, "0") || !strcmp(count, "21")) {
+   if (!strcmp(count, "0") || rows > 20) {
       return zero;
    }
    if ((rows && rows >= 0 && strcmp(count, ""))
