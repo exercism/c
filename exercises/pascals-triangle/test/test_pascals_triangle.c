@@ -17,7 +17,7 @@ static bool check(size_t count, size_t expected[][count], size_t ** result)
 
 void test_no_rows(void)
 {
-   size_t expected[1][1] = { 0 };
+   size_t expected[1][1] = { {0} };
    TEST_ASSERT_TRUE(check(1, expected, pascals_triangle("0")));
 }
 
