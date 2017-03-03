@@ -2,7 +2,7 @@
 #include "stdio.h"
 #include "assert.h"
 #include "string.h"
-
+#include "stdlib.h"
 
 int isPalindrome(int a, int b){
 
@@ -28,7 +28,8 @@ int isPalindrome(int a, int b){
 
 Paire* palindromeFactors(int min, int max){
    
-   Paire* tableP = malloc(sizeof(Paire));
+   Paire* tableP;
+   assert((tableP = malloc(sizeof(Paire)))!=NULL);
    Paire stock;
    int i,j,tablePcount = 0;
    for( i = min; i <= max; i++){
@@ -38,7 +39,7 @@ Paire* palindromeFactors(int min, int max){
            stock.b = j;
            tableP[tablePcount] = stock;
            tablePcount++;
-           realloc(tableP,sizeof(Paire);
+           assert(realloc(tableP,sizeof(Paire))!=NULL);
          }
       }
    }
