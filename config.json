@@ -238,6 +238,13 @@
      "topics": [
         "Functions"
      ]
+  }, {
+     "difficulty": 10,
+     "slug": "react",
+     "topics": [
+        "memory management",
+        "Functions"
+     ]
   }],
   "deprecated": [
 
