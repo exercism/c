@@ -1,6 +1,6 @@
-#ifndef  _RNA_TRANSCRIPTION_H
-#define _RNA_TRANSCRIPTION_H
+#ifndef  _NUCLEOTIDE_COUNT_H
+#define _NUCLEOTIDE_COUNT_H
 
-char *to_rna(const char *dna);
+char *count(const char *dna_strand);
 
 #endif

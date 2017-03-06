@@ -1,31 +1,43 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
-#include "rna_transcription.h"
+#include <stdbool.h>
+#include "nucleotide_count.h"
 
-char *to_rna(const char *dna)
+char *count(const char *dna_strand)
 {
-   size_t len = strlen(dna);
-   char *rna = malloc(sizeof(char) * len);
+   bool invalidChar = false;
+   uint16_t index;
+   uint16_t count_a = 0;
+   uint16_t count_c = 0;
+   uint16_t count_g = 0;
+   uint16_t count_t = 0;
+   char *count_results = calloc(1, 50);
 
-   for (size_t i = 0; i < len; i++) {
-      switch (dna[i]) {
-      case 'G':
-         rna[i] = 'C';
+   for (index = 0; (index < strlen(dna_strand)) && (invalidChar == false);
+        index++) {
+      switch (dna_strand[index]) {
+      case 'A':
+         count_a++;
          break;
       case 'C':
-         rna[i] = 'G';
+         count_c++;
+         break;
+      case 'G':
+         count_g++;
          break;
       case 'T':
-         rna[i] = 'A';
-         break;
-      case 'A':
-         rna[i] = 'U';
+         count_t++;
          break;
       default:
-         free(rna);
-         return NULL;
+         invalidChar = true;
+         break;
       }
    }
 
-   return rna;
+   if (!invalidChar) {
+      sprintf(count_results, "A:%u C:%u G:%u T:%u", count_a, count_c, count_g,
+              count_t);
+   }
+   return count_results;
 }

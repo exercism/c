@@ -1,72 +1,57 @@
 #include "vendor/unity.h"
-#include "../src/rna_transcription.h"
+#include "../src/nucleotide_count.h"
 #include <stdlib.h>
 #include <string.h>
 
-void test_transcription(const char *dna, const char *expected)
+void test_strand_count(const char *dna_strand, const char *expected)
 {
-   char *rna = to_rna(dna);
-   TEST_ASSERT_TRUE(strncmp(rna, expected, strlen(dna)) == 0);
-   free(rna);
+   char *actual_count = count(dna_strand);
+
+   TEST_ASSERT_TRUE(strcmp(actual_count, expected) == 0);
+   free(actual_count);
 }
 
-void test_failure(const char *dna)
+void test_empty_strand(void)
 {
-   TEST_ASSERT_TRUE(to_rna(dna) == NULL);
+   const char *dna_strand = "";
+   const char *expected = "A:0 C:0 G:0 T:0";
+
+   test_strand_count(dna_strand, expected);
 }
 
-void test_transcribes_G_to_C(void)
+void test_repeated_nucleotide(void)
 {
-   test_transcription("G", "C");
+   const char *dna_strand = "GGGGGGG";
+   const char *expected = "A:0 C:0 G:7 T:0";
+
+   test_strand_count(dna_strand, expected);
 }
 
-void test_transcribes_C_to_G(void)
+void test_multiple_nucleotides(void)
 {
-   test_transcription("C", "G");
+   const char *dna_strand =
+       "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
+   const char *expected = "A:20 C:12 G:17 T:21";
+
+   test_strand_count(dna_strand, expected);
 }
 
-void test_transcribes_T_to_A(void)
+void test_invalid_nucleotide(void)
 {
-   test_transcription("T", "A");
-}
+   const char *dna_strand = "AGXXACT";
+   const char *expected = "";
 
-void test_transcribes_A_to_U(void)
-{
-   test_transcription("A", "U");
-}
-
-void test_transcribes_all_occurrences(void)
-{
-   test_transcription("ACGTGGTCTTAA", "UGCACCAGAAUU");
-}
-
-void test_handle_invalid_nucleotide(void)
-{
-   test_failure("U");
-}
-
-void test_handle_completely_invalid_input(void)
-{
-   test_failure("XXX");
-}
-
-void test_handle_partially_invalid_input(void)
-{
-   test_failure("ACGTXXXCTTAA");
+   test_strand_count(dna_strand, expected);
 }
 
 int main(void)
 {
    UnityBegin("test/test_rna_transcription.c");
 
-   RUN_TEST(test_transcribes_G_to_C);
-   RUN_TEST(test_transcribes_C_to_G);
-   RUN_TEST(test_transcribes_T_to_A);
-   RUN_TEST(test_transcribes_A_to_U);
-   RUN_TEST(test_transcribes_all_occurrences);
-   RUN_TEST(test_handle_invalid_nucleotide);
-   RUN_TEST(test_handle_completely_invalid_input);
-   RUN_TEST(test_handle_partially_invalid_input);
+   RUN_TEST(test_empty_strand);
+   RUN_TEST(test_repeated_nucleotide);
+   RUN_TEST(test_multiple_nucleotides);
+   RUN_TEST(test_invalid_nucleotide);
 
    UnityEnd();
    return 0;
