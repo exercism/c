@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include "nucleotide_count.h"
 
 char *count(const char *dna_strand)
