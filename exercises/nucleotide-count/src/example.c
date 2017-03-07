@@ -9,26 +9,26 @@ char *count(const char *dna_strand)
 {
    bool invalidChar = false;
    uint16_t index;
-   uint16_t count_a = 0;
-   uint16_t count_c = 0;
-   uint16_t count_g = 0;
-   uint16_t count_t = 0;
+   uint16_t nucleotide_A_count = 0;
+   uint16_t nucleotide_C_count = 0;
+   uint16_t nucleotide_G_count = 0;
+   uint16_t nucleotide_T_count = 0;
    char *count_results = calloc(1, 50);
 
    for (index = 0; (index < strlen(dna_strand)) && (invalidChar == false);
         index++) {
       switch (dna_strand[index]) {
       case 'A':
-         count_a++;
+         nucleotide_A_count++;
          break;
       case 'C':
-         count_c++;
+         nucleotide_C_count++;
          break;
       case 'G':
-         count_g++;
+         nucleotide_G_count++;
          break;
       case 'T':
-         count_t++;
+         nucleotide_T_count++;
          break;
       default:
          invalidChar = true;
@@ -37,8 +37,8 @@ char *count(const char *dna_strand)
    }
 
    if (!invalidChar) {
-      sprintf(count_results, "A:%u C:%u G:%u T:%u", count_a, count_c, count_g,
-              count_t);
+      sprintf(count_results, "A:%u C:%u G:%u T:%u", nucleotide_A_count,
+              nucleotide_C_count, nucleotide_G_count, nucleotide_T_count);
    }
    return count_results;
 }
