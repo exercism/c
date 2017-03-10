@@ -2,7 +2,7 @@
 #define SPACE_AGE_H
 
 typedef enum planets {
-   mercury = 0,
+   mercury,
    venus,
    earth,
    mars,
@@ -10,7 +10,6 @@ typedef enum planets {
    saturn,
    uranus,
    neptune,
-   max_planet = neptune
 } Planets;
 
 float convert_planet_age(Planets planet, const long input);
