@@ -116,9 +116,10 @@ void test_compute_cells_fire_callbacks(void)
    destroy_reactor(r);
 }
 
-static void cb_noop(void *obj __attribute__ ((unused)), int v
-                    __attribute__ ((unused)))
+static void cb_noop(void *obj, int v)
 {
+   (void)obj;
+   (void)v;
 }
 
 void test_compute_cells_dont_access_callback_obj(void)
