@@ -42,7 +42,7 @@ struct reactor *create_reactor()
    return r;
 }
 
-void free_reactor(struct reactor *r)
+void destroy_reactor(struct reactor *r)
 {
    struct child *child = r->first;
    while (child) {

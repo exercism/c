@@ -10,7 +10,7 @@ void test_input_cells_have_value(void)
 
    TEST_ASSERT_EQUAL_INT(2, cell_value(input));
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static int plus1(int x)
@@ -26,7 +26,7 @@ void test_compute_cells_calculate_initial_value(void)
 
    TEST_ASSERT_EQUAL_INT(2, cell_value(output));
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static int concat_digits(int a, int b)
@@ -43,7 +43,7 @@ void test_compute_cells_take_inputs_in_the_right_order(void)
 
    TEST_ASSERT_EQUAL_INT(21, cell_value(output));
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 void test_compute_cells_update_value_when_dependencies_are_changed(void)
@@ -55,7 +55,7 @@ void test_compute_cells_update_value_when_dependencies_are_changed(void)
    cell_value_set(input, 3);
    TEST_ASSERT_EQUAL_INT(4, cell_value(output));
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static int times2(int x)
@@ -85,7 +85,7 @@ void test_compute_cells_can_depend_on_other_compute_cells(void)
    cell_value_set(input, 3);
    TEST_ASSERT_EQUAL_INT(96, cell_value(output));
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 struct cbinfo {
@@ -113,7 +113,7 @@ void test_compute_cells_fire_callbacks(void)
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
    TEST_ASSERT_EQUAL_INT(4, cbinfo.last_value);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static void cb_noop(void *obj __attribute__ ((unused)), int v
@@ -131,7 +131,7 @@ void test_compute_cells_dont_access_callback_obj(void)
 
    cell_value_set(input, 3);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static int big_if_three(int x)
@@ -155,7 +155,7 @@ void test_callbacks_only_fire_on_change(void)
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
    TEST_ASSERT_EQUAL_INT(222, cbinfo.last_value);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 void test_callbacks_can_be_added_and_removed(void)
@@ -184,7 +184,7 @@ void test_callbacks_can_be_added_and_removed(void)
    TEST_ASSERT_EQUAL_INT(1, cbinfo3.times_called);
    TEST_ASSERT_EQUAL_INT(42, cbinfo3.last_value);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 void test_removing_a_callback_multiple_times(void)
@@ -207,7 +207,7 @@ void test_removing_a_callback_multiple_times(void)
    TEST_ASSERT_EQUAL_INT(1, cbinfo2.times_called);
    TEST_ASSERT_EQUAL_INT(3, cbinfo2.last_value);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static int minus1(int x)
@@ -237,7 +237,7 @@ void test_callbacks_only_called_once_even_if_multiple_inputs_change(void)
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
    TEST_ASSERT_EQUAL_INT(10, cbinfo.last_value);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 static int minus(int x, int y)
@@ -263,7 +263,7 @@ void test_callbacks_not_called_if_inputs_change_but_output_doesnt(void)
 
    TEST_ASSERT_EQUAL_INT(0, cbinfo.times_called);
 
-   free_reactor(r);
+   destroy_reactor(r);
 }
 
 int main(void)

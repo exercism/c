@@ -8,8 +8,8 @@ typedef int (*compute1) (int);
 typedef int (*compute2) (int, int);
 
 struct reactor *create_reactor();
-// free_reactor should free all cells created under that reactor.
-void free_reactor(struct reactor *);
+// destroy_reactor should free all cells created under that reactor.
+void destroy_reactor(struct reactor *);
 
 struct cell *create_input_cell(struct reactor *, int initial_value);
 struct cell *create_compute1_cell(struct reactor *, struct cell *, compute1);
