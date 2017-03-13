@@ -165,13 +165,12 @@ void remove_callback(struct cell *c, callback_id to_remove)
 {
    if (!c->cb) {
       return;
-   } else if (c->cb->id == to_remove) {
-      struct cb *to_free = c->cb;
-      c->cb = c->cb->next;
-      free(to_free);
-      return;
    }
-   for (struct cb * prev = c->cb, *cb = c->cb->next; cb;
+   // this dummy starting node reduces code duplication,
+   // in case the ID to remove is at the head of the list.
+   struct cb dummy;
+   dummy.next = c->cb;
+   for (struct cb * prev = &dummy, *cb = c->cb; cb;
         prev = prev->next, cb = cb->next) {
       if (cb->id == to_remove) {
          prev->next = cb->next;
