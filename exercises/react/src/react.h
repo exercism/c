@@ -16,7 +16,7 @@ struct cell *create_compute1_cell(struct reactor *, struct cell *, compute1);
 struct cell *create_compute2_cell(struct reactor *, struct cell *,
                                   struct cell *, compute2);
 
-int cell_value(struct cell *);
+int get_cell_value(struct cell *);
 void set_cell_value(struct cell *, int new_value);
 
 typedef void (*callback) (void *, int);

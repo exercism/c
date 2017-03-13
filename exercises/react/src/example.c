@@ -91,7 +91,7 @@ struct cell *create_compute1_cell(struct reactor *r, struct cell *input,
    c->kind = kind_compute1;
    c->input1 = input;
    c->compute1 = compute;
-   c->value = compute(cell_value(input));
+   c->value = compute(get_cell_value(input));
    return c;
 }
 
@@ -105,11 +105,11 @@ struct cell *create_compute2_cell(struct reactor *r, struct cell *input1,
    c->input1 = input1;
    c->input2 = input2;
    c->compute2 = compute;
-   c->value = compute(cell_value(input1), cell_value(input2));
+   c->value = compute(get_cell_value(input1), get_cell_value(input2));
    return c;
 }
 
-int cell_value(struct cell *c)
+int get_cell_value(struct cell *c)
 {
    return c->value;
 }
@@ -119,10 +119,11 @@ static void propagate(struct cell *c)
    int new_value;
    switch (c->kind) {
    case kind_compute1:
-      new_value = c->compute1(cell_value(c->input1));
+      new_value = c->compute1(get_cell_value(c->input1));
       break;
    case kind_compute2:
-      new_value = c->compute2(cell_value(c->input1), cell_value(c->input2));
+      new_value =
+          c->compute2(get_cell_value(c->input1), get_cell_value(c->input2));
       break;
    default:
       return;

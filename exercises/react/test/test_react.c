@@ -8,7 +8,7 @@ void test_input_cells_have_value(void)
    struct reactor *r = create_reactor();
    struct cell *input = create_input_cell(r, 2);
 
-   TEST_ASSERT_EQUAL_INT(2, cell_value(input));
+   TEST_ASSERT_EQUAL_INT(2, get_cell_value(input));
 
    destroy_reactor(r);
 }
@@ -24,7 +24,7 @@ void test_compute_cells_calculate_initial_value(void)
    struct cell *input = create_input_cell(r, 1);
    struct cell *output = create_compute1_cell(r, input, plus1);
 
-   TEST_ASSERT_EQUAL_INT(2, cell_value(output));
+   TEST_ASSERT_EQUAL_INT(2, get_cell_value(output));
 
    destroy_reactor(r);
 }
@@ -41,7 +41,7 @@ void test_compute_cells_take_inputs_in_the_right_order(void)
    struct cell *two = create_input_cell(r, 2);
    struct cell *output = create_compute2_cell(r, one, two, concat_digits);
 
-   TEST_ASSERT_EQUAL_INT(21, cell_value(output));
+   TEST_ASSERT_EQUAL_INT(21, get_cell_value(output));
 
    destroy_reactor(r);
 }
@@ -53,7 +53,7 @@ void test_compute_cells_update_value_when_dependencies_are_changed(void)
    struct cell *output = create_compute1_cell(r, input, plus1);
 
    set_cell_value(input, 3);
-   TEST_ASSERT_EQUAL_INT(4, cell_value(output));
+   TEST_ASSERT_EQUAL_INT(4, get_cell_value(output));
 
    destroy_reactor(r);
 }
@@ -81,9 +81,9 @@ void test_compute_cells_can_depend_on_other_compute_cells(void)
    struct cell *times_thirty = create_compute1_cell(r, input, times30);
    struct cell *output = create_compute2_cell(r, times_two, times_thirty, plus);
 
-   TEST_ASSERT_EQUAL_INT(32, cell_value(output));
+   TEST_ASSERT_EQUAL_INT(32, get_cell_value(output));
    set_cell_value(input, 3);
-   TEST_ASSERT_EQUAL_INT(96, cell_value(output));
+   TEST_ASSERT_EQUAL_INT(96, get_cell_value(output));
 
    destroy_reactor(r);
 }
