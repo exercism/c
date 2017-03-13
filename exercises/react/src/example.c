@@ -75,9 +75,6 @@ static void add_child(struct reactor *r, struct cell *cell)
 struct cell *create_input_cell(struct reactor *r, int initial_value)
 {
    struct cell *c = calloc(1, sizeof(struct cell));
-   if (!c) {
-      return NULL;
-   }
    add_child(r, c);
    c->reactor = r;
    c->kind = kind_input;
@@ -89,9 +86,6 @@ struct cell *create_compute1_cell(struct reactor *r, struct cell *input,
                                   compute1 compute)
 {
    struct cell *c = calloc(1, sizeof(struct cell));
-   if (!c) {
-      return NULL;
-   }
    add_child(r, c);
    c->reactor = r;
    c->kind = kind_compute1;
@@ -105,9 +99,6 @@ struct cell *create_compute2_cell(struct reactor *r, struct cell *input1,
                                   struct cell *input2, compute2 compute)
 {
    struct cell *c = calloc(1, sizeof(struct cell));
-   if (!c) {
-      return NULL;
-   }
    add_child(r, c);
    c->reactor = r;
    c->kind = kind_compute2;
@@ -162,9 +153,6 @@ void cell_value_set(struct cell *c, int new_value)
 callback_id add_callback(struct cell *c, void *obj, callback f)
 {
    struct cb *cb = calloc(1, sizeof(struct cb));
-   if (!cb) {
-      return -1;
-   }
    cb->id = c->callbacks_issued++;
    cb->next = c->cb;
    cb->obj = obj;
