@@ -52,7 +52,7 @@ void test_compute_cells_update_value_when_dependencies_are_changed(void)
    struct cell *input = create_input_cell(r, 1);
    struct cell *output = create_compute1_cell(r, input, plus1);
 
-   cell_value_set(input, 3);
+   set_cell_value(input, 3);
    TEST_ASSERT_EQUAL_INT(4, cell_value(output));
 
    destroy_reactor(r);
@@ -82,7 +82,7 @@ void test_compute_cells_can_depend_on_other_compute_cells(void)
    struct cell *output = create_compute2_cell(r, times_two, times_thirty, plus);
 
    TEST_ASSERT_EQUAL_INT(32, cell_value(output));
-   cell_value_set(input, 3);
+   set_cell_value(input, 3);
    TEST_ASSERT_EQUAL_INT(96, cell_value(output));
 
    destroy_reactor(r);
@@ -109,7 +109,7 @@ void test_compute_cells_fire_callbacks(void)
    struct cbinfo cbinfo = { -1, 0 };
    add_callback(output, &cbinfo, cb_spy);
 
-   cell_value_set(input, 3);
+   set_cell_value(input, 3);
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
    TEST_ASSERT_EQUAL_INT(4, cbinfo.last_value);
 
@@ -130,7 +130,7 @@ void test_compute_cells_dont_access_callback_obj(void)
 
    add_callback(output, NULL, cb_noop);
 
-   cell_value_set(input, 3);
+   set_cell_value(input, 3);
 
    destroy_reactor(r);
 }
@@ -149,10 +149,10 @@ void test_callbacks_only_fire_on_change(void)
    struct cbinfo cbinfo = { -1, 0 };
    add_callback(output, &cbinfo, cb_spy);
 
-   cell_value_set(input, 2);
+   set_cell_value(input, 2);
    TEST_ASSERT_EQUAL_INT(0, cbinfo.times_called);
 
-   cell_value_set(input, 4);
+   set_cell_value(input, 4);
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
    TEST_ASSERT_EQUAL_INT(222, cbinfo.last_value);
 
@@ -170,13 +170,13 @@ void test_callbacks_can_be_added_and_removed(void)
    struct cbinfo cbinfo2 = { -1, 0 };
    add_callback(output, &cbinfo2, cb_spy);
 
-   cell_value_set(input, 31);
+   set_cell_value(input, 31);
 
    remove_callback(output, cb1);
    struct cbinfo cbinfo3 = { -1, 0 };
    add_callback(output, &cbinfo3, cb_spy);
 
-   cell_value_set(input, 41);
+   set_cell_value(input, 41);
 
    TEST_ASSERT_EQUAL_INT(1, cbinfo1.times_called);
    TEST_ASSERT_EQUAL_INT(32, cbinfo1.last_value);
@@ -200,7 +200,7 @@ void test_removing_most_recent_callback(void)
    callback_id cb2 = add_callback(output, &cbinfo2, cb_spy);
    remove_callback(output, cb2);
 
-   cell_value_set(input, 31);
+   set_cell_value(input, 31);
 
    TEST_ASSERT_EQUAL_INT(1, cbinfo1.times_called);
    TEST_ASSERT_EQUAL_INT(32, cbinfo1.last_value);
@@ -223,7 +223,7 @@ void test_removing_a_callback_multiple_times(void)
       remove_callback(output, cb1);
    }
 
-   cell_value_set(input, 2);
+   set_cell_value(input, 2);
 
    TEST_ASSERT_EQUAL_INT(0, cbinfo1.times_called);
    TEST_ASSERT_EQUAL_INT(1, cbinfo2.times_called);
@@ -254,7 +254,7 @@ void test_callbacks_only_called_once_even_if_multiple_inputs_change(void)
    struct cbinfo cbinfo = { -1, 0 };
    add_callback(output, &cbinfo, cb_spy);
 
-   cell_value_set(input, 4);
+   set_cell_value(input, 4);
 
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
    TEST_ASSERT_EQUAL_INT(10, cbinfo.last_value);
@@ -280,7 +280,7 @@ void test_callbacks_not_called_if_inputs_change_but_output_doesnt(void)
    add_callback(always_two, &cbinfo, cb_spy);
 
    for (int i = 0; i < 10; ++i) {
-      cell_value_set(input, i);
+      set_cell_value(input, i);
    }
 
    TEST_ASSERT_EQUAL_INT(0, cbinfo.times_called);

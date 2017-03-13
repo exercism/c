@@ -137,7 +137,7 @@ static void propagate(struct cell *c)
 
 }
 
-void cell_value_set(struct cell *c, int new_value)
+void set_cell_value(struct cell *c, int new_value)
 {
    c->value = new_value;
    struct reactor *r = c->reactor;
