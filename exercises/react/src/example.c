@@ -173,6 +173,9 @@ void remove_callback(struct cell *c, callback_id to_remove)
    for (struct cb * prev = &dummy, *cb = c->cb; cb;
         prev = prev->next, cb = cb->next) {
       if (cb->id == to_remove) {
+         if (cb == c->cb) {
+            c->cb = cb->next;
+         }
          prev->next = cb->next;
          free(cb);
          return;

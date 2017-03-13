@@ -188,6 +188,27 @@ void test_callbacks_can_be_added_and_removed(void)
    destroy_reactor(r);
 }
 
+void test_removing_most_recent_callback(void)
+{
+   struct reactor *r = create_reactor();
+   struct cell *input = create_input_cell(r, 11);
+   struct cell *output = create_compute1_cell(r, input, plus1);
+
+   struct cbinfo cbinfo1 = { -1, 0 };
+   add_callback(output, &cbinfo1, cb_spy);
+   struct cbinfo cbinfo2 = { -1, 0 };
+   callback_id cb2 = add_callback(output, &cbinfo2, cb_spy);
+   remove_callback(output, cb2);
+
+   cell_value_set(input, 31);
+
+   TEST_ASSERT_EQUAL_INT(1, cbinfo1.times_called);
+   TEST_ASSERT_EQUAL_INT(32, cbinfo1.last_value);
+   TEST_ASSERT_EQUAL_INT(0, cbinfo2.times_called);
+
+   destroy_reactor(r);
+}
+
 void test_removing_a_callback_multiple_times(void)
 {
    struct reactor *r = create_reactor();
@@ -280,6 +301,7 @@ int main(void)
    RUN_TEST(test_compute_cells_dont_access_callback_obj);
    RUN_TEST(test_callbacks_only_fire_on_change);
    RUN_TEST(test_callbacks_can_be_added_and_removed);
+   RUN_TEST(test_removing_most_recent_callback);
    RUN_TEST(test_removing_a_callback_multiple_times);
    RUN_TEST(test_callbacks_only_called_once_even_if_multiple_inputs_change);
    RUN_TEST(test_callbacks_not_called_if_inputs_change_but_output_doesnt);
