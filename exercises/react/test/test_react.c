@@ -13,6 +13,17 @@ void test_input_cells_have_value(void)
    destroy_reactor(r);
 }
 
+void test_input_cells_value_can_be_set(void)
+{
+   struct reactor *r = create_reactor();
+   struct cell *input = create_input_cell(r, 4);
+
+   set_cell_value(input, 20);
+   TEST_ASSERT_EQUAL_INT(20, get_cell_value(input));
+
+   destroy_reactor(r);
+}
+
 static int plus1(int x)
 {
    return x + 1;
@@ -293,6 +304,7 @@ int main(void)
    UnityBegin("test/test_react.c");
 
    RUN_TEST(test_input_cells_have_value);
+   RUN_TEST(test_input_cells_value_can_be_set);
    RUN_TEST(test_compute_cells_calculate_initial_value);
    RUN_TEST(test_compute_cells_take_inputs_in_the_right_order);
    RUN_TEST(test_compute_cells_update_value_when_dependencies_are_changed);
