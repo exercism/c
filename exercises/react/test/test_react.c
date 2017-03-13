@@ -93,7 +93,7 @@ struct cbinfo {
    int times_called;
 };
 
-static void cb_record_last_value(void *obj, int v)
+static void cb_spy(void *obj, int v)
 {
    struct cbinfo *cbinfo = (struct cbinfo *)obj;
    cbinfo->last_value = v;
@@ -107,7 +107,7 @@ void test_compute_cells_fire_callbacks(void)
    struct cell *output = create_compute1_cell(r, input, plus1);
 
    struct cbinfo cbinfo = { -1, 0 };
-   add_callback(output, &cbinfo, cb_record_last_value);
+   add_callback(output, &cbinfo, cb_spy);
 
    cell_value_set(input, 3);
    TEST_ASSERT_EQUAL_INT(1, cbinfo.times_called);
@@ -146,7 +146,7 @@ void test_callbacks_only_fire_on_change(void)
    struct cell *output = create_compute1_cell(r, input, big_if_three);
 
    struct cbinfo cbinfo = { -1, 0 };
-   add_callback(output, &cbinfo, cb_record_last_value);
+   add_callback(output, &cbinfo, cb_spy);
 
    cell_value_set(input, 2);
    TEST_ASSERT_EQUAL_INT(0, cbinfo.times_called);
@@ -165,15 +165,15 @@ void test_callbacks_can_be_added_and_removed(void)
    struct cell *output = create_compute1_cell(r, input, plus1);
 
    struct cbinfo cbinfo1 = { -1, 0 };
-   callback_id cb1 = add_callback(output, &cbinfo1, cb_record_last_value);
+   callback_id cb1 = add_callback(output, &cbinfo1, cb_spy);
    struct cbinfo cbinfo2 = { -1, 0 };
-   add_callback(output, &cbinfo2, cb_record_last_value);
+   add_callback(output, &cbinfo2, cb_spy);
 
    cell_value_set(input, 31);
 
    remove_callback(output, cb1);
    struct cbinfo cbinfo3 = { -1, 0 };
-   add_callback(output, &cbinfo3, cb_record_last_value);
+   add_callback(output, &cbinfo3, cb_spy);
 
    cell_value_set(input, 41);
 
@@ -194,9 +194,9 @@ void test_removing_a_callback_multiple_times(void)
    struct cell *output = create_compute1_cell(r, input, plus1);
 
    struct cbinfo cbinfo1 = { -1, 0 };
-   callback_id cb1 = add_callback(output, &cbinfo1, cb_record_last_value);
+   callback_id cb1 = add_callback(output, &cbinfo1, cb_spy);
    struct cbinfo cbinfo2 = { -1, 0 };
-   add_callback(output, &cbinfo2, cb_record_last_value);
+   add_callback(output, &cbinfo2, cb_spy);
    for (int i = 0; i < 10; ++i) {
       remove_callback(output, cb1);
    }
@@ -230,7 +230,7 @@ void test_callbacks_only_called_once_even_if_multiple_inputs_change(void)
    struct cell *output = create_compute2_cell(r, plus_one, minus_one2, times);
 
    struct cbinfo cbinfo = { -1, 0 };
-   add_callback(output, &cbinfo, cb_record_last_value);
+   add_callback(output, &cbinfo, cb_spy);
 
    cell_value_set(input, 4);
 
@@ -255,7 +255,7 @@ void test_callbacks_not_called_if_inputs_change_but_output_doesnt(void)
        create_compute2_cell(r, plus_one, minus_one, minus);
 
    struct cbinfo cbinfo = { -1, 0 };
-   add_callback(always_two, &cbinfo, cb_record_last_value);
+   add_callback(always_two, &cbinfo, cb_spy);
 
    for (int i = 0; i < 10; ++i) {
       cell_value_set(input, i);
