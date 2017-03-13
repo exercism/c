@@ -60,15 +60,9 @@ void destroy_reactor(struct reactor *r)
    free(r);
 }
 
-#define SUCCESS 1
-#define FAIL 0
-
-static int add_child(struct reactor *r, struct cell *cell)
+static void add_child(struct reactor *r, struct cell *cell)
 {
    struct child *child = calloc(1, sizeof(struct child));
-   if (!child) {
-      return FAIL;
-   }
    child->cell = cell;
    if (!r->first) {
       r->first = child;
@@ -76,7 +70,6 @@ static int add_child(struct reactor *r, struct cell *cell)
       r->last->next = child;
    }
    r->last = child;
-   return SUCCESS;
 }
 
 struct cell *create_input_cell(struct reactor *r, int initial_value)
@@ -85,10 +78,7 @@ struct cell *create_input_cell(struct reactor *r, int initial_value)
    if (!c) {
       return NULL;
    }
-   if (add_child(r, c) != SUCCESS) {
-      free(c);
-      return NULL;
-   }
+   add_child(r, c);
    c->reactor = r;
    c->kind = kind_input;
    c->value = initial_value;
@@ -102,10 +92,7 @@ struct cell *create_compute1_cell(struct reactor *r, struct cell *input,
    if (!c) {
       return NULL;
    }
-   if (add_child(r, c) != SUCCESS) {
-      free(c);
-      return NULL;
-   }
+   add_child(r, c);
    c->reactor = r;
    c->kind = kind_compute1;
    c->input1 = input;
@@ -121,10 +108,7 @@ struct cell *create_compute2_cell(struct reactor *r, struct cell *input1,
    if (!c) {
       return NULL;
    }
-   if (add_child(r, c) != SUCCESS) {
-      free(c);
-      return NULL;
-   }
+   add_child(r, c);
    c->reactor = r;
    c->kind = kind_compute2;
    c->input1 = input1;
