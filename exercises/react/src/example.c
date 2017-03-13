@@ -38,8 +38,7 @@ struct cell {
 
 struct reactor *create_reactor()
 {
-   struct reactor *r = calloc(1, sizeof(struct reactor));
-   return r;
+   return calloc(1, sizeof(struct reactor));
 }
 
 void destroy_reactor(struct reactor *r)
