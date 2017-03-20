@@ -208,6 +208,15 @@
      ]
   }, {
      "difficulty": 2,
+     "slug": "nucleotide-count",
+     "topics": [
+        "control-flow (loops, switch, if-statements)",
+        "strings",
+        "text formatting",
+        "memory management"
+     ]
+  }, {
+     "difficulty": 2,
      "slug": "robot-simulator",
      "topics": [
         "strings",
