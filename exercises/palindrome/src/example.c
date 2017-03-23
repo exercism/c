@@ -3,26 +3,24 @@
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-/* Return 0 if the product of a and b is a palindrome, 1 otherwise */
-int isPalindrome(int a, int b)
+/* Return true if the product of a and b is a palindrome, false otherwise */
+bool isPalindromeProduct(int a, int b)
 {
    char number[10];
    int length;
-
-   /* negative numbers not allowed */
-   if (a * b < 0)
-      return 1;
 
    sprintf(number, "%d", a * b);
    length = strlen(number);
 
    for (int i = 0; i < length / 2; i++) {
       if (number[i] != number[length - i - 1]) {
-         return 1;
+         return false;
       }
    }
-   return 0;
+
+   return true;
 }
 
 /* return the factors of a palindrome */
@@ -59,22 +57,20 @@ Pair *getPalindromeFactors(int palindrome)
 /* return a struct of PalindromeProduct, containing a palindrome and an array of his factor */
 PalindromeProduct *getPalindromeProduct(int min, int max)
 {
-   int retPosition = 0;
-
    // Creating an array
    PalindromeProduct *ret;
    assert((ret = malloc(2 * sizeof(PalindromeProduct))) != NULL);
+   int ret_pos = 0;
 
    // for each possibility, verify if it's a palindrome
    for (int i = min; i <= max; i++) {
       for (int j = min; j <= max; j++) {
-         if (isPalindrome(i, j) == 0) {
-
-            ret[retPosition].palindrome = i * j;
-            ret[retPosition].factors = getPalindromeFactors(i * j);
+         if (isPalindromeProduct(i, j) == true) {
+            ret[ret_pos].palindrome = i * j;
+            ret[ret_pos].factors = getPalindromeFactors(i * j);
 
             // now searching for the largest palindrome
-            retPosition = 1;
+            ret_pos = 1;
          }
       }
    }

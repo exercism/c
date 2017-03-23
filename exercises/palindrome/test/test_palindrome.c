@@ -1,7 +1,6 @@
 #include "vendor/unity.h"
 #include "../src/palindrome.h"
 
-
 // palindromeFactors tests
 void test_palindromes_list(void)
 {
