@@ -19,7 +19,6 @@ bool isPalindromeProduct(int a, int b)
          return false;
       }
    }
-
    return true;
 }
 
@@ -37,7 +36,6 @@ Pair *getPalindromeFactors(int palindrome)
          }
       }
    }
-
    assert((tableP = malloc(sizeTableP * sizeof(Pair))) != NULL);
 
    // for each possibility, if i*j is a product of the palindrome, add it to the return
@@ -50,7 +48,6 @@ Pair *getPalindromeFactors(int palindrome)
          }
       }
    }
-
    return tableP;
 }
 
