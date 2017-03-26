@@ -30,7 +30,7 @@ for D in exercises/*; do
           elif [ ${PIPESTATUS[0]} -ne 0 ]; then
             exit 1
           fi
-          valgrind --quiet --error-exitcode=1 ./tests.out >> /dev/null;
+          valgrind --quiet --leak-check=full --error-exitcode=1 ./tests.out >> /dev/null;
           cd ${CURRENT_DIR};
         }
     fi
