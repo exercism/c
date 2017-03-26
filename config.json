@@ -238,8 +238,8 @@
      "difficulty": 1,
      "slug": "pascals-triangle",
      "topics" : [
-        "control-flow (if-else statements)",
-        "memory management",
+	"control-flow (if-else statements)",
+	"memory management",
 	"Mathematics"
      ]
   }, {
