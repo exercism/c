@@ -236,6 +236,14 @@
      ]
   }, {
      "difficulty": 1,
+     "slug": "pascals-triangle",
+     "topics" : [
+        "control-flow (if-else statements)",
+        "memory management",
+	"Mathematics"
+     ]
+  }, {
+     "difficulty": 1,
      "slug": "binary",
      "topics": [
         "control-flow (loops)",
