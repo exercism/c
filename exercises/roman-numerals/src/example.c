@@ -28,7 +28,7 @@ const numeral_values_t numeral_values[] = {
 
 char *to_roman_numeral(unsigned int number)
 {
-   char *numerals = calloc(0, sizeof(char) * MAX_NUMERAL_LENGTH);
+   char *numerals = calloc(sizeof(char), MAX_NUMERAL_LENGTH);
 
    for (size_t i = 0; i < NUM_OF_ELEMENTS(numeral_values); i++) {
       while (number >= numeral_values[i].value) {
