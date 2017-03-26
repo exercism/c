@@ -79,18 +79,38 @@ void destroy_reactor(struct reactor *r)
    free(r);
 }
 
-static void add_child(struct child **list, struct cell *cell)
+#define SUCCESS 1
+#define FAIL 0
+
+static int add_child(struct child **list, struct cell *cell)
 {
    struct child *child = calloc(1, sizeof(struct child));
+   if (!child) {
+      return FAIL;
+   }
    child->cell = cell;
    child->next = *list;
    *list = child;
+   return SUCCESS;
+}
+
+static void remove_child(struct child **list)
+{
+   struct child *to_remove = *list;
+   *list = to_remove->next;
+   free(to_remove);
 }
 
 struct cell *create_input_cell(struct reactor *r, int initial_value)
 {
    struct cell *c = calloc(1, sizeof(struct cell));
-   add_child(&r->input, c);
+   if (!c) {
+      return NULL;
+   }
+   if (add_child(&r->input, c) != SUCCESS) {
+      free(c);
+      return NULL;
+   }
    c->kind = kind_input;
    c->value = initial_value;
    return c;
@@ -101,7 +121,13 @@ struct cell *create_compute1_cell(struct reactor *r, struct cell *input,
 {
    (void)r;
    struct cell *c = calloc(1, sizeof(struct cell));
-   add_child(&input->child, c);
+   if (!c) {
+      return NULL;
+   }
+   if (add_child(&input->child, c) != SUCCESS) {
+      free(c);
+      return NULL;
+   }
    c->kind = kind_compute1;
    c->input1 = input;
    c->compute1 = compute;
@@ -115,8 +141,18 @@ struct cell *create_compute2_cell(struct reactor *r, struct cell *input1,
 {
    (void)r;
    struct cell *c = calloc(1, sizeof(struct cell));
-   add_child(&input1->child, c);
-   add_child(&input2->child, c);
+   if (!c) {
+      return NULL;
+   }
+   if (add_child(&input1->child, c) != SUCCESS) {
+      free(c);
+      return NULL;
+   }
+   if (add_child(&input2->child, c) != SUCCESS) {
+      remove_child(&input1->child);
+      free(c);
+      return NULL;
+   }
    c->kind = kind_compute2;
    c->input1 = input1;
    c->input2 = input2;
@@ -187,6 +223,9 @@ void set_cell_value(struct cell *c, int new_value)
 callback_id add_callback(struct cell *c, void *obj, callback f)
 {
    struct cb *cb = calloc(1, sizeof(struct cb));
+   if (!cb) {
+      return -1;
+   }
    cb->id = c->callbacks_issued++;
    cb->next = c->cb;
    cb->obj = obj;
