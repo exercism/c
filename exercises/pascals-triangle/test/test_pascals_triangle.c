@@ -81,7 +81,7 @@ void test_null_row_is_not_allowed(void)
 
 int main(void)
 {
-   UnityBegin("test_pascals_triangle.c");
+   UnityBegin("test/test_pascals_triangle.c");
    RUN_TEST(test_no_rows);
    RUN_TEST(test_single_row);
    RUN_TEST(test_two_rows);
