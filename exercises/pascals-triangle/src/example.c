@@ -1,6 +1,6 @@
 #include "pascals_triangle.h"
 
-void pt_free(size_t ** mem_block, size_t n)
+void free_triangle(size_t ** mem_block, size_t n)
 {
    for (size_t i = 0; i < n; i++) {
       free(mem_block[i]);
@@ -8,25 +8,18 @@ void pt_free(size_t ** mem_block, size_t n)
    free(mem_block);
 }
 
-size_t **pascals_triangle(char *count)
+size_t **create_triangle(int rows)
 {
-   if (count == NULL) {
-      return (size_t **) NULL;
-   }
-   size_t **zero = (size_t **) calloc(1, sizeof(size_t *));
-   zero[0] = (size_t *) calloc(1, sizeof(size_t));
-   int rows = atoi(count);
-   if (!strcmp(count, "0")) {
+   if (rows == 0) {
+      size_t **zero = calloc(1, sizeof(size_t *));
+      zero[0] = calloc(1, sizeof(size_t));
       return zero;
-   } else if (rows <= 0) {
-      pt_free(zero, 1);
-      return (size_t **) NULL;
-   } else {
-      pt_free(zero, 1);
+   } else if (rows < 0) {
+      return NULL;
    }
-   size_t **result = (size_t **) calloc(rows, sizeof(size_t *));
+   size_t **result = calloc(rows, sizeof(size_t *));
    for (int i = 0; i < rows; i++) {
-      result[i] = (size_t *) calloc(rows, sizeof(size_t));
+      result[i] = calloc(rows, sizeof(size_t));
    }
    result[0][0] = 1;
    for (int i = 1; i < rows; ++i) {

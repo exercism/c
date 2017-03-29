@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void pt_free(size_t **, size_t);
-size_t **pascals_triangle(char *);
+void free_triangle(size_t **, size_t);
+size_t **create_triangle(int);
 
 #endif
