@@ -17,12 +17,12 @@ kind classify_number(int n)
       return error;
    }
    int buf = aliquot_sum(n);
-   if (buf == n) {
-      return perfect_number;
-   } else if (buf > n) {
+   if (buf > n) {
       return abundant_number;
    } else if (buf < n) {
       return deficient_number;
+   } else {
+      return perfect_number;
    }
    return error;
 }
