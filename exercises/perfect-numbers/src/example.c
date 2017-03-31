@@ -13,16 +13,16 @@ static int aliquot_sum(int n)
 
 kind classify_number(int n)
 {
-   if (n <= 0) {
-      return error;
+   kind class = error;
+   if (n > 0) {
+      int buf = aliquot_sum(n);
+      if (buf > n) {
+         class = abundant_number;
+      } else if (buf < n) {
+         class = deficient_number;
+      } else {
+         class = perfect_number;
+      }
    }
-   int buf = aliquot_sum(n);
-   if (buf > n) {
-      return abundant_number;
-   } else if (buf < n) {
-      return deficient_number;
-   } else {
-      return perfect_number;
-   }
-   return error;
+   return class;
 }
