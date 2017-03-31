@@ -15,10 +15,10 @@ kind classify_number(int n)
 {
    kind class = error;
    if (n > 0) {
-      int buf = aliquot_sum(n);
-      if (buf > n) {
+      int sum = aliquot_sum(n);
+      if (sum > n) {
          class = abundant_number;
-      } else if (buf < n) {
+      } else if (sum < n) {
          class = deficient_number;
       } else {
          class = perfect_number;
