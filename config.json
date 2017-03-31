@@ -244,6 +244,13 @@
      ]
   }, {
      "difficulty": 1,
+     "slug": "perfect-numbers",
+     "topics" : [
+	"control-flow (if-else statements)",
+	"Mathematics"
+     ]
+  }, {
+     "difficulty": 1,
      "slug": "binary",
      "topics": [
         "control-flow (loops)",
