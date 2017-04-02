@@ -1,19 +1,13 @@
 #ifndef PALINDROME_H
 #define PALINDROME_H
 
-/* structure containing a pair of integer */
-typedef struct pair {
-   int a;
-   int b;
+/* structure containing the smallest and largest palindrome */
+typedef struct {
+   int small_palind;
+   int larg_palind;
 } Pair;
 
-/* structure containing a palindrome and an array of his factors */
-typedef struct palindProduct {
-   int palindrome;
-   Pair *factors;
-} PalindromeProduct;
-
 /* Return the smallest and biggest palindrome in the range of min and max */
-PalindromeProduct *getPalindromeProduct(int min, int max);
+Pair getPalindromeProduct(int min, int max);
 
 #endif
