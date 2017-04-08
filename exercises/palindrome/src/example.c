@@ -13,7 +13,6 @@ bool isPalindromeProduct(int a, int b)
    return (a * b) == ret;
 }
 
-/* return a struct of PalindromeProduct, containing a palindrome and an array of his factor */
 Pair getPalindromeProduct(int min, int max)
 {
    Pair ret;

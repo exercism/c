@@ -4,18 +4,14 @@
 void test_palindromes_list(void)
 {
    Pair palind = getPalindromeProduct(1, 9);
-   /* smallest palindrome : 1 */
    TEST_ASSERT_EQUAL_INT(1, palind.small_palind);
-   /* largest palindrome : 9 */
    TEST_ASSERT_EQUAL_INT(9, palind.larg_palind);
 }
 
 void test_palindromes_list2(void)
 {
    Pair palind = getPalindromeProduct(10, 99);
-   /* smallest palindrome : 121 */
    TEST_ASSERT_EQUAL_INT(121, palind.small_palind);
-   /* largest palindrome : 9009 */
    TEST_ASSERT_EQUAL_INT(9009, palind.larg_palind);
 }
 
