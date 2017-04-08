@@ -10,18 +10,15 @@ bool isPalindromeProduct(int a, int b)
       ret += prod % 10;
       prod /= 10;
    }
-
    return (a * b) == ret;
 }
 
 /* return a struct of PalindromeProduct, containing a palindrome and an array of his factor */
 Pair getPalindromeProduct(int min, int max)
 {
-   // Creating an array
    Pair ret;
    bool largest = false;
 
-   // for each possibility, verify if it's a palindrome
    for (int i = min; i <= max; i++) {
       for (int j = min; j <= max; j++) {
          if (isPalindromeProduct(i, j) == true) {
