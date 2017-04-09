@@ -2,13 +2,17 @@
 
 static int aliquot_sum(int n)
 {
-   int result = 0;
-   for (int i = 1; i < n; ++i) {
+   if (n == 1) {
+      return 0;
+   }
+   int result = 1;
+   int i;
+   for (i = 2; i * i < n; ++i) {
       if ((n % i) == 0) {
-         result = result + i;
+         result += i + (n / i);
       }
    }
-   return result;
+   return result + (i * i == n ? i : 0);
 }
 
 kind classify_number(int n)
