@@ -15,7 +15,7 @@ bool isPalindromeProduct(int a, int b)
 
 Pair getPalindromeProduct(int min, int max)
 {
-   Pair ret;
+   Pair ret = {0};
    bool largest = false;
 
    for (int i = min; i <= max; i++) {
