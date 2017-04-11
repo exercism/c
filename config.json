@@ -256,6 +256,15 @@
         "control-flow (loops)",
         "control-flow (if-statements)"
      ]
+  },{
+     "difficulty": 2,
+     "slug": "palindrome",
+     "topics": [
+        "strings",
+        "structs",
+        "pointers",
+        "Functions"
+     ]
   }, {
      "difficulty": 1,
      "slug": "space-age",
