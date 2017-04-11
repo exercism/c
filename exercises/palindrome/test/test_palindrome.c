@@ -17,7 +17,7 @@ void test_palindromes_list2(void)
 
 int main(void)
 {
-   UnityBegin("test/test_space_age.c");
+   UnityBegin("test/test_palindrome.c");
    RUN_TEST(test_palindromes_list);
    RUN_TEST(test_palindromes_list2);
    UnityEnd();
