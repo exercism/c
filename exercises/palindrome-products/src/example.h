@@ -1,5 +1,5 @@
-#ifndef PALINDROME_H
-#define PALINDROME_H
+#ifndef PALINDROME_PRODUCTS_H
+#define PALINDROME_PRODUCTS_H
 
 typedef struct {
    int small_palind;

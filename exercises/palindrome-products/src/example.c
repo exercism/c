@@ -1,4 +1,4 @@
-#include "palindrome.h"
+#include "palindrome_products.h"
 #include <stdbool.h>
 
 /* Return true if the product of a and b is a palindrome, false otherwise */

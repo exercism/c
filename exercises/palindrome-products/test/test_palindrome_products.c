@@ -1,5 +1,5 @@
 #include "vendor/unity.h"
-#include "../src/palindrome.h"
+#include "../src/palindrome_products.h"
 
 void test_palindromes_list(void)
 {
@@ -17,7 +17,7 @@ void test_palindromes_list2(void)
 
 int main(void)
 {
-   UnityBegin("test/test_palindrome.c");
+   UnityBegin("test/test_palindrome_products.c");
    RUN_TEST(test_palindromes_list);
    RUN_TEST(test_palindromes_list2);
    UnityEnd();

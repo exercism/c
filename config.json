@@ -258,7 +258,7 @@
      ]
   },{
      "difficulty": 2,
-     "slug": "palindrome",
+     "slug": "palindrome-products",
      "topics": [
         "strings",
         "structs",
