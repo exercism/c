@@ -266,6 +266,15 @@
         "Functions"
      ]
   }, {
+     "difficulty": 4,
+     "slug": "scrabble-score",
+     "topics": [
+        "structs",
+        "pointers",
+        "strings",
+        "searching"
+     ]
+  }, {
      "difficulty": 1,
      "slug": "space-age",
      "topics": [
