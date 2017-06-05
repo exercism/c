@@ -251,6 +251,14 @@
      ]
   }, {
      "difficulty": 1,
+     "slug": "wordy",
+     "topics" : [
+	"control-flow (if-else statements)",
+	"memory management",
+	"strings"
+     ]
+  }, {
+     "difficulty": 1,
      "slug": "binary",
      "topics": [
         "control-flow (loops)",
