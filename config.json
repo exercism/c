@@ -4,290 +4,326 @@
   "repository": "https://github.com/exercism/xc",
   "checklist_issue": 8,
   "active": false,
-  "exercises": [{
-    "slug": "hello-world",
-    "difficulty": 1,
-    "topics": [
-      "control-flow (if-statements)",
-      "optional values",
-      "text formatting"
-    ]
-  }, {
-    "difficulty": 5,
-    "slug": "anagram",
-    "topics": [
-      "strings",
-      "filtering",
-      "structs",
-      "memory management"
-    ]
-  }, {
-    "difficulty": 1,
-    "slug": "leap",
-    "topics": [
-      "logic",
-      "control-flow (if-else statements)"
-    ]
-  }, {
-    "difficulty": 1,
-    "slug": "gigasecond",
-    "topics": [
-      "dates"
-    ]
-  }, {
-    "difficulty": 2,
-    "slug": "hamming",
-    "topics": [
-      "arrays",
-      "strings",
-      "control-flow (loops)"
-    ]
-  }, {
-    "difficulty": 2,
-    "slug": "raindrops",
-    "topics": [
-      "strings",
-      "control-flow (if-else statements)"
-    ]
-  }, {
-    "difficulty": 10,
-    "slug": "bob",
-    "topics": [
-      "strings",
-      "control-flow (if-else statements)"
-    ]
-  }, {
-    "difficulty": 1,
-    "slug": "grains",
-    "topics": [
-      "control-flow (loops)",
-      "bitwise operations",
-      "performance optimizations"
-    ]
-  }, {
-    "difficulty": 5,
-    "slug": "largest-series-product",
-    "topics": [
-      "control-flow (loops)",
-      "strings",
-      "performance optimizations"
-    ]
-  }, {
-    "difficulty": 3,
-    "slug": "pangram",
-    "topics": [
-      "strings",
-      "control-flow (if-else statements)",
-      "control-flow (loops)"
-    ]
-  }, {
-    "difficulty": 4,
-    "slug": "nth-prime",
-    "topics": [
-      "control-flow (if-else statements)",
-      "control-flow (loops)",
-      "performance optimizations"
-    ]
-  }, {
-    "difficulty": 2,
-    "slug": "beer-song",
-    "topics": [
-      "strings",
-      "control-flow (if-else statements)",
-      "control-flow (loops)"
-    ]
-  }, {
-    "difficulty": 2,
-    "slug": "rna-transcription",
-    "topics": [
-      "strings",
-      "control-flow (case statements)",
-      "control-flow (loops)"
-    ]
-  }, {
-    "difficulty": 1,
-    "slug": "difference-of-squares",
-    "topics": [
-      "control-flow (loops)"
-    ]
-  }, {
-    "difficulty": 4,
-    "slug": "sum-of-multiples",
-    "topics": [
-      "control-flow (case statements)",
-      "control-flow (loops)"
-    ]
-  }, {
-    "difficulty": 2,
-    "slug": "binary-search",
-    "topics": [
-      "arrays",
-      "control-flow (if-else statements)",
-      "control-flow (loops)",
-      "searching"
-    ]
-  }, {
-    "difficulty": 3,
-    "slug": "roman-numerals",
-    "topics": [
-      "arrays",
-      "memory management",
-      "structs",
-      "control-flow (loops)",
-      "strings"
-    ]
-  }, {
-    "difficulty": 3,
-    "slug": "word-count",
-    "topics": [
-      "strings",
-      "filtering",
-      "structs",
-      "memory management"
-    ]
-  }, {
-    "difficulty": 4,
-    "slug": "allergies",
-    "topics": [
-      "control-flow (if-statements)",
-      "control-flow (loops)",
-      "structs",
-      "memory management"
-    ]
-  }, {
-    "difficulty": 5,
-    "slug": "atbash-cipher",
-    "topics": [
-      "control-flow (loops)",
-      "control-flow (if-else statements)",
-      "strings"
-    ]
-  }, {
-    "difficulty": 4,
-    "slug": "phone-number",
-    "topics": [
-      "strings",
-      "memory management",
-      "control-flow (loops)",
-      "control-flow (if-else statements)"
-    ]
-  }, {
-     "difficulty": 2,
-     "slug": "clock",
-     "topics": [
+  "exercises": [
+    {
+      "slug": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "control-flow (if-statements)",
+        "optional values",
+        "text formatting"
+      ]
+    },
+    {
+      "difficulty": 5,
+      "slug": "anagram",
+      "topics": [
+        "strings",
+        "filtering",
+        "structs",
+        "memory management"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "leap",
+      "topics": [
+        "logic",
+        "control-flow (if-else statements)"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "gigasecond",
+      "topics": [
+        "dates"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "hamming",
+      "topics": [
+        "arrays",
+        "strings",
+        "control-flow (loops)"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "raindrops",
+      "topics": [
+        "strings",
+        "control-flow (if-else statements)"
+      ]
+    },
+    {
+      "difficulty": 10,
+      "slug": "bob",
+      "topics": [
+        "strings",
+        "control-flow (if-else statements)"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "grains",
+      "topics": [
+        "control-flow (loops)",
+        "bitwise operations",
+        "performance optimizations"
+      ]
+    },
+    {
+      "difficulty": 5,
+      "slug": "largest-series-product",
+      "topics": [
+        "control-flow (loops)",
+        "strings",
+        "performance optimizations"
+      ]
+    },
+    {
+      "difficulty": 3,
+      "slug": "pangram",
+      "topics": [
+        "strings",
+        "control-flow (if-else statements)",
+        "control-flow (loops)"
+      ]
+    },
+    {
+      "difficulty": 4,
+      "slug": "nth-prime",
+      "topics": [
+        "control-flow (if-else statements)",
+        "control-flow (loops)",
+        "performance optimizations"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "beer-song",
+      "topics": [
+        "strings",
+        "control-flow (if-else statements)",
+        "control-flow (loops)"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "rna-transcription",
+      "topics": [
+        "strings",
+        "control-flow (case statements)",
+        "control-flow (loops)"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "difference-of-squares",
+      "topics": [
+        "control-flow (loops)"
+      ]
+    },
+    {
+      "difficulty": 4,
+      "slug": "sum-of-multiples",
+      "topics": [
+        "control-flow (case statements)",
+        "control-flow (loops)"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "binary-search",
+      "topics": [
+        "arrays",
+        "control-flow (if-else statements)",
+        "control-flow (loops)",
+        "searching"
+      ]
+    },
+    {
+      "difficulty": 3,
+      "slug": "roman-numerals",
+      "topics": [
+        "arrays",
+        "memory management",
+        "structs",
+        "control-flow (loops)",
+        "strings"
+      ]
+    },
+    {
+      "difficulty": 3,
+      "slug": "word-count",
+      "topics": [
+        "strings",
+        "filtering",
+        "structs",
+        "memory management"
+      ]
+    },
+    {
+      "difficulty": 4,
+      "slug": "allergies",
+      "topics": [
+        "control-flow (if-statements)",
+        "control-flow (loops)",
+        "structs",
+        "memory management"
+      ]
+    },
+    {
+      "difficulty": 5,
+      "slug": "atbash-cipher",
+      "topics": [
+        "control-flow (loops)",
+        "control-flow (if-else statements)",
+        "strings"
+      ]
+    },
+    {
+      "difficulty": 4,
+      "slug": "phone-number",
+      "topics": [
+        "strings",
+        "memory management",
+        "control-flow (loops)",
+        "control-flow (if-else statements)"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "clock",
+      "topics": [
         "control-flow (if-statements)",
         "strings",
         "text formatting",
         "preprocessor (x-macros in test)"
-     ]
-  }, {
-     "difficulty": 2,
-     "slug": "sieve",
-     "topics": [
-     "control-flow (if-statements)",
-     "memory management"
-     ]
-  }, {
-     "difficulty": 2,
-     "slug": "series",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "sieve",
+      "topics": [
+        "control-flow (if-statements)",
+        "memory management"
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "series",
+      "topics": [
         "control-flow (if-statements)",
         "strings",
         "text formatting",
         "memory management"
-     ]
-  }, {
-     "difficulty": 4,
-     "slug": "meetup",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 4,
+      "slug": "meetup",
+      "topics": [
         "control-flow (if-statements)",
         "strings",
         "structs",
         "time functions",
         "preprocessor (x-macros in test)"
-     ]
-  }, {
-     "difficulty": 2,
-     "slug": "nucleotide-count",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "nucleotide-count",
+      "topics": [
         "control-flow (loops, switch, if-statements)",
         "strings",
         "text formatting",
         "memory management"
-     ]
-  }, {
-     "difficulty": 2,
-     "slug": "robot-simulator",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "robot-simulator",
+      "topics": [
         "strings",
         "control-flow (if-statements)",
         "structs",
         "variable argument lists",
         "pointers"
-     ]
-  }, {
-     "difficulty": 1,
-     "slug": "triangle",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "triangle",
+      "topics": [
         "control-flow (if-else statements)",
         "Booleans",
         "Structs",
         "Mathematics"
-     ]
-  }, {
-     "difficulty": 1,
-     "slug": "pascals-triangle",
-     "topics" : [
-	"control-flow (if-else statements)",
-	"memory management",
-	"Mathematics"
-     ]
-  }, {
-     "difficulty": 1,
-     "slug": "perfect-numbers",
-     "topics" : [
-	"control-flow (if-else statements)",
-	"Mathematics"
-     ]
-  }, {
-     "difficulty": 1,
-     "slug": "binary",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "pascals-triangle",
+      "topics": [
+        "control-flow (if-else statements)",
+        "memory management",
+        "Mathematics"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "perfect-numbers",
+      "topics": [
+        "control-flow (if-else statements)",
+        "Mathematics"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "binary",
+      "topics": [
         "control-flow (loops)",
         "control-flow (if-statements)"
-     ]
-  },{
-     "difficulty": 2,
-     "slug": "palindrome-products",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 2,
+      "slug": "palindrome-products",
+      "topics": [
         "strings",
         "structs",
         "pointers",
         "Functions"
-     ]
-  }, {
-     "difficulty": 4,
-     "slug": "scrabble-score",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 4,
+      "slug": "scrabble-score",
+      "topics": [
         "structs",
         "pointers",
         "strings",
         "searching"
-     ]
-  }, {
-     "difficulty": 1,
-     "slug": "space-age",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "space-age",
+      "topics": [
         "Functions"
-     ]
-  }, {
-     "difficulty": 10,
-     "slug": "react",
-     "topics": [
+      ]
+    },
+    {
+      "difficulty": 10,
+      "slug": "react",
+      "topics": [
         "memory management",
         "Functions"
-     ]
-  }],
+      ]
+    }
+  ],
   "deprecated": [
 
   ],
