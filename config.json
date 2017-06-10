@@ -327,11 +327,6 @@
   "deprecated": [
 
   ],
-  "ignored": [
-    "vendor",
-    "docs",
-    "img"
-  ],
   "foregone": [
 
   ]
