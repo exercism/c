@@ -65,6 +65,15 @@
       ]
     },
     {
+        "difficulty": 1,
+        "slug": "acronym",
+        "topics": [
+            "strings",
+            "memory management",
+            "control-flow (loops)"
+        ]
+    },
+    {
       "difficulty": 1,
       "slug": "grains",
       "topics": [
