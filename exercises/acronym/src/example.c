@@ -42,4 +42,3 @@ char *abbreviate(const char phrase[])
    }
    return acronym;
 }
-
