@@ -14,16 +14,16 @@
         "text formatting"
       ]
     },
-	{
-	  "slug": "isogram",
-	  "difficulty": 1,
-	  "topics": [
-	    "arrays",
-	    "strings",
-		"control-flow (if-else statements)",
-		"control-flow (loops)"
-	  ]
-	},
+    {
+      "slug": "isogram",
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "strings",
+        "control-flow (if-else statements)",
+        "control-flow (loops)"
+      ]
+    },
     {
       "difficulty": 5,
       "slug": "anagram",
