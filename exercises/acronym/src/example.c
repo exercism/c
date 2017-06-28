@@ -1,8 +1,27 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-static int count_words(const char phrase[]);
-static int is_first_letter_of_word(int c, int b);
+static int is_first_letter_of_word(int character, int preceding_character)
+{
+   return isalpha(character)
+       && ((preceding_character == ' ')
+           || (preceding_character == '-')) ? 1 : 0;
+}
+
+static int count_words(const char phrase[])
+{
+   int count = 0;
+
+   if (phrase != NULL)
+      count = 1;                /* first word */
+   else
+      return count;
+
+   for (size_t i = 1; phrase[i] != '\0'; ++i)
+      if (is_first_letter_of_word(phrase[i], phrase[i - 1]))
+         ++count;               /* subsequent words */
+   return count;
+}
 
 char *abbreviate(const char phrase[])
 {
@@ -24,27 +43,3 @@ char *abbreviate(const char phrase[])
    return acronym;
 }
 
-static int count_words(const char phrase[])
-{
-   int count = 0;
-
-   if (phrase != NULL)
-      count = 1;                /* first word */
-   else
-      return count;
-
-   for (size_t i = 1; phrase[i] != '\0'; ++i)
-      if (is_first_letter_of_word(phrase[i], phrase[i - 1]))
-         ++count;               /* subsequent words */
-   return count;
-}
-
-static int is_first_letter_of_word(int character, int preceding_character)
-{
-   /* Check if the current character is a letter and 
-    * the preceding character is a space or hyphen
-    */
-   return isalpha(character)
-       && ((preceding_character == ' ')
-           || (preceding_character == '-')) ? 1 : 0;
-}
