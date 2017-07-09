@@ -7,6 +7,6 @@ before_install:
 
 script:
 - bin/fetch-configlet
-- bin/configlet .
+- bin/configlet lint .
 - bin/verify-indent
 - bin/run-tests
