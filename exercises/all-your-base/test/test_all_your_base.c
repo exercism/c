@@ -5,23 +5,33 @@
 
 #include <stdio.h>
 
-void fill_array(int16_t data[], size_t data_length, int16_t array[],
-                size_t array_length)
+#define LENGTH(A) (sizeof(A)/sizeof(A[0]))
+
+void copy_array(int8_t src[], int8_t dest[DIGITS_ARRAY_SIZE], size_t n)
 {
-   /* array expected to be longer than data */
-   for (size_t i = 1; i <= data_length; ++i)
-      array[array_length - i] = data[data_length - i];
+   if (n > DIGITS_ARRAY_SIZE)
+      return;
+   for (size_t i = 0; i < n; ++i)
+      dest[i] = src[i];
 }
 
-void test_rebase(uint16_t input_base, int16_t input_digits[],
-                 size_t input_length, uint16_t output_base,
-                 int16_t expected_digits[], size_t expected_length)
+void print_array(char *title, int8_t array[], size_t n)
 {
-   int16_t digits[DIGITS_ARRAY_SIZE] = { 0 };
-   int16_t ex_digits[DIGITS_ARRAY_SIZE] = { 0 };
+   printf("%s\n", title);
+   for (size_t i = 0; i < n; ++i)
+      printf("%d, ", array[i]);
+   printf("\n");
+}
 
-   fill_array(input_digits, input_length, digits, DIGITS_ARRAY_SIZE);
-   fill_array(expected_digits, expected_length, ex_digits, DIGITS_ARRAY_SIZE);
+void test_rebase(uint16_t input_base, int8_t input_digits[],
+                 size_t input_length, uint16_t output_base,
+                 int8_t expected_digits[], size_t expected_length)
+{
+   int8_t digits[DIGITS_ARRAY_SIZE] = { 0 };
+   int8_t ex_digits[DIGITS_ARRAY_SIZE] = { 0 };
+
+   copy_array(input_digits, digits, input_length);
+   copy_array(expected_digits, ex_digits, expected_length);
 
    size_t actual_length = rebase(digits, input_base, output_base, input_length);
 
@@ -33,142 +43,142 @@ void test_rebase(uint16_t input_base, int16_t input_digits[],
 
 void test_single_bit_to_decimal(void)
 {
-   int16_t input[] = { 1 };
-   int16_t expected[] = { 1 };
-   test_rebase(2, input, 1, 10, expected, 1);
+   int8_t input[] = { 1 };
+   int8_t expected[] = { 1 };
+   test_rebase(2, input, LENGTH(input), 10, expected, LENGTH(expected));
 }
 
 void test_binary_to_single_decimal(void)
 {
-   int16_t input[] = { 1, 0, 1 };
-   int16_t expected[] = { 5 };
-   test_rebase(2, input, 3, 10, expected, 1);
+   int8_t input[] = { 1, 0, 1 };
+   int8_t expected[] = { 5 };
+   test_rebase(2, input, LENGTH(input), 10, expected, LENGTH(expected));
 }
 
 void test_single_decimal_to_binary(void)
 {
-   int16_t input[] = { 5 };
-   int16_t expected[] = { 1, 0, 1 };
-   test_rebase(10, input, 1, 2, expected, 3);
+   int8_t input[] = { 5 };
+   int8_t expected[] = { 1, 0, 1 };
+   test_rebase(10, input, LENGTH(input), 2, expected, LENGTH(expected));
 }
 
 void test_binary_to_multiple_decimal(void)
 {
-   int16_t input[] = { 1, 0, 1, 0, 1, 0 };
-   int16_t expected[] = { 4, 2 };
-   test_rebase(2, input, 6, 10, expected, 2);
+   int8_t input[] = { 1, 0, 1, 0, 1, 0 };
+   int8_t expected[] = { 4, 2 };
+   test_rebase(2, input, LENGTH(input), 10, expected, LENGTH(expected));
 }
 
 void test_decimal_to_binary(void)
 {
-   int16_t input[] = { 4, 2 };
-   int16_t expected[] = { 1, 0, 1, 0, 1, 0 };
-   test_rebase(10, input, 2, 2, expected, 6);
+   int8_t input[] = { 4, 2 };
+   int8_t expected[] = { 1, 0, 1, 0, 1, 0 };
+   test_rebase(10, input, LENGTH(input), 2, expected, LENGTH(expected));
 }
 
 void test_trinary_to_hex(void)
 {
-   int16_t input[] = { 1, 1, 2, 0 };
-   int16_t expected[] = { 2, 10 };
-   test_rebase(3, input, 4, 16, expected, 2);
+   int8_t input[] = { 1, 1, 2, 0 };
+   int8_t expected[] = { 2, 10 };
+   test_rebase(3, input, LENGTH(input), 16, expected, LENGTH(expected));
 }
 
 void test_hex_to_trinary(void)
 {
-   int16_t input[] = { 2, 10 };
-   int16_t expected[] = { 1, 1, 2, 0 };
-   test_rebase(16, input, 2, 3, expected, 4);
+   int8_t input[] = { 2, 10 };
+   int8_t expected[] = { 1, 1, 2, 0 };
+   test_rebase(16, input, LENGTH(input), 3, expected, LENGTH(expected));
 }
 
 void test_15_bit_integer(void)
 {
-   int16_t input[] = { 3, 46, 60 };
-   int16_t expected[] = { 6, 10, 45 };
-   test_rebase(97, input, 3, 73, expected, 3);
+   int8_t input[] = { 3, 46, 60 };
+   int8_t expected[] = { 6, 10, 45 };
+   test_rebase(97, input, LENGTH(input), 73, expected, LENGTH(expected));
 }
 
 void test_single_zero(void)
 {
-   int16_t input[] = { 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(2, input, 1, 10, expected, 0);
+   int8_t input[] = { 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(2, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_multiple_zeros(void)
 {
-   int16_t input[] = { 0, 0, 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(10, input, 3, 2, expected, 0);
+   int8_t input[] = { 0, 0, 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(10, input, LENGTH(input), 2, expected, 0);
 }
 
 void test_leading_zeros(void)
 {
-   int16_t input[] = { 0, 6, 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(7, input, 3, 10, expected, 0);
+   int8_t input[] = { 0, 6, 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(7, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_first_base_is_one(void)
 {
-   int16_t input[] = { 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(1, input, 1, 10, expected, 0);
+   int8_t input[] = { 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(1, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_first_base_is_zero(void)
 {
-   int16_t input[] = { 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(0, input, 1, 10, expected, 0);
+   int8_t input[] = { 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(0, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_first_base_is_negative(void)
 {
-   int16_t input[] = { 1 };
-   int16_t expected[] = { 0 };
-   test_rebase(-2, input, 1, 10, expected, 0);
+   int8_t input[] = { 1 };
+   int8_t expected[] = { 0 };
+   test_rebase(-2, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_negative_digit(void)
 {
-   int16_t input[] = { 1 };
-   int16_t expected[] = { 0 };
-   test_rebase(-2, input, 1, 10, expected, 0);
+   int8_t input[] = { 1 };
+   int8_t expected[] = { 0 };
+   test_rebase(-2, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_invalid_positive_digit(void)
 {
-   int16_t input[] = { 1, 2, 1, 0, 1, 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(2, input, 6, 10, expected, 0);
+   int8_t input[] = { 1, 2, 1, 0, 1, 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(2, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_second_base_is_one(void)
 {
-   int16_t input[] = { 1, 0, 1, 0, 1, 0 };
-   int16_t expected[] = { 0 };
-   test_rebase(2, input, 6, 1, expected, 0);
+   int8_t input[] = { 1, 0, 1, 0, 1, 0 };
+   int8_t expected[] = { 0 };
+   test_rebase(2, input, LENGTH(input), 1, expected, 0);
 }
 
 void test_second_base_is_zero(void)
 {
-   int16_t input[] = { 7 };
-   int16_t expected[] = { 0 };
-   test_rebase(10, input, 1, 0, expected, 0);
+   int8_t input[] = { 7 };
+   int8_t expected[] = { 0 };
+   test_rebase(10, input, LENGTH(input), 0, expected, 0);
 }
 
 void test_second_base_is_negative(void)
 {
-   int16_t input[] = { 1 };
-   int16_t expected[] = { 0 };
-   test_rebase(2, input, 1, -7, expected, 0);
+   int8_t input[] = { 1 };
+   int8_t expected[] = { 0 };
+   test_rebase(2, input, LENGTH(input), -7, expected, 0);
 }
 
 void test_both_bases_are_negative(void)
 {
-   int16_t input[] = { 1 };
-   int16_t expected[] = { 0 };
-   test_rebase(-2, input, 1, -7, expected, 0);
+   int8_t input[] = { 1 };
+   int8_t expected[] = { 0 };
+   test_rebase(-2, input, LENGTH(input), -7, expected, 0);
 }
 
 int main(void)
