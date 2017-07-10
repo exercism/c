@@ -15,14 +15,6 @@ void copy_array(int8_t src[], int8_t dest[DIGITS_ARRAY_SIZE], size_t n)
       dest[i] = src[i];
 }
 
-void print_array(char *title, int8_t array[], size_t n)
-{
-   printf("%s\n", title);
-   for (size_t i = 0; i < n; ++i)
-      printf("%d, ", array[i]);
-   printf("\n");
-}
-
 void test_rebase(uint16_t input_base, int8_t input_digits[],
                  size_t input_length, uint16_t output_base,
                  int8_t expected_digits[], size_t expected_length)
