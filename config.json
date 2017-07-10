@@ -111,6 +111,15 @@
       ]
     },
     {
+      "difficulty": 3,
+      "slug": "all-your-base",
+      "topics": [
+        "arrays",
+        "control-flow (if-else statements)",
+        "control-flow (loops)"
+      ]
+    },
+    {
       "difficulty": 4,
       "slug": "nth-prime",
       "topics": [
