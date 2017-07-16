@@ -8,8 +8,7 @@
     {
       "uuid": "a0278e53-728d-4c04-9a0e-d6f7fe7ce98f",
       "slug": "hello-world",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "control-flow (if-statements)",
@@ -20,8 +19,7 @@
     {
       "uuid": "7167e43c-04bd-4c6c-a446-a37384d42626",
       "slug": "isogram",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "arrays",
@@ -34,7 +32,7 @@
       "uuid": "82b19968-03f9-4e17-b729-db6c3e2abfa4",
       "slug": "anagram",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "acronym",
       "difficulty": 5,
       "topics": [
         "strings",
@@ -57,8 +55,7 @@
     {
       "uuid": "532393f6-dedc-40fc-872e-b265450fd007",
       "slug": "gigasecond",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "dates"
@@ -67,8 +64,7 @@
     {
       "uuid": "500c2f8c-7404-47e7-8064-8c426b0632ea",
       "slug": "hamming",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "arrays",
@@ -91,8 +87,8 @@
       "uuid": "a559ee05-0ce8-4071-a159-b7a54ef3215c",
       "slug": "bob",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 10,
+      "unlocked_by": "beer-song",
+      "difficulty": 5,
       "topics": [
         "strings",
         "control-flow (if-else statements)"
@@ -102,7 +98,7 @@
       "uuid": "08904f5e-3b07-4f0b-9dc6-6e371df1ef02",
       "slug": "acronym",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "isogram",
       "difficulty": 1,
       "topics": [
         "strings",
@@ -113,8 +109,7 @@
     {
       "uuid": "f9b3b7f1-c49a-421b-a38d-b740f1910ca5",
       "slug": "grains",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "control-flow (loops)",
@@ -126,7 +121,7 @@
       "uuid": "d64646d1-5af9-4bdc-b637-5c56447e6693",
       "slug": "largest-series-product",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "palindrome-products",
       "difficulty": 5,
       "topics": [
         "control-flow (loops)",
@@ -138,7 +133,7 @@
       "uuid": "70c0e2d6-70a4-499f-86e3-6e209b494a5d",
       "slug": "pangram",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "isogram",
       "difficulty": 3,
       "topics": [
         "strings",
@@ -150,7 +145,7 @@
       "uuid": "1b3144fe-8e9f-46bc-9206-74cad1c5b088",
       "slug": "all-your-base",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "binary",
       "difficulty": 3,
       "topics": [
         "arrays",
@@ -162,7 +157,7 @@
       "uuid": "5f88968b-7c02-4846-9f38-cec55d19df66",
       "slug": "nth-prime",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sieve",
       "difficulty": 4,
       "topics": [
         "control-flow (if-else statements)",
@@ -173,8 +168,7 @@
     {
       "uuid": "5d988d28-2ef7-46e7-b706-011cc5ecb6fc",
       "slug": "beer-song",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "strings",
@@ -186,7 +180,7 @@
       "uuid": "47308cfb-357a-4d61-852f-49b26ee2b236",
       "slug": "rna-transcription",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hamming",
       "difficulty": 2,
       "topics": [
         "strings",
@@ -197,8 +191,7 @@
     {
       "uuid": "3531b23c-7a23-47b7-88f4-ff8519d0392b",
       "slug": "difference-of-squares",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "control-flow (loops)"
@@ -208,7 +201,7 @@
       "uuid": "a9d8772f-3733-4b84-b8c6-f3c38a8ce5db",
       "slug": "sum-of-multiples",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "difference-of-squares",
       "difficulty": 4,
       "topics": [
         "control-flow (case statements)",
@@ -218,8 +211,7 @@
     {
       "uuid": "23231bc9-4a75-40ab-b934-f8b429b55224",
       "slug": "binary-search",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "arrays",
@@ -231,8 +223,7 @@
     {
       "uuid": "db544fba-acf4-47b5-b86c-fc9f0680517d",
       "slug": "roman-numerals",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 3,
       "topics": [
         "arrays",
@@ -246,7 +237,7 @@
       "uuid": "2e2d009b-3bd6-4258-988b-5e36e2e27f3c",
       "slug": "word-count",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "isogram",
       "difficulty": 3,
       "topics": [
         "strings",
@@ -258,8 +249,7 @@
     {
       "uuid": "28bdb8bb-26cd-40c1-91ba-a00fda09eaf2",
       "slug": "allergies",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 4,
       "topics": [
         "control-flow (if-statements)",
@@ -271,8 +261,7 @@
     {
       "uuid": "e39c4445-eadd-4bcf-9b49-2256ed38d6fd",
       "slug": "atbash-cipher",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 5,
       "topics": [
         "control-flow (loops)",
@@ -283,8 +272,7 @@
     {
       "uuid": "92e18b2f-f137-452e-a21d-045874da84d7",
       "slug": "phone-number",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 4,
       "topics": [
         "strings",
@@ -296,8 +284,7 @@
     {
       "uuid": "3b3d1f61-c580-4a37-9cab-449eeebe7f86",
       "slug": "clock",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "control-flow (if-statements)",
@@ -309,8 +296,7 @@
     {
       "uuid": "f1b60913-78d3-4872-a1a3-5ac3930c74ff",
       "slug": "sieve",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "control-flow (if-statements)",
@@ -321,7 +307,7 @@
       "uuid": "75b292a3-2a94-40f9-8798-608812a6c0f8",
       "slug": "series",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "atbash-cipher",
       "difficulty": 2,
       "topics": [
         "control-flow (if-statements)",
@@ -334,7 +320,7 @@
       "uuid": "5c782b4f-862e-4feb-98d6-a0eaf9d43a74",
       "slug": "meetup",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "gigasecond",
       "difficulty": 4,
       "topics": [
         "control-flow (if-statements)",
@@ -348,7 +334,7 @@
       "uuid": "ca136f47-07fc-4bd5-9b81-a492ac81a7e6",
       "slug": "nucleotide-count",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hamming",
       "difficulty": 2,
       "topics": [
         "control-flow (loops, switch, if-statements)",
@@ -360,8 +346,7 @@
     {
       "uuid": "87c36588-5917-4790-9566-f7bc21bf41c4",
       "slug": "robot-simulator",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "strings",
@@ -375,7 +360,7 @@
       "uuid": "4b30bb00-c559-423c-ae1c-9c5eaf9cb1c8",
       "slug": "triangle",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pascals-triangle",
       "difficulty": 1,
       "topics": [
         "control-flow (if-else statements)",
@@ -387,8 +372,7 @@
     {
       "uuid": "3ebdb4e4-5e35-48f0-a572-87c40b51475f",
       "slug": "pascals-triangle",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "control-flow (if-else statements)",
@@ -400,7 +384,7 @@
       "uuid": "82bb6c43-668a-4563-bc05-056e45cf86a3",
       "slug": "perfect-numbers",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "pascals-triangle",
       "difficulty": 1,
       "topics": [
         "control-flow (if-else statements)",
@@ -410,8 +394,7 @@
     {
       "uuid": "73e5774c-7d8e-4ed6-9d72-3cb59af441c0",
       "slug": "binary",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "control-flow (loops)",
@@ -421,8 +404,7 @@
     {
       "uuid": "b1f13fdd-4c78-443a-8e37-6d0a3fafbc15",
       "slug": "palindrome-products",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "strings",
@@ -434,8 +416,7 @@
     {
       "uuid": "2ac990f4-39b0-416e-93ee-217dc0181401",
       "slug": "scrabble-score",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 4,
       "topics": [
         "structs",
@@ -448,7 +429,7 @@
       "uuid": "11a574a6-ffea-4de5-abc1-5566bd200374",
       "slug": "space-age",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "gigasecond",
       "difficulty": 1,
       "topics": [
         "Functions"
@@ -458,7 +439,7 @@
       "uuid": "55b87cc2-c3a0-438a-b2b6-116ad6356802",
       "slug": "react",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "atbash-cipher",
       "difficulty": 10,
       "topics": [
         "memory management",
