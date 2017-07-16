@@ -4,7 +4,7 @@ Exercism problems in C
 
 ## Contributing Guide
 
-Please see the [Exercism contributing guide](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md) for general contribution tips.
+Please see the [Exercism contributing guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md) for general contribution tips.
 
 ## Coding Style
 
