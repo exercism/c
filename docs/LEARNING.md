@@ -28,7 +28,7 @@ written for you.  You progress through the exercise one test at a time,
 writing an implementation incrementally to satisfy the tests.
 
 If you are new to test-driven development, it is strongly recommended
-that you first work through a [quick overview of some test frameworks for C](http://www.drdobbs.com/testing/unit-testing-in-c-tools-and-conventions/240156344?pgno=2)
+that you first work through a [quick overview of some test frameworks for C](http://www.drdobbs.com/testing/unit-testing-in-c-tools-and-conventions/240156344)
 or read the book [Test-Driven Development for Embedded C](https://pragprog.com/book/jgade/test-driven-development-for-embedded-c)
 by James Grenning. These resources cover [Unity](http://www.throwtheswitch.org/unity/)
  and [CppUTest](http://cpputest.github.io/); this track uses Unity.

@@ -30,7 +30,7 @@ static char get_decoded_character(char character)
 
 char *atbash_encode(const char *input)
 {
-   char *output = malloc(strlen(input) + (strlen(input) / GROUP_SIZE));
+   char *output = malloc(strlen(input) + (strlen(input) / GROUP_SIZE) + 1);
    int group_count = 0;
 
    output[0] = '\0';

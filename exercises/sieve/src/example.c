@@ -45,6 +45,7 @@ unsigned int sieve(const unsigned int limit, primesArray_t primes)
             primes[numberOfPrimes++] = i;
          }
       }
+      free(numberIsPrime);
    }
    return numberOfPrimes;
 }

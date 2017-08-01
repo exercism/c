@@ -3,10 +3,10 @@ language: bash
 
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get install -y indent
+- sudo apt-get install -y indent valgrind
 
 script:
 - bin/fetch-configlet
-- bin/configlet .
+- bin/configlet lint .
 - bin/verify-indent
 - bin/run-tests
