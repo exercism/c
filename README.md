@@ -26,3 +26,30 @@ indent -nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -d
 
 See the [GNU `indent` manual](https://www.gnu.org/software/indent/manual/indent.html#SEC4) for more information.
 
+## Exercise Anatomy
+
+Each exercise should be contained in a directory ```c/exercises/<my exercise>``` with ```<my exercise>``` referring to the name of the exercise.  The structure of the directory is as follows:
+
+```
++-- <my exercise>
+    +-- makefile
+    +-- src
+    |   +-- example.c
+    |   +-- example.h | <my exercise>.h
+    +-- test
+        +-- test_<my exercise>.c
+        +-- vendor
+            +-- unity.c
+            +-- unity.h
+            +-- unity_internals.h
+```
+
+* `test` - contains the test file ```test_<my exercise>.c``` and a ```vendor``` directory containing the test harness [Unity](http://www.throwtheswitch.org/unity/) from [ThrowTheSwitch](http://www.throwtheswitch.org/#intro-1-section).  ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.throwtheswitch.org/getting-started-with-unity/) should you desire a tutorial.
+
+* `src` - contains the example files ```example.c``` and ```example.h```. These are both skipped by the ```exercism``` cli when downloading to the client, so it is imperative that you do not reference the names of the files in your code. If you need to provide a header file example that is necessary to run your tests it should be named ```<my exercise>.h``` instead.  Please also use [```include```](http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html) guards in your header files. The tests can be run using the [```bin/run-tests```](https://github.com/exercism/c/blob/master/bin/run-tests) script which will rename the ```example.{c|h}``` files accordingly. 
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
