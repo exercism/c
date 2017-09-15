@@ -28,12 +28,12 @@ void test_small_hamming_distance_in_longer_strand(void)
 
 void test_ignores_extra_length_on_first_strand_when_longer(void)
 {
-   TEST_ASSERT_EQUAL(0, compute("AAAG", "AAA"));
+   TEST_ASSERT_EQUAL(1, compute("CAAG", "AAA"));
 }
 
 void test_ignores_extra_length_on_other_strand_when_longer(void)
 {
-   TEST_ASSERT_EQUAL(0, compute("AAA", "AAAG"));
+   TEST_ASSERT_EQUAL(1, compute("AAA", "ACAG"));
 }
 
 void test_large_hamming_distance(void)
