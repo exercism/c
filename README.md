@@ -10,9 +10,9 @@ Please see the [Exercism contributing guide](https://github.com/exercism/docs/bl
 
 All test and example code should be written using the [Linux kernel coding style](https://www.kernel.org/doc/Documentation/CodingStyle) with 3 space indents and no tabs.
 
-If GNU `indent` is installed, this can be run on all files by executing `indent.sh`.
+If GNU `indent` is installed, this can be run on all files by executing `indent.sh`. On a Mac you can install the package `gnu-indent` using [Homebrew](http://brew.sh).
 
-To run it on a single file, you can execute:
+To manually run it on a single file, you can execute:
 
 ```shell
 indent -linux -i3 -nut $(file)
@@ -46,7 +46,7 @@ Each exercise should be contained in a directory ```c/exercises/<my exercise>```
 
 * `test` - contains the test file ```test_<my exercise>.c``` and a ```vendor``` directory containing the test harness [Unity](http://www.throwtheswitch.org/unity/) from [ThrowTheSwitch](http://www.throwtheswitch.org/#intro-1-section).  ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.throwtheswitch.org/getting-started-with-unity/) should you desire a tutorial.
 
-* `src` - contains the example files ```example.c``` and ```example.h```. These are both skipped by the ```exercism``` cli when downloading to the client, so it is imperative that you do not reference the names of the files in your code. If you need to provide a header file example that is necessary to run your tests it should be named ```<my exercise>.h``` instead.  Please also use [```include```](http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html) guards in your header files. The tests can be run using the [```bin/run-tests```](https://github.com/exercism/c/blob/master/bin/run-tests) script which will rename the ```example.{c|h}``` files accordingly. 
+* `src` - contains the example files ```example.c``` and ```example.h```. These are both skipped by the ```exercism``` cli when downloading to the client, so it is imperative that you do not reference the names of the files in your code. If you need to provide a header file example that is necessary to run your tests it should be named ```<my exercise>.h``` instead.  Please also use [```include```](http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html) guards in your header files. The tests can be run using the [```bin/run-tests```](https://github.com/exercism/c/blob/master/bin/run-tests) script which will rename the ```example.{c|h}``` files accordingly.
 
 ## License
 
