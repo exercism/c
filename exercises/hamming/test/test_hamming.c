@@ -3,7 +3,7 @@
 
 void test_empty_strands(void)
 {
-    TEST_ASSERT_EQUAL(0, compute("", ""));
+   TEST_ASSERT_EQUAL(0, compute("", ""));
 }
 
 void test_rejects_null_strand(void)
@@ -13,17 +13,17 @@ void test_rejects_null_strand(void)
 
 void test_rejects_other_null_strand(void)
 {
-    TEST_ASSERT_EQUAL(-1, compute("A", NULL));
+   TEST_ASSERT_EQUAL(-1, compute("A", NULL));
 }
 
 void test_no_difference_between_identical_strands(void)
 {
-    TEST_ASSERT_EQUAL(0, compute("A", "A"));
+   TEST_ASSERT_EQUAL(0, compute("A", "A"));
 }
 
 void test_identical_long_strands(void)
 {
-    TEST_ASSERT_EQUAL(0, compute("GGACTGA", "GGACTGA"));
+   TEST_ASSERT_EQUAL(0, compute("GGACTGA", "GGACTGA"));
 }
 
 void test_hamming_distance_for_single_nucleotide_strand(void)
