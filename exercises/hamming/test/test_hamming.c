@@ -1,9 +1,29 @@
 #include "vendor/unity.h"
 #include "../src/hamming.h"
 
+void test_empty_strands(void)
+{
+    TEST_ASSERT_EQUAL(0, compute("", ""));
+}
+
+void test_rejects_null_strand(void)
+{
+   TEST_ASSERT_EQUAL(-1, compute(NULL, "A"));
+}
+
+void test_rejects_other_null_strand(void)
+{
+    TEST_ASSERT_EQUAL(-1, compute("A", NULL));
+}
+
 void test_no_difference_between_identical_strands(void)
 {
-   TEST_ASSERT_EQUAL(0, compute("A", "A"));
+    TEST_ASSERT_EQUAL(0, compute("A", "A"));
+}
+
+void test_identical_long_strands(void)
+{
+    TEST_ASSERT_EQUAL(0, compute("GGACTGA", "GGACTGA"));
 }
 
 void test_hamming_distance_for_single_nucleotide_strand(void)
@@ -26,14 +46,14 @@ void test_small_hamming_distance_in_longer_strand(void)
    TEST_ASSERT_EQUAL(1, compute("GGACG", "GGTCG"));
 }
 
-void test_ignores_extra_length_on_first_strand_when_longer(void)
+void test_rejects_extra_length_on_first_strand_when_longer(void)
 {
-   TEST_ASSERT_EQUAL(1, compute("CAAG", "AAA"));
+   TEST_ASSERT_EQUAL(-1, compute("AAAG", "AAA"));
 }
 
-void test_ignores_extra_length_on_other_strand_when_longer(void)
+void test_rejects_extra_length_on_other_strand_when_longer(void)
 {
-   TEST_ASSERT_EQUAL(1, compute("AAA", "ACAG"));
+   TEST_ASSERT_EQUAL(-1, compute("AAA", "AAAG"));
 }
 
 void test_large_hamming_distance(void)
@@ -50,13 +70,17 @@ int main(void)
 {
    UnityBegin("hamming.c");
 
+   RUN_TEST(test_empty_strands);
    RUN_TEST(test_no_difference_between_identical_strands);
+   RUN_TEST(test_rejects_null_strand);
+   RUN_TEST(test_rejects_other_null_strand);
+   RUN_TEST(test_identical_long_strands);
    RUN_TEST(test_hamming_distance_for_single_nucleotide_strand);
    RUN_TEST(test_complete_hamming_distance_for_small_strand);
    RUN_TEST(test_small_hamming_distance);
    RUN_TEST(test_small_hamming_distance_in_longer_strand);
-   RUN_TEST(test_ignores_extra_length_on_first_strand_when_longer);
-   RUN_TEST(test_ignores_extra_length_on_other_strand_when_longer);
+   RUN_TEST(test_rejects_null_strand);
+   RUN_TEST(test_rejects_other_null_strand);
    RUN_TEST(test_large_hamming_distance);
    RUN_TEST(test_hamming_distance_in_very_long_strand);
 
