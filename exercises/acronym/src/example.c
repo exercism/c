@@ -4,8 +4,8 @@
 static int is_first_letter_of_word(int character, int preceding_character)
 {
    return isalpha(character)
-       && ((preceding_character == ' ')
-           || (preceding_character == '-')) ? 1 : 0;
+   && ((preceding_character == ' ')
+       || (preceding_character == '-')) ? 1 : 0;
 }
 
 static int count_words(const char phrase[])
@@ -38,7 +38,8 @@ char *abbreviate(const char phrase[])
 
    for (size_t i = 1, j = 1; phrase[i] != '\0'; ++i) {
       if (is_first_letter_of_word(phrase[i], phrase[i - 1]))
-         acronym[j++] = toupper(phrase[i]);     /* first letter of subsequent words */
+         acronym[j++] = toupper(phrase[i]);     /* first letter of subsequent
+                                                   words */
    }
    return acronym;
 }

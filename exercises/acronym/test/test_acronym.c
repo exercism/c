@@ -12,16 +12,16 @@ void test_abbreviation(char *phrase, char *expected)
 
 void test_null_string(void)
 {
-    char *phrase = NULL;
-    char *expected = NULL;
-    test_abbreviation(phrase, expected);
+   char *phrase = NULL;
+   char *expected = NULL;
+   test_abbreviation(phrase, expected);
 }
 
 void test_empty_string(void)
 {
-    char *phrase = "";
-    char *expected = NULL;
-    test_abbreviation(phrase, expected);
+   char *phrase = "";
+   char *expected = NULL;
+   test_abbreviation(phrase, expected);
 }
 
 void test_basic_abbreviation(void)
