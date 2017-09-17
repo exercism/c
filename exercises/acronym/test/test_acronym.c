@@ -10,6 +10,20 @@ void test_abbreviation(char *phrase, char *expected)
    free(actual);
 }
 
+void test_null_string(void)
+{
+   char *phrase = NULL;
+   char *expected = NULL;
+   test_abbreviation(phrase, expected);
+}
+
+void test_empty_string(void)
+{
+   char *phrase = "";
+   char *expected = NULL;
+   test_abbreviation(phrase, expected);
+}
+
 void test_basic_abbreviation(void)
 {
    char *phrase = "Portable Network Graphics";
@@ -57,6 +71,8 @@ int main(void)
    UnityBegin("test/test_acronym.c");
 
    RUN_TEST(test_basic_abbreviation);
+   RUN_TEST(test_null_string);
+   RUN_TEST(test_empty_string);
    RUN_TEST(test_lower_case_words);
    RUN_TEST(test_punctuation);
    RUN_TEST(test_all_caps_words);
