@@ -13,12 +13,12 @@ if [ -x "$(command -v gindent)" ]; then
   INDENT=gindent
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   echo "ERROR: install gnu-indent using home brew to run this script."
-exit 1
+  exit 1
 fi
 
 if [[ -z "$INDENT" ]]; then
-echo "Error:  Install indent to run this script."
-exit 126
+  echo "Error:  Install indent to run this script."
+  exit 126
 fi
 
 for f in $(find exercises/ -not -path '*/vendor/*' -name '*.c' -or -not -path '*/vendor/*' -name '*.h'); do
