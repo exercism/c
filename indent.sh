@@ -5,16 +5,19 @@
 
 INDENT=""
 
-if [ -x "$(command -v gindent)" ]; then
+if [ -x "$(command -v indent)" ]; then
   INDENT=indent
 fi
+
 if [ -x "$(command -v gindent)" ]; then
   INDENT=gindent
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  echo "***********************************************\n*  On OSX install gnu-indent using home brew  *\n***********************************************"
+  echo "ERROR: install gnu-indent using home brew to run this script."
+exit 1
 fi
+
 if [[ -z "$INDENT" ]]; then
-echo "****************************************\n*  Install indent to run this script  *\n****************************************"
+echo "Error:  Install indent to run this script."
 exit 126
 fi
 
