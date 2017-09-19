@@ -68,7 +68,7 @@ void test_hamming_distance_in_very_long_strand(void)
 
 int main(void)
 {
-   UnityBegin("hamming.c");
+   UnityBegin("test/test_hamming.c");
 
    RUN_TEST(test_empty_strands);
    RUN_TEST(test_no_difference_between_identical_strands);
