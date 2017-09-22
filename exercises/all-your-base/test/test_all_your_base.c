@@ -15,8 +15,8 @@ void copy_array(int8_t src[], int8_t dest[DIGITS_ARRAY_SIZE], size_t n)
       dest[i] = src[i];
 }
 
-void test_rebase(uint16_t input_base, int8_t input_digits[],
-                 size_t input_length, uint16_t output_base,
+void test_rebase(int16_t input_base, int8_t input_digits[],
+                 size_t input_length, int16_t output_base,
                  int8_t expected_digits[], size_t expected_length)
 {
    int8_t digits[DIGITS_ARRAY_SIZE] = { 0 };
@@ -30,7 +30,7 @@ void test_rebase(uint16_t input_base, int8_t input_digits[],
    TEST_ASSERT_EQUAL_INT32(expected_length, actual_length);
 
    if (expected_length > 0)
-      TEST_ASSERT_EQUAL_INT16_ARRAY(ex_digits, digits, expected_length);
+      TEST_ASSERT_EQUAL_INT8_ARRAY(ex_digits, digits, expected_length);
 }
 
 void test_single_bit_to_decimal(void)
@@ -133,9 +133,9 @@ void test_first_base_is_negative(void)
 
 void test_negative_digit(void)
 {
-   int8_t input[] = { 1 };
+   int8_t input[] = { 1, -1, 1, 0, 1, 0 };
    int8_t expected[] = { 0 };
-   test_rebase(-2, input, LENGTH(input), 10, expected, 0);
+   test_rebase(2, input, LENGTH(input), 10, expected, 0);
 }
 
 void test_invalid_positive_digit(void)
