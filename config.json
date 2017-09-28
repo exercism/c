@@ -27,19 +27,6 @@
       ]
     },
     {
-      "uuid": "82b19968-03f9-4e17-b729-db6c3e2abfa4",
-      "slug": "anagram",
-      "core": false,
-      "unlocked_by": "acronym",
-      "difficulty": 5,
-      "topics": [
-        "strings",
-        "filtering",
-        "structs",
-        "memory management"
-      ]
-    },
-    {
       "uuid": "24721f7a-4123-470f-81e2-a252e56f3ceb",
       "slug": "leap",
       "core": false,
@@ -252,6 +239,19 @@
       "topics": [
         "control-flow (if-statements)",
         "control-flow (loops)",
+        "structs",
+        "memory management"
+      ]
+    },
+    {
+      "uuid": "82b19968-03f9-4e17-b729-db6c3e2abfa4",
+      "slug": "anagram",
+      "core": false,
+      "unlocked_by": "acronym",
+      "difficulty": 5,
+      "topics": [
+        "strings",
+        "filtering",
         "structs",
         "memory management"
       ]
