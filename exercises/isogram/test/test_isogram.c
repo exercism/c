@@ -2,10 +2,6 @@
 #include "../src/isogram.h"
 #include <stdlib.h>
 
-#ifdef RUN_ALL_TESTS
-#define TEST_IGNORE_MESSAGE(X)
-#endif
-
 void test_empty_string(void)
 {
    TEST_ASSERT_TRUE(isIsogram(""));
@@ -13,7 +9,7 @@ void test_empty_string(void)
 
 void test_lower_case_only(void)
 {
-   TEST_IGNORE(); // delete this line to run test
+   TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_TRUE(isIsogram("isogram"));
 }
 

@@ -3,12 +3,15 @@ set -e
 
 for D in exercises/*; do
     CURRENT_DIR=$(pwd)
-    echo ${D}
+
     if [ -d "${D}" ]; then
         # Get the exercise name from the test file
         TEST_FILE=$(basename $(ls ${D}/test/test*))
         STRIPPED_OF_EXTENSION="${TEST_FILE%.*}"
         EXERCISE_NAME="${STRIPPED_OF_EXTENSION:5}"
+
+        #remove the ignore line
+        sed -i.bak 's/TEST_IGNORE();//' ${D}/test/test_*.c
 
         # Copy the examples with the correct name for the exercise
         if [ -e "${D}/src/example.c" ]
@@ -25,12 +28,12 @@ for D in exercises/*; do
         { cd ${D};
           echo "Running tests for ${EXERCISE_NAME}";
           make clean >> /dev/null;
-          if make CFLAGS='-DRUN_ALL_TESTS -Wno-macro-redefined' | grep FAIL: ; then
+          if make | grep FAIL: ; then
             exit 1
           elif [ ${PIPESTATUS[0]} -ne 0 ]; then
             exit 1
           fi
-#          valgrind --quiet --leak-check=full --error-exitcode=1 ./tests.out >> /dev/null;
+          valgrind --quiet --leak-check=full --error-exitcode=1 ./tests.out >> /dev/null;
           cd ${CURRENT_DIR};
         }
     fi
