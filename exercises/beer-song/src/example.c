@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-static unsigned int getVerse(char *buffer, unsigned int verseNumber)
+static unsigned int get_verse(char *buffer, unsigned int verseNumber)
 {
    unsigned int bytesWritten = 0;
 
@@ -34,7 +34,7 @@ static unsigned int getVerse(char *buffer, unsigned int verseNumber)
 
 void verse(char *buffer, unsigned int verseNumber)
 {
-   (void)getVerse(buffer, verseNumber);
+   (void)get_verse(buffer, verseNumber);
 }
 
 void sing(char *buffer, unsigned int startingVerseNumber,
@@ -43,7 +43,7 @@ void sing(char *buffer, unsigned int startingVerseNumber,
    char *currentPosition = buffer;
 
    for (unsigned int i = startingVerseNumber + 1; i > endingVerseNumber; i--) {
-      currentPosition += getVerse(currentPosition, i - 1);
+      currentPosition += get_verse(currentPosition, i - 1);
       strcpy(currentPosition, "\n");
       currentPosition++;
    }
