@@ -51,6 +51,7 @@ void test_no_matches(void)
 
 void test_detect_simple_anagram(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    char inputs[][MAX_STR_LEN] = {
       "tan",
       "stand",
@@ -78,6 +79,7 @@ void test_detect_simple_anagram(void)
 
 void test_does_not_confuse_different_duplicates(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "eagle"
    };
@@ -94,6 +96,7 @@ void test_does_not_confuse_different_duplicates(void)
 
 void test_eliminate_anagram_subsets(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "dog",
       "goody"
@@ -111,6 +114,7 @@ void test_eliminate_anagram_subsets(void)
 
 void test_detect_anagram(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "enlists",
       "google",
@@ -139,6 +143,7 @@ void test_detect_anagram(void)
 
 void test_multiple_anagrams(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "gallery",
       "ballerina",
@@ -171,6 +176,7 @@ void test_multiple_anagrams(void)
 
 void test_case_insensitive_anagrams(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "cashregister",
       "Carthorse",
@@ -198,6 +204,7 @@ void test_case_insensitive_anagrams(void)
 
 void test_unicode_anagrams(void)
 {
+   TEST_IGNORE();
    // These words don't make sense, they're just greek letters cobbled together.
    char inputs[][MAX_STR_LEN] = {
       "ΒΓΑ",
@@ -226,6 +233,7 @@ void test_unicode_anagrams(void)
 
 void test_misleading_unicode_anagrams(void)
 {
+   TEST_IGNORE();
    // Despite what a human might think these words different letters, the input uses Greek A and B
    // while the list of potential anagrams uses Latin A and B.
    char inputs[][MAX_STR_LEN] = {
@@ -244,6 +252,7 @@ void test_misleading_unicode_anagrams(void)
 
 void test_does_not_detect_a_word_as_its_own_anagram(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "banana"
    };
@@ -260,6 +269,7 @@ void test_does_not_detect_a_word_as_its_own_anagram(void)
 
 void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
 {
+   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "bAnana"
    };

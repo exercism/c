@@ -9,12 +9,14 @@ void test_stating_something(void)
 
 void test_shouting(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("WATCH OUT!")
        );
 }
 
 void test_asking_a_question(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.",
                             hey_bob
                             ("Does this cryogenic chamber make me look fat?")
@@ -23,6 +25,7 @@ void test_asking_a_question(void)
 
 void test_talking_forcefully(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob("Let's go make out behind the gym!")
        );
@@ -30,6 +33,7 @@ void test_talking_forcefully(void)
 
 void test_using_acronyms_in_regular_speech(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob
                             ("It's OK if you don't want to go to the DMV.")
@@ -38,6 +42,7 @@ void test_using_acronyms_in_regular_speech(void)
 
 void test_forceful_questions(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!",
                             hey_bob("WHAT THE HELL WERE YOU THINKING?")
        );
@@ -45,24 +50,28 @@ void test_forceful_questions(void)
 
 void test_shouting_numbers(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("1, 2, 3 GO!")
        );
 }
 
 void test_only_numbers(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.", hey_bob("1, 2, 3")
        );
 }
 
 void test_question_with_only_numbers(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("4?")
        );
 }
 
 void test_shouting_with_special_characters(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!",
                             hey_bob
                             ("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!")
@@ -71,12 +80,14 @@ void test_shouting_with_special_characters(void)
 
 void test_shouting_with_no_exclamation_mark(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("I HATE YOU")
        );
 }
 
 void test_statement_containing_question_mark(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob("Ending with a ? means a question.")
        );
@@ -84,6 +95,7 @@ void test_statement_containing_question_mark(void)
 
 void test_prattling_on(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.",
                             hey_bob("Wait! Hang on.  Are you going to be OK?")
        );
@@ -91,24 +103,28 @@ void test_prattling_on(void)
 
 void test_question_with_trailing_whitespace(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("Are you ok? ")
        );
 }
 
 void test_silence(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("")
        );
 }
 
 void test_prolonged_silence(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("   ")
        );
 }
 
 void test_not_all_silence(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob(" A bit of silence can be nice.  ")
        );

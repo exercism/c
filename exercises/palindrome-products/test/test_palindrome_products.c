@@ -10,6 +10,7 @@ void test_palindromes_list(void)
 
 void test_palindromes_list2(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    Pair palind = getPalindromeProduct(10, 99);
    TEST_ASSERT_EQUAL_INT(121, palind.small_palind);
    TEST_ASSERT_EQUAL_INT(9009, palind.larg_palind);

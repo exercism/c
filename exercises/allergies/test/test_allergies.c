@@ -9,6 +9,7 @@ void test_list_count_is(int count, Allergen_List_t * list)
 
 void test_list_contains(Allergen_t allergen, Allergen_List_t * list)
 {
+   TEST_IGNORE();               // delete this line to run test
    bool allergen_found = false;
 
    for (int i = 0; i < list->count; i++) {
@@ -23,6 +24,7 @@ void test_list_contains(Allergen_t allergen, Allergen_List_t * list)
 
 void test_no_allergies_means_not_allergic(void)
 {
+   TEST_IGNORE();
    int score = 0;
 
    TEST_ASSERT_FALSE(is_allergic_to(Allergen_Peanuts, score));
@@ -32,6 +34,7 @@ void test_no_allergies_means_not_allergic(void)
 
 void test_is_allergic_to_eggs(void)
 {
+   TEST_IGNORE();
    int score = 1;
 
    TEST_ASSERT_TRUE(is_allergic_to(Allergen_Eggs, score));
@@ -39,6 +42,7 @@ void test_is_allergic_to_eggs(void)
 
 void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
 {
+   TEST_IGNORE();
    int score = 5;
 
    TEST_ASSERT_TRUE(is_allergic_to(Allergen_Eggs, score));
@@ -48,6 +52,7 @@ void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
 
 void test_no_allergies_at_all(void)
 {
+   TEST_IGNORE();
    int score = 0;
    Allergen_List_t list;
 
@@ -60,6 +65,7 @@ void test_no_allergies_at_all(void)
 
 void test_allergic_to_just_eggs(void)
 {
+   TEST_IGNORE();
    int score = 1;
    Allergen_List_t list;
 
@@ -73,6 +79,7 @@ void test_allergic_to_just_eggs(void)
 
 void test_allergic_to_just_peanuts(void)
 {
+   TEST_IGNORE();
    int score = 2;
    Allergen_List_t list;
 
@@ -86,6 +93,7 @@ void test_allergic_to_just_peanuts(void)
 
 void test_allergic_to_just_strawberries(void)
 {
+   TEST_IGNORE();
    int score = 8;
    Allergen_List_t list;
 
@@ -99,6 +107,7 @@ void test_allergic_to_just_strawberries(void)
 
 void test_allergic_to_eggs_and_peanuts(void)
 {
+   TEST_IGNORE();
    int score = 3;
    Allergen_List_t list;
 
@@ -113,6 +122,7 @@ void test_allergic_to_eggs_and_peanuts(void)
 
 void test_allergic_to_more_than_eggs_but_not_peanuts(void)
 {
+   TEST_IGNORE();
    int score = 5;
    Allergen_List_t list;
 
@@ -127,6 +137,7 @@ void test_allergic_to_more_than_eggs_but_not_peanuts(void)
 
 void test_allergic_to_lots_of_stuff(void)
 {
+   TEST_IGNORE();
    int score = 248;
    Allergen_List_t list;
 
@@ -144,6 +155,7 @@ void test_allergic_to_lots_of_stuff(void)
 
 void test_allergic_to_everything(void)
 {
+   TEST_IGNORE();
    int score = 255;
    Allergen_List_t list;
 
@@ -164,6 +176,7 @@ void test_allergic_to_everything(void)
 
 void test_ignore_non_allergen_score_parts(void)
 {
+   TEST_IGNORE();
    int score = 509;
    Allergen_List_t list;
 

@@ -25,6 +25,7 @@ void test_no_rows(void)
 
 void test_single_row(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    size_t expected[1][1] = {
       {1}
    };
@@ -35,6 +36,7 @@ void test_single_row(void)
 
 void test_two_rows(void)
 {
+   TEST_IGNORE();
    size_t expected[2][2] = {
       {1, 0},
       {1, 1}
@@ -46,6 +48,7 @@ void test_two_rows(void)
 
 void test_three_rows(void)
 {
+   TEST_IGNORE();
    size_t expected[3][3] = {
       {1, 0, 0},
       {1, 1, 0},
@@ -58,6 +61,7 @@ void test_three_rows(void)
 
 void test_four_rows(void)
 {
+   TEST_IGNORE();
    size_t expected[4][4] = {
       {1, 0, 0, 0},
       {1, 1, 0, 0},
@@ -71,6 +75,7 @@ void test_four_rows(void)
 
 void test_negative_rows(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_TRUE((create_triangle(-1) == NULL));
 }
 

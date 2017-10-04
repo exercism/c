@@ -13,6 +13,7 @@ void test_phone_number_clean(const char *input, const char *expected)
 
 void test_cleans_parens_dashes_and_spaces_from_the_number(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    const char input[] = "(123) 456-7890";
    const char expected[] = "1234567890";
 
@@ -21,6 +22,7 @@ void test_cleans_parens_dashes_and_spaces_from_the_number(void)
 
 void test_cleans_numbers_with_dots(void)
 {
+   TEST_IGNORE();
    const char input[] = "123.456.7890";
    const char expected[] = "1234567890";
 
@@ -29,6 +31,7 @@ void test_cleans_numbers_with_dots(void)
 
 void test_cleans_numbers_with_multiple_spaces(void)
 {
+   TEST_IGNORE();
    const char input[] = "123 456   7890  ";
    const char expected[] = "1234567890";
 
@@ -37,6 +40,7 @@ void test_cleans_numbers_with_multiple_spaces(void)
 
 void test_invalid_when_9_digits(void)
 {
+   TEST_IGNORE();
    const char input[] = "123456789";
    const char expected[] = "0000000000";
 
@@ -45,6 +49,7 @@ void test_invalid_when_9_digits(void)
 
 void test_valid_when_11_digits_and_first_digit_is_1(void)
 {
+   TEST_IGNORE();
    const char input[] = "11234567890";
    const char expected[] = "1234567890";
 
@@ -53,6 +58,7 @@ void test_valid_when_11_digits_and_first_digit_is_1(void)
 
 void test_invalid_when_11_digits_and_first_digit_not_1(void)
 {
+   TEST_IGNORE();
    const char input[] = "21234567890";
    const char expected[] = "0000000000";
 
@@ -61,6 +67,7 @@ void test_invalid_when_11_digits_and_first_digit_not_1(void)
 
 void test_invalid_when_more_than_11_digits(void)
 {
+   TEST_IGNORE();
    const char input[] = "121234567890";
    const char expected[] = "0000000000";
 
@@ -69,6 +76,7 @@ void test_invalid_when_more_than_11_digits(void)
 
 void test_invalid_with_letters(void)
 {
+   TEST_IGNORE();
    const char input[] = "123-abc-7890";
    const char expected[] = "0000000000";
 
@@ -77,6 +85,7 @@ void test_invalid_with_letters(void)
 
 void test_invalid_with_punctuations(void)
 {
+   TEST_IGNORE();
    const char input[] = "123-@:!-7890";
    const char expected[] = "0000000000";
 
@@ -85,6 +94,7 @@ void test_invalid_with_punctuations(void)
 
 void test_invalid_with_right_number_of_digits_but_letters_mixed_in(void)
 {
+   TEST_IGNORE();
    const char input[] = "1a2b3c4d5e6f7g8h9i0j";
    const char expected[] = "0000000000";
 
@@ -93,6 +103,7 @@ void test_invalid_with_right_number_of_digits_but_letters_mixed_in(void)
 
 void test_returns_area_code(void)
 {
+   TEST_IGNORE();
    const char input[] = "5024567890";
    const char expected[] = "502";
    char *result;
@@ -106,6 +117,7 @@ void test_returns_area_code(void)
 
 void test_formats_a_number(void)
 {
+   TEST_IGNORE();
    const char input[] = "1234567890";
    const char expected[] = "(123) 456-7890";
    char *result;
@@ -119,6 +131,7 @@ void test_formats_a_number(void)
 
 void test_cleans_number_before_formatting(void)
 {
+   TEST_IGNORE();
    const char input[] = "123-456-7890";
    const char expected[] = "(123) 456-7890";
    char *result;
