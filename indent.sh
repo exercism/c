@@ -3,10 +3,18 @@
 # Indents all .c and .h files in the project that are not vendor code (ie: Unity).
 #
 
-INDENT=indent
+INDENT=""
 
 if [ -x "$(command -v gindent)" ]; then
   INDENT=gindent
+elif [ "$OSTYPE" = "darwin"* ]; then
+  echo "ERROR:  Install gnu-indent using home brew to run this script."
+  exit 126
+elif [ -x "$(command -v indent)" ]; then
+  INDENT=indent
+else
+  echo "ERROR:  Install indent to run this script."
+  exit 126
 fi
 
 for f in $(find exercises/ -not -path '*/vendor/*' -name '*.c' -or -not -path '*/vendor/*' -name '*.h'); do
