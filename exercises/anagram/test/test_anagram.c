@@ -5,7 +5,7 @@
 #include "../src/anagram.h"
 
 // Empty vector for when expected output is nothing
-static struct Vector empty = {
+static struct vector empty = {
    NULL,
    0
 };
@@ -16,7 +16,7 @@ static int stringcmp(const void *a, const void *b)
 }
 
 // Asserts that the two input vectors are equal
-static void assert_equal_vector(struct Vector vout, struct Vector expected)
+static void assert_equal_vector(struct vector vout, struct vector expected)
 {
    // Sort actual and expected outputs for consistency
    qsort(expected.vec, expected.size, sizeof(char) * MAX_STR_LEN, stringcmp);
@@ -39,12 +39,12 @@ void test_no_matches(void)
       "pants"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("diaper", vin);
+   struct vector vout = anagrams_for("diaper", vin);
    assert_equal_vector(vout, empty);
    free(vout.vec);
 }
@@ -61,17 +61,17 @@ void test_detect_simple_anagram(void)
       "tan"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector expected = {
+   struct vector expected = {
       outputs,
       sizeof(outputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("ant", vin);
+   struct vector vout = anagrams_for("ant", vin);
    assert_equal_vector(vout, expected);
    free(vout.vec);
 }
@@ -82,12 +82,12 @@ void test_does_not_confuse_different_duplicates(void)
       "eagle"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("galea", vin);
+   struct vector vout = anagrams_for("galea", vin);
    assert_equal_vector(vout, empty);
    free(vout.vec);
 }
@@ -99,12 +99,12 @@ void test_eliminate_anagram_subsets(void)
       "goody"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("good", vin);
+   struct vector vout = anagrams_for("good", vin);
    assert_equal_vector(vout, empty);
    free(vout.vec);
 }
@@ -122,17 +122,17 @@ void test_detect_anagram(void)
       "inlets"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector expected = {
+   struct vector expected = {
       outputs,
       sizeof(outputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("listen", vin);
+   struct vector vout = anagrams_for("listen", vin);
    assert_equal_vector(vout, expected);
    free(vout.vec);
 }
@@ -154,17 +154,17 @@ void test_multiple_anagrams(void)
       "largely"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector expected = {
+   struct vector expected = {
       outputs,
       sizeof(outputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("allergy", vin);
+   struct vector vout = anagrams_for("allergy", vin);
    assert_equal_vector(vout, expected);
    free(vout.vec);
 }
@@ -181,17 +181,17 @@ void test_case_insensitive_anagrams(void)
       "Carthorse"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector expected = {
+   struct vector expected = {
       outputs,
       sizeof(outputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("Orchestra", vin);
+   struct vector vout = anagrams_for("Orchestra", vin);
    assert_equal_vector(vout, expected);
    free(vout.vec);
 }
@@ -209,17 +209,17 @@ void test_unicode_anagrams(void)
       "ΒΓΑ"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector expected = {
+   struct vector expected = {
       outputs,
       sizeof(outputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("ΑΒΓ", vin);
+   struct vector vout = anagrams_for("ΑΒΓ", vin);
    assert_equal_vector(vout, expected);
    free(vout.vec);
 }
@@ -232,12 +232,12 @@ void test_misleading_unicode_anagrams(void)
       "ABΓ"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("ΑΒΓ", vin);
+   struct vector vout = anagrams_for("ΑΒΓ", vin);
    assert_equal_vector(vout, empty);
    free(vout.vec);
 }
@@ -248,12 +248,12 @@ void test_does_not_detect_a_word_as_its_own_anagram(void)
       "banana"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("banana", vin);
+   struct vector vout = anagrams_for("banana", vin);
    assert_equal_vector(vout, empty);
    free(vout.vec);
 }
@@ -264,12 +264,12 @@ void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
       "bAnana"
    };
 
-   struct Vector vin = {
+   struct vector vin = {
       inputs,
       sizeof(inputs) / MAX_STR_LEN
    };
 
-   struct Vector vout = anagrams_for("banana", vin);
+   struct vector vout = anagrams_for("banana", vin);
    assert_equal_vector(vout, empty);
    free(vout.vec);
 }
