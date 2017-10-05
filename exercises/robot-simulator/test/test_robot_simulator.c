@@ -21,6 +21,7 @@ void test_init(void)
 
 void test_invalid_initial_heading(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    RobotGridStatus_t expected =
        { Default_Bearing, {Default_X_Coordinate, Default_Y_Coordinate} };
    RobotGridStatus_t actual =
@@ -31,6 +32,7 @@ void test_invalid_initial_heading(void)
 
 void test_init_with_negative_positions(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_South, {-1, -1} };
    RobotGridStatus_t actual = robot_init_with_position(Heading_South, -1, -1);
 
@@ -39,6 +41,7 @@ void test_init_with_negative_positions(void)
 
 void test_turn_right(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_East, {0, 0} };
    RobotGridStatus_t actual = robot_init();
 
@@ -60,6 +63,7 @@ void test_turn_right(void)
 
 void test_turn_left(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_West, {0, 0} };
    RobotGridStatus_t actual = robot_init();
 
@@ -81,6 +85,7 @@ void test_turn_left(void)
 
 void test_advance_positive_north(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_North, {0, 1} };
    RobotGridStatus_t actual = robot_init();
 
@@ -90,6 +95,7 @@ void test_advance_positive_north(void)
 
 void test_advance_positive_east(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_East, {1, 0} };
    RobotGridStatus_t actual = robot_init_with_position(Heading_East, 0, 0);
 
@@ -99,6 +105,7 @@ void test_advance_positive_east(void)
 
 void test_advance_negative_south(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_South, {0, -1} };
    RobotGridStatus_t actual = robot_init_with_position(Heading_South, 0, 0);
 
@@ -108,6 +115,7 @@ void test_advance_negative_south(void)
 
 void test_advance_negative_west(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_West, {-1, 0} };
    RobotGridStatus_t actual = robot_init_with_position(Heading_West, 0, 0);
 
@@ -117,6 +125,7 @@ void test_advance_negative_west(void)
 
 void test_simulate_move_west_and_north(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_West, {-4, 1} };
    RobotGridStatus_t actual = robot_init();
 
@@ -126,6 +135,7 @@ void test_simulate_move_west_and_north(void)
 
 void test_simulate_move_west_and_south(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_South, {-3, -8} };
    RobotGridStatus_t actual = robot_init_with_position(Heading_East, 2, -7);
 
@@ -135,6 +145,7 @@ void test_simulate_move_west_and_south(void)
 
 void test_simulate_move_east_and_north(void)
 {
+   TEST_IGNORE();
    RobotGridStatus_t expected = { Heading_North, {11, 5} };
    RobotGridStatus_t actual = robot_init_with_position(Heading_South, 8, 4);
 

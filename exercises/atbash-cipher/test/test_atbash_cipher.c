@@ -28,63 +28,75 @@ void test_encode_yes(void)
 
 void test_encode_no(void)
 {
+   TEST_IGNORE();
    test_encode("no", "ml");
 }
 
 void test_encode_OMG(void)
 {
+   TEST_IGNORE();
    test_encode("OMG", "lnt");
 }
 
 void test_encode_spaces(void)
 {
+   TEST_IGNORE();
    test_encode("O M G", "lnt");
 }
 
 void test_encode_mindblowingly(void)
 {
+   TEST_IGNORE();
    test_encode("mindblowingly", "nrmwy oldrm tob");
 }
 
 void test_encode_numbers(void)
 {
+   TEST_IGNORE();
    test_encode("Testing,1 2 3, testing.", "gvhgr mt123 gvhgr mt");
 }
 
 void test_encode_deep_thought(void)
 {
+   TEST_IGNORE();
    test_encode("Truth is fiction.", "gifgs rhurx grlm");
 }
 
 void test_encode_all_the_letters(void)
 {
+   TEST_IGNORE();
    test_encode("The quick brown fox jumps over the lazy dog.",
                "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt");
 }
 
 void test_encode_ignores_non_ascii(void)
 {
+   TEST_IGNORE();
    test_encode("non ascii éignored", "mlmzh xrrrt mlivw");
 }
 
 void test_decode_exercism(void)
 {
+   TEST_IGNORE();
    test_decode("vcvix rhn", "exercism");
 }
 
 void test_decode_a_sentence(void)
 {
+   TEST_IGNORE();
    test_decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v",
                "anobstacleisoftenasteppingstone");
 }
 
 void test_decode_numbers(void)
 {
+   TEST_IGNORE();
    test_decode("gvhgr mt123 gvhgr mt", "testing123testing");
 }
 
 void test_decode_all_the_letters(void)
 {
+   TEST_IGNORE();
    test_decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt",
                "thequickbrownfoxjumpsoverthelazydog");
 }

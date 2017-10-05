@@ -8,6 +8,7 @@ void test_null(void)
 
 void test_empty_sentence(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    const char sentence[] = "";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
@@ -15,6 +16,7 @@ void test_empty_sentence(void)
 
 void test_lowercase_pangram(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "the quick brown fox jumps over the lazy dog";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
@@ -22,6 +24,7 @@ void test_lowercase_pangram(void)
 
 void test_uppercase_pangram(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
@@ -29,6 +32,7 @@ void test_uppercase_pangram(void)
 
 void test_missing_character_x(void)
 {
+   TEST_IGNORE();
    const char sentence[] =
        "a quick movement of the enemy will jeopardize five gunboats";
 
@@ -37,6 +41,7 @@ void test_missing_character_x(void)
 
 void test_another_missing_x(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "the quick brown fish jumps over the lazy dog";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
@@ -44,6 +49,7 @@ void test_another_missing_x(void)
 
 void test_pangram_with_underscores(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "the_quick_brown_fox_jumps_over_the_lazy_dog";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
@@ -51,6 +57,7 @@ void test_pangram_with_underscores(void)
 
 void test_pangram_with_numbers(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "the 1 quick brown fox jumps over the 2 lazy dogs";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
@@ -58,6 +65,7 @@ void test_pangram_with_numbers(void)
 
 void test_missing_letters_replaced_by_numbers(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
@@ -65,6 +73,7 @@ void test_missing_letters_replaced_by_numbers(void)
 
 void test_mixed_case_and_punctuation(void)
 {
+   TEST_IGNORE();
    const char sentence[] = "\"Five quacking Zephyrs jolt my wax bed.\"";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
@@ -72,6 +81,7 @@ void test_mixed_case_and_punctuation(void)
 
 void test_non_ascii_characters(void)
 {
+   TEST_IGNORE();
    const char sentence[] =
        "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.";
 
@@ -80,6 +90,7 @@ void test_non_ascii_characters(void)
 
 void test_pangram_in_alphabet_other_than_ascii(void)
 {
+   TEST_IGNORE();
    const char sentence[] =
        "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства.";
 

@@ -10,6 +10,9 @@ for D in exercises/*; do
         STRIPPED_OF_EXTENSION="${TEST_FILE%.*}"
         EXERCISE_NAME="${STRIPPED_OF_EXTENSION:5}"
 
+        #remove the ignore line
+        sed -i.bak 's/TEST_IGNORE();//' ${D}/test/test_*.c
+
         # Copy the examples with the correct name for the exercise
         if [ -e "${D}/src/example.c" ]
         then
