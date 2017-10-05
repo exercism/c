@@ -5,7 +5,7 @@
 
 #include "anagram.h"
 
-char *lowercase(char *p)
+char *lower_case(char *p)
 {
    int len = strlen(p) + 1;
    char *lower = (char *)malloc(len);
@@ -24,15 +24,15 @@ int compare(const void *a, const void *b)
    return *(const char *)a - *(const char *)b;
 }
 
-struct Vector anagrams_for(char *in, struct Vector vin)
+struct vector anagrams_for(char *in, struct vector vin)
 {
-   struct Vector vout = {
+   struct vector vout = {
       malloc(MAX_STR_LEN * sizeof(char *)),
       0
    };
    char (*vout_vecp)[MAX_STR_LEN] = vout.vec;
 
-   char *lower = lowercase(in);
+   char *lower = lower_case(in);
    char *sorted = malloc(strlen(in) + 1);
    memcpy(sorted, lower, strlen(in) + 1);
    qsort(sorted, strlen(sorted), 1, compare);
@@ -40,7 +40,7 @@ struct Vector anagrams_for(char *in, struct Vector vin)
    char (*vecp)[MAX_STR_LEN] = vin.vec;
    int x;
    for (x = 0; x < vin.size; x++) {
-      char *input_lower = lowercase((char *)vecp);
+      char *input_lower = lower_case((char *)vecp);
       if (strcmp(input_lower, lower) != 0) {
          char *input_sorted = input_lower;
          qsort(input_sorted, strlen(input_sorted), 1, compare);

@@ -3,11 +3,11 @@
 
 #define MAX_STR_LEN 20
 
-struct Vector {
+struct vector {
    char (*vec)[MAX_STR_LEN];
    int size;
 };
 
-struct Vector anagrams_for(char *, struct Vector);
+struct vector anagrams_for(char *, struct vector);
 
 #endif
