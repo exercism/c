@@ -126,7 +126,7 @@ int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
          } else {
             reference_day = 13;  // use first teenth day as reference
          }
-         day_offset = referenceDay;
+         day_offset = reference_day;
       }
       baseline_day_of_week = get_day_of_week_from_date(year, month, reference_day);
       day_of_month = day_offset + ((target_day_in_week + 7 - baseline_day_of_week) % 7);
