@@ -8,70 +8,70 @@
 typedef struct {
    const char *text;
    int number;
-} TextToIntLookup_t;
+} text_to_int_lookup_t;
 
-static bool isLeapyear(int year)
+static bool is_leap_year(int year)
 {
    return ((((year % 4) == 0) && ((year % 100) != 0)) || ((year % 400) == 0));
 }
 
-static int daysInMonth(int year, int month)
+static int days_in_month(int year, int month)
 {
-   int numberOfDays = 31;
+   int number_of_days = 31;
 
    switch (month) {
    case 4:
    case 6:
    case 9:
    case 11:
-      numberOfDays = 30;
+      number_of_days = 30;
       break;
    case 2:
-      if (isLeapyear(year)) {
-         numberOfDays = 29;
+      if (is_leap_year(year)) {
+         number_of_days = 29;
       } else {
-         numberOfDays = 28;
+         number_of_days = 28;
       }
       break;
    }
-   return numberOfDays;
+   return number_of_days;
 }
 
-static int getNumberGivenText(const char *text, TextToIntLookup_t * lookup,
-                              size_t numberEntries)
+static int get_number_given_text(const char *text, text_to_int_lookup_t * lookup,
+                              size_t number_entries)
 {
-   int matchNumber = -1;
+   int match_number = -1;
 
-   for (size_t index = 0; index < numberEntries; index++) {
+   for (size_t index = 0; index < number_entries; index++) {
       if (0 == strcmp(text, lookup[index].text)) {
-         matchNumber = lookup[index].number;
+         match_number = lookup[index].number;
          break;
       }
    }
-   return matchNumber;
+   return match_number;
 }
 
-static int getDayOfWeekFromDate(unsigned int year, unsigned int month,
+static int get_day_of_week_from_date(unsigned int year, unsigned int month,
                                 unsigned int day)
 {
-   struct tm firstDayOfTestMonth;
-   time_t midnightFirstDayofTestMonth;
+   struct tm first_day_of_test_month;
+   time_t midnight_first_day_of_test_month;
 
-   firstDayOfTestMonth.tm_year = year - 1900;
-   firstDayOfTestMonth.tm_mon = month - 1;
-   firstDayOfTestMonth.tm_mday = day;
-   firstDayOfTestMonth.tm_hour = 0;
-   firstDayOfTestMonth.tm_min = 0;
-   firstDayOfTestMonth.tm_sec = 0;
-   firstDayOfTestMonth.tm_isdst = 0;
-   midnightFirstDayofTestMonth = mktime(&firstDayOfTestMonth);
+   first_day_of_test_month.tm_year = year - 1900;
+   first_day_of_test_month.tm_mon = month - 1;
+   first_day_of_test_month.tm_mday = day;
+   first_day_of_test_month.tm_hour = 0;
+   first_day_of_test_month.tm_min = 0;
+   first_day_of_test_month.tm_sec = 0;
+   first_day_of_test_month.tm_isdst = 0;
+   midnight_first_day_of_test_month = mktime(&first_day_of_test_month);
 
-   return (localtime(&midnightFirstDayofTestMonth)->tm_wday);
+   return (localtime(&midnight_first_day_of_test_month)->tm_wday);
 }
 
-static int getWeekOfMonth(const char *week)
+static int get_week_of_month(const char *week)
 {
-   TextToIntLookup_t whichWeekOfMonthLookup[] = {
+   text_to_int_lookup_t which_week_of_month_lookup[] = {
       {"first", 1},
       {"second", 2},
       {"third", 3},
@@ -81,14 +81,14 @@ static int getWeekOfMonth(const char *week)
       {"teenth", 7}
    };
 
-   return getNumberGivenText(week, &whichWeekOfMonthLookup[0],
-                             sizeof(whichWeekOfMonthLookup) /
-                             sizeof(TextToIntLookup_t));
+   return get_number_given_text(week, &which_week_of_month_lookup[0],
+                             sizeof(which_week_of_month_lookup) /
+                             sizeof(text_to_int_lookup_t));
 }
 
-static int getRequestedDayOfWeek(const char *dayOfWeek)
+static int get_requested_day_of_week(const char *day_of_week)
 {
-   TextToIntLookup_t dayLookup[] = {
+   text_to_int_lookup_t day_lookup[] = {
       {"Sunday", 0},
       {"Monday", 1},
       {"Tuesday", 2},
@@ -98,42 +98,42 @@ static int getRequestedDayOfWeek(const char *dayOfWeek)
       {"Saturday", 6}
    };
 
-   return getNumberGivenText(dayOfWeek, &dayLookup[0],
-                             sizeof(dayLookup) / sizeof(TextToIntLookup_t));
+   return get_number_given_text(day_of_week, &day_lookup[0],
+                             sizeof(day_lookup) / sizeof(text_to_int_lookup_t));
 }
 
-int meetupDayOfMonth(unsigned int year, unsigned int month, const char *week,
-                     const char *dayOfWeek)
+int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
+                     const char *day_of_week)
 {
-   int dayOfMonth = BAD_DATE_REQUESTED;
-   int baselineDayOfWeek;
-   int daysInTestMonth = daysInMonth(year, month);
-   int dayOffset;
-   int referenceDay = 1;        // used to calculate a baseline day of week given a target date.
+   int day_of_month = BAD_DATE_REQUESTED;
+   int baseline_day_of_week;
+   int days_in_test_month = days_in_month(year, month);
+   int day_offset;
+   int reference_day = 1;        // used to calculate a baseline day of week given a target date.
 
-   int whichWeekOfMonth = getWeekOfMonth(week);
-   int targetDayInWeek = getRequestedDayOfWeek(dayOfWeek);
+   int which_week_of_month = get_week_of_month(week);
+   int target_day_in_week = get_requested_day_of_week(day_of_week);
 
    // check for valid lookup...
-   if ((whichWeekOfMonth >= 0) && (targetDayInWeek >= 0)) {
+   if ((which_week_of_month >= 0) && (target_day_in_week >= 0)) {
       // first - fifth Xday of month
-      if (whichWeekOfMonth <= 5) {
-         dayOffset = 1 + ((whichWeekOfMonth - 1) * 7);
+      if (which_week_of_month <= 5) {
+         day_offset = 1 + ((which_week_of_month - 1) * 7);
       } else {
          // code for last Xday of month
-         if (6 == whichWeekOfMonth) {
-            referenceDay = daysInTestMonth - 6; // use the last unique day near end of month as reference
+         if (6 == which_week_of_month) {
+            reference_day = days_in_test_month - 6; // use the last unique day near end of month as reference
          } else {
-            referenceDay = 13;  // use first teenth day as reference
+            reference_day = 13;  // use first teenth day as reference
          }
-         dayOffset = referenceDay;
+         day_offset = referenceDay;
       }
-      baselineDayOfWeek = getDayOfWeekFromDate(year, month, referenceDay);
-      dayOfMonth = dayOffset + ((targetDayInWeek + 7 - baselineDayOfWeek) % 7);
+      baseline_day_of_week = get_day_of_week_from_date(year, month, reference_day);
+      day_of_month = day_offset + ((target_day_in_week + 7 - baseline_day_of_week) % 7);
    }
 
-   if (dayOfMonth > daysInTestMonth) {
-      dayOfMonth = BAD_DATE_REQUESTED;
+   if (day_of_month > days_in_test_month) {
+      day_of_month = BAD_DATE_REQUESTED;
    }
-   return dayOfMonth;
+   return day_of_month;
 }

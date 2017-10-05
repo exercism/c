@@ -2,18 +2,18 @@
 #include "../src/meetup.h"
 
 // Using XMacros to create the tests
-#define EXPAND_MEETUP_TEST_AS_TEST(test_name, year, month, week, dayOfWeek, dayOfMonth)\
+#define EXPAND_MEETUP_TEST_AS_TEST(test_name, year, month, week, day_of_week, day_of_month_expected)\
    void test_name(void)\
    {\
-   int actualDayOfMonth = meetupDayOfMonth(year, month, week, dayOfWeek);\
+   int actual_day_of_month = meetup_day_of_month(year, month, week, day_of_week);\
    \
-   TEST_ASSERT_EQUAL_INT(dayOfMonth, actualDayOfMonth);\
+   TEST_ASSERT_EQUAL_INT(day_of_month_expected, actual_day_of_month);\
    }\
 
 
 // below expands to multiple routines...that are all designed to test the returned day of month
 // the fields are:
-//    text - test name, int year, int month, char *week, char *dayofWeek, int dayOfMonthExpecte (0=invalid)
+//    text - test name, int year, int month, char *week, char *day_of_week, int day_of_month_expected (0=invalid)
 
 #define MEETUP_TESTS(ENTRY) \
    ENTRY(test_monteenth_of_May_2013, 2013, 5, "teenth", "Monday", 13)\
