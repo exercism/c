@@ -6,10 +6,10 @@
 #define MAX_SERIES_LENGTH (5)
 
 // results structure
-typedef struct SeriesResults {
-   unsigned int substringCount;
-   char **substring;            // array of pointers of dimension substringCount
-} SeriesResults_t;
+typedef struct series_results {
+   unsigned int substring_count;
+   char **substring;            // array of pointers of dimension substring_count
+} series_results_t;
 
 // series - routine to split up input text into consecutive substrings of text of a given substringLength
 //
@@ -23,6 +23,6 @@ typedef struct SeriesResults {
 //
 //       calling routine will free memory associated with each of the substrings and
 //       the pointers to the substrings.
-SeriesResults_t series(char *inputText, unsigned int substringLength);
+series_results_t series(char *input_text, unsigned int substring_length);
 
 #endif
