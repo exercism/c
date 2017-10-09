@@ -426,8 +426,6 @@ void test_subtract_more_than_two_days(void)
                                 minute_offset);
 }
 
-//Equality of two clock objects tests not implemented because C does not
-//have objects.
 int main(void)
 {
    UnityBegin("clock.c");

@@ -34,6 +34,7 @@ void test_slices_of_one(void)
 
 void test_slices_of_two(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    char *substrings[] = { "97", "78", "86", "67", "75", "56", "64" };
    series_results_t expected = { 7, &substrings[0] };
    series_results_t actual = series("97867564", 2);
@@ -43,6 +44,7 @@ void test_slices_of_two(void)
 
 void test_slices_of_three(void)
 {
+   TEST_IGNORE();
    char *substrings[] = { "978", "786", "867", "675", "756", "564" };
    series_results_t expected = { 6, &substrings[0] };
    series_results_t actual = series("97867564", 3);
@@ -52,6 +54,7 @@ void test_slices_of_three(void)
 
 void test_slices_of_four(void)
 {
+   TEST_IGNORE();
    char *substrings[] = { "0123", "1234" };
    series_results_t expected = { 2, &substrings[0] };
    series_results_t actual = series("01234", 4);
@@ -61,6 +64,7 @@ void test_slices_of_four(void)
 
 void test_slices_of_five(void)
 {
+   TEST_IGNORE();
    char *substrings[] = { "01234" };
    series_results_t expected = { 1, &substrings[0] };
    series_results_t actual = series("01234", 5);
@@ -70,6 +74,7 @@ void test_slices_of_five(void)
 
 void test_overly_long_slice(void)
 {
+   TEST_IGNORE();
    char *substrings[] = { "" };
    series_results_t expected = { 0, &substrings[0] };
    series_results_t actual = series("012", 4);
@@ -79,6 +84,7 @@ void test_overly_long_slice(void)
 
 void test_overly_short_slice(void)
 {
+   TEST_IGNORE();
    char *substrings[] = { "" };
    series_results_t expected = { 0, &substrings[0] };
    series_results_t actual = series("01234", 0);
