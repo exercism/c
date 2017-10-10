@@ -609,7 +609,7 @@ void test_fifth_Friday_of_February_2013(void)
 int main(void)
 {
    UnityBegin("test/test_meetup.c");
-    
+
    RUN_TEST(test_monteenth_of_May_2013);
    RUN_TEST(test_monteenth_of_August_2013);
    RUN_TEST(test_monteenth_of_September_2013);
@@ -707,7 +707,7 @@ int main(void)
    RUN_TEST(test_first_Friday_of_December_2012);
    RUN_TEST(test_fifth_Friday_of_December_2016);
    RUN_TEST(test_fifth_Friday_of_February_2013);
-    
+
    UnityEnd();
    return 0;
 }
