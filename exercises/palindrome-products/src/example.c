@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 /* Return true if the product of a and b is a palindrome, false otherwise */
-bool isPalindromeProduct(int a, int b)
+bool is_palindrome_product(int a, int b)
 {
    int ret = 0, prod = a * b;
    while (prod) {
@@ -13,21 +13,21 @@ bool isPalindromeProduct(int a, int b)
    return (a * b) == ret;
 }
 
-Pair getPalindromeProduct(int min, int max)
+product_t get_palindrome_product(int min, int max)
 {
-   Pair ret;
-   ret.small_palind = 0;
-   ret.larg_palind = 0;
+   product_t ret;
+   ret.smallest = 0;
+   ret.largest = 0;
    bool largest = false;
 
    for (int i = min; i <= max; i++) {
       for (int j = min; j <= max; j++) {
-         if (isPalindromeProduct(i, j) == true) {
+         if (is_palindrome_product(i, j) == true) {
             if (largest == false) {
-               ret.small_palind = i * j;
+               ret.smallest = i * j;
                largest = true;
             } else {
-               ret.larg_palind = i * j;
+               ret.largest = i * j;
             }
          }
       }
