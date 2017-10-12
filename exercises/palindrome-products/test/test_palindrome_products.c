@@ -19,10 +19,10 @@ void test_palindromes_list2(void)
 int main(void)
 {
    UnityBegin("test/test_palindrome_products.c");
-   
+
    RUN_TEST(test_palindromes_list);
    RUN_TEST(test_palindromes_list2);
-   
+
    UnityEnd();
    return 0;
 }
