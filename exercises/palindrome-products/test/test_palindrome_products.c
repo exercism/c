@@ -10,7 +10,7 @@ void test_palindromes_list(void)
 
 void test_palindromes_list2(void)
 {
-   TEST_IGNORE();               // delete this line to run the test
+   TEST_IGNORE();               // delete this line to run test
    product_t product = get_palindrome_product(10, 99);
    TEST_ASSERT_EQUAL_INT(121, product.smallest);
    TEST_ASSERT_EQUAL_INT(9009, product.largest);
