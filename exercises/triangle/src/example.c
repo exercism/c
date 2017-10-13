@@ -8,7 +8,7 @@ bool triangle_equality(triangle_t * input)
        );
 }
 
-bool is_equilateral(triangle_t input)
+bool is_equilateral(triangle_t * input)
 {
    return (triangle_equality(input)
            && (input->a == input->b)
