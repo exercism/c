@@ -6,10 +6,10 @@ typedef struct {
    double a;
    double b;
    double c;
-} Triangle_t;
+} triangle_t;
 
-bool is_equilateral(Triangle_t * input);
-bool is_isosceles(Triangle_t * input);
-bool is_scalene(Triangle_t * input);
+bool is_equilateral(triangle_t * input);
+bool is_isosceles(triangle_t * input);
+bool is_scalene(triangle_t * input);
 
 #endif
