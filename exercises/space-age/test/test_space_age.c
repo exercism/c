@@ -51,7 +51,7 @@ void test_convert_neptune_year(void)
 int main(void)
 {
    UnityBegin("test/test_space_age.c");
-   
+
    RUN_TEST(test_convert_earth_year);
    RUN_TEST(test_convert_mercury_year);
    RUN_TEST(test_convert_venus_year);
@@ -60,7 +60,7 @@ int main(void)
    RUN_TEST(test_convert_saturn_year);
    RUN_TEST(test_convert_uranus_year);
    RUN_TEST(test_convert_neptune_year);
-   
+
    UnityEnd();
    return 0;
 }
