@@ -1,7 +1,7 @@
 #ifndef SPACE_AGE_H
 #define SPACE_AGE_H
 
-typedef enum planets {
+typedef enum planet {
    mercury,
    venus,
    earth,
@@ -10,8 +10,8 @@ typedef enum planets {
    saturn,
    uranus,
    neptune,
-} Planets;
+} planet_t;
 
-float convert_planet_age(Planets planet, const long input);
+float convert_planet_age(planet_t planet, const long input);
 
 #endif
