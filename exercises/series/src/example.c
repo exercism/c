@@ -4,20 +4,20 @@
 
 #include "series.h"
 
-SeriesResults_t series(char *inputText, unsigned int substringLength)
+series_results_t series(char *input_text, unsigned int substring_length)
 {
-   int substringCount = strlen(inputText) - (substringLength - 1);
-   SeriesResults_t results;
+   int substring_count = strlen(input_text) - (substring_length - 1);
+   series_results_t results;
 
    memset(&results, 0, sizeof(results));
-   if ((substringCount > 0) && (substringLength > 0)) {
-      results.substringCount = substringCount;
-      results.substring = malloc(sizeof(char *) * substringCount);
-      for (int index = 0; index < substringCount; index++) {
+   if ((substring_count > 0) && (substring_length > 0)) {
+      results.substring_count = substring_count;
+      results.substring = malloc(sizeof(char *) * substring_count);
+      for (int index = 0; index < substring_count; index++) {
          results.substring[index] =
-             malloc(sizeof(char) * (substringLength + 1));
-         sprintf(results.substring[index], "%.*s", substringLength,
-                 &inputText[index]);
+             malloc(sizeof(char) * (substring_length + 1));
+         sprintf(results.substring[index], "%.*s", substring_length,
+                 &input_text[index]);
       }
    }
    return results;
