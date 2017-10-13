@@ -5,6 +5,6 @@ typedef struct {
    double a;
    double b;
    double c;
-} Triangle_t;
+} triangle_t;
 
 #endif
