@@ -2,40 +2,40 @@
 #define ROBOT_SIMULATOR_H
 
 typedef enum {
-   Heading_North = 0,
-   Heading_East,
-   Heading_South,
-   Heading_West,
-   Heading_Max
-} Bearing_t;
+   heading_north = 0,
+   heading_east,
+   heading_south,
+   heading_west,
+   heading_max
+} bearing_t;
 
 enum {
-   Default_Bearing = Heading_North,
-   Default_X_Coordinate = 0,
-   Default_Y_Coordinate = 0,
+   default_bearing = heading_north,
+   default_x_coordinate = 0,
+   default_y_coordinate = 0,
 };
 
 enum {
-   Command_Left = 'L',
-   Command_Right = 'R',
-   Command_Advance = 'A'
+   command_left = 'L',
+   command_right = 'R',
+   command_advance = 'A'
 };
 
-typedef struct RobotCoordinates {
+typedef struct robot_coordinates {
    int x_position;
    int y_position;
-} RobotCoordinates_t;
+} robot_coordinates_t;
 
-typedef struct RobotGridStatus {
-   Bearing_t bearing;
-   RobotCoordinates_t grid;
-} RobotGridStatus_t;
+typedef struct robot_grid_status {
+   bearing_t bearing;
+   robot_coordinates_t grid;
+} robot_grid_status_t;
 
-RobotGridStatus_t robot_init(void);
-RobotGridStatus_t robot_init_with_position(int bearing, int x, int y);
-void robot_turn_right(RobotGridStatus_t * robot);
-void robot_turn_left(RobotGridStatus_t * robot);
-void robot_advance(RobotGridStatus_t * robot);
-void robot_simulator(RobotGridStatus_t * robot, const char *commands);
+robot_grid_status_t robot_init(void);
+robot_grid_status_t robot_init_with_position(int bearing, int x, int y);
+void robot_turn_right(robot_grid_status_t * robot);
+void robot_turn_left(robot_grid_status_t * robot);
+void robot_advance(robot_grid_status_t * robot);
+void robot_simulator(robot_grid_status_t * robot, const char *commands);
 
 #endif
