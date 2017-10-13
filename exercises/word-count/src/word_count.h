@@ -5,10 +5,10 @@
 #define MAX_WORD_LENGTH 50      // no individual word will exceed this length
 
 // results structure
-typedef struct WordCount_Word {
+typedef struct word_count_word {
    char text[MAX_WORD_LENGTH];
    int count;
-} WordCount_Word_t;
+} word_count_word_t;
 
 // word_count - routine to classify the unique words and their frequency in a test input string
 // inputs:
@@ -17,6 +17,6 @@ typedef struct WordCount_Word {
 //
 // outputs:
 //    uniqueWords - number of words in the words structure
-int word_count(char *input_text, WordCount_Word_t words[MAX_WORDS]);
+int word_count(char *input_text, word_count_word_t words[MAX_WORDS]);
 
 #endif
