@@ -2,12 +2,12 @@
 #include "vendor/unity.h"
 #include "../src/sieve.h"
 
-static primesArray_t result_array;
+static primes_array_t result_array;
 
 void test_no_primes_under_two(void)
 {
    const unsigned int limit = 1;
-   const primesArray_t expected_prime_array = { 0 };
+   const primes_array_t expected_prime_array = { 0 };
    const unsigned int expected_prime_count = 0;
    unsigned int result_prime_count;
 
@@ -24,7 +24,7 @@ void test_find_first_prime(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const unsigned int limit = 2;
-   const primesArray_t expected_prime_array = { 2 };
+   const primes_array_t expected_prime_array = { 2 };
    const unsigned int expected_prime_count = 1;
    unsigned int result_prime_count;
 
@@ -41,7 +41,7 @@ void test_find_primes_up_to_10(void)
 {
    TEST_IGNORE();
    const unsigned int limit = 10;
-   const primesArray_t expected_prime_array = { 2, 3, 5, 7 };
+   const primes_array_t expected_prime_array = { 2, 3, 5, 7 };
    const unsigned int expected_prime_count = 4;
    unsigned int result_prime_count;
 
@@ -58,7 +58,7 @@ void test_limit_is_prime(void)
 {
    TEST_IGNORE();
    const unsigned int limit = 13;
-   const primesArray_t expected_prime_array = { 2, 3, 5, 7, 11, 13 };
+   const primes_array_t expected_prime_array = { 2, 3, 5, 7, 11, 13 };
    const unsigned int expected_prime_count = 6;
    unsigned int result_prime_count;
 
@@ -75,7 +75,7 @@ void test_find_primes_up_to_1000(void)
 {
    TEST_IGNORE();
    const unsigned int limit = 1000;
-   const primesArray_t expected_prime_array = {
+   const primes_array_t expected_prime_array = {
       2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
       61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127,
       131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193,
