@@ -1,48 +1,48 @@
 #include <string.h>
 #include "robot_simulator.h"
 
-RobotGridStatus_t robot_init(void)
+robot_grid_status_t robot_init(void)
 {
    return (robot_init_with_position
-           (Default_Bearing, Default_X_Coordinate, Default_Y_Coordinate));
+           (default_bearing, default_x_coordinate, default_y_coordinate));
 }
 
-RobotGridStatus_t robot_init_with_position(int bearing, int x, int y)
+robot_grid_status_t robot_init_with_position(int bearing, int x, int y)
 {
-   RobotGridStatus_t robot = { bearing, {x, y} };
+   robot_grid_status_t robot = { bearing, {x, y} };
 
-   if ((bearing < Heading_North) || (bearing >= Heading_Max)) {
-      robot.bearing = Default_Bearing;
+   if ((bearing < heading_north) || (bearing >= heading_max)) {
+      robot.bearing = default_bearing;
    }
    return robot;
 }
 
-void robot_turn_right(RobotGridStatus_t * robot)
+void robot_turn_right(robot_grid_status_t * robot)
 {
-   robot->bearing = (robot->bearing + 1) % Heading_Max;
+   robot->bearing = (robot->bearing + 1) % heading_max;
 }
 
-void robot_turn_left(RobotGridStatus_t * robot)
+void robot_turn_left(robot_grid_status_t * robot)
 {
-   robot->bearing = ((robot->bearing - 1) + Heading_Max) % Heading_Max;
+   robot->bearing = ((robot->bearing - 1) + heading_max) % heading_max;
 }
 
-void robot_advance(RobotGridStatus_t * robot)
+void robot_advance(robot_grid_status_t * robot)
 {
    switch (robot->bearing) {
-   case Heading_North:
+   case heading_north:
       robot->grid.y_position++;
       break;
 
-   case Heading_East:
+   case heading_east:
       robot->grid.x_position++;
       break;
 
-   case Heading_South:
+   case heading_south:
       robot->grid.y_position--;
       break;
 
-   case Heading_West:
+   case heading_west:
       robot->grid.x_position--;
       break;
 
@@ -51,19 +51,19 @@ void robot_advance(RobotGridStatus_t * robot)
    }
 }
 
-void robot_simulator(RobotGridStatus_t * robot, const char *commands)
+void robot_simulator(robot_grid_status_t * robot, const char *commands)
 {
    for (unsigned long index = 0; index < strlen(commands); index++) {
       switch (commands[index]) {
-      case Command_Left:
+      case command_left:
          robot_turn_left(robot);
          break;
 
-      case Command_Right:
+      case command_right:
          robot_turn_right(robot);
          break;
 
-      case Command_Advance:
+      case command_advance:
          robot_advance(robot);
          break;
 

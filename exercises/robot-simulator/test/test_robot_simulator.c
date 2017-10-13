@@ -2,7 +2,8 @@
 #include "vendor/unity.h"
 
 // Test Helper Function
-void confirm_position(RobotGridStatus_t * expected, RobotGridStatus_t * actual)
+void confirm_position(robot_grid_status_t * expected,
+                      robot_grid_status_t * actual)
 {
    TEST_ASSERT_EQUAL(expected->bearing, actual->bearing);
    TEST_ASSERT_EQUAL(expected->grid.x_position, actual->grid.x_position);
@@ -12,9 +13,9 @@ void confirm_position(RobotGridStatus_t * expected, RobotGridStatus_t * actual)
 // Tests...
 void test_init(void)
 {
-   RobotGridStatus_t expected =
-       { Default_Bearing, {Default_X_Coordinate, Default_Y_Coordinate} };
-   RobotGridStatus_t actual = robot_init();
+   robot_grid_status_t expected =
+       { default_bearing, {default_x_coordinate, default_y_coordinate} };
+   robot_grid_status_t actual = robot_init();
 
    confirm_position(&expected, &actual);
 }
@@ -22,10 +23,10 @@ void test_init(void)
 void test_invalid_initial_heading(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   RobotGridStatus_t expected =
-       { Default_Bearing, {Default_X_Coordinate, Default_Y_Coordinate} };
-   RobotGridStatus_t actual =
-       robot_init_with_position(99, Default_X_Coordinate, Default_Y_Coordinate);
+   robot_grid_status_t expected =
+       { default_bearing, {default_x_coordinate, default_y_coordinate} };
+   robot_grid_status_t actual =
+       robot_init_with_position(99, default_x_coordinate, default_y_coordinate);
 
    confirm_position(&expected, &actual);
 }
@@ -33,8 +34,8 @@ void test_invalid_initial_heading(void)
 void test_init_with_negative_positions(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_South, {-1, -1} };
-   RobotGridStatus_t actual = robot_init_with_position(Heading_South, -1, -1);
+   robot_grid_status_t expected = { heading_south, {-1, -1} };
+   robot_grid_status_t actual = robot_init_with_position(heading_south, -1, -1);
 
    confirm_position(&expected, &actual);
 }
@@ -42,21 +43,21 @@ void test_init_with_negative_positions(void)
 void test_turn_right(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_East, {0, 0} };
-   RobotGridStatus_t actual = robot_init();
+   robot_grid_status_t expected = { heading_east, {0, 0} };
+   robot_grid_status_t actual = robot_init();
 
    robot_turn_right(&actual);
    confirm_position(&expected, &actual);
 
-   expected.bearing = Heading_South;
+   expected.bearing = heading_south;
    robot_turn_right(&actual);
    confirm_position(&expected, &actual);
 
-   expected.bearing = Heading_West;
+   expected.bearing = heading_west;
    robot_turn_right(&actual);
    confirm_position(&expected, &actual);
 
-   expected.bearing = Heading_North;
+   expected.bearing = heading_north;
    robot_turn_right(&actual);
    confirm_position(&expected, &actual);
 }
@@ -64,21 +65,21 @@ void test_turn_right(void)
 void test_turn_left(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_West, {0, 0} };
-   RobotGridStatus_t actual = robot_init();
+   robot_grid_status_t expected = { heading_west, {0, 0} };
+   robot_grid_status_t actual = robot_init();
 
    robot_turn_left(&actual);
    confirm_position(&expected, &actual);
 
-   expected.bearing = Heading_South;
+   expected.bearing = heading_south;
    robot_turn_left(&actual);
    confirm_position(&expected, &actual);
 
-   expected.bearing = Heading_East;
+   expected.bearing = heading_east;
    robot_turn_left(&actual);
    confirm_position(&expected, &actual);
 
-   expected.bearing = Heading_North;
+   expected.bearing = heading_north;
    robot_turn_left(&actual);
    confirm_position(&expected, &actual);
 }
@@ -86,8 +87,8 @@ void test_turn_left(void)
 void test_advance_positive_north(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_North, {0, 1} };
-   RobotGridStatus_t actual = robot_init();
+   robot_grid_status_t expected = { heading_north, {0, 1} };
+   robot_grid_status_t actual = robot_init();
 
    robot_advance(&actual);
    confirm_position(&expected, &actual);
@@ -96,8 +97,8 @@ void test_advance_positive_north(void)
 void test_advance_positive_east(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_East, {1, 0} };
-   RobotGridStatus_t actual = robot_init_with_position(Heading_East, 0, 0);
+   robot_grid_status_t expected = { heading_east, {1, 0} };
+   robot_grid_status_t actual = robot_init_with_position(heading_east, 0, 0);
 
    robot_advance(&actual);
    confirm_position(&expected, &actual);
@@ -106,8 +107,8 @@ void test_advance_positive_east(void)
 void test_advance_negative_south(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_South, {0, -1} };
-   RobotGridStatus_t actual = robot_init_with_position(Heading_South, 0, 0);
+   robot_grid_status_t expected = { heading_south, {0, -1} };
+   robot_grid_status_t actual = robot_init_with_position(heading_south, 0, 0);
 
    robot_advance(&actual);
    confirm_position(&expected, &actual);
@@ -116,8 +117,8 @@ void test_advance_negative_south(void)
 void test_advance_negative_west(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_West, {-1, 0} };
-   RobotGridStatus_t actual = robot_init_with_position(Heading_West, 0, 0);
+   robot_grid_status_t expected = { heading_west, {-1, 0} };
+   robot_grid_status_t actual = robot_init_with_position(heading_west, 0, 0);
 
    robot_advance(&actual);
    confirm_position(&expected, &actual);
@@ -126,8 +127,8 @@ void test_advance_negative_west(void)
 void test_simulate_move_west_and_north(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_West, {-4, 1} };
-   RobotGridStatus_t actual = robot_init();
+   robot_grid_status_t expected = { heading_west, {-4, 1} };
+   robot_grid_status_t actual = robot_init();
 
    robot_simulator(&actual, "LAAARALA");
    confirm_position(&expected, &actual);
@@ -136,8 +137,8 @@ void test_simulate_move_west_and_north(void)
 void test_simulate_move_west_and_south(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_South, {-3, -8} };
-   RobotGridStatus_t actual = robot_init_with_position(Heading_East, 2, -7);
+   robot_grid_status_t expected = { heading_south, {-3, -8} };
+   robot_grid_status_t actual = robot_init_with_position(heading_east, 2, -7);
 
    robot_simulator(&actual, "RRAAAAALA");
    confirm_position(&expected, &actual);
@@ -146,8 +147,8 @@ void test_simulate_move_west_and_south(void)
 void test_simulate_move_east_and_north(void)
 {
    TEST_IGNORE();
-   RobotGridStatus_t expected = { Heading_North, {11, 5} };
-   RobotGridStatus_t actual = robot_init_with_position(Heading_South, 8, 4);
+   robot_grid_status_t expected = { heading_north, {11, 5} };
+   robot_grid_status_t actual = robot_init_with_position(heading_south, 8, 4);
 
    robot_simulator(&actual, "LAAARRRALLLL");
    confirm_position(&expected, &actual);
