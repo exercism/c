@@ -27,9 +27,9 @@ void test_no_allergies_means_not_allergic(void)
    TEST_IGNORE();
    int score = 0;
 
-   TEST_ASSERT_FALSE(is_allergic_to(allergen_peanuts, score));
-   TEST_ASSERT_FALSE(is_allergic_to(allergen_cats, score));
-   TEST_ASSERT_FALSE(is_allergic_to(allergen_strawberries, score));
+   TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_PEANUTS, score));
+   TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_CATS, score));
+   TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_STRAWBERRIES, score));
 }
 
 void test_is_allergic_to_eggs(void)
@@ -37,7 +37,7 @@ void test_is_allergic_to_eggs(void)
    TEST_IGNORE();
    int score = 1;
 
-   TEST_ASSERT_TRUE(is_allergic_to(allergen_eggs, score));
+   TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, score));
 }
 
 void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
@@ -45,9 +45,9 @@ void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
    TEST_IGNORE();
    int score = 5;
 
-   TEST_ASSERT_TRUE(is_allergic_to(allergen_eggs, score));
-   TEST_ASSERT_TRUE(is_allergic_to(allergen_shellfish, score));
-   TEST_ASSERT_FALSE(is_allergic_to(allergen_strawberries, score));
+   TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, score));
+   TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_SHELLFISH, score));
+   TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_STRAWBERRIES, score));
 }
 
 void test_no_allergies_at_all(void)
@@ -72,7 +72,7 @@ void test_allergic_to_just_eggs(void)
    get_allergens(score, &list);
 
    test_list_count_is(1, &list);
-   test_list_contains(allergen_eggs, &list);
+   test_list_contains(ALLERGEN_EGGS, &list);
 
    free(list.allergens);
 }
@@ -86,7 +86,7 @@ void test_allergic_to_just_peanuts(void)
    get_allergens(score, &list);
 
    test_list_count_is(1, &list);
-   test_list_contains(allergen_peanuts, &list);
+   test_list_contains(ALLERGEN_PEANUTS, &list);
 
    free(list.allergens);
 }
@@ -100,7 +100,7 @@ void test_allergic_to_just_strawberries(void)
    get_allergens(score, &list);
 
    test_list_count_is(1, &list);
-   test_list_contains(allergen_strawberries, &list);
+   test_list_contains(ALLERGEN_STRAWBERRIES, &list);
 
    free(list.allergens);
 }
@@ -114,8 +114,8 @@ void test_allergic_to_eggs_and_peanuts(void)
    get_allergens(score, &list);
 
    test_list_count_is(2, &list);
-   test_list_contains(allergen_eggs, &list);
-   test_list_contains(allergen_peanuts, &list);
+   test_list_contains(ALLERGEN_EGGS, &list);
+   test_list_contains(ALLERGEN_PEANUTS, &list);
 
    free(list.allergens);
 }
@@ -129,8 +129,8 @@ void test_allergic_to_more_than_eggs_but_not_peanuts(void)
    get_allergens(score, &list);
 
    test_list_count_is(2, &list);
-   test_list_contains(allergen_eggs, &list);
-   test_list_contains(allergen_shellfish, &list);
+   test_list_contains(ALLERGEN_EGGS, &list);
+   test_list_contains(ALLERGEN_SHELLFISH, &list);
 
    free(list.allergens);
 }
@@ -144,11 +144,11 @@ void test_allergic_to_lots_of_stuff(void)
    get_allergens(score, &list);
 
    test_list_count_is(5, &list);
-   test_list_contains(allergen_strawberries, &list);
-   test_list_contains(allergen_tomatoes, &list);
-   test_list_contains(allergen_chocolate, &list);
-   test_list_contains(allergen_pollen, &list);
-   test_list_contains(allergen_cats, &list);
+   test_list_contains(ALLERGEN_STRAWBERRIES, &list);
+   test_list_contains(ALLERGEN_TOMATOES, &list);
+   test_list_contains(ALLERGEN_CHOCOLATE, &list);
+   test_list_contains(ALLERGEN_POLLEN, &list);
+   test_list_contains(ALLERGEN_CATS, &list);
 
    free(list.allergens);
 }
@@ -162,14 +162,14 @@ void test_allergic_to_everything(void)
    get_allergens(score, &list);
 
    test_list_count_is(8, &list);
-   test_list_contains(allergen_eggs, &list);
-   test_list_contains(allergen_peanuts, &list);
-   test_list_contains(allergen_shellfish, &list);
-   test_list_contains(allergen_strawberries, &list);
-   test_list_contains(allergen_tomatoes, &list);
-   test_list_contains(allergen_chocolate, &list);
-   test_list_contains(allergen_pollen, &list);
-   test_list_contains(allergen_cats, &list);
+   test_list_contains(ALLERGEN_EGGS, &list);
+   test_list_contains(ALLERGEN_PEANUTS, &list);
+   test_list_contains(ALLERGEN_SHELLFISH, &list);
+   test_list_contains(ALLERGEN_STRAWBERRIES, &list);
+   test_list_contains(ALLERGEN_TOMATOES, &list);
+   test_list_contains(ALLERGEN_CHOCOLATE, &list);
+   test_list_contains(ALLERGEN_POLLEN, &list);
+   test_list_contains(ALLERGEN_CATS, &list);
 
    free(list.allergens);
 }
@@ -183,13 +183,13 @@ void test_ignore_non_allergen_score_parts(void)
    get_allergens(score, &list);
 
    test_list_count_is(7, &list);
-   test_list_contains(allergen_eggs, &list);
-   test_list_contains(allergen_shellfish, &list);
-   test_list_contains(allergen_strawberries, &list);
-   test_list_contains(allergen_tomatoes, &list);
-   test_list_contains(allergen_chocolate, &list);
-   test_list_contains(allergen_pollen, &list);
-   test_list_contains(allergen_cats, &list);
+   test_list_contains(ALLERGEN_EGGS, &list);
+   test_list_contains(ALLERGEN_SHELLFISH, &list);
+   test_list_contains(ALLERGEN_STRAWBERRIES, &list);
+   test_list_contains(ALLERGEN_TOMATOES, &list);
+   test_list_contains(ALLERGEN_CHOCOLATE, &list);
+   test_list_contains(ALLERGEN_POLLEN, &list);
+   test_list_contains(ALLERGEN_CATS, &list);
 
    free(list.allergens);
 }
