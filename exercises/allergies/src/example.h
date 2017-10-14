@@ -4,15 +4,15 @@
 #include <stdbool.h>
 
 typedef enum {
-   allergen_eggs = 0,
-   allergen_peanuts,
-   allergen_shellfish,
-   allergen_strawberries,
-   allergen_tomatoes,
-   allergen_chocolate,
-   allergen_pollen,
-   allergen_cats,
-   allergen_count
+   ALLERGEN_EGGS = 0,
+   ALLERGEN_PEANUTS,
+   ALLERGEN_SHELLFISH,
+   ALLERGEN_STRAWBERRIES,
+   ALLERGEN_TOMATOES,
+   ALLERGEN_CHOCOLATE,
+   ALLERGEN_POLLEN,
+   ALLERGEN_CATS,
+   ALLERGEN_COUNT
 } allergen_t;
 
 typedef struct {
