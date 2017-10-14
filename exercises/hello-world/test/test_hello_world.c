@@ -2,6 +2,14 @@
 #include "vendor/unity.h"
 #include "../src/hello_world.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_hello(void)
 {
    TEST_ASSERT_EQUAL_STRING("Hello, World!", hello());

@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/difference_of_squares.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_square_of_sum_up_to_5(void)
 {
    TEST_ASSERT_EQUAL(225, square_of_sum(5));

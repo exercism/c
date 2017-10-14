@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/triangle.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_equilateral_is_true_if_all_sides_are_equal(void)
 {
    triangle_t sides = { 2, 2, 2 };

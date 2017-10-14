@@ -7,6 +7,14 @@
 
 #define LENGTH(A) (sizeof(A)/sizeof(A[0]))
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void copy_array(int8_t src[], int8_t dest[DIGITS_ARRAY_SIZE], size_t n)
 {
    if (n > DIGITS_ARRAY_SIZE)

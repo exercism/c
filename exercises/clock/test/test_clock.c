@@ -8,6 +8,14 @@
 time_text_t actual_time_text;
 time_text_t actual_time_text2;
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 // general routines that test expected results
 void test_expected_value(const char *expected_clock_text, int hour, int minute)
 {

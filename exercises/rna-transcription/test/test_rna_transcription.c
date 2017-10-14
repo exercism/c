@@ -2,6 +2,14 @@
 #include "../src/rna_transcription.h"
 #include <stdlib.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_transcription(const char *dna, const char *expected)
 {
    char *rna = to_rna(dna);

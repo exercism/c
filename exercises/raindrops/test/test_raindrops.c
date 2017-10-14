@@ -3,7 +3,11 @@
 
 #define BUFFER_LENGTH 100
 
-void resetTest(void)
+void setUp(void)
+{
+}
+
+void tearDown(void)
 {
 }
 

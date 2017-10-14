@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/hamming.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_empty_strands(void)
 {
    TEST_ASSERT_EQUAL(0, compute("", ""));

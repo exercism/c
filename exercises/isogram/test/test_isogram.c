@@ -2,6 +2,14 @@
 #include "../src/isogram.h"
 #include <stdlib.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_empty_string(void)
 {
    TEST_ASSERT_TRUE(is_isogram(""));

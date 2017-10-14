@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/pangram.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_null(void)
 {
    TEST_ASSERT_FALSE(is_pangram(NULL));

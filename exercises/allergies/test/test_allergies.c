@@ -2,6 +2,14 @@
 #include "../src/allergies.h"
 #include <stdlib.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_list_count_is(int count, allergen_list_t * list)
 {
    TEST_ASSERT_EQUAL(count, list->count);

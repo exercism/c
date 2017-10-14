@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/grains.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_square_1(void)
 {
    TEST_ASSERT_EQUAL_UINT64(1ul, square(1));

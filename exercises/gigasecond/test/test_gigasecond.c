@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/gigasecond.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 // Constructs a time_t type from the given date settings
 time_t construct_date(int year, int month, int day, int hour, int min, int sec)
 {

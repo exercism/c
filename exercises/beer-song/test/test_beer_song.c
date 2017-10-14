@@ -3,6 +3,14 @@
 
 #define BUFFER_SIZE   (1024)
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_handles_arbitrary_verse(void)
 {
    char response[BUFFER_SIZE];

@@ -6,6 +6,14 @@
 
 word_count_word_t actual_solution[MAX_WORDS];
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 static void test_solution(word_count_word_t * expected_solution,
                           int expected_word_count,
                           word_count_word_t * actual_solution,

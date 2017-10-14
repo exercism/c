@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/nth_prime.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_first_prime(void)
 {
    TEST_ASSERT_EQUAL_UINT32(2, nth(1));

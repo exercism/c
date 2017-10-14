@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/leap.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_a_known_leap_year(void)
 {
    TEST_ASSERT_TRUE(is_leap_year(1996));

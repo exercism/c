@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/binary_search.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_single_element(void)
 {
    int arr[] = { 6 };

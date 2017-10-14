@@ -2,6 +2,14 @@
 #include "vendor/unity.h"
 #include "../src/series.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 // helper routines to validate test results
 static void test_solution(series_results_t * expected_solution,
                           series_results_t * actual_solution)
