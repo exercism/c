@@ -101,10 +101,25 @@ void test_sum_of_multiples_of_1_up_to_100(void)
                                       100));
 }
 
+void test_sum_of_multiples_of_0_up_to_100(void)
+{
+   TEST_IGNORE();
+   const unsigned int multiples[] = { 0 };
+   TEST_ASSERT_EQUAL(0,
+                     sum_of_multiples(multiples, NUM_OF_ELEMENTS(multiples),
+                                      100));
+}
+
 void test_no_multiples_given(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(0, sum_of_multiples(NULL, 0, 10000));
+}
+
+void test_null_ptr_multiple(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL(0, sum_of_multiples(NULL, 3, 10000));
 }
 
 int main(void)
@@ -122,7 +137,9 @@ int main(void)
    RUN_TEST(test_sum_of_multiples_of_5_and_25_up_to_51);
    RUN_TEST(test_sum_of_multiples_of_43_and_47_up_to_10000);
    RUN_TEST(test_sum_of_multiples_of_1_up_to_100);
+   RUN_TEST(test_sum_of_multiples_of_0_up_to_100);
    RUN_TEST(test_no_multiples_given);
+   RUN_TEST(test_null_ptr_multiple);
 
    UnityEnd();
    return 0;
