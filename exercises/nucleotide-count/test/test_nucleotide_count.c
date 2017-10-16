@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_strand_count(const char *dna_strand, const char *expected)
 {
    char *actual_count = count(dna_strand);

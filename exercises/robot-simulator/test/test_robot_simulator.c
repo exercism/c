@@ -1,6 +1,14 @@
 #include "../src/robot_simulator.h"
 #include "vendor/unity.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 // Test Helper Function
 void confirm_position(robot_grid_status_t * expected,
                       robot_grid_status_t * actual)

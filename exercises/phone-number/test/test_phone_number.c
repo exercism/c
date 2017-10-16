@@ -2,6 +2,14 @@
 #include "../src/phone_number.h"
 #include <stdlib.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_phone_number_clean(const char *input, const char *expected)
 {
    char *result = phone_number_clean(input);

@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/perfect_numbers.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_smallest_perfect_number_is_classified_correctly(void)
 {
    TEST_ASSERT_EQUAL(perfect_number, classify_number(6));

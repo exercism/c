@@ -2,6 +2,14 @@
 #include "../src/pascals_triangle.h"
 #include "vendor/unity.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 static bool check(size_t count, size_t expected[][count], size_t ** result)
 {
    size_t i, j;

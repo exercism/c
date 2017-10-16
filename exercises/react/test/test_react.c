@@ -3,6 +3,14 @@
 #include "vendor/unity.h"
 #include "../src/react.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_input_cells_have_value(void)
 {
    struct reactor *r = create_reactor();

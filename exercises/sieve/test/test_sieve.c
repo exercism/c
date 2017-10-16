@@ -4,6 +4,14 @@
 
 static primes_array_t result_array;
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_no_primes_under_two(void)
 {
    const unsigned int limit = 1;

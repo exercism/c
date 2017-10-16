@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_abbreviation(char *phrase, char *expected)
 {
    char *actual = abbreviate(phrase);

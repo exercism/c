@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/space_age.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_convert_earth_year(void)
 {
    TEST_ASSERT_FLOAT_WITHIN(1, 31.69, convert_planet_age(earth, 1000000000));

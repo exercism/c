@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/binary.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_b0_is_decimal_0(void)
 {
    TEST_ASSERT_EQUAL(0, convert("0"));

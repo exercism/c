@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/meetup.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_monteenth_of_May_2013(void)
 {
    TEST_ASSERT_EQUAL_INT(13, meetup_day_of_month(2013, 5, "teenth", "Monday"));

@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/palindrome_products.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_palindromes_list(void)
 {
    product_t product = get_palindrome_product(1, 9);

@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/scrabble_score.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_lowercase_letter(void)
 {
    TEST_ASSERT_EQUAL(1, score("a"));

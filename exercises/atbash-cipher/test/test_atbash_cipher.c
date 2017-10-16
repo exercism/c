@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 static void test_encode(char *input, char *expected)
 {
    char *result = atbash_encode(input);

@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/largest_series_product.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_can_find_the_largest_product_of_2_with_numbers_in_order(void)
 {
    TEST_ASSERT_EQUAL(72, largest_series_product("0123456789", 2));

@@ -3,6 +3,14 @@
 
 #define NUM_OF_ELEMENTS(a)    (sizeof(a) / sizeof(a[0]))
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_sum_of_multiples_of_3_and_5_up_to_1(void)
 {
    const unsigned int multiples[] = { 3, 5 };

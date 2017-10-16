@@ -2,6 +2,14 @@
 #include "../src/roman_numerals.h"
 #include <stdlib.h>
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 static void test_conversion(int number, char *expected)
 {
    char *result = to_roman_numeral(number);

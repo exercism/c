@@ -10,6 +10,14 @@ static struct vector empty = {
    0
 };
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 static int stringcmp(const void *a, const void *b)
 {
    return strcmp(a, b);
