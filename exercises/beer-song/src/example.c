@@ -42,7 +42,8 @@ void sing(char *buffer, unsigned int starting_verse_number,
 {
    char *current_position = buffer;
 
-   for (unsigned int i = starting_verse_number + 1; i > ending_verse_number; i--) {
+   for (unsigned int i = starting_verse_number + 1; i > ending_verse_number;
+        i--) {
       current_position += get_verse(current_position, i - 1);
       strcpy(current_position, "\n");
       current_position++;
