@@ -17,7 +17,6 @@ void test_list_count_is(int count, allergen_list_t * list)
 
 void test_list_contains(allergen_t allergen, allergen_list_t * list)
 {
-   TEST_IGNORE();               // delete this line to run test
    bool allergen_found = false;
 
    for (int i = 0; i < list->count; i++) {
@@ -30,9 +29,9 @@ void test_list_contains(allergen_t allergen, allergen_list_t * list)
    TEST_ASSERT_TRUE(allergen_found);
 }
 
+//Tests start here
 void test_no_allergies_means_not_allergic(void)
 {
-   TEST_IGNORE();
    int score = 0;
 
    TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_PEANUTS, score));
@@ -42,7 +41,7 @@ void test_no_allergies_means_not_allergic(void)
 
 void test_is_allergic_to_eggs(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();               // delete this line to run test
    int score = 1;
 
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, score));
