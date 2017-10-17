@@ -17,15 +17,15 @@ static int aliquot_sum(int n)
 
 kind classify_number(int n)
 {
-   kind class = error;
+   kind class = ERROR;
    if (n > 0) {
       int sum = aliquot_sum(n);
       if (sum > n) {
-         class = abundant_number;
+         class = ABUNDANT_NUMBER;
       } else if (sum < n) {
-         class = deficient_number;
+         class = DEFICIENT_NUMBER;
       } else {
-         class = perfect_number;
+         class = PERFECT_NUMBER;
       }
    }
    return class;
