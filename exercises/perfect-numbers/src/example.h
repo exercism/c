@@ -2,10 +2,10 @@
 #define PERFECT_NUMBERS_H
 
 typedef enum {
-   perfect_number = 1,
-   abundant_number = 2,
-   deficient_number = 3,
-   error = -1
+   PERFECT_NUMBER = 1,
+   ABUNDANT_NUMBER = 2,
+   DEFICIENT_NUMBER = 3,
+   ERROR = -1
 } kind;
 
 kind classify_number(int);
