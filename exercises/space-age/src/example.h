@@ -2,14 +2,14 @@
 #define SPACE_AGE_H
 
 typedef enum planet {
-   mercury,
-   venus,
-   earth,
-   mars,
-   jupiter,
-   saturn,
-   uranus,
-   neptune,
+   MERCURY,
+   VENUS,
+   EARTH,
+   MARS,
+   JUPITER,
+   SATURN,
+   URANUS,
+   NEPTUNE,
 } planet_t;
 
 float convert_planet_age(planet_t planet, const long input);
