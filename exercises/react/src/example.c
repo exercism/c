@@ -2,9 +2,9 @@
 #include "react.h"
 
 enum cell_kind {
-   kind_input,
-   kind_compute1,
-   kind_compute2,
+   KIND_INPUT,
+   KIND_COMPUTE_1,
+   KIND_COMPUTE_2,
 };
 
 struct child {
@@ -111,7 +111,7 @@ struct cell *create_input_cell(struct reactor *r, int initial_value)
       free(c);
       return NULL;
    }
-   c->kind = kind_input;
+   c->kind = KIND_INPUT;
    c->value = initial_value;
    return c;
 }
@@ -128,7 +128,7 @@ struct cell *create_compute1_cell(struct reactor *r, struct cell *input,
       free(c);
       return NULL;
    }
-   c->kind = kind_compute1;
+   c->kind = KIND_COMPUTE_1;
    c->input1 = input;
    c->compute1 = compute;
    c->value = compute(get_cell_value(input));
@@ -153,7 +153,7 @@ struct cell *create_compute2_cell(struct reactor *r, struct cell *input1,
       free(c);
       return NULL;
    }
-   c->kind = kind_compute2;
+   c->kind = KIND_COMPUTE_2;
    c->input1 = input1;
    c->input2 = input2;
    c->compute2 = compute;
@@ -173,10 +173,10 @@ static void propagate(struct cell *c)
 {
    int new_value;
    switch (c->kind) {
-   case kind_compute1:
+   case KIND_COMPUTE_1:
       new_value = c->compute1(get_cell_value(c->input1));
       break;
-   case kind_compute2:
+   case KIND_COMPUTE_2:
       new_value =
           c->compute2(get_cell_value(c->input1), get_cell_value(c->input2));
       break;
