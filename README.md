@@ -8,7 +8,7 @@ Please see the [Exercism contributing guide](https://github.com/exercism/docs/bl
 
 ## Coding Style
 
-All test and example code should be written using the [Linux kernel coding style](https://www.kernel.org/doc/Documentation/CodingStyle) with 3 space indents and no tabs.
+All test and example code should be written using the [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) with 3 space indents and no tabs.
 
 If GNU `indent` is installed, this can be run on all files by executing `indent.sh`. On a Mac you can install the package `gnu-indent` using [Homebrew](http://brew.sh).
 
