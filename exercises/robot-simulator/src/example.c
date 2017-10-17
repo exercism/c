@@ -4,45 +4,45 @@
 robot_grid_status_t robot_init(void)
 {
    return (robot_init_with_position
-           (default_bearing, default_x_coordinate, default_y_coordinate));
+           (DEFAULT_BEARING, DEFAULT_X_COORDINATE, DEFAULT_Y_COORDINATE));
 }
 
 robot_grid_status_t robot_init_with_position(int bearing, int x, int y)
 {
    robot_grid_status_t robot = { bearing, {x, y} };
 
-   if ((bearing < heading_north) || (bearing >= heading_max)) {
-      robot.bearing = default_bearing;
+   if ((bearing < HEADING_NORTH) || (bearing >= HEADING_MAX)) {
+      robot.bearing = DEFAULT_BEARING;
    }
    return robot;
 }
 
 void robot_turn_right(robot_grid_status_t * robot)
 {
-   robot->bearing = (robot->bearing + 1) % heading_max;
+   robot->bearing = (robot->bearing + 1) % HEADING_MAX;
 }
 
 void robot_turn_left(robot_grid_status_t * robot)
 {
-   robot->bearing = ((robot->bearing - 1) + heading_max) % heading_max;
+   robot->bearing = ((robot->bearing - 1) + HEADING_MAX) % HEADING_MAX;
 }
 
 void robot_advance(robot_grid_status_t * robot)
 {
    switch (robot->bearing) {
-   case heading_north:
+   case HEADING_NORTH:
       robot->grid.y_position++;
       break;
 
-   case heading_east:
+   case HEADING_EAST:
       robot->grid.x_position++;
       break;
 
-   case heading_south:
+   case HEADING_SOUTH:
       robot->grid.y_position--;
       break;
 
-   case heading_west:
+   case HEADING_WEST:
       robot->grid.x_position--;
       break;
 
@@ -55,15 +55,15 @@ void robot_simulator(robot_grid_status_t * robot, const char *commands)
 {
    for (unsigned long index = 0; index < strlen(commands); index++) {
       switch (commands[index]) {
-      case command_left:
+      case COMMAND_LEFT:
          robot_turn_left(robot);
          break;
 
-      case command_right:
+      case COMMAND_RIGHT:
          robot_turn_right(robot);
          break;
 
-      case command_advance:
+      case COMMAND_ADVANCE:
          robot_advance(robot);
          break;
 

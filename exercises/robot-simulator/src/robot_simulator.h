@@ -2,23 +2,23 @@
 #define ROBOT_SIMULATOR_H
 
 typedef enum {
-   heading_north = 0,
-   heading_east,
-   heading_south,
-   heading_west,
-   heading_max
+   HEADING_NORTH = 0,
+   HEADING_EAST,
+   HEADING_SOUTH,
+   HEADING_WEST,
+   HEADING_MAX
 } bearing_t;
 
 enum {
-   default_bearing = heading_north,
-   default_x_coordinate = 0,
-   default_y_coordinate = 0,
+   DEFAULT_BEARING = HEADING_NORTH,
+   DEFAULT_X_COORDINATE = 0,
+   DEFAULT_Y_COORDINATE = 0,
 };
 
 enum {
-   command_left = 'L',
-   command_right = 'R',
-   command_advance = 'A'
+   COMMAND_LEFT = 'L',
+   COMMAND_RIGHT = 'R',
+   COMMAND_ADVANCE = 'A'
 };
 
 typedef struct robot_coordinates {
