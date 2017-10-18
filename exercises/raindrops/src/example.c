@@ -4,7 +4,7 @@
 
 char *convert(int drops)
 {
-   static char     result[100];
+   static char result[100];
    memset(result, '\0', 100);
 
    if (drops % 3 == 0) {
