@@ -12,7 +12,7 @@ In general, the names of types, variables, structures and files should use snake
 void some_foo_function(char * input_string, int input_string_length);
 ```
 
-## Enums
+### Enums
 
 Enum names should usually be singular rather than plural.
 
@@ -27,7 +27,7 @@ enum heading {
 }
 ```
 
-## Macro names
+### Macros
 
 Macros defining constants are named using snake case with all letters in upper case.
 
@@ -37,7 +37,7 @@ Macros defining constants are named using snake case with all letters in upper c
 
 Upper-case snake case for macro names is appreciated, but macros resembling functions may be named in lower-case snake case.
 
-## Constant names
+### Constants
 
 Names for variables defined as `const` (global or otherwise) should use snake case with all letters in upper case.
 
@@ -45,7 +45,7 @@ Names for variables defined as `const` (global or otherwise) should use snake ca
 const int LIMIT = 22;
 ```
 
-## Type Names
+### Types
 
 Types defined by a program using `typedef` should be named with a `_t` suffix. 
 While aware that POSIX reserves the `_t` suffix, the track does not currently utilise POSIX.
