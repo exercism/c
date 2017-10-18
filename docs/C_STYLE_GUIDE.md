@@ -4,13 +4,13 @@ This guide describes the style intended for use with the C track exercise exampl
 and test files.
 
 The rules within this guide are in addition to, or to call out, those in the 
-[Linux kernal coding style guide](https://www.kernel.org/doc/html/latest/process/coding-style.html).
+[Linux kernel coding style guide](https://www.kernel.org/doc/html/latest/process/coding-style.html).
 
 ## Names
 
-In general names of types, variables, structures and files should use all 
-lower-case snake case, where underscores `_` are used to separate name 
-components.
+In general names of types, variables, structures and files should use 
+snake case with all letters in lower case, where underscores `_` are 
+used to separate name components.
 
 ```c
 void some_foo_function(char * input_string, int input_string_length);
@@ -18,9 +18,9 @@ void some_foo_function(char * input_string, int input_string_length);
 
 ## Enums
 
-Enum names should usually be singluare rather than plural.
+Enum names should usually be singluar rather than plural.
 
-Enum labels should be capitalized.
+Enum labels should use snake case with all letters in upper case.
 
 ```c
 enum heading {
@@ -33,23 +33,23 @@ enum heading {
 
 ## Macro names
 
-Macros defining constants are capitalized.
+Macros defining constants use snake case with all letters in upper case.
 
 ```c
 #define CONSTANT 0x4000
 ```
 
-Capitalized macro names are appreciated, but macros resembling functions may be
-named in lower case.
+Upper-case snake case for macro names is appreciated, but macros resembling 
+functions may be named in lower-case snake case.
 
 ## Constant names
 
-Names for variables defined as `const` should be capitalized.
+Names for variables defined as `const` (global or otherwise) should use 
+snake case with all letters in upper case.
 
 ```c
 const int LIMIT = 22;
 ```
-
 
 ## Type Names
 
