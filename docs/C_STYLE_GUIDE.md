@@ -55,3 +55,55 @@ const int LIMIT = 22;
 
 Types defined by a program using `typedef` should have a `_t` suffix. While aware 
 that POSIX reserves the `_t` suffix, the track does not currently utilise POSIX.
+
+
+## Test file layout
+
+Each exercise's test file follows a particular layout. The layout is intended to 
+both help contibutors to identify parts of the file, and to help learners to 
+understand how the tests work
+
+Like most C source files, a test file begins with includes. 
+
+```c
+#include "vendor/unity.h"
+#include "../src/file_under_test.h"
+// any other includes here
+```
+The includes are then followed by any helper functions that are used by the test 
+functions. The names of such helper functions should not use the `test_` prefix.
+
+Next there are the `setUp()` and `tearDown()` functions. So far, no exercise uses 
+these (the function bodies are empty) yet they must remain in place to allow the 
+test files to compile correctly across all platforms.
+
+```c
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+```
+
+Next are the test functions themselves. The names of these functions use a `test_` 
+prefix.
+
+Lastly is the `main()` function. The funciton body of main follows a particular 
+layout itself. First a call to `UnityBegin()` followed by an empty line, then the 
+tests. The last test is followed by another empty line and then a call to 
+`UnityEnd()`, before returning.
+
+```c
+int main(void)
+{
+    UnityBegin("test/test_file_name.c");
+    
+    RUN_TEST(test_foo);
+    RUN_TEST(test_bar);
+    
+    UnityEnd();
+    return 0;
+}
+```
