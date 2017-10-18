@@ -6,20 +6,24 @@
 #define PLANG_FACTOR 5
 #define PLONG_FACTOR 7
 
-char *convert(char *buffer, int buffer_length, int drops)
+char *convert(int drops)
 {
-   memset(buffer, '\0', sizeof(char) * buffer_length);
-   if ((drops % PLING_FACTOR != 0) &&
-       (drops % PLANG_FACTOR != 0) && (drops % PLONG_FACTOR != 0)) {
-      snprintf(buffer, buffer_length, "%d", drops);
-   } else {
-      snprintf
-          (buffer,
-           buffer_length,
-           "%s%s%s",
-           drops % PLING_FACTOR == 0 ? "Pling" : "",
-           drops % PLANG_FACTOR == 0 ? "Plang" : "",
-           drops % PLONG_FACTOR == 0 ? "Plong" : "");
+   static char result[100];
+   memset(result,'\0',100);
+  
+   if(drops % 3 == 0) {
+      strcat(result, "Pling");
    }
-   return buffer;
+   if(drops % 5 == 0) {
+      strcat(result, "Plang");
+   }
+   if(drops % 7 == 0) {
+      strcat(result, "Plong");
+   }
+   if(strlen(result) == 0) {
+      char drops_string[12] = "";
+      sprintf(drops_string, "%d", drops);
+      strcat(result, drops_string);
+   }
+   return(result);
 }
