@@ -1,5 +1,6 @@
 #include "vendor/unity.h"
 #include "../src/raindrops.h"
+#include <stdlib.h>
 
 #define BUFFER_LENGTH 100
 
@@ -11,99 +12,106 @@ void tearDown(void)
 {
 }
 
+void test_convert_drops(int drops, char *expected)
+{
+   char *result = convert(drops);
+   TEST_ASSERT_EQUAL_STRING(expected, result);
+   free(result);
+}
+
 void test_one_yields_itself(void)
 {
-   TEST_ASSERT_EQUAL_STRING("1", convert(1));
+   test_convert_drops(1, "1");
 }
 
 void test_three_yields_pling(void)
 {
-   TEST_IGNORE();               // delete this line to run test
-   TEST_ASSERT_EQUAL_STRING("Pling", convert(3));
+   //TEST_IGNORE();               // delete this line to run test
+   test_convert_drops(3, "Pling");
 }
 
 void test_five_yields_plang(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Plang", convert(5));
+   //TEST_IGNORE();
+   test_convert_drops(5, "Plang");
 }
 
 void test_seven_yields_plong(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Plong", convert(7));
+   //TEST_IGNORE();
+   test_convert_drops(7, "Plong");
 }
 
 void test_six_yields_pling(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Pling", convert(6));
+   //TEST_IGNORE();
+   test_convert_drops(6, "Pling");
 }
 
 void test_nine_yields_pling(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Pling", convert(9));
+   //TEST_IGNORE();
+   test_convert_drops(9, "Pling");
 }
 
 void test_ten_yields_plang(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Plang", convert(10));
+   //TEST_IGNORE();
+   test_convert_drops(10, "Plang");
 }
 
 void test_fourteen_yields_plong(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Plong", convert(14));
+   //TEST_IGNORE();
+   test_convert_drops(14, "Plong");
 }
 
 void test_fifteen_yields_plingplang(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("PlingPlang", convert(15));
+   //TEST_IGNORE();
+   test_convert_drops(15, "PlingPlang");
 }
 
 void test_twenty_one_yields_plingplong(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("PlingPlong", convert(21));
+   //TEST_IGNORE();
+   test_convert_drops(21, "PlingPlong");
 }
 
 void test_twenty_five_yields_plang(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Plang", convert(25));
+   //TEST_IGNORE();
+   test_convert_drops(25, "Plang");
 }
 
 void test_thirty_five_yields_plangplong(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("PlangPlong", convert(35));
+   //TEST_IGNORE();
+   test_convert_drops(35, "PlangPlong");
 }
 
 void test_forty_nine_yields_plong(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Plong", convert(49));
+   //TEST_IGNORE();
+   test_convert_drops(49, "Plong");
 }
 
 void test_fifty_two_yields_itself(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("52", convert(52));
+   //TEST_IGNORE();
+   test_convert_drops(52, "52");
 }
 
 void test_one_hundred_five_yields_plingplangplong(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("PlingPlangPlong", convert(105));
+   //TEST_IGNORE();
+   test_convert_drops(105, "PlingPlangPlong");
 }
 
 void test_big_prime_yields_itself(void)
 {
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("12121", convert(12121));
+   //TEST_IGNORE();
+   test_convert_drops(12121, "12121");
 }
 
 int main(void)
