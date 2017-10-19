@@ -5,9 +5,11 @@ Exercism problems in C
 ## Hacktoberfest
 
 If you would like to contribute to this repository as part of hacktoberfest, please read the rest of this (short) readme, then jump in!
-This C language track of exercism is nearly ready to gradtuate from "Upcoming" to "Available". 
-To that aim the repoistry has several issues marked with labels such as 'help wanted', 'good first patch' or 'hacktoberfest'. 
-Issues marked with these labels are a good place to start contributing - you are welcome to contribute to any of these, any other issue, or even submit your own issues or pull requests. 
+
+This C language track of exercism is nearly ready to gradtuate from "upcoming" to "available". 
+To that aim the repository has several issues marked with labels such as 'help wanted', 'good first patch' or 'hacktoberfest'. 
+Issues marked with these labels are a good place to start contributing - you are welcome to contribute to any of these, any other issue, or even submit your own issues or pull requests.
+
 To get an idea of the general status in relation to the launch of the track, check out [issue #8](https://github.com/exercism/c/issues/8)
 
 ## Contributing Guide
