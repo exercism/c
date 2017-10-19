@@ -1,11 +1,12 @@
 #include "raindrops.h"
 #include "stdio.h"
 #include "string.h"
+#include <stdlib.h>
 
 char *convert(int drops)
 {
-   static char result[100];
-   memset(result, '\0', 100);
+   // strlen("PlingPlangPlong") == 15, and max length of int is 12.
+   char *result = calloc(sizeof(char), 15);
 
    if (drops % 3 == 0) {
       strcat(result, "Pling");
