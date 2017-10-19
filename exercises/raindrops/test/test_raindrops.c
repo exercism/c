@@ -14,9 +14,9 @@ void tearDown(void)
 
 void test_convert_drops(int drops, char *expected)
 {
-   char *result = convert(drops);
+   char result[16] = {0};
+   convert(result, drops);
    TEST_ASSERT_EQUAL_STRING(expected, result);
-   free(result);
 }
 
 void test_one_yields_itself(void)

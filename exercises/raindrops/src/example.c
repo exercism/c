@@ -3,11 +3,8 @@
 #include "string.h"
 #include <stdlib.h>
 
-char *convert(int drops)
+char *convert(char result[], int drops)
 {
-   // strlen("PlingPlangPlong") == 15, and max length of int is 12.
-   char *result = calloc(sizeof(char), 15);
-
    if (drops % 3 == 0) {
       strcat(result, "Pling");
    }
