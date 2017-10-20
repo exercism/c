@@ -2,7 +2,7 @@
 #include "../src/raindrops.h"
 #include <stdlib.h>
 
-#define BUFFER_LENGTH 100
+#define BUFFER_LENGTH 16
 
 void setUp(void)
 {
@@ -14,7 +14,7 @@ void tearDown(void)
 
 void convert_drops(int drops, char *expected)
 {
-   char result[16] = { 0 };
+   char result[BUFFER_LENGTH] = { 0 };
    convert(result, drops);
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
