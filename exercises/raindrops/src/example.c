@@ -19,5 +19,5 @@ char *convert(char result[], int drops)
       sprintf(drops_string, "%d", drops);
       strcat(result, drops_string);
    }
-   return (result);
+   return result;
 }
