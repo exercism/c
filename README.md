@@ -6,7 +6,7 @@ Exercism problems in C
 
 If you would like to contribute to this repository as part of [hacktoberfest](https://github.com/blog/2452-get-started-with-hacktoberfest), please read the rest of this (short) readme, then jump in!
 
-This C language track of exercism is nearly ready to gradtuate from "upcoming" to "available". 
+This C language track of exercism is nearly ready to graduate from "upcoming" to "available". 
 To that aim the repository has several issues marked with labels such as 'help wanted', 'good first patch' or 'hacktoberfest'. 
 Issues marked with these labels are a good place to start contributing - you are welcome to contribute to any of these, any other issue, or even submit your own issues or pull requests.
 
