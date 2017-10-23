@@ -442,6 +442,16 @@
       ],
       "unlocked_by": "atbash-cipher",
       "uuid": "55b87cc2-c3a0-438a-b2b6-116ad6356802"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "collatz-conjecture",
+      "topics": [
+        "functions",
+        "mathematics"
+      ],
+      "uuid": "1f68f837-6432-4f9e-afae-0cb17f8e0153"
     }
   ],
   "foregone": [],

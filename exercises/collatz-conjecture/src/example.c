@@ -1,15 +1,6 @@
 #include "collatz_conjecture.h"
 #include <stdbool.h>
 
-static bool is_even(int number)
-{
-   if (number % 2) {
-      return false;
-   }
-
-   return true;
-}
-
 int steps(int start)
 {
    int step = 0;
@@ -22,7 +13,7 @@ int steps(int start)
    while (number != 1) {
       step++;
 
-      if (is_even(number)) {
+      if (number % 2 == 0) {
          number /= 2;
       } else {
          number = (number * 3) + 1;

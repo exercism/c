@@ -1,6 +1,3 @@
-#include <stdbool.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../src/collatz_conjecture.h"
 
 #include "vendor/unity.h"
