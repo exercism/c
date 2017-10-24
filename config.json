@@ -452,6 +452,16 @@
         "mathematics"
       ],
       "uuid": "1f68f837-6432-4f9e-afae-0cb17f8e0153"
+    },
+    {
+      "core": true,
+      "difficulty": 1,
+      "slug": "queen-attack",
+      "topics": [
+        "control_flow_if_statements",
+        "functions"
+      ],
+      "uuid": "ae266e01-0e88-6c80-ed67-eada1a30f8b4"
     }
   ],
   "foregone": [],
