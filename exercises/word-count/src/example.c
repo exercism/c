@@ -51,10 +51,14 @@ int word_count(char *input_text, word_count_word_t words[MAX_WORDS])
       // add if not yet counted else increment count.
       if (-1 == index) {
          // reject anything that would overrun buffers
-         if (MAX_WORD_LENGTH < strlen(test_word))
-            return EXCESSIVE_LENGTH_WORD;
-         if (MAX_WORDS == unique_words)
-            return EXCESSIVE_NUMBER_OF_WORDS;
+         if (MAX_WORD_LENGTH < strlen(test_word)) {
+            unique_words = EXCESSIVE_LENGTH_WORD;
+            break;
+         }
+         if (MAX_WORDS == unique_words) {
+            unique_words = EXCESSIVE_NUMBER_OF_WORDS;
+            break;
+         }
          words[unique_words].count = 1;
          strncpy(words[unique_words].text, test_word, MAX_WORD_LENGTH);
          unique_words++;
