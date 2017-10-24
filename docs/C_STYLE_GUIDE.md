@@ -37,14 +37,6 @@ Macros defining constants are named using snake case with all letters in upper c
 
 Upper-case snake case for macro names is appreciated, but macros resembling functions may be named in lower-case snake case.
 
-### Constants
-
-Names for variables defined as `const` (global or otherwise) should use snake case with all letters in upper case.
-
-```c
-const int LIMIT = 22;
-```
-
 ### Types
 
 Types defined by a program using `typedef` should be named with a `_t` suffix. 
