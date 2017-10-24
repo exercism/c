@@ -18,9 +18,10 @@ typedef struct word_count_word {
 //    input_text =  a null-terminated string containing that is analyzed
 //
 // outputs:
-//    words = allocated structure to record the words fourn and their frequency
+//    words = allocated structure to record the words found and their frequency
 //    uniqueWords - number of words in the words structure
-//           returns a negative number if an error. words will contain the results up to that point.
+//           returns a negative number if an error.
+//           words will contain the results up to that point.
 int word_count(char *input_text, word_count_word_t words[MAX_WORDS]);
 
 #endif
