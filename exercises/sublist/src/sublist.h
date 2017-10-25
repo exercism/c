@@ -4,12 +4,13 @@
 #include <stddef.h>
 
 enum {
-    EQUAL,
-    UNEQUAL,
-    SUBLIST,
-    SUPERLIST
+   EQUAL,
+   UNEQUAL,
+   SUBLIST,
+   SUPERLIST
 };
 
-int check_lists(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength);
+int check_lists(int *listOne, int *listTwo, size_t listOneLength,
+                size_t listTwoLength);
 
 #endif

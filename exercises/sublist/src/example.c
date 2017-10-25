@@ -2,56 +2,61 @@
 #include <stdbool.h>
 #include <string.h>
 
-static bool is_equal(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength)
+static bool is_equal(int *listOne, int *listTwo, size_t listOneLength,
+                     size_t listTwoLength)
 {
-    return (listOneLength == listTwoLength && !memcmp(listOne, listTwo, listOneLength));
+   return (listOneLength == listTwoLength
+           && !memcmp(listOne, listTwo, listOneLength));
 }
 
-static bool is_sublist(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength)
+static bool is_sublist(int *listOne, int *listTwo, size_t listOneLength,
+                       size_t listTwoLength)
 {
-    int i;
-    int loop_end = (listTwoLength - listOneLength) / sizeof(*listOne);
+   int i;
+   int loop_end = (listTwoLength - listOneLength) / sizeof(*listOne);
 
-    if (listOneLength > listTwoLength) {
-        return false;
-    }
+   if (listOneLength > listTwoLength) {
+      return false;
+   }
 
-    for (i = 0; i <= loop_end; i++) {
-        if (!memcmp(listOne, &listTwo[i], listOneLength)) {
-            return true;
-        }
-    }
+   for (i = 0; i <= loop_end; i++) {
+      if (!memcmp(listOne, &listTwo[i], listOneLength)) {
+         return true;
+      }
+   }
 
-    return false;
+   return false;
 }
 
-static bool is_superlist(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength)
+static bool is_superlist(int *listOne, int *listTwo, size_t listOneLength,
+                         size_t listTwoLength)
 {
-    int i;
-    int loop_end = (listOneLength - listTwoLength) / sizeof(*listOne);
+   int i;
+   int loop_end = (listOneLength - listTwoLength) / sizeof(*listOne);
 
-    if (listTwoLength > listOneLength) {
-        return false;
-    }
+   if (listTwoLength > listOneLength) {
+      return false;
+   }
 
-    for (i = 0; i <= loop_end; i++) {
-        if (!memcmp(listTwo, &listOne[i], listTwoLength)) {
-            return true;
-        }
-    }
+   for (i = 0; i <= loop_end; i++) {
+      if (!memcmp(listTwo, &listOne[i], listTwoLength)) {
+         return true;
+      }
+   }
 
-    return false;
+   return false;
 }
 
-int check_lists(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength)
+int check_lists(int *listOne, int *listTwo, size_t listOneLength,
+                size_t listTwoLength)
 {
-    if (is_equal(listOne, listTwo, listOneLength, listTwoLength)) {
-        return EQUAL;
-    } else if (is_sublist(listOne, listTwo, listOneLength, listTwoLength)) {
-        return SUBLIST;
-    } else if (is_superlist(listOne, listTwo, listOneLength, listTwoLength)) {
-        return SUPERLIST;
-    }
+   if (is_equal(listOne, listTwo, listOneLength, listTwoLength)) {
+      return EQUAL;
+   } else if (is_sublist(listOne, listTwo, listOneLength, listTwoLength)) {
+      return SUBLIST;
+   } else if (is_superlist(listOne, listTwo, listOneLength, listTwoLength)) {
+      return SUPERLIST;
+   }
 
-    return UNEQUAL;
+   return UNEQUAL;
 }
