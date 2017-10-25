@@ -10,13 +10,13 @@ static bool is_equal(int *listOne, int *listTwo, size_t listOneLength, size_t li
 static bool is_sublist(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength)
 {
     int i;
-    int loop_end = listTwoLength > listOneLength ? listTwoLength - listOneLength : 0;
+    int loop_end = (listTwoLength - listOneLength) / sizeof(*listOne);
 
-    if (listOneLength == 0) {
-        return true;
+    if (listOneLength > listTwoLength) {
+        return false;
     }
 
-    for (i = 0; i < loop_end; i++) {
+    for (i = 0; i <= loop_end; i++) {
         if (!memcmp(listOne, &listTwo[i], listOneLength)) {
             return true;
         }
@@ -27,12 +27,17 @@ static bool is_sublist(int *listOne, int *listTwo, size_t listOneLength, size_t 
 
 static bool is_superlist(int *listOne, int *listTwo, size_t listOneLength, size_t listTwoLength)
 {
-    (void)listOne;
-    (void)listTwo;
-    (void)listOneLength;
+    int i;
+    int loop_end = (listOneLength - listTwoLength) / sizeof(*listOne);
 
-    if (listTwoLength == 0) {
-        return true;
+    if (listTwoLength > listOneLength) {
+        return false;
+    }
+
+    for (i = 0; i <= loop_end; i++) {
+        if (!memcmp(listTwo, &listOne[i], listTwoLength)) {
+            return true;
+        }
     }
 
     return false;

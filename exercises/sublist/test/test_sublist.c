@@ -1,157 +1,135 @@
 #include "vendor/unity.h"
 #include "../src/sublist.h"
-#include <stdlib.h>
-
-#define ELEMENT_COUNT(array) (sizeof(array)/sizeof(array[0]))
 
 void test_empty_lists(void)
 {
-    int *listOne = malloc(0);
-    int *listTwo = malloc(0);
-
-    TEST_ASSERT_EQUAL(EQUAL, check_lists(listOne, listTwo, 0, 0));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(EQUAL, check_lists(NULL, NULL, 0, 0));
 }
 
 void test_empty_list_within_non_empty_list(void)
 {
-    int *listOne = malloc(0);
-    int *listTwo = malloc(3);
+    int listTwo[] = { 1, 2, 3 };
 
-    listTwo[0] = 1;
-    listTwo[1] = 2;
-    listTwo[2] = 3;
-
-    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, 0, 3));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(SUBLIST, check_lists(NULL, listTwo, 0, sizeof(listTwo)));
 }
 
 void test_non_empty_list_contains_empty_list(void)
 {
-    int *listOne = malloc(3);
-    int *listTwo = malloc(0);
+    int listOne[] = { 1, 2, 3 };
 
-    listOne[0] = 1;
-    listOne[1] = 2;
-    listOne[2] = 3;
-
-    TEST_ASSERT_EQUAL(SUPERLIST, check_lists(listOne, listTwo, 3, 0));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(SUPERLIST, check_lists(listOne, NULL, sizeof(listOne), 0));
 }
 
 void test_list_equals_itself(void)
 {
-    int *listOne = malloc(3);
-    int *listTwo = malloc(3);
+    int listOne[] = { 1, 2, 3 };
+    int listTwo[] = { 1, 2, 3 };
 
-    listOne[0] = 1;
-    listOne[1] = 2;
-    listOne[2] = 3;
-
-    listTwo[0] = 1;
-    listTwo[1] = 2;
-    listTwo[2] = 3;
-
-    TEST_ASSERT_EQUAL(EQUAL, check_lists(listOne, listTwo, 3, 3));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(EQUAL, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
 }
 
 void test_different_lists(void)
 {
-    int *listOne = malloc(3);
-    int *listTwo = malloc(3);
+    int listOne[] = { 1, 2, 3 };
+    int listTwo[] = { 2, 3, 4 };
 
-    listOne[0] = 1;
-    listOne[1] = 2;
-    listOne[2] = 3;
-
-    listTwo[0] = 2;
-    listTwo[1] = 3;
-    listTwo[2] = 4;
-
-    TEST_ASSERT_EQUAL(UNEQUAL, check_lists(listOne, listTwo, 3, 3));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(UNEQUAL, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
 }
 
 void test_false_start(void)
 {
-    int *listOne = malloc(3);
-    int *listTwo = malloc(8);
+    int listOne[] = { 1, 2, 5 };
+    int listTwo[] = { 0, 1, 2, 3, 1, 2, 5, 6 };
 
-    listOne[0] = 1;
-    listOne[1] = 2;
-    listOne[2] = 5;
-
-    listTwo[0] = 0;
-    listTwo[1] = 1;
-    listTwo[2] = 2;
-    listTwo[3] = 3;
-    listTwo[4] = 1;
-    listTwo[5] = 2;
-    listTwo[6] = 5;
-    listTwo[7] = 6;
-
-    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, 3, 8));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
 }
 
 void test_consecutive(void)
 {
-    int *listOne = malloc(3);
-    int *listTwo = malloc(7);
+    int listOne[] = { 1, 1, 2 };
+    int listTwo[] = { 0, 1, 1, 1, 2, 1, 2 };
 
-    listOne[0] = 1;
-    listOne[1] = 1;
-    listOne[2] = 2;
-
-    listTwo[0] = 0;
-    listTwo[1] = 1;
-    listTwo[2] = 1;
-    listTwo[3] = 1;
-    listTwo[4] = 2;
-    listTwo[5] = 1;
-    listTwo[6] = 2;
-
-
-    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, 3, 7));
-
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
 }
 
 void test_sublist_at_start(void)
 {
-    int *listOne = malloc(3);
-    int *listTwo = malloc(6);
+    int listOne[] = { 0, 1, 2};
+    int listTwo[] = { 0, 1, 2, 3, 4, 5 };
 
-    listOne[0] = 0;
-    listOne[1] = 1;
-    listOne[2] = 2;
+    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
 
-    listTwo[0] = 0;
-    listTwo[1] = 1;
-    listTwo[2] = 2;
-    listTwo[3] = 3;
-    listTwo[4] = 4;
-    listTwo[5] = 5;
+void test_sublist_at_middle(void)
+{
+    int listOne[] = { 2, 3 ,4 };
+    int listTwo[] = { 0, 1, 2, 3, 4, 5 };
 
+    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
 
-    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, 3, 6));
+void test_sublist_at_end(void)
+{
+    int listOne[] = { 3, 4, 5 };
+    int listTwo[] = { 0, 1, 2, 3, 4, 5 };
 
-    free(listOne);
-    free(listTwo);
+    TEST_ASSERT_EQUAL(SUBLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_at_start_of_superlist(void)
+{
+    int listOne[] = { 0, 1, 2, 3, 4, 5 };
+    int listTwo[] = { 0, 1, 2};
+
+    TEST_ASSERT_EQUAL(SUPERLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_in_middle_of_superlist(void)
+{
+    int listOne[] = { 0, 1, 2, 3, 4, 5 };
+    int listTwo[] = { 2, 3 };
+
+    TEST_ASSERT_EQUAL(SUPERLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_at_end_of_superlist(void)
+{
+    int listOne[] = { 0, 1, 2, 3, 4, 5 };
+    int listTwo[] = { 3, 4, 5 };
+
+    TEST_ASSERT_EQUAL(SUPERLIST, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_first_list_missing_element_from_second_list(void)
+{
+    int listOne[] = { 1, 3 };
+    int listTwo[] = { 1, 2, 3 };
+
+    TEST_ASSERT_EQUAL(UNEQUAL, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_second_list_missing_element_from_first_list(void)
+{
+    int listOne[] = { 1, 2, 3 };
+    int listTwo[] = { 1, 3 };
+
+    TEST_ASSERT_EQUAL(UNEQUAL, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_order_matters_to_a_list(void)
+{
+    int listOne[] = { 1, 2, 3 };
+    int listTwo[] = { 3, 2, 1 };
+
+    TEST_ASSERT_EQUAL(UNEQUAL, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
+}
+
+void test_same_digits_but_different_numbers(void)
+{
+    int listOne[] = { 1, 0, 1 };
+    int listTwo[] = { 10, 1 };
+
+    TEST_ASSERT_EQUAL(UNEQUAL, check_lists(listOne, listTwo, sizeof(listOne), sizeof(listTwo)));
 }
 
 int main(void)
@@ -166,6 +144,15 @@ int main(void)
    RUN_TEST(test_false_start);
    RUN_TEST(test_consecutive);
    RUN_TEST(test_sublist_at_start);
+   RUN_TEST(test_sublist_at_middle);
+   RUN_TEST(test_sublist_at_end);
+   RUN_TEST(test_at_start_of_superlist);
+   RUN_TEST(test_in_middle_of_superlist);
+   RUN_TEST(test_at_end_of_superlist);
+   RUN_TEST(test_first_list_missing_element_from_second_list);
+   RUN_TEST(test_second_list_missing_element_from_first_list);
+   RUN_TEST(test_order_matters_to_a_list);
+   RUN_TEST(test_same_digits_but_different_numbers);
 
    UnityEnd();
    return 0;
