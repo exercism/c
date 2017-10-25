@@ -42,6 +42,12 @@ Upper-case snake case for macro names is appreciated, but macros resembling func
 Types defined by a program using `typedef` should be named with a `_t` suffix. 
 While aware that POSIX reserves the `_t` suffix, the track does not currently utilise POSIX.
 
+## Parameters
+
+Function parameters should be named in both the function declaration and definition of all functions. This applies to both `.c` and `.h` files The names used should match in all instances.
+That is to say that while the following function prototype is valid C, the style is incorrect, because the parameter is unnamed: `void foo(int);`.
+The correct prototype, providing that all other declarations and the definition also use the parameter name `bar`, would be `void foo(int bar);`.
+
 ## Indentation and Format
 
 The repository uses GNU `indent`, as outlined in the [README](https://github.com/exercism/c/blob/master/README.md).
