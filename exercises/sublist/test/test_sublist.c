@@ -160,6 +160,16 @@ void test_same_digits_but_different_numbers(void)
                                  sizeof(listTwo)));
 }
 
+void test_different_signs(void)
+{
+   int listOne[] = { 1, 2, 3 };
+   int listTwo[] = { 1, -2, 3 };
+
+   TEST_ASSERT_EQUAL(UNEQUAL,
+                     check_lists(listOne, listTwo, sizeof(listOne),
+                                 sizeof(listTwo)));
+}
+
 int main(void)
 {
    UnityBegin("test/test_sublist.c");
@@ -181,6 +191,7 @@ int main(void)
    RUN_TEST(test_second_list_missing_element_from_first_list);
    RUN_TEST(test_order_matters_to_a_list);
    RUN_TEST(test_same_digits_but_different_numbers);
+   RUN_TEST(test_different_signs);
 
    UnityEnd();
    return 0;
