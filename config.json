@@ -442,6 +442,19 @@
       ],
       "unlocked_by": "atbash-cipher",
       "uuid": "55b87cc2-c3a0-438a-b2b6-116ad6356802"
+    },
+    {
+      "core": true,
+      "difficulty": 4,
+      "slug": "sublist",
+      "topics": [
+        "pointers",
+        "arrays",
+        "searching",
+        "control_flow_if_statements",
+        "control_flow_loops"
+      ],
+      "uuid": "928e9860-0df9-5180-8529-7024c991b3616adc21a"
     }
   ],
   "foregone": [],
