@@ -1,26 +1,21 @@
-# Meetup
+# Sublist
 
-Calculate the date of meetups.
+Given two lists determine if the first list is contained within the second
+list, if the second list is contained within the first list, if both lists are
+contained within each other or if none of these are true.
 
-Typically meetups happen on the same day of the week.  In this exercise, you will take
-a description of a meetup date, and return the actual meetup date.
+Specifically, a list A is a sublist of list B if by dropping 0 or more elements
+from the front of B and 0 or more elements from the back of B you get a list
+that's completely equal to A.
 
-Examples of general descriptions are:
+Examples:
 
-- the first Monday of January 2017
-- the third Tuesday of January 2017
-- the Wednesteenth of January 2017
-- the last Thursday of January 2017
-
-Note that "Monteenth", "Tuesteenth", etc are all made up words. There
-was a meetup whose members realized that there are exactly 7 numbered days in a month that
-end in '-teenth'. Therefore, one is guaranteed that each day of the week
-(Monday, Tuesday, ...) will have exactly one date that is named with '-teenth'
-in every month.
-
-Given examples of a meetup dates, each containing a month, day, year, and descriptor
-(first, second, teenth, etc), calculate the date of the actual meetup.
-For example, if given "First Monday of January 2017", the correct meetup date is 2017/1/2
+ * A = [1, 2, 3], B = [1, 2, 3, 4, 5], A is a sublist of B
+ * A = [3, 4, 5], B = [1, 2, 3, 4, 5], A is a sublist of B
+ * A = [3, 4], B = [1, 2, 3, 4, 5], A is a sublist of B
+ * A = [1, 2, 3], B = [1, 2, 3], A is equal to B
+ * A = [1, 2, 3, 4, 5], B = [2, 3, 4], A is a superlist of B
+ * A = [1, 2, 4], B = [1, 2, 3, 4, 5], A is not a superlist of, sublist of or equal to B
 
 ## Getting Started
 
@@ -53,9 +48,6 @@ test.
 Try to use standard C99 facilities in preference to writing your own
 low-level algorithms or facilities by hand.
 
-## Source
-
-Jeremy Hinegardner mentioned a Boulder meetup that happens on the Wednesteenth of every month [https://twitter.com/copiousfreetime](https://twitter.com/copiousfreetime)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
