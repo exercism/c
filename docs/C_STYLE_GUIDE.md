@@ -51,7 +51,7 @@ The correct prototype, providing that all other declarations and the definition 
 
 ## Indentation and Format
 
-The repository uses GNU `indent`, as outlined in the [README](https://github.com/exercism/c/blob/master/README.md).
+The repository uses the `indent` tool, as outlined in the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md).
 
 The options described for use with indent there are `-linux -i3 -nut`. The `-linux` option is a shortcut that is equivelent to a secific fixed group of options. The combined equivalent options are `-nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1`.
 
