@@ -13,7 +13,7 @@ Subsequently there are a few things specific to this repository that are explain
 The exercise code is checked during CI for conformance to a set of style rules. The check uses the GNU indent CLI tool.
 When adding or making a change to an exercise, you can check your change conforms to these rules by running the tool locally.
 
-The style rules used are explained in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md). 
+The style rules used are explained in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#indentation-and-format). 
 In short, they equate to the [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) with 3 space indents and no tabs.
 
 To install the tool, please see the [install indent guide](#).
@@ -55,7 +55,7 @@ The structure of the directory is as follows:
 ```
 
 * `test` - contains the test file `test_<my exercise>.c` and a `vendor` directory containing the test harness [Unity](http://www.throwtheswitch.org/unity/) from [ThrowTheSwitch](http://www.throwtheswitch.org/#intro-1-section).
-ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.throwtheswitch.org/getting-started-with-unity/) should you desire a tutorial.
+ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.throwtheswitch.org/getting-started-with-unity/) should you desire a tutorial. The layout of the test file is described in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#test-file-layout).
 
 * `src` - contains the example files `example.c` and `example.h`. These are both skipped by the `exercism` CLI when downloading to the client, so it is imperative that you do not reference the names of the files in your code. 
 If you need to provide a header file example that is necessary to run your tests it should be named `<my exercise>.h` instead.
