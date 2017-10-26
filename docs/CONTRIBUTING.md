@@ -16,7 +16,8 @@ When adding or making a change to an exercise, you can check your change conform
 The style rules used are explained in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#indentation-and-format). 
 In short, they equate to the [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) with 3 space indents and no tabs.
 
-To install the tool, please see the [install indent guide](#).
+On linux `indent` should be available for install via your distribution's package manager. 
+On a Mac you can install the package `gnu-indent` using [Homebrew](https://brew.sh).
 
 Indent can be run on all files by executing `indent.sh`.
 To manually run it on a single file, you can execute:
