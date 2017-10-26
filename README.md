@@ -18,9 +18,7 @@ Contributions are very welcome! Please see the [contributing guide](https://gith
 
 ## Coding Style
 
-Please see the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md) for information on style and the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#coding-style) for information on using `indent` when making changes to exercises.
-
-If GNU `indent` is installed, this can be run on all files by executing `indent.sh`. On a Mac you can install the package `gnu-indent` using [Homebrew](http://brew.sh).
+Please see the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md) for information on style and the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#coding-style) for information on installing and using `indent` when making changes to exercises.
 
 ## License
 
