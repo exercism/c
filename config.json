@@ -11,7 +11,7 @@
         "optional_values",
         "text_formatting"
       ],
-      "uuid": "a0278e53-728d-4c04-9a0e-d6f7fe7ce98f"
+      "uuid": "adf43ee2-0730-7980-b2d9-931c91510d78a9dbd19"
     },
     {
       "core": true,
@@ -23,7 +23,7 @@
         "control_flow_loops",
         "strings"
       ],
-      "uuid": "7167e43c-04bd-4c6c-a446-a37384d42626"
+      "uuid": "c0bf4029-06d6-db80-4447-464a1248f1ed63b8964"
     },
     {
       "core": false,
@@ -34,7 +34,7 @@
         "logic"
       ],
       "unlocked_by": null,
-      "uuid": "24721f7a-4123-470f-81e2-a252e56f3ceb"
+      "uuid": "7162e083-0d6a-a680-90c6-86d52b661d6f291a710"
     },
     {
       "core": true,
@@ -43,7 +43,7 @@
       "topics": [
         "dates"
       ],
-      "uuid": "532393f6-dedc-40fc-872e-b265450fd007"
+      "uuid": "aeae2227-05e8-6a80-b0ab-721699f2d2f16fec278"
     },
     {
       "core": true,
@@ -54,7 +54,7 @@
         "control_flow_loops",
         "strings"
       ],
-      "uuid": "500c2f8c-7404-47e7-8064-8c426b0632ea"
+      "uuid": "923e4a3d-0a32-c780-4bdf-85f0dbd56599aca7a4a"
     },
     {
       "core": false,
@@ -65,7 +65,7 @@
         "strings"
       ],
       "unlocked_by": null,
-      "uuid": "b69b0f46-644c-4e98-8e31-34e392477f57"
+      "uuid": "4600d7bd-01c4-fc80-e5e2-fa88943adbbabf3f507"
     },
     {
       "core": false,
@@ -76,7 +76,7 @@
         "strings"
       ],
       "unlocked_by": "beer-song",
-      "uuid": "a559ee05-0ce8-4071-a159-b7a54ef3215c"
+      "uuid": "2e673094-09b8-7f80-7b77-cbcca40ad40f414229e"
     },
     {
       "core": false,
@@ -88,7 +88,7 @@
         "strings"
       ],
       "unlocked_by": "isogram",
-      "uuid": "08904f5e-3b07-4f0b-9dc6-6e371df1ef02"
+      "uuid": "17fc50f8-07fa-1380-522c-73ebb21f77f3332879f"
     },
     {
       "core": true,
@@ -99,7 +99,7 @@
         "control_flow_loops",
         "performance_optimizations"
       ],
-      "uuid": "f9b3b7f1-c49a-421b-a38d-b740f1910ca5"
+      "uuid": "b2862cca-043f-d280-baf7-1d776d48ef98f2c4f2d"
     },
     {
       "core": false,
@@ -111,7 +111,7 @@
         "strings"
       ],
       "unlocked_by": "palindrome-products",
-      "uuid": "d64646d1-5af9-4bdc-b637-5c56447e6693"
+      "uuid": "baa90d2c-0059-eb80-7e4a-2230bd8020f195287dd"
     },
     {
       "core": false,
@@ -123,7 +123,7 @@
         "strings"
       ],
       "unlocked_by": "isogram",
-      "uuid": "70c0e2d6-70a4-499f-86e3-6e209b494a5d"
+      "uuid": "889a27d6-0d85-a180-02ee-06b8f0171314ae515fe"
     },
     {
       "core": false,
@@ -135,7 +135,7 @@
         "control_flow_loops"
       ],
       "unlocked_by": "binary",
-      "uuid": "1b3144fe-8e9f-46bc-9206-74cad1c5b088"
+      "uuid": "799f8e58-07e4-cc80-2287-93d97469a5787d3628d"
     },
     {
       "core": false,
@@ -147,7 +147,7 @@
         "performance_optimizations"
       ],
       "unlocked_by": "sieve",
-      "uuid": "5f88968b-7c02-4846-9f38-cec55d19df66"
+      "uuid": "b4282a1b-0696-7a80-c709-a716f93e99e8f247e8c"
     },
     {
       "core": true,
@@ -158,7 +158,7 @@
         "control_flow_loops",
         "strings"
       ],
-      "uuid": "5d988d28-2ef7-46e7-b706-011cc5ecb6fc"
+      "uuid": "08c946d6-0f47-1580-ab77-2dab7f147248642763b"
     },
     {
       "core": false,
@@ -170,7 +170,7 @@
         "strings"
       ],
       "unlocked_by": "hamming",
-      "uuid": "47308cfb-357a-4d61-852f-49b26ee2b236"
+      "uuid": "09954333-0440-4380-77fd-1c7deeb962b09ed044b"
     },
     {
       "core": true,
@@ -179,7 +179,7 @@
       "topics": [
         "control_flow_loops"
       ],
-      "uuid": "3531b23c-7a23-47b7-88f4-ff8519d0392b"
+      "uuid": "d33bc183-0fee-a380-a3ae-26af7404a8e977f9bb1"
     },
     {
       "core": false,
@@ -190,7 +190,7 @@
         "control_flow_loops"
       ],
       "unlocked_by": "difference-of-squares",
-      "uuid": "a9d8772f-3733-4b84-b8c6-f3c38a8ce5db"
+      "uuid": "550dd755-05e3-2680-ac48-a4749bf974284824573"
     },
     {
       "core": true,
@@ -202,7 +202,7 @@
         "control_flow_loops",
         "searching"
       ],
-      "uuid": "23231bc9-4a75-40ab-b934-f8b429b55224"
+      "uuid": "bea04407-0db4-7380-19da-7afcb44af567ef49d7f"
     },
     {
       "core": true,
@@ -215,7 +215,7 @@
         "strings",
         "structs"
       ],
-      "uuid": "db544fba-acf4-47b5-b86c-fc9f0680517d"
+      "uuid": "c8e58b48-09fe-c480-a7ed-e9e96785669b67d21be"
     },
     {
       "core": false,
@@ -228,7 +228,7 @@
         "structs"
       ],
       "unlocked_by": "isogram",
-      "uuid": "2e2d009b-3bd6-4258-988b-5e36e2e27f3c"
+      "uuid": "939713ed-0688-e280-16ca-dca4ff64203ff19b557"
     },
     {
       "core": true,
@@ -240,7 +240,7 @@
         "memory_management",
         "structs"
       ],
-      "uuid": "28bdb8bb-26cd-40c1-91ba-a00fda09eaf2"
+      "uuid": "0eab95ef-01fd-3980-afb8-6c697a45b1e5cabbd56"
     },
     {
       "core": false,
@@ -253,7 +253,7 @@
         "structs"
       ],
       "unlocked_by": "acronym",
-      "uuid": "82b19968-03f9-4e17-b729-db6c3e2abfa4"
+      "uuid": "e2e71dc6-0b26-6e80-1b32-d81f9902267e0b6e2f9"
     },
     {
       "core": true,
@@ -264,7 +264,7 @@
         "control_flow_loops",
         "strings"
       ],
-      "uuid": "e39c4445-eadd-4bcf-9b49-2256ed38d6fd"
+      "uuid": "c5e26dcf-09f6-9180-d2b3-5abb64d6d2127113203"
     },
     {
       "core": true,
@@ -276,7 +276,7 @@
         "memory_management",
         "strings"
       ],
-      "uuid": "92e18b2f-f137-452e-a21d-045874da84d7"
+      "uuid": "a67b5575-0f15-7180-71cd-b50c96135cd5683fc78"
     },
     {
       "core": true,
@@ -288,7 +288,7 @@
         "strings",
         "text_formatting"
       ],
-      "uuid": "3b3d1f61-c580-4a37-9cab-449eeebe7f86"
+      "uuid": "bf4fd059-075f-f080-73db-9789b53ed5e3735291c"
     },
     {
       "core": true,
@@ -298,7 +298,7 @@
         "control_flow_if_statements",
         "memory_management"
       ],
-      "uuid": "f1b60913-78d3-4872-a1a3-5ac3930c74ff"
+      "uuid": "31bb7803-0b95-6d80-5fd8-94bb22d56f8c26c5fa3"
     },
     {
       "core": false,
@@ -311,7 +311,7 @@
         "text_formatting"
       ],
       "unlocked_by": "atbash-cipher",
-      "uuid": "75b292a3-2a94-40f9-8798-608812a6c0f8"
+      "uuid": "19b9e775-00d0-2780-1f3d-f25e276f6ed5434bf2a"
     },
     {
       "core": false,
@@ -325,7 +325,7 @@
         "time_functions"
       ],
       "unlocked_by": "gigasecond",
-      "uuid": "5c782b4f-862e-4feb-98d6-a0eaf9d43a74"
+      "uuid": "5d00eb2b-054e-8180-6049-aa59d575549c59015ab"
     },
     {
       "core": false,
@@ -338,7 +338,7 @@
         "text_formatting"
       ],
       "unlocked_by": "hamming",
-      "uuid": "ca136f47-07fc-4bd5-9b81-a492ac81a7e6"
+      "uuid": "2717a3ac-040f-6080-063a-c48b1bd91a3908ea2b9"
     },
     {
       "core": true,
@@ -351,7 +351,7 @@
         "structs",
         "variable_argument_lists"
       ],
-      "uuid": "87c36588-5917-4790-9566-f7bc21bf41c4"
+      "uuid": "25c63d52-0512-9880-4ce4-f89464e0eb9adef46ac"
     },
     {
       "core": false,
@@ -364,7 +364,7 @@
         "structs"
       ],
       "unlocked_by": "pascals-triangle",
-      "uuid": "4b30bb00-c559-423c-ae1c-9c5eaf9cb1c8"
+      "uuid": "7bec037f-0c1a-e280-6464-d88928ff4e9ea201f6b"
     },
     {
       "core": true,
@@ -375,7 +375,7 @@
         "mathematics",
         "memory_management"
       ],
-      "uuid": "3ebdb4e4-5e35-48f0-a572-87c40b51475f"
+      "uuid": "fd504736-088f-cb80-47d5-4ae7cefe85236d9b430"
     },
     {
       "core": false,
@@ -386,7 +386,7 @@
         "mathematics"
       ],
       "unlocked_by": "pascals-triangle",
-      "uuid": "82bb6c43-668a-4563-bc05-056e45cf86a3"
+      "uuid": "4a62a85d-0c2c-7b80-662f-43960864d9210d62582"
     },
     {
       "core": true,
@@ -396,7 +396,7 @@
         "control_flow_if_statements",
         "control_flow_loops"
       ],
-      "uuid": "73e5774c-7d8e-4ed6-9d72-3cb59af441c0"
+      "uuid": "6c74d5e3-0c68-e680-4533-fcd65e2cc6eddcbca21"
     },
     {
       "core": true,
@@ -408,7 +408,7 @@
         "strings",
         "structs"
       ],
-      "uuid": "b1f13fdd-4c78-443a-8e37-6d0a3fafbc15"
+      "uuid": "44422bfb-0462-6080-889f-10d6e3a718339a0174b"
     },
     {
       "core": true,
@@ -420,7 +420,7 @@
         "strings",
         "structs"
       ],
-      "uuid": "2ac990f4-39b0-416e-93ee-217dc0181401"
+      "uuid": "f2a2bbaa-05f3-f380-b2f3-a6787a1f0fa67c05888"
     },
     {
       "core": false,
@@ -430,7 +430,7 @@
         "functions"
       ],
       "unlocked_by": "gigasecond",
-      "uuid": "11a574a6-ffea-4de5-abc1-5566bd200374"
+      "uuid": "d3c0a69d-0d08-f980-8d54-30ff7ec0ae6b7b920d5"
     },
     {
       "core": false,
@@ -441,7 +441,7 @@
         "memory_management"
       ],
       "unlocked_by": "atbash-cipher",
-      "uuid": "55b87cc2-c3a0-438a-b2b6-116ad6356802"
+      "uuid": "063b1d80-0ed6-ee80-c931-ac16708d94fd2b5c15b"
     },
     {
       "core": false,
@@ -451,7 +451,7 @@
         "functions",
         "mathematics"
       ],
-      "uuid": "1f68f837-6432-4f9e-afae-0cb17f8e0153"
+      "uuid": "928e9860-0df9-5180-8529-7024c991b3616adc21a"
     }
   ],
   "foregone": [],
