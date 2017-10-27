@@ -14,11 +14,7 @@ To get an idea of the general status in relation to the launch of the track, che
 
 ## Contributing
 
-Contributions are very welcome! Please see the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md) to get started.
-
-## Coding Style
-
-Please see the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md) for information on style and the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#coding-style) for information on installing and using `indent` when making changes to exercises.
+Contributions are very welcome! Please see the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md) to get started. The guide contains general contribution tips, information on the code style, information on the continuous integration used and the anatomy of an exercise on this language track.
 
 ## License
 
