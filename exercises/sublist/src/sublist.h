@@ -3,14 +3,14 @@
 
 #include <stddef.h>
 
-enum {
+typedef enum {
    EQUAL,
    UNEQUAL,
    SUBLIST,
    SUPERLIST
-};
+} comparison_result_t;
 
-int check_lists(int *listOne, int *listTwo, size_t listOneLength,
-                size_t listTwoLength);
+comparison_result_t check_lists(int *listOne, int *listTwo,
+                                size_t listOneLength, size_t listTwoLength);
 
 #endif
