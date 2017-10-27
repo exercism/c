@@ -10,7 +10,7 @@ typedef struct word_count_word {
    int count;
 } word_count_word_t;
 
-#define EXCESSIVE_LENGTH_WORD   -1
+#define EXCESSIVE_LENGTH_WORD     -1
 #define EXCESSIVE_NUMBER_OF_WORDS -2
 
 // word_count - routine to classify the unique words and their frequency in a test input string
