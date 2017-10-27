@@ -10,11 +10,11 @@ Subsequently note that there are a few things specific to this repository that a
 
 ## Coding Style
 
-The exercise code is checked during CI for conformance to a set of style rules. The check uses the GNU `indent` CLI tool.
-When adding or making a change to an exercise, you can check that your change conforms to these rules by running the tool locally before commiting.
+The code style expected for code change contributions is explained in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#indentation-and-format). 
+In short, they equate to the [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) with 3 space indents and no tabs, and snake cased names.
 
-The style rules used are explained in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#indentation-and-format). 
-In short, they equate to the [Linux kernel coding style](https://www.kernel.org/doc/html/latest/process/coding-style.html) with 3 space indents and no tabs.
+The exercise code is checked during CI for conformance to the spacing and indentation style rules. The check uses the GNU `indent` CLI tool.
+When adding or making a change to an exercise, you can check that your change conforms to these rules by running the tool locally before commiting.
 
 On linux `indent` should be available for install via your distribution's package manager. 
 On a Mac you can install the package `gnu-indent` using [Homebrew](https://brew.sh).
