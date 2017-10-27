@@ -459,7 +459,9 @@
       "slug": "queen-attack",
       "topics": [
         "control_flow_if_statements",
-        "functions"
+        "functions",
+        "structs",
+        "enums"
       ],
       "uuid": "ae266e01-0e88-6c80-ed67-eada1a30f8b4"
     }

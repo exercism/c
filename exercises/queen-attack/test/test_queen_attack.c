@@ -3,158 +3,158 @@
 
 void test_invalid_if_on_same_position(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 2;
-   queen_1.row = 5;
-   queen_2.column = queen_1.column;
-   queen_2.row = queen_1.row;
+   white_queen.column = 2;
+   white_queen.row = 5;
+   black_queen.column = white_queen.column;
+   black_queen.row = white_queen.row;
 
-   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(white_queen, black_queen));
 }
 
-void test_queen_1_must_have_row_on_board(void)
+void test_white_queen_must_have_row_on_board(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 2;
-   queen_1.row = 8;
-   queen_2.column = 0;
-   queen_2.row = 0;
+   white_queen.column = 2;
+   white_queen.row = 8;
+   black_queen.column = 0;
+   black_queen.row = 0;
 
-   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(white_queen, black_queen));
 }
 
-void test_queen_1_must_have_column_on_board(void)
+void test_white_queen_must_have_column_on_board(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 8;
-   queen_1.row = 2;
-   queen_2.column = 0;
-   queen_2.row = 0;
+   white_queen.column = 8;
+   white_queen.row = 2;
+   black_queen.column = 0;
+   black_queen.row = 0;
 
-   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(white_queen, black_queen));
 }
 
-void test_queen_2_must_have_row_on_board(void)
+void test_black_queen_must_have_row_on_board(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 0;
-   queen_1.row = 0;
-   queen_2.column = 2;
-   queen_2.row = 10;
+   white_queen.column = 0;
+   white_queen.row = 0;
+   black_queen.column = 2;
+   black_queen.row = 10;
 
-   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(white_queen, black_queen));
 }
 
-void test_queen_2_must_have_column_on_board(void)
+void test_black_queen_must_have_column_on_board(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 0;
-   queen_1.row = 0;
-   queen_2.column = 9;
-   queen_2.row = 4;
+   white_queen.column = 0;
+   white_queen.row = 0;
+   black_queen.column = 9;
+   black_queen.row = 4;
 
-   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(INVALID_POSITION, can_attack(white_queen, black_queen));
 }
 
 void test_can_not_attack(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 4;
-   queen_1.row = 2;
-   queen_2.column = 6;
-   queen_2.row = 6;
+   white_queen.column = 4;
+   white_queen.row = 2;
+   black_queen.column = 6;
+   black_queen.row = 6;
 
-   TEST_ASSERT_EQUAL(CAN_NOT_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_NOT_ATTACK, can_attack(white_queen, black_queen));
 }
 
 void test_can_attack_on_same_row(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 4;
-   queen_1.row = 2;
-   queen_2.column = 6;
-   queen_2.row = 2;
+   white_queen.column = 4;
+   white_queen.row = 2;
+   black_queen.column = 6;
+   black_queen.row = 2;
 
-   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
 void test_can_attack_on_same_column(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 5;
-   queen_1.row = 4;
-   queen_2.column = 5;
-   queen_2.row = 2;
+   white_queen.column = 5;
+   white_queen.row = 4;
+   black_queen.column = 5;
+   black_queen.row = 2;
 
-   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
 void test_can_attack_on_first_diagonal(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 2;
-   queen_1.row = 2;
-   queen_2.column = 4;
-   queen_2.row = 0;
+   white_queen.column = 2;
+   white_queen.row = 2;
+   black_queen.column = 4;
+   black_queen.row = 0;
 
-   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
 void test_can_attack_on_second_diagonal(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 2;
-   queen_1.row = 2;
-   queen_2.column = 1;
-   queen_2.row = 3;
+   white_queen.column = 2;
+   white_queen.row = 2;
+   black_queen.column = 1;
+   black_queen.row = 3;
 
-   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
 void test_can_attack_on_third_diagonal(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 2;
-   queen_1.row = 2;
-   queen_2.column = 1;
-   queen_2.row = 1;
+   white_queen.column = 2;
+   white_queen.row = 2;
+   black_queen.column = 1;
+   black_queen.row = 1;
 
-   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
 void test_can_attack_on_fourth_diagonal(void)
 {
-   queen_position_t queen_1;
-   queen_position_t queen_2;
+   position_t white_queen;
+   position_t black_queen;
 
-   queen_1.column = 2;
-   queen_1.row = 2;
-   queen_2.column = 5;
-   queen_2.row = 5;
+   white_queen.column = 2;
+   white_queen.row = 2;
+   black_queen.column = 5;
+   black_queen.row = 5;
 
-   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(queen_1, queen_2));
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
 int main(void)
@@ -162,10 +162,10 @@ int main(void)
    UnityBegin("test/test_queen_attack.c");
 
    RUN_TEST(test_invalid_if_on_same_position);
-   RUN_TEST(test_queen_1_must_have_row_on_board);
-   RUN_TEST(test_queen_1_must_have_column_on_board);
-   RUN_TEST(test_queen_2_must_have_row_on_board);
-   RUN_TEST(test_queen_2_must_have_column_on_board);
+   RUN_TEST(test_white_queen_must_have_row_on_board);
+   RUN_TEST(test_white_queen_must_have_column_on_board);
+   RUN_TEST(test_black_queen_must_have_row_on_board);
+   RUN_TEST(test_black_queen_must_have_column_on_board);
    RUN_TEST(test_can_not_attack);
    RUN_TEST(test_can_attack_on_same_row);
    RUN_TEST(test_can_attack_on_same_column);

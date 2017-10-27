@@ -3,7 +3,7 @@
 #define ROW_COUNT 8
 #define COLUMN_COUNT 8
 
-uint8_t can_attack(queen_position_t queen_1, queen_position_t queen_2)
+attack_status_t can_attack(position_t queen_1, position_t queen_2)
 {
    if ((queen_1.column == queen_2.column && queen_1.row == queen_2.row) ||
        queen_1.row >= ROW_COUNT ||
