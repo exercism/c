@@ -16,6 +16,7 @@ void test_invalid_if_on_same_position(void)
 
 void test_white_queen_must_have_row_on_board(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -29,6 +30,7 @@ void test_white_queen_must_have_row_on_board(void)
 
 void test_white_queen_must_have_column_on_board(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -42,6 +44,7 @@ void test_white_queen_must_have_column_on_board(void)
 
 void test_black_queen_must_have_row_on_board(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -55,6 +58,7 @@ void test_black_queen_must_have_row_on_board(void)
 
 void test_black_queen_must_have_column_on_board(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -68,6 +72,7 @@ void test_black_queen_must_have_column_on_board(void)
 
 void test_can_not_attack(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -81,6 +86,7 @@ void test_can_not_attack(void)
 
 void test_can_attack_on_same_row(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -94,6 +100,7 @@ void test_can_attack_on_same_row(void)
 
 void test_can_attack_on_same_column(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -107,6 +114,7 @@ void test_can_attack_on_same_column(void)
 
 void test_can_attack_on_first_diagonal(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -120,6 +128,7 @@ void test_can_attack_on_first_diagonal(void)
 
 void test_can_attack_on_second_diagonal(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -133,6 +142,7 @@ void test_can_attack_on_second_diagonal(void)
 
 void test_can_attack_on_third_diagonal(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
@@ -146,6 +156,7 @@ void test_can_attack_on_third_diagonal(void)
 
 void test_can_attack_on_fourth_diagonal(void)
 {
+   TEST_IGNORE();
    position_t white_queen;
    position_t black_queen;
 
