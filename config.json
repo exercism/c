@@ -455,6 +455,16 @@
         "control_flow_loops"
       ],
       "uuid": "928e9860-0df9-5180-8529-7024c991b3616adc21a"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "collatz-conjecture",
+      "topics": [
+        "functions",
+        "mathematics"
+      ],
+      "uuid": "1f68f837-6432-4f9e-afae-0cb17f8e0153"
     }
   ],
   "foregone": [],
