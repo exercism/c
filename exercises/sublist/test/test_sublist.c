@@ -11,184 +11,184 @@ void test_empty_lists(void)
 void test_empty_list_within_non_empty_list(void)
 {
    TEST_IGNORE();
-   int listTwo[] = { 1, 2, 3 };
+   int base_list[] = { 1, 2, 3 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
-                     check_lists(NULL, listTwo, 0, ELEMENT_COUNT(listTwo)));
+                     check_lists(NULL, base_list, 0, ELEMENT_COUNT(base_list)));
 }
 
 void test_non_empty_list_contains_empty_list(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 3 };
+   int list_to_compare[] = { 1, 2, 3 };
 
    TEST_ASSERT_EQUAL(SUPERLIST,
-                     check_lists(listOne, NULL, ELEMENT_COUNT(listOne), 0));
+                     check_lists(list_to_compare, NULL, ELEMENT_COUNT(list_to_compare), 0));
 }
 
 void test_list_equals_itself(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 3 };
-   int listTwo[] = { 1, 2, 3 };
+   int list_to_compare[] = { 1, 2, 3 };
+   int base_list[] = { 1, 2, 3 };
 
    TEST_ASSERT_EQUAL(EQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_different_lists(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 3 };
-   int listTwo[] = { 2, 3, 4 };
+   int list_to_compare[] = { 1, 2, 3 };
+   int base_list[] = { 2, 3, 4 };
 
    TEST_ASSERT_EQUAL(UNEQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_false_start(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 5 };
-   int listTwo[] = { 0, 1, 2, 3, 1, 2, 5, 6 };
+   int list_to_compare[] = { 1, 2, 5 };
+   int base_list[] = { 0, 1, 2, 3, 1, 2, 5, 6 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_consecutive(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 1, 2 };
-   int listTwo[] = { 0, 1, 1, 1, 2, 1, 2 };
+   int list_to_compare[] = { 1, 1, 2 };
+   int base_list[] = { 0, 1, 1, 1, 2, 1, 2 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_sublist_at_start(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 0, 1, 2 };
-   int listTwo[] = { 0, 1, 2, 3, 4, 5 };
+   int list_to_compare[] = { 0, 1, 2 };
+   int base_list[] = { 0, 1, 2, 3, 4, 5 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_sublist_at_middle(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 2, 3, 4 };
-   int listTwo[] = { 0, 1, 2, 3, 4, 5 };
+   int list_to_compare[] = { 2, 3, 4 };
+   int base_list[] = { 0, 1, 2, 3, 4, 5 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_sublist_at_end(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 3, 4, 5 };
-   int listTwo[] = { 0, 1, 2, 3, 4, 5 };
+   int list_to_compare[] = { 3, 4, 5 };
+   int base_list[] = { 0, 1, 2, 3, 4, 5 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_at_start_of_superlist(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 0, 1, 2, 3, 4, 5 };
-   int listTwo[] = { 0, 1, 2 };
+   int list_to_compare[] = { 0, 1, 2, 3, 4, 5 };
+   int base_list[] = { 0, 1, 2 };
 
    TEST_ASSERT_EQUAL(SUPERLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_in_middle_of_superlist(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 0, 1, 2, 3, 4, 5 };
-   int listTwo[] = { 2, 3 };
+   int list_to_compare[] = { 0, 1, 2, 3, 4, 5 };
+   int base_list[] = { 2, 3 };
 
    TEST_ASSERT_EQUAL(SUPERLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_at_end_of_superlist(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 0, 1, 2, 3, 4, 5 };
-   int listTwo[] = { 3, 4, 5 };
+   int list_to_compare[] = { 0, 1, 2, 3, 4, 5 };
+   int base_list[] = { 3, 4, 5 };
 
    TEST_ASSERT_EQUAL(SUPERLIST,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_first_list_missing_element_from_second_list(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 3 };
-   int listTwo[] = { 1, 2, 3 };
+   int list_to_compare[] = { 1, 3 };
+   int base_list[] = { 1, 2, 3 };
 
    TEST_ASSERT_EQUAL(UNEQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_second_list_missing_element_from_first_list(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 3 };
-   int listTwo[] = { 1, 3 };
+   int list_to_compare[] = { 1, 2, 3 };
+   int base_list[] = { 1, 3 };
 
    TEST_ASSERT_EQUAL(UNEQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_order_matters_to_a_list(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 3 };
-   int listTwo[] = { 3, 2, 1 };
+   int list_to_compare[] = { 1, 2, 3 };
+   int base_list[] = { 3, 2, 1 };
 
    TEST_ASSERT_EQUAL(UNEQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_same_digits_but_different_numbers(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 0, 1 };
-   int listTwo[] = { 10, 1 };
+   int list_to_compare[] = { 1, 0, 1 };
+   int base_list[] = { 10, 1 };
 
    TEST_ASSERT_EQUAL(UNEQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 void test_different_signs(void)
 {
    TEST_IGNORE();
-   int listOne[] = { 1, 2, 3 };
-   int listTwo[] = { 1, -2, 3 };
+   int list_to_compare[] = { 1, 2, 3 };
+   int base_list[] = { 1, -2, 3 };
 
    TEST_ASSERT_EQUAL(UNEQUAL,
-                     check_lists(listOne, listTwo, ELEMENT_COUNT(listOne),
-                                 ELEMENT_COUNT(listTwo)));
+                     check_lists(list_to_compare, base_list, ELEMENT_COUNT(list_to_compare),
+                                 ELEMENT_COUNT(base_list)));
 }
 
 int main(void)
