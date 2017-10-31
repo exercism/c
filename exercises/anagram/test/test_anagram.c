@@ -6,34 +6,36 @@
 
 #define MAX_STR_LEN 20
 
+struct candidates candidates;
+
 void setUp(void)
 {
 }
 
 void tearDown(void)
 {
+   free(candidates.candidate);
 }
 
-static struct candidates buildCandidates(char *inputs, size_t size)
+static struct candidates buildCandidates(char *inputs, size_t count)
 {
    struct candidates result;
-   result.size = (int)size;
-   result.candidate = malloc(sizeof(struct candidate) * size);
-   for (int i = 0; i < (int)size; i++) {
+   result.count = count;
+   result.candidate = malloc(sizeof(struct candidate) * count);
+   for (int i = 0; i < (int)count; i++) {
       result.candidate[i].candidate = &inputs[i * MAX_STR_LEN];
-      result.candidate[i].isAnagram = UNCHECKED;
+      result.candidate[i].is_anagram = UNCHECKED;
    }
 
    return result;
 }
 
 static void assert_correct_anagrams(struct candidates *candidates,
-                                    enum anagramStatus expected[])
+                                    enum anagram_status expected[])
 {
-   for (int x = 0; x < candidates->size; x++) {
-      TEST_ASSERT_EQUAL(expected[x], candidates->candidate[x].isAnagram);
+   for (int i = 0; i < (int)candidates->count; i++) {
+      TEST_ASSERT_EQUAL(expected[i], candidates->candidate[i].is_anagram);
    }
-   free(candidates->candidate);
 }
 
 void test_no_matches(void)
@@ -47,9 +49,8 @@ void test_no_matches(void)
 
    char word[] = { "diaper" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] =
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -67,9 +68,8 @@ void test_detect_simple_anagram(void)
 
    char word[] = { "ant" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -85,9 +85,8 @@ void test_does_not_confuse_different_duplicates(void)
 
    char word[] = { "galea" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -103,9 +102,8 @@ void test_eliminate_anagram_subsets(void)
 
    char word[] = { "good" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { NOT_ANAGRAM, NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -123,9 +121,8 @@ void test_detect_anagram(void)
 
    char word[] = { "listen" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] =
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -146,9 +143,8 @@ void test_multiple_anagrams(void)
 
    char word[] = { "allergy" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] =
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] =
        { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
       NOT_ANAGRAM
    };
@@ -168,9 +164,8 @@ void test_case_insensitive_anagrams(void)
 
    char word[] = { "Orchestra" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -185,9 +180,8 @@ void test_does_not_detect_a_word_as_its_own_anagram(void)
 
    char word[] = { "banana" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -202,9 +196,8 @@ void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
 
    char word[] = { "banana" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -222,9 +215,8 @@ void test_unicode_anagrams(void)
 
    char word[] = { "ΑΒΓ" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -241,9 +233,8 @@ void test_misleading_unicode_anagrams(void)
 
    char word[] = { "ΑΒΓ" };
 
-   struct candidates candidates =
-       buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagramStatus expected[] = { NOT_ANAGRAM };
+   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
