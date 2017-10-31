@@ -17,7 +17,7 @@ void tearDown(void)
    free(candidates.candidate);
 }
 
-static struct candidates buildCandidates(char *inputs, size_t count)
+static struct candidates build_candidates(char *inputs, size_t count)
 {
    struct candidates result;
    result.count = count;
@@ -49,7 +49,7 @@ void test_no_matches(void)
 
    char word[] = { "diaper" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
@@ -68,7 +68,7 @@ void test_detect_simple_anagram(void)
 
    char word[] = { "ant" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -85,7 +85,7 @@ void test_does_not_confuse_different_duplicates(void)
 
    char word[] = { "galea" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -102,7 +102,7 @@ void test_eliminate_anagram_subsets(void)
 
    char word[] = { "good" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -121,7 +121,7 @@ void test_detect_anagram(void)
 
    char word[] = { "listen" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
@@ -143,7 +143,7 @@ void test_multiple_anagrams(void)
 
    char word[] = { "allergy" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] =
        { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
       NOT_ANAGRAM
@@ -164,7 +164,7 @@ void test_case_insensitive_anagrams(void)
 
    char word[] = { "Orchestra" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -180,7 +180,7 @@ void test_does_not_detect_a_word_as_its_own_anagram(void)
 
    char word[] = { "banana" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -196,7 +196,7 @@ void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
 
    char word[] = { "banana" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -215,7 +215,7 @@ void test_unicode_anagrams(void)
 
    char word[] = { "ΑΒΓ" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
@@ -233,7 +233,7 @@ void test_misleading_unicode_anagrams(void)
 
    char word[] = { "ΑΒΓ" };
 
-   candidates = buildCandidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
    anagrams_for(word, &candidates);
