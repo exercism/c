@@ -3,6 +3,14 @@
 
 #define ELEMENT_COUNT(array) (sizeof(array) / sizeof(array[0]))
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 void test_empty_lists(void)
 {
    TEST_ASSERT_EQUAL(EQUAL, check_lists(NULL, NULL, 0, 0));
@@ -10,7 +18,7 @@ void test_empty_lists(void)
 
 void test_empty_list_within_non_empty_list(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();               // delete this line to run test
    int base_list[] = { 1, 2, 3 };
 
    TEST_ASSERT_EQUAL(SUBLIST,
