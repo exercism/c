@@ -122,7 +122,8 @@ void tearDown(void)
 
 Next are the test functions themselves. 
 The names of these functions use a `test_` prefix.
-Excepting the first, each test function shouthe line comment `// delete this line to run test`.
+Excepting the first, each test function should have `TEST_IGNORE();` as its first statement. 
+The first occurance of this should be followed by the line comment `// delete this line to run test`.
 For example:
 
 ```c
@@ -140,7 +141,8 @@ void test_the_second(void)
 void test_the_third(void)
 {
    TEST_IGNORE();
-   test_third_foo();
+   char grade = 'A';
+   test_third_foo(grade);
 }
 ```
 
