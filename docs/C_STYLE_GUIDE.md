@@ -122,6 +122,27 @@ void tearDown(void)
 
 Next are the test functions themselves. 
 The names of these functions use a `test_` prefix.
+Excepting the first, each test function shouthe line comment `// delete this line to run test`.
+For example:
+
+```c
+void test_the_first(void)
+{
+   test_first_foo();
+}
+
+void test_the_second(void)
+{
+   TEST_IGNORE();               // delete this line to run test
+   test_second_foo();
+}
+
+void test_the_third(void)
+{
+   TEST_IGNORE();
+   test_third_foo();
+}
+```
 
 Last in the file is the `main()` function. 
 The function body of main follows a particular layout itself. 
