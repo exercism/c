@@ -20,7 +20,7 @@ static int word_match(char *testWord, int current_word_count,
    return match_index;
 }
 
-int word_count(char *input_text, word_count_word_t words[MAX_WORDS])
+int word_count(const char *input_text, word_count_word_t* words)
 {
    int index;
    int unique_words = 0;
