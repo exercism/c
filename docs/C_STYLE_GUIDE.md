@@ -122,6 +122,29 @@ void tearDown(void)
 
 Next are the test functions themselves. 
 The names of these functions use a `test_` prefix.
+Excepting the first, each test function should have `TEST_IGNORE();` as its first statement. 
+The first occurrence of this should be followed by the line comment `// delete this line to run test`.
+For example:
+
+```c
+void test_the_first(void)
+{
+   test_first_foo();
+}
+
+void test_the_second(void)
+{
+   TEST_IGNORE();               // delete this line to run test
+   test_second_foo();
+}
+
+void test_the_third(void)
+{
+   TEST_IGNORE();
+   char grade = 'A';
+   test_third_foo(grade);
+}
+```
 
 Last in the file is the `main()` function. 
 The function body of main follows a particular layout itself. 
