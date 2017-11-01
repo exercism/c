@@ -14,9 +14,9 @@ void tearDown(void)
 {
 }
 
-static void check_solution(word_count_word_t *expected_solution,
+static void check_solution(word_count_word_t * expected_solution,
                            int expected_word_count,
-                           word_count_word_t *actual_solution,
+                           word_count_word_t * actual_solution,
                            int actual_word_count)
 {
    // All words counted?
