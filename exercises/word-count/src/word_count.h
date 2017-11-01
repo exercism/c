@@ -22,6 +22,6 @@ typedef struct word_count_word {
 //    uniqueWords - number of words in the words structure
 //           returns a negative number if an error.
 //           words will contain the results up to that point.
-int word_count(const char *input_text, word_count_word_t * words);
+int word_count(const char *input_text, word_count_word_t *words);
 
 #endif
