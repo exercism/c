@@ -36,12 +36,16 @@ We're trying to label issues with "good first patch" if we think that these can 
 
 It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
 
-If you want to create a PR with changes that aren't quite ready to be merged to master yet (maybe you would like to discuss some  particular item, for example), create the PR as normal but add `[WIP]` to the title so that maintainers know that it isn't quite ready to be merged just yet.
+Pull requests should be focused on a single, issue or change.
+We welcome changes to code style and wording, please open a separate PR for these changes if possible.
+Please open an issue before creating a PR that makes significant (breaking) changes to an existing exercise or makes changes across many exercises. It is best to discuss these changes before doing the work.
 
 When submitting a pull request, sometimes we'll ask you to make changes before we accept the patch.
 
 Please do not close the first pull request and open a second one with these changes.
 If you push more commits to a branch that you've opened a pull request for, it automatically updates the pull request.
+
+If you want to create a PR with changes that aren't quite ready to be merged to master yet (maybe you would like to discuss some  particular item, for example), create the PR as normal but add `[WIP]` to the title so that maintainers know that it isn't quite ready to be merged just yet.
 
 As with adding more commits, you do not need to close your pull request and open a new one if you change the history (rebase, squash, amend), and use git push --force to update the branch on your fork. 
 The pull request points to that branch, not to specific commits.
@@ -95,7 +99,7 @@ ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.thr
 * `src` - contains the example files `example.c` and `example.h`. These are both skipped by the `exercism` CLI when downloading to the client, so it is imperative that you do not reference the names of the files in your code. 
 If you need to provide a header file example that is necessary to run your tests it should be named `<my exercise>.h` instead.
 Please also use [`include`](http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html) guards in your header files. 
-The [tests](https://github.com/wolf99/c/blob/improve-contributing-doc/docs/CONTRIBUTING.md#what-are-the-ci-scripts) can be run using the [`bin/run-tests`](https://github.com/exercism/c/blob/master/bin/run-tests) script which will rename the `example.{c|h}` files accordingly.
+The [tests](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#what-are-the-ci-scripts) can be run using the [`bin/run-tests`](https://github.com/exercism/c/blob/master/bin/run-tests) script which will rename the `example.{c|h}` files accordingly.
 
 ## Continuous Integration & Tests
 
