@@ -8,6 +8,11 @@ Firstly, have a read of the Exercism [docs repository](https://github.com/exerci
 
 Subsequently note that there are a few things specific to this repository that are explained below.
 
+## Code of Conduct
+
+Help us keep exercism welcoming.
+Please read and abide by the [Code of Conduct](https://github.com/exercism/exercism.io/blob/master/CODE_OF_CONDUCT.md).
+
 ## Pull Requests
 
 It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
