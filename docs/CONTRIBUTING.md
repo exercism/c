@@ -13,6 +13,15 @@ Subsequently note that there are a few things specific to this repository that a
 Help us keep exercism welcoming.
 Please read and abide by the [Code of Conduct](https://github.com/exercism/exercism.io/blob/master/CODE_OF_CONDUCT.md).
 
+## Git Workflow
+
+1. Fork and clone.
+2. Add this repository as a new remote to your clone: `git remote add upstream https://github.com/exercism/c.git`
+3. Create a new branch: `git checkout -b name-of-branch`
+4. Commit and push as usual on your new branch
+5. When you're ready to submit a pull request, rebase your branch onto the upstream master so that you can resolve any conflicts: `git fetch upstream && git rebase upstream/master` You may need to push up to your branch using `--force` after resolving conflicts.
+6. When you've got everything ready, push up to your branch and create the pull request as outlined below.
+
 ## Issues
 
 We keep track of bugs, enhancements and support requests in the repository using GitHub [issues](https://github.com/exercism/c/issues).
@@ -26,6 +35,8 @@ We're trying to label issues with "good first patch" if we think that these can 
 ## Pull Requests
 
 It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
+
+If you want to create a PR with changes that aren't quite ready to be merged to master yet (maybe you would like to discuss some  particular item, for example), create the PR as normal but add `[WIP]` to the title so that maintainers know that it isn't quite ready to be merged just yet.
 
 When submitting a pull request, sometimes we'll ask you to make changes before we accept the patch.
 
@@ -89,7 +100,7 @@ The [tests](https://github.com/wolf99/c/blob/improve-contributing-doc/docs/CONTR
 ## Continuous Integration & Tests
 
 The repository uses Travis CI to run some scripts on each commit to a pull request. 
-The simplest way to run these scripts on your own contribution is to open a PR on this repository with your changes, mark the title as [WIP] so that maintainers know that it isn't quite ready to be merged just yet and then allow this repository's CI setup to take care of things for you automatically.
+The simplest way to run these scripts on your own contribution is to open a PR on this repository with your changes, edit the PR title to add `[WIP]` then allow this repository's CI setup to take care of things for you automatically.
 
 ### Run CI on Your Own Fork
 
