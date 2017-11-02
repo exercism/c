@@ -13,6 +13,12 @@ Subsequently note that there are a few things specific to this repository that a
 Help us keep exercism welcoming.
 Please read and abide by the [Code of Conduct](https://github.com/exercism/exercism.io/blob/master/CODE_OF_CONDUCT.md).
 
+## Issues
+
+We keep track of bugs, enhancements and support requests in the repository using GitHub [issues](https://github.com/exercism/c/issues).
+
+For higher-level discussions about the project as a whole check out the issues in the [discussions](https://github.com/exercism/discussions/issues) repository.
+
 ## Pull Requests
 
 It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
