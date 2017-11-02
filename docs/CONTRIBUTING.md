@@ -127,5 +127,5 @@ The command for `configlet` used by Travis is [`lint`](https://github.com/exerci
 - `verify-indent` runs `indent` and verifies that it did not result in any file changes. 
 If the check does result in file changes, Travis will output the details and report a failure on the related PR.
 
-- `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make` and runs `valgrind`. 
+- `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with `valgrind`.
 If there are build errors, any test fails or there is a memory leak, Travis will output the details and report a failure on the related PR.
