@@ -49,7 +49,7 @@ If your system does not support the `-linux` option, you can run the long-form c
 indent -nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1 $(file)
 ```
 
-## Continuous Integration
+## Continuous Integration & Tests
 
 The repository uses Travis CI to run some scripts on each commit to a pull request. 
 The simplest way to run these scripts on your own contribution is to open a PR on this repository with your changes, mark the title as [WIP] so that maintainers know that it isn't quite ready to be merged just yet and then allow this repository's CI setup to take care of things for you automatically.
