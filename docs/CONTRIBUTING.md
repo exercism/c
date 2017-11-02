@@ -8,6 +8,18 @@ Firstly, have a read of the Exercism [docs repository](https://github.com/exerci
 
 Subsequently note that there are a few things specific to this repository that are explained below.
 
+## Pull Requests
+
+It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
+
+When submitting a pull request, sometimes we'll ask you to make changes before we accept the patch.
+
+Please do not close the first pull request and open a second one with these changes.
+If you push more commits to a branch that you've opened a pull request for, it automatically updates the pull request.
+
+As with adding more commits, you do not need to close your pull request and open a new one if you change the history (rebase, squash, amend), and use git push --force to update the branch on your fork. 
+The pull request points to that branch, not to specific commits.
+
 ## Coding Style
 
 The code style expected for code change contributions is explained in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#indentation-and-format). 
