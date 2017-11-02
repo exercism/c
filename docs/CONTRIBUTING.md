@@ -8,6 +8,11 @@ Firstly, have a read of the Exercism [docs repository](https://github.com/exerci
 
 Subsequently note that there are a few things specific to this repository that are explained below.
 
+We encourage contributions that provide fixes and improvements to existing exercises. 
+Please note that this track's exercises must conform to the standards determined in the [problem-specifications](https://github.com/exercism/problem-specifications) repository.
+Changes to the tests or documentation of a common exercise will often warrant a pull request in that repository before it can be incorporated into this track's exercises. 
+If you're unsure, then go ahead and open a GitHub [issue](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#issues), and we'll discuss the change.
+
 ## Code of Conduct
 
 Help us keep exercism welcoming.
@@ -30,7 +35,7 @@ For higher-level discussions about the project as a whole check out the issues i
 
 ### Good First Patch
 
-We're trying to label issues with "good first patch" if we think that these can be solved without too much context about exercism.io's codebase or functionality. To find them, you can do a [search](https://github.com/exercism/c/labels/good%20first%20patch).
+We're trying to label issues with "good first patch" if we think that these can be solved without too much context about exercism.io's codebase or functionality. To find them, you can do a [search](https://github.com/exercism/c/good-first-patch).
 
 ## Pull Requests
 
@@ -40,7 +45,9 @@ Pull requests should be focused on a single, issue or change.
 We welcome changes to code style and wording, please open a separate PR for these changes if possible.
 Please open an issue before creating a PR that makes significant (breaking) changes to an existing exercise or makes changes across many exercises. It is best to discuss these changes before doing the work.
 
-When submitting a pull request, sometimes we'll ask you to make changes before we accept the patch.
+If your change is to an exercise you can run the tests from the CI scripts before submitting the pull request as described in [Continuous Integration & Tests](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#continuous-integration--tests) 
+
+When submitting a pull request, sometimes we will ask you to make changes before we accept the patch.
 
 Please do not close the first pull request and open a second one with these changes.
 If you push more commits to a branch that you've opened a pull request for, it automatically updates the pull request.
