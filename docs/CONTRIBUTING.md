@@ -45,7 +45,7 @@ Pull requests should be focused on a single, issue or change.
 We welcome changes to code style and wording, please open a separate PR for these changes if possible.
 Please open an issue before creating a PR that makes significant (breaking) changes to an existing exercise or makes changes across many exercises. It is best to discuss these changes before doing the work.
 
-If your change is to an exercise you can run the tests from the CI scripts before submitting the pull request as described in [Continuous Integration & Tests](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#continuous-integration--tests) 
+If your change is to an exercise you can run the CI scripts before submitting the pull request, or they will be automatically run after, as described in [Continuous Integration & Tests](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#continuous-integration--tests) 
 
 When submitting a pull request, sometimes we will ask you to make changes before we accept the patch.
 
@@ -120,7 +120,7 @@ The good folks at fish-shell have [some great information](https://github.com/fi
 
 ### Run CI Scripts Locally
 You can also run individual scripts on your own machine before commiting. 
-Firstly make sure you have the necessary tools installed (such as `indent`, `git`, `sed`, `make`, `valgrind` and a C compiler), and then run the required script from the repoistory root. For example:
+Firstly make sure you have the necessary tools installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/), [`valgrind`](http://valgrind.org/) and a C compiler), and then run the required script from the repoistory root. For example:
 
 ```bash
 ~/git/c$ ./bin/run-tests
