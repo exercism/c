@@ -19,6 +19,10 @@ We keep track of bugs, enhancements and support requests in the repository using
 
 For higher-level discussions about the project as a whole check out the issues in the [discussions](https://github.com/exercism/discussions/issues) repository.
 
+### Good First Patch
+
+We're trying to label issues with "good first patch" if we think that these can be solved without too much context about exercism.io's codebase or functionality. To find them, you can do a [search](https://github.com/exercism/c/labels/good%20first%20patch).
+
 ## Pull Requests
 
 It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
