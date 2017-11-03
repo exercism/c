@@ -8,8 +8,8 @@ typedef struct {
    double c;
 } triangle_t;
 
-bool is_equilateral(triangle_t * input);
-bool is_isosceles(triangle_t * input);
-bool is_scalene(triangle_t * input);
+bool is_equilateral(triangle_t input);
+bool is_isosceles(triangle_t input);
+bool is_scalene(triangle_t input);
 
 #endif
