@@ -1,7 +1,7 @@
 # Contributing to the C Track
 
 Thank you for interest in contributing to the Exercism C language track! 
-All contributions are welcome, be it a new exercise, a change to the tooling or documentation, a raised issue or even just a commment on an existing issue or PR.
+All contributions are welcome, be it a new exercise, a change to the tooling or documentation, a raised issue or even just a comment on an existing issue or PR.
 This file provides information to help you get started.
 
 Firstly, have a read of the Exercism [docs repository](https://github.com/exercism/docs), specifically the information on [contributing to a language track](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md), as these documents cover a lot of the basic information.
@@ -15,7 +15,7 @@ If you're unsure, then go ahead and open a GitHub [issue](https://github.com/exe
 
 ## Code of Conduct
 
-Help us keep exercism welcoming.
+Help us keep Exercism welcoming.
 Please read and abide by the [Code of Conduct](https://github.com/exercism/exercism.io/blob/master/CODE_OF_CONDUCT.md).
 
 ## Git Workflow
@@ -31,18 +31,18 @@ Please read and abide by the [Code of Conduct](https://github.com/exercism/exerc
 
 We keep track of bugs, enhancements and support requests in the repository using GitHub [issues](https://github.com/exercism/c/issues).
 
-For higher-level discussions about the project as a whole check out the issues in the [discussions](https://github.com/exercism/discussions/issues) repository.
+For higher-level discussions about the project as a whole, check out the issues in the [discussions](https://github.com/exercism/discussions/issues) repository.
 
 ### Good First Patch
 
-We're trying to label issues with "good first patch" if we think that these can be solved without too much context about exercism.io's codebase or functionality. To find them, you can do a [search](https://github.com/exercism/c/good-first-patch).
+We're trying to label issues with "good first patch" if we think that these can be solved without too much context about Exercism's codebase or functionality. To find them, you can do a [search](https://github.com/exercism/c/good-first-patch).
 
 ## Pull Requests
 
-It would be awesome if you follow this [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
+It would be awesome if you follow these [simple guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md) while creating your PR, but it isn't required.
 
 Pull requests should be focused on a single, issue or change.
-We welcome changes to code style and wording, please open a separate PR for these changes if possible.
+We welcome changes to code style and wording but please open a separate PR for these changes if possible.
 Please open an issue before creating a PR that makes significant (breaking) changes to an existing exercise or makes changes across many exercises. It is best to discuss these changes before doing the work.
 
 If your change is to an exercise you can run the CI scripts before submitting the pull request, or they will be automatically run after, as described in [Continuous Integration & Tests](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#continuous-integration--tests) 
@@ -52,7 +52,7 @@ When submitting a pull request, sometimes we will ask you to make changes before
 Please do not close the first pull request and open a second one with these changes.
 If you push more commits to a branch that you've opened a pull request for, it automatically updates the pull request.
 
-If you want to create a PR with changes that aren't quite ready to be merged to master yet (maybe you would like to discuss some  particular item, for example), create the PR as normal but add `[WIP]` to the title so that maintainers know that it isn't quite ready to be merged just yet.
+If you want to create a PR with changes that aren't quite ready to be merged to master yet (maybe you would like to discuss some particular item, for example), create the PR as normal but add `[WIP]` to the title so that maintainers know that it isn't quite ready to be merged just yet.
 
 As with adding more commits, you do not need to close your pull request and open a new one if you change the history (rebase, squash, amend), and use git push --force to update the branch on your fork. 
 The pull request points to that branch, not to specific commits.
@@ -63,9 +63,9 @@ The code style expected for code change contributions is explained in the [style
 
 The exercise code is checked during [CI](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md#continuous-integration--tests) for conformance to the spacing and indentation style rules. 
 The check uses the GNU `indent` CLI tool.
-When adding or making a change to an exercise, you can check that your change conforms to these rules by running the tool locally before commiting.
+When adding or making a change to an exercise, you can check that your change conforms to these rules by running the tool locally before committing.
 
-On linux `indent` should be available for install via your distribution's package manager. 
+On Linux `indent` should be available for install via your distribution's package manager. 
 On a Mac you can install the package `gnu-indent` using [Homebrew](https://brew.sh).
 
 Indent can be run on all files by executing `indent.sh`.
@@ -119,8 +119,8 @@ If you would like, it is also possible to run Travis on your own fork.
 The good folks at fish-shell have [some great information](https://github.com/fish-shell/fish-shell/blob/master/CONTRIBUTING.md#travis-ci-build-and-test) to help you get started with setting up Travis on your own fork.
 
 ### Run CI Scripts Locally
-You can also run individual scripts on your own machine before commiting. 
-Firstly make sure you have the necessary tools installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/), [`valgrind`](http://valgrind.org/) and a C compiler), and then run the required script from the repoistory root. For example:
+You can also run individual scripts on your own machine before committing. 
+Firstly make sure you have the necessary tools installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/), [`valgrind`](http://valgrind.org/) and a C compiler), and then run the required script from the repository root. For example:
 
 ```bash
 ~/git/c$ ./bin/run-tests
@@ -128,7 +128,7 @@ Firstly make sure you have the necessary tools installed (such as `indent`, [`gi
 
 ### What Are the CI Scripts?
 You can see from the [.travis.yml](https://github.com/exercism/c/blob/master/.travis.yml) file that Travis is instructed to run scripts from the [`./bin`](https://github.com/exercism/c/tree/master/bin) directory. 
-The work these scripts perform is descibed as folows:
+The work these scripts perform is described as follows:
 
 - `fetch-configlet` just fetches the `configlet` tool from its [repository](https://github.com/exercism/configlet).
 
