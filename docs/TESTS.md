@@ -35,28 +35,23 @@ you do not have files `src/bob.h` and `src/bob.c` when running
 Make for exercise `bob`, then Make will generate an error about files
 not being found.  **These files can be empty, but they must exist.**
 
-You can build your code using the appropriate command for your environment:
+#### Build your code
 
-* Linux with make: `make`
-* Windows with Visual Studio 2013: Select Build / Build Solution from the menu.
-* MacOS with Xcode: Select Build from the toolbar
+The simplest way to build your code is by using `make` at the command line (Terminal on MacOs, WSL bash on Windows).
+To do this, assuming the current exercise is `bob` and we're in the exercise folder:
 
-
-#### Testing on Linux or MacOS with make
-
-Assuming the current exercise is `bob` and we're in the exercise folder:
-
-```
+```bash
 $ touch src/bob.{h,c}
+$ make
+```
+
+Then to test:
+
+```bash
 $ make test
 ```
 
+Alternatively, it is possible to use other environments to build the code:
 
-#### Testing on Windows with Visual Studio 2013
-
-?
-
-
-#### Testing on MacOS with Xcode
-
-?
+* Windows with Visual Studio 2013: Select Build > Build Solution from the menu then Debug > Start Debugging to run it.
+* MacOS with Xcode: Select Build from the toolbar
