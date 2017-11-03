@@ -28,7 +28,7 @@ If you do not have files `src/bob.h` and `src/bob.c` when running Make for exerc
 
 #### Build your code
 
-The simplest way to build your code is by using `make` at the command line (Terminal on MacOs, WSL bash on Windows).
+The simplest way to build your code is by using `make` at the command line (Terminal on MacOS, WSL bash on Windows).
 To do this, assuming the current exercise is `bob` and we're in the exercise folder:
 
 ```bash
@@ -44,5 +44,5 @@ $ make test
 
 Alternatively, it is possible to use other environments to build the code:
 
-* Windows with Visual Studio 2013: Select Build > Build Solution from the menu then Debug > Start Debugging to run it.
-* MacOS with Xcode: Select Build from the toolbar
+* Windows with Visual Studio 2013: Select _Build_ > _Build Solution_ from the menu then _Debug_ > _Start Debugging_ to run it.
+* MacOS with Xcode: Select _Build_ from the toolbar
