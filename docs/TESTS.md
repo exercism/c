@@ -5,14 +5,12 @@ Each test file is meant to link against your implementation to provide a console
 Running the test executable prints messages for each failing test and reports a non-zero exit status when tests fail.
 
 Working through each exercise is a process of:
-* Creating the initial build with Make
+* Create the initial build with Make
 * For each unit test:
- * Remove the `TEST_IGNORE()` line.
- * Satisfy compile errors to make the test fail.
- * Implement just enough to make the test pass.
- * Refactor your implementation to enhance readability, reduce duplication, etc.
- * Uncomment the next test
-
+  * Remove the `TEST_IGNORE()` line.
+  * Satisfy any compile errors to make the test fail.
+  * Implement just enough to make the test pass.
+  * Refactor your implementation to enhance readability, reduce duplication, etc.
 
 ### Compiling and running the tests
 
