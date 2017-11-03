@@ -20,7 +20,7 @@ static int word_match(char *testWord, int current_word_count,
    return match_index;
 }
 
-int word_count(char *input_text, word_count_word_t words[MAX_WORDS])
+int word_count(const char *input_text, word_count_word_t * words)
 {
    int index;
    int unique_words = 0;
@@ -36,7 +36,7 @@ int word_count(char *input_text, word_count_word_t words[MAX_WORDS])
    lower_case_input_text[index] = '\0';
 
    // start with known results...
-   memset(words, 0, sizeof(word_count_word_t));
+   memset(words, 0, sizeof(word_count_word_t) * MAX_WORDS);
 
    test_word = strtok(lower_case_input_text, delimiters);
    while (test_word != NULL) {
@@ -50,8 +50,17 @@ int word_count(char *input_text, word_count_word_t words[MAX_WORDS])
 
       // add if not yet counted else increment count.
       if (-1 == index) {
+         // reject anything that would overrun buffers
+         if (MAX_WORD_LENGTH < strlen(test_word)) {
+            unique_words = EXCESSIVE_LENGTH_WORD;
+            break;
+         }
+         if (MAX_WORDS == unique_words) {
+            unique_words = EXCESSIVE_NUMBER_OF_WORDS;
+            break;
+         }
          words[unique_words].count = 1;
-         strcpy(words[unique_words].text, test_word);
+         strncpy(words[unique_words].text, test_word, MAX_WORD_LENGTH);
          unique_words++;
       } else {
          words[index].count++;
