@@ -19,7 +19,7 @@ static int compare(const void *a, const void *b)
    return *(const char *)a - *(const char *)b;
 }
 
-void anagrams_for(char word[], struct candidates *candidates)
+void anagrams_for(const char * word, struct candidates *candidates)
 {
    to_lower_case(word);
    for (int i = 0; i < (int)candidates->count; i++) {
