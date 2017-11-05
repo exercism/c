@@ -4,7 +4,7 @@ You provide the implementation.
 Each test file is meant to link against your implementation to provide a console executable that runs the tests.
 Running the test executable prints messages for each failing test and reports a non-zero exit status when tests fail.
 
-Working through each exercise is a process of:
+To work through an exercise:
 * Create the initial build with Make
 * For each unit test:
   * Remove the `TEST_IGNORE()` line.
