@@ -51,7 +51,7 @@ To build the code select _Build_ from the toolbar.
 #### Windows Build Alternatives
 On Microsoft Windows 10 the recommended option, as above, is [WSL Bash](https://msdn.microsoft.com/en-us/commandline/wsl/about).
 If you are using an earlier version of Windows or WSL Bash is not available to you you can use Microsoft's [Visual Studio](https://www.visualstudio.com/vs/) IDE, which comes with its own compiler. 
-Alternatively you could use [MSYS/MinGW](http://www.mingw.org/) (32-bit only) or [mingw6-w64](http://mingw-w64.org/doku.php) (32 & 64-bit)
+Alternatively you could use [MSYS/MinGW](http://www.mingw.org/) (32-bit only) or [mingw6-w64](http://mingw-w64.org/doku.php) (32 & 64-bit).
 
 If using Visual Studio, the easiest way to open an exercise is to start a "Blank Project" from the C project template types.
 Then manually add the files from the exercise to it by right clicking on the project in the Solution Explorer and selecting _Add_ > _Existing File_ and selecting each of the .c and .h files within the exercise directory. 
