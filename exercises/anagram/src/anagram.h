@@ -3,11 +3,26 @@
 
 #define MAX_STR_LEN 20
 
-struct vector {
-   char (*vec)[MAX_STR_LEN];
-   int size;
+enum anagram_status {
+   UNCHECKED = -1,
+   NOT_ANAGRAM,
+   IS_ANAGRAM
 };
 
-struct vector anagrams_for(char *, struct vector);
+struct candidate {
+   enum anagram_status is_anagram;
+   const char *candidate;
+};
+
+struct candidates {
+   struct candidate *candidate;
+   size_t count;
+};
+
+/**
+ * @description - determines if any of the words in candidate are anagrams
+ *                for word.  Word buffer and candidate structures may be modified.
+ */
+void anagrams_for(const char *word, struct candidates *candidates);
 
 #endif

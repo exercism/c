@@ -5,56 +5,43 @@
 
 #include "anagram.h"
 
-char *lower_case(char *p)
+static void to_lower_case(char p[])
 {
-   int len = strlen(p) + 1;
-   char *lower = (char *)malloc(len);
-   memcpy(lower, p, len);
-   p = lower;
-   while (*p) {
-      *p = tolower(*p);
-      p++;
+   char *tmp = p;
+   while (*tmp) {
+      *tmp = tolower(*tmp);
+      tmp++;
    }
-
-   return lower;
 }
 
-int compare(const void *a, const void *b)
+static int compare(const void *a, const void *b)
 {
    return *(const char *)a - *(const char *)b;
 }
 
-struct vector anagrams_for(char *in, struct vector vin)
+void anagrams_for(const char *word, struct candidates *candidates)
 {
-   struct vector vout = {
-      malloc(MAX_STR_LEN * sizeof(char *)),
-      0
-   };
-   char (*vout_vecp)[MAX_STR_LEN] = vout.vec;
-
-   char *lower = lower_case(in);
-   char *sorted = malloc(strlen(in) + 1);
-   memcpy(sorted, lower, strlen(in) + 1);
-   qsort(sorted, strlen(sorted), 1, compare);
-
-   char (*vecp)[MAX_STR_LEN] = vin.vec;
-   int x;
-   for (x = 0; x < vin.size; x++) {
-      char *input_lower = lower_case((char *)vecp);
-      if (strcmp(input_lower, lower) != 0) {
-         char *input_sorted = input_lower;
-         qsort(input_sorted, strlen(input_sorted), 1, compare);
-         if (strcmp(sorted, input_sorted) == 0) {
-            strcpy(*vout_vecp, *vecp);
-            vout_vecp++;
-            vout.size++;
+   char lower_word[MAX_STR_LEN] = { 0 };
+   strncpy(&lower_word[0], word, MAX_STR_LEN);
+   to_lower_case(&lower_word[0]);
+   char sorted_word[MAX_STR_LEN] = { 0 };
+   strncpy(&sorted_word[0], &lower_word[0], MAX_STR_LEN);
+   qsort(&sorted_word, strlen(sorted_word), 1, compare);
+   for (int i = 0; i < (int)candidates->count; i++) {
+      char lower_candidate[MAX_STR_LEN] = { 0 };
+      strncpy(&lower_candidate[0], candidates->candidate[i].candidate,
+              MAX_STR_LEN);
+      to_lower_case(&lower_candidate[0]);
+      if (strcmp(&lower_candidate[0], &lower_word[0]) == 0) {
+         candidates->candidate[i].is_anagram = NOT_ANAGRAM;
+      }
+      if (candidates->candidate[i].is_anagram == UNCHECKED) {
+         qsort(&lower_candidate[0], strlen(&lower_candidate[0]), 1, compare);
+         if (strcmp(&sorted_word[0], &lower_candidate[0]) == 0) {
+            candidates->candidate[i].is_anagram = IS_ANAGRAM;
+         } else {
+            candidates->candidate[i].is_anagram = NOT_ANAGRAM;
          }
       }
-      free(input_lower);
-      vecp++;
    }
-
-   free(lower);
-   free(sorted);
-   return vout;
 }

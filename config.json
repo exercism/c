@@ -247,7 +247,6 @@
       "slug": "anagram",
       "topics": [
         "filtering",
-        "memory_management",
         "strings",
         "structs"
       ],
