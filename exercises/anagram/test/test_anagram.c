@@ -4,11 +4,9 @@
 #include "vendor/unity.h"
 #include "../src/anagram.h"
 
-// Empty vector for when expected output is nothing
-static struct vector empty = {
-   NULL,
-   0
-};
+#define MAX_STR_LEN 20
+
+struct candidates candidates;
 
 void setUp(void)
 {
@@ -16,25 +14,27 @@ void setUp(void)
 
 void tearDown(void)
 {
+   free(candidates.candidate);
 }
 
-static int stringcmp(const void *a, const void *b)
+static struct candidates build_candidates(char *inputs, size_t count)
 {
-   return strcmp(a, b);
+   struct candidates result;
+   result.count = count;
+   result.candidate = malloc(sizeof(struct candidate) * count);
+   for (int i = 0; i < (int)count; i++) {
+      result.candidate[i].candidate = &inputs[i * MAX_STR_LEN];
+      result.candidate[i].is_anagram = UNCHECKED;
+   }
+
+   return result;
 }
 
-// Asserts that the two input vectors are equal
-static void assert_equal_vector(struct vector vout, struct vector expected)
+static void assert_correct_anagrams(struct candidates *candidates,
+                                    enum anagram_status expected[])
 {
-   // Sort actual and expected outputs for consistency
-   qsort(expected.vec, expected.size, sizeof(char) * MAX_STR_LEN, stringcmp);
-   qsort(vout.vec, vout.size, sizeof(char) * MAX_STR_LEN, stringcmp);
-
-   TEST_ASSERT_EQUAL(expected.size, vout.size);
-   for (int x = 0; x < vout.size; x++) {
-      TEST_ASSERT_EQUAL(strlen(expected.vec[x]), strlen(vout.vec[x]));
-      TEST_ASSERT_EQUAL_MEMORY(expected.vec[x], vout.vec[x],
-                               strlen(expected.vec[x]));
+   for (int i = 0; i < (int)candidates->count; i++) {
+      TEST_ASSERT_EQUAL(expected[i], candidates->candidate[i].is_anagram);
    }
 }
 
@@ -47,14 +47,14 @@ void test_no_matches(void)
       "pants"
    };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   char word[] = { "diaper" };
 
-   struct vector vout = anagrams_for("diaper", vin);
-   assert_equal_vector(vout, empty);
-   free(vout.vec);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] =
+       { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_detect_simple_anagram(void)
@@ -66,23 +66,14 @@ void test_detect_simple_anagram(void)
       "at"
    };
 
-   char outputs[][MAX_STR_LEN] = {
-      "tan"
-   };
+   char word[] = { "ant" };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
-   struct vector expected = {
-      outputs,
-      sizeof(outputs) / MAX_STR_LEN
-   };
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 
-   struct vector vout = anagrams_for("ant", vin);
-   assert_equal_vector(vout, expected);
-   free(vout.vec);
 }
 
 void test_does_not_confuse_different_duplicates(void)
@@ -92,14 +83,13 @@ void test_does_not_confuse_different_duplicates(void)
       "eagle"
    };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   char word[] = { "galea" };
 
-   struct vector vout = anagrams_for("galea", vin);
-   assert_equal_vector(vout, empty);
-   free(vout.vec);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_eliminate_anagram_subsets(void)
@@ -110,14 +100,13 @@ void test_eliminate_anagram_subsets(void)
       "goody"
    };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   char word[] = { "good" };
 
-   struct vector vout = anagrams_for("good", vin);
-   assert_equal_vector(vout, empty);
-   free(vout.vec);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_detect_anagram(void)
@@ -130,23 +119,14 @@ void test_detect_anagram(void)
       "banana"
    };
 
-   char outputs[][MAX_STR_LEN] = {
-      "inlets"
-   };
+   char word[] = { "listen" };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] =
+       { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
-   struct vector expected = {
-      outputs,
-      sizeof(outputs) / MAX_STR_LEN
-   };
-
-   struct vector vout = anagrams_for("listen", vin);
-   assert_equal_vector(vout, expected);
-   free(vout.vec);
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_multiple_anagrams(void)
@@ -161,25 +141,16 @@ void test_multiple_anagrams(void)
       "leading"
    };
 
-   char outputs[][MAX_STR_LEN] = {
-      "gallery",
-      "regally",
-      "largely"
+   char word[] = { "allergy" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] =
+       { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
+      NOT_ANAGRAM
    };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
-
-   struct vector expected = {
-      outputs,
-      sizeof(outputs) / MAX_STR_LEN
-   };
-
-   struct vector vout = anagrams_for("allergy", vin);
-   assert_equal_vector(vout, expected);
-   free(vout.vec);
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_case_insensitive_anagrams(void)
@@ -191,71 +162,13 @@ void test_case_insensitive_anagrams(void)
       "radishes"
    };
 
-   char outputs[][MAX_STR_LEN] = {
-      "Carthorse"
-   };
+   char word[] = { "Orchestra" };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
-   struct vector expected = {
-      outputs,
-      sizeof(outputs) / MAX_STR_LEN
-   };
-
-   struct vector vout = anagrams_for("Orchestra", vin);
-   assert_equal_vector(vout, expected);
-   free(vout.vec);
-}
-
-void test_unicode_anagrams(void)
-{
-   TEST_IGNORE();
-   // These words don't make sense, they're just greek letters cobbled together.
-   char inputs[][MAX_STR_LEN] = {
-      "ΒΓΑ",
-      "ΒΓΔ",
-      "γβα"
-   };
-
-   char outputs[][MAX_STR_LEN] = {
-      "ΒΓΑ"
-   };
-
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
-
-   struct vector expected = {
-      outputs,
-      sizeof(outputs) / MAX_STR_LEN
-   };
-
-   struct vector vout = anagrams_for("ΑΒΓ", vin);
-   assert_equal_vector(vout, expected);
-   free(vout.vec);
-}
-
-void test_misleading_unicode_anagrams(void)
-{
-   TEST_IGNORE();
-   // Despite what a human might think these words different letters, the input uses Greek A and B
-   // while the list of potential anagrams uses Latin A and B.
-   char inputs[][MAX_STR_LEN] = {
-      "ABΓ"
-   };
-
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
-
-   struct vector vout = anagrams_for("ΑΒΓ", vin);
-   assert_equal_vector(vout, empty);
-   free(vout.vec);
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_does_not_detect_a_word_as_its_own_anagram(void)
@@ -265,14 +178,13 @@ void test_does_not_detect_a_word_as_its_own_anagram(void)
       "banana"
    };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
-   };
+   char word[] = { "banana" };
 
-   struct vector vout = anagrams_for("banana", vin);
-   assert_equal_vector(vout, empty);
-   free(vout.vec);
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
@@ -282,14 +194,50 @@ void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
       "bAnana"
    };
 
-   struct vector vin = {
-      inputs,
-      sizeof(inputs) / MAX_STR_LEN
+   char word[] = { "banana" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+void test_unicode_anagrams(void)
+{
+   TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
+   // These words don't make sense, they're just greek letters cobbled together.
+   char inputs[][MAX_STR_LEN] = {
+      "ΒΓΑ",
+      "ΒΓΔ",
+      "γβα"
    };
 
-   struct vector vout = anagrams_for("banana", vin);
-   assert_equal_vector(vout, empty);
-   free(vout.vec);
+   char word[] = { "ΑΒΓ" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+void test_misleading_unicode_anagrams(void)
+{
+   TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
+   // Despite what a human might think these words different letters, the input uses Greek A and B
+   // while the list of potential anagrams uses Latin A and B.
+   char inputs[][MAX_STR_LEN] = {
+      "ABΓ"
+   };
+
+   char word[] = { "ΑΒΓ" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
 }
 
 int main(void)
@@ -307,8 +255,8 @@ int main(void)
    RUN_TEST(test_does_not_detect_a_differently_cased_word_as_its_own_anagram);
 
    // Bonus points
-   // RUN_TEST(test_unicode_anagrams);
-   // RUN_TEST(test_misleading_unicode_anagrams);
+   RUN_TEST(test_unicode_anagrams);
+   RUN_TEST(test_misleading_unicode_anagrams);
 
    UnityEnd();
    return 0;

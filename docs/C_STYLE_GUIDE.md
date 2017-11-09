@@ -51,7 +51,7 @@ The correct prototype, providing that all other declarations and the definition 
 
 ## Indentation and Format
 
-The repository uses GNU `indent`, as outlined in the [README](https://github.com/exercism/c/blob/master/README.md).
+The repository uses the `indent` tool, as outlined in the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md).
 
 The options described for use with indent there are `-linux -i3 -nut`. The `-linux` option is a shortcut that is equivelent to a secific fixed group of options. The combined equivalent options are `-nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1`.
 
@@ -122,6 +122,29 @@ void tearDown(void)
 
 Next are the test functions themselves. 
 The names of these functions use a `test_` prefix.
+Excepting the first, each test function should have `TEST_IGNORE();` as its first statement. 
+The first occurrence of this should be followed by the line comment `// delete this line to run test`.
+For example:
+
+```c
+void test_the_first(void)
+{
+   test_first_foo();
+}
+
+void test_the_second(void)
+{
+   TEST_IGNORE();               // delete this line to run test
+   test_second_foo();
+}
+
+void test_the_third(void)
+{
+   TEST_IGNORE();
+   char grade = 'A';
+   test_third_foo(grade);
+}
+```
 
 Last in the file is the `main()` function. 
 The function body of main follows a particular layout itself. 

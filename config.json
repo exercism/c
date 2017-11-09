@@ -1,6 +1,5 @@
 {
-  "active": false,
-  "checklist_issue": 8,
+  "active": true,
   "exercises": [
     {
       "core": true,
@@ -248,7 +247,6 @@
       "slug": "anagram",
       "topics": [
         "filtering",
-        "memory_management",
         "strings",
         "structs"
       ],
@@ -445,13 +443,40 @@
     },
     {
       "core": false,
+      "difficulty": 4,
+      "slug": "sublist",
+      "topics": [
+        "pointers",
+        "arrays",
+        "searching",
+        "control_flow_if_statements",
+        "control_flow_loops"
+      ],
+      "unlocked_by": "palindrome-products",
+      "uuid": "971ab109-03b2-2480-7582-cc081a6f67f7411153f"
+    },
+    {
+      "core": false,
       "difficulty": 2,
       "slug": "collatz-conjecture",
       "topics": [
         "functions",
         "mathematics"
       ],
-      "uuid": "928e9860-0df9-5180-8529-7024c991b3616adc21a"
+      "unlocked_by": "triangle",
+      "uuid": "e3ff9d66-06f0-6c80-6514-88c5f80bcbcb8310702"
+    },
+    {
+      "core": true,
+      "difficulty": 1,
+      "slug": "queen-attack",
+      "topics": [
+        "control_flow_if_statements",
+        "functions",
+        "structs",
+        "enums"
+      ],
+      "uuid": "12e72487-0696-f080-02c1-c4006444b71ea02495c"
     }
   ],
   "foregone": [],
