@@ -4,9 +4,16 @@ CFLAGS += -Wextra
 CFLAGS += -pedantic
 CFLAGS += -Werror
 
+VFLAGS  = --quiet
+VFLAGS += --tool=memcheck
+VFLAGS += --leak-check=full
+VFLAGS += --error-exitcode=1
 
 test: tests.out
 	@./tests.out
+
+memcheck: tests.out
+	@valgrind $(VFLAGS) ./tests.out >> /dev/null
 
 clean:
 	rm -f *.o *.out
