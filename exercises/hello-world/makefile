@@ -13,7 +13,9 @@ test: tests.out
 	@./tests.out
 
 memcheck: tests.out
+	@echo "Running memory check"
 	@valgrind $(VFLAGS) ./tests.out >> /dev/null
+	@echo "Memory check complete"
 
 clean:
 	rm -f *.o *.out
