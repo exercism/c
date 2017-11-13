@@ -2,7 +2,7 @@
 #include "../src/phone_number.h"
 #include <stdlib.h>
 
-char *result = NULL;
+static char *result = NULL;
 
 void setUp(void)
 {
@@ -10,9 +10,7 @@ void setUp(void)
 
 void tearDown(void)
 {
-   if (result) {
-      free(result);
-   }
+   free(result);
    result = NULL;
 }
 
