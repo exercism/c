@@ -1,4 +1,5 @@
 CFLAGS  = -std=c99
+CFLAGS += -g
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -pedantic
@@ -13,8 +14,7 @@ test: tests.out
 	@./tests.out
 
 memcheck: tests.out
-	@echo "Running memory check"
-	@valgrind $(VFLAGS) ./tests.out >> /dev/null
+	@valgrind $(VFLAGS) ./tests.out
 	@echo "Memory check passed"
 
 clean:
