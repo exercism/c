@@ -2,7 +2,7 @@
 #include "../src/phone_number.h"
 #include <stdlib.h>
 
-char *result;
+static char *result = NULL;
 
 void setUp(void)
 {
@@ -11,6 +11,7 @@ void setUp(void)
 void tearDown(void)
 {
    free(result);
+   result = NULL;
 }
 
 void test_cleans_parens_dashes_and_spaces_from_the_number(void)
