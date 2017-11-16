@@ -3,6 +3,7 @@
 #include "../src/sieve.h"
 
 static primes_array_t result_array;
+#define ARRAY_LENGTH(x)   sizeof(x)/sizeof(x[0])
 
 void setUp(void)
 {
@@ -15,7 +16,6 @@ void tearDown(void)
 void test_no_primes_under_two(void)
 {
    const unsigned int limit = 1;
-   const primes_array_t expected_prime_array = { 0 };
    const unsigned int expected_prime_count = 0;
    unsigned int result_prime_count;
 
@@ -23,9 +23,6 @@ void test_no_primes_under_two(void)
 
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
-   TEST_ASSERT_EQUAL(0,
-                     memcmp(expected_prime_array, result_array,
-                            sizeof(result_array)));
 }
 
 void test_find_first_prime(void)
@@ -40,9 +37,9 @@ void test_find_first_prime(void)
 
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
-   TEST_ASSERT_EQUAL(0,
-                     memcmp(expected_prime_array, result_array,
-                            sizeof(expected_prime_array)));
+   TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
+                                ARRAY_LENGTH(expected_prime_array));
+
 }
 
 void test_find_primes_up_to_10(void)
@@ -57,9 +54,9 @@ void test_find_primes_up_to_10(void)
 
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
-   TEST_ASSERT_EQUAL(0,
-                     memcmp(expected_prime_array, result_array,
-                            sizeof(expected_prime_array)));
+   TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
+                                ARRAY_LENGTH(expected_prime_array));
+
 }
 
 void test_limit_is_prime(void)
@@ -74,9 +71,9 @@ void test_limit_is_prime(void)
 
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
-   TEST_ASSERT_EQUAL(0,
-                     memcmp(expected_prime_array, result_array,
-                            sizeof(expected_prime_array)));
+   TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
+                                ARRAY_LENGTH(expected_prime_array));
+
 }
 
 void test_find_primes_up_to_1000(void)
@@ -105,9 +102,9 @@ void test_find_primes_up_to_1000(void)
 
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
-   TEST_ASSERT_EQUAL(0,
-                     memcmp(expected_prime_array, result_array,
-                            sizeof(expected_prime_array)));
+   TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
+                                ARRAY_LENGTH(expected_prime_array));
+
 }
 
 int main(void)
