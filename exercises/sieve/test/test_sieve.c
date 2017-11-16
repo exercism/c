@@ -27,7 +27,7 @@ void test_no_primes_under_two(void)
 
 void test_find_first_prime(void)
 {
-   // delete this line to run test
+   TEST_IGNORE();               // delete this line to run test
    const unsigned int limit = 2;
    const primes_array_t expected_prime_array = { 2 };
    const unsigned int expected_prime_count = 1;
@@ -44,7 +44,7 @@ void test_find_first_prime(void)
 
 void test_find_primes_up_to_10(void)
 {
-
+   TEST_IGNORE();
    const unsigned int limit = 10;
    const primes_array_t expected_prime_array = { 2, 3, 5, 7 };
    const unsigned int expected_prime_count = 4;
@@ -61,7 +61,7 @@ void test_find_primes_up_to_10(void)
 
 void test_limit_is_prime(void)
 {
-
+   TEST_IGNORE();
    const unsigned int limit = 13;
    const primes_array_t expected_prime_array = { 2, 3, 5, 7, 11, 13 };
    const unsigned int expected_prime_count = 6;
@@ -78,7 +78,7 @@ void test_limit_is_prime(void)
 
 void test_find_primes_up_to_1000(void)
 {
-
+   TEST_IGNORE();
    const unsigned int limit = 1000;
    const primes_array_t expected_prime_array = {
       2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
