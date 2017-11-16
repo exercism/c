@@ -38,7 +38,7 @@ void test_find_first_prime(void)
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
    TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
-                                ARRAY_LENGTH(expected_prime_array));
+                    ARRAY_LENGTH(expected_prime_array));
 
 }
 
@@ -55,7 +55,7 @@ void test_find_primes_up_to_10(void)
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
    TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
-                                ARRAY_LENGTH(expected_prime_array));
+                    ARRAY_LENGTH(expected_prime_array));
 
 }
 
@@ -72,7 +72,7 @@ void test_limit_is_prime(void)
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
    TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
-                                ARRAY_LENGTH(expected_prime_array));
+                    ARRAY_LENGTH(expected_prime_array));
 
 }
 
@@ -103,7 +103,7 @@ void test_find_primes_up_to_1000(void)
    result_prime_count = sieve(limit, result_array);
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
    TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
-                                ARRAY_LENGTH(expected_prime_array));
+                    ARRAY_LENGTH(expected_prime_array));
 
 }
 
