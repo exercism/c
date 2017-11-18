@@ -8,7 +8,7 @@ size_t rebase(int8_t digits[DIGITS_ARRAY_SIZE], int16_t from_base,
    uint16_t denary = 0;
    size_t new_num_digits = 0;
 
-   if ((from_base <= 1) || (to_base <= 1) || (num_digits <= 0))
+   if ((from_base <= 1) || (to_base <= 1) || (num_digits == 0))
       return 0;                 /* invalid bases or length */
    if (digits[0] == 0)
       return 0;                 /* leading zeros */
