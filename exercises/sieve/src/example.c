@@ -6,14 +6,13 @@
 unsigned int sieve(const unsigned int limit, primes_array_t primes)
 {
    unsigned int number_of_primes = 0;
-   unsigned char *number_is_prime;
 
    // clear the results
    memset(primes, 0, sizeof(*primes));
 
    if (limit > 1) {
       //allocate 1 more than limit for convenience so the number and the index are same
-      number_is_prime = malloc(limit + 1);
+      unsigned char *number_is_prime = malloc(limit + 1);
       memset(number_is_prime, 1, limit + 1);
 
       unsigned int max_factor = sqrt(limit) + 1;
