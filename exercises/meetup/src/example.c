@@ -108,16 +108,15 @@ int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
                         const char *day_of_week)
 {
    int day_of_month = BAD_DATE_REQUESTED;
-   int baseline_day_of_week;
    int days_in_test_month = days_in_month(year, month);
-   int day_offset;
-   int reference_day = 1;       // used to calculate a baseline day of week given a target date.
 
    int which_week_of_month = get_week_of_month(week);
    int target_day_in_week = get_requested_day_of_week(day_of_week);
 
    // check for valid lookup...
    if ((which_week_of_month >= 0) && (target_day_in_week >= 0)) {
+      int day_offset;
+      int reference_day = 1;       // used to calculate a baseline day of week given a target date.
       // first - fifth Xday of month
       if (which_week_of_month <= 5) {
          day_offset = 1 + ((which_week_of_month - 1) * 7);
@@ -130,7 +129,7 @@ int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
          }
          day_offset = reference_day;
       }
-      baseline_day_of_week =
+      int baseline_day_of_week =
           get_day_of_week_from_date(year, month, reference_day);
       day_of_month =
           day_offset + ((target_day_in_week + 7 - baseline_day_of_week) % 7);
