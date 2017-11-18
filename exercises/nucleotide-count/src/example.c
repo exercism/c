@@ -36,7 +36,7 @@ char *count(const char *dna_strand)
    }
 
    if (!invalid_char) {
-      sprintf(count_results, "A:%zd C:%zd G:%zd T:%zd", nucleotide_a_count,
+      sprintf(count_results, "A:%zu C:%zu G:%zu T:%zu", nucleotide_a_count,
               nucleotide_c_count, nucleotide_g_count, nucleotide_t_count);
    }
    return count_results;
