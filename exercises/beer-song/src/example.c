@@ -24,8 +24,8 @@ static unsigned int get_verse(char *buffer, unsigned int verse_number)
    } else if (verse_number <= 99) {
       bytes_written =
           sprintf(buffer,
-                  "%d bottles of beer on the wall, %d bottles of beer.\n"
-                  "Take one down and pass it around, %d bottles of beer on the wall.\n",
+                  "%u bottles of beer on the wall, %u bottles of beer.\n"
+                  "Take one down and pass it around, %u bottles of beer on the wall.\n",
                   verse_number, verse_number, verse_number - 1);
    }
 
