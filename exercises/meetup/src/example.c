@@ -116,7 +116,7 @@ int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
    // check for valid lookup...
    if ((which_week_of_month >= 0) && (target_day_in_week >= 0)) {
       int day_offset;
-      int reference_day = 1;       // used to calculate a baseline day of week given a target date.
+      int reference_day = 1;    // used to calculate a baseline day of week given a target date.
       // first - fifth Xday of month
       if (which_week_of_month <= 5) {
          day_offset = 1 + ((which_week_of_month - 1) * 7);
