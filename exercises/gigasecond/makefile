@@ -15,7 +15,7 @@ test: tests.out
 
 memcheck: tests.out
 	@valgrind $(VFLAGS) ./tests.out
-	@echo "Memory check passed
+	@echo "Memory check passed"
 
 clean:
 	rm -f *.o *.out
