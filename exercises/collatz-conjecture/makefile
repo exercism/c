@@ -18,7 +18,7 @@ memcheck: tests.out
 	@echo "Memory check passed"
 
 clean:
-	rm -f *.o *.out
+	rm -rf *.o *.out *.out.dSYM
 
 tests.out: test/test_collatz_conjecture.c src/collatz_conjecture.c src/collatz_conjecture.h
 	@echo Compiling $@
