@@ -18,7 +18,7 @@ memcheck: tests.out
 	@echo "Memory check passed"
 
 clean:
-	rm -f *.o *.out
+	rm -rf *.o *.out *.out.dSYM
 
 tests.out: test/test_rna_transcription.c src/rna_transcription.c src/rna_transcription.h
 	@echo Compiling $@

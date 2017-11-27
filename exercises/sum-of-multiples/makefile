@@ -18,7 +18,7 @@ memcheck: tests.out
 	@echo "Memory check passed"
 
 clean:
-	rm -f *.o *.out
+	rm -rf *.o *.out *.out.dSYM
 
 tests.out: test/test_sum_of_multiples.c src/sum_of_multiples.c src/sum_of_multiples.h
 	@echo Compiling $@
