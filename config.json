@@ -32,7 +32,7 @@
         "control_flow_if_else_statements",
         "logic"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "uuid": "9b047dda-b85e-4378-9487-9f9cce086e4f"
     },
     {
@@ -63,7 +63,7 @@
         "control_flow_if_else_statements",
         "strings"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "beer-song",
       "uuid": "93acdd0d-9bd1-4dec-a572-fd12d0c66187"
     },
     {
@@ -250,7 +250,7 @@
         "strings",
         "structs"
       ],
-      "unlocked_by": "acronym",
+      "unlocked_by": "binary-search",
       "uuid": "0b64079a-7fec-42b4-bd2e-1b04dd4b7e6e"
     },
     {
