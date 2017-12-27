@@ -102,7 +102,7 @@ void test_overly_short_slice(void)
 
 int main(void)
 {
-   UnityBegin("test/test_word_count.c");
+   UnityBegin("test/test_series.c");
 
    RUN_TEST(test_slices_of_one);
    RUN_TEST(test_slices_of_two);
