@@ -155,7 +155,7 @@ void test_divide_numbers_with_real_and_imaginary_part(void)
    compare_complex(result, expected);
 }
 
-void test_absolute_value_of_a_positive_purely_real_number(void)
+void test_abs_of_a_positive_purely_real_number(void)
 {
    complex_t z = {.real = 5.0,.imag = 0.0 };
 
@@ -165,7 +165,7 @@ void test_absolute_value_of_a_positive_purely_real_number(void)
    TEST_ASSERT_EQUAL(result, expected);
 }
 
-void test_absolute_value_of_a_negative_purely_real_number(void)
+void test_abs_of_a_negative_purely_real_number(void)
 {
    complex_t z = {.real = -5.0,.imag = 0.0 };
 
@@ -175,10 +175,7 @@ void test_absolute_value_of_a_negative_purely_real_number(void)
    TEST_ASSERT_EQUAL(result, expected);
 }
 
-void
-test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part
-(void)
-{
+void test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part(void) {
    complex_t z = {.real = 0.0,.imag = 5.0 };
 
    double expected = 5.0;
@@ -187,10 +184,7 @@ test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part
    TEST_ASSERT_EQUAL(result, expected);
 }
 
-void
-test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part
-(void)
-{
+void test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part(void) {
    complex_t z = {.real = 0.0,.imag = -5.0 };
 
    double expected = 5.0;
@@ -199,7 +193,7 @@ test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part
    TEST_ASSERT_EQUAL(result, expected);
 }
 
-void test_absolute_value_of_a_number_with_real_and_imaginary_part(void)
+void test_abs_of_a_number_with_real_and_imaginary_part(void)
 {
    complex_t z = {.real = 3.0,.imag = 4.0 };
 
@@ -346,13 +340,11 @@ int main(void)
    RUN_TEST(test_divide_numbers_with_real_and_imaginary_part);
    RUN_TEST(test_divide_numbers_with_real_and_imaginary_part);
    RUN_TEST(test_divide_numbers_with_real_and_imaginary_part);
-   RUN_TEST(test_absolute_value_of_a_positive_purely_real_number);
-   RUN_TEST(test_absolute_value_of_a_negative_purely_real_number);
-   RUN_TEST
-       (test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part);
-   RUN_TEST
-       (test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part);
-   RUN_TEST(test_absolute_value_of_a_number_with_real_and_imaginary_part);
+   RUN_TEST(test_abs_of_a_positive_purely_real_number);
+   RUN_TEST(test_abs_of_a_negative_purely_real_number);
+   RUN_TEST(test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part);
+   RUN_TEST(test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part);
+   RUN_TEST(test_abs_of_a_number_with_real_and_imaginary_part);
    RUN_TEST(test_complex_conjugate_of_a_purely_real_number);
    RUN_TEST(test_complex_conjugate_of_a_purely_imaginary_number);
    RUN_TEST(test_complex_conjugate_of_a_number_with_real_and_imaginary_part);
