@@ -175,7 +175,10 @@ void test_absolute_value_of_a_negative_purely_real_number(void)
    TEST_ASSERT_EQUAL(result, expected);
 }
 
-void test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part(void) {
+void
+test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part
+(void)
+{
    complex_t z = {.real = 0.0,.imag = 5.0 };
 
    double expected = 5.0;
@@ -184,7 +187,10 @@ void test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_pa
    TEST_ASSERT_EQUAL(result, expected);
 }
 
-void test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part(void) {
+void
+test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part
+(void)
+{
    complex_t z = {.real = 0.0,.imag = -5.0 };
 
    double expected = 5.0;
