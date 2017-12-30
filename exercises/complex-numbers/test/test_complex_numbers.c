@@ -18,9 +18,9 @@ void test_imaginary_unit(void)
    complex_t z = {.real = 0.0,.imag = 1.0 };
 
    complex_t expected = {.real = -1.0,.imag = 0.0 };
-   complex_t result = c_mul(z, z);
+   complex_t actual = c_mul(z, z);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_add_purely_real_numbers(void)
@@ -31,9 +31,9 @@ void test_add_purely_real_numbers(void)
    complex_t z2 = {.real = 2.0,.imag = 0.0 };
 
    complex_t expected = {.real = 3.0,.imag = 0.0 };
-   complex_t result = c_add(z1, z2);
+   complex_t actual = c_add(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_add_purely_imaginary_numbers(void)
@@ -43,9 +43,9 @@ void test_add_purely_imaginary_numbers(void)
    complex_t z2 = {.real = 0.0,.imag = 2.0 };
 
    complex_t expected = {.real = 0.0,.imag = 3.0 };
-   complex_t result = c_add(z1, z2);
+   complex_t actual = c_add(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_add_numbers_with_real_and_imaginary_part(void)
@@ -55,9 +55,9 @@ void test_add_numbers_with_real_and_imaginary_part(void)
    complex_t z2 = {.real = 3.0,.imag = 4.0 };
 
    complex_t expected = {.real = 4.0,.imag = 6.0 };
-   complex_t result = c_add(z1, z2);
+   complex_t actual = c_add(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_subtract_purely_real_numbers(void)
@@ -67,9 +67,9 @@ void test_subtract_purely_real_numbers(void)
    complex_t z2 = {.real = 2.0,.imag = 0.0 };
 
    complex_t expected = {.real = -1.0,.imag = 0.0 };
-   complex_t result = c_sub(z1, z2);
+   complex_t actual = c_sub(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_subtract_purely_imaginary_numbers(void)
@@ -79,9 +79,9 @@ void test_subtract_purely_imaginary_numbers(void)
    complex_t z2 = {.real = 0.0,.imag = 2.0 };
 
    complex_t expected = {.real = 0.0,.imag = -1.0 };
-   complex_t result = c_sub(z1, z2);
+   complex_t actual = c_sub(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_subtract_numbers_with_real_and_imaginary_part(void)
@@ -91,9 +91,9 @@ void test_subtract_numbers_with_real_and_imaginary_part(void)
    complex_t z2 = {.real = 3.0,.imag = 4.0 };
 
    complex_t expected = {.real = -2.0,.imag = -2.0 };
-   complex_t result = c_sub(z1, z2);
+   complex_t actual = c_sub(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_multiply_purely_real_numbers(void)
@@ -103,9 +103,9 @@ void test_multiply_purely_real_numbers(void)
    complex_t z2 = {.real = 2.0,.imag = 0.0 };
 
    complex_t expected = {.real = 2.0,.imag = 0.0 };
-   complex_t result = c_mul(z1, z2);
+   complex_t actual = c_mul(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_multiply_purely_imaginary_numbers(void)
@@ -115,9 +115,9 @@ void test_multiply_purely_imaginary_numbers(void)
    complex_t z2 = {.real = 0.0,.imag = 2.0 };
 
    complex_t expected = {.real = -2.0,.imag = 0.0 };
-   complex_t result = c_mul(z1, z2);
+   complex_t actual = c_mul(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_multiply_numbers_with_real_and_imaginary_part(void)
@@ -127,9 +127,9 @@ void test_multiply_numbers_with_real_and_imaginary_part(void)
    complex_t z2 = {.real = 3.0,.imag = 4.0 };
 
    complex_t expected = {.real = -5.0,.imag = 10.0 };
-   complex_t result = c_mul(z1, z2);
+   complex_t actual = c_mul(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_divide_purely_real_numbers(void)
@@ -139,9 +139,9 @@ void test_divide_purely_real_numbers(void)
    complex_t z2 = {.real = 2.0,.imag = 0.0 };
 
    complex_t expected = {.real = 0.5,.imag = 0.0 };
-   complex_t result = c_div(z1, z2);
+   complex_t actual = c_div(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_divide_purely_imaginary_numbers(void)
@@ -151,9 +151,9 @@ void test_divide_purely_imaginary_numbers(void)
    complex_t z2 = {.real = 0.0,.imag = 2.0 };
 
    complex_t expected = {.real = 0.5,.imag = 0.0 };
-   complex_t result = c_div(z1, z2);
+   complex_t actual = c_div(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_divide_numbers_with_real_and_imaginary_part(void)
@@ -163,9 +163,9 @@ void test_divide_numbers_with_real_and_imaginary_part(void)
    complex_t z2 = {.real = 3.0,.imag = 4.0 };
 
    complex_t expected = {.real = 0.44,.imag = 0.08 };
-   complex_t result = c_div(z1, z2);
+   complex_t actual = c_div(z1, z2);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_abs_of_a_positive_purely_real_number(void)
@@ -174,9 +174,9 @@ void test_abs_of_a_positive_purely_real_number(void)
    complex_t z = {.real = 5.0,.imag = 0.0 };
 
    double expected = 5.0;
-   double result = c_abs(z);
+   double actual = c_abs(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_abs_of_a_negative_purely_real_number(void)
@@ -185,9 +185,9 @@ void test_abs_of_a_negative_purely_real_number(void)
    complex_t z = {.real = -5.0,.imag = 0.0 };
 
    double expected = 5.0;
-   double result = c_abs(z);
+   double actual = c_abs(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part(void)
@@ -196,9 +196,9 @@ void test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part(void)
    complex_t z = {.real = 0.0,.imag = 5.0 };
 
    double expected = 5.0;
-   double result = c_abs(z);
+   double actual = c_abs(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part(void)
@@ -207,9 +207,9 @@ void test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part(void)
    complex_t z = {.real = 0.0,.imag = -5.0 };
 
    double expected = 5.0;
-   double result = c_abs(z);
+   double actual = c_abs(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_abs_of_a_number_with_real_and_imaginary_part(void)
@@ -218,9 +218,9 @@ void test_abs_of_a_number_with_real_and_imaginary_part(void)
    complex_t z = {.real = 3.0,.imag = 4.0 };
 
    double expected = 5.0;
-   double result = c_abs(z);
+   double actual = c_abs(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_complex_conjugate_of_a_purely_real_number(void)
@@ -229,9 +229,9 @@ void test_complex_conjugate_of_a_purely_real_number(void)
    complex_t z = {.real = 5.0,.imag = 0.0 };
 
    complex_t expected = {.real = 5.0,.imag = 0.0 };
-   complex_t result = c_conjugate(z);
+   complex_t actual = c_conjugate(z);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_complex_conjugate_of_a_purely_imaginary_number(void)
@@ -240,9 +240,9 @@ void test_complex_conjugate_of_a_purely_imaginary_number(void)
    complex_t z = {.real = 0.0,.imag = 5.0 };
 
    complex_t expected = {.real = 0.0,.imag = -5.0 };
-   complex_t result = c_conjugate(z);
+   complex_t actual = c_conjugate(z);
 
-   compare_complex(result, expected);
+   compare_complex(expectedu, actual);
 }
 
 void test_complex_conjugate_of_a_number_with_real_and_imaginary_part(void)
@@ -251,9 +251,9 @@ void test_complex_conjugate_of_a_number_with_real_and_imaginary_part(void)
    complex_t z = {.real = 1.0,.imag = 1.0 };
 
    complex_t expected = {.real = 1.0,.imag = -1.0 };
-   complex_t result = c_conjugate(z);
+   complex_t actual = c_conjugate(z);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_real_part_of_a_purely_real_number(void)
@@ -262,9 +262,9 @@ void test_real_part_of_a_purely_real_number(void)
    complex_t z = {.real = 1.0,.imag = 0.0 };
 
    double expected = 1.0;
-   double result = c_real(z);
+   double actual = c_real(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_real_part_of_a_purely_imaginary_number(void)
@@ -273,9 +273,9 @@ void test_real_part_of_a_purely_imaginary_number(void)
    complex_t z = {.real = 0.0,.imag = 1.0 };
 
    double expected = 0.0;
-   double result = c_real(z);
+   double actual = c_real(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_real_part_of_a_number_with_real_and_imaginary_part(void)
@@ -284,9 +284,9 @@ void test_real_part_of_a_number_with_real_and_imaginary_part(void)
    complex_t z = {.real = 1.0,.imag = 2.0 };
 
    double expected = 1.0;
-   double result = c_real(z);
+   double actual = c_real(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_imaginary_part_of_a_purely_real_number(void)
@@ -295,9 +295,9 @@ void test_imaginary_part_of_a_purely_real_number(void)
    complex_t z = {.real = 1.0,.imag = 0.0 };
 
    double expected = 0.0;
-   double result = c_imag(z);
+   double actual = c_imag(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_imaginary_part_of_a_purely_imaginary_number(void)
@@ -306,9 +306,9 @@ void test_imaginary_part_of_a_purely_imaginary_number(void)
    complex_t z = {.real = 0.0,.imag = 1.0 };
 
    double expected = 1.0;
-   double result = c_imag(z);
+   double actual = c_imag(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_imaginary_part_of_a_number_with_real_and_imaginary_part(void)
@@ -317,9 +317,9 @@ void test_imaginary_part_of_a_number_with_real_and_imaginary_part(void)
    complex_t z = {.real = 1.0,.imag = 2.0 };
 
    double expected = 2.0;
-   double result = c_imag(z);
+   double actual = c_imag(z);
 
-   TEST_ASSERT_EQUAL_DOUBLE(result, expected);
+   TEST_ASSERT_EQUAL_DOUBLE(expected, actual);
 }
 
 void test_eulers_identity(void)
@@ -328,9 +328,9 @@ void test_eulers_identity(void)
    complex_t z = {.real = 0.0,.imag = PI };
 
    complex_t expected = {.real = -1.0,.imag = 0.0 };
-   complex_t result = c_exp(z);
+   complex_t actual = c_exp(z);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_exponential_of_zero(void)
@@ -339,9 +339,9 @@ void test_exponential_of_zero(void)
    complex_t zero = {.real = 0.0,.imag = 0.0 };
 
    complex_t expected = {.real = 1.0,.imag = 0.0 };
-   complex_t result = c_exp(zero);
+   complex_t actual = c_exp(zero);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 void test_exponential_of_a_purely_real_number(void)
@@ -350,9 +350,9 @@ void test_exponential_of_a_purely_real_number(void)
    complex_t z = {.real = 1.0,.imag = 0.0 };
 
    complex_t expected = {.real = E,.imag = 0.0 };
-   complex_t result = c_exp(z);
+   complex_t actual = c_exp(z);
 
-   compare_complex(result, expected);
+   compare_complex(expected, actual);
 }
 
 int main(void)
