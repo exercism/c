@@ -242,7 +242,7 @@ void test_complex_conjugate_of_a_purely_imaginary_number(void)
    complex_t expected = {.real = 0.0,.imag = -5.0 };
    complex_t actual = c_conjugate(z);
 
-   compare_complex(expectedu, actual);
+   compare_complex(expected, actual);
 }
 
 void test_complex_conjugate_of_a_number_with_real_and_imaginary_part(void)
