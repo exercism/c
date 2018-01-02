@@ -331,7 +331,8 @@ void test_eulers_identity(void)
    complex_t expected = {.real = -1.0,.imag = 0.0 };
    complex_t actual = c_exp(z);
 
-   compare_complex(expected, actual);
+   TEST_ASSERT_FLOAT_WITHIN(1e-10, expected.real, actual.real);
+   TEST_ASSERT_FLOAT_WITHIN(1e-10, expected.imag, actual.imag);
 }
 
 void test_exponential_of_zero(void)
