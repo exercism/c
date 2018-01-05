@@ -359,7 +359,7 @@ void test_exponential_of_a_purely_real_number(void)
 
 int main(void)
 {
-   UnityBegin("complex_numbers.c");
+   UnityBegin("test/test_complex_numbers.c");
 
    RUN_TEST(test_imaginary_unit);
    RUN_TEST(test_add_purely_real_numbers);
