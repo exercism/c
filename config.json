@@ -477,6 +477,17 @@
         "enums"
       ],
       "uuid": "b0a152e9-5a45-41f9-bda0-427111d9a56c"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "complex-numbers",
+      "topics": [
+        "structs",
+        "performance_optimizations"
+      ],
+      "unlocked_by": "difference-of-squares",
+      "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f"
     }
   ],
   "foregone": [],
