@@ -7,14 +7,15 @@ Like the majority of C programs you will write, this exercise comes without any 
 
 You will need to create these yourself as part of the exercise. 
 This is so that you get to practice deciding on and creating the program's interface yourself, which is an important part of programming in C.
-It does mean that when you first try to run the tests, they won't compile. They will give you an error similar to:
+It does mean that when you first try to run the tests, they won't compile.
+They will give you an error similar to:
 
 ```bash
 make: *** No rule to make target 'src/exercise_name.c', needed by 'tests.out'.  Stop.
 ```
 
 This error occurs because the `makefile` attempts to use a file that hasn't been created yet (`exercise_name.c`).
-To resove this error you will need to add a matching file to the `src` directory.
+To resolve this error you will need to add a matching file to the `src` directory.
 For example, for the error above you would add a file called `exercise_name.c`.
 
 When you try to run the tests again you will get a slightly different error.
@@ -54,7 +55,8 @@ For example, for the error above you should declare a type named  `bar_t`, a `st
 Additionally we can tell from looking at the above errors that function `foo()` has two parameters. 
 
 The first parameter is passed an argument of `fizz` and thus should have a type of `struct baz`.
-The second parameter is passed `2.5` and so could have one of two types, either `float` or `double`, you will need to look at the test code to determine which.
+The second parameter is passed `2.5` and so could have one of two types, either `float` or `double`.
+You will need to look at the test code to determine which.
 
 The _names_ of the parameters are not determined by the test code and so are left up to you to decide, though in keeping with C programming practices they should be descriptive but not overly long.
 
@@ -75,9 +77,10 @@ Additionally, remember to add any includes to the header file any headers that i
 
 
 ### Include guards
-Before you are finished with the header file, you should add include uards.
+
+Before you are finished with the header file, you should add include guards.
 Include guards are used to help prevent the file from being included multiple times by accident.
-If the file _was_ included multiple times then the functions and other items would be declared twice - In C this is an error because the compiler thinks you are trying to declare another _different_ function that has the same name.
+If the file _was_ included multiple times then the functions and other items would be declared twice; In C this is an error because the compiler thinks you are trying to declare another _different_ function that has the same name.
 
 To add include guards, add something similar to the following as the first two lines of the header:
 
@@ -95,7 +98,7 @@ And on the very last line:
 
 ### Add the required definitions
 
-Once the header file is complete you ay still have build errors similar to the following:
+Once the header file is complete you may still have build errors similar to the following:
 
 ```bash
 Compiling tests.out
@@ -106,7 +109,7 @@ make: *** [tests.out] Error 1
 ```
 
 This is because although you have _declared_ all the items you need to, they have not yet been _defined_.
-To define the needed items you need to add thier implementation to the `exercise_name.c` file.
+To define the needed items you need to add their implementation to the `exercise_name.c` file.
 For the function `foo()` from the previous example, this would look similar to:
 
 ```c
@@ -117,4 +120,5 @@ bar_t foo(struct baz b, double d)
     // Your exercise code here
 }
 ```
+
 After having resolved these errors you should be ready to start making the tests pass!
