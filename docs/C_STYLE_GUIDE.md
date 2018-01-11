@@ -6,7 +6,7 @@ The rules within this guide are in addition to, or to call out, those in the [Li
 
 ## C Standard
 
-Code should conform to the C99 standard, more formally known as ISO/IEC 9899:1999. POSIX, or otherwise non-standard library functions, types or other that are references external to the implementation should not be used.
+Code should conform to the C99 standard, more formally known as ISO/IEC 9899:1999. POSIX, or otherwise non-standard library functions, types or other references that are external to the implementation should not be used.
 
 ## Names
 
