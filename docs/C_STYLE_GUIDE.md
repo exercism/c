@@ -4,6 +4,10 @@ This guide describes the style intended for use with the C track exercise exampl
 
 The rules within this guide are in addition to, or to call out, those in the [Linux kernel coding style guide](https://www.kernel.org/doc/html/latest/process/coding-style.html).
 
+## C Standard
+
+Code should conform to the C99 standard, more formally known as ISO/IEC 9899:1999. POSIX, or otherwise non-standard library functions, types or other that are references external to the implementation should not be used.
+
 ## Names
 
 In general, the names of types, variables, structures and files should use snake case with all letters in lower case and underscores `_` are used to separate name components.
@@ -39,6 +43,12 @@ Upper-case snake case for macro names is appreciated, but macros resembling func
 
 ### Types
 
+The standard fixed-width types (in `stdint.h`) are preferred over basic integer types.
+
+The type `bool` (from `stdbool.h`) is preferred over `_Bool`. 
+
+Likewise, `size_t` and `ptrdiff_t` (of `stddef.h`) are preferred for representing memory-related quantities.
+
 Types defined by a program using `typedef` should be named with a `_t` suffix. 
 While aware that POSIX reserves the `_t` suffix, the track does not currently utilise POSIX.
 
@@ -48,6 +58,10 @@ Function parameters should be named in both the declaration and definition of al
 The names used should match in all instances.
 That is to say that while the following function prototype is valid C, the style is incorrect because the parameter is unnamed: `void foo(int);`.
 The correct prototype, providing that all other declarations and the definition also use the parameter name `bar`, would be `void foo(int bar);`.
+
+Where it is simpler or more appropriate to do so, parameters that require passing arguments by value rather than by pointer is preferred. Note especially that this includes `struct` type parameters.
+
+In the case that a student is not expected to change the values of a pointer-type parameter within their implementation, that parameter should be `const` qualified.
 
 ## Indentation and Format
 
