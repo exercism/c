@@ -59,7 +59,7 @@ The names used should match in all instances.
 That is to say that while the following function prototype is valid C, the style is incorrect because the parameter is unnamed: `void foo(int);`.
 The correct prototype, providing that all other declarations and the definition also use the parameter name `bar`, would be `void foo(int bar);`.
 
-Where it is simpler or more appropriate to do so, parameters that require passing arguments by value rather than by pointer is preferred. Note especially that this includes `struct` type parameters.
+Where it is simpler or more appropriate to do so, parameters that require passing arguments by value rather than by pointer are preferred. Note especially that this includes `struct` type parameters.
 
 In the case that a student is not expected to change the values of a pointer-type parameter within their implementation, that parameter should be `const` qualified.
 
