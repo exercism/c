@@ -347,7 +347,7 @@ void test_max_length_word(void)
    int actual_word_count;
    int index = 0;
    char *input_text =
-       "Look thisisaninsanelylongwordtypedwithoutusinganyspaces and look again, thisisaninsanelylongwordtypedwithoutusinganyspaces";
+       "Look thisisaveeeeeerylongwordtypedwithoutusinganyspaces and look again, thisisaveeeeeerylongwordtypedwithoutusinganyspaces";
 
    const int expected_word_count = 4;
 
@@ -359,7 +359,7 @@ void test_max_length_word(void)
 
    expected_solution[index].count = 2;
    strncpy(expected_solution[index++].text,
-           "thisisaninsanelylongwordtypedwithoutusinganyspaces",
+           "thisisaveeeeeerylongwordtypedwithoutusinganyspaces",
            MAX_WORD_LENGTH);
 
    expected_solution[index].count = 1;
