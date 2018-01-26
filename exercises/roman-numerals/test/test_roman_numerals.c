@@ -70,6 +70,12 @@ void test_forty_eight_yields_XLVIII(void)
    test_conversion(48, "XLVIII");
 }
 
+void test_forty_nine_yields_XLIX(void)
+{
+   TEST_IGNORE();
+   test_conversion(49, "XLIX");
+}
+
 void test_fifty_nine_yields_LIX(void)
 {
    TEST_IGNORE();
@@ -137,6 +143,7 @@ int main(void)
    RUN_TEST(test_six_yields_VI);
    RUN_TEST(test_twenty_seven_yields_XXVII);
    RUN_TEST(test_forty_eight_yields_XLVIII);
+   RUN_TEST(test_forty_nine_yields_XLIX);
    RUN_TEST(test_fifty_nine_yields_LIX);
    RUN_TEST(test_ninety_three_yields_XCIII);
    RUN_TEST(test_one_hundred_forty_one_yields_CXLI);
