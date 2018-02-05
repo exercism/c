@@ -12,9 +12,8 @@ char *hey_bob(char *greeting)
    char ch = greeting[i];
 
    while (ch != 0) {
-
       if (all_blank)
-         all_blank = ch == ' ';
+         all_blank = ch == ' ' || (ch >= '\t' && ch <= '\r');
 
       if (all_shouty)
          all_shouty = !(ch >= 'a' && ch <= 'z');
@@ -31,6 +30,9 @@ char *hey_bob(char *greeting)
 
    if (all_blank)
       return "Fine. Be that way!";
+
+   if (all_shouty && any_letters && final_char == '?')
+      return "Calm down, I know what I'm doing!";
 
    if (any_letters && all_shouty)
       return "Whoa, chill out!";
