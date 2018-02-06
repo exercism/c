@@ -22,18 +22,18 @@ void test_empty_sentence(void)
    TEST_ASSERT_FALSE(is_pangram(sentence));
 }
 
-void test_lowercase_pangram(void)
+void test_perfect_lowercase_pangram(void)
 {
    TEST_IGNORE();
-   const char sentence[] = "the quick brown fox jumps over the lazy dog";
+   const char sentence[] = "abcdefghijklmnopqrstuvwxyz";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
 }
 
-void test_uppercase_pangram(void)
+void test_lowercase_pangram(void)
 {
    TEST_IGNORE();
-   const char sentence[] = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
+   const char sentence[] = "the quick brown fox jumps over the lazy dog";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
 }
@@ -47,10 +47,10 @@ void test_missing_character_x(void)
    TEST_ASSERT_FALSE(is_pangram(sentence));
 }
 
-void test_another_missing_x(void)
+void test_another_missing_h(void)
 {
    TEST_IGNORE();
-   const char sentence[] = "the quick brown fish jumps over the lazy dog";
+   const char sentence[] = "five boxing wizards jump quickly at it";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
 }
@@ -87,20 +87,10 @@ void test_mixed_case_and_punctuation(void)
    TEST_ASSERT_TRUE(is_pangram(sentence));
 }
 
-void test_non_ascii_characters(void)
+void test_upper_and_lower_case_of_same_character(void)
 {
    TEST_IGNORE();
-   const char sentence[] =
-       "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.";
-
-   TEST_ASSERT_TRUE(is_pangram(sentence));
-}
-
-void test_pangram_in_alphabet_other_than_ascii(void)
-{
-   TEST_IGNORE();
-   const char sentence[] =
-       "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства.";
+   const char sentence[] = "the quick brown fox jumps over with lazy FX";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
 }
@@ -111,16 +101,15 @@ int main(void)
 
    RUN_TEST(test_null);
    RUN_TEST(test_empty_sentence);
+   RUN_TEST(test_perfect_lowercase_pangram);
    RUN_TEST(test_lowercase_pangram);
-   RUN_TEST(test_uppercase_pangram);
    RUN_TEST(test_missing_character_x);
-   RUN_TEST(test_another_missing_x);
+   RUN_TEST(test_another_missing_h);
    RUN_TEST(test_pangram_with_underscores);
    RUN_TEST(test_pangram_with_numbers);
    RUN_TEST(test_missing_letters_replaced_by_numbers);
    RUN_TEST(test_mixed_case_and_punctuation);
-   RUN_TEST(test_non_ascii_characters);
-   RUN_TEST(test_pangram_in_alphabet_other_than_ascii);
+   RUN_TEST(test_upper_and_lower_case_of_same_character);
 
    UnityEnd();
    return 0;
