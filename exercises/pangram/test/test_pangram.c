@@ -9,8 +9,14 @@ void tearDown(void)
 {
 }
 
+void test_null(void)
+{
+   TEST_ASSERT_FALSE(is_pangram(NULL));
+}
+
 void test_empty_sentence(void)
 {
+   TEST_IGNORE();               // delete this line to run test
    const char sentence[] = "";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
@@ -18,7 +24,7 @@ void test_empty_sentence(void)
 
 void test_perfect_lowercase_pangram(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();
    const char sentence[] = "abcdefghijklmnopqrstuvwxyz";
 
    TEST_ASSERT_TRUE(is_pangram(sentence));
@@ -93,6 +99,7 @@ int main(void)
 {
    UnityBegin("test/test_pangram.c");
 
+   RUN_TEST(test_null);
    RUN_TEST(test_empty_sentence);
    RUN_TEST(test_perfect_lowercase_pangram);
    RUN_TEST(test_lowercase_pangram);
