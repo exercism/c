@@ -46,6 +46,5 @@ test.
 Try to use standard C99 facilities in preference to writing your own
 low-level algorithms or facilities by hand.
 
-
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
