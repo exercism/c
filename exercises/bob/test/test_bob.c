@@ -22,12 +22,33 @@ void test_shouting(void)
        );
 }
 
+void test_shouting_gibberish(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("FCECDFCAAB")
+       );
+}
+
 void test_asking_a_question(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.",
                             hey_bob
                             ("Does this cryogenic chamber make me look fat?")
+       );
+}
+
+void test_asking_a_numeric_question(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("You are, what, like 15?")
+       );
+}
+
+void test_asking_gibberish(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("fffbbcbeab?")
        );
 }
 
@@ -48,10 +69,10 @@ void test_using_acronyms_in_regular_speech(void)
        );
 }
 
-void test_forceful_questions(void)
+void test_forceful_question(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Whoa, chill out!",
+   TEST_ASSERT_EQUAL_STRING("Calm down, I know what I'm doing!",
                             hey_bob("WHAT THE HELL WERE YOU THINKING?")
        );
 }
@@ -101,18 +122,18 @@ void test_statement_containing_question_mark(void)
        );
 }
 
+void test_non_letters_with_question(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob(":) ?")
+       );
+}
+
 void test_prattling_on(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.",
                             hey_bob("Wait! Hang on.  Are you going to be OK?")
-       );
-}
-
-void test_question_with_trailing_whitespace(void)
-{
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("Are you ok? ")
        );
 }
 
@@ -130,11 +151,52 @@ void test_prolonged_silence(void)
        );
 }
 
-void test_not_all_silence(void)
+void test_alternate_silence(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Fine. Be that way!",
+                            hey_bob("\t\t\t\t\t\t\t\t\t\t")
+       );
+}
+
+void test_multiple_line_question(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob(" A bit of silence can be nice.  ")
+                            hey_bob
+                            ("\nDoes this cryogenic chamber make me look fat?\nno")
+       );
+}
+
+void test_starting_with_whitespace(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Whatever.", hey_bob("         hmmmmmmm...")
+       );
+}
+
+void test_ending_with_whitespace(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Sure.",
+                            hey_bob
+                            ("Okay if like my  spacebar  quite a bit?   ")
+       );
+}
+
+void test_other_whitespace(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("\n\r \t")
+       );
+}
+
+void test_non_question_ending_with_whitespace(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_STRING("Whatever.",
+                            hey_bob
+                            ("This is a statement ending with whitespace      ")
        );
 }
 
@@ -144,21 +206,29 @@ int main(void)
 
    RUN_TEST(test_stating_something);
    RUN_TEST(test_shouting);
+   RUN_TEST(test_shouting_gibberish);
    RUN_TEST(test_asking_a_question);
+   RUN_TEST(test_asking_a_numeric_question);
+   RUN_TEST(test_asking_gibberish);
    RUN_TEST(test_talking_forcefully);
    RUN_TEST(test_using_acronyms_in_regular_speech);
-   RUN_TEST(test_forceful_questions);
+   RUN_TEST(test_forceful_question);
    RUN_TEST(test_shouting_numbers);
    RUN_TEST(test_only_numbers);
    RUN_TEST(test_question_with_only_numbers);
    RUN_TEST(test_shouting_with_special_characters);
    RUN_TEST(test_shouting_with_no_exclamation_mark);
    RUN_TEST(test_statement_containing_question_mark);
+   RUN_TEST(test_non_letters_with_question);
    RUN_TEST(test_prattling_on);
-   RUN_TEST(test_question_with_trailing_whitespace);
    RUN_TEST(test_silence);
    RUN_TEST(test_prolonged_silence);
-   RUN_TEST(test_not_all_silence);
+   RUN_TEST(test_alternate_silence);
+   RUN_TEST(test_multiple_line_question);
+   RUN_TEST(test_starting_with_whitespace);
+   RUN_TEST(test_ending_with_whitespace);
+   RUN_TEST(test_other_whitespace);
+   RUN_TEST(test_non_question_ending_with_whitespace);
 
    UnityEnd();
    return 0;
