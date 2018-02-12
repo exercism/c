@@ -1,36 +1,106 @@
 #include "palindrome_products.h"
-#include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <limits.h>
 
-/* Return true if the product of a and b is a palindrome, false otherwise */
-bool is_palindrome_product(int a, int b)
+int palindrome(int n);
+void addfactors(factor_t ** p, int i, int k);
+void check_alloc(void *p);
+void swap(int *i, int *k);
+
+product_t *get_palindrome_product(int from, int to)
 {
-   int ret = 0, prod = a * b;
-   while (prod) {
-      ret *= 10;
-      ret += prod % 10;
-      prod /= 10;
-   }
-   return (a * b) == ret;
-}
+   if (from > to)
+      swap(&from, &to);
 
-product_t get_palindrome_product(int min, int max)
-{
-   product_t ret;
-   ret.smallest = 0;
-   ret.largest = 0;
-   bool largest = false;
+   product_t *res = (product_t *) malloc(sizeof(product_t));
+   check_alloc(res);
 
-   for (int i = min; i <= max; i++) {
-      for (int j = min; j <= max; j++) {
-         if (is_palindrome_product(i, j) == true) {
-            if (largest == false) {
-               ret.smallest = i * j;
-               largest = true;
-            } else {
-               ret.largest = i * j;
+   res->smallest = INT_MAX;
+   res->largest = INT_MIN;
+   res->factors_lg = NULL;
+   res->factors_sm = NULL;
+
+   int i, k, n;
+   for (i = from; i <= to; i++)
+      for (k = i; k <= to; k++)
+         if (palindrome(n = i * k)) {
+            if (n <= res->smallest) {
+               res->smallest = n;
+               addfactors(&res->factors_sm, i, k);
+            } else if (n >= res->largest) {
+               res->largest = n;
+               addfactors(&res->factors_lg, i, k);
             }
          }
-      }
+
+   if (res->smallest == INT_MAX)
+      res->smallest = 0;
+   if (res->largest == INT_MIN)
+      res->largest = 0;
+   return res;
+}
+
+void free_ll(struct factors *p)
+{
+   if (p == NULL)
+      return;
+   if (p->next != NULL)
+      free_ll(p->next);
+   free(p);
+}
+
+void free_product(product_t * p)
+{
+   free_ll(p->factors_lg);
+   free_ll(p->factors_sm);
+   free(p);
+}
+
+void addfactors(factor_t ** p, int i, int k)
+{
+   int n = i * k;
+   if ((*p == NULL) || (((*p)->factor_a) * (*p)->factor_b != n)) {
+      free_ll(*p);
+      *p = NULL;
    }
-   return ret;
+
+   factor_t *tmp = (factor_t *) malloc(sizeof(factor_t));
+   check_alloc(tmp);
+
+   tmp->next = *p;
+   tmp->factor_a = i;
+   tmp->factor_b = k;
+   *p = tmp;
+}
+
+void swap(int *i, int *k)
+{
+   *i ^= *k;
+   *k ^= *i;
+   *i ^= *k;
+}
+
+int palindrome(int n)
+{
+   if (n < 0)
+      n *= -1;
+   int r = 0;
+   int nn = n;
+
+   /* inverse n in r */
+   while (n >= 1) {
+      r = (r * 10) + (n % 10);
+      n /= 10;
+   }
+
+   return (nn == r);
+}
+
+void check_alloc(void *p)
+{
+   if (p == NULL) {
+      fprintf(stderr, "Memory error!\n");
+      exit(1);
+   }
 }

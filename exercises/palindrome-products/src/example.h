@@ -1,12 +1,24 @@
 #ifndef PALINDROME_PRODUCTS_H
 #define PALINDROME_PRODUCTS_H
 
-typedef struct {
+struct factors {
+   int factor_a;
+   int factor_b;
+   struct factors *next;
+};
+
+typedef struct factors factor_t;
+
+struct product {
    int smallest;
    int largest;
-} product_t;
+   factor_t *factors_sm;
+   factor_t *factors_lg;
+};
 
-/* Return the smallest and largest palindrome products in the range of min and max */
-product_t get_palindrome_product(int min, int max);
+typedef struct product product_t;
+
+product_t *get_palindrome_product(int from, int to);
+void free_product(product_t * p);
 
 #endif
