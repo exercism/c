@@ -10,16 +10,20 @@ void swap(int *i, int *k);
 
 product_t *get_palindrome_product(int from, int to)
 {
-   if (from > to)
-      swap(&from, &to);
-
    product_t *res = (product_t *) malloc(sizeof(product_t));
    check_alloc(res);
 
+   res->error[MAXERR - 1] = '\0';
    res->smallest = INT_MAX;
    res->largest = INT_MIN;
    res->factors_lg = NULL;
    res->factors_sm = NULL;
+
+   if (from > to) {
+      snprintf(res->error, MAXERR - 1,
+               "invalid input: min is %i and max is %i", from, to);
+      return res;
+   }
 
    int i, k, n;
    for (i = from; i <= to; i++)
@@ -34,10 +38,11 @@ product_t *get_palindrome_product(int from, int to)
             }
          }
 
-   if (res->smallest == INT_MAX)
-      res->smallest = 0;
-   if (res->largest == INT_MIN)
-      res->largest = 0;
+   if ((res->smallest == INT_MAX) || (res->largest == INT_MIN)) {
+      snprintf(res->error, MAXERR - 1,
+               "no palindrome with factors in the range %i to %i", from, to);
+      return res;
+   }
    return res;
 }
 
@@ -72,13 +77,6 @@ void addfactors(factor_t ** p, int i, int k)
    tmp->factor_a = i;
    tmp->factor_b = k;
    *p = tmp;
-}
-
-void swap(int *i, int *k)
-{
-   *i ^= *k;
-   *k ^= *i;
-   *i ^= *k;
 }
 
 int palindrome(int n)

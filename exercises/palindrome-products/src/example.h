@@ -1,6 +1,8 @@
 #ifndef PALINDROME_PRODUCTS_H
 #define PALINDROME_PRODUCTS_H
 
+#define MAXERR 100
+
 struct factors {
    int factor_a;
    int factor_b;
@@ -14,6 +16,7 @@ struct product {
    int largest;
    factor_t *factors_sm;
    factor_t *factors_lg;
+   char error[MAXERR];
 };
 
 typedef struct product product_t;
