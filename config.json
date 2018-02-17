@@ -488,17 +488,6 @@
       ],
       "unlocked_by": "difference-of-squares",
       "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f"
-    },
-    {
-      "core": false,
-      "difficulty": 2,
-      "slug": "etl",
-      "topics": [
-        "structs",
-        "pointers"
-      ],
-      "unlocked_by": "scrabble-score",
-      "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06"
     }
   ],
   "foregone": [],
