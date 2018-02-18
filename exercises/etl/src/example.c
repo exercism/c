@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-int compare(const void *a, const void *b)
+static int compare(const void *a, const void *b)
 {
    new_map *p = (new_map *) a;
    new_map *q = (new_map *) b;

@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-int compare_map(new_map * a, new_map * b, int len)
+static int compare_map(new_map * a, new_map * b, int len)
 {
    if (a == NULL)
       return (b == NULL) ? 0 : 1;
