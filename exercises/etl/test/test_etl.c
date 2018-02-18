@@ -22,7 +22,6 @@ static int compare_map(new_map * a, new_map * b, int len)
    return !(len == -1);
 }
 
-//Tests start here
 void test_a_single_letter(void)
 {
    legacy_map input[] = { {1, "A"} };
@@ -67,7 +66,7 @@ void test_multiple_scores_with_multiple_letters(void)
    int input_len = 2;
 
    new_map expected_map[] = {
-      {'a', 1}, {'e', 1}, {'d', 2}, {'g', 2}
+      {'a', 1}, {'d', 2}, {'e', 1}, {'g', 2}
    };
    int expected_length = 4;
 
