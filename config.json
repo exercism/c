@@ -499,6 +499,16 @@
       ],
       "unlocked_by": "scrabble-score",
       "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06"
+    },
+    {
+      "core": false,
+      "difficulty": 3,
+      "slug": "bracket-push",
+      "topics": [
+        "control_flow_if_statements",
+        "stacks"
+      ],
+      "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac"
     }
   ],
   "foregone": [],
