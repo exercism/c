@@ -499,6 +499,16 @@
       ],
       "unlocked_by": "scrabble-score",
       "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "prime-factors",
+      "topics": [
+        "algorithms"
+      ],
+      "unlocked_by": "sieve",
+      "uuid": "f34db12c-7acc-4287-92a6-c077938512d7"
     }
   ],
   "foregone": [],
