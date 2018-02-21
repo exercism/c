@@ -509,6 +509,16 @@
       ],
       "unlocked_by": "sieve",
       "uuid": "f34db12c-7acc-4287-92a6-c077938512d7"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "luhn",
+      "topics": [
+        "strings",
+        "algorithms"
+      ],
+      "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7"
     }
   ],
   "foregone": [],
