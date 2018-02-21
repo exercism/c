@@ -7,9 +7,6 @@
  */
 size_t find_factors(uint64_t n, uint64_t factors[static MAXFACTORS])
 {
-   if (factors == NULL || n == 0)
-      return 0;
-
    int count = 0;
    while ((n % 2 == 0) && (count < MAXFACTORS)) {
       factors[count++] = 2;
