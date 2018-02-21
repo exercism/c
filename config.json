@@ -499,6 +499,16 @@
       ],
       "unlocked_by": "scrabble-score",
       "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
+      "slug": "luhn",
+      "topics": [
+        "strings",
+        "algorithms"
+      ],
+      "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7"
     }
   ],
   "foregone": [],
