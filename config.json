@@ -503,6 +503,16 @@
     {
       "core": false,
       "difficulty": 2,
+      "slug": "prime-factors",
+      "topics": [
+        "algorithms"
+      ],
+      "unlocked_by": "sieve",
+      "uuid": "f34db12c-7acc-4287-92a6-c077938512d7"
+    },
+    {
+      "core": false,
+      "difficulty": 2,
       "slug": "luhn",
       "topics": [
         "strings",
