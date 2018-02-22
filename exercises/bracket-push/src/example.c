@@ -1,50 +1,52 @@
 #include "bracket_push.h"
 #include <stdio.h>
 
-static bool is_bbp(char c)
+static bool is_matching(char a, char b)
 {
-   return (c == '{') || (c == '}') ||
-       (c == '[') || (c == ']') || (c == '(') || (c == ')');
-}
-
-static bool matching(char a, char b)
-{
-   if (a == '}')
-      return b == '{';
-   if (a == ']')
-      return b == '[';
-   if (a == ')')
-      return b == '(';
+   if (a == '{')
+      return b == '}';
+   if (a == '[')
+      return b == ']';
+   if (a == '(')
+      return b == ')';
 
    return false;
 }
 
-bool bbp_okay(const char *input)
+static bool is_opening(const char c)
 {
-   if (input == NULL || *input == '\0') {
+   return (c == '{') || (c == '[') || (c == '(');
+}
+
+static bool is_closing(const char c)
+{
+   return (c == '}') || (c == ']') || (c == ')');
+}
+
+/* https://stackoverflow.com/a/2718114/6049386 */
+static const char *match(const char *str)
+{
+   if (*str == '\0' || is_closing(*str))
+      return str;
+
+   if (is_opening(*str)) {
+      const char *closer = match(str + 1);
+
+      if (is_matching(*str, *closer))
+         return match(closer + 1);
+
+      return str;
+   }
+
+   return match(++str);
+}
+
+bool is_paired(const char *input)
+{
+   if (input == NULL) {
       return true;
    }
 
-   char stack[MAXBBP] = { 0 };
-   int top = 0;
-
-   char *tmp = (char *)input;
-   while (*tmp) {
-      if (is_bbp(*tmp)) {
-         stack[top] = *tmp;
-
-         if (top == MAXBBP) {
-            fprintf(stderr, "Input too long.\n");
-            return false;
-         }
-
-         while ((top > 0) && matching(stack[top], stack[top - 1]))
-            top -= 2;
-
-         top++;
-      }
-      tmp++;
-   }
-
-   return top == 0;
+   const char *res = match(input);
+   return (*res == '\0');
 }
