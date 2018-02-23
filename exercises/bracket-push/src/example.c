@@ -23,7 +23,7 @@ static bool is_closing(const char c)
    return (c == '}') || (c == ']') || (c == ')');
 }
 
-/* https://stackoverflow.com/a/2718114/6049386 */
+/* https://stackoverflow.com/a/2718114/6049386 , MIT, Feb 2018 */
 static const char *match(const char *str)
 {
    if (*str == '\0' || is_closing(*str))
