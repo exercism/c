@@ -519,6 +519,17 @@
         "algorithms"
       ],
       "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7"
+    },
+    {
+      "core": false,
+      "difficulty": 5,
+      "slug": "bracket-push",
+      "topics": [
+        "control_flow_if_statements",
+        "stacks",
+        "recursion"
+      ],
+      "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac"
     }
   ],
   "foregone": [],
