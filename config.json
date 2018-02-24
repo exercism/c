@@ -530,6 +530,18 @@
         "recursion"
       ],
       "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac"
+    },
+    {
+      "core": false,
+      "difficulty": 6,
+      "slug": "say",
+      "topics": [
+        "algorithms",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "roman-numerals",
+      "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0"
     }
   ],
   "foregone": [],
