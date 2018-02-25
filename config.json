@@ -544,6 +544,19 @@
       ],
       "unlocked_by": "atbash-cipher",
       "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b"
+     },
+     {
+      "core": false,
+      "difficulty": 4,
+      "slug": "pig-latin",
+      "topics": [
+        "algorithms",
+        "functions",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "hamming",
+      "uuid": "62f539e7-f682-412d-bf86-38503e7cebca"
     }
   ],
   "foregone": [],
