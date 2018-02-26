@@ -4,25 +4,30 @@
 #include <stdio.h>
 #include <math.h>
 
-static const map below_10[] = {
+typedef struct {
+   const char *name;
+   size_t size;
+} map_t;
+
+static const map_t below_10[] = {
    {"", 0}, {"one", 3}, {"two", 3}, {"three", 5},
    {"four", 4}, {"five", 4}, {"six", 3}, {"seven", 5},
    {"eight", 5}, {"nine", 4}
 };
 
-static const map below_20[] = {
+static const map_t below_20[] = {
    {"ten", 3}, {"eleven", 6}, {"twelve", 6}, {"thirteen", 8},
    {"fourteen", 8}, {"fifteen", 7}, {"sixteen", 7}, {"seventeen", 9},
    {"eighteen", 8}, {"nineteen", 8}
 };
 
-static const map below_100[] = {
+static const map_t below_100[] = {
    {"", 0}, {"", 0}, {"twenty", 6}, {"thirty", 6},
    {"forty", 5}, {"fifty", 5}, {"sixty", 5}, {"seventy", 7},
    {"eighty", 6}, {"ninety", 6}
 };
 
-static const map thousands[] = {
+static const map_t thousands[] = {
    {"", 0}, {"thousand", 8}, {"million", 7}, {"billion", 7}
 };
 
