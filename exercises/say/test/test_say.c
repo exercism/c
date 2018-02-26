@@ -15,7 +15,6 @@ void test_zero(void)
    char *ans = NULL;
    int res = say(0, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("zero", ans);
    free(ans);
 }
@@ -26,7 +25,6 @@ void test_one(void)
    char *ans = NULL;
    int res = say(1, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one", ans);
    free(ans);
 }
@@ -37,7 +35,6 @@ void test_fourteen(void)
    char *ans = NULL;
    int res = say(14, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("fourteen", ans);
    free(ans);
 }
@@ -48,7 +45,6 @@ void test_twenty(void)
    char *ans = NULL;
    int res = say(20, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("twenty", ans);
    free(ans);
 }
@@ -59,7 +55,6 @@ void test_twenty_two(void)
    char *ans = NULL;
    int res = say(22, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("twenty-two", ans);
    free(ans);
 }
@@ -70,7 +65,6 @@ void test_one_hundred(void)
    char *ans = NULL;
    int res = say(100, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one hundred", ans);
    free(ans);
 }
@@ -81,7 +75,6 @@ void test_one_hundred_twenty_three(void)
    char *ans = NULL;
    int res = say(123, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one hundred twenty-three", ans);
    free(ans);
 }
@@ -92,7 +85,6 @@ void test_one_thousand(void)
    char *ans = NULL;
    int res = say(1000, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one thousand", ans);
    free(ans);
 }
@@ -103,7 +95,6 @@ void test_one_thousand_two_hundred_thirty_four(void)
    char *ans = NULL;
    int res = say(1234, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one thousand two hundred thirty-four", ans);
    free(ans);
 }
@@ -114,7 +105,6 @@ void test_one_million(void)
    char *ans = NULL;
    int res = say(1000000, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one million", ans);
    free(ans);
 }
@@ -125,7 +115,6 @@ void test_one_million_two_thousand_three_hundred_forty_five(void)
    char *ans = NULL;
    int res = say(1002345, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one million two thousand three hundred "
                             "forty-five", ans);
    free(ans);
@@ -137,7 +126,6 @@ void test_one_billion(void)
    char *ans = NULL;
    int res = say(1000000000, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("one billion", ans);
    free(ans);
 }
@@ -148,7 +136,6 @@ void test_a_big_number(void)
    char *ans = NULL;
    int res = say(987654321123, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_NOT_NULL(ans);
    TEST_ASSERT_EQUAL_STRING("nine hundred eighty-seven billion six hundred "
                             "fifty-four million three hundred twenty-one "
                             "thousand one hundred twenty-three", ans);

@@ -4,6 +4,31 @@
 #include <stdio.h>
 #include <math.h>
 
+static const map below_10[] = {
+   {"", 0}, {"one", 3}, {"two", 3}, {"three", 5},
+   {"four", 4}, {"five", 4}, {"six", 3}, {"seven", 5},
+   {"eight", 5}, {"nine", 4}
+};
+
+static const map below_20[] = {
+   {"ten", 3}, {"eleven", 6}, {"twelve", 6}, {"thirteen", 8},
+   {"fourteen", 8}, {"fifteen", 7}, {"sixteen", 7}, {"seventeen", 9},
+   {"eighteen", 8}, {"nineteen", 8}
+};
+
+static const map below_100[] = {
+   {"", 0}, {"", 0}, {"twenty", 6}, {"thirty", 6},
+   {"forty", 5}, {"fifty", 5}, {"sixty", 5}, {"seventy", 7},
+   {"eighty", 6}, {"ninety", 6}
+};
+
+static const map thousands[] = {
+   {"", 0}, {"thousand", 8}, {"million", 7}, {"billion", 7}
+};
+
+/* below_20's are like two times below_10's so this will work */
+static const int widest = 8;
+
 int say(int64_t input, char **ans)
 {
    if (input < 0 || input > 999999999999 || ans == NULL)
@@ -20,47 +45,10 @@ int say(int64_t input, char **ans)
       return 0;
    }
 
-   const char *below_10[] = {
-      "", "one", "two", "three", "four",
-      "five", "six", "seven", "eight", "nine"
-   };
-   const int below_10_len[] = {
-      0, 3, 3, 5, 4,
-      4, 3, 5, 5, 4
-   };
-
-   const char *below_20[] = {
-      "ten", "eleven", "twelve", "thirteen", "fourteen",
-      "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
-   };
-   const int below_20_len[] = {
-      3, 6, 6, 8, 8,
-      7, 7, 9, 8, 8
-   };
-
-   const char *below_100[] = {
-      "", "", "twenty", "thirty", "forty",
-      "fifty", "sixty", "seventy", "eighty", "ninety"
-   };
-   const int below_100_len[] = {
-      0, 0, 6, 6, 5,
-      5, 5, 7, 6, 6
-   };
-
-   const char *thousands[] = {
-      "", "thousand", "million", "billion"
-   };
-   const int thousands_len[] = {
-      0, 8, 7, 7
-   };
-
-   /* below_20's are like two times below_10's so this will work */
-   const int widest = 8;
-
    /* digits count */
    int digits = floor(log10(input)) + 1;
 
-   /* take care of spaces/hyphens, thousends and termination */
+   /* take care of spaces/hyphens, thousands and termination */
    *ans = malloc((widest + 1) * (digits + (digits + 1) / 3) + 1);
    if (*ans == NULL) {
       fprintf(stderr, "Memory error!\n");
@@ -79,8 +67,8 @@ int say(int64_t input, char **ans)
 
          if (tmp / 100) {
             int i = tmp / 100;
-            strcpy(head, below_10[i]);
-            head += below_10_len[i];
+            strcpy(head, below_10[i].name);
+            head += below_10[i].size;
 
             *head++ = ' ';
 
@@ -92,8 +80,8 @@ int say(int64_t input, char **ans)
          }
 
          if (tmp < 10) {
-            strcpy(head, below_10[tmp]);
-            head += below_10_len[tmp];
+            strcpy(head, below_10[tmp].name);
+            head += below_10[tmp].size;
 
             tmp = 0;
 
@@ -101,8 +89,8 @@ int say(int64_t input, char **ans)
 
          } else if (tmp < 20) {
             tmp -= 10;
-            strcpy(head, below_20[tmp]);
-            head += below_20_len[tmp];
+            strcpy(head, below_20[tmp].name);
+            head += below_20[tmp].size;
 
             tmp = 0;
 
@@ -110,8 +98,8 @@ int say(int64_t input, char **ans)
 
          } else {
             int i = tmp / 10;
-            strcpy(head, below_100[i]);
-            head += below_100_len[i];
+            strcpy(head, below_100[i].name);
+            head += below_100[i].size;
 
             tmp -= i * 10;
 
@@ -134,8 +122,8 @@ int say(int64_t input, char **ans)
       if (digits)
          *head++ = ' ';
 
-      strcpy(head, thousands[digits / 3]);
-      head += thousands_len[digits / 3];
+      strcpy(head, thousands[digits / 3].name);
+      head += thousands[digits / 3].size;
 
       if (input)
          *head++ = ' ';

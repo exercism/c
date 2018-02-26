@@ -10,6 +10,8 @@ VFLAGS += --tool=memcheck
 VFLAGS += --leak-check=full
 VFLAGS += --error-exitcode=1
 
+LDFLAGS = -lm
+
 test: tests.out
 	@./tests.out
 
@@ -22,4 +24,4 @@ clean:
 
 tests.out: test/test_say.c src/say.c src/say.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/say.c test/vendor/unity.c test/test_say.c -o tests.out -lm
+	@cc $(CFLAGS) src/say.c test/vendor/unity.c test/test_say.c -o tests.out $(LDFLAGS)
