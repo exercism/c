@@ -532,6 +532,18 @@
       ],
       "unlocked_by": "isogram",
       "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac"
+    },
+    {
+      "core": false,
+      "difficulty": 6,
+      "slug": "crypto-square",
+      "topics": [
+        "algorithms",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "atbash-cipher",
+      "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b"
     }
   ],
   "foregone": [],
