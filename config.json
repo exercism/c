@@ -544,6 +544,18 @@
       ],
       "unlocked_by": "atbash-cipher",
       "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b"
+    },
+    {
+      "core": false,
+      "difficulty": 3,
+      "slug": "secret-handshake",
+      "topics": [
+        "algorithms",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "hamming",
+      "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d"
     }
   ],
   "foregone": [],
