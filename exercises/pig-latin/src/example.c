@@ -40,10 +40,10 @@ static void strncpy_tolower(char *dst, const char *src, size_t n)
    while ((n--) && (*dst++ = tolower(*src++))) ;
 }
 
-static void append_ay(char *res)
+static void append_ay(char *translated)
 {
-   *res = 'a';
-   *(res + 1) = 'y';
+   *translated = 'a';
+   *(translated + 1) = 'y';
 }
 
 static bool starts_with(const char *input, const char *start_seq)
@@ -96,18 +96,18 @@ char *translate(const char *phrase)
       return NULL;
 
    /* every word gets 'ay' at the end */
-   const size_t res_len = chars + words * 2;
+   const size_t translated_len = chars + words * 2;
 
-   char *res = malloc(res_len + 1);
-   if (res == NULL) {
+   char *translated = malloc(translated_len + 1);
+   if (translated == NULL) {
       fprintf(stderr, "Memory error!\n");
       return NULL;
    }
 
    if (words == 0)
-      return strcpy(res, phrase);
+      return strcpy(translated, phrase);
 
-   char *tmp = res;
+   char *tmp = translated;
    while (words--) {
       /* just copy non-alphas */
       while (*phrase && !isalpha(*phrase))
@@ -122,7 +122,7 @@ char *translate(const char *phrase)
       tmp += word_len + 2;
       phrase += word_len;
    }
-   res[res_len] = '\0';
+   translated[translated_len] = '\0';
 
-   return res;
+   return translated;
 }
