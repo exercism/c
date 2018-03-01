@@ -536,6 +536,18 @@
     {
       "core": false,
       "difficulty": 6,
+      "slug": "say",
+      "topics": [
+        "algorithms",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "roman-numerals",
+      "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0"
+    },
+    {
+      "core": false,
+      "difficulty": 6,
       "slug": "crypto-square",
       "topics": [
         "algorithms",
