@@ -536,6 +536,18 @@
     {
       "core": false,
       "difficulty": 6,
+      "slug": "say",
+      "topics": [
+        "algorithms",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "roman-numerals",
+      "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0"
+    },
+    {
+      "core": false,
+      "difficulty": 6,
       "slug": "crypto-square",
       "topics": [
         "algorithms",
@@ -556,6 +568,19 @@
       ],
       "unlocked_by": "hamming",
       "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d"
+     },
+     {
+      "core": false,
+      "difficulty": 4,
+      "slug": "pig-latin",
+      "topics": [
+        "algorithms",
+        "functions",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "hamming",
+      "uuid": "62f539e7-f682-412d-bf86-38503e7cebca"
     }
   ],
   "foregone": [],
