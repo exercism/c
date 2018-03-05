@@ -2,6 +2,8 @@
 #include "../src/secret_handshake.h"
 #include <stdlib.h>
 
+#define ARRAY_SIZE(arr) (sizeof(arr)/sizeof(arr[0]))
+
 void setUp(void)
 {
 }
