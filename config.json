@@ -581,6 +581,18 @@
       ],
       "unlocked_by": "hamming",
       "uuid": "62f539e7-f682-412d-bf86-38503e7cebca"
+    },
+    {
+      "core": false,
+      "difficulty": 4,
+      "slug": "run-length-encoding",
+      "topics": [
+        "algorithms",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "atbash-cipher",
+      "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141"
     }
   ],
   "foregone": [],
