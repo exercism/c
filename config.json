@@ -629,6 +629,19 @@
       ],
       "unlocked_by": "beer-song",
       "uuid": "c1392944-08fd-45c3-b508-41d682f832d3"
+    },
+    {
+      "core": false,
+      "difficulty": 6,
+      "slug": "binary-search-tree",
+      "topics": [
+        "structs",
+        "arrays",
+        "recursion",
+        "control_flow_loops"
+      ],
+      "unlocked_by": "binary-search",
+      "uuid": "1b33f528-8f29-4582-a268-07be2d1a4516"
     }
   ],
   "foregone": [],
