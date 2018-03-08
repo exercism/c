@@ -584,6 +584,18 @@
     },
     {
       "core": false,
+      "difficulty": 3,
+      "slug": "minesweeper",
+      "topics": [
+        "strings",
+        "arrays",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "scrabble-score",
+      "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "run-length-encoding",
       "topics": [
