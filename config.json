@@ -642,6 +642,18 @@
       ],
       "unlocked_by": "binary-search",
       "uuid": "1b33f528-8f29-4582-a268-07be2d1a4516"
+    },
+    {
+      "difficulty": 3,
+      "slug": "diamond",
+      "topics": [
+        "arrays",
+        "functions",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "scrabble-score",
+      "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015"
     }
   ],
   "foregone": [],
