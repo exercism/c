@@ -608,6 +608,17 @@
     },
     {
       "core": false,
+      "difficulty": 1,
+      "slug": "two-fer",
+      "topics": [
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "beer-song",
+      "uuid": "15653c72-5468-415f-9425-6c58d552d346"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "wordy",
       "topics": [
