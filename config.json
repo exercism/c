@@ -616,6 +616,19 @@
       ],
       "unlocked_by": "beer-song",
       "uuid": "15653c72-5468-415f-9425-6c58d552d346"
+    },
+    {
+      "core": false,
+      "difficulty": 4,
+      "slug": "wordy",
+      "topics": [
+        "algorithms",
+        "functions",
+        "strings",
+        "control_flow_if_statements"
+      ],
+      "unlocked_by": "beer-song",
+      "uuid": "c1392944-08fd-45c3-b508-41d682f832d3"
     }
   ],
   "foregone": [],
