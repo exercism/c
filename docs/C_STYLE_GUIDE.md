@@ -118,10 +118,7 @@ Like most C source files, a test file begins with includes.
 // any other includes here
 ```
 
-The includes are then followed by any helper functions that are used by the test functions.
-The names of such helper functions should not use the `test_` prefix.
-
-Next, there are the `setUp()` and `tearDown()` functions. 
+The includes are then followed by the `setUp()` and `tearDown()` functions. 
 So far, no exercise uses these (the function bodies are empty) yet they must remain in place to allow the test files to compile correctly across all platforms.
 
 ```c
@@ -133,6 +130,9 @@ void tearDown(void)
 {
 }
 ```
+
+Next are any helper functions that are used by the test functions.
+The names of such helper functions should not use the `test_` prefix.
 
 Next are the test functions themselves. 
 The names of these functions use a `test_` prefix.
