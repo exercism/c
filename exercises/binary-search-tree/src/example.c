@@ -43,11 +43,12 @@ static node_t *add_node(node_t * head, int data)
    return head;
 }
 
-static void parse_tree(node_t * head)
+static void walk_tree(node_t * head)
 {
    if (head == NULL || !mem_ok)
       return;
 
+   walk_tree(head->left);
    parsed_tree[parsed_len++] = head->data;
    if (parsed_len % CHUNK_SIZE == 0) {
       parsed_tree =
@@ -58,13 +59,7 @@ static void parse_tree(node_t * head)
          return;
       }
    }
-   parse_tree(head->left);
-   parse_tree(head->right);
-}
-
-static int compare(const void *a, const void *b)
-{
-   return *(int *)a - *(int *)b;
+   walk_tree(head->right);
 }
 
 node_t *build_tree(int *tree_data, size_t tree_data_len)
@@ -99,11 +94,9 @@ int *sorted_data(node_t * head)
 
    mem_ok = true;
    parsed_len = 0;
-   parse_tree(head);
+   walk_tree(head);
    if (!mem_ok)
       return NULL;
-
-   qsort(parsed_tree, parsed_len, sizeof(int), compare);
 
    return parsed_tree;
 }
