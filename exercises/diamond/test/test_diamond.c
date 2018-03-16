@@ -18,7 +18,7 @@ static void free_all(char **diamond)
    free(diamond);
 }
 
-void test__degenerate_case_with_a_single_a_row(void)
+void test_rows_degenerate_case_with_a_single_a_row(void)
 {
    const char letter = 'A';
    const char *expected[] = {
@@ -29,8 +29,9 @@ void test__degenerate_case_with_a_single_a_row(void)
    free_all(diamond);
 }
 
-void test__degenerate_case_with_no_row_containing_3_distinct_groups_of_spaces
-    (void) {
+void
+test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces(void)
+{
    TEST_IGNORE();               // delete this line to run test
    const char letter = 'B';
    const char *expected[] = {
@@ -43,7 +44,7 @@ void test__degenerate_case_with_no_row_containing_3_distinct_groups_of_spaces
    free_all(diamond);
 }
 
-void test__smallest_non_degenerate_case_with_odd_diamond_side_length(void)
+void test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
 {
    TEST_IGNORE();
    const char letter = 'C';
@@ -59,7 +60,7 @@ void test__smallest_non_degenerate_case_with_odd_diamond_side_length(void)
    free_all(diamond);
 }
 
-void test__smallest_non_degenerate_case_with_even_diamond_side_length(void)
+void test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
 {
    TEST_IGNORE();
    const char letter = 'D';
@@ -77,7 +78,7 @@ void test__smallest_non_degenerate_case_with_even_diamond_side_length(void)
    free_all(diamond);
 }
 
-void test__largest_possible_diamond(void)
+void test_rows_largest_possible_diamond(void)
 {
    TEST_IGNORE();
    const char letter = 'Z';
@@ -143,12 +144,14 @@ int main(void)
 {
    UnityBegin("test/test_diamond.c");
 
-   RUN_TEST(test__degenerate_case_with_a_single_a_row);
+   RUN_TEST(test_rows_degenerate_case_with_a_single_a_row);
    RUN_TEST
-       (test__degenerate_case_with_no_row_containing_3_distinct_groups_of_spaces);
-   RUN_TEST(test__smallest_non_degenerate_case_with_odd_diamond_side_length);
-   RUN_TEST(test__smallest_non_degenerate_case_with_even_diamond_side_length);
-   RUN_TEST(test__largest_possible_diamond);
+       (test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces);
+   RUN_TEST
+       (test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length);
+   RUN_TEST
+       (test_rows_smallest_non_degenerate_case_with_even_diamond_side_length);
+   RUN_TEST(test_rows_largest_possible_diamond);
 
    UnityEnd();
    return 0;
