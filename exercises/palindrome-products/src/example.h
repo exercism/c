@@ -3,13 +3,11 @@
 
 #define MAXERR 100
 
-struct factors {
+typedef struct factors {
    int factor_a;
    int factor_b;
    struct factors *next;
-};
-
-typedef struct factors factor_t;
+} factor_t;
 
 struct product {
    int smallest;
