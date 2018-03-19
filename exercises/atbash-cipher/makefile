@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_atbash_cipher.c src/atbash_cipher.c src/atbash_cipher.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/atbash_cipher.c test/vendor/unity.c test/test_atbash_cipher.c -o tests.out
+	@$(CC) $(CFLAGS) src/atbash_cipher.c test/vendor/unity.c test/test_atbash_cipher.c -o tests.out

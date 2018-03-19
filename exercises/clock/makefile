@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_clock.c src/clock.c src/clock.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/clock.c test/vendor/unity.c test/test_clock.c -o tests.out
+	@$(CC) $(CFLAGS) src/clock.c test/vendor/unity.c test/test_clock.c -o tests.out

@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_rna_transcription.c src/rna_transcription.c src/rna_transcription.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/rna_transcription.c test/vendor/unity.c test/test_rna_transcription.c -o tests.out
+	@$(CC) $(CFLAGS) src/rna_transcription.c test/vendor/unity.c test/test_rna_transcription.c -o tests.out

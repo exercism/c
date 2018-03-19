@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_diamond.c src/diamond.c src/diamond.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/diamond.c test/vendor/unity.c test/test_diamond.c -o tests.out
+	@$(CC) $(CFLAGS) src/diamond.c test/vendor/unity.c test/test_diamond.c -o tests.out

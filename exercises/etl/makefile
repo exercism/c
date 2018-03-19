@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_etl.c src/etl.c src/etl.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/etl.c test/vendor/unity.c test/test_etl.c -o tests.out
+	@$(CC) $(CFLAGS) src/etl.c test/vendor/unity.c test/test_etl.c -o tests.out

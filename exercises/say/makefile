@@ -24,4 +24,4 @@ clean:
 
 tests.out: test/test_say.c src/say.c src/say.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/say.c test/vendor/unity.c test/test_say.c -o tests.out $(LDFLAGS)
+	@$(CC) $(CFLAGS) src/say.c test/vendor/unity.c test/test_say.c -o tests.out $(LDFLAGS)

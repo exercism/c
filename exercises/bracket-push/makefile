@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_bracket_push.c src/bracket_push.c src/bracket_push.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/bracket_push.c test/vendor/unity.c test/test_bracket_push.c -o tests.out
+	@$(CC) $(CFLAGS) src/bracket_push.c test/vendor/unity.c test/test_bracket_push.c -o tests.out

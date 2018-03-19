@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_binary.c src/binary.c src/binary.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/binary.c test/vendor/unity.c test/test_binary.c -o tests.out
+	@$(CC) $(CFLAGS) src/binary.c test/vendor/unity.c test/test_binary.c -o tests.out

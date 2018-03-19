@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_palindrome_products.c src/palindrome_products.c src/palindrome_products.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/palindrome_products.c test/vendor/unity.c test/test_palindrome_products.c -o tests.out
+	@$(CC) $(CFLAGS) src/palindrome_products.c test/vendor/unity.c test/test_palindrome_products.c -o tests.out

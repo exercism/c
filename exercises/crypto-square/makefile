@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_crypto_square.c src/crypto_square.c src/crypto_square.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/crypto_square.c test/vendor/unity.c test/test_crypto_square.c -o tests.out -lm
+	@$(CC) $(CFLAGS) src/crypto_square.c test/vendor/unity.c test/test_crypto_square.c -o tests.out -lm

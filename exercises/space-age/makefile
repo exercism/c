@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_space_age.c src/space_age.c src/space_age.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/space_age.c test/vendor/unity.c test/test_space_age.c -o tests.out
+	@$(CC) $(CFLAGS) src/space_age.c test/vendor/unity.c test/test_space_age.c -o tests.out
