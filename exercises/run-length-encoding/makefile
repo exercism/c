@@ -24,4 +24,4 @@ clean:
 
 tests.out: test/test_run_length_encoding.c src/run_length_encoding.c src/run_length_encoding.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/run_length_encoding.c test/vendor/unity.c test/test_run_length_encoding.c -o tests.out $(LDFLAGS)
+	@$(CC) $(CFLAGS) src/run_length_encoding.c test/vendor/unity.c test/test_run_length_encoding.c -o tests.out $(LDFLAGS)

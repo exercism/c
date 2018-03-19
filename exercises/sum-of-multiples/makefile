@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_sum_of_multiples.c src/sum_of_multiples.c src/sum_of_multiples.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/sum_of_multiples.c test/vendor/unity.c test/test_sum_of_multiples.c -o tests.out
+	@$(CC) $(CFLAGS) src/sum_of_multiples.c test/vendor/unity.c test/test_sum_of_multiples.c -o tests.out

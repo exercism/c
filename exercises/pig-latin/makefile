@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_pig_latin.c src/pig_latin.c src/pig_latin.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/pig_latin.c test/vendor/unity.c test/test_pig_latin.c -o tests.out
+	@$(CC) $(CFLAGS) src/pig_latin.c test/vendor/unity.c test/test_pig_latin.c -o tests.out

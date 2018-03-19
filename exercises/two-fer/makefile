@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_two_fer.c src/two_fer.c src/two_fer.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/two_fer.c test/vendor/unity.c test/test_two_fer.c -o tests.out
+	@$(CC) $(CFLAGS) src/two_fer.c test/vendor/unity.c test/test_two_fer.c -o tests.out

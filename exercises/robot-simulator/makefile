@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_robot_simulator.c src/robot_simulator.c src/robot_simulator.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/robot_simulator.c test/vendor/unity.c test/test_robot_simulator.c -o tests.out
+	@$(CC) $(CFLAGS) src/robot_simulator.c test/vendor/unity.c test/test_robot_simulator.c -o tests.out

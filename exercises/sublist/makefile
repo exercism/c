@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_sublist.c src/sublist.c src/sublist.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/sublist.c test/vendor/unity.c test/test_sublist.c -o tests.out
+	@$(CC) $(CFLAGS) src/sublist.c test/vendor/unity.c test/test_sublist.c -o tests.out

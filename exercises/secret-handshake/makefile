@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_secret_handshake.c src/secret_handshake.c src/secret_handshake.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/secret_handshake.c test/vendor/unity.c test/test_secret_handshake.c -o tests.out
+	@$(CC) $(CFLAGS) src/secret_handshake.c test/vendor/unity.c test/test_secret_handshake.c -o tests.out

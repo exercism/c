@@ -24,4 +24,4 @@ clean:
 
 tests.out: test/test_complex_numbers.c src/complex_numbers.c src/complex_numbers.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/complex_numbers.c test/vendor/unity.c test/test_complex_numbers.c $(LDFLAGS) -o tests.out
+	@$(CC) $(CFLAGS) src/complex_numbers.c test/vendor/unity.c test/test_complex_numbers.c $(LDFLAGS) -o tests.out

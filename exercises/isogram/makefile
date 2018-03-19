@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_isogram.c src/isogram.c src/isogram.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/isogram.c test/vendor/unity.c test/test_isogram.c -o tests.out
+	@$(CC) $(CFLAGS) src/isogram.c test/vendor/unity.c test/test_isogram.c -o tests.out

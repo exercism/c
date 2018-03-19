@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_acronym.c src/acronym.c src/acronym.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/acronym.c test/vendor/unity.c test/test_acronym.c -o tests.out
+	@$(CC) $(CFLAGS) src/acronym.c test/vendor/unity.c test/test_acronym.c -o tests.out

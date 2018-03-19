@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_luhn.c src/luhn.c src/luhn.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/luhn.c test/vendor/unity.c test/test_luhn.c -o tests.out
+	@$(CC) $(CFLAGS) src/luhn.c test/vendor/unity.c test/test_luhn.c -o tests.out

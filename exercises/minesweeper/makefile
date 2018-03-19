@@ -22,4 +22,4 @@ clean:
 
 tests.out: test/test_minesweeper.c src/minesweeper.c src/minesweeper.h
 	@echo Compiling $@
-	@cc $(CFLAGS) src/minesweeper.c test/vendor/unity.c test/test_minesweeper.c -o tests.out
+	@$(CC) $(CFLAGS) src/minesweeper.c test/vendor/unity.c test/test_minesweeper.c -o tests.out
