@@ -654,6 +654,18 @@
       ],
       "unlocked_by": "scrabble-score",
       "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015"
+    },
+    {
+      "difficulty": 7,
+      "slug": "flatten-array",
+      "topics": [
+        "pointers",
+        "functions",
+        "structs",
+        "recursion"
+      ],
+      "unlocked_by": "palindrome-products",
+      "uuid": "bb234f35-975b-4b00-8cd4-a6507b6fd830"
     }
   ],
   "foregone": [],
