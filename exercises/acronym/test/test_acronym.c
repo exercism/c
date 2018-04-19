@@ -74,6 +74,14 @@ void test_non_acronym_all_caps_words(void)
    test_abbreviation(phrase, expected);
 }
 
+void test_all_lower_case(void)
+{
+   TEST_IGNORE();
+   char *phrase = "for what it's worth";
+   char *expected = "FWIW";
+   test_abbreviation(phrase, expected);
+}
+
 void test_hyphenated(void)
 {
    TEST_IGNORE();
