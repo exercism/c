@@ -101,6 +101,7 @@ int main(void)
    RUN_TEST(test_punctuation);
    RUN_TEST(test_all_caps_words);
    RUN_TEST(test_non_acronym_all_caps_words);
+   RUN_TEST(test_all_lower_case);
    RUN_TEST(test_hyphenated);
 
    UnityEnd();
