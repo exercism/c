@@ -26,14 +26,6 @@ void test_null_string(void)
    test_abbreviation(phrase, expected);
 }
 
-void test_empty_string(void)
-{
-   TEST_IGNORE();
-   char *phrase = "";
-   char *expected = NULL;
-   test_abbreviation(phrase, expected);
-}
-
 void test_basic_abbreviation(void)
 {
    TEST_IGNORE();
@@ -58,14 +50,6 @@ void test_punctuation(void)
    test_abbreviation(phrase, expected);
 }
 
-void test_all_caps_words(void)
-{
-   TEST_IGNORE();
-   char *phrase = "PHP: Hypertext Preprocessor";
-   char *expected = "PHP";
-   test_abbreviation(phrase, expected);
-}
-
 void test_non_acronym_all_caps_words(void)
 {
    TEST_IGNORE();
@@ -82,19 +66,43 @@ void test_hyphenated(void)
    test_abbreviation(phrase, expected);
 }
 
+void test_all_caps_words(void)
+{
+   TEST_IGNORE();
+   char *phrase = "PHP: Hypertext Preprocessor";
+   char *expected = "PHP";
+   test_abbreviation(phrase, expected);
+}
+
+void test_empty_string(void)
+{
+   TEST_IGNORE();
+   char *phrase = "";
+   char *expected = NULL;
+   test_abbreviation(phrase, expected);
+}
+
+void test_all_words_starting_with_lowercase(void)
+{
+   TEST_IGNORE();
+   char *phrase = "for what it's worth";
+   char *expected = "FWIW";
+   test_abbreviation(phrase, expected);
+}
+
 int main(void)
 {
    UnityBegin("test/test_acronym.c");
 
    RUN_TEST(test_basic_abbreviation);
    RUN_TEST(test_null_string);
-   RUN_TEST(test_empty_string);
    RUN_TEST(test_lower_case_words);
    RUN_TEST(test_punctuation);
-   RUN_TEST(test_all_caps_words);
    RUN_TEST(test_non_acronym_all_caps_words);
    RUN_TEST(test_hyphenated);
-
+   RUN_TEST(test_all_caps_words);
+   RUN_TEST(test_empty_string);
+   RUN_TEST(test_all_words_starting_with_lowercase);
    UnityEnd();
    return 0;
 }
