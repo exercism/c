@@ -1,661 +1,674 @@
 {
+  "language": "C",
   "active": true,
+  "foregone": [],
   "exercises": [
     {
+      "slug": "hello-world",
+      "uuid": "ee307061-5bc2-439c-8815-abd730aedc2d",
       "core": true,
       "difficulty": 1,
-      "slug": "hello-world",
       "topics": [
         "control_flow_if_statements",
         "optional_values",
         "text_formatting"
-      ],
-      "uuid": "ee307061-5bc2-439c-8815-abd730aedc2d"
+      ]
     },
     {
+      "slug": "isogram",
+      "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
       "core": true,
       "difficulty": 1,
-      "slug": "isogram",
       "topics": [
         "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops",
         "strings"
-      ],
-      "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 1,
       "slug": "acronym",
+      "uuid": "1a8ba121-d2c4-4994-8c6b-610d8987346d",
+      "core": false,
+      "unlocked_by": "isogram",
+      "difficulty": 1,
       "topics": [
         "control_flow_loops",
         "memory_management",
         "strings"
-      ],
-      "unlocked_by": "isogram",
-      "uuid": "1a8ba121-d2c4-4994-8c6b-610d8987346d"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 3,
       "slug": "word-count",
+      "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
+      "core": false,
+      "unlocked_by": "isogram",
+      "difficulty": 3,
       "topics": [
         "filtering",
         "memory_management",
         "strings",
         "structs"
-      ],
-      "unlocked_by": "isogram",
-      "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 3,
       "slug": "pangram",
+      "uuid": "6311b9f8-b438-4186-88b2-1e4f55275ccb",
+      "core": false,
+      "unlocked_by": "isogram",
+      "difficulty": 3,
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
         "strings"
-      ],
-      "unlocked_by": "isogram",
-      "uuid": "6311b9f8-b438-4186-88b2-1e4f55275ccb"
+      ]
     },
     {
+      "slug": "gigasecond",
+      "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
       "core": true,
       "difficulty": 1,
-      "slug": "gigasecond",
       "topics": [
         "dates"
-      ],
-      "uuid": "000340f6-e30d-4d49-a255-016237d6fe60"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 1,
       "slug": "space-age",
+      "uuid": "fc03c7de-b0c6-4806-90bb-e9dda846e660",
+      "core": false,
+      "unlocked_by": "gigasecond",
+      "difficulty": 1,
       "topics": [
         "functions"
-      ],
-      "unlocked_by": "gigasecond",
-      "uuid": "fc03c7de-b0c6-4806-90bb-e9dda846e660"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 4,
       "slug": "meetup",
+      "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
+      "core": false,
+      "unlocked_by": "gigasecond",
+      "difficulty": 4,
       "topics": [
         "control_flow_if_statements",
         "preprocessor_x_macros_in_test",
         "strings",
         "structs",
         "time_functions"
-      ],
-      "unlocked_by": "gigasecond",
-      "uuid": "a7baa53f-e828-457e-a456-ba3471494d80"
+      ]
     },
     {
+      "slug": "hamming",
+      "uuid": "fa5e6bbb-2eaf-484f-a5c5-de5cb2a9175b",
       "core": true,
       "difficulty": 2,
-      "slug": "hamming",
       "topics": [
         "arrays",
         "control_flow_loops",
         "strings"
-      ],
-      "uuid": "fa5e6bbb-2eaf-484f-a5c5-de5cb2a9175b"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "rna-transcription",
+      "uuid": "d12fea98-bf4e-476d-a91c-799fc98a1690",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 2,
       "topics": [
         "control_flow_case_statements",
         "control_flow_loops",
         "strings"
-      ],
-      "unlocked_by": "hamming",
-      "uuid": "d12fea98-bf4e-476d-a91c-799fc98a1690"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "nucleotide-count",
+      "uuid": "38669990-e1e6-4486-a603-575a135d1f5c",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 2,
       "topics": [
         "control_flow_loops_switch_if_statements",
         "memory_management",
         "strings",
         "text_formatting"
-      ],
-      "unlocked_by": "hamming",
-      "uuid": "38669990-e1e6-4486-a603-575a135d1f5c"
+      ]
     },
     {
+      "slug": "grains",
+      "uuid": "53959d50-efad-4911-84de-b67efe1bee5f",
       "core": true,
       "difficulty": 1,
-      "slug": "grains",
       "topics": [
         "bitwise_operations",
         "control_flow_loops",
         "performance_optimizations"
-      ],
-      "uuid": "53959d50-efad-4911-84de-b67efe1bee5f"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 1,
       "slug": "leap",
+      "uuid": "9b047dda-b85e-4378-9487-9f9cce086e4f",
+      "core": false,
+      "unlocked_by": "grains",
+      "difficulty": 1,
       "topics": [
         "control_flow_if_else_statements",
         "logic"
-      ],
-      "unlocked_by": "grains",
-      "uuid": "9b047dda-b85e-4378-9487-9f9cce086e4f"
+      ]
     },
     {
+      "slug": "beer-song",
+      "uuid": "c06789cb-cdd6-44a7-bee5-16e0d85e913a",
       "core": true,
       "difficulty": 2,
-      "slug": "beer-song",
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
         "strings"
-      ],
-      "uuid": "c06789cb-cdd6-44a7-bee5-16e0d85e913a"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "raindrops",
-      "topics": [
-        "control_flow_if_else_statements",
-        "strings"
-      ],
-      "unlocked_by": "beer-song",
-      "uuid": "93acdd0d-9bd1-4dec-a572-fd12d0c66187"
-    },
-    {
+      "uuid": "93acdd0d-9bd1-4dec-a572-fd12d0c66187",
       "core": false,
-      "difficulty": 5,
-      "slug": "bob",
+      "unlocked_by": "beer-song",
+      "difficulty": 2,
       "topics": [
         "control_flow_if_else_statements",
         "strings"
-      ],
-      "unlocked_by": "beer-song",
-      "uuid": "b0feb5e2-eb94-4393-b60d-cf8a275d1860"
+      ]
     },
     {
+      "slug": "bob",
+      "uuid": "b0feb5e2-eb94-4393-b60d-cf8a275d1860",
+      "core": false,
+      "unlocked_by": "beer-song",
+      "difficulty": 5,
+      "topics": [
+        "control_flow_if_else_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "difference-of-squares",
+      "uuid": "9802cbc0-eb70-4840-b8ee-a228f1fc29ea",
       "core": true,
       "difficulty": 1,
-      "slug": "difference-of-squares",
       "topics": [
         "control_flow_loops"
-      ],
-      "uuid": "9802cbc0-eb70-4840-b8ee-a228f1fc29ea"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 4,
       "slug": "sum-of-multiples",
+      "uuid": "06a3660f-16b0-4391-939e-a9786887b0b2",
+      "core": false,
+      "unlocked_by": "difference-of-squares",
+      "difficulty": 4,
       "topics": [
         "control_flow_case_statements",
         "control_flow_loops"
-      ],
-      "unlocked_by": "difference-of-squares",
-      "uuid": "06a3660f-16b0-4391-939e-a9786887b0b2"
+      ]
     },
     {
+      "slug": "binary-search",
+      "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d",
       "core": true,
       "difficulty": 2,
-      "slug": "binary-search",
       "topics": [
         "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops",
         "searching"
-      ],
-      "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 5,
       "slug": "anagram",
+      "uuid": "0b64079a-7fec-42b4-bd2e-1b04dd4b7e6e",
+      "core": false,
+      "unlocked_by": "binary-search",
+      "difficulty": 5,
       "topics": [
         "filtering",
         "strings",
         "structs"
-      ],
-      "unlocked_by": "binary-search",
-      "uuid": "0b64079a-7fec-42b4-bd2e-1b04dd4b7e6e"
+      ]
     },
     {
+      "slug": "roman-numerals",
+      "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
       "core": true,
       "difficulty": 3,
-      "slug": "roman-numerals",
       "topics": [
         "arrays",
         "control_flow_loops",
         "memory_management",
         "strings",
         "structs"
-      ],
-      "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16"
+      ]
     },
     {
+      "slug": "allergies",
+      "uuid": "871f1c41-debd-4807-8ee5-bde54c3918f8",
       "core": true,
       "difficulty": 4,
-      "slug": "allergies",
       "topics": [
         "control_flow_if_statements",
         "control_flow_loops",
         "memory_management",
         "structs"
-      ],
-      "uuid": "871f1c41-debd-4807-8ee5-bde54c3918f8"
+      ]
     },
     {
+      "slug": "atbash-cipher",
+      "uuid": "180f59f3-78ab-4368-9fa7-e3d98a9dca78",
       "core": true,
       "difficulty": 5,
-      "slug": "atbash-cipher",
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
         "strings"
-      ],
-      "uuid": "180f59f3-78ab-4368-9fa7-e3d98a9dca78"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "series",
+      "uuid": "40bcec79-7235-4ac6-b69f-8e3a6374188d",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 2,
       "topics": [
         "control_flow_if_statements",
         "memory_management",
         "strings",
         "text_formatting"
-      ],
-      "unlocked_by": "atbash-cipher",
-      "uuid": "40bcec79-7235-4ac6-b69f-8e3a6374188d"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 10,
       "slug": "react",
+      "uuid": "929b651e-2017-4f98-b2cb-1dc46c609703",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 10,
       "topics": [
         "functions",
         "memory_management"
-      ],
-      "unlocked_by": "atbash-cipher",
-      "uuid": "929b651e-2017-4f98-b2cb-1dc46c609703"
+      ]
     },
     {
+      "slug": "phone-number",
+      "uuid": "660d1586-c4e0-4537-94b5-455a983820f8",
       "core": true,
       "difficulty": 4,
-      "slug": "phone-number",
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
         "memory_management",
         "strings"
-      ],
-      "uuid": "660d1586-c4e0-4537-94b5-455a983820f8"
+      ]
     },
     {
+      "slug": "clock",
+      "uuid": "b868eeff-400c-4e46-8675-10d85c14b503",
       "core": true,
       "difficulty": 2,
-      "slug": "clock",
       "topics": [
         "control_flow_if_statements",
         "preprocessor_x_macros_in_test",
         "strings",
         "text_formatting"
-      ],
-      "uuid": "b868eeff-400c-4e46-8675-10d85c14b503"
+      ]
     },
     {
+      "slug": "sieve",
+      "uuid": "fb2530a3-cbbf-4ba9-88d0-203faac03e96",
       "core": true,
       "difficulty": 2,
-      "slug": "sieve",
       "topics": [
         "control_flow_if_statements",
         "memory_management"
-      ],
-      "uuid": "fb2530a3-cbbf-4ba9-88d0-203faac03e96"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 4,
       "slug": "nth-prime",
+      "uuid": "a0a703b2-244b-4739-b318-b837618b1047",
+      "core": false,
+      "unlocked_by": "sieve",
+      "difficulty": 4,
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
         "performance_optimizations"
-      ],
-      "unlocked_by": "sieve",
-      "uuid": "a0a703b2-244b-4739-b318-b837618b1047"
+      ]
     },
     {
+      "slug": "robot-simulator",
+      "uuid": "e665da31-fda2-4bce-94e9-7d79dffdef14",
       "core": true,
       "difficulty": 2,
-      "slug": "robot-simulator",
       "topics": [
         "control_flow_if_statements",
         "pointers",
         "strings",
         "structs",
         "variable_argument_lists"
-      ],
-      "uuid": "e665da31-fda2-4bce-94e9-7d79dffdef14"
+      ]
     },
     {
+      "slug": "pascals-triangle",
+      "uuid": "be19352f-1b63-4673-9a2d-e763ee807741",
       "core": true,
       "difficulty": 1,
-      "slug": "pascals-triangle",
       "topics": [
         "control_flow_if_else_statements",
         "mathematics",
         "memory_management"
-      ],
-      "uuid": "be19352f-1b63-4673-9a2d-e763ee807741"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 1,
       "slug": "triangle",
+      "uuid": "5c6bc8d2-2509-471a-993c-a5bf9d030ca7",
+      "core": false,
+      "unlocked_by": "pascals-triangle",
+      "difficulty": 1,
       "topics": [
         "booleans",
         "control_flow_if_else_statements",
         "mathematics",
         "structs"
-      ],
-      "unlocked_by": "pascals-triangle",
-      "uuid": "5c6bc8d2-2509-471a-993c-a5bf9d030ca7"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 1,
       "slug": "perfect-numbers",
+      "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733",
+      "core": false,
+      "unlocked_by": "pascals-triangle",
+      "difficulty": 1,
       "topics": [
         "control_flow_if_else_statements",
         "mathematics"
-      ],
-      "unlocked_by": "pascals-triangle",
-      "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "collatz-conjecture",
+      "uuid": "5a47f8a5-36a1-4479-bb77-ef5fbab4bae0",
+      "core": false,
+      "unlocked_by": "pascals-triangle",
+      "difficulty": 2,
       "topics": [
         "functions",
         "mathematics"
-      ],
-      "unlocked_by": "pascals-triangle",
-      "uuid": "5a47f8a5-36a1-4479-bb77-ef5fbab4bae0"
+      ]
     },
     {
+      "slug": "binary",
+      "uuid": "8621177c-1068-4610-bf5b-26cf23340ae6",
       "core": true,
       "difficulty": 1,
-      "slug": "binary",
       "topics": [
         "control_flow_if_statements",
         "control_flow_loops"
-      ],
-      "uuid": "8621177c-1068-4610-bf5b-26cf23340ae6"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 3,
       "slug": "all-your-base",
+      "uuid": "e3574f75-89cb-4dda-8fce-14ce3141b595",
+      "core": false,
+      "unlocked_by": "binary",
+      "difficulty": 3,
       "topics": [
         "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops"
-      ],
-      "unlocked_by": "binary",
-      "uuid": "e3574f75-89cb-4dda-8fce-14ce3141b595"
+      ]
     },
     {
+      "slug": "palindrome-products",
+      "uuid": "8dd43f6c-37ba-42b1-bb85-9ad693e4ce03",
       "core": true,
       "difficulty": 2,
-      "slug": "palindrome-products",
       "topics": [
         "functions",
         "pointers",
         "strings",
         "structs"
-      ],
-      "uuid": "8dd43f6c-37ba-42b1-bb85-9ad693e4ce03"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 4,
       "slug": "sublist",
-      "topics": [
-        "pointers",
-        "arrays",
-        "searching",
-        "control_flow_if_statements",
-        "control_flow_loops"
-      ],
+      "uuid": "a19acc6f-2530-434d-9c98-2d8d4ca635d3",
+      "core": false,
       "unlocked_by": "palindrome-products",
-      "uuid": "a19acc6f-2530-434d-9c98-2d8d4ca635d3"
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "control_flow_if_statements",
+        "control_flow_loops",
+        "pointers",
+        "searching"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 5,
       "slug": "largest-series-product",
+      "uuid": "4b5974fe-dcff-4542-ad3e-2782201cba1e",
+      "core": false,
+      "unlocked_by": "palindrome-products",
+      "difficulty": 5,
       "topics": [
         "control_flow_loops",
         "performance_optimizations",
         "strings"
-      ],
-      "unlocked_by": "palindrome-products",
-      "uuid": "4b5974fe-dcff-4542-ad3e-2782201cba1e"
+      ]
     },
     {
+      "slug": "scrabble-score",
+      "uuid": "8c631290-13b7-4d25-9ee7-ced2e534deb4",
       "core": true,
       "difficulty": 4,
-      "slug": "scrabble-score",
       "topics": [
         "pointers",
         "searching",
         "strings",
         "structs"
-      ],
-      "uuid": "8c631290-13b7-4d25-9ee7-ced2e534deb4"
+      ]
     },
     {
+      "slug": "queen-attack",
+      "uuid": "b0a152e9-5a45-41f9-bda0-427111d9a56c",
       "core": true,
       "difficulty": 1,
-      "slug": "queen-attack",
       "topics": [
         "control_flow_if_statements",
+        "enums",
         "functions",
-        "structs",
-        "enums"
-      ],
-      "uuid": "b0a152e9-5a45-41f9-bda0-427111d9a56c"
+        "structs"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "complex-numbers",
-      "topics": [
-        "structs",
-        "performance_optimizations"
-      ],
+      "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f",
+      "core": false,
       "unlocked_by": "difference-of-squares",
-      "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f"
+      "difficulty": 2,
+      "topics": [
+        "performance_optimizations",
+        "structs"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "etl",
-      "topics": [
-        "structs",
-        "pointers"
-      ],
+      "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06",
+      "core": false,
       "unlocked_by": "scrabble-score",
-      "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06"
+      "difficulty": 2,
+      "topics": [
+        "pointers",
+        "structs"
+      ]
     },
     {
-      "core": false,
-      "difficulty": 2,
       "slug": "prime-factors",
-      "topics": [
-        "algorithms"
-      ],
+      "uuid": "f34db12c-7acc-4287-92a6-c077938512d7",
+      "core": false,
       "unlocked_by": "sieve",
-      "uuid": "f34db12c-7acc-4287-92a6-c077938512d7"
-    },
-    {
-      "core": false,
       "difficulty": 2,
-      "slug": "luhn",
       "topics": [
-        "strings",
         "algorithms"
-      ],
-      "unlocked_by": "pascals-triangle",
-      "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7"
+      ]
     },
     {
+      "slug": "luhn",
+      "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7",
       "core": false,
-      "difficulty": 5,
+      "unlocked_by": "pascals-triangle",
+      "difficulty": 2,
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
+    },
+    {
       "slug": "bracket-push",
+      "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac",
+      "core": false,
+      "unlocked_by": "isogram",
+      "difficulty": 5,
       "topics": [
         "control_flow_if_statements",
-        "stacks",
-        "recursion"
-      ],
-      "unlocked_by": "isogram",
-      "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac"
-    },
-    {
-      "core": false,
-      "difficulty": 6,
-      "slug": "say",
-      "topics": [
-        "algorithms",
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "roman-numerals",
-      "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0"
-    },
-    {
-      "core": false,
-      "difficulty": 6,
-      "slug": "crypto-square",
-      "topics": [
-        "algorithms",
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "atbash-cipher",
-      "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b"
-    },
-    {
-      "core": false,
-      "difficulty": 3,
-      "slug": "secret-handshake",
-      "topics": [
-        "algorithms",
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "hamming",
-      "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d"
-     },
-     {
-      "core": false,
-      "difficulty": 4,
-      "slug": "pig-latin",
-      "topics": [
-        "algorithms",
-        "functions",
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "hamming",
-      "uuid": "62f539e7-f682-412d-bf86-38503e7cebca"
-    },
-    {
-      "core": false,
-      "difficulty": 3,
-      "slug": "minesweeper",
-      "topics": [
-        "strings",
-        "arrays",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "scrabble-score",
-      "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1"
-    },
-    {
-      "core": false,
-      "difficulty": 4,
-      "slug": "run-length-encoding",
-      "topics": [
-        "algorithms",
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "atbash-cipher",
-      "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141"
-    },
-    {
-      "core": false,
-      "difficulty": 1,
-      "slug": "two-fer",
-      "topics": [
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "beer-song",
-      "uuid": "15653c72-5468-415f-9425-6c58d552d346"
-    },
-    {
-      "core": false,
-      "difficulty": 4,
-      "slug": "wordy",
-      "topics": [
-        "algorithms",
-        "functions",
-        "strings",
-        "control_flow_if_statements"
-      ],
-      "unlocked_by": "beer-song",
-      "uuid": "c1392944-08fd-45c3-b508-41d682f832d3"
-    },
-    {
-      "core": false,
-      "difficulty": 6,
-      "slug": "binary-search-tree",
-      "topics": [
-        "structs",
-        "arrays",
         "recursion",
-        "control_flow_loops"
-      ],
-      "unlocked_by": "binary-search",
-      "uuid": "1b33f528-8f29-4582-a268-07be2d1a4516"
+        "stacks"
+      ]
     },
     {
+      "slug": "say",
+      "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0",
+      "core": false,
+      "unlocked_by": "roman-numerals",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "control_flow_if_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "crypto-square",
+      "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "control_flow_if_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "secret-handshake",
+      "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d",
+      "core": false,
+      "unlocked_by": "hamming",
       "difficulty": 3,
-      "slug": "diamond",
+      "topics": [
+        "algorithms",
+        "control_flow_if_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "pig-latin",
+      "uuid": "62f539e7-f682-412d-bf86-38503e7cebca",
+      "core": false,
+      "unlocked_by": "hamming",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "control_flow_if_statements",
+        "functions",
+        "strings"
+      ]
+    },
+    {
+      "slug": "minesweeper",
+      "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1",
+      "core": false,
+      "unlocked_by": "scrabble-score",
+      "difficulty": 3,
       "topics": [
         "arrays",
+        "control_flow_if_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "run-length-encoding",
+      "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141",
+      "core": false,
+      "unlocked_by": "atbash-cipher",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "control_flow_if_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "two-fer",
+      "uuid": "15653c72-5468-415f-9425-6c58d552d346",
+      "core": false,
+      "unlocked_by": "beer-song",
+      "difficulty": 1,
+      "topics": [
+        "control_flow_if_statements",
+        "strings"
+      ]
+    },
+    {
+      "slug": "wordy",
+      "uuid": "c1392944-08fd-45c3-b508-41d682f832d3",
+      "core": false,
+      "unlocked_by": "beer-song",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "control_flow_if_statements",
         "functions",
-        "strings",
-        "control_flow_if_statements"
-      ],
+        "strings"
+      ]
+    },
+    {
+      "slug": "binary-search-tree",
+      "uuid": "1b33f528-8f29-4582-a268-07be2d1a4516",
+      "core": false,
+      "unlocked_by": "binary-search",
+      "difficulty": 6,
+      "topics": [
+        "arrays",
+        "control_flow_loops",
+        "recursion",
+        "structs"
+      ]
+    },
+    {
+      "slug": "diamond",
+      "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015",
       "unlocked_by": "scrabble-score",
-      "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015"
+      "difficulty": 3,
+      "topics": [
+        "arrays",
+        "control_flow_if_statements",
+        "functions",
+        "strings"
+      ]
+    },
+    {
+      "slug": "simple-linked-list",
+      "uuid": "6c1a4188-6f94-4fa1-824b-ab9bbb59a171",
+      "core": false,
+      "unlocked_by": "binary-search",
+      "difficulty": 6,
+      "topics": [
+        "arrays",
+        "lists",
+        "pointers",
+        "structs"
+      ]
     }
-  ],
-  "foregone": [],
-  "language": "C"
+  ]
 }
