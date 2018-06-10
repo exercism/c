@@ -62,3 +62,9 @@ char **annotate(const char **minefield, const size_t rows)
 
    return annotated;
 }
+
+void free_annotation(char **annotation)
+{
+   free(annotation[0]);
+   free(annotation);
+}
