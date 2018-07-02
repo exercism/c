@@ -4,6 +4,8 @@
 #include "vendor/unity.h"
 #include "../src/word_count.h"
 
+#define STRING_SIZE (MAX_WORD_LENGTH + 1)
+
 word_count_word_t actual_solution[MAX_WORDS];
 word_count_word_t expected_solution[MAX_WORDS];
 void setUp(void)
@@ -27,8 +29,7 @@ static void check_solution(word_count_word_t * expected_solution,
       TEST_ASSERT_EQUAL(expected_solution[index].count,
                         actual_solution[index].count);
       TEST_ASSERT_EQUAL_UINT8_ARRAY(expected_solution[index].text,
-                                    actual_solution[index].text,
-                                    MAX_WORD_LENGTH);
+                                    actual_solution[index].text, STRING_SIZE);
    }
 }
 
@@ -45,7 +46,7 @@ void test_word_count_one_word(void)
 
    // fill in the expected words
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "word", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "word", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -66,13 +67,13 @@ void test_word_count_one_of_each_word(void)
 
    // fill in the expected words
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "one", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "one", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "of", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "of", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "each", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "each", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -92,19 +93,19 @@ void test_word_count_multiple_occurrences_of_a_word(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "one", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "one", STRING_SIZE);
 
    expected_solution[index].count = 4;
-   strncpy(expected_solution[index++].text, "fish", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "fish", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "two", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "two", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "red", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "red", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "blue", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "blue", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -124,13 +125,13 @@ void test_word_count_handles_cramped_lists(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "one", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "one", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "two", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "two", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "three", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "three", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -150,13 +151,13 @@ void test_word_count_handles_expanded_lists(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "one", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "one", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "two", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "two", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "three", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "three", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -176,19 +177,19 @@ void test_word_count_ignore_punctuation(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "car", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "car", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "carpet", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "carpet", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "as", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "as", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "java", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "java", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "javascript", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "javascript", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -208,13 +209,13 @@ void test_word_count_include_numbers(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "testing", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "testing", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "1", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "1", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "2", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "2", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -234,10 +235,10 @@ void test_word_count_normalize_case(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 3;
-   strncpy(expected_solution[index++].text, "go", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "go", STRING_SIZE);
 
    expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "stop", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "stop", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -257,19 +258,19 @@ void test_word_count_with_apostrophes(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "first", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "first", STRING_SIZE);
 
    expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "don't", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "don't", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "laugh", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "laugh", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "then", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "then", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "cry", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "cry", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -289,22 +290,22 @@ void test_word_count_with_quotation(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "joe", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "joe", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "can't", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "can't", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "tell", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "tell", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "between", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "between", STRING_SIZE);
 
    expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "large", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "large", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "and", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "and", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -324,16 +325,16 @@ void test_word_count_from_example(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "olly", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "olly", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "in", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "in", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "come", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "come", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "free", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "free", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -355,18 +356,17 @@ void test_max_length_word(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "look", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "look", STRING_SIZE);
 
    expected_solution[index].count = 2;
    strncpy(expected_solution[index++].text,
-           "thisisaveeeeeerylongwordtypedwithoutusinganyspaces",
-           MAX_WORD_LENGTH);
+           "thisisaveeeeeerylongwordtypedwithoutusinganyspaces", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "and", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "and", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "again", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "again", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -388,7 +388,7 @@ void test_excessive_length_word(void)
    // build the expected solution
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "look", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "look", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -410,64 +410,64 @@ void test_max_number_words(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "once", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "once", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "upon", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "upon", STRING_SIZE);
 
    expected_solution[index].count = 3;
-   strncpy(expected_solution[index++].text, "a", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "a", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "time", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "time", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "long", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "long", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "while", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "while", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "in", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "in", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "the", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "the", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "past", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "past", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "there", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "there", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "lived", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "lived", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "strange", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "strange", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "little", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "little", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "man", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "man", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "who", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "who", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "could", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "could", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "spin", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "spin", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "straw", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "straw", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "into", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "into", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "gold", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "gold", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -489,64 +489,64 @@ void test_excessive_number_words(void)
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "once", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "once", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "upon", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "upon", STRING_SIZE);
 
    expected_solution[index].count = 3;
-   strncpy(expected_solution[index++].text, "a", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "a", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "time", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "time", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "long", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "long", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "while", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "while", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "in", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "in", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "the", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "the", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "past", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "past", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "there", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "there", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "lived", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "lived", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "strange", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "strange", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "little", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "little", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "man", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "man", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "who", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "who", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "could", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "could", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "spin", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "spin", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "straw", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "straw", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "into", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "into", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "gold", MAX_WORD_LENGTH);
+   strncpy(expected_solution[index++].text, "gold", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
