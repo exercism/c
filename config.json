@@ -503,7 +503,7 @@
     },
     {
       "slug": "linked-list",
-      "uuid": "", // TODO: CANT REMEMBER HOW TO GENERATE UIDs
+      "uuid": "58107e5f-8091-4429-9130-13f2c7dac9a9",
       "core": true,
       "unlocked_by": null,
       "difficulty": 4,
