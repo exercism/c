@@ -115,7 +115,7 @@ void test_shift_with_empty_list(void)
 void test_shift_with_populated_list(void)
 {
    TEST_IGNORE()
-       // pre=populate list
+       // pre-populate list
        for (size_t i = 12; i < 17; ++i) {
       push(new(i));
    }
