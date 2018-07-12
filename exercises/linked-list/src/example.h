@@ -13,7 +13,7 @@ struct list_item *new(ll_data_t);
 // retrieves data from item
 ll_data_t item_data(struct list_item *item);
 
-// inserts item at back list
+// inserts item at back of list
 bool push(struct list_item *item);
 
 // removes item from back of list
