@@ -34,6 +34,7 @@ On Windows 10, the Windows Subsystem for Linux (WSL) Bash is available.
 To do this, assuming the current exercise is `bob` and we're in the exercise folder:
 
 ```bash
+$ mkdir src
 $ touch src/bob.{h,c}
 $ make
 ```
