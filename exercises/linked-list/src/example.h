@@ -7,28 +7,26 @@ typedef int ll_data_t;
 
 struct list_item;
 
-// constructs new item holding specified data
-struct list_item *new(ll_data_t);
+// constructs a new list of items
+struct list_item **new_list(void);
 
-// retrieves data from item
-ll_data_t item_data(struct list_item *item);
+// checks if the list is empty
+bool is_list_empty(struct list_item **list);
 
 // inserts item at back of list
-bool push(struct list_item *item);
+bool push(struct list_item **list, ll_data_t item_data);
 
 // removes item from back of list
-struct list_item *pop(void);
+ll_data_t pop(struct list_item **list);
 
 // removes item from front of list
-struct list_item *shift(void);
+ll_data_t shift(struct list_item **list);
 
 // inserts item at front of list
-bool unshift(struct list_item *item);
-
-// destroy a single item
-bool delete_item(struct list_item **item);
+bool unshift(struct list_item **list, ll_data_t item_data);
 
 // destroy the entire list
-bool delete_list(void);
+// list will be a dangling pointer after calling this method on it
+void delete_list(struct list_item **list);
 
 #endif
