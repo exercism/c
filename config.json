@@ -199,7 +199,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -210,7 +211,8 @@
       "difficulty": 4,
       "topics": [
         "control_flow_case_statements",
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -335,6 +337,7 @@
       "difficulty": 2,
       "topics": [
         "control_flow_if_statements",
+        "math",
         "memory_management"
       ]
     },
@@ -347,6 +350,7 @@
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
+        "math",
         "performance_optimizations"
       ]
     },
@@ -372,7 +376,7 @@
       "difficulty": 1,
       "topics": [
         "control_flow_if_else_statements",
-        "mathematics",
+        "math",
         "memory_management"
       ]
     },
@@ -385,7 +389,6 @@
       "topics": [
         "booleans",
         "control_flow_if_else_statements",
-        "mathematics",
         "structs"
       ]
     },
@@ -397,7 +400,7 @@
       "difficulty": 1,
       "topics": [
         "control_flow_if_else_statements",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -408,7 +411,7 @@
       "difficulty": 2,
       "topics": [
         "functions",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -419,7 +422,8 @@
       "difficulty": 1,
       "topics": [
         "control_flow_if_statements",
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -431,7 +435,8 @@
       "topics": [
         "arrays",
         "control_flow_if_else_statements",
-        "control_flow_loops"
+        "control_flow_loops",
+        "math"
       ]
     },
     {
@@ -442,6 +447,7 @@
       "difficulty": 2,
       "topics": [
         "functions",
+        "math",
         "pointers",
         "strings",
         "structs"
@@ -469,6 +475,7 @@
       "difficulty": 5,
       "topics": [
         "control_flow_loops",
+        "math",
         "performance_optimizations",
         "strings"
       ]
@@ -507,9 +514,9 @@
       "difficulty": 4,
       "topics": [
         "functions",
-        "structs",
+        "lists",
         "pointers",
-        "lists"
+        "structs"
       ]
     },
     {
@@ -519,6 +526,7 @@
       "unlocked_by": "difference-of-squares",
       "difficulty": 2,
       "topics": [
+        "math",
         "performance_optimizations",
         "structs"
       ]
@@ -541,7 +549,8 @@
       "unlocked_by": "sieve",
       "difficulty": 2,
       "topics": [
-        "algorithms"
+        "algorithms",
+        "math"
       ]
     },
     {
