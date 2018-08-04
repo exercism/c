@@ -24,8 +24,8 @@ a single line. Feel free to add your own code/tests to check for degenerate tria
 
 ## Getting Started
 
-Make sure you have read the
-[C page](http://exercism.io/languages/c) on the Exercism site. This covers
+Make sure you have read the "Guides" section of the
+[C track](https://exercism.io/my/tracks/c) on the Exercism site. This covers
 the basic information on setting up the development environment expected
 by the exercises.
 
