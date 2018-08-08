@@ -38,7 +38,7 @@ complex_t c_div(const complex_t a, const complex_t b)
    double denominator = square(b.real) + square(b.imag);
 
    complex_t result;
-   result.real = (a.real * b.imag + a.imag * b.real) / denominator;
+   result.real = (a.real * b.real + a.imag * b.imag) / denominator;
    result.imag = (a.imag * b.real - a.real * b.imag) / denominator;
 
    return result;
