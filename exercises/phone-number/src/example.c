@@ -52,9 +52,8 @@ char *phone_number_clean(const char *input)
       }
    }
 
-   if (strcmp(output, INVALID_NUMBER_RESULT) != 0)
-      if (output[0] < '2' || output[EXCHANGE_OFFSET] < '2')
-         strcpy(output, INVALID_NUMBER_RESULT);
+   if (output[0] < '2' || output[EXCHANGE_OFFSET] < '2')
+      strcpy(output, INVALID_NUMBER_RESULT);
 
    return output;
 }
