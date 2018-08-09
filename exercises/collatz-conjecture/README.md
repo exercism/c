@@ -28,8 +28,8 @@ Resulting in 9 steps. So for input n = 12, the return value would be 9.
 
 ## Getting Started
 
-Make sure you have read the
-[C page](http://exercism.io/languages/c) on the Exercism site. This covers
+Make sure you have read the "Guides" section of the
+[C track](https://exercism.io/my/tracks/c) on the Exercism site. This covers
 the basic information on setting up the development environment expected
 by the exercises.
 
