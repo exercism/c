@@ -166,7 +166,8 @@ int main(void)
    RUN_TEST(test_invalid_when_9_digits);
    RUN_TEST(test_valid_when_11_digits_and_first_digit_is_1);
    RUN_TEST(test_invalid_when_11_digits_and_first_digit_not_1);
-   RUN_TEST(test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation);
+   RUN_TEST
+       (test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation);
    RUN_TEST(test_invalid_when_more_than_11_digits);
    RUN_TEST(test_invalid_with_letters);
    RUN_TEST(test_invalid_with_punctuations);

@@ -8,10 +8,8 @@
 #define EXCHANGE_LENGTH          (3)
 #define EXTENSION_LENGTH         (4)
 #define VALID_NUMBER_LENGTH      AREA_CODE_LENGTH + EXCHANGE_LENGTH + EXTENSION_LENGTH
-#define FORMATTED_LENGTH         VALID_NUMBER_LENGTH + 4
 
 #define EXCHANGE_OFFSET (AREA_CODE_LENGTH)
-#define EXTENSION_OFFSET (AREA_CODE_LENGTH + EXCHANGE_LENGTH)
 
 #define INVALID_NUMBER_RESULT    "0000000000"
 #define VALID_NON_DIGIT_CHARS    " .-()"
@@ -27,23 +25,23 @@ char *phone_number_clean(const char *input)
 {
    char *output = calloc(VALID_NUMBER_LENGTH + 2, sizeof(char));
    size_t j = 0;
-   
+
    for (size_t i = 0; i < strlen(input); i++) {
-    
+
       if (isdigit(input[i]) || (i == 0 && input[0] == '+')) {
-      
+
          if (j > VALID_NUMBER_LENGTH + 1) {
             break;
          }
          if (isdigit(input[i]))
             output[j++] = input[i];
-         
+
       } else if (strchr(VALID_NON_DIGIT_CHARS, input[i]) == NULL) {
          strcpy(output, INVALID_NUMBER_RESULT);
          return output;
       }
    }
-   
+
    if (j > 11 || j < 10) {
       strcpy(output, INVALID_NUMBER_RESULT);
    } else if (j == 11) {
@@ -53,10 +51,10 @@ char *phone_number_clean(const char *input)
          strcpy(output, INVALID_NUMBER_RESULT);
       }
    }
-   
+
    if (strcmp(output, INVALID_NUMBER_RESULT) != 0)
-      if (output[0] < '2' || output[3] < '2')
+      if (output[0] < '2' || output[EXCHANGE_OFFSET] < '2')
          strcpy(output, INVALID_NUMBER_RESULT);
-   
+
    return output;
 }
