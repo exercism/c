@@ -27,7 +27,6 @@ void test_imaginary_unit(void)
 void test_add_purely_real_numbers(void)
 {
    TEST_IGNORE();
-
    complex_t z1 = {.real = 1.0,.imag = 0.0 };
    complex_t z2 = {.real = 2.0,.imag = 0.0 };
 
@@ -368,11 +367,11 @@ int main(void)
    RUN_TEST(test_subtract_purely_real_numbers);
    RUN_TEST(test_subtract_purely_imaginary_numbers);
    RUN_TEST(test_subtract_numbers_with_real_and_imaginary_part);
+   RUN_TEST(test_multiply_purely_real_numbers);
+   RUN_TEST(test_multiply_purely_imaginary_numbers);
    RUN_TEST(test_multiply_numbers_with_real_and_imaginary_part);
-   RUN_TEST(test_multiply_numbers_with_real_and_imaginary_part);
-   RUN_TEST(test_multiply_numbers_with_real_and_imaginary_part);
-   RUN_TEST(test_divide_numbers_with_real_and_imaginary_part);
-   RUN_TEST(test_divide_numbers_with_real_and_imaginary_part);
+   RUN_TEST(test_divide_purely_real_numbers);
+   RUN_TEST(test_divide_purely_imaginary_numbers);
    RUN_TEST(test_divide_numbers_with_real_and_imaginary_part);
    RUN_TEST(test_abs_of_a_positive_purely_real_number);
    RUN_TEST(test_abs_of_a_negative_purely_real_number);
