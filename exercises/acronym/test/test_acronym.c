@@ -93,7 +93,8 @@ void test_all_words_starting_with_lowercase(void)
 void test_long_abbreviation(void)
 {
    TEST_IGNORE();
-   char *phrase = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me";
+   char *phrase = "Rolling On The Floor Laughing So Hard "
+       "That My Dogs Came Over And Licked Me";
    char *expected = "ROTFLSHTMDCOALM";
    test_abbreviation(phrase, expected);
 }
