@@ -90,6 +90,15 @@ void test_all_words_starting_with_lowercase(void)
    test_abbreviation(phrase, expected);
 }
 
+void test_long_abbreviation(void)
+{
+   TEST_IGNORE();
+   char *phrase = "Rolling On The Floor Laughing So Hard "
+       "That My Dogs Came Over And Licked Me";
+   char *expected = "ROTFLSHTMDCOALM";
+   test_abbreviation(phrase, expected);
+}
+
 int main(void)
 {
    UnityBegin("test/test_acronym.c");
@@ -103,6 +112,7 @@ int main(void)
    RUN_TEST(test_all_caps_words);
    RUN_TEST(test_empty_string);
    RUN_TEST(test_all_words_starting_with_lowercase);
+   RUN_TEST(test_long_abbreviation);
    UnityEnd();
    return 0;
 }
