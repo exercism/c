@@ -1,8 +1,5 @@
-#include "../src/complex_numbers.h"
-
-#define UNITY_FLOAT_TYPE double
 #include "vendor/unity.h"
-
+#include "../src/complex_numbers.h"
 #include <math.h>
 
 #define PI acos(-1)
