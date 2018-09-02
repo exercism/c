@@ -15,9 +15,15 @@ void test_empty_string(void)
    TEST_ASSERT_TRUE(is_isogram(""));
 }
 
-void test_lower_case_only(void)
+void test_null(void)
 {
    TEST_IGNORE();               // delete this line to run test
+   TEST_ASSERT_FALSE(is_isogram(NULL));
+}
+
+void test_lower_case_only(void)
+{
+   TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("isogram"));
 }
 
@@ -37,6 +43,12 @@ void test_longest_known_isogram(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("subdermatoglyphic"));
+}
+
+void test_same_first_and_last_characters(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_FALSE(is_isogram("oreo"));
 }
 
 void test_duplicated_letter_mixed_case(void)
@@ -74,8 +86,10 @@ int main(void)
    UnityBegin("test/test_isogram.c");
 
    RUN_TEST(test_empty_string);
+   RUN_TEST(test_null);
    RUN_TEST(test_lower_case_only);
    RUN_TEST(test_duplicated_letter);
+   RUN_TEST(test_same_first_and_last_characters);
    RUN_TEST(test_duplicated_letter_from_end_of_alphabet);
    RUN_TEST(test_longest_known_isogram);
    RUN_TEST(test_duplicated_letter_mixed_case);
