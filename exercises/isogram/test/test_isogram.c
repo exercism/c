@@ -18,7 +18,7 @@ void test_empty_string(void)
 void test_null(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_TRUE(is_isogram(NULL));
+   TEST_ASSERT_FALSE(is_isogram(NULL));
 }
 
 void test_lower_case_only(void)
