@@ -1,7 +1,6 @@
 #include "vendor/unity.h"
 #include "../src/isogram.h"
 #include <stdlib.h>
-#include <time.h>
 
 void setUp(void)
 {
@@ -46,7 +45,7 @@ void test_longest_known_isogram(void)
    TEST_ASSERT_TRUE(is_isogram("subdermatoglyphic"));
 }
 
-void test_duplicated_on_ends(void)
+void void test_same_first_and_last_characters(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("oreo"));
@@ -82,29 +81,6 @@ void test_duplicated_letter_within_word(void)
    TEST_ASSERT_FALSE(is_isogram("accentor"));
 }
 
-void test_quit_early(void)
-{
-   TEST_IGNORE();
-   clock_t a, b;
-   double small, big;
-   const char small_word[] = "aa";
-   const char big_word[10000] = { 'a' };
-   
-   a = clock();
-   is_isogram(small_word);
-   b = clock();
-   
-   small = (double)(b - a);
-   
-   a = clock();
-   is_isogram(big_word);
-   b = clock();
-   
-   big = (double)(b - a);
-
-   TEST_ASSERT_FLOAT_WITHIN(small, big, small);
-}
-
 int main(void)
 {
    UnityBegin("test/test_isogram.c");
@@ -113,7 +89,7 @@ int main(void)
    RUN_TEST(test_null);
    RUN_TEST(test_lower_case_only);
    RUN_TEST(test_duplicated_letter);
-   RUN_TEST(test_duplicated_on_ends);
+   RUN_TEST(test_same_first_and_last_characters);
    RUN_TEST(test_duplicated_letter_from_end_of_alphabet);
    RUN_TEST(test_longest_known_isogram);
    RUN_TEST(test_duplicated_letter_mixed_case);
@@ -121,7 +97,6 @@ int main(void)
    RUN_TEST(test_duplicated_non_letter_char);
    RUN_TEST(test_multiple_whitespace);
    RUN_TEST(test_duplicated_letter_within_word);
-   RUN_TEST(test_quit_early);
 
    UnityEnd();
    return 0;
