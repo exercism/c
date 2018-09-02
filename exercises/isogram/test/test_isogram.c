@@ -45,7 +45,7 @@ void test_longest_known_isogram(void)
    TEST_ASSERT_TRUE(is_isogram("subdermatoglyphic"));
 }
 
-void void test_same_first_and_last_characters(void)
+void test_same_first_and_last_characters(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("oreo"));
