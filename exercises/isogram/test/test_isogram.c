@@ -1,6 +1,7 @@
 #include "vendor/unity.h"
 #include "../src/isogram.h"
 #include <stdlib.h>
+#include <time.h>
 
 void setUp(void)
 {
