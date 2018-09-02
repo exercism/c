@@ -18,6 +18,7 @@ void test_empty_string(void)
 
 void test_null(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram(NULL));
 }
 
@@ -47,6 +48,7 @@ void test_longest_known_isogram(void)
 
 void test_duplicated_on_ends(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("oreo"));
 }
 
@@ -82,6 +84,7 @@ void test_duplicated_letter_within_word(void)
 
 void test_quit_early(void)
 {
+   TEST_IGNORE();
    clock_t a, b;
    double small, big;
    const char small_word[] = "aa";
