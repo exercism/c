@@ -109,7 +109,7 @@ void test_find_primes_up_to_1000(void)
 
 int main(void)
 {
-   UnityBegin("test/test_sum_of_multiples.c");
+   UnityBegin("test/test_sieve.c");
 
    RUN_TEST(test_no_primes_under_two);
    RUN_TEST(test_find_first_prime);
