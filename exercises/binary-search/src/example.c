@@ -1,3 +1,6 @@
+/*
+THE MOST IMPORTANT THING IN BINARY SEARCH IS THAT THE DATA SHOULD BE SORTED AND ITS COMPLEXITY COMEOUT TO BE O(log n)
+*/
 #include "binary_search.h"
 
 int *binary_search(const int value, const int *arr, const size_t length)
