@@ -16,7 +16,7 @@ If you're unsure, then go ahead and open a GitHub [issue](https://github.com/exe
 ## Code of Conduct
 
 Help us keep Exercism welcoming.
-Please read and abide by the [Code of Conduct](https://github.com/exercism/exercism.io/blob/master/CODE_OF_CONDUCT.md).
+Please read and abide by the [Code of Conduct](https://exercism.io/code-of-conduct).
 
 ## Git Workflow
 
