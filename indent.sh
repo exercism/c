@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Indents all .c and .h files in the project that are not vendor code (ie: Unity).
 #
