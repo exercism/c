@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-sh indent.sh
+bash indent.sh
 
 # This script fails when run by Travis if the diff is not checked twice
 # Unfortunately no better solution was found
