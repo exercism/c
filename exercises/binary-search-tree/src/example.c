@@ -8,7 +8,7 @@ static bool mem_ok;
 static int *parsed_tree;
 static size_t parsed_len;
 
-static void free_tree(node_t * head)
+void free_tree(node_t * head)
 {
    if (head == NULL)
       return;
