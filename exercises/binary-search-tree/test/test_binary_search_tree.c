@@ -13,15 +13,6 @@ void tearDown(void)
 {
 }
 
-static void free_tree(node_t * tree)
-{
-   if (tree == NULL)
-      return;
-   free_tree(tree->left);
-   free_tree(tree->right);
-   free(tree);
-}
-
 void test_data_data_is_retained(void)
 {
    int tree_data[] = { 4 };
