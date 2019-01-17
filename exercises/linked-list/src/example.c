@@ -77,8 +77,7 @@ bool push(struct list_item ** list, ll_data_t item_data)
 
 ll_data_t pop(struct list_item ** list)
 {
-   // result is undefined because type may change
-   ll_data_t result;
+   ll_data_t result = 0;
    if (list != NULL && *list != NULL) {
       struct list_item *old_tail = get_list_tail(list);
 
