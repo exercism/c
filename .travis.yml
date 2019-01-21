@@ -1,5 +1,8 @@
----
-language: bash
+language: c
+
+compiler:
+- clang
+- gcc
 
 before_install:
 - sudo apt-get -qq update

@@ -4,7 +4,6 @@
 #include <limits.h>
 #include <stdbool.h>
 
-__attribute__ ((optimize("-O3")))
 static bool palindrome(int n)
 {
    /* 0 is palindrome */
