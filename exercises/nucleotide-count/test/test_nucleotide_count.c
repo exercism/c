@@ -58,7 +58,7 @@ void test_invalid_nucleotide(void)
 
 int main(void)
 {
-   UnityBegin("test/test_rna_transcription.c");
+   UnityBegin("test/test_nucleotide_count.c");
 
    RUN_TEST(test_empty_strand);
    RUN_TEST(test_repeated_nucleotide);
