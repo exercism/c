@@ -43,7 +43,7 @@
       "slug": "word-count",
       "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
       "core": true,
-      "unlocked_by": null,
+      "unlocked_by": "isogram",
       "difficulty": 3,
       "topics": [
         "filtering",
@@ -68,7 +68,7 @@
       "slug": "gigasecond",
       "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
       "core": false,
-      "unlocked_by": "word-count",
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "dates"
