@@ -42,8 +42,8 @@
     {
       "slug": "word-count",
       "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
-      "core": false,
-      "unlocked_by": "isogram",
+      "core": true,
+      "unlocked_by": null,
       "difficulty": 3,
       "topics": [
         "filtering",
@@ -67,7 +67,7 @@
     {
       "slug": "gigasecond",
       "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
-      "core": true,
+      "core": false,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
@@ -78,7 +78,7 @@
       "slug": "space-age",
       "uuid": "fc03c7de-b0c6-4806-90bb-e9dda846e660",
       "core": false,
-      "unlocked_by": "gigasecond",
+      "unlocked_by": "word-count",
       "difficulty": 1,
       "topics": [
         "functions"
@@ -88,7 +88,7 @@
       "slug": "meetup",
       "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
       "core": false,
-      "unlocked_by": "gigasecond",
+      "unlocked_by": "word-count",
       "difficulty": 4,
       "topics": [
         "control_flow_if_statements",
