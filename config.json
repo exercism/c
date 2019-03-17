@@ -68,7 +68,7 @@
       "slug": "gigasecond",
       "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "word-count",
       "difficulty": 1,
       "topics": [
         "dates"

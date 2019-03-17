@@ -1,3 +1,7 @@
+### If you wish to use extra libraries (math.h for instance),
+### add their flags here (-lm in our case) in the "LIBS" variable.
+
+###
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -22,4 +26,4 @@ clean:
 
 tests.out: test/test_word_count.c src/word_count.c src/word_count.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/word_count.c test/vendor/unity.c test/test_word_count.c -o tests.out
+	@$(CC) $(CFLAGS) src/word_count.c test/vendor/unity.c test/test_word_count.c -o tests.out $(LIBS)

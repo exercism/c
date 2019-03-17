@@ -1,3 +1,7 @@
+### If you wish to use extra libraries (math.h for instance),
+### add their flags here (-lm in our case) in the "LIBS" variable.
+
+###
 CFLAGS = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -20,6 +24,6 @@ memcheck: tests.out
 clean:
 	rm -rf *.o *.out *.out.dSYM
 
-tests.out: src/nucleotide_count.c src/nucleotide_count.h test/test_nucleotide_count.c 
+tests.out: src/nucleotide_count.c src/nucleotide_count.h test/test_nucleotide_count.c
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/nucleotide_count.c test/vendor/unity.c test/test_nucleotide_count.c -o tests.out
+	@$(CC) $(CFLAGS) src/nucleotide_count.c test/vendor/unity.c test/test_nucleotide_count.c -o tests.out $(LIBS)
