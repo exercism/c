@@ -481,7 +481,7 @@ void test_excessive_number_words(void)
    int actual_word_count;
    int index = 0;
    char *input_text =
-       "Once upon a time, a long while in the past, there lived a strange little man who could spin straw into gold. His name was...";
+       "Once upon a time, a long while in the past, there lived a strange little man who could spin straw into pure gold.";
 
    const int expected_word_count = EXCESSIVE_NUMBER_OF_WORDS;
 
@@ -544,6 +544,9 @@ void test_excessive_number_words(void)
 
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "into", STRING_SIZE);
+
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "pure", STRING_SIZE);
 
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "gold", STRING_SIZE);
