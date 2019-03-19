@@ -1,5 +1,5 @@
-### If you wish to use extra libraries (math.h for instance),
-### add their flags here (-lm in our case) in the "LIBS" variable.
+### If you wish to use extra libraries,
+### add their flags in the "LIBS" variable (like we do with "CFLAGS").
 
 ###
 CFLAGS = -std=c99
