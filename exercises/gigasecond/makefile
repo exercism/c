@@ -1,3 +1,7 @@
+### If you wish to use extra libraries,
+### add their flags in the "LIBS" variable (like we do with "CFLAGS").
+
+###
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -22,4 +26,4 @@ clean:
 
 tests.out: test/test_gigasecond.c src/gigasecond.c src/gigasecond.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/gigasecond.c test/vendor/unity.c test/test_gigasecond.c -o tests.out
+	@$(CC) $(CFLAGS) src/gigasecond.c test/vendor/unity.c test/test_gigasecond.c -o tests.out $(LIBS)

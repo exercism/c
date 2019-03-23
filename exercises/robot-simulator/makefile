@@ -1,3 +1,7 @@
+### If you wish to use extra libraries,
+### add their flags in the "LIBS" variable (like we do with "CFLAGS").
+
+###
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -22,4 +26,4 @@ clean:
 
 tests.out: test/test_robot_simulator.c src/robot_simulator.c src/robot_simulator.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/robot_simulator.c test/vendor/unity.c test/test_robot_simulator.c -o tests.out
+	@$(CC) $(CFLAGS) src/robot_simulator.c test/vendor/unity.c test/test_robot_simulator.c -o tests.out $(LIBS)

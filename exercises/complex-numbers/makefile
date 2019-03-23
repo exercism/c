@@ -1,3 +1,9 @@
+### If you wish to use extra libraries (math.h for instance),
+### add their flags here (-lm in our case) in the "LIBS" variable.
+
+LIBS = -lm
+
+###
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -11,8 +17,6 @@ VFLAGS += --tool=memcheck
 VFLAGS += --leak-check=full
 VFLAGS += --error-exitcode=1
 
-LDFLAGS  = -lm
-
 test: tests.out
 	@./tests.out
 
@@ -25,4 +29,4 @@ clean:
 
 tests.out: test/test_complex_numbers.c src/complex_numbers.c src/complex_numbers.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/complex_numbers.c test/vendor/unity.c test/test_complex_numbers.c $(LDFLAGS) -o tests.out
+	@$(CC) $(CFLAGS) src/complex_numbers.c test/vendor/unity.c test/test_complex_numbers.c -o tests.out $(LIBS)

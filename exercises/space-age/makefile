@@ -1,3 +1,7 @@
+### If you wish to use extra libraries,
+### add their flags in the "LIBS" variable (like we do with "CFLAGS").
+
+###
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
@@ -22,4 +26,4 @@ clean:
 
 tests.out: test/test_space_age.c src/space_age.c src/space_age.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/space_age.c test/vendor/unity.c test/test_space_age.c -o tests.out
+	@$(CC) $(CFLAGS) src/space_age.c test/vendor/unity.c test/test_space_age.c -o tests.out $(LIBS)
