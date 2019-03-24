@@ -219,6 +219,5 @@ int main(void)
    RUN_TEST(test_allergic_to_everything);
    RUN_TEST(test_ignore_non_allergen_score_parts);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -201,6 +201,5 @@ int main(void)
    RUN_TEST(test_answer_unknown_operation);
    RUN_TEST(test_answer_non_math_question);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

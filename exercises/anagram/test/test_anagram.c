@@ -258,6 +258,5 @@ int main(void)
    RUN_TEST(test_unicode_anagrams);
    RUN_TEST(test_misleading_unicode_anagrams);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

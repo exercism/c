@@ -203,6 +203,5 @@ int main(void)
    RUN_TEST(test_sorted_data_can_sort_if_second_number_is_greater_than_first);
    RUN_TEST(test_sorted_data_can_sort_complex_tree);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

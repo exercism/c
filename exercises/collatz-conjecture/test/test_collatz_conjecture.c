@@ -43,6 +43,5 @@ int main(void)
    RUN_TEST(test_zero_is_an_error);
    RUN_TEST(test_negative_value_is_an_error);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

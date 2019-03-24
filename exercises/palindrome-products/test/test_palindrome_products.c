@@ -199,6 +199,5 @@ int main(void)
    RUN_TEST(test_error_result_for_smallest_if_min_is_more_than_max);
    RUN_TEST(test_error_result_for_largest_if_min_is_more_than_max);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

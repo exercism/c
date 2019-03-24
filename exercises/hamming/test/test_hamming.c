@@ -104,6 +104,5 @@ int main(void)
    RUN_TEST(test_large_hamming_distance);
    RUN_TEST(test_hamming_distance_in_very_long_strand);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

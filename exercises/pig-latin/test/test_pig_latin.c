@@ -234,6 +234,5 @@ int main(void)
    RUN_TEST(test_y_as_second_letter_in_two_letter_word);
    RUN_TEST(test_a_whole_phrase);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

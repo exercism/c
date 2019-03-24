@@ -179,7 +179,5 @@ int main(void)
    RUN_TEST(test_simulate_move_west_and_south);
    RUN_TEST(test_simulate_move_east_and_north);
 
-   UnityEnd();
-
-   return 0;
+   return UnityEnd();
 }

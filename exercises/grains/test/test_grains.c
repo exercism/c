@@ -83,6 +83,5 @@ int main(void)
    RUN_TEST(test_square_greater_than_64_does_not_exist);
    RUN_TEST(test_total);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

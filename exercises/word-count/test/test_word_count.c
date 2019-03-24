@@ -577,7 +577,5 @@ int main(void)
    RUN_TEST(test_max_number_words);
    RUN_TEST(test_excessive_number_words);
 
-   UnityEnd();
-
-   return 0;
+   return UnityEnd();
 }

@@ -112,6 +112,5 @@ int main(void)
    RUN_TEST(test_empty_array);
    RUN_TEST(test_zero_length_array);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

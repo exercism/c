@@ -128,6 +128,5 @@ int main(void)
    RUN_TEST(test_decode_numbers);
    RUN_TEST(test_decode_all_the_letters);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

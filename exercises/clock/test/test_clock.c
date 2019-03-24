@@ -474,6 +474,5 @@ int main(void)
    RUN_TEST(test_subtract_more_than_one_day);
    RUN_TEST(test_subtract_more_than_two_days);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

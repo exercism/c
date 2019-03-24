@@ -340,7 +340,5 @@ int main(void)
    RUN_TEST(test_callbacks_only_called_once_even_if_multiple_inputs_change);
    RUN_TEST(test_callbacks_not_called_if_inputs_change_but_output_doesnt);
 
-   UnityEnd();
-
-   return 0;
+   return UnityEnd();
 }

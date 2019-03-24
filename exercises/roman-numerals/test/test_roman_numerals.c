@@ -154,6 +154,5 @@ int main(void)
    RUN_TEST(test_one_thousand_twenty_four_yields_MXXIV);
    RUN_TEST(test_three_thousand_yields_MMM);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

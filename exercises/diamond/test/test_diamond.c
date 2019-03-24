@@ -153,6 +153,5 @@ int main(void)
        (test_rows_smallest_non_degenerate_case_with_even_diamond_side_length);
    RUN_TEST(test_rows_largest_possible_diamond);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

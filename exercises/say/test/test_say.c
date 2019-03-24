@@ -180,6 +180,5 @@ int main(void)
    RUN_TEST(test_numbers_below_zero_are_out_of_range);
    RUN_TEST(test_numbers_above_999_999_999_999_are_out_of_range);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

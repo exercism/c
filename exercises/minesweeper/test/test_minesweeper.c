@@ -250,6 +250,5 @@ int main(void)
    RUN_TEST(test_annotate_cross);
    RUN_TEST(test_annotate_large_minefield);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -115,6 +115,5 @@ int main(void)
    RUN_TEST(test_multiple_scores_with_multiple_letters);
    RUN_TEST(test_multiple_scores_with_differing_numbers_of_letters);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

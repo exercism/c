@@ -716,6 +716,5 @@ int main(void)
    RUN_TEST(test_fifth_Friday_of_December_2016);
    RUN_TEST(test_fifth_Friday_of_February_2013);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

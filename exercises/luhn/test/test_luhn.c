@@ -104,6 +104,5 @@ int main(void)
    RUN_TEST(test_more_than_a_single_zero_is_valid);
    RUN_TEST(test_input_digit_9_is_correctly_converted_to_output_digit_9);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -108,6 +108,5 @@ int main(void)
    RUN_TEST(test_sings_several_verses);
    RUN_TEST(test_sings_the_last_4_verses);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -116,6 +116,5 @@ int main(void)
    RUN_TEST(test_a_number_with_leading_non_binary_characters_is_invalid);
    RUN_TEST(test_a_number_with_internal_non_binary_characters_is_invalid);
    RUN_TEST(test_a_number_and_a_word_whitespace_spearated_is_invalid);
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -90,6 +90,5 @@ int main(void)
    RUN_TEST(test_empty_input);
    RUN_TEST(test_entire_alphabet_available);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -83,6 +83,5 @@ int main(void)
    RUN_TEST(test_difference_of_squares_up_to_10);
    RUN_TEST(test_difference_of_squares_up_to_100);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

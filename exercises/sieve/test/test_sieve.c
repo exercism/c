@@ -117,6 +117,5 @@ int main(void)
    RUN_TEST(test_limit_is_prime);
    RUN_TEST(test_find_primes_up_to_1000);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }
