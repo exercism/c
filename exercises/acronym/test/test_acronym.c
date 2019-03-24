@@ -97,7 +97,6 @@ void test_long_abbreviation(void)
        "That My Dogs Came Over And Licked Me";
    char *expected = "ROTFLSHTMDCOALM";
    test_abbreviation(phrase, expected);
-   TEST_ASSERT(0);
 }
 
 int main(void)
