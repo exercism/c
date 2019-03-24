@@ -111,6 +111,5 @@ int main(void)
    RUN_TEST(test_mixed_case_and_punctuation);
    RUN_TEST(test_upper_and_lower_case_of_same_character);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

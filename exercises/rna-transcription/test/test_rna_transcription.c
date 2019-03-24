@@ -82,6 +82,5 @@ int main(void)
    RUN_TEST(test_handle_completely_invalid_input);
    RUN_TEST(test_handle_partially_invalid_input);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

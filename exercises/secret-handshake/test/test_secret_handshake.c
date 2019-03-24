@@ -128,6 +128,5 @@ int main(void)
    RUN_TEST(test_commands_reverse_all_possible_actions);
    RUN_TEST(test_commands_do_nothing_for_zero);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

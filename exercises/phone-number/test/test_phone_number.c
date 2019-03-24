@@ -175,6 +175,5 @@ int main(void)
    RUN_TEST(test_invalid_if_area_code_does_not_start_with_2_to_9);
    RUN_TEST(test_invalid_if_exchange_code_does_not_start_with_2_to_9);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

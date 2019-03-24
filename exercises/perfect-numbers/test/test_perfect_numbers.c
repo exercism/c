@@ -104,6 +104,5 @@ int main(void)
    RUN_TEST(test_zero_is_rejected);
    RUN_TEST(test_negative_integer_is_rejected);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

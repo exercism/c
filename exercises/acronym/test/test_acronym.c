@@ -113,6 +113,5 @@ int main(void)
    RUN_TEST(test_empty_string);
    RUN_TEST(test_all_words_starting_with_lowercase);
    RUN_TEST(test_long_abbreviation);
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

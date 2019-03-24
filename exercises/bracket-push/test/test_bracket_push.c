@@ -127,6 +127,5 @@ int main(void)
    RUN_TEST(test_math_expression);
    RUN_TEST(test_complex_latex_expression);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

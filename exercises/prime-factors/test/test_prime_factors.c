@@ -91,6 +91,5 @@ int main(void)
    RUN_TEST(test_product_of_primes);
    RUN_TEST(test_factors_include_a_large_prime);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

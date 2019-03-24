@@ -388,6 +388,5 @@ int main(void)
    RUN_TEST(test_exponential_of_zero);
    RUN_TEST(test_exponential_of_a_purely_real_number);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

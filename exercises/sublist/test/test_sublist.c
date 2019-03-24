@@ -238,6 +238,5 @@ int main(void)
    RUN_TEST(test_same_digits_but_different_numbers);
    RUN_TEST(test_different_signs);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

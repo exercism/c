@@ -149,6 +149,5 @@ int main(void)
    RUN_TEST(test_no_multiples_given);
    RUN_TEST(test_null_ptr_multiple);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

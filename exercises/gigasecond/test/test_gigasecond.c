@@ -104,6 +104,5 @@ int main(void)
    RUN_TEST(test_date_and_time_with_day_rollover);
    //RUN_TEST(test_your_birthday);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

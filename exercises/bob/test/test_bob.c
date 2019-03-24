@@ -230,6 +230,5 @@ int main(void)
    RUN_TEST(test_other_whitespace);
    RUN_TEST(test_non_question_ending_with_whitespace);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

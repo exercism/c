@@ -134,6 +134,5 @@ int main(void)
    RUN_TEST(test_decode_lower_case_string);
    RUN_TEST(test_consistency_encode_followed_by_decode_gives_original_string);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

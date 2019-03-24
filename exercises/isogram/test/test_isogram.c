@@ -98,6 +98,5 @@ int main(void)
    RUN_TEST(test_multiple_whitespace);
    RUN_TEST(test_duplicated_letter_within_word);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

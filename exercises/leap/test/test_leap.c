@@ -48,6 +48,5 @@ int main(void)
    RUN_TEST(test_turn_of_the_21st_century);
    RUN_TEST(test_turn_of_the_25th_century);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

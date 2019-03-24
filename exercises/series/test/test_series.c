@@ -112,7 +112,5 @@ int main(void)
    RUN_TEST(test_overly_long_slice);
    RUN_TEST(test_overly_short_slice);
 
-   UnityEnd();
-
-   return 0;
+   return UnityEnd();
 }

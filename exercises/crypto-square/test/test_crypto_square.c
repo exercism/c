@@ -94,6 +94,5 @@ int main(void)
    RUN_TEST
        (test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

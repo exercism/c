@@ -132,6 +132,5 @@ int main(void)
    RUN_TEST(test_rejects_empty_string_and_nonzero_span);
    RUN_TEST(test_rejects_invalid_character_in_digits);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

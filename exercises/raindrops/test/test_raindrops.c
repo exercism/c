@@ -135,6 +135,5 @@ int main(void)
    RUN_TEST(test_one_hundred_five_yields_plingplangplong);
    RUN_TEST(test_big_prime_yields_itself);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

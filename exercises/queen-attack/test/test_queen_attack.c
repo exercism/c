@@ -185,6 +185,5 @@ int main(void)
    RUN_TEST(test_can_attack_on_third_diagonal);
    RUN_TEST(test_can_attack_on_fourth_diagonal);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

@@ -141,6 +141,5 @@ int main(void)
    RUN_TEST(test_scalene_is_false_if_no_sides_equal_and_violate_inequality);
    RUN_TEST(test_scalene_sides_may_be_floats);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

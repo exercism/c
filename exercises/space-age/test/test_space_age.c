@@ -69,6 +69,5 @@ int main(void)
    RUN_TEST(test_convert_uranus_year);
    RUN_TEST(test_convert_neptune_year);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

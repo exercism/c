@@ -224,6 +224,5 @@ int main(void)
    RUN_TEST(test_second_base_is_negative);
    RUN_TEST(test_both_bases_are_negative);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

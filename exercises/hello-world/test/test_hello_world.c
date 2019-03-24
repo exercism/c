@@ -21,7 +21,5 @@ int main(void)
 
    RUN_TEST(test_hello);
 
-   UnityEnd();
-
-   return 0;
+   return UnityEnd();
 }

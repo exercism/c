@@ -65,6 +65,5 @@ int main(void)
    RUN_TEST(test_multiple_nucleotides);
    RUN_TEST(test_invalid_nucleotide);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

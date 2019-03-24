@@ -96,5 +96,5 @@ int main(void)
    RUN_TEST(test_three_rows);
    RUN_TEST(test_four_rows);
    RUN_TEST(test_negative_rows);
-   UnityEnd();
+   return UnityEnd();
 }

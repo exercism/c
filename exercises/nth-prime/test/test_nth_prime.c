@@ -48,6 +48,5 @@ int main(void)
    RUN_TEST(test_large_prime);
    RUN_TEST(test_weird_case);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }

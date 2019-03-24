@@ -46,6 +46,5 @@ int main(void)
    RUN_TEST(test_two_fer_a_name_given);
    RUN_TEST(test_two_fer_another_name_given);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }
