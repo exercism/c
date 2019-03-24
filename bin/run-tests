@@ -28,11 +28,7 @@ for D in exercises/*; do
         { cd ${D};
           echo "Running tests for ${EXERCISE_NAME}";
           make clean >> /dev/null;
-          if make memcheck | grep FAIL: ; then
-            exit 1
-          elif [ ${PIPESTATUS[0]} -ne 0 ]; then
-            exit 1
-          fi
+          make memcheck
           cd ${CURRENT_DIR};
         }
     fi
