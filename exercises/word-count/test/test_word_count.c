@@ -7,7 +7,7 @@
 #define STRING_SIZE (MAX_WORD_LENGTH + 1)
 
 word_count_word_t actual_solution[MAX_WORDS];
-word_count_word_t expected_solution[MAX_WORDS];
+word_count_word_t expected_solution[MAX_WORDS+1];
 void setUp(void)
 {
 }
