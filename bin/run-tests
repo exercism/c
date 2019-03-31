@@ -1,35 +1,55 @@
 #!/usr/bin/env bash
 set -e
 
-for D in exercises/*; do
-    CURRENT_DIR=$(pwd)
+# Move to the root directory of the repo so you can run this script from anywhere
+SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
+cd "${SCRIPT_DIR}"/..
 
-    if [ -d "${D}" ]; then
-        # Get the exercise name from the test file
-        TEST_FILE=$(basename $(ls ${D}/test/test*))
-        STRIPPED_OF_EXTENSION="${TEST_FILE%.*}"
-        EXERCISE_NAME="${STRIPPED_OF_EXTENSION:5}"
+# Clone the exercises directory to avoid pollution
+rm -rf build
+cp -r exercises build
+
+cd build/
+
+execute_test () {
+    if [ -d "${1}" ]; then
+        (
+        cd "${1}"
+        # Get the exercise name from the directory
+        EXERCISE_NAME=$(echo "$1" | tr '-' '_')
+
+        echo "Running tests for ${EXERCISE_NAME}";
 
         #remove the ignore line
-        sed -i.bak 's/TEST_IGNORE();//' ${D}/test/test_*.c
+        sed -i 's/TEST_IGNORE();//' test/test_*.c
 
         # Copy the examples with the correct name for the exercise
-        if [ -e "${D}/src/example.c" ]
+        if [ -e "src/example.c" ]
         then
-          cp ${D}/src/example.c ${D}/src/${EXERCISE_NAME}.c
+          cp src/example.c src/"${EXERCISE_NAME}".c
         fi
 
-        if [ -e "${D}/src/example.h" ]
+        if [ -e "src/example.h" ]
         then
-          cp ${D}/src/example.h ${D}/src/${EXERCISE_NAME}.h
+          cp src/example.h src/"${EXERCISE_NAME}".h
         fi
 
         # Make it!
-        { cd ${D};
-          echo "Running tests for ${EXERCISE_NAME}";
-          make clean >> /dev/null;
-          make memcheck
-          cd ${CURRENT_DIR};
-        }
+        make clean >> /dev/null;
+        make memcheck
+        echo ""
+        )
     fi
-done
+}
+
+# Allow specifying which tests to run as arguments
+if [ $# -gt 0 ]; then
+    for exercise in "$@"; do
+        execute_test "$exercise"
+    done
+else
+    for exercise in *; do
+        execute_test "$exercise"
+    done
+fi
+
