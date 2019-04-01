@@ -137,6 +137,12 @@ Firstly make sure you have the necessary tools installed (such as `indent`, [`gi
 ~/git/c$ ./bin/run-tests
 ```
 
+If you'd like to run only some of the tests to check your work, you can specify them as arguments to the run-tests script.
+
+```bash
+~/git/c$ ./bin/run-tests acronym all-your-base allergies
+```
+
 ### What Are the CI Scripts?
 You can see from the [.travis.yml](https://github.com/exercism/c/blob/master/.travis.yml) file that Travis is instructed to run scripts from the [`./bin`](https://github.com/exercism/c/tree/master/bin) directory.
 The work these scripts perform is described as follows:
