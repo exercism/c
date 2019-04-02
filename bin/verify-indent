@@ -6,7 +6,7 @@ bash indent.sh
 # Unfortunately no better solution was found
 git diff --quiet
 
-if ! $(git diff --quiet)
+if ! git diff --quiet
 then
   echo "Incorrect style detected:"
   echo
