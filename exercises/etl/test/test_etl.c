@@ -36,7 +36,7 @@ void test_a_single_letter(void)
    TEST_ASSERT_EQUAL_INT(expected_length, actual_length);
    TEST_ASSERT_EQUAL_INT(0, compare_map(expected_map, output, actual_length));
 
-   free(output);
+   //free(output);
 }
 
 void test_single_score_with_multiple_letters(void)
