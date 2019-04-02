@@ -11,21 +11,22 @@ CFLAGS += -Wextra
 CFLAGS += -pedantic
 CFLAGS += -Werror
 
-VFLAGS  = --quiet
-VFLAGS += --tool=memcheck
-VFLAGS += --leak-check=full
-VFLAGS += --error-exitcode=1
+ASANFLAGS  = -fsanitize=address
+ASANFLAGS += -fno-common
+ASANFLAGS += -fno-omit-frame-pointer
 
 test: tests.out
 	@./tests.out
 
-memcheck: tests.out
-	@valgrind $(VFLAGS) ./tests.out
+memcheck: test/*.c src/*.c src/*.h
+	@echo Compiling $@
+	@$(CC) $(ASANFLAGS) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o memcheck.out $(LIBS)
+	@./memcheck.out
 	@echo "Memory check passed"
 
 clean:
 	rm -rf *.o *.out *.out.dSYM
 
-tests.out: test/test_crypto_square.c src/crypto_square.c src/crypto_square.h
+tests.out: test/*.c src/*.c src/*.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/crypto_square.c test/vendor/unity.c test/test_crypto_square.c -o tests.out $(LIBS)
+	@$(CC) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o tests.out $(LIBS)

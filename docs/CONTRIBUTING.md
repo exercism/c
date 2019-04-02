@@ -131,7 +131,7 @@ The good folks at fish-shell have [some great information](https://github.com/fi
 
 ### Run CI Scripts Locally
 You can also run individual scripts on your own machine before committing.
-Firstly make sure you have the necessary tools installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/), [`valgrind`](http://valgrind.org/) and a C compiler), and then run the required script from the repository root. For example:
+Firstly make sure you have the necessary tools installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/) and a C compiler), and then run the required script from the repository root. For example:
 
 ```bash
 ~/git/c$ ./bin/run-tests
@@ -155,5 +155,5 @@ The command for `configlet` used by Travis is [`lint`](https://github.com/exerci
 - `verify-indent` runs `indent` and verifies that it did not result in any file changes.
 If the check does result in file changes, Travis will output the details and report a failure on the related PR.
 
-- `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with `valgrind`.
+- `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with AddressSanitizer.
 If there are build errors, any test fails or there is a memory leak, Travis will output the details and report a failure on the related PR.

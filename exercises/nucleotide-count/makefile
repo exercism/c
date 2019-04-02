@@ -1,29 +1,32 @@
-### If you wish to use extra libraries,
-### add their flags in the "LIBS" variable (like we do with "CFLAGS").
+### If you wish to use extra libraries (math.h for instance),
+### add their flags here (-lm in our case) in the "LIBS" variable.
+
+LIBS = -lm
 
 ###
-CFLAGS = -std=c99
+CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -pedantic
 CFLAGS += -Werror
 
-VFLAGS  = --quiet
-VFLAGS += --tool=memcheck
-VFLAGS += --leak-check=full
-VFLAGS += --error-exitcode=1
+ASANFLAGS  = -fsanitize=address
+ASANFLAGS += -fno-common
+ASANFLAGS += -fno-omit-frame-pointer
 
 test: tests.out
 	@./tests.out
 
-memcheck: tests.out
-	@valgrind $(VFLAGS) ./tests.out
+memcheck: test/*.c src/*.c src/*.h
+	@echo Compiling $@
+	@$(CC) $(ASANFLAGS) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o memcheck.out $(LIBS)
+	@./memcheck.out
 	@echo "Memory check passed"
 
 clean:
 	rm -rf *.o *.out *.out.dSYM
 
-tests.out: src/nucleotide_count.c src/nucleotide_count.h test/test_nucleotide_count.c
+tests.out: test/*.c src/*.c src/*.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/nucleotide_count.c test/vendor/unity.c test/test_nucleotide_count.c -o tests.out $(LIBS)
+	@$(CC) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o tests.out $(LIBS)

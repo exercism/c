@@ -26,12 +26,12 @@ execute_test () {
         # Copy the examples with the correct name for the exercise
         if [ -e "src/example.c" ]
         then
-          cp src/example.c src/"${EXERCISE_NAME}".c
+          mv src/example.c src/"${EXERCISE_NAME}".c
         fi
 
         if [ -e "src/example.h" ]
         then
-          cp src/example.h src/"${EXERCISE_NAME}".h
+          mv src/example.h src/"${EXERCISE_NAME}".h
         fi
 
         # Make it!
