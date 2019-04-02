@@ -12,4 +12,5 @@ script:
 - bin/fetch-configlet
 - bin/configlet lint .
 - bin/verify-indent
+- shellcheck bin/*
 - bin/run-tests
