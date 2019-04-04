@@ -1,6 +1,9 @@
 #include "vendor/unity.h"
 #include "../src/palindrome_products.h"
 
+#include <stdbool.h>
+#include <stddef.h>
+
 void setUp(void)
 {
 }
@@ -9,24 +12,45 @@ void tearDown(void)
 {
 }
 
-void check_factors(factor_t * actual, int depth, factor_t expected[])
+bool factor_t_are_equal(const factor_t * const f1, const factor_t * const f2)
+{
+   return ((f1->factor_a == f2->factor_a) && (f1->factor_b == f2->factor_b)) ||
+       ((f1->factor_a == f2->factor_b) && (f1->factor_a == f2->factor_b));
+}
+
+bool
+contains_factor(factor_t * factors, const factor_t * const factor,
+                const size_t depth)
+{
+   size_t current_depth = 0;
+   factor_t *current_factor = factors;
+   while ((current_factor != NULL) && (current_depth != depth)) {
+      if (factor_t_are_equal(current_factor, factor)) {
+         return true;
+      }
+      current_factor = current_factor->next;
+      current_depth += 1;
+   }
+   return false;
+}
+
+void check_factors(factor_t * actual, size_t depth, factor_t expected[])
 {
    if (depth == 0) {
       TEST_ASSERT_EQUAL_PTR(NULL, actual);
       return;
    }
-   int i;
-   int count_ok = 0;
-   for (i = 0; i < depth; i++) {
-      if (actual == NULL)
+   bool found_all = true;
+   int found_count = 0;
+   for (size_t i = 0; i < depth; ++i) {
+      if (!contains_factor(actual, &expected[i], depth)) {
+         found_all = false;
          break;
-      if ((actual->factor_a == expected[i].factor_a) &&
-          (actual->factor_b == expected[i].factor_b))
-         count_ok++;
-      actual = actual->next;
+      }
+      found_count += 1;
    }
-   TEST_ASSERT_EQUAL_PTR(NULL, actual);
-   TEST_ASSERT_EQUAL_INT(depth, count_ok);
+   TEST_ASSERT_TRUE(found_all);
+   TEST_ASSERT_EQUAL_INT(depth, found_count);
 }
 
 void test_smallest_palindrome_from_single_digit_factors(void)
