@@ -12,13 +12,14 @@ void tearDown(void)
 {
 }
 
-bool factor_t_are_equal(const factor_t * const f1, const factor_t * const f2)
+static bool factor_t_are_equal(const factor_t * const f1,
+                               const factor_t * const f2)
 {
    return ((f1->factor_a == f2->factor_a) && (f1->factor_b == f2->factor_b)) ||
        ((f1->factor_a == f2->factor_b) && (f1->factor_a == f2->factor_b));
 }
 
-bool
+static bool
 contains_factor(factor_t * factors, const factor_t * const factor,
                 const size_t depth)
 {
@@ -34,7 +35,7 @@ contains_factor(factor_t * factors, const factor_t * const factor,
    return false;
 }
 
-void check_factors(factor_t * actual, size_t depth, factor_t expected[])
+static void check_factors(factor_t * actual, size_t depth, factor_t expected[])
 {
    if (depth == 0) {
       TEST_ASSERT_EQUAL_PTR(NULL, actual);
