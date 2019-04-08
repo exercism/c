@@ -1,6 +1,9 @@
 #include "vendor/unity.h"
 #include "../src/palindrome_products.h"
 
+#include <stdbool.h>
+#include <stddef.h>
+
 void setUp(void)
 {
 }
@@ -9,24 +12,71 @@ void tearDown(void)
 {
 }
 
-void check_factors(factor_t * actual, int depth, factor_t expected[])
+/* factor_t_are_equal compares the values of the factors
+ * that are stored in the passed f1, f2 factor_t structs
+ * regardless of their order in the said structs. Returns
+ * true if the values are equal, false otherwise.
+ *
+ *
+ * Examples:
+ *
+ * factor_t_are_equal(&{1, 9}, &{1, 9}) returns true
+ * factor_t_are_equal(&{1, 9}, &{9, 1}) returns true
+ * factor_t_are_equal(&{1, 9}, &{1, 8}) returns false
+ * */
+static bool factor_t_are_equal(const factor_t * const f1,
+                               const factor_t * const f2)
+{
+   return ((f1->factor_a == f2->factor_a) && (f1->factor_b == f2->factor_b)) ||
+       ((f1->factor_a == f2->factor_b) && (f1->factor_a == f2->factor_b));
+}
+
+/* contains_factor checks if the `factor` variable is stored
+ * in the `factors` linked-list. The function traverses the
+ * `factors` list, until it finds the desired element, in which case
+ * it returns true. If the function gets to the end of the list or
+ * exceeds the number of checked elements (passed as the `depth` variable),
+ * it returns false.
+ * */
+static bool
+contains_factor(factor_t * factors, const factor_t * const factor,
+                const size_t depth)
+{
+   size_t current_depth = 0;
+   factor_t *current_factor = factors;
+   while ((current_factor != NULL) && (current_depth != depth)) {
+      if (factor_t_are_equal(current_factor, factor)) {
+         return true;
+      }
+      current_factor = current_factor->next;
+      current_depth += 1;
+   }
+   return false;
+}
+
+/* check_factors checks if all the factor_t elements that are
+ * passed in the `expected` variable are present in the `actual`
+ * variable that contains a linked list of factor_t elements from
+ * the student's solution. For every element of `expected` found in
+ * `actual` the `found_count` variable is incremented. In the end
+ * `found_count` is compared with the expected number of the found
+ * elements passed in the `depth` variable.
+ * */
+static void check_factors(factor_t * actual, size_t depth, factor_t expected[])
 {
    if (depth == 0) {
       TEST_ASSERT_EQUAL_PTR(NULL, actual);
       return;
    }
-   int i;
-   int count_ok = 0;
-   for (i = 0; i < depth; i++) {
-      if (actual == NULL)
+   int found_count = 0;
+   for (size_t i = 0; i < depth; ++i) {
+      if (!contains_factor(actual, &expected[i], depth)) {
          break;
-      if ((actual->factor_a == expected[i].factor_a) &&
-          (actual->factor_b == expected[i].factor_b))
-         count_ok++;
-      actual = actual->next;
+      }
+      found_count += 1;
    }
-   TEST_ASSERT_EQUAL_PTR(NULL, actual);
-   TEST_ASSERT_EQUAL_INT(depth, count_ok);
+   TEST_ASSERT_EQUAL_INT_MESSAGE(depth, found_count,
+                                 "Not every expected factor found in the actual result.");
 }
 
 void test_smallest_palindrome_from_single_digit_factors(void)
