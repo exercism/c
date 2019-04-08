@@ -12,6 +12,18 @@ void tearDown(void)
 {
 }
 
+/* factor_t_are_equal compares the values of the factors
+ * that are stored in the passed f1, f2 factor_t structs
+ * regardless of their order in the said structs. Returns
+ * true if the values are equal, false otherwise.
+ *
+ *
+ * Examples:
+ *
+ * factor_t_are_equal(&{1, 9}, &{1, 9}) returns true
+ * factor_t_are_equal(&{1, 9}, &{9, 1}) returns true
+ * factor_t_are_equal(&{1, 9}, &{1, 8}) returns false
+ * */
 static bool factor_t_are_equal(const factor_t * const f1,
                                const factor_t * const f2)
 {
@@ -19,6 +31,13 @@ static bool factor_t_are_equal(const factor_t * const f1,
        ((f1->factor_a == f2->factor_b) && (f1->factor_a == f2->factor_b));
 }
 
+/* contains_factor checks if the `factor` variable is stored
+ * in the `factors` linked-list. The function traverses the
+ * `factors` list, until it finds the desired element, in which case
+ * it returns true. If the function gets to the end of the list or
+ * exceeds the number of checked elements (passed as the `depth` variable),
+ * it returns false.
+ * */
 static bool
 contains_factor(factor_t * factors, const factor_t * const factor,
                 const size_t depth)
@@ -35,6 +54,14 @@ contains_factor(factor_t * factors, const factor_t * const factor,
    return false;
 }
 
+/* check_factors checks if all the factor_t elements that are
+ * passed in the `expected` variable are present in the `actual`
+ * variable that contains a linked list of factor_t elements from
+ * the student's solution. For every element of `expected` found in
+ * `actual` the `found_count` variable is incremented. In the end
+ * `found_count` is compared with the expected number of the found
+ * elements passed in the `depth` variable.
+ * */
 static void check_factors(factor_t * actual, size_t depth, factor_t expected[])
 {
    if (depth == 0) {
