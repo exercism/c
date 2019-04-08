@@ -75,7 +75,8 @@ static void check_factors(factor_t * actual, size_t depth, factor_t expected[])
       }
       found_count += 1;
    }
-   TEST_ASSERT_EQUAL_INT(depth, found_count);
+   TEST_ASSERT_EQUAL_INT_MESSAGE(depth, found_count,
+                                 "Not every expected factor found in the actual result.");
 }
 
 void test_smallest_palindrome_from_single_digit_factors(void)
