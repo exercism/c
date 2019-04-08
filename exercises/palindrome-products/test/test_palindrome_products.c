@@ -40,16 +40,13 @@ void check_factors(factor_t * actual, size_t depth, factor_t expected[])
       TEST_ASSERT_EQUAL_PTR(NULL, actual);
       return;
    }
-   bool found_all = true;
    int found_count = 0;
    for (size_t i = 0; i < depth; ++i) {
       if (!contains_factor(actual, &expected[i], depth)) {
-         found_all = false;
          break;
       }
       found_count += 1;
    }
-   TEST_ASSERT_TRUE(found_all);
    TEST_ASSERT_EQUAL_INT(depth, found_count);
 }
 
