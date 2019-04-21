@@ -15,7 +15,7 @@ static const float factors[8] = {
    EARTH * 164.79132            // Neptune
 };
 
-float convert_planet_age(planet_t planet, const long input)
+float convert_planet_age(planet_t planet, int64_t input)
 {
    return input / factors[planet];
 }
