@@ -18,8 +18,8 @@ int64_t largest_series_product(char *digits, size_t span)
 {
    size_t digit_count = strlen(digits);
    size_t zeros = 0;
-   long product = 1;
-   long largest_product = 0;
+   int64_t product = 1;
+   int64_t largest_product = 0;
 
    if (span > digit_count)
       return -1;
