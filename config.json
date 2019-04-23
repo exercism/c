@@ -566,7 +566,7 @@
       ]
     },
     {
-      "slug": "bracket-push",
+      "slug": "matching-brackets",
       "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac",
       "core": false,
       "unlocked_by": "isogram",
