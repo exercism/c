@@ -1,5 +1,5 @@
 #include "vendor/unity.h"
-#include "../src/bracket_push.h"
+#include "../src/matching_brackets.h"
 #include <stdbool.h>
 
 void setUp(void)
@@ -110,7 +110,7 @@ void test_complex_latex_expression(void)
 
 int main(void)
 {
-   UnityBegin("test/test_bracket_push.c");
+   UnityBegin("test/test_matching_brackets.c");
 
    RUN_TEST(test_paired_square_brackets);
    RUN_TEST(test_empty_string);

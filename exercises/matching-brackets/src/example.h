@@ -1,5 +1,5 @@
-#ifndef BRACKET_PUSH_H
-#define BRACKET_PUSH_H
+#ifndef MATCHING_BRACKETS_H
+#define MATCHING_BRACKETS_H
 #include <stdbool.h>
 
 bool is_paired(const char *input);
