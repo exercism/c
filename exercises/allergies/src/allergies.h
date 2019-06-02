@@ -1,6 +1,8 @@
 #ifndef ALLERGIES_H
 #define ALLERGIES_H
 
+#include <stdbool.h>
+
 typedef enum {
    ALLERGEN_EGGS = 0,
    ALLERGEN_PEANUTS,
@@ -10,12 +12,12 @@ typedef enum {
    ALLERGEN_CHOCOLATE,
    ALLERGEN_POLLEN,
    ALLERGEN_CATS,
-   ALLERGEN_COUNT
+   ALLERGEN_COUNT,
 } allergen_t;
 
 typedef struct {
    int count;
-   allergen_t *allergens;
+   bool allergens[ALLERGEN_COUNT];
 } allergen_list_t;
 
 #endif
