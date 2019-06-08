@@ -10,30 +10,9 @@ void tearDown(void)
 {
 }
 
-//helper functions
-void list_count_is(int count, allergen_list_t * list)
-{
-   TEST_ASSERT_EQUAL(count, list->count);
-}
-
-void list_contains(allergen_t allergen, allergen_list_t * list)
-{
-   bool allergen_found = false;
-
-   for (int i = 0; i < list->count; i++) {
-      if (list->allergens[i] == allergen) {
-         allergen_found = true;
-         break;
-      }
-   }
-
-   TEST_ASSERT_TRUE(allergen_found);
-}
-
-//Tests start here
 void test_no_allergies_means_not_allergic(void)
 {
-   int score = 0;
+   unsigned int score = 0;
 
    TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_PEANUTS, score));
    TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_CATS, score));
@@ -43,7 +22,7 @@ void test_no_allergies_means_not_allergic(void)
 void test_is_allergic_to_eggs(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   int score = 1;
+   unsigned int score = 1;
 
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, score));
 }
@@ -51,7 +30,7 @@ void test_is_allergic_to_eggs(void)
 void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
 {
    TEST_IGNORE();
-   int score = 5;
+   unsigned int score = 5;
 
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, score));
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_SHELLFISH, score));
@@ -61,145 +40,101 @@ void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
 void test_no_allergies_at_all(void)
 {
    TEST_IGNORE();
-   int score = 0;
-   allergen_list_t list;
+   unsigned int score = 0;
+   allergen_list_t list = get_allergens(score);
 
-   get_allergens(score, &list);
-
-   list_count_is(0, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(0, list.count);
 }
 
 void test_allergic_to_just_eggs(void)
 {
    TEST_IGNORE();
-   int score = 1;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(1);
 
-   get_allergens(score, &list);
-
-   list_count_is(1, &list);
-   list_contains(ALLERGEN_EGGS, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(1, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
 }
 
 void test_allergic_to_just_peanuts(void)
 {
    TEST_IGNORE();
-   int score = 2;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(2);
 
-   get_allergens(score, &list);
-
-   list_count_is(1, &list);
-   list_contains(ALLERGEN_PEANUTS, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(1, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
 }
 
 void test_allergic_to_just_strawberries(void)
 {
    TEST_IGNORE();
-   int score = 8;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(8);
 
-   get_allergens(score, &list);
-
-   list_count_is(1, &list);
-   list_contains(ALLERGEN_STRAWBERRIES, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(1, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_STRAWBERRIES]);
 }
 
 void test_allergic_to_eggs_and_peanuts(void)
 {
    TEST_IGNORE();
-   int score = 3;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(3);
 
-   get_allergens(score, &list);
-
-   list_count_is(2, &list);
-   list_contains(ALLERGEN_EGGS, &list);
-   list_contains(ALLERGEN_PEANUTS, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(2, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
 }
 
 void test_allergic_to_more_than_eggs_but_not_peanuts(void)
 {
    TEST_IGNORE();
-   int score = 5;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(5);
 
-   get_allergens(score, &list);
-
-   list_count_is(2, &list);
-   list_contains(ALLERGEN_EGGS, &list);
-   list_contains(ALLERGEN_SHELLFISH, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(2, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_SHELLFISH]);
 }
 
 void test_allergic_to_lots_of_stuff(void)
 {
    TEST_IGNORE();
-   int score = 248;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(248);
 
-   get_allergens(score, &list);
-
-   list_count_is(5, &list);
-   list_contains(ALLERGEN_STRAWBERRIES, &list);
-   list_contains(ALLERGEN_TOMATOES, &list);
-   list_contains(ALLERGEN_CHOCOLATE, &list);
-   list_contains(ALLERGEN_POLLEN, &list);
-   list_contains(ALLERGEN_CATS, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(5, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_STRAWBERRIES]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_TOMATOES]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CHOCOLATE]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_POLLEN]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
 
 void test_allergic_to_everything(void)
 {
    TEST_IGNORE();
-   int score = 255;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(255);
 
-   get_allergens(score, &list);
-
-   list_count_is(8, &list);
-   list_contains(ALLERGEN_EGGS, &list);
-   list_contains(ALLERGEN_PEANUTS, &list);
-   list_contains(ALLERGEN_SHELLFISH, &list);
-   list_contains(ALLERGEN_STRAWBERRIES, &list);
-   list_contains(ALLERGEN_TOMATOES, &list);
-   list_contains(ALLERGEN_CHOCOLATE, &list);
-   list_contains(ALLERGEN_POLLEN, &list);
-   list_contains(ALLERGEN_CATS, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(8, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_SHELLFISH]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_STRAWBERRIES]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_TOMATOES]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CHOCOLATE]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_POLLEN]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
 
 void test_ignore_non_allergen_score_parts(void)
 {
    TEST_IGNORE();
-   int score = 509;
-   allergen_list_t list;
+   allergen_list_t list = get_allergens(509);
 
-   get_allergens(score, &list);
-
-   list_count_is(7, &list);
-   list_contains(ALLERGEN_EGGS, &list);
-   list_contains(ALLERGEN_SHELLFISH, &list);
-   list_contains(ALLERGEN_STRAWBERRIES, &list);
-   list_contains(ALLERGEN_TOMATOES, &list);
-   list_contains(ALLERGEN_CHOCOLATE, &list);
-   list_contains(ALLERGEN_POLLEN, &list);
-   list_contains(ALLERGEN_CATS, &list);
-
-   free(list.allergens);
+   TEST_ASSERT_EQUAL(7, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_SHELLFISH]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_STRAWBERRIES]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_TOMATOES]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CHOCOLATE]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_POLLEN]);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
 
 int main(void)

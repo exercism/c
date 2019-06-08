@@ -12,15 +12,15 @@ typedef enum {
    ALLERGEN_CHOCOLATE,
    ALLERGEN_POLLEN,
    ALLERGEN_CATS,
-   ALLERGEN_COUNT
+   ALLERGEN_COUNT,
 } allergen_t;
 
 typedef struct {
    int count;
-   allergen_t *allergens;
+   bool allergens[ALLERGEN_COUNT];
 } allergen_list_t;
 
 bool is_allergic_to(allergen_t allergen, unsigned int score);
-void get_allergens(unsigned int score, allergen_list_t * list);
+allergen_list_t get_allergens(unsigned int score);
 
 #endif
