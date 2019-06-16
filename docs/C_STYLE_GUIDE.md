@@ -45,16 +45,16 @@ Upper-case snake case for macro names is appreciated, but macros resembling func
 
 The standard fixed-width types (in `stdint.h`) are preferred over basic integer types.
 
-The type `bool` (from `stdbool.h`) is preferred over `_Bool`. 
+The type `bool` (from `stdbool.h`) is preferred over `_Bool`.
 
 Likewise, `size_t` and `ptrdiff_t` (of `stddef.h`) are preferred for representing memory-related quantities.
 
-Types defined by a program using `typedef` should be named with a `_t` suffix. 
+Types defined by a program using `typedef` should be named with a `_t` suffix.
 While aware that POSIX reserves the `_t` suffix, the track does not currently utilise POSIX.
 
 ## Parameters
 
-Function parameters should be named in both the declaration and definition of all functions. This applies to both `.c` and `.h` files. 
+Function parameters should be named in both the declaration and definition of all functions. This applies to both `.c` and `.h` files.
 The names used should match in all instances.
 That is to say that while the following function prototype is valid C, the style is incorrect because the parameter is unnamed: `void foo(int);`.
 The correct prototype, providing that all other declarations and the definition also use the parameter name `bar`, would be `void foo(int bar);`.
@@ -107,10 +107,10 @@ What these options do is indicated by the [GNU `indent` manual](https://www.gnu.
 
 ## Test file layout
 
-Each exercise's test file follows a particular layout. 
+Each exercise's test file follows a particular layout.
 The layout is intended to both help contibutors to identify parts of the file, and to help learners to understand how the tests work.
 
-Like most C source files, a test file begins with includes. 
+Like most C source files, a test file begins with includes.
 
 ```c
 #include "vendor/unity.h"
@@ -118,7 +118,7 @@ Like most C source files, a test file begins with includes.
 // any other includes here
 ```
 
-The includes are then followed by the `setUp()` and `tearDown()` functions. 
+The includes are then followed by the `setUp()` and `tearDown()` functions.
 So far, no exercise uses these (the function bodies are empty) yet they must remain in place to allow the test files to compile correctly across all platforms.
 
 ```c
@@ -134,25 +134,25 @@ void tearDown(void)
 Next are any helper functions that are used by the test functions.
 The names of such helper functions should not use the `test_` prefix.
 
-Next are the test functions themselves. 
+Next are the test functions themselves.
 The names of these functions use a `test_` prefix.
-Excepting the first, each test function should have `TEST_IGNORE();` as its first statement. 
+Excepting the first, each test function should have `TEST_IGNORE();` as its first statement.
 The first occurrence of this should be followed by the line comment `// delete this line to run test`.
 For example:
 
 ```c
-void test_the_first(void)
+static void test_the_first(void)
 {
    test_first_foo();
 }
 
-void test_the_second(void)
+static void test_the_second(void)
 {
    TEST_IGNORE();               // delete this line to run test
    test_second_foo();
 }
 
-void test_the_third(void)
+static void test_the_third(void)
 {
    TEST_IGNORE();
    char grade = 'A';
@@ -160,19 +160,19 @@ void test_the_third(void)
 }
 ```
 
-Last in the file is the `main()` function. 
-The function body of main follows a particular layout itself. 
-First a call to `UnityBegin()` followed by an empty line, then the tests. 
+Last in the file is the `main()` function.
+The function body of main follows a particular layout itself.
+First a call to `UnityBegin()` followed by an empty line, then the tests.
 The last test is followed by another empty line and then a call to `UnityEnd()`, before returning.
 
 ```c
 int main(void)
 {
     UnityBegin("test/test_file_name.c");
-    
+
     RUN_TEST(test_foo);
     RUN_TEST(test_bar);
-    
+
     UnityEnd();
     return 0;
 }
