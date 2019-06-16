@@ -44,7 +44,8 @@ test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces(void)
    free_all(diamond);
 }
 
-static void test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
+static void
+test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
 {
    TEST_IGNORE();
    const char letter = 'C';
@@ -60,7 +61,8 @@ static void test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(
    free_all(diamond);
 }
 
-static void test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
+static void
+test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
 {
    TEST_IGNORE();
    const char letter = 'D';

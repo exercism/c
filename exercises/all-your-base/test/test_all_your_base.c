@@ -24,8 +24,8 @@ static void copy_array(int8_t src[], int8_t dest[DIGITS_ARRAY_SIZE], size_t n)
 }
 
 static void test_rebase(int16_t input_base, int8_t input_digits[],
-                 size_t input_length, int16_t output_base,
-                 int8_t expected_digits[], size_t expected_length)
+                        size_t input_length, int16_t output_base,
+                        int8_t expected_digits[], size_t expected_length)
 {
    int8_t digits[DIGITS_ARRAY_SIZE] = { 0 };
    int8_t ex_digits[DIGITS_ARRAY_SIZE] = { 0 };

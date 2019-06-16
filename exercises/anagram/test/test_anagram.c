@@ -187,7 +187,8 @@ static void test_does_not_detect_a_word_as_its_own_anagram(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
+static void
+test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {

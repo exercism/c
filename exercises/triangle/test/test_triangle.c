@@ -71,7 +71,8 @@ static void test_isosceles_is_false_if_no_sides_are_equal(void)
    TEST_ASSERT_FALSE(is_isosceles(sides));
 }
 
-static void test_isosceles_is_false_if_two_sides_equal_and_violate_inequality(void)
+static void
+test_isosceles_is_false_if_two_sides_equal_and_violate_inequality(void)
 {
    TEST_IGNORE();
    triangle_t sides = { 1, 1, 3 };

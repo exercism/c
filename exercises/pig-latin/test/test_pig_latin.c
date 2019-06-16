@@ -180,7 +180,8 @@ static void test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word(void)
    free(res);
 }
 
-static void test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(void)
+static void
+test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(void)
 {
    TEST_IGNORE();
    const char *phrase = "rhythm";

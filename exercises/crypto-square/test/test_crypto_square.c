@@ -59,7 +59,8 @@ static void test_9_char_plaintext_gives_3_chunks_of_3_chars(void)
    free(res);
 }
 
-static void test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
+static void
+test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
 {
    TEST_IGNORE();
    const char *input = "Chill out.";
@@ -69,7 +70,8 @@ static void test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(vo
    free(res);
 }
 
-static void test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
+static void
+test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
 {
    TEST_IGNORE();
    const char *input =

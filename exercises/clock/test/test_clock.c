@@ -17,15 +17,17 @@ void tearDown(void)
 }
 
 // general routines that test expected results
-static void test_expected_value(const char *expected_clock_text, int hour, int minute)
+static void test_expected_value(const char *expected_clock_text, int hour,
+                                int minute)
 {
    memset(actual_time_text, '\0', sizeof(actual_time_text));
    clock(actual_time_text, hour, minute);
    TEST_ASSERT_EQUAL_STRING(expected_clock_text, actual_time_text);
 }
 
-static void test_time_add_expected_value(const char *expected_clock_text, int hour,
-                                  int minute, int minute_offset)
+static void test_time_add_expected_value(const char *expected_clock_text,
+                                         int hour, int minute,
+                                         int minute_offset)
 {
    memset(actual_time_text, '\0', sizeof(actual_time_text));
    clock(actual_time_text, hour, minute);

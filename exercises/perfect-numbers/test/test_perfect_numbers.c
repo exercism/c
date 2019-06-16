@@ -50,7 +50,8 @@ static void test_smallest_prime_deficient_number_is_classified_correctly(void)
    TEST_ASSERT_EQUAL(DEFICIENT_NUMBER, classify_number(2));
 }
 
-static void test_smallest_non_prime_deficient_number_is_classified_correctly(void)
+static void
+test_smallest_non_prime_deficient_number_is_classified_correctly(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(DEFICIENT_NUMBER, classify_number(4));

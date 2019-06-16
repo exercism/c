@@ -79,7 +79,8 @@ static void test_invalid_when_11_digits_and_first_digit_not_1(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-static void test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation(void)
+static void
+test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation(void)
 {
    TEST_IGNORE();
    const char input[] = "+1 (223) 456-7890";
