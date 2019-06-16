@@ -34,24 +34,6 @@ static void test_time_add_expected_value(const char *expected_clock_text, int ho
    TEST_ASSERT_EQUAL_STRING(expected_clock_text, actual_time_text);
 }
 
-static void test_time_expected_equality(int hour1, int minute1, int hour2, int minute2,
-                                 bool expected_equality)
-{
-   memset(actual_time_text, '\0', sizeof(actual_time_text));
-   memset(actual_time_text2, '\0', sizeof(actual_time_text2));
-
-   clock(actual_time_text, hour1, minute1);
-   clock(actual_time_text2, hour2, minute2);
-
-   if (expected_equality) {
-      TEST_ASSERT_EQUAL_STRING(actual_time_text, actual_time_text2);
-   } else {
-      bool result = (0 == strcmp(actual_time_text, actual_time_text2));
-
-      TEST_ASSERT_EQUAL(0, result);
-   }
-}
-
 // the tests
 static void test_on_the_hour(void)
 {
