@@ -208,6 +208,7 @@ int main(void)
    RUN_TEST(test_binary_to_single_decimal);
    RUN_TEST(test_single_decimal_to_binary);
    RUN_TEST(test_binary_to_multiple_decimal);
+   RUN_TEST(test_decimal_to_binary);
    RUN_TEST(test_trinary_to_hex);
    RUN_TEST(test_hex_to_trinary);
    RUN_TEST(test_15_bit_integer);
