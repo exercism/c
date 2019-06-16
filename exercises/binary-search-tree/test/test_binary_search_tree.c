@@ -132,7 +132,8 @@ static void test_sorted_data_can_sort_single_number(void)
    free(actual);
 }
 
-static void test_sorted_data_can_sort_if_second_number_is_smaller_than_first(void)
+static void
+test_sorted_data_can_sort_if_second_number_is_smaller_than_first(void)
 {
    TEST_IGNORE();
    int tree_data[] = { 2, 1 };
@@ -160,7 +161,8 @@ static void test_sorted_data_can_sort_if_second_number_is_same_as_first(void)
    free(actual);
 }
 
-static void test_sorted_data_can_sort_if_second_number_is_greater_than_first(void)
+static void
+test_sorted_data_can_sort_if_second_number_is_greater_than_first(void)
 {
    TEST_IGNORE();
    int tree_data[] = { 2, 3 };
