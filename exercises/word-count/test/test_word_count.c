@@ -34,7 +34,7 @@ static void check_solution(word_count_word_t * expected_solution,
 }
 
 // Tests Start here
-void test_word_count_one_word(void)
+static void test_word_count_one_word(void)
 {
    int index = 0;
    int actual_word_count;
@@ -54,7 +54,7 @@ void test_word_count_one_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_one_of_each_word(void)
+static void test_word_count_one_of_each_word(void)
 {
    TEST_IGNORE();               // delete this line to run test
    int index = 0;
@@ -81,7 +81,7 @@ void test_word_count_one_of_each_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_multiple_occurrences_of_a_word(void)
+static void test_word_count_multiple_occurrences_of_a_word(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -113,7 +113,7 @@ void test_word_count_multiple_occurrences_of_a_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_handles_cramped_lists(void)
+static void test_word_count_handles_cramped_lists(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -139,7 +139,7 @@ void test_word_count_handles_cramped_lists(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_handles_expanded_lists(void)
+static void test_word_count_handles_expanded_lists(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -165,7 +165,7 @@ void test_word_count_handles_expanded_lists(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_ignore_punctuation(void)
+static void test_word_count_ignore_punctuation(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -197,7 +197,7 @@ void test_word_count_ignore_punctuation(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_include_numbers(void)
+static void test_word_count_include_numbers(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -223,7 +223,7 @@ void test_word_count_include_numbers(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_normalize_case(void)
+static void test_word_count_normalize_case(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -246,7 +246,7 @@ void test_word_count_normalize_case(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_with_apostrophes(void)
+static void test_word_count_with_apostrophes(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -278,7 +278,7 @@ void test_word_count_with_apostrophes(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_with_quotation(void)
+static void test_word_count_with_quotation(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -313,7 +313,7 @@ void test_word_count_with_quotation(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_word_count_from_example(void)
+static void test_word_count_from_example(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -342,7 +342,7 @@ void test_word_count_from_example(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_max_length_word(void)
+static void test_max_length_word(void)
 {
    TEST_IGNORE();
    int actual_word_count;
@@ -374,7 +374,7 @@ void test_max_length_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_excessive_length_word(void)
+static void test_excessive_length_word(void)
 {
    TEST_IGNORE();
    int actual_word_count;
@@ -396,7 +396,7 @@ void test_excessive_length_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_max_number_words(void)
+static void test_max_number_words(void)
 {
    TEST_IGNORE();
    int actual_word_count;
@@ -475,7 +475,7 @@ void test_max_number_words(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-void test_excessive_number_words(void)
+static void test_excessive_number_words(void)
 {
    TEST_IGNORE();
    int actual_word_count;

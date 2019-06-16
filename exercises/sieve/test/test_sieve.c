@@ -13,7 +13,7 @@ void tearDown(void)
 {
 }
 
-void test_no_primes_under_two(void)
+static void test_no_primes_under_two(void)
 {
    const unsigned int limit = 1;
    const unsigned int expected_prime_count = 0;
@@ -25,7 +25,7 @@ void test_no_primes_under_two(void)
    TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
 }
 
-void test_find_first_prime(void)
+static void test_find_first_prime(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const unsigned int limit = 2;
@@ -42,7 +42,7 @@ void test_find_first_prime(void)
 
 }
 
-void test_find_primes_up_to_10(void)
+static void test_find_primes_up_to_10(void)
 {
    TEST_IGNORE();
    const unsigned int limit = 10;
@@ -59,7 +59,7 @@ void test_find_primes_up_to_10(void)
 
 }
 
-void test_limit_is_prime(void)
+static void test_limit_is_prime(void)
 {
    TEST_IGNORE();
    const unsigned int limit = 13;
@@ -76,7 +76,7 @@ void test_limit_is_prime(void)
 
 }
 
-void test_find_primes_up_to_1000(void)
+static void test_find_primes_up_to_1000(void)
 {
    TEST_IGNORE();
    const unsigned int limit = 1000;

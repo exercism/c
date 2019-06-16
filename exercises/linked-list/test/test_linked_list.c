@@ -18,13 +18,13 @@ void tearDown(void)
    }
 }
 
-void test_new_list(void)
+static void test_new_list(void)
 {
    TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_NOT_NULL(list);
 }
 
-void test_is_list_empty_when_empty(void)
+static void test_is_list_empty_when_empty(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_list_empty(list));
@@ -33,7 +33,7 @@ void test_is_list_empty_when_empty(void)
    TEST_ASSERT_TRUE(is_list_empty(list));
 }
 
-void test_is_list_empty_when_not_empty(void)
+static void test_is_list_empty_when_not_empty(void)
 {
    TEST_IGNORE();
    // pre-populate list
@@ -42,14 +42,14 @@ void test_is_list_empty_when_not_empty(void)
    TEST_ASSERT_FALSE(is_list_empty(list));
 }
 
-void test_push_with_invalid_list(void)
+static void test_push_with_invalid_list(void)
 {
    TEST_IGNORE();
    ll_data_t data = 13;
    TEST_ASSERT_FALSE(push(NULL, data));
 }
 
-void test_push_with_valid_list(void)
+static void test_push_with_valid_list(void)
 {
    TEST_IGNORE();
    for (size_t data = 14; data < 19; ++data) {
@@ -57,7 +57,7 @@ void test_push_with_valid_list(void)
    }
 }
 
-void test_pop_returns_list_data(void)
+static void test_pop_returns_list_data(void)
 {
    TEST_IGNORE();
    // pre-populate list
@@ -69,14 +69,14 @@ void test_pop_returns_list_data(void)
    }
 }
 
-void test_unshift_with_invalid_list(void)
+static void test_unshift_with_invalid_list(void)
 {
    TEST_IGNORE();
    ll_data_t data = 16;
    TEST_ASSERT_FALSE(unshift(NULL, data));
 }
 
-void test_unshift_with_valid_list(void)
+static void test_unshift_with_valid_list(void)
 {
    TEST_IGNORE();
    for (size_t data = 14; data < 19; ++data) {
@@ -84,7 +84,7 @@ void test_unshift_with_valid_list(void)
    }
 }
 
-void test_shift_returns_list_data(void)
+static void test_shift_returns_list_data(void)
 {
    TEST_IGNORE();
    // pre-populate list

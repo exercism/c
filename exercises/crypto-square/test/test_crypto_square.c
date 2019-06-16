@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-void test_empty_text_res_in_an_empty_ciphertext(void)
+static void test_empty_text_res_in_an_empty_ciphertext(void)
 {
    const char *input = "";
    const char *expected = "";
@@ -19,7 +19,7 @@ void test_empty_text_res_in_an_empty_ciphertext(void)
    free(res);
 }
 
-void test_lowercase(void)
+static void test_lowercase(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const char *input = "A";
@@ -29,7 +29,7 @@ void test_lowercase(void)
    free(res);
 }
 
-void test_remove_spaces(void)
+static void test_remove_spaces(void)
 {
    TEST_IGNORE();
    const char *input = "  b ";
@@ -39,7 +39,7 @@ void test_remove_spaces(void)
    free(res);
 }
 
-void test_remove_punctuation(void)
+static void test_remove_punctuation(void)
 {
    TEST_IGNORE();
    const char *input = "@1,%!";
@@ -49,7 +49,7 @@ void test_remove_punctuation(void)
    free(res);
 }
 
-void test_9_char_plaintext_gives_3_chunks_of_3_chars(void)
+static void test_9_char_plaintext_gives_3_chunks_of_3_chars(void)
 {
    TEST_IGNORE();
    const char *input = "This is fun!";
@@ -59,7 +59,7 @@ void test_9_char_plaintext_gives_3_chunks_of_3_chars(void)
    free(res);
 }
 
-void test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
+static void test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
 {
    TEST_IGNORE();
    const char *input = "Chill out.";
@@ -69,7 +69,7 @@ void test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
    free(res);
 }
 
-void test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
+static void test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
 {
    TEST_IGNORE();
    const char *input =

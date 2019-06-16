@@ -11,7 +11,7 @@ void tearDown(void)
 {
 }
 
-void test_strand_count(const char *dna_strand, const char *expected)
+static void test_strand_count(const char *dna_strand, const char *expected)
 {
    char *actual_count = count(dna_strand);
 
@@ -19,7 +19,7 @@ void test_strand_count(const char *dna_strand, const char *expected)
    free(actual_count);
 }
 
-void test_empty_strand(void)
+static void test_empty_strand(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const char *dna_strand = "";
@@ -28,7 +28,7 @@ void test_empty_strand(void)
    test_strand_count(dna_strand, expected);
 }
 
-void test_repeated_nucleotide(void)
+static void test_repeated_nucleotide(void)
 {
    TEST_IGNORE();
    const char *dna_strand = "GGGGGGG";
@@ -37,7 +37,7 @@ void test_repeated_nucleotide(void)
    test_strand_count(dna_strand, expected);
 }
 
-void test_multiple_nucleotides(void)
+static void test_multiple_nucleotides(void)
 {
    TEST_IGNORE();
    const char *dna_strand =
@@ -47,7 +47,7 @@ void test_multiple_nucleotides(void)
    test_strand_count(dna_strand, expected);
 }
 
-void test_invalid_nucleotide(void)
+static void test_invalid_nucleotide(void)
 {
    TEST_IGNORE();
    const char *dna_strand = "AGXXACT";

@@ -19,7 +19,7 @@ void confirm_position(robot_grid_status_t * expected,
 }
 
 // Tests...
-void test_init(void)
+static void test_init(void)
 {
    robot_grid_status_t expected =
        { DEFAULT_BEARING, {DEFAULT_X_COORDINATE, DEFAULT_Y_COORDINATE} };
@@ -28,7 +28,7 @@ void test_init(void)
    confirm_position(&expected, &actual);
 }
 
-void test_invalid_initial_heading(void)
+static void test_invalid_initial_heading(void)
 {
    TEST_IGNORE();               // delete this line to run test
    robot_grid_status_t expected =
@@ -39,7 +39,7 @@ void test_invalid_initial_heading(void)
    confirm_position(&expected, &actual);
 }
 
-void test_init_with_negative_positions(void)
+static void test_init_with_negative_positions(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_SOUTH, {-1, -1} };
@@ -48,7 +48,7 @@ void test_init_with_negative_positions(void)
    confirm_position(&expected, &actual);
 }
 
-void test_turn_right(void)
+static void test_turn_right(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_EAST, {0, 0} };
@@ -70,7 +70,7 @@ void test_turn_right(void)
    confirm_position(&expected, &actual);
 }
 
-void test_turn_left(void)
+static void test_turn_left(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_WEST, {0, 0} };
@@ -92,7 +92,7 @@ void test_turn_left(void)
    confirm_position(&expected, &actual);
 }
 
-void test_advance_positive_north(void)
+static void test_advance_positive_north(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_NORTH, {0, 1} };
@@ -102,7 +102,7 @@ void test_advance_positive_north(void)
    confirm_position(&expected, &actual);
 }
 
-void test_advance_positive_east(void)
+static void test_advance_positive_east(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_EAST, {1, 0} };
@@ -112,7 +112,7 @@ void test_advance_positive_east(void)
    confirm_position(&expected, &actual);
 }
 
-void test_advance_negative_south(void)
+static void test_advance_negative_south(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_SOUTH, {0, -1} };
@@ -122,7 +122,7 @@ void test_advance_negative_south(void)
    confirm_position(&expected, &actual);
 }
 
-void test_advance_negative_west(void)
+static void test_advance_negative_west(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_WEST, {-1, 0} };
@@ -132,7 +132,7 @@ void test_advance_negative_west(void)
    confirm_position(&expected, &actual);
 }
 
-void test_simulate_move_west_and_north(void)
+static void test_simulate_move_west_and_north(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_WEST, {-4, 1} };
@@ -142,7 +142,7 @@ void test_simulate_move_west_and_north(void)
    confirm_position(&expected, &actual);
 }
 
-void test_simulate_move_west_and_south(void)
+static void test_simulate_move_west_and_south(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_SOUTH, {-3, -8} };
@@ -152,7 +152,7 @@ void test_simulate_move_west_and_south(void)
    confirm_position(&expected, &actual);
 }
 
-void test_simulate_move_east_and_north(void)
+static void test_simulate_move_east_and_north(void)
 {
    TEST_IGNORE();
    robot_grid_status_t expected = { HEADING_NORTH, {11, 5} };

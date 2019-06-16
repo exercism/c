@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-void test_no_allergies_means_not_allergic(void)
+static void test_no_allergies_means_not_allergic(void)
 {
    unsigned int score = 0;
 
@@ -19,7 +19,7 @@ void test_no_allergies_means_not_allergic(void)
    TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_STRAWBERRIES, score));
 }
 
-void test_is_allergic_to_eggs(void)
+static void test_is_allergic_to_eggs(void)
 {
    TEST_IGNORE();               // delete this line to run test
    unsigned int score = 1;
@@ -27,7 +27,7 @@ void test_is_allergic_to_eggs(void)
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, score));
 }
 
-void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
+static void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
 {
    TEST_IGNORE();
    unsigned int score = 5;
@@ -37,7 +37,7 @@ void test_is_allergic_to_eggs_in_addition_to_other_stuff(void)
    TEST_ASSERT_FALSE(is_allergic_to(ALLERGEN_STRAWBERRIES, score));
 }
 
-void test_no_allergies_at_all(void)
+static void test_no_allergies_at_all(void)
 {
    TEST_IGNORE();
    unsigned int score = 0;
@@ -46,7 +46,7 @@ void test_no_allergies_at_all(void)
    TEST_ASSERT_EQUAL(0, list.count);
 }
 
-void test_allergic_to_just_eggs(void)
+static void test_allergic_to_just_eggs(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(1);
@@ -55,7 +55,7 @@ void test_allergic_to_just_eggs(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
 }
 
-void test_allergic_to_just_peanuts(void)
+static void test_allergic_to_just_peanuts(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(2);
@@ -64,7 +64,7 @@ void test_allergic_to_just_peanuts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
 }
 
-void test_allergic_to_just_strawberries(void)
+static void test_allergic_to_just_strawberries(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(8);
@@ -73,7 +73,7 @@ void test_allergic_to_just_strawberries(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_STRAWBERRIES]);
 }
 
-void test_allergic_to_eggs_and_peanuts(void)
+static void test_allergic_to_eggs_and_peanuts(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(3);
@@ -83,7 +83,7 @@ void test_allergic_to_eggs_and_peanuts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
 }
 
-void test_allergic_to_more_than_eggs_but_not_peanuts(void)
+static void test_allergic_to_more_than_eggs_but_not_peanuts(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(5);
@@ -93,7 +93,7 @@ void test_allergic_to_more_than_eggs_but_not_peanuts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_SHELLFISH]);
 }
 
-void test_allergic_to_lots_of_stuff(void)
+static void test_allergic_to_lots_of_stuff(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(248);
@@ -106,7 +106,7 @@ void test_allergic_to_lots_of_stuff(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
 
-void test_allergic_to_everything(void)
+static void test_allergic_to_everything(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(255);
@@ -122,7 +122,7 @@ void test_allergic_to_everything(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
 
-void test_ignore_non_allergen_score_parts(void)
+static void test_ignore_non_allergen_score_parts(void)
 {
    TEST_IGNORE();
    allergen_list_t list = get_allergens(509);

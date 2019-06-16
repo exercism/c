@@ -10,14 +10,14 @@ void tearDown(void)
 {
 }
 
-void test_encode_empty_string(void)
+static void test_encode_empty_string(void)
 {
    char *res = encode("");
    TEST_ASSERT_EQUAL_STRING("", res);
    free(res);
 }
 
-void test_encode_single_characters_only_are_encoded_without_count(void)
+static void test_encode_single_characters_only_are_encoded_without_count(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char *res = encode("XYZ");
@@ -25,7 +25,7 @@ void test_encode_single_characters_only_are_encoded_without_count(void)
    free(res);
 }
 
-void test_encode_string_with_no_single_characters(void)
+static void test_encode_string_with_no_single_characters(void)
 {
    TEST_IGNORE();
    char *res = encode("AABBBCCCC");
@@ -33,7 +33,7 @@ void test_encode_string_with_no_single_characters(void)
    free(res);
 }
 
-void test_encode_single_characters_mixed_with_repeated_characters(void)
+static void test_encode_single_characters_mixed_with_repeated_characters(void)
 {
    TEST_IGNORE();
    char *res = encode("WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB");
@@ -41,7 +41,7 @@ void test_encode_single_characters_mixed_with_repeated_characters(void)
    free(res);
 }
 
-void test_encode_multiple_whitespace_mixed_in_string(void)
+static void test_encode_multiple_whitespace_mixed_in_string(void)
 {
    TEST_IGNORE();
    char *res = encode("  hsqq qww  ");
@@ -49,7 +49,7 @@ void test_encode_multiple_whitespace_mixed_in_string(void)
    free(res);
 }
 
-void test_encode_lowercase_characters(void)
+static void test_encode_lowercase_characters(void)
 {
    TEST_IGNORE();
    char *res = encode("aabbbcccc");
@@ -57,7 +57,7 @@ void test_encode_lowercase_characters(void)
    free(res);
 }
 
-void test_decode_empty_string(void)
+static void test_decode_empty_string(void)
 {
    TEST_IGNORE();
    char *res = decode("");
@@ -65,7 +65,7 @@ void test_decode_empty_string(void)
    free(res);
 }
 
-void test_decode_single_characters_only(void)
+static void test_decode_single_characters_only(void)
 {
    TEST_IGNORE();
    char *res = decode("XYZ");
@@ -73,7 +73,7 @@ void test_decode_single_characters_only(void)
    free(res);
 }
 
-void test_decode_string_with_no_single_characters(void)
+static void test_decode_string_with_no_single_characters(void)
 {
    TEST_IGNORE();
    char *res = decode("2A3B4C");
@@ -81,7 +81,7 @@ void test_decode_string_with_no_single_characters(void)
    free(res);
 }
 
-void test_decode_single_characters_with_repeated_characters(void)
+static void test_decode_single_characters_with_repeated_characters(void)
 {
    TEST_IGNORE();
    char *res = decode("12WB12W3B24WB");
@@ -90,7 +90,7 @@ void test_decode_single_characters_with_repeated_characters(void)
    free(res);
 }
 
-void test_decode_multiple_whitespace_mixed_in_string(void)
+static void test_decode_multiple_whitespace_mixed_in_string(void)
 {
    TEST_IGNORE();
    char *res = decode("2 hs2q q2w2 ");
@@ -98,7 +98,7 @@ void test_decode_multiple_whitespace_mixed_in_string(void)
    free(res);
 }
 
-void test_decode_lower_case_string(void)
+static void test_decode_lower_case_string(void)
 {
    TEST_IGNORE();
    char *res = decode("2a3b4c");
@@ -106,7 +106,7 @@ void test_decode_lower_case_string(void)
    free(res);
 }
 
-void test_consistency_encode_followed_by_decode_gives_original_string(void)
+static void test_consistency_encode_followed_by_decode_gives_original_string(void)
 {
    TEST_IGNORE();
    char *res_enc = encode("zzz ZZ  zZ");
