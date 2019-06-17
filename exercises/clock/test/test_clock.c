@@ -17,15 +17,17 @@ void tearDown(void)
 }
 
 // general routines that test expected results
-void test_expected_value(const char *expected_clock_text, int hour, int minute)
+static void test_expected_value(const char *expected_clock_text, int hour,
+                                int minute)
 {
    memset(actual_time_text, '\0', sizeof(actual_time_text));
    clock(actual_time_text, hour, minute);
    TEST_ASSERT_EQUAL_STRING(expected_clock_text, actual_time_text);
 }
 
-void test_time_add_expected_value(const char *expected_clock_text, int hour,
-                                  int minute, int minute_offset)
+static void test_time_add_expected_value(const char *expected_clock_text,
+                                         int hour, int minute,
+                                         int minute_offset)
 {
    memset(actual_time_text, '\0', sizeof(actual_time_text));
    clock(actual_time_text, hour, minute);
@@ -34,26 +36,8 @@ void test_time_add_expected_value(const char *expected_clock_text, int hour,
    TEST_ASSERT_EQUAL_STRING(expected_clock_text, actual_time_text);
 }
 
-void test_time_expected_equality(int hour1, int minute1, int hour2, int minute2,
-                                 bool expected_equality)
-{
-   memset(actual_time_text, '\0', sizeof(actual_time_text));
-   memset(actual_time_text2, '\0', sizeof(actual_time_text2));
-
-   clock(actual_time_text, hour1, minute1);
-   clock(actual_time_text2, hour2, minute2);
-
-   if (expected_equality) {
-      TEST_ASSERT_EQUAL_STRING(actual_time_text, actual_time_text2);
-   } else {
-      bool result = (0 == strcmp(actual_time_text, actual_time_text2));
-
-      TEST_ASSERT_EQUAL(0, result);
-   }
-}
-
 // the tests
-void test_on_the_hour(void)
+static void test_on_the_hour(void)
 {
    int hour = 8;
    int minute = 0;
@@ -62,7 +46,7 @@ void test_on_the_hour(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_past_the_hour(void)
+static void test_past_the_hour(void)
 {
    TEST_IGNORE();               // delete this line to run test
    int hour = 11;
@@ -72,7 +56,7 @@ void test_past_the_hour(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_midnight_is_zero_hours(void)
+static void test_midnight_is_zero_hours(void)
 {
    TEST_IGNORE();
    int hour = 24;
@@ -82,7 +66,7 @@ void test_midnight_is_zero_hours(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_hour_rolls_over(void)
+static void test_hour_rolls_over(void)
 {
    TEST_IGNORE();
    int hour = 25;
@@ -92,7 +76,7 @@ void test_hour_rolls_over(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_hour_rolls_over_continuously(void)
+static void test_hour_rolls_over_continuously(void)
 {
    TEST_IGNORE();
    int hour = 100;
@@ -102,7 +86,7 @@ void test_hour_rolls_over_continuously(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_sixty_minutes_is_next_hour(void)
+static void test_sixty_minutes_is_next_hour(void)
 {
    TEST_IGNORE();
    int hour = 1;
@@ -112,7 +96,7 @@ void test_sixty_minutes_is_next_hour(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_minutes_roll_over(void)
+static void test_minutes_roll_over(void)
 {
    TEST_IGNORE();
    int hour = 0;
@@ -122,7 +106,7 @@ void test_minutes_roll_over(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_minutes_roll_over_continuously(void)
+static void test_minutes_roll_over_continuously(void)
 {
    TEST_IGNORE();
    int hour = 0;
@@ -132,7 +116,7 @@ void test_minutes_roll_over_continuously(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_hour_and_minutes_roll_over(void)
+static void test_hour_and_minutes_roll_over(void)
 {
    TEST_IGNORE();
    int hour = 25;
@@ -142,7 +126,7 @@ void test_hour_and_minutes_roll_over(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_hour_and_minutes_roll_over_continuously(void)
+static void test_hour_and_minutes_roll_over_continuously(void)
 {
    TEST_IGNORE();
    int hour = 201;
@@ -152,7 +136,7 @@ void test_hour_and_minutes_roll_over_continuously(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_hour_and_minutes_roll_over_to_exactly_midnight(void)
+static void test_hour_and_minutes_roll_over_to_exactly_midnight(void)
 {
    TEST_IGNORE();
    int hour = 72;
@@ -162,7 +146,7 @@ void test_hour_and_minutes_roll_over_to_exactly_midnight(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_hour(void)
+static void test_negative_hour(void)
 {
    TEST_IGNORE();
    int hour = -1;
@@ -172,7 +156,7 @@ void test_negative_hour(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_hour_rolls_over(void)
+static void test_negative_hour_rolls_over(void)
 {
    TEST_IGNORE();
    int hour = -25;
@@ -182,7 +166,7 @@ void test_negative_hour_rolls_over(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_hour_rolls_over_continuously(void)
+static void test_negative_hour_rolls_over_continuously(void)
 {
    TEST_IGNORE();
    int hour = -91;
@@ -192,7 +176,7 @@ void test_negative_hour_rolls_over_continuously(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_minutes(void)
+static void test_negative_minutes(void)
 {
    TEST_IGNORE();
    int hour = 1;
@@ -202,7 +186,7 @@ void test_negative_minutes(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_minutes_roll_over(void)
+static void test_negative_minutes_roll_over(void)
 {
    TEST_IGNORE();
    int hour = 1;
@@ -212,7 +196,7 @@ void test_negative_minutes_roll_over(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_minutes_roll_over_continuously(void)
+static void test_negative_minutes_roll_over_continuously(void)
 {
    TEST_IGNORE();
    int hour = 1;
@@ -222,7 +206,7 @@ void test_negative_minutes_roll_over_continuously(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_hour_and_minutes_both_roll_over(void)
+static void test_negative_hour_and_minutes_both_roll_over(void)
 {
    TEST_IGNORE();
    int hour = -25;
@@ -232,7 +216,7 @@ void test_negative_hour_and_minutes_both_roll_over(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_negative_hour_and_minutes_both_roll_over_continuously(void)
+static void test_negative_hour_and_minutes_both_roll_over_continuously(void)
 {
    TEST_IGNORE();
    int hour = -121;
@@ -242,7 +226,7 @@ void test_negative_hour_and_minutes_both_roll_over_continuously(void)
    test_expected_value(expected_clock_text, hour, minute);
 }
 
-void test_add_minutes(void)
+static void test_add_minutes(void)
 {
    TEST_IGNORE();
    int hour = 10;
@@ -254,7 +238,7 @@ void test_add_minutes(void)
                                 minute_offset);
 }
 
-void test_add_no_minutes(void)
+static void test_add_no_minutes(void)
 {
    TEST_IGNORE();
    int hour = 6;
@@ -266,7 +250,7 @@ void test_add_no_minutes(void)
                                 minute_offset);
 }
 
-void test_add_to_next_hour(void)
+static void test_add_to_next_hour(void)
 {
    TEST_IGNORE();
    int hour = 0;
@@ -278,7 +262,7 @@ void test_add_to_next_hour(void)
                                 minute_offset);
 }
 
-void test_add_more_than_one_hour(void)
+static void test_add_more_than_one_hour(void)
 {
    TEST_IGNORE();
    int hour = 10;
@@ -290,7 +274,7 @@ void test_add_more_than_one_hour(void)
                                 minute_offset);
 }
 
-void test_add_more_than_two_hours_with_carry(void)
+static void test_add_more_than_two_hours_with_carry(void)
 {
    TEST_IGNORE();
    int hour = 0;
@@ -302,7 +286,7 @@ void test_add_more_than_two_hours_with_carry(void)
                                 minute_offset);
 }
 
-void test_add_across_midnight(void)
+static void test_add_across_midnight(void)
 {
    TEST_IGNORE();
    int hour = 23;
@@ -314,7 +298,7 @@ void test_add_across_midnight(void)
                                 minute_offset);
 }
 
-void test_add_more_than_one_day(void)
+static void test_add_more_than_one_day(void)
 {
    TEST_IGNORE();
    int hour = 5;
@@ -326,7 +310,7 @@ void test_add_more_than_one_day(void)
                                 minute_offset);
 }
 
-void test_add_more_than_two_days(void)
+static void test_add_more_than_two_days(void)
 {
    TEST_IGNORE();
    int hour = 1;
@@ -338,7 +322,7 @@ void test_add_more_than_two_days(void)
                                 minute_offset);
 }
 
-void test_subtract_minutes(void)
+static void test_subtract_minutes(void)
 {
    TEST_IGNORE();
    int hour = 10;
@@ -350,7 +334,7 @@ void test_subtract_minutes(void)
                                 minute_offset);
 }
 
-void test_subtract_to_previous_hour(void)
+static void test_subtract_to_previous_hour(void)
 {
    TEST_IGNORE();
    int hour = 10;
@@ -362,7 +346,7 @@ void test_subtract_to_previous_hour(void)
                                 minute_offset);
 }
 
-void test_subtract_more_than_an_hour(void)
+static void test_subtract_more_than_an_hour(void)
 {
    TEST_IGNORE();
    int hour = 10;
@@ -374,7 +358,7 @@ void test_subtract_more_than_an_hour(void)
                                 minute_offset);
 }
 
-void test_subtract_across_midnight(void)
+static void test_subtract_across_midnight(void)
 {
    TEST_IGNORE();
    int hour = 0;
@@ -386,7 +370,7 @@ void test_subtract_across_midnight(void)
                                 minute_offset);
 }
 
-void test_subtract_more_than_two_hours(void)
+static void test_subtract_more_than_two_hours(void)
 {
    TEST_IGNORE();
    int hour = 0;
@@ -398,7 +382,7 @@ void test_subtract_more_than_two_hours(void)
                                 minute_offset);
 }
 
-void test_subtract_more_than_two_hours_with_borrow(void)
+static void test_subtract_more_than_two_hours_with_borrow(void)
 {
    TEST_IGNORE();
    int hour = 6;
@@ -410,7 +394,7 @@ void test_subtract_more_than_two_hours_with_borrow(void)
                                 minute_offset);
 }
 
-void test_subtract_more_than_one_day(void)
+static void test_subtract_more_than_one_day(void)
 {
    TEST_IGNORE();
    int hour = 5;
@@ -422,7 +406,7 @@ void test_subtract_more_than_one_day(void)
                                 minute_offset);
 }
 
-void test_subtract_more_than_two_days(void)
+static void test_subtract_more_than_two_days(void)
 {
    TEST_IGNORE();
    int hour = 2;

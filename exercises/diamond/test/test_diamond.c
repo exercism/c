@@ -18,7 +18,7 @@ static void free_all(char **diamond)
    free(diamond);
 }
 
-void test_rows_degenerate_case_with_a_single_a_row(void)
+static void test_rows_degenerate_case_with_a_single_a_row(void)
 {
    const char letter = 'A';
    const char *expected[] = {
@@ -44,7 +44,8 @@ test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces(void)
    free_all(diamond);
 }
 
-void test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
+static void
+test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
 {
    TEST_IGNORE();
    const char letter = 'C';
@@ -60,7 +61,8 @@ void test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
    free_all(diamond);
 }
 
-void test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
+static void
+test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
 {
    TEST_IGNORE();
    const char letter = 'D';
@@ -78,7 +80,7 @@ void test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
    free_all(diamond);
 }
 
-void test_rows_largest_possible_diamond(void)
+static void test_rows_largest_possible_diamond(void)
 {
    TEST_IGNORE();
    const char letter = 'Z';

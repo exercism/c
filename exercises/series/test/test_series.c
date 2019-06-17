@@ -31,7 +31,7 @@ static void test_solution(series_results_t * expected_solution,
 }
 
 // Test cases
-void test_slices_of_one(void)
+static void test_slices_of_one(void)
 {
    char *substrings[] = { "0", "1", "2", "3", "4" };
    series_results_t expected = { 5, &substrings[0] };
@@ -40,7 +40,7 @@ void test_slices_of_one(void)
    test_solution(&expected, &actual);
 }
 
-void test_slices_of_two(void)
+static void test_slices_of_two(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char *substrings[] = { "97", "78", "86", "67", "75", "56", "64" };
@@ -50,7 +50,7 @@ void test_slices_of_two(void)
    test_solution(&expected, &actual);
 }
 
-void test_slices_of_three(void)
+static void test_slices_of_three(void)
 {
    TEST_IGNORE();
    char *substrings[] = { "978", "786", "867", "675", "756", "564" };
@@ -60,7 +60,7 @@ void test_slices_of_three(void)
    test_solution(&expected, &actual);
 }
 
-void test_slices_of_four(void)
+static void test_slices_of_four(void)
 {
    TEST_IGNORE();
    char *substrings[] = { "0123", "1234" };
@@ -70,7 +70,7 @@ void test_slices_of_four(void)
    test_solution(&expected, &actual);
 }
 
-void test_slices_of_five(void)
+static void test_slices_of_five(void)
 {
    TEST_IGNORE();
    char *substrings[] = { "01234" };
@@ -80,7 +80,7 @@ void test_slices_of_five(void)
    test_solution(&expected, &actual);
 }
 
-void test_overly_long_slice(void)
+static void test_overly_long_slice(void)
 {
    TEST_IGNORE();
    char *substrings[] = { "" };
@@ -90,7 +90,7 @@ void test_overly_long_slice(void)
    test_solution(&expected, &actual);
 }
 
-void test_overly_short_slice(void)
+static void test_overly_short_slice(void)
 {
    TEST_IGNORE();
    char *substrings[] = { "" };

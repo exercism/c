@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-void test_word_beginning_with_a(void)
+static void test_word_beginning_with_a(void)
 {
    const char *phrase = "apple";
    char *res = translate(phrase);
@@ -18,7 +18,7 @@ void test_word_beginning_with_a(void)
    free(res);
 }
 
-void test_word_beginning_with_e(void)
+static void test_word_beginning_with_e(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const char *phrase = "ear";
@@ -27,7 +27,7 @@ void test_word_beginning_with_e(void)
    free(res);
 }
 
-void test_word_beginning_with_i(void)
+static void test_word_beginning_with_i(void)
 {
    TEST_IGNORE();
    const char *phrase = "igloo";
@@ -36,7 +36,7 @@ void test_word_beginning_with_i(void)
    free(res);
 }
 
-void test_word_beginning_with_o(void)
+static void test_word_beginning_with_o(void)
 {
    TEST_IGNORE();
    const char *phrase = "object";
@@ -45,7 +45,7 @@ void test_word_beginning_with_o(void)
    free(res);
 }
 
-void test_word_beginning_with_u(void)
+static void test_word_beginning_with_u(void)
 {
    TEST_IGNORE();
    const char *phrase = "under";
@@ -54,7 +54,7 @@ void test_word_beginning_with_u(void)
    free(res);
 }
 
-void test_word_beginning_with_a_vowel_and_followed_by_a_qu(void)
+static void test_word_beginning_with_a_vowel_and_followed_by_a_qu(void)
 {
    TEST_IGNORE();
    const char *phrase = "equal";
@@ -63,7 +63,7 @@ void test_word_beginning_with_a_vowel_and_followed_by_a_qu(void)
    free(res);
 }
 
-void test_word_beginning_with_p(void)
+static void test_word_beginning_with_p(void)
 {
    TEST_IGNORE();
    const char *phrase = "pig";
@@ -72,7 +72,7 @@ void test_word_beginning_with_p(void)
    free(res);
 }
 
-void test_word_beginning_with_k(void)
+static void test_word_beginning_with_k(void)
 {
    TEST_IGNORE();
    const char *phrase = "koala";
@@ -81,7 +81,7 @@ void test_word_beginning_with_k(void)
    free(res);
 }
 
-void test_word_beginning_with_x(void)
+static void test_word_beginning_with_x(void)
 {
    TEST_IGNORE();
    const char *phrase = "xenon";
@@ -90,7 +90,7 @@ void test_word_beginning_with_x(void)
    free(res);
 }
 
-void test_word_beginning_with_q_without_a_following_u(void)
+static void test_word_beginning_with_q_without_a_following_u(void)
 {
    TEST_IGNORE();
    const char *phrase = "qat";
@@ -99,7 +99,7 @@ void test_word_beginning_with_q_without_a_following_u(void)
    free(res);
 }
 
-void test_word_beginning_with_ch(void)
+static void test_word_beginning_with_ch(void)
 {
    TEST_IGNORE();
    const char *phrase = "chair";
@@ -108,7 +108,7 @@ void test_word_beginning_with_ch(void)
    free(res);
 }
 
-void test_word_beginning_with_qu(void)
+static void test_word_beginning_with_qu(void)
 {
    TEST_IGNORE();
    const char *phrase = "queen";
@@ -117,7 +117,7 @@ void test_word_beginning_with_qu(void)
    free(res);
 }
 
-void test_word_beginning_with_qu_and_a_preceding_consonant(void)
+static void test_word_beginning_with_qu_and_a_preceding_consonant(void)
 {
    TEST_IGNORE();
    const char *phrase = "square";
@@ -126,7 +126,7 @@ void test_word_beginning_with_qu_and_a_preceding_consonant(void)
    free(res);
 }
 
-void test_word_beginning_with_th(void)
+static void test_word_beginning_with_th(void)
 {
    TEST_IGNORE();
    const char *phrase = "therapy";
@@ -135,7 +135,7 @@ void test_word_beginning_with_th(void)
    free(res);
 }
 
-void test_word_beginning_with_thr(void)
+static void test_word_beginning_with_thr(void)
 {
    TEST_IGNORE();
    const char *phrase = "thrush";
@@ -144,7 +144,7 @@ void test_word_beginning_with_thr(void)
    free(res);
 }
 
-void test_word_beginning_with_sch(void)
+static void test_word_beginning_with_sch(void)
 {
    TEST_IGNORE();
    const char *phrase = "school";
@@ -153,7 +153,7 @@ void test_word_beginning_with_sch(void)
    free(res);
 }
 
-void test_word_beginning_with_yt(void)
+static void test_word_beginning_with_yt(void)
 {
    TEST_IGNORE();
    const char *phrase = "yttria";
@@ -162,7 +162,7 @@ void test_word_beginning_with_yt(void)
    free(res);
 }
 
-void test_word_beginning_with_xr(void)
+static void test_word_beginning_with_xr(void)
 {
    TEST_IGNORE();
    const char *phrase = "xray";
@@ -171,7 +171,7 @@ void test_word_beginning_with_xr(void)
    free(res);
 }
 
-void test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word(void)
+static void test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word(void)
 {
    TEST_IGNORE();
    const char *phrase = "yellow";
@@ -180,7 +180,8 @@ void test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word(void)
    free(res);
 }
 
-void test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(void)
+static void
+test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(void)
 {
    TEST_IGNORE();
    const char *phrase = "rhythm";
@@ -189,7 +190,7 @@ void test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(void)
    free(res);
 }
 
-void test_y_as_second_letter_in_two_letter_word(void)
+static void test_y_as_second_letter_in_two_letter_word(void)
 {
    TEST_IGNORE();
    const char *phrase = "my";
@@ -198,7 +199,7 @@ void test_y_as_second_letter_in_two_letter_word(void)
    free(res);
 }
 
-void test_a_whole_phrase(void)
+static void test_a_whole_phrase(void)
 {
    TEST_IGNORE();
    const char *phrase = "quick fast run";

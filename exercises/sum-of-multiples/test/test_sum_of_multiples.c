@@ -11,7 +11,7 @@ void tearDown(void)
 {
 }
 
-void test_sum_of_multiples_of_3_and_5_up_to_1(void)
+static void test_sum_of_multiples_of_3_and_5_up_to_1(void)
 {
    const unsigned int multiples[] = { 3, 5 };
    TEST_ASSERT_EQUAL(0,
@@ -19,7 +19,7 @@ void test_sum_of_multiples_of_3_and_5_up_to_1(void)
                                       1));
 }
 
-void test_sum_of_multiples_of_3_and_5_up_to_4(void)
+static void test_sum_of_multiples_of_3_and_5_up_to_4(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const unsigned int multiples[] = { 3, 5 };
@@ -28,7 +28,7 @@ void test_sum_of_multiples_of_3_and_5_up_to_4(void)
                                       4));
 }
 
-void test_sum_of_multiples_of_3_and_5_up_to_10(void)
+static void test_sum_of_multiples_of_3_and_5_up_to_10(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 3, 5 };
@@ -37,7 +37,7 @@ void test_sum_of_multiples_of_3_and_5_up_to_10(void)
                                       10));
 }
 
-void test_sum_of_multiples_of_3_and_5_up_to_100(void)
+static void test_sum_of_multiples_of_3_and_5_up_to_100(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 3, 5 };
@@ -46,7 +46,7 @@ void test_sum_of_multiples_of_3_and_5_up_to_100(void)
                                       100));
 }
 
-void test_sum_of_multiples_of_3_and_5_up_to_1000(void)
+static void test_sum_of_multiples_of_3_and_5_up_to_1000(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 3, 5 };
@@ -55,7 +55,7 @@ void test_sum_of_multiples_of_3_and_5_up_to_1000(void)
                                       1000));
 }
 
-void test_sum_of_multiples_of_7_13_and_17_up_to_20(void)
+static void test_sum_of_multiples_of_7_13_and_17_up_to_20(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 7, 13, 17 };
@@ -64,7 +64,7 @@ void test_sum_of_multiples_of_7_13_and_17_up_to_20(void)
                                       20));
 }
 
-void test_sum_of_multiples_of_4_and_6_up_to_15(void)
+static void test_sum_of_multiples_of_4_and_6_up_to_15(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 4, 6 };
@@ -73,7 +73,7 @@ void test_sum_of_multiples_of_4_and_6_up_to_15(void)
                                       15));
 }
 
-void test_sum_of_multiples_of_5_6_and_8_up_to_150(void)
+static void test_sum_of_multiples_of_5_6_and_8_up_to_150(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 5, 6, 8 };
@@ -82,7 +82,7 @@ void test_sum_of_multiples_of_5_6_and_8_up_to_150(void)
                                       150));
 }
 
-void test_sum_of_multiples_of_5_and_25_up_to_51(void)
+static void test_sum_of_multiples_of_5_and_25_up_to_51(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 5, 25 };
@@ -91,7 +91,7 @@ void test_sum_of_multiples_of_5_and_25_up_to_51(void)
                                       51));
 }
 
-void test_sum_of_multiples_of_43_and_47_up_to_10000(void)
+static void test_sum_of_multiples_of_43_and_47_up_to_10000(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 43, 47 };
@@ -100,7 +100,7 @@ void test_sum_of_multiples_of_43_and_47_up_to_10000(void)
                                       10000));
 }
 
-void test_sum_of_multiples_of_1_up_to_100(void)
+static void test_sum_of_multiples_of_1_up_to_100(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 1 };
@@ -109,7 +109,7 @@ void test_sum_of_multiples_of_1_up_to_100(void)
                                       100));
 }
 
-void test_sum_of_multiples_of_0_up_to_100(void)
+static void test_sum_of_multiples_of_0_up_to_100(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 0 };
@@ -118,13 +118,13 @@ void test_sum_of_multiples_of_0_up_to_100(void)
                                       100));
 }
 
-void test_no_multiples_given(void)
+static void test_no_multiples_given(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(0, sum_of_multiples(NULL, 0, 10000));
 }
 
-void test_null_ptr_multiple(void)
+static void test_null_ptr_multiple(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(0, sum_of_multiples(NULL, 3, 10000));

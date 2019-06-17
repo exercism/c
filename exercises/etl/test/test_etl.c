@@ -22,7 +22,7 @@ static int compare_map(new_map * a, new_map * b, int len)
    return !(len == -1);
 }
 
-void test_a_single_letter(void)
+static void test_a_single_letter(void)
 {
    legacy_map input[] = { {1, "A"} };
    int input_len = 1;
@@ -39,7 +39,7 @@ void test_a_single_letter(void)
    free(output);
 }
 
-void test_single_score_with_multiple_letters(void)
+static void test_single_score_with_multiple_letters(void)
 {
    TEST_IGNORE();               // delete this line to run test
    legacy_map input[] = { {1, "AEIOU"} };
@@ -59,7 +59,7 @@ void test_single_score_with_multiple_letters(void)
    free(output);
 }
 
-void test_multiple_scores_with_multiple_letters(void)
+static void test_multiple_scores_with_multiple_letters(void)
 {
    TEST_IGNORE();
    legacy_map input[] = { {1, "AE"}, {2, "DG"} };
@@ -79,7 +79,7 @@ void test_multiple_scores_with_multiple_letters(void)
    free(output);
 }
 
-void test_multiple_scores_with_differing_numbers_of_letters(void)
+static void test_multiple_scores_with_differing_numbers_of_letters(void)
 {
    TEST_IGNORE();
    legacy_map input[] = {

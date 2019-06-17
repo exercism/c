@@ -12,7 +12,7 @@ void tearDown(void)
 {
 }
 
-void test_annotate_no_rows(void)
+static void test_annotate_no_rows(void)
 {
    const char **minefield = NULL;
    const size_t rows = 0;
@@ -20,7 +20,7 @@ void test_annotate_no_rows(void)
    TEST_ASSERT_NULL(actual);
 }
 
-void test_annotate_no_columns(void)
+static void test_annotate_no_columns(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const char *minefield[] = {
@@ -33,7 +33,7 @@ void test_annotate_no_columns(void)
    free_annotation(actual);
 }
 
-void test_annotate_no_mines(void)
+static void test_annotate_no_mines(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -52,7 +52,7 @@ void test_annotate_no_mines(void)
    free_annotation(actual);
 }
 
-void test_annotate_minefield_with_only_mines(void)
+static void test_annotate_minefield_with_only_mines(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -71,7 +71,7 @@ void test_annotate_minefield_with_only_mines(void)
    free_annotation(actual);
 }
 
-void test_annotate_mine_surrounded_by_spaces(void)
+static void test_annotate_mine_surrounded_by_spaces(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -90,7 +90,7 @@ void test_annotate_mine_surrounded_by_spaces(void)
    free_annotation(actual);
 }
 
-void test_annotate_space_surrounded_by_mines(void)
+static void test_annotate_space_surrounded_by_mines(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -109,7 +109,7 @@ void test_annotate_space_surrounded_by_mines(void)
    free_annotation(actual);
 }
 
-void test_annotate_horizontal_line(void)
+static void test_annotate_horizontal_line(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -124,7 +124,7 @@ void test_annotate_horizontal_line(void)
    free_annotation(actual);
 }
 
-void test_annotate_horizontal_line_mines_at_edges(void)
+static void test_annotate_horizontal_line_mines_at_edges(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -139,7 +139,7 @@ void test_annotate_horizontal_line_mines_at_edges(void)
    free_annotation(actual);
 }
 
-void test_annotate_vertical_line(void)
+static void test_annotate_vertical_line(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -162,7 +162,7 @@ void test_annotate_vertical_line(void)
    free_annotation(actual);
 }
 
-void test_annotate_vertical_line_mines_at_edges(void)
+static void test_annotate_vertical_line_mines_at_edges(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -185,7 +185,7 @@ void test_annotate_vertical_line_mines_at_edges(void)
    free_annotation(actual);
 }
 
-void test_annotate_cross(void)
+static void test_annotate_cross(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {
@@ -208,7 +208,7 @@ void test_annotate_cross(void)
    free_annotation(actual);
 }
 
-void test_annotate_large_minefield(void)
+static void test_annotate_large_minefield(void)
 {
    TEST_IGNORE();
    const char *minefield[] = {

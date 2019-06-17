@@ -79,7 +79,7 @@ static void check_factors(factor_t * actual, size_t depth, factor_t expected[])
                                  "Not every expected factor found in the actual result.");
 }
 
-void test_smallest_palindrome_from_single_digit_factors(void)
+static void test_smallest_palindrome_from_single_digit_factors(void)
 {
    product_t *product = get_palindrome_product(1, 9);
    TEST_ASSERT_NOT_NULL(product);
@@ -91,7 +91,7 @@ void test_smallest_palindrome_from_single_digit_factors(void)
    free_product(product);
 }
 
-void test_largest_palindrome_from_single_digit_factors(void)
+static void test_largest_palindrome_from_single_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1, 9);
@@ -104,7 +104,7 @@ void test_largest_palindrome_from_single_digit_factors(void)
    free_product(product);
 }
 
-void test_smallest_palindrome_from_double_digit_factors(void)
+static void test_smallest_palindrome_from_double_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(10, 99);
@@ -117,7 +117,7 @@ void test_smallest_palindrome_from_double_digit_factors(void)
    free_product(product);
 }
 
-void test_largest_palindrome_from_double_digit_factors(void)
+static void test_largest_palindrome_from_double_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(10, 99);
@@ -130,7 +130,7 @@ void test_largest_palindrome_from_double_digit_factors(void)
    free_product(product);
 }
 
-void test_smallest_palindrome_from_triple_digit_factors(void)
+static void test_smallest_palindrome_from_triple_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(100, 999);
@@ -143,7 +143,7 @@ void test_smallest_palindrome_from_triple_digit_factors(void)
    free_product(product);
 }
 
-void test_largest_palindrome_from_triple_digit_factors(void)
+static void test_largest_palindrome_from_triple_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(100, 999);
@@ -156,7 +156,7 @@ void test_largest_palindrome_from_triple_digit_factors(void)
    free_product(product);
 }
 
-void test_smallest_palindrome_from_four_digit_factors(void)
+static void test_smallest_palindrome_from_four_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1000, 9999);
@@ -169,7 +169,7 @@ void test_smallest_palindrome_from_four_digit_factors(void)
    free_product(product);
 }
 
-void test_largest_palindrome_from_four_digit_factors(void)
+static void test_largest_palindrome_from_four_digit_factors(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1000, 9999);
@@ -182,7 +182,7 @@ void test_largest_palindrome_from_four_digit_factors(void)
    free_product(product);
 }
 
-void test_empty_result_for_smallest_if_no_palindrome_in_the_range(void)
+static void test_empty_result_for_smallest_if_no_palindrome_in_the_range(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(1002, 1003);
@@ -194,7 +194,7 @@ void test_empty_result_for_smallest_if_no_palindrome_in_the_range(void)
    free_product(product);
 }
 
-void test_empty_result_for_largest_if_no_palindrome_in_the_range(void)
+static void test_empty_result_for_largest_if_no_palindrome_in_the_range(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(15, 15);
@@ -205,7 +205,7 @@ void test_empty_result_for_largest_if_no_palindrome_in_the_range(void)
    free_product(product);
 }
 
-void test_error_result_for_smallest_if_min_is_more_than_max(void)
+static void test_error_result_for_smallest_if_min_is_more_than_max(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(10000, 1);
@@ -216,7 +216,7 @@ void test_error_result_for_smallest_if_min_is_more_than_max(void)
    free_product(product);
 }
 
-void test_error_result_for_largest_if_min_is_more_than_max(void)
+static void test_error_result_for_largest_if_min_is_more_than_max(void)
 {
    TEST_IGNORE();               // delete this line to run test
    product_t *product = get_palindrome_product(2, 1);

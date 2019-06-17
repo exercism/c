@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-void test_zero(void)
+static void test_zero(void)
 {
    char *ans = NULL;
    int res = say(0, &ans);
@@ -19,7 +19,7 @@ void test_zero(void)
    free(ans);
 }
 
-void test_one(void)
+static void test_one(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char *ans = NULL;
@@ -29,7 +29,7 @@ void test_one(void)
    free(ans);
 }
 
-void test_fourteen(void)
+static void test_fourteen(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -39,7 +39,7 @@ void test_fourteen(void)
    free(ans);
 }
 
-void test_twenty(void)
+static void test_twenty(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -49,7 +49,7 @@ void test_twenty(void)
    free(ans);
 }
 
-void test_twenty_two(void)
+static void test_twenty_two(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -59,7 +59,7 @@ void test_twenty_two(void)
    free(ans);
 }
 
-void test_one_hundred(void)
+static void test_one_hundred(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -69,7 +69,7 @@ void test_one_hundred(void)
    free(ans);
 }
 
-void test_one_hundred_twenty_three(void)
+static void test_one_hundred_twenty_three(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -79,7 +79,7 @@ void test_one_hundred_twenty_three(void)
    free(ans);
 }
 
-void test_one_thousand(void)
+static void test_one_thousand(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -89,7 +89,7 @@ void test_one_thousand(void)
    free(ans);
 }
 
-void test_one_thousand_two_hundred_thirty_four(void)
+static void test_one_thousand_two_hundred_thirty_four(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -99,7 +99,7 @@ void test_one_thousand_two_hundred_thirty_four(void)
    free(ans);
 }
 
-void test_one_million(void)
+static void test_one_million(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -109,7 +109,7 @@ void test_one_million(void)
    free(ans);
 }
 
-void test_one_million_two_thousand_three_hundred_forty_five(void)
+static void test_one_million_two_thousand_three_hundred_forty_five(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -120,7 +120,7 @@ void test_one_million_two_thousand_three_hundred_forty_five(void)
    free(ans);
 }
 
-void test_one_billion(void)
+static void test_one_billion(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -130,7 +130,7 @@ void test_one_billion(void)
    free(ans);
 }
 
-void test_a_big_number(void)
+static void test_a_big_number(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -142,7 +142,7 @@ void test_a_big_number(void)
    free(ans);
 }
 
-void test_numbers_below_zero_are_out_of_range(void)
+static void test_numbers_below_zero_are_out_of_range(void)
 {
    TEST_IGNORE();
    char *ans = NULL;
@@ -151,7 +151,7 @@ void test_numbers_below_zero_are_out_of_range(void)
    free(ans);
 }
 
-void test_numbers_above_999_999_999_999_are_out_of_range(void)
+static void test_numbers_above_999_999_999_999_are_out_of_range(void)
 {
    TEST_IGNORE();
    char *ans = NULL;

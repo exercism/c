@@ -9,7 +9,7 @@ void tearDown(void)
 {
 }
 
-void test_answer_addition(void)
+static void test_answer_addition(void)
 {
    const char *question = "What is 1 plus 1?";
    const int expected = 2;
@@ -19,7 +19,7 @@ void test_answer_addition(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_more_addition(void)
+static void test_answer_more_addition(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const char *question = "What is 53 plus 2?";
@@ -30,7 +30,7 @@ void test_answer_more_addition(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_addition_with_negative_numbers(void)
+static void test_answer_addition_with_negative_numbers(void)
 {
    TEST_IGNORE();
    const char *question = "What is -1 plus -10?";
@@ -41,7 +41,7 @@ void test_answer_addition_with_negative_numbers(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_large_addition(void)
+static void test_answer_large_addition(void)
 {
    TEST_IGNORE();
    const char *question = "What is 123 plus 45678?";
@@ -52,7 +52,7 @@ void test_answer_large_addition(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_subtraction(void)
+static void test_answer_subtraction(void)
 {
    TEST_IGNORE();
    const char *question = "What is 4 minus -12?";
@@ -63,7 +63,7 @@ void test_answer_subtraction(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_multiplication(void)
+static void test_answer_multiplication(void)
 {
    TEST_IGNORE();
    const char *question = "What is -3 multiplied by 25?";
@@ -74,7 +74,7 @@ void test_answer_multiplication(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_division(void)
+static void test_answer_division(void)
 {
    TEST_IGNORE();
    const char *question = "What is 33 divided by -3?";
@@ -85,7 +85,7 @@ void test_answer_division(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_multiple_additions(void)
+static void test_answer_multiple_additions(void)
 {
    TEST_IGNORE();
    const char *question = "What is 1 plus 1 plus 1?";
@@ -96,7 +96,7 @@ void test_answer_multiple_additions(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_addition_and_subtraction(void)
+static void test_answer_addition_and_subtraction(void)
 {
    TEST_IGNORE();
    const char *question = "What is 1 plus 5 minus -2?";
@@ -107,7 +107,7 @@ void test_answer_addition_and_subtraction(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_multiple_subtraction(void)
+static void test_answer_multiple_subtraction(void)
 {
    TEST_IGNORE();
    const char *question = "What is 20 minus 4 minus 13?";
@@ -118,7 +118,7 @@ void test_answer_multiple_subtraction(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_subtraction_then_addition(void)
+static void test_answer_subtraction_then_addition(void)
 {
    TEST_IGNORE();
    const char *question = "What is 17 minus 6 plus 3?";
@@ -129,7 +129,7 @@ void test_answer_subtraction_then_addition(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_multiple_multiplication(void)
+static void test_answer_multiple_multiplication(void)
 {
    TEST_IGNORE();
    const char *question = "What is 2 multiplied by -2 multiplied by 3?";
@@ -140,7 +140,7 @@ void test_answer_multiple_multiplication(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_addition_and_multiplication(void)
+static void test_answer_addition_and_multiplication(void)
 {
    TEST_IGNORE();
    const char *question = "What is -3 plus 7 multiplied by -2?";
@@ -151,7 +151,7 @@ void test_answer_addition_and_multiplication(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_multiple_division(void)
+static void test_answer_multiple_division(void)
 {
    TEST_IGNORE();
    const char *question = "What is -12 divided by 2 divided by -3?";
@@ -162,7 +162,7 @@ void test_answer_multiple_division(void)
    TEST_ASSERT_EQUAL_INT(expected, result);
 }
 
-void test_answer_unknown_operation(void)
+static void test_answer_unknown_operation(void)
 {
    TEST_IGNORE();
    const char *question = "What is 52 cubed?";
@@ -171,7 +171,7 @@ void test_answer_unknown_operation(void)
    TEST_ASSERT_FALSE(success);
 }
 
-void test_answer_non_math_question(void)
+static void test_answer_non_math_question(void)
 {
    TEST_IGNORE();
    const char *question = "Who is the President of the United States?";

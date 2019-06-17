@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-void test_hello(void)
+static void test_hello(void)
 {
    TEST_ASSERT_EQUAL_STRING("Hello, World!", hello());
 }

@@ -11,7 +11,7 @@ void compare_complex(complex_t lhs, complex_t rhs)
    TEST_ASSERT_EQUAL_FLOAT(lhs.imag, rhs.imag);
 }
 
-void test_imaginary_unit(void)
+static void test_imaginary_unit(void)
 {
    complex_t z = {.real = 0.0,.imag = 1.0 };
 
@@ -21,7 +21,7 @@ void test_imaginary_unit(void)
    compare_complex(expected, actual);
 }
 
-void test_add_purely_real_numbers(void)
+static void test_add_purely_real_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 0.0 };
@@ -33,7 +33,7 @@ void test_add_purely_real_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_add_purely_imaginary_numbers(void)
+static void test_add_purely_imaginary_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 0.0,.imag = 1.0 };
@@ -45,7 +45,7 @@ void test_add_purely_imaginary_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_add_numbers_with_real_and_imaginary_part(void)
+static void test_add_numbers_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 2.0 };
@@ -57,7 +57,7 @@ void test_add_numbers_with_real_and_imaginary_part(void)
    compare_complex(expected, actual);
 }
 
-void test_subtract_purely_real_numbers(void)
+static void test_subtract_purely_real_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 0.0 };
@@ -69,7 +69,7 @@ void test_subtract_purely_real_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_subtract_purely_imaginary_numbers(void)
+static void test_subtract_purely_imaginary_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 0.0,.imag = 1.0 };
@@ -81,7 +81,7 @@ void test_subtract_purely_imaginary_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_subtract_numbers_with_real_and_imaginary_part(void)
+static void test_subtract_numbers_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 2.0 };
@@ -93,7 +93,7 @@ void test_subtract_numbers_with_real_and_imaginary_part(void)
    compare_complex(expected, actual);
 }
 
-void test_multiply_purely_real_numbers(void)
+static void test_multiply_purely_real_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 0.0 };
@@ -105,7 +105,7 @@ void test_multiply_purely_real_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_multiply_purely_imaginary_numbers(void)
+static void test_multiply_purely_imaginary_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 0.0,.imag = 1.0 };
@@ -117,7 +117,7 @@ void test_multiply_purely_imaginary_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_multiply_numbers_with_real_and_imaginary_part(void)
+static void test_multiply_numbers_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 2.0 };
@@ -129,7 +129,7 @@ void test_multiply_numbers_with_real_and_imaginary_part(void)
    compare_complex(expected, actual);
 }
 
-void test_divide_purely_real_numbers(void)
+static void test_divide_purely_real_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 0.0 };
@@ -141,7 +141,7 @@ void test_divide_purely_real_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_divide_purely_imaginary_numbers(void)
+static void test_divide_purely_imaginary_numbers(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 0.0,.imag = 1.0 };
@@ -153,7 +153,7 @@ void test_divide_purely_imaginary_numbers(void)
    compare_complex(expected, actual);
 }
 
-void test_divide_numbers_with_real_and_imaginary_part(void)
+static void test_divide_numbers_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z1 = {.real = 1.0,.imag = 2.0 };
@@ -165,7 +165,7 @@ void test_divide_numbers_with_real_and_imaginary_part(void)
    compare_complex(expected, actual);
 }
 
-void test_abs_of_a_positive_purely_real_number(void)
+static void test_abs_of_a_positive_purely_real_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 5.0,.imag = 0.0 };
@@ -176,7 +176,7 @@ void test_abs_of_a_positive_purely_real_number(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_abs_of_a_negative_purely_real_number(void)
+static void test_abs_of_a_negative_purely_real_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = -5.0,.imag = 0.0 };
@@ -187,7 +187,8 @@ void test_abs_of_a_negative_purely_real_number(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part(void)
+static void
+test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = 5.0 };
@@ -198,7 +199,8 @@ void test_abs_of_a_purely_imaginary_number_with_positive_imaginary_part(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part(void)
+static void
+test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = -5.0 };
@@ -209,7 +211,7 @@ void test_abs_of_a_purely_imaginary_number_with_negative_imaginary_part(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_abs_of_a_number_with_real_and_imaginary_part(void)
+static void test_abs_of_a_number_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 3.0,.imag = 4.0 };
@@ -220,7 +222,7 @@ void test_abs_of_a_number_with_real_and_imaginary_part(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_complex_conjugate_of_a_purely_real_number(void)
+static void test_complex_conjugate_of_a_purely_real_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 5.0,.imag = 0.0 };
@@ -231,7 +233,7 @@ void test_complex_conjugate_of_a_purely_real_number(void)
    compare_complex(expected, actual);
 }
 
-void test_complex_conjugate_of_a_purely_imaginary_number(void)
+static void test_complex_conjugate_of_a_purely_imaginary_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = 5.0 };
@@ -242,7 +244,8 @@ void test_complex_conjugate_of_a_purely_imaginary_number(void)
    compare_complex(expected, actual);
 }
 
-void test_complex_conjugate_of_a_number_with_real_and_imaginary_part(void)
+static void
+test_complex_conjugate_of_a_number_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 1.0 };
@@ -253,7 +256,7 @@ void test_complex_conjugate_of_a_number_with_real_and_imaginary_part(void)
    compare_complex(expected, actual);
 }
 
-void test_real_part_of_a_purely_real_number(void)
+static void test_real_part_of_a_purely_real_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 0.0 };
@@ -264,7 +267,7 @@ void test_real_part_of_a_purely_real_number(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_real_part_of_a_purely_imaginary_number(void)
+static void test_real_part_of_a_purely_imaginary_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = 1.0 };
@@ -275,7 +278,7 @@ void test_real_part_of_a_purely_imaginary_number(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_real_part_of_a_number_with_real_and_imaginary_part(void)
+static void test_real_part_of_a_number_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 2.0 };
@@ -286,7 +289,7 @@ void test_real_part_of_a_number_with_real_and_imaginary_part(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_imaginary_part_of_a_purely_real_number(void)
+static void test_imaginary_part_of_a_purely_real_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 0.0 };
@@ -297,7 +300,7 @@ void test_imaginary_part_of_a_purely_real_number(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_imaginary_part_of_a_purely_imaginary_number(void)
+static void test_imaginary_part_of_a_purely_imaginary_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = 1.0 };
@@ -308,7 +311,7 @@ void test_imaginary_part_of_a_purely_imaginary_number(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_imaginary_part_of_a_number_with_real_and_imaginary_part(void)
+static void test_imaginary_part_of_a_number_with_real_and_imaginary_part(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 2.0 };
@@ -319,7 +322,7 @@ void test_imaginary_part_of_a_number_with_real_and_imaginary_part(void)
    TEST_ASSERT_EQUAL_FLOAT(expected, actual);
 }
 
-void test_eulers_identity(void)
+static void test_eulers_identity(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = PI };
@@ -331,7 +334,7 @@ void test_eulers_identity(void)
    TEST_ASSERT_FLOAT_WITHIN(1e-10, expected.imag, actual.imag);
 }
 
-void test_exponential_of_zero(void)
+static void test_exponential_of_zero(void)
 {
    TEST_IGNORE();
    complex_t zero = {.real = 0.0,.imag = 0.0 };
@@ -342,7 +345,7 @@ void test_exponential_of_zero(void)
    compare_complex(expected, actual);
 }
 
-void test_exponential_of_a_purely_real_number(void)
+static void test_exponential_of_a_purely_real_number(void)
 {
    TEST_IGNORE();
    complex_t z = {.real = 1.0,.imag = 0.0 };

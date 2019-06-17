@@ -12,7 +12,7 @@ void tearDown(void)
 {
 }
 
-void test_two_fer_no_name_given(void)
+static void test_two_fer_no_name_given(void)
 {
    char response[BUFFER_SIZE];
    const char *expected = "One for you, one for me.";
@@ -20,7 +20,7 @@ void test_two_fer_no_name_given(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_two_fer_a_name_given(void)
+static void test_two_fer_a_name_given(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char response[BUFFER_SIZE];
@@ -29,7 +29,7 @@ void test_two_fer_a_name_given(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_two_fer_another_name_given(void)
+static void test_two_fer_another_name_given(void)
 {
    TEST_IGNORE();
    char response[BUFFER_SIZE];

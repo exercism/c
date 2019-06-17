@@ -9,42 +9,42 @@ void tearDown(void)
 {
 }
 
-void test_can_find_the_largest_product_of_2_with_numbers_in_order(void)
+static void test_can_find_the_largest_product_of_2_with_numbers_in_order(void)
 {
    TEST_ASSERT_EQUAL(72, largest_series_product("0123456789", 2));
 }
 
-void test_can_find_the_largest_product_of_2(void)
+static void test_can_find_the_largest_product_of_2(void)
 {
    TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_EQUAL(48, largest_series_product("576802143", 2));
 }
 
-void test_finds_the_largest_product_if_span_equals_length(void)
+static void test_finds_the_largest_product_if_span_equals_length(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(18, largest_series_product("29", 2));
 }
 
-void test_can_find_the_largest_product_of_3_with_numbers_in_order(void)
+static void test_can_find_the_largest_product_of_3_with_numbers_in_order(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(504, largest_series_product("0123456789", 3));
 }
 
-void test_can_find_the_largest_product_of_3(void)
+static void test_can_find_the_largest_product_of_3(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(270, largest_series_product("1027839564", 3));
 }
 
-void test_can_find_the_largest_product_of_5_with_numbers_in_order(void)
+static void test_can_find_the_largest_product_of_5_with_numbers_in_order(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(15120, largest_series_product("0123456789", 5));
 }
 
-void test_can_get_the_largest_product_of_a_big_number(void)
+static void test_can_get_the_largest_product_of_a_big_number(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(23520,
@@ -52,7 +52,7 @@ void test_can_get_the_largest_product_of_a_big_number(void)
                      ("73167176531330624919225119674426574742355349194934", 6));
 }
 
-void test_can_get_the_largest_product_of_a_big_number_ii(void)
+static void test_can_get_the_largest_product_of_a_big_number_ii(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(28350,
@@ -60,7 +60,7 @@ void test_can_get_the_largest_product_of_a_big_number_ii(void)
                      ("52677741234314237566414902593461595376319419139427", 6));
 }
 
-void test_can_get_the_largest_product_of_a_big_number_project_euler(void)
+static void test_can_get_the_largest_product_of_a_big_number_project_euler(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_INT64(23514624000,
@@ -69,43 +69,43 @@ void test_can_get_the_largest_product_of_a_big_number_project_euler(void)
                             13));
 }
 
-void test_reports_zero_if_the_only_digits_are_zero(void)
+static void test_reports_zero_if_the_only_digits_are_zero(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(0, largest_series_product("0000", 2));
 }
 
-void test_reports_zero_if_all_spans_include_zero(void)
+static void test_reports_zero_if_all_spans_include_zero(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(0, largest_series_product("99099", 3));
 }
 
-void test_rejects_span_longer_than_string_length(void)
+static void test_rejects_span_longer_than_string_length(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(-1, largest_series_product("123", 4));
 }
 
-void test_reports_1_for_empty_string_and_empty_product_(void)
+static void test_reports_1_for_empty_string_and_empty_product_(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(1, largest_series_product("", 0));
 }
 
-void test_reports_1_for_nonempty_string_and_empty_product_(void)
+static void test_reports_1_for_nonempty_string_and_empty_product_(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(1, largest_series_product("123", 0));
 }
 
-void test_rejects_empty_string_and_nonzero_span(void)
+static void test_rejects_empty_string_and_nonzero_span(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(-1, largest_series_product("", 1));
 }
 
-void test_rejects_invalid_character_in_digits(void)
+static void test_rejects_invalid_character_in_digits(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(-1, largest_series_product("123a5", 2));

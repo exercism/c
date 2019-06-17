@@ -14,7 +14,7 @@ void tearDown(void)
    result = NULL;
 }
 
-void test_cleans_parens_dashes_and_spaces_from_the_number(void)
+static void test_cleans_parens_dashes_and_spaces_from_the_number(void)
 {
    const char input[] = "(223) 456-7890";
    const char expected[] = "2234567890";
@@ -24,7 +24,7 @@ void test_cleans_parens_dashes_and_spaces_from_the_number(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_cleans_numbers_with_dots(void)
+static void test_cleans_numbers_with_dots(void)
 {
    TEST_IGNORE();               // delete this line to run test
    const char input[] = "223.456.7890";
@@ -35,7 +35,7 @@ void test_cleans_numbers_with_dots(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_cleans_numbers_with_multiple_spaces(void)
+static void test_cleans_numbers_with_multiple_spaces(void)
 {
    TEST_IGNORE();
    const char input[] = "223 456   7890   ";
@@ -46,7 +46,7 @@ void test_cleans_numbers_with_multiple_spaces(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_when_9_digits(void)
+static void test_invalid_when_9_digits(void)
 {
    TEST_IGNORE();
    const char input[] = "123456789";
@@ -57,7 +57,7 @@ void test_invalid_when_9_digits(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_valid_when_11_digits_and_first_digit_is_1(void)
+static void test_valid_when_11_digits_and_first_digit_is_1(void)
 {
    TEST_IGNORE();
    const char input[] = "12234567890";
@@ -68,7 +68,7 @@ void test_valid_when_11_digits_and_first_digit_is_1(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_when_11_digits_and_first_digit_not_1(void)
+static void test_invalid_when_11_digits_and_first_digit_not_1(void)
 {
    TEST_IGNORE();
    const char input[] = "21234567890";
@@ -79,7 +79,8 @@ void test_invalid_when_11_digits_and_first_digit_not_1(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation(void)
+static void
+test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation(void)
 {
    TEST_IGNORE();
    const char input[] = "+1 (223) 456-7890";
@@ -90,7 +91,7 @@ void test_valid_when_11_digits_and_first_digit_is_1_even_with_punctuation(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_when_more_than_11_digits(void)
+static void test_invalid_when_more_than_11_digits(void)
 {
    TEST_IGNORE();
    const char input[] = "321234567890";
@@ -101,7 +102,7 @@ void test_invalid_when_more_than_11_digits(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_with_letters(void)
+static void test_invalid_with_letters(void)
 {
    TEST_IGNORE();
    const char input[] = "123-abc-7890";
@@ -112,7 +113,7 @@ void test_invalid_with_letters(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_with_punctuations(void)
+static void test_invalid_with_punctuations(void)
 {
    TEST_IGNORE();
    const char input[] = "123-@:!-7890";
@@ -123,7 +124,7 @@ void test_invalid_with_punctuations(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_with_right_number_of_digits_but_letters_mixed_in(void)
+static void test_invalid_with_right_number_of_digits_but_letters_mixed_in(void)
 {
    TEST_IGNORE();
    const char input[] = "1a2b3c4d5e6f7g8h9i0j";
@@ -134,7 +135,7 @@ void test_invalid_with_right_number_of_digits_but_letters_mixed_in(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_if_area_code_does_not_start_with_2_to_9(void)
+static void test_invalid_if_area_code_does_not_start_with_2_to_9(void)
 {
    TEST_IGNORE();
    const char input[] = "(123) 456-7890";
@@ -145,7 +146,7 @@ void test_invalid_if_area_code_does_not_start_with_2_to_9(void)
    TEST_ASSERT_EQUAL_STRING(expected, result);
 }
 
-void test_invalid_if_exchange_code_does_not_start_with_2_to_9(void)
+static void test_invalid_if_exchange_code_does_not_start_with_2_to_9(void)
 {
    TEST_IGNORE();
    const char input[] = "(223) 056-7890";

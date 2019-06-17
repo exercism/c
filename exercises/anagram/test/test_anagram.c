@@ -38,7 +38,7 @@ static void assert_correct_anagrams(struct candidates *candidates,
    }
 }
 
-void test_no_matches(void)
+static void test_no_matches(void)
 {
    char inputs[][MAX_STR_LEN] = {
       "hello",
@@ -57,7 +57,7 @@ void test_no_matches(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_detect_simple_anagram(void)
+static void test_detect_simple_anagram(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char inputs[][MAX_STR_LEN] = {
@@ -76,7 +76,7 @@ void test_detect_simple_anagram(void)
 
 }
 
-void test_does_not_confuse_different_duplicates(void)
+static void test_does_not_confuse_different_duplicates(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -92,7 +92,7 @@ void test_does_not_confuse_different_duplicates(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_eliminate_anagram_subsets(void)
+static void test_eliminate_anagram_subsets(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -109,7 +109,7 @@ void test_eliminate_anagram_subsets(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_detect_anagram(void)
+static void test_detect_anagram(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -129,7 +129,7 @@ void test_detect_anagram(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_multiple_anagrams(void)
+static void test_multiple_anagrams(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -153,7 +153,7 @@ void test_multiple_anagrams(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_case_insensitive_anagrams(void)
+static void test_case_insensitive_anagrams(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -171,7 +171,7 @@ void test_case_insensitive_anagrams(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_does_not_detect_a_word_as_its_own_anagram(void)
+static void test_does_not_detect_a_word_as_its_own_anagram(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -187,7 +187,8 @@ void test_does_not_detect_a_word_as_its_own_anagram(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
+static void
+test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -203,7 +204,7 @@ void test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_unicode_anagrams(void)
+static void test_unicode_anagrams(void)
 {
    TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
    // These words don't make sense, they're just greek letters cobbled together.
@@ -222,7 +223,7 @@ void test_unicode_anagrams(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-void test_misleading_unicode_anagrams(void)
+static void test_misleading_unicode_anagrams(void)
 {
    TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
    // Despite what a human might think these words different letters, the input uses Greek A and B

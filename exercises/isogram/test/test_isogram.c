@@ -10,84 +10,84 @@ void tearDown(void)
 {
 }
 
-void test_empty_string(void)
+static void test_empty_string(void)
 {
    TEST_ASSERT_TRUE(is_isogram(""));
 }
 
-void test_null(void)
+static void test_null(void)
 {
    TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_FALSE(is_isogram(NULL));
 }
 
-void test_lower_case_only(void)
+static void test_lower_case_only(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("isogram"));
 }
 
-void test_duplicated_letter(void)
+static void test_duplicated_letter(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("eleven"));
 }
 
-void test_duplicated_letter_from_end_of_alphabet(void)
+static void test_duplicated_letter_from_end_of_alphabet(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("zzyzx"));
 }
 
-void test_longest_known_isogram(void)
+static void test_longest_known_isogram(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("subdermatoglyphic"));
 }
 
-void test_duplicated_letter_mixed_case(void)
+static void test_duplicated_letter_mixed_case(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("Alphabet"));
 }
 
-void test_duplicated_letter_mixed_case_lowercase_first(void)
+static void test_duplicated_letter_mixed_case_lowercase_first(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("alphAbet"));
 }
 
-void test_non_letter_char(void)
+static void test_non_letter_char(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("thumbscrew-japingly"));
 }
 
-void test_duplicated_letter_following_non_letter_char(void)
+static void test_duplicated_letter_following_non_letter_char(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("thumbscrew-jappingly"));
 }
 
-void test_duplicated_non_letter_char(void)
+static void test_duplicated_non_letter_char(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("six-year-old"));
 }
 
-void test_multiple_whitespace(void)
+static void test_multiple_whitespace(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_isogram("Emily Jung Schwartzkopf"));
 }
 
-void test_duplicated_letter_within_word(void)
+static void test_duplicated_letter_within_word(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("accentor"));
 }
 
-void test_same_first_and_last_characters(void)
+static void test_same_first_and_last_characters(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("angola"));

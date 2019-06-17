@@ -11,7 +11,7 @@ void tearDown(void)
 {
 }
 
-void test_handles_arbitrary_verse(void)
+static void test_handles_arbitrary_verse(void)
 {
    char response[BUFFER_SIZE];
    const char expected[BUFFER_SIZE] =
@@ -22,7 +22,7 @@ void test_handles_arbitrary_verse(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_handles_2_bottles(void)
+static void test_handles_2_bottles(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char response[BUFFER_SIZE];
@@ -34,7 +34,7 @@ void test_handles_2_bottles(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_handles_1_bottle(void)
+static void test_handles_1_bottle(void)
 {
    TEST_IGNORE();
    char response[BUFFER_SIZE];
@@ -46,7 +46,7 @@ void test_handles_1_bottle(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_handles_0_bottles(void)
+static void test_handles_0_bottles(void)
 {
    TEST_IGNORE();
    char response[BUFFER_SIZE];
@@ -58,7 +58,7 @@ void test_handles_0_bottles(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_sings_several_verses(void)
+static void test_sings_several_verses(void)
 {
    TEST_IGNORE();
    char response[BUFFER_SIZE];
@@ -76,7 +76,7 @@ void test_sings_several_verses(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_sings_the_last_4_verses(void)
+static void test_sings_the_last_4_verses(void)
 {
    TEST_IGNORE();
    char response[BUFFER_SIZE];
