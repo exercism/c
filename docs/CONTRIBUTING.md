@@ -104,7 +104,7 @@ The structure of en exercise's directory is as follows (note the differing hyphe
 ```
 
 * `test` - contains the test file `test_<my exercise>.c` and a `vendor` directory containing the test harness [Unity](http://www.throwtheswitch.org/unity/) from [ThrowTheSwitch](http://www.throwtheswitch.org/#intro-1-section).
-ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.throwtheswitch.org/getting-started-with-unity/) should you desire a tutorial. The layout of the test file is described in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#test-file-layout). Tests should be written that satisfy the exercise's related `canonical-data.json` file in the [`problem-specifications`](https://github.com/exercism/problem-specifications) repository
+ThrowTheSwitch has a decent guide on [getting started with Unity](http://www.throwtheswitch.org/getting-started-with-unity/) should you desire a tutorial. The version of Unity used is indicated in [versions](https://www.github.com/exercism/c/blob/master/docs/VERSIONS.md). The layout of the test file is described in the [style guide](https://github.com/exercism/c/blob/master/docs/C_STYLE_GUIDE.md#test-file-layout). Tests should be written that satisfy the exercise's related `canonical-data.json` file in the [`problem-specifications`](https://github.com/exercism/problem-specifications) repository
 
 * `src` - contains the example files `example.c` and `example.h`. These are both skipped by the `exercism` CLI when downloading to the client, so it is imperative that you do not reference the names of the files in your code.
 If you need to provide a header file example that is necessary to run your tests it should be named `<my exercise>.h` instead.
