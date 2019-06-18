@@ -108,7 +108,7 @@ What these options do is indicated by the [GNU `indent` manual](https://www.gnu.
 ## Test file layout
 
 Each exercise's test file follows a particular layout.
-The layout is intended to both help contibutors to identify parts of the file, and to help learners to understand how the tests work.
+The layout is intended to both help contributors to identify parts of the file, and to help learners to understand how the tests work.
 
 Like most C source files, a test file begins with includes.
 
