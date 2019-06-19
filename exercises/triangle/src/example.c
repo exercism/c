@@ -1,6 +1,6 @@
 #include "triangle.h"
 
-bool triangle_equality(triangle_t input)
+static bool triangle_equality(triangle_t input)
 {
    return (input.a < (input.b + input.c)
            && input.b < (input.a + input.c)
