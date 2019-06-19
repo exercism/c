@@ -5,7 +5,7 @@
 #define PI acos(-1)
 #define E exp(1)
 
-void compare_complex(complex_t lhs, complex_t rhs)
+static void compare_complex(complex_t lhs, complex_t rhs)
 {
    TEST_ASSERT_EQUAL_FLOAT(lhs.real, rhs.real);
    TEST_ASSERT_EQUAL_FLOAT(lhs.imag, rhs.imag);
