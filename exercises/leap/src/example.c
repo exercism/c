@@ -1,4 +1,4 @@
-#include <stdbool.h>
+#include "leap.h"
 
 bool is_leap_year(int year)
 {
