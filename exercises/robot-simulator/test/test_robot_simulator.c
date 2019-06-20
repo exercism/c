@@ -10,8 +10,8 @@ void tearDown(void)
 }
 
 // Test Helper Function
-void confirm_position(robot_grid_status_t * expected,
-                      robot_grid_status_t * actual)
+static void confirm_position(robot_grid_status_t * expected,
+                             robot_grid_status_t * actual)
 {
    TEST_ASSERT_EQUAL(expected->bearing, actual->bearing);
    TEST_ASSERT_EQUAL(expected->grid.x_position, actual->grid.x_position);

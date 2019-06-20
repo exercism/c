@@ -12,7 +12,7 @@ void tearDown(void)
 {
 }
 
-void convert_drops(int drops, char *expected)
+static void convert_drops(int drops, char *expected)
 {
    char result[BUFFER_LENGTH] = { 0 };
    convert(result, drops);

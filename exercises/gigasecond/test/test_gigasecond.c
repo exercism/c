@@ -20,7 +20,8 @@ static inline time_t days_from_1ad(int year)
    return 365 * year + (year / 400) - (year / 100) + (year / 4);
 }
 
-time_t construct_date(int year, int month, int day, int hour, int min, int sec)
+static time_t
+construct_date(int year, int month, int day, int hour, int min, int sec)
 {
    static const time_t seconds_in_day = 86400;  // 60 * 60 * 24
    static const time_t days[2][12] = {

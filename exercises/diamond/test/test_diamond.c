@@ -29,7 +29,7 @@ static void test_rows_degenerate_case_with_a_single_a_row(void)
    free_all(diamond);
 }
 
-void
+static void
 test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces(void)
 {
    TEST_IGNORE();               // delete this line to run test
