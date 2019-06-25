@@ -8,6 +8,7 @@
 
 word_count_word_t actual_solution[MAX_WORDS];
 word_count_word_t expected_solution[MAX_WORDS + 1];
+
 void setUp(void)
 {
 }
@@ -28,8 +29,9 @@ static void check_solution(word_count_word_t * expected_solution,
    for (int index = 0; index < MAX_WORDS; index++) {
       TEST_ASSERT_EQUAL(expected_solution[index].count,
                         actual_solution[index].count);
-      TEST_ASSERT_EQUAL_UINT8_ARRAY(expected_solution[index].text,
-                                    actual_solution[index].text, STRING_SIZE);
+      TEST_ASSERT_EQUAL_STRING_LEN(expected_solution[index].text,
+                                   actual_solution[index].text,
+                                   strlen(expected_solution[index].text));
    }
 }
 
