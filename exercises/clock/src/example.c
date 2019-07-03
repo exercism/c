@@ -23,7 +23,7 @@ void clock_create(clock_text_t clock_text, clock_t clock)
 
 void clock_add(clock_text_t clock_text, int minute_offset)
 {
-   clock_t clock = { 0 };
+   clock_t clock = { 0, 0 };
    sscanf(clock_text, "%02d:%02d", &clock.hour, &clock.minute);
    clock.minute += minute_offset;
    clock_create(clock_text, clock);
@@ -31,7 +31,7 @@ void clock_add(clock_text_t clock_text, int minute_offset)
 
 void clock_subtract(clock_text_t clock_text, int minute_offset)
 {
-   clock_t clock = { 0 };
+   clock_t clock = { 0, 0 };
    sscanf(clock_text, "%02d:%02d", &clock.hour, &clock.minute);
    clock.minute -= minute_offset;
    clock_create(clock_text, clock);
