@@ -1,7 +1,7 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
-#include<stdbool.h>
+#include <stdbool.h>
 
 #define MAX_STR_LEN (5 + 1)     // "##:##\0"
 
