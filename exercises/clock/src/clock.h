@@ -5,15 +5,13 @@
 
 #define MAX_STR_LEN (5 + 1)     // "##:##\0"
 
-typedef char clock_text_t[MAX_STR_LEN];
 typedef struct {
-   int hour;
-   int minute;
+   char text[MAX_STR_LEN];
 } clock_t;
 
-void clock_create(clock_text_t clock_text, clock_t clock);
-void clock_add(clock_text_t clock_text, int minute_offset);
-void clock_subtract(clock_text_t clock_text, int minute_offset);
+clock_t clock_create(int hour, int minute);
+clock_t clock_add(clock_t clock, int minute_add);
+clock_t clock_subtract(clock_t clock, int minute_subtract);
 bool clock_is_equal(clock_t a, clock_t b);
 
 #endif
