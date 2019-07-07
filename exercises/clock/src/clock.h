@@ -1,11 +1,17 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
+#include <stdbool.h>
+
 #define MAX_STR_LEN (5 + 1)     // "##:##\0"
 
-typedef char time_text_t[MAX_STR_LEN];
+typedef struct {
+   char text[MAX_STR_LEN];
+} clock_t;
 
-void clock(time_text_t time_text, int hour, int minute);
-void clock_add(time_text_t time_text, int minute_offset);
+clock_t clock_create(int hour, int minute);
+clock_t clock_add(clock_t clock, int minute_add);
+clock_t clock_subtract(clock_t clock, int minute_subtract);
+bool clock_is_equal(clock_t a, clock_t b);
 
 #endif
