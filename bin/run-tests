@@ -5,11 +5,8 @@ set -e
 SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
 cd "${SCRIPT_DIR}"/..
 
-# Clone the exercises directory to avoid pollution
+# Clear up any previous run
 rm -rf build
-cp -r exercises build
-
-cd build/
 
 execute_test () {
     if [ -d "${1}" ]; then
@@ -41,6 +38,17 @@ execute_test () {
         )
     fi
 }
+
+# Clone the exercises directory to avoid pollution
+if [ $# -gt 0 ]; then
+    mkdir build
+    cd exercises
+    cp -r "$@" ../build
+    cd ../build/
+else
+    cp -r exercises build
+    cd build/
+fi
 
 # Allow specifying which tests to run as arguments
 if [ $# -gt 0 ]; then
