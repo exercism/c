@@ -1,10 +1,13 @@
 #ifndef SIEVE_H
 #define SIEVE_H
 
-#define MAX_LIMIT_TESTED (1000)
+#include <stdint.h>
+#include <stddef.h>
 
-typedef unsigned int primes_array_t[MAX_LIMIT_TESTED];
-
-unsigned int sieve(const unsigned int limit, primes_array_t primes);
+/// Calculate at most `max_primes` prime numbers in the interval [2,limit] 
+/// using the Sieve of Eratosthenes and store the prime numbers in `primes`
+/// in increasing order.
+/// The function returns the number of calculate primes.
+uint32_t sieve(uint32_t limit, uint32_t * primes, size_t max_primes);
 
 #endif
