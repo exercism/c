@@ -10,15 +10,15 @@ uint32_t sieve(uint32_t limit, uint32_t * primes, size_t max_primes)
       return 0;
    }
    // allocate one boolean for each number in [0,limit]
-   bool *data = calloc(limit + 1, sizeof(*data));
-   if (!data) {
+   bool *is_marked = calloc(limit + 1, sizeof(*is_marked));
+   if (!is_marked) {
       return 0;
    }
 
    uint32_t n_primes = 0;
 
    for (uint32_t i = 2; i <= limit; i++) {
-      if (data[i]) {
+      if (is_marked[i]) {
          // current number `i` is already marked
          continue;
       }
@@ -31,11 +31,11 @@ uint32_t sieve(uint32_t limit, uint32_t * primes, size_t max_primes)
       }
       // mark the multiples of `i` in [i*2, limit]
       for (uint32_t p = 2 * i; p <= limit; p += i) {
-         data[p] = true;
+         is_marked[p] = true;
       }
    }
 
-   free(data);
+   free(is_marked);
 
    return n_primes;
 }
