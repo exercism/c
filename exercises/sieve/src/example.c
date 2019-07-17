@@ -1,50 +1,41 @@
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
 #include "sieve.h"
 
-unsigned int sieve(const unsigned int limit, primes_array_t primes)
+#include <stdbool.h>
+#include <stdlib.h>
+
+uint32_t sieve(uint32_t limit, uint32_t * primes, size_t max_primes)
 {
-   unsigned int number_of_primes = 0;
-
-   // clear the results
-   memset(primes, 0, sizeof(*primes));
-
-   if (limit > 1) {
-      //allocate 1 more than limit for convenience so the number and the index are same
-      unsigned char *number_is_prime = malloc(limit + 1);
-      memset(number_is_prime, 1, limit + 1);
-
-      unsigned int max_factor = sqrt(limit) + 1;
-
-      // mark 0 and 1 as not prime
-      for (unsigned int i = 0; i < 2; i++) {
-         number_is_prime[i] = 0;
-      }
-
-      // mark the remaining numbers in the array according to the algo.
-      for (unsigned int index = 2; index < max_factor;) {
-         // mark all of multiples that can't be prime
-         for (unsigned int non_prime_index = (2 * index);
-              non_prime_index < (limit + 1); non_prime_index += index) {
-            number_is_prime[non_prime_index] = 0;
-         }
-
-         // adjust the index
-         do {
-            index++;
-            if (number_is_prime[index]) {
-               break;
-            }
-         } while (index <= max_factor);
-      }
-      // collect and count the primes found
-      for (unsigned int i = 1; i < limit + 1; i++) {
-         if (number_is_prime[i]) {
-            primes[number_of_primes++] = i;
-         }
-      }
-      free(number_is_prime);
+   if (limit <= 1) {
+      // no primes that small
+      return 0;
    }
-   return number_of_primes;
+   // allocate one boolean for each number in [0,limit]
+   bool *is_marked = calloc(limit + 1, sizeof(*is_marked));
+   if (!is_marked) {
+      return 0;
+   }
+
+   uint32_t n_primes = 0;
+
+   for (uint32_t i = 2; i <= limit; i++) {
+      if (is_marked[i]) {
+         // current number `i` is already marked
+         continue;
+      }
+      // `i` is the smallest number that is not marked and therefore prime
+      primes[n_primes++] = i;
+
+      if (n_primes == max_primes) {
+         // we reached the maximum number of primes
+         break;
+      }
+      // mark the multiples of `i` in [i*2, limit]
+      for (uint32_t p = 2 * i; p <= limit; p += i) {
+         is_marked[p] = true;
+      }
+   }
+
+   free(is_marked);
+
+   return n_primes;
 }
