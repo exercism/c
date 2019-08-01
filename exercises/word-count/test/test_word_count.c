@@ -31,7 +31,7 @@ static void check_solution(word_count_word_t * expected_solution,
                         actual_solution[index].count);
       TEST_ASSERT_EQUAL_STRING_LEN(expected_solution[index].text,
                                    actual_solution[index].text,
-                                   strlen(expected_solution[index].text));
+                                   strlen(expected_solution[index].text) + 1);
    }
 }
 
