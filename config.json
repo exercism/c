@@ -283,6 +283,22 @@
       ]
     },
     {
+      "slug": "saddle-points",
+      "uuid": "448f9137-4e58-4c26-9853-abe07f01c908",
+      "core": true,
+      "auto_approve": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "control_flow_if_else_statements",
+        "control_flow_loops",
+        "memory_management",
+        "arrays",
+        "flexible_array_members",
+        "structs"
+      ]
+    },
+    {
       "slug": "allergies",
       "uuid": "871f1c41-debd-4807-8ee5-bde54c3918f8",
       "core": true,
