@@ -16,6 +16,20 @@
       ]
     },
     {
+      "slug": "armstrong-numbers",
+      "uuid": "a4658ee9-b71c-4764-9652-7ed83d46516b",
+      "core": true,
+      "auto_approve": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "control_flow_if_else_statements",
+        "control_flow_loops",
+        "math",
+        "logic"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
       "core": true,
