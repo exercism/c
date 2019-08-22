@@ -30,6 +30,19 @@
       ]
     },
     {
+      "slug": "darts",
+      "uuid": "a579e471-86f3-4f29-82ca-e984a2cc8891",
+      "core": false,
+      "auto_approve": true,
+      "unlocked_by": "armstrong-numbers",
+      "difficulty": 1,
+      "topics": [
+        "control_flow_if_else_statements",
+        "math",
+        "logic"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
       "core": true,
