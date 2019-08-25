@@ -43,6 +43,19 @@
       ]
     },
     {
+      "slug": "resistor-color",
+      "uuid": "75653d83-1a64-472c-ac43-49e87833c7f7",
+      "core": true,
+      "auto_approve": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "enums",
+        "arrays",
+        "pointers"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
       "core": true,
