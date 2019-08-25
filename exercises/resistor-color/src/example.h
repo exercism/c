@@ -12,7 +12,7 @@ typedef enum {
    GREEN = 5,
    BLUE = 6,
    VIOLET = 7,
-   GREY = 9,
+   GREY = 8,
    WHITE = 9,
    COLOR_COUNT = WHITE
 } resistor_band_t;
