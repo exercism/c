@@ -333,6 +333,22 @@
       ]
     },
     {
+      "slug": "pythagorean-triplet",
+      "uuid": "7b7c61f4-2849-46b7-9057-900bb6b95052",
+      "core": true,
+      "auto_approve": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "control_flow_if_else_statements",
+        "control_flow_loops",
+        "memory_management",
+        "arrays",
+        "flexible_array_members",
+        "structs"
+      ]
+    },
+    {
       "slug": "saddle-points",
       "uuid": "448f9137-4e58-4c26-9853-abe07f01c908",
       "core": true,

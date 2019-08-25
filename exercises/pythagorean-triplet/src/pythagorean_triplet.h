@@ -1,0 +1,6 @@
+#ifndef PYTHAGOREAN_TRIPLET
+#define PYTHAGOREAN_TRIPLET
+
+#define LENGTH_OF_TRIPLET 3
+
+#endif
