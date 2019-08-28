@@ -1,4 +1,4 @@
-#ifndef RESISTOR_COLOR
-#define RESISTOR_COLOR
+#ifndef RESISTOR_COLOR_H
+#define RESISTOR_COLOR_H
 
 #endif

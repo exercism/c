@@ -1,6 +1,8 @@
 #include "vendor/unity.h"
 #include "../src/resistor_color.h"
 
+#define ARRAY_LENGTH(A) (sizeof(A) / sizeof(A[0]))
+
 void setUp(void)
 {
 }
@@ -33,7 +35,7 @@ static void test_colors(void)
       BLACK, BROWN, RED, ORANGE, YELLOW,
       GREEN, BLUE, VIOLET, GREY, WHITE
    };
-   TEST_ASSERT_EQUAL_INT_ARRAY(expected, colors(), COLOR_COUNT);
+   TEST_ASSERT_EQUAL_INT_ARRAY(expected, colors(), ARRAY_LENGTH(expected));
 }
 
 int main(void)

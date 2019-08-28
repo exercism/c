@@ -1,5 +1,5 @@
-#ifndef RESISTOR_COLOR
-#define RESISTOR_COLOR
+#ifndef RESISTOR_COLOR_H
+#define RESISTOR_COLOR_H
 
 #include <stdint.h>
 
@@ -13,8 +13,7 @@ typedef enum {
    BLUE = 6,
    VIOLET = 7,
    GREY = 8,
-   WHITE = 9,
-   COLOR_COUNT = WHITE
+   WHITE = 9
 } resistor_band_t;
 
 uint16_t colorCode(resistor_band_t color);
