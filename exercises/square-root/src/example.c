@@ -12,8 +12,7 @@ uint16_t squareRoot(uint16_t radicand)
       if (radicand >= result + bit) {
          radicand -= result + bit;
          result = (result >> 1) + bit;
-      } else
-      {
+      } else {
          result >>= 1;
       }
       bit >>= 2;
