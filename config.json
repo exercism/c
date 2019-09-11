@@ -68,6 +68,19 @@
       ]
     },
     {
+      "slug": "resistor-color-trio",
+      "uuid": "6cd7bb9c-2817-4c44-8bef-5f2916b2db2d",
+      "core": false,
+      "auto_approve": true,
+      "unlocked_by": "resistor-color",
+      "difficulty": 1,
+      "topics": [
+        "enums",
+        "arrays",
+        "structs"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
       "core": true,
