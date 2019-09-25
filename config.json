@@ -282,6 +282,18 @@
       ]
     },
     {
+      "slug": "square-root",
+      "uuid": "0400f52d-48ae-4300-a72e-32e8a08514d0",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "control_flow_loops",
+        "bitwise_operations",
+        "math"
+      ]
+    },
+    {
       "slug": "binary-search",
       "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d",
       "core": true,
