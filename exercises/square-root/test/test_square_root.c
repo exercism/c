@@ -46,7 +46,7 @@ static void test_root_of_65025(void)
 
 int main(void)
 {
-   UnityBegin("test/test_resistor_color.c");
+   UnityBegin("test/test_square_root.c");
 
    RUN_TEST(test_root_of_1);
    RUN_TEST(test_root_of_4);
