@@ -13,19 +13,19 @@ void tearDown(void)
 
 static void test_black(void)
 {
-   TEST_ASSERT_EQUAL_UINT16(0, colorCode(BLACK));
+   TEST_ASSERT_EQUAL_UINT16(0, color_code(BLACK));
 }
 
 static void test_white(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   TEST_ASSERT_EQUAL_UINT16(9, colorCode(WHITE));
+   TEST_ASSERT_EQUAL_UINT16(9, color_code(WHITE));
 }
 
 static void test_orange(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_EQUAL_UINT16(3, colorCode(ORANGE));
+   TEST_ASSERT_EQUAL_UINT16(3, color_code(ORANGE));
 }
 
 static void test_colors(void)
