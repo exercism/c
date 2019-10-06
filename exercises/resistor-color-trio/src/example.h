@@ -31,6 +31,6 @@ typedef struct {
    resistor_unit_t unit;
 } resistor_value_t;
 
-resistor_value_t colorCode(resistor_band_t colors[]);
+resistor_value_t color_code(resistor_band_t colors[]);
 
 #endif
