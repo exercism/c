@@ -4,6 +4,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-bool isArmstrongNumber(uint32_t candidate);
+bool is_armstrong_number(uint32_t candidate);
 
 #endif
