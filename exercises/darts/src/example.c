@@ -11,7 +11,7 @@ static const uint8_t MIDDLE_CIRCLE_SCORE = 5;
 static const uint8_t OUTER_CIRCLE_SCORE = 1;
 static const uint8_t OFF_BOARD_SCORE = 0;
 
-static float distanceFromOrigin(coordinate_t point)
+static float distance_from_origin(coordinate_t point)
 {
    // calculate distance using pythagorean theorem:
    // d = sqrt(|xC - xP|^2 + |yC - yP|^2)
@@ -23,7 +23,7 @@ uint8_t score(coordinate_t landing_position)
 {
    uint8_t score = OFF_BOARD_SCORE;
    float landingPositionDistanceFromOrigin =
-       distanceFromOrigin(landing_position);
+       distance_from_origin(landing_position);
 
    if (landingPositionDistanceFromOrigin <= INNER_CIRCLE_RADIUS)
       score = INNER_CIRCLE_SCORE;

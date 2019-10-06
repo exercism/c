@@ -5,7 +5,7 @@ static const resistor_band_t band_colors[] = {
    GREEN, BLUE, VIOLET, GREY, WHITE
 };
 
-uint16_t colorCode(resistor_band_t color)
+uint16_t color_code(resistor_band_t color)
 {
    return (uint16_t) color;
 }

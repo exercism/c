@@ -16,6 +16,6 @@ typedef enum {
    WHITE = 9
 } resistor_band_t;
 
-uint16_t colorCode(resistor_band_t colors[]);
+uint16_t color_code(resistor_band_t colors[]);
 
 #endif
