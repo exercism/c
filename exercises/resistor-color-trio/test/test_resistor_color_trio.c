@@ -29,8 +29,7 @@ static void test_blue_grey_brown(void)
 static void test_red_black_red(void)
 {
    TEST_IGNORE();
-   resistor_value_t actual =
-       color_code((resistor_band_t[]){ RED, BLACK, RED });
+   resistor_value_t actual = color_code((resistor_band_t[]){ RED, BLACK, RED });
    TEST_ASSERT_EQUAL_UINT16(2, actual.value);
    TEST_ASSERT_EQUAL(KILOOHMS, actual.unit);
 }
