@@ -57,8 +57,8 @@ static bool is_least_in_column(int16_t row, int16_t column, size_t rows,
    return true;
 }
 
-saddle_points_t *saddlePoints(size_t rows, size_t columns,
-                              uint8_t matrix[][columns])
+saddle_points_t *saddle_points(size_t rows, size_t columns,
+                               uint8_t matrix[][columns])
 {
    saddle_points_t *saddle_points = noSaddlePoints();
 
@@ -70,4 +70,9 @@ saddle_points_t *saddlePoints(size_t rows, size_t columns,
                saddle_points = add(saddle_points, row + 1, column + 1);
 
    return saddle_points;
+}
+
+void free_saddle_points(saddle_points_t * saddle_points)
+{
+   free(saddle_points);
 }
