@@ -17,20 +17,18 @@ static void check_count(size_t expected, size_t actual)
    TEST_ASSERT_EQUAL_UINT64(expected, actual);
 }
 
-static void check_triplets(size_t count, uint16_t expected[][3],
-                           uint16_t actual[][3])
+static void check_triplets(size_t count, triplet_t expected[],
+                           triplet_t actual[])
 {
+   // assumes array counts match
    for (size_t i = 0; i < count; ++i) {
       bool triplet_found = false;
       for (size_t j = 0; j < count; ++j) {
-         for (size_t k = 0; k < LENGTH_OF_TRIPLET; ++k) {
-            if (expected[i][k] != actual[j][k])
-               triplet_found = false;
-            else
-               triplet_found = true;
-         }
-         if (triplet_found)
+         if (expected[i].a == actual[j].a
+             && expected[i].b == actual[j].b && expected[i].c == actual[j].c) {
+            triplet_found = true;
             break;
+         }
       }
       if (!triplet_found)
          TEST_FAIL();
@@ -41,7 +39,7 @@ static void test_triplets_whose_sum_is_12(void)
 {
    uint16_t sum = 12;
    uint16_t expected_count = 1;
-   uint16_t expected_triplets[][LENGTH_OF_TRIPLET] = { {3, 4, 5} };
+   triplet_t expected_triplets[] = { {3, 4, 5} };
 
    triplets_t *triplets = triplets_with_sum(sum);
    check_count(expected_count, triplets->count);
@@ -54,7 +52,7 @@ static void test_triplets_whose_sum_is_108(void)
    TEST_IGNORE();               // delete this line to run test
    uint16_t sum = 108;
    uint16_t expected_count = 1;
-   uint16_t expected_triplets[][LENGTH_OF_TRIPLET] = { {27, 36, 45} };
+   triplet_t expected_triplets[] = { {27, 36, 45} };
 
    triplets_t *triplets = triplets_with_sum(sum);
    check_count(expected_count, triplets->count);
@@ -67,7 +65,7 @@ static void test_triplets_whose_sum_is_1000(void)
    TEST_IGNORE();
    uint16_t sum = 1000;
    uint16_t expected_count = 1;
-   uint16_t expected_triplets[][LENGTH_OF_TRIPLET] = { {200, 375, 425} };
+   triplet_t expected_triplets[] = { {200, 375, 425} };
 
    triplets_t *triplets = triplets_with_sum(sum);
    check_count(expected_count, triplets->count);
@@ -90,7 +88,7 @@ static void test_returns_all_matching_triplets(void)
    TEST_IGNORE();
    uint16_t sum = 90;
    uint16_t expected_count = 2;
-   uint16_t expected_triplets[][LENGTH_OF_TRIPLET] = {
+   triplet_t expected_triplets[] = {
       {9, 40, 41},
       {15, 36, 39}
    };
@@ -106,7 +104,7 @@ static void test_several_matching_triplets(void)
    TEST_IGNORE();
    uint16_t sum = 840;
    uint16_t expected_count = 8;
-   uint16_t expected_triplets[][LENGTH_OF_TRIPLET] = {
+   triplet_t expected_triplets[] = {
       {40, 399, 401},
       {56, 390, 394},
       {105, 360, 375},
@@ -128,7 +126,7 @@ static void test_triplets_for_large_number(void)
    TEST_IGNORE();
    uint16_t sum = 30000;
    uint16_t expected_count = 5;
-   uint16_t expected_triplets[][LENGTH_OF_TRIPLET] = {
+   triplet_t expected_triplets[] = {
       {1200, 14375, 14425},
       {1875, 14000, 14125},
       {5000, 12000, 13000},
@@ -144,7 +142,7 @@ static void test_triplets_for_large_number(void)
 
 int main(void)
 {
-   UnityBegin("test/test_armstrong_numbers.c");
+   UnityBegin("test/test_pythagorean_triplet.c");
 
    RUN_TEST(test_triplets_whose_sum_is_12);
    RUN_TEST(test_triplets_whose_sum_is_108);

@@ -1,4 +1,5 @@
 #include "pythagorean_triplet.h"
+#include <stdlib.h>
 
 static triplets_t *no_triplets(void)
 {
@@ -18,16 +19,14 @@ static triplets_t *add_triplet(triplets_t * triplets, uint16_t a, uint16_t b,
       count = triplets->count;
 
    triplets_t *new_triplets = realloc(triplets, sizeof(triplets_t) +
-                                      (sizeof(uint16_t) * LENGTH_OF_TRIPLET) *
-                                      ++count);
+                                      sizeof(triplet_t) * ++count);
    if (new_triplets) {
       triplets = new_triplets;
       triplets->count = count;
-      triplets->triplets[count - 1][0] = a;
-      triplets->triplets[count - 1][1] = b;
-      triplets->triplets[count - 1][2] = c;
+      triplets->triplets[count - 1] = (triplet_t) {
+      a, b, c};
    } else {
-      free(triplets);
+      free_triplets(triplets);
       triplets = NULL;
    }
 
