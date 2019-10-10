@@ -1,0 +1,4 @@
+#ifndef PYTHAGOREAN_TRIPLET
+#define PYTHAGOREAN_TRIPLET
+
+#endif
