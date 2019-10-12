@@ -1,0 +1,4 @@
+#ifndef RATIONAL_NUMBERS
+#define RATIONAL_NUMBERS
+
+#endif

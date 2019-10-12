@@ -319,6 +319,17 @@
       ]
     },
     {
+      "slug": "rational-numbers",
+      "uuid": "c3325db9-8067-4c2f-94b3-b5190b056d38",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+        "math",
+        "structs"
+      ]
+    },
+    {
       "slug": "roman-numerals",
       "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
       "core": true,
