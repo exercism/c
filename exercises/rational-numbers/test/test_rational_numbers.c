@@ -11,8 +11,10 @@ void tearDown(void)
 
 static void check_rational_numbers_equal(rational_t expected, rational_t actual)
 {
-   TEST_ASSERT_EQUAL_INT16(expected.numerator, actual.numerator);
-   TEST_ASSERT_EQUAL_INT16(expected.denominator, actual.denominator);
+   TEST_ASSERT_EQUAL_INT16_MESSAGE(expected.numerator, actual.numerator,
+                                   "Incorrect numerator.");
+   TEST_ASSERT_EQUAL_INT16_MESSAGE(expected.denominator, actual.denominator,
+                                   "Incorrect denominator.");
 }
 
 static void test_add_two_positive_rational_numbers(void)

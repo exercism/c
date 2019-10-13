@@ -1,18 +1,13 @@
 #include "rational_numbers.h"
+#include <stdlib.h>
 #include <math.h>
-
-static int16_t absolute_int(int16_t n)
-{
-   const int16_t mask = n >> 15;
-   return (n + mask) ^ mask;
-}
 
 static float nth_root(float x, float n)
 {
    return pow(x, 1. / n);
 }
 
-static int16_t greatestCommonDivisor(int n, int m)
+static int16_t greatest_common_divisor(int n, int m)
 {
    int16_t remainder;
    while (n != 0) {
@@ -29,7 +24,7 @@ rational_t reduce(rational_t r)
       return (rational_t) {
       0, 1};
 
-   int16_t n = greatestCommonDivisor(r.numerator, r.denominator);
+   int16_t n = greatest_common_divisor(r.numerator, r.denominator);
    int16_t numerator = r.numerator / n;
    int16_t denominator = r.denominator / n;
 
@@ -92,8 +87,8 @@ rational_t divide(rational_t r1, rational_t r2)
 rational_t absolute(rational_t r)
 {
    // |a/b| = |a|/|b|
-   int16_t numerator = absolute_int(r.numerator);
-   int16_t denominator = absolute_int(r.denominator);
+   int16_t numerator = abs(r.numerator);
+   int16_t denominator = abs(r.denominator);
    return (rational_t) {
    numerator, denominator};
 }
