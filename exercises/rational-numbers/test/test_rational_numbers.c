@@ -60,7 +60,7 @@ static void test_subtract_two_positive_rational_numbers(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { -1, 6 };
-   rational_t actual = sub(r1, r2);
+   rational_t actual = subtract(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -70,7 +70,7 @@ static void test_subtract_positive_and_negative_rational_numbers(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 7, 6 };
-   rational_t actual = sub(r1, r2);
+   rational_t actual = subtract(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -80,7 +80,7 @@ static void test_subtract_two_negative_rational_numbers(void)
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 1, 6 };
-   rational_t actual = sub(r1, r2);
+   rational_t actual = subtract(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -90,7 +90,7 @@ static void test_subtract_rational_number_from_itself(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 1, 2 };
    rational_t expected = { 0, 1 };
-   rational_t actual = sub(r1, r2);
+   rational_t actual = subtract(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -100,7 +100,7 @@ static void test_multiply_two_positive_rational_numbers(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { 1, 3 };
-   rational_t actual = mul(r1, r2);
+   rational_t actual = multiply(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -110,7 +110,7 @@ static void test_multiply_positive_and_negative_rational_numbers(void)
    rational_t r1 = { -1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { -1, 3 };
-   rational_t actual = mul(r1, r2);
+   rational_t actual = multiply(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -120,7 +120,7 @@ static void test_multiply_two_negative_rational_numbers(void)
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 1, 3 };
-   rational_t actual = mul(r1, r2);
+   rational_t actual = multiply(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -130,7 +130,7 @@ static void test_multiply_rational_number_by_reciprocal(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 1 };
    rational_t expected = { 1, 1 };
-   rational_t actual = mul(r1, r2);
+   rational_t actual = multiply(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -140,7 +140,7 @@ static void test_multiply_rational_number_by_one(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 1, 1 };
    rational_t expected = { 1, 2 };
-   rational_t actual = mul(r1, r2);
+   rational_t actual = multiply(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -150,7 +150,7 @@ static void test_multiply_rational_number_by_zero(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 0, 1 };
    rational_t expected = { 0, 1 };
-   rational_t actual = mul(r1, r2);
+   rational_t actual = multiply(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -160,7 +160,7 @@ static void test_divide_two_positive_rational_numbers(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 2, 3 };
    rational_t expected = { 3, 4 };
-   rational_t actual = div(r1, r2);
+   rational_t actual = divide(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -170,7 +170,7 @@ static void test_divide_positive_and_negative_rational_numbers(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { -3, 4 };
-   rational_t actual = div(r1, r2);
+   rational_t actual = divide(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -180,7 +180,7 @@ static void test_divide_two_negative_rational_numbers(void)
    rational_t r1 = { -1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { 3, 4 };
-   rational_t actual = div(r1, r2);
+   rational_t actual = divide(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -190,7 +190,7 @@ static void test_divide_rational_number_by_one(void)
    rational_t r1 = { 1, 2 };
    rational_t r2 = { 1, 1 };
    rational_t expected = { 1, 2 };
-   rational_t actual = div(r1, r2);
+   rational_t actual = divide(r1, r2);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -199,7 +199,7 @@ static void test_absolute_value_of_positive_rational_number(void)
    TEST_IGNORE();
    rational_t r = { 1, 2 };
    rational_t expected = { 1, 2 };
-   rational_t actual = abs(r);
+   rational_t actual = absolute(r);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -209,7 +209,7 @@ static void
    TEST_IGNORE();
    rational_t r = { -1, -2 };
    rational_t expected = { 1, 2 };
-   rational_t actual = abs(r);
+   rational_t actual = absolute(r);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -218,7 +218,7 @@ static void test_absolute_value_of_negative_rational_number(void)
    TEST_IGNORE();
    rational_t r = { -1, 2 };
    rational_t expected = { 1, 2 };
-   rational_t actual = abs(r);
+   rational_t actual = absolute(r);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -228,7 +228,7 @@ test_absolute_value_of_negative_rational_number_with_negative_denominator(void)
    TEST_IGNORE();
    rational_t r = { 1, -2 };
    rational_t expected = { 1, 2 };
-   rational_t actual = abs(r);
+   rational_t actual = absolute(r);
    check_rational_numbers_equal(expected, actual);
 }
 
@@ -237,7 +237,7 @@ static void test_absolute_value_of_zero(void)
    TEST_IGNORE();
    rational_t r = { 0, 1 };
    rational_t expected = { 0, 1 };
-   rational_t actual = abs(r);
+   rational_t actual = absolute(r);
    check_rational_numbers_equal(expected, actual);
 }
 
