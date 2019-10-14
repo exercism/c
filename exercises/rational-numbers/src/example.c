@@ -45,8 +45,9 @@ rational_t add(rational_t r1, rational_t r2)
    int16_t denominator = 1;
    if (numerator != 0)
       denominator = r1.denominator * r2.denominator;
-   return (rational_t) {
-   numerator, denominator};
+   return reduce((rational_t) {
+                 numerator, denominator}
+   );
 }
 
 rational_t subtract(rational_t r1, rational_t r2)
@@ -57,8 +58,9 @@ rational_t subtract(rational_t r1, rational_t r2)
    int16_t denominator = 1;
    if (numerator != 0)
       denominator = r1.denominator * r2.denominator;
-   return (rational_t) {
-   numerator, denominator};
+   return reduce((rational_t) {
+                 numerator, denominator}
+   );
 }
 
 rational_t multiply(rational_t r1, rational_t r2)
@@ -80,8 +82,9 @@ rational_t divide(rational_t r1, rational_t r2)
       denominator = -denominator;
       numerator = -numerator;
    }
-   return (rational_t) {
-   numerator, denominator};
+   return reduce((rational_t) {
+                 numerator, denominator}
+   );
 }
 
 rational_t absolute(rational_t r)
@@ -89,8 +92,9 @@ rational_t absolute(rational_t r)
    // |a/b| = |a|/|b|
    int16_t numerator = abs(r.numerator);
    int16_t denominator = abs(r.denominator);
-   return (rational_t) {
-   numerator, denominator};
+   return reduce((rational_t) {
+                 numerator, denominator}
+   );
 }
 
 rational_t exp_rational(rational_t r, uint16_t n)
@@ -105,14 +109,17 @@ rational_t exp_rational(rational_t r, uint16_t n)
    // r^n = (a^|n|)/(b^|n|)
    int16_t numerator = pow(r.numerator, n);
    int16_t denominator = pow(r.denominator, n);
-   return (rational_t) {
-   numerator, denominator};
+   return reduce((rational_t) {
+                 numerator, denominator}
+   );
 }
 
 float exp_real(uint16_t n, rational_t r)
 {
    if (r.numerator == 0)        // shortcut power of 0
       return 1.0f;
+
+   r = reduce(r);
 
    // x^(a/b) = root(x^a, b), where root(p, q) is the qth root of p
    float p = pow(n, r.numerator);
