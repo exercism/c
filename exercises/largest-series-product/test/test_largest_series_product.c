@@ -113,7 +113,7 @@ static void test_rejects_invalid_character_in_digits(void)
 
 int main(void)
 {
-   UnityBegin("largest_series_product.c");
+   UnityBegin("test/test_largest_series_product.c");
 
    RUN_TEST(test_can_find_the_largest_product_of_2_with_numbers_in_order);
    RUN_TEST(test_can_find_the_largest_product_of_2);
