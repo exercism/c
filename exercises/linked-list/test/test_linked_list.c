@@ -99,7 +99,7 @@ static void test_shift_returns_list_data(void)
 
 int main(void)
 {
-   UnityBegin("test/test_leap.c");
+   UnityBegin("test/test_linked_list.c");
 
    RUN_TEST(test_new_list);
    RUN_TEST(test_is_list_empty_when_empty);

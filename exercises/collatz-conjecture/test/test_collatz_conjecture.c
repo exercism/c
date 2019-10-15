@@ -34,7 +34,7 @@ static void test_negative_value_is_an_error(void)
 
 int main(void)
 {
-   UnityBegin("collatz_conjecture.c");
+   UnityBegin("test/test_collatz_conjecture.c");
 
    RUN_TEST(test_zero_steps_for_one);
    RUN_TEST(test_divide_if_even);

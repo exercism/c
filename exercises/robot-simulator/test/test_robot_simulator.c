@@ -164,7 +164,7 @@ static void test_simulate_move_east_and_north(void)
 
 int main(void)
 {
-   UnityBegin("test/test_word_count.c");
+   UnityBegin("test/test_robot_simulator.c");
 
    RUN_TEST(test_init);
    RUN_TEST(test_invalid_initial_heading);

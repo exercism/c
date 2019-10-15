@@ -116,7 +116,7 @@ static void test_big_prime_yields_itself(void)
 
 int main(void)
 {
-   UnityBegin("raindrops.c");
+   UnityBegin("test/test_raindrops.c");
 
    RUN_TEST(test_one_yields_itself);
    RUN_TEST(test_three_yields_pling);

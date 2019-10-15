@@ -243,7 +243,7 @@ static void test_misleading_unicode_anagrams(void)
 
 int main(void)
 {
-   UnityBegin("anagram.c");
+   UnityBegin("test/test_anagram.c");
 
    RUN_TEST(test_no_matches);
    RUN_TEST(test_detect_simple_anagram);

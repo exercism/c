@@ -537,7 +537,7 @@ static void test_compare_full_clock_and_zeroed_clock(void)
 
 int main(void)
 {
-   UnityBegin("clock.c");
+   UnityBegin("test/test_clock.c");
 
    RUN_TEST(test_on_the_hour);
    RUN_TEST(test_past_the_hour);
