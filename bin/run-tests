@@ -17,6 +17,14 @@ execute_test () {
 
         echo "Running tests for ${EXERCISE_NAME}";
 
+        TEST_FILE="test/test_$EXERCISE_NAME.c"
+        if ! grep -q UnityBegin\(\"$TEST_FILE\"\) $TEST_FILE; then
+            echo "Incorrect UnityBegin() test file argument" > /dev/stderr
+            echo "Expected: UnityBegin(\"$TEST_FILE\");" > /dev/stderr
+            echo "Found: $(sed -n '/UnityBegin/p' $TEST_FILE)" > /dev/stderr
+            exit 1
+        fi;
+
         #remove the ignore line
         sed -i 's/TEST_IGNORE();//' test/test_*.c
 
