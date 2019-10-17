@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e
+
+# Move to the root directory of the repo so you can run this script from anywhere
+SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
+cd "${SCRIPT_DIR}"/..
+
+set +e
+
+ERROR_COUNT=0
+
+for f in exercises/*/test/test_*; do
+    if ! grep -q UnityBegin\(\"test/"$(basename "$f")"\"\) "$f"; then
+        echo "$f needs correct UnityBegin line"
+        (( ERROR_COUNT++ ))
+    fi;
+done
+
+exit $ERROR_COUNT
