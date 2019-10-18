@@ -12,5 +12,6 @@ script:
 - bin/fetch-configlet
 - bin/configlet lint .
 - bin/verify-indent
-- shellcheck bin/fetch-configlet bin/verify-indent bin/run-tests indent.sh
+- bin/check-unitybegin
+- shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
 - bin/run-tests
