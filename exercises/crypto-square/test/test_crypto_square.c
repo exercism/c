@@ -85,7 +85,7 @@ test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
 
 int main(void)
 {
-   UnityBegin("test/test_ciphertext.c");
+   UnityBegin("test/test_crypto_square.c");
 
    RUN_TEST(test_empty_text_res_in_an_empty_ciphertext);
    RUN_TEST(test_lowercase);
