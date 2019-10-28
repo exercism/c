@@ -8,12 +8,6 @@ typedef int list_data_t;
 
 typedef struct list_item list_item_t;
 
-struct list_item {
-   list_data_t data;
-   list_item_t *prev;
-   list_item_t *next;
-};
-
 // constructs a new list of items
 struct list_item **new_list(void);
 
