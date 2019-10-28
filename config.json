@@ -641,6 +641,21 @@
       ]
     },
     {
+      "slug": "list-ops",
+      "uuid": "f13a3ece-c294-4590-a510-e4a4793355af",
+      "core": false,
+      "unlocked_by": "linked-list",
+      "difficulty": 5,
+      "topics": [
+        "functions",
+        "lists",
+        "pointers",
+        "function_pointers",
+        "structs",
+        "custom_types"
+      ]
+    },
+    {
       "slug": "complex-numbers",
       "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f",
       "core": false,
