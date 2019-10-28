@@ -1,16 +1,10 @@
 #include "list_ops.h"
 
-static list_item_t *new_item(list_data_t data)
-{
-   list_item_t *item = malloc(sizeof(*item));
-
-   if (item != NULL) {
-      item->next = NULL;
-      item->prev = NULL;
-      item->data = data;
-   }
-   return item;
-}
+struct list_item {
+   list_data_t data;
+   list_item_t *prev;
+   list_item_t *next;
+};
 
 static list_item_t *get_list_tail(list_item_t ** list)
 {
@@ -61,6 +55,36 @@ static list_item_t *peek_previous(list_item_t * item)
    return prev;
 }
 
+static bool push_item(list_item_t ** list, list_item_t *item)
+{
+   bool result = false;
+   if (list != NULL && item != NULL) {
+      if (*list != NULL) {
+         list_item_t *old_tail = get_list_tail(list);
+         // append new tail
+         old_tail->next = item;
+         item->prev = old_tail;
+      } else {
+         // add new tail as only item in list
+         *list = item;
+      }
+      result = true;
+   }
+   return result;
+}
+
+list_item_t *new_list_item(list_data_t data)
+{
+   list_item_t *item = malloc(sizeof(*item));
+
+   if (item != NULL) {
+      item->next = NULL;
+      item->prev = NULL;
+      item->data = data;
+   }
+   return item;
+}
+
 list_item_t **new_list(void)
 {
    list_item_t **list = malloc(sizeof(list_item_t *));
@@ -79,18 +103,9 @@ bool push(list_item_t ** list, list_data_t item_data)
 {
    bool result = false;
    if (list != NULL) {
-      list_item_t *item = new_item(item_data);
+      list_item_t *item = new_list_item(item_data);
       if (item != NULL) {
-         if (*list != NULL) {
-            list_item_t *old_tail = get_list_tail(list);
-            // append new tail
-            old_tail->next = item;
-            item->prev = old_tail;
-         } else {
-            // add new tail as only item in list
-            *list = item;
-         }
-         result = true;
+         result = push_item(list, item);
       }
    }
    return result;
@@ -143,7 +158,7 @@ bool append_list(list_item_t ** list1, list_item_t ** list2)
 }
 
 list_item_t **filter_list(list_item_t ** list,
-                          list_item_t * (*filter) (list_item_t *))
+                          list_item_t * (*filter) (list_data_t))
 {
    list_item_t **filtered = new_list();
 
@@ -151,8 +166,8 @@ list_item_t **filter_list(list_item_t ** list,
       list_item_t *next_item = peek_first(list);
       while (next_item) {
          list_item_t *f = NULL;
-         if ((f = filter(next_item))) {
-            if (!(push(filtered, f->data)))
+         if ((f = filter(next_item->data))) {
+            if (!(push_item(filtered, f)))
                break;
          }
          next_item = peek_next(next_item);

@@ -8,14 +8,11 @@ typedef int list_data_t;
 
 typedef struct list_item list_item_t;
 
-struct list_item {
-   list_data_t data;
-   list_item_t *prev;
-   list_item_t *next;
-};
-
 // constructs a new list of items
 struct list_item **new_list(void);
+
+// constructs a new list item
+list_item_t *new_list_item(list_data_t data);
 
 // checks if the list is empty
 bool is_list_empty(struct list_item **list);
@@ -37,7 +34,7 @@ bool append_list(list_item_t ** list1, list_item_t ** list2);
 // the filter function
 // filter should return NULL for items that are unsatisfactory
 list_item_t **filter_list(list_item_t ** list,
-                          list_item_t * (*filter) (list_item_t *));
+                          list_item_t * (*filter) (list_data_t));
 
 // returns the length of the given list
 size_t length_list(list_item_t ** list);

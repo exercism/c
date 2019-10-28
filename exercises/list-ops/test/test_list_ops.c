@@ -29,9 +29,9 @@ static void check_lists_match(list_item_t ** expected, list_item_t ** actual)
    }
 }
 
-static list_item_t *filter_modulo(list_item_t * item)
+static list_item_t *filter_modulo(list_data_t data)
 {
-   return (item && item->data % 2 == 1) ? item : NULL;
+   return (data % 2 == 1) ? new_list_item(data) : NULL;
 }
 
 static list_data_t map_increment(list_data_t data)
