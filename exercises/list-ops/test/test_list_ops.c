@@ -29,7 +29,7 @@ static void check_lists_match(list_item_t ** expected, list_item_t ** actual)
    }
 }
 
-static list_item_t *modulo_filter(list_item_t * item)
+static list_item_t *filter_modulo(list_item_t * item)
 {
    return (item && item->data % 2 == 1) ? item : NULL;
 }
@@ -146,7 +146,7 @@ static void test_filter_empty_list(void)
    list_item_t **expected = new_list();
    list_item_t **actual = NULL;
 
-   actual = filter_list(list, modulo_filter);
+   actual = filter_list(list, filter_modulo);
    check_lists_match(expected, actual);
 
    delete_list(list);
@@ -168,7 +168,7 @@ static void test_filter_non_empty_list(void)
    push(expected, 5);
    list_item_t **actual = NULL;
 
-   actual = filter_list(list, modulo_filter);
+   actual = filter_list(list, filter_modulo);
    check_lists_match(expected, actual);
 
    delete_list(list);
