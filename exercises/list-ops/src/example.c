@@ -55,7 +55,7 @@ static list_item_t *peek_previous(list_item_t * item)
    return prev;
 }
 
-static bool push_item(list_item_t ** list, list_item_t *item)
+static bool push_item(list_item_t ** list, list_item_t * item)
 {
    bool result = false;
    if (list != NULL && item != NULL) {

@@ -15,17 +15,17 @@ list_item_t **new_list(void);
 list_item_t *new_list_item(list_data_t data);
 
 // checks if the list is empty
-bool is_list_empty(list_item_t **list);
+bool is_list_empty(list_item_t ** list);
 
 // inserts item at back of list
 bool push(list_item_t ** list, list_data_t item_data);
 
 // removes item from front of list
-list_data_t shift(list_item_t **list);
+list_data_t shift(list_item_t ** list);
 
 // destroy the entire list
 // list will be a dangling pointer after calling this method on it
-void delete_list(list_item_t **list);
+void delete_list(list_item_t ** list);
 
 // append entries to a list and return the new list
 bool append_list(list_item_t ** list1, list_item_t ** list2);
