@@ -1,8 +1,6 @@
 #include "vendor/unity.h"
 #include "../src/list_ops.h"
 
-struct list_item **list = NULL;
-
 void setUp(void)
 {
 }
