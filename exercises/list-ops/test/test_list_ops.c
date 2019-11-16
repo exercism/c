@@ -1,12 +1,41 @@
 #include "vendor/unity.h"
 #include "../src/list_ops.h"
 
+const int MAX_STRING_LEN = 100;
+
 void setUp(void)
 {
 }
 
 void tearDown(void)
 {
+}
+
+static char *print_list(list_t * list)
+{
+   char *array = (char *)malloc(MAX_STRING_LEN * sizeof(char));
+   char *ptr = array;
+   for (size_t i = 0; i < list->length; i++) {
+      int printed = snprintf(ptr, MAX_STRING_LEN - (ptr - array), " %d ",
+                             (list->values[i]));
+      ptr += printed;
+      if (ptr - array > MAX_STRING_LEN) {
+         break;
+      }
+   }
+   return array;
+}
+
+static char *create_error_message(list_t * expected, list_t * actual)
+{
+   char *message = (char *)malloc(MAX_STRING_LEN * sizeof(char));
+   char *expected_string = print_list(expected);
+   char *actual_string = print_list(actual);
+   snprintf(message, MAX_STRING_LEN, "[%s] != [%s]", expected_string,
+            actual_string);
+   free(expected_string);
+   free(actual_string);
+   return message;
 }
 
 static void check_lists_match(list_t * expected, list_t * actual)
@@ -20,9 +49,13 @@ static void check_lists_match(list_t * expected, list_t * actual)
                              "List lengths differ");
 
    // check values match in non-zero length lists
-   if (expected->length)
-      TEST_ASSERT_EQUAL_MEMORY_ARRAY(expected, actual, sizeof(list_value_t),
-                                     expected->length);
+   if (expected->length) {
+      char *error_message = create_error_message(expected, actual);
+      TEST_ASSERT_EQUAL_MEMORY_ARRAY_MESSAGE(expected->values, actual->values,
+                                             sizeof(list_value_t),
+                                             expected->length, error_message);
+      free(error_message);
+   }
 }
 
 static bool filter_modulo(list_value_t value)
