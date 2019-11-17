@@ -13,7 +13,7 @@ void tearDown(void)
 
 static char *print_list(list_t * list)
 {
-   char *array = (char *)malloc(MAX_STRING_LEN * sizeof(char));
+   char *array = malloc(MAX_STRING_LEN * sizeof(char));
    char *ptr = array;
    for (size_t i = 0; i < list->length; i++) {
       int printed = snprintf(ptr, MAX_STRING_LEN - (ptr - array), " %d ",
@@ -28,7 +28,7 @@ static char *print_list(list_t * list)
 
 static char *create_error_message(list_t * expected, list_t * actual)
 {
-   char *message = (char *)malloc(MAX_STRING_LEN * sizeof(char));
+   char *message = malloc(MAX_STRING_LEN * sizeof(char));
    char *expected_string = print_list(expected);
    char *actual_string = print_list(actual);
    snprintf(message, MAX_STRING_LEN, "[%s] != [%s]", expected_string,
