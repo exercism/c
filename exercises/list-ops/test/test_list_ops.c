@@ -314,6 +314,7 @@ static void test_reverse_empty_list(void)
    list_t *actual = reverse_list(list);
    check_lists_match(expected, actual);
 
+   delete_list(list);
    delete_list(expected);
    delete_list(actual);
 }
@@ -327,6 +328,7 @@ static void test_reverse_non_empty_list(void)
    list_t *actual = reverse_list(list);
    check_lists_match(expected, actual);
 
+   delete_list(list);
    delete_list(expected);
    delete_list(actual);
 }
