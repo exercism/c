@@ -311,11 +311,12 @@ static void test_reverse_empty_list(void)
    list_t *list = new_list(0, NULL);
    list_t *expected = new_list(0, NULL);
 
-   reverse_list(list);
-   check_lists_match(expected, list);
+   list_t *actual = reverse_list(list);
+   check_lists_match(expected, actual);
 
    delete_list(list);
    delete_list(expected);
+   delete_list(actual);
 }
 
 static void test_reverse_non_empty_list(void)
@@ -324,11 +325,12 @@ static void test_reverse_non_empty_list(void)
    list_t *list = new_list(4, (list_value_t[]){ 1, 3, 5, 7 });
    list_t *expected = new_list(4, (list_value_t[]){ 7, 5, 3, 1 });
 
-   reverse_list(list);
-   check_lists_match(expected, list);
+   list_t *actual = reverse_list(list);
+   check_lists_match(expected, actual);
 
    delete_list(list);
    delete_list(expected);
+   delete_list(actual);
 }
 
 int main(void)

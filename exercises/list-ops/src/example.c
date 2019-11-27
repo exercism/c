@@ -35,7 +35,7 @@ list_t *append_list(list_t * list1, list_t * list2)
    return list;
 }
 
-list_t *filter_list(list_t * list, bool(*filter) (list_value_t value))
+list_t *filter_list(list_t * list, bool (*filter)(list_value_t value))
 {
    if (!list || !filter)
       return NULL;
@@ -111,13 +111,18 @@ list_t *reverse_list(list_t * list)
    if (!list)
       return NULL;
 
-   for (size_t i = 0; i < list->length / 2; ++i) {
-      list_value_t swap = list->values[i];
-      list->values[i] = list->values[list->length - 1 - i];
-      list->values[list->length - 1 - i] = swap;
+   list_t *reversed =
+       malloc(sizeof(*list) + sizeof(list_value_t) * list->length);
+
+   if (!reversed)
+      return NULL;
+
+   reversed->length = list->length;
+   for (size_t i = 0, j = reversed->length - 1; i < reversed->length; i++, j--) {
+      reversed->values[i] = list->values[j];
    }
 
-   return list;
+   return reversed;
 }
 
 void delete_list(list_t * list)
