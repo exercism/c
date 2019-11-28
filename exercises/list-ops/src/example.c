@@ -35,7 +35,7 @@ list_t *append_list(list_t * list1, list_t * list2)
    return list;
 }
 
-list_t *filter_list(list_t * list, bool (*filter)(list_value_t value))
+list_t *filter_list(list_t * list, bool(*filter) (list_value_t value))
 {
    if (!list || !filter)
       return NULL;
