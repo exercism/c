@@ -90,7 +90,7 @@ static void test_append_empty_lists(void)
    list_t *expected = new_list(0, NULL);
 
    list_t *actual = append_list(list1, list2);
-   check_lists_match(expected, list1);
+   check_lists_match(expected, actual);
 
    delete_list(list1);
    delete_list(list2);
