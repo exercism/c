@@ -344,6 +344,23 @@
       ]
     },
     {
+      "slug": "circular-buffer",
+      "uuid": "c54a33a3-8c6f-4964-b770-b602d207fa20",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "control_flow_if_else_statements",
+        "control_flow_loops",
+        "memory_management",
+        "arrays",
+        "pointers",
+        "structs",
+        "flexible_array_members",
+        "buffers"
+      ]
+    },
+    {
       "slug": "list-ops",
       "uuid": "27a56356-d3ad-41d2-923c-2a58fbb36454",
       "core": true,
