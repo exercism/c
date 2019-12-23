@@ -1,4 +1,5 @@
 #include "circular_buffer.h"
+#include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <errno.h>

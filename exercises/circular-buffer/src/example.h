@@ -1,7 +1,7 @@
 #ifndef CIRCULAR_BUFFER_H
 #define CIRCULAR_BUFFER_H
 
-#include <stdlib.h>
+#include <stddef.h>
 #include <stdint.h>
 
 typedef int16_t buffer_value_t;
