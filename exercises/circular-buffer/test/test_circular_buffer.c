@@ -303,7 +303,7 @@ int main(void)
    RUN_TEST(test_clear_does_nothing_on_an_empty_buffer);
    RUN_TEST(test_overwrite_acts_like_write_on_non_full_buffer);
    RUN_TEST(test_overwrite_replaces_oldest_item_on_full_buffer);
-   RUN_TEST(test_overwrite_replaces_oldest_item_reamining_following_read);
+   RUN_TEST(test_overwrite_replaces_oldest_item_remaining_following_read);
    RUN_TEST(test_initial_clear_does_not_affect_wrapping);
 
    return UnityEnd();
