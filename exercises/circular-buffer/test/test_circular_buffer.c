@@ -245,7 +245,7 @@ static void test_overwrite_replaces_oldest_item_on_full_buffer(void)
    delete_buffer(buffer);
 }
 
-static void test_overwrite_replaces_oldest_item_reamining_following_read(void)
+static void test_overwrite_replaces_oldest_item_remaining_following_read(void)
 {
    TEST_IGNORE();
    size_t capacity = 3;
