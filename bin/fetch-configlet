@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
-LATEST=https://github.com/exercism/configlet/releases/latest
+readonly RELEASES='https://github.com/exercism/configlet/releases'
 
-OS=$(
-case $(uname) in
-    (Darwin*)
-        echo "mac";;
-    (Linux*)
-        echo "linux";;
-    (Windows*)
-        echo "windows";;
-    (*)
-        echo "linux";;
-esac)
+get_version () {
+    curl --silent --head "${RELEASES}/latest" |
+    awk -v FS=/ -v RS='\r\n' 'tolower($1) ~ /location:/ {print $NF}'
+}
+
+VERSION="$(get_version)"
+if [ -z "$VERSION" ]; then
+    echo "Latest configlet release could not be determined; aborting"
+    exit 1
+fi
 
 ARCH=$(
 case $(uname -m) in
@@ -28,12 +27,49 @@ case $(uname -m) in
         echo 64bit;;
 esac)
 
-VERSION="$(curl --head --silent $LATEST | awk -v FS=/ '/[lL]ocation:/{print $NF}' | tr -d '\r')"
-if [ -z "$VERSION" ]; then
-    echo "Latest configlet release could not be determined; aborting"
-    exit 1
-fi
+OS=$(
+case $(uname) in
+    (Darwin*)
+        echo "mac";;
+    (Linux*)
+        echo "linux";;
+    (Windows*)
+        echo "windows";;
+    (*)
+        echo "linux";;
+esac)
 
-URL="https://github.com/exercism/configlet/releases/download/$VERSION/configlet-$OS-${ARCH}.tgz"
+case "$OS" in
+    (windows*) EXT='zip' ;;
+    (*)        EXT='tgz' ;;
+esac
 
-curl -sS --location "$URL" | tar xz -C bin/
+URL="${RELEASES}/download/$VERSION/configlet-$OS-${ARCH}.${EXT}"
+localfile=bin/latest-configlet.${EXT}
+
+fetch_archive() {
+    local file_info=$1
+    for delay in {0..4}; do
+        sleep "$delay"
+        curl --silent --location "$URL" -o "$localfile"
+        if file "$localfile" 2>&1 | grep -q "$file_info"; then
+            # fetched successfully
+            return 0
+        fi
+    done
+    echo "Cannot fetch $URL" >&2
+    return 1
+}
+
+case "$EXT" in
+    zip)
+        fetch_archive "Zip archive data"
+        unzip "$localfile" -d bin/
+        ;;
+    tgz)
+        fetch_archive "gzip compressed data"
+        tar xzf "$localfile" -C bin/
+        ;;
+esac
+
+rm -f "$localfile"
