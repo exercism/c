@@ -108,8 +108,8 @@
     {
       "slug": "word-count",
       "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
-      "core": true,
-      "unlocked_by": null,
+      "core": false,
+      "unlocked_by": "isogram",
       "difficulty": 3,
       "topics": [
         "filtering",
@@ -134,7 +134,7 @@
       "slug": "gigasecond",
       "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
       "core": false,
-      "unlocked_by": "word-count",
+      "unlocked_by": "isogram",
       "difficulty": 1,
       "topics": [
         "dates"
@@ -144,7 +144,7 @@
       "slug": "space-age",
       "uuid": "fc03c7de-b0c6-4806-90bb-e9dda846e660",
       "core": false,
-      "unlocked_by": "word-count",
+      "unlocked_by": "isogram",
       "difficulty": 1,
       "topics": [
         "functions"
@@ -154,7 +154,7 @@
       "slug": "meetup",
       "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
       "core": false,
-      "unlocked_by": "word-count",
+      "unlocked_by": "hamming",
       "difficulty": 4,
       "topics": [
         "control_flow_if_statements",
@@ -227,8 +227,8 @@
     {
       "slug": "beer-song",
       "uuid": "c06789cb-cdd6-44a7-bee5-16e0d85e913a",
-      "core": true,
-      "unlocked_by": null,
+      "core": false,
+      "unlocked_by": "grains",
       "difficulty": 2,
       "topics": [
         "control_flow_if_else_statements",
@@ -240,7 +240,7 @@
       "slug": "raindrops",
       "uuid": "93acdd0d-9bd1-4dec-a572-fd12d0c66187",
       "core": false,
-      "unlocked_by": "beer-song",
+      "unlocked_by": "grains",
       "difficulty": 2,
       "topics": [
         "control_flow_if_else_statements",
@@ -251,7 +251,7 @@
       "slug": "bob",
       "uuid": "b0feb5e2-eb94-4393-b60d-cf8a275d1860",
       "core": false,
-      "unlocked_by": "beer-song",
+      "unlocked_by": "grains",
       "difficulty": 5,
       "topics": [
         "control_flow_if_else_statements",
@@ -332,7 +332,7 @@
     {
       "slug": "roman-numerals",
       "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
-      "core": true,
+      "core": false,
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
@@ -425,8 +425,8 @@
     {
       "slug": "atbash-cipher",
       "uuid": "180f59f3-78ab-4368-9fa7-e3d98a9dca78",
-      "core": true,
-      "unlocked_by": null,
+      "core": false,
+      "unlocked_by": "phone-number",
       "difficulty": 5,
       "topics": [
         "control_flow_if_else_statements",
@@ -438,7 +438,7 @@
       "slug": "series",
       "uuid": "40bcec79-7235-4ac6-b69f-8e3a6374188d",
       "core": false,
-      "unlocked_by": "atbash-cipher",
+      "unlocked_by": "phone-number",
       "difficulty": 2,
       "topics": [
         "control_flow_if_statements",
@@ -451,7 +451,7 @@
       "slug": "react",
       "uuid": "929b651e-2017-4f98-b2cb-1dc46c609703",
       "core": false,
-      "unlocked_by": "atbash-cipher",
+      "unlocked_by": "phone-number",
       "difficulty": 10,
       "topics": [
         "functions",
@@ -597,8 +597,8 @@
     {
       "slug": "palindrome-products",
       "uuid": "8dd43f6c-37ba-42b1-bb85-9ad693e4ce03",
-      "core": true,
-      "unlocked_by": null,
+      "core": false,
+      "unlocked_by": "binary",
       "difficulty": 2,
       "topics": [
         "functions",
@@ -612,7 +612,7 @@
       "slug": "sublist",
       "uuid": "a19acc6f-2530-434d-9c98-2d8d4ca635d3",
       "core": false,
-      "unlocked_by": "palindrome-products",
+      "unlocked_by": "binary",
       "difficulty": 4,
       "topics": [
         "arrays",
@@ -626,7 +626,7 @@
       "slug": "largest-series-product",
       "uuid": "4b5974fe-dcff-4542-ad3e-2782201cba1e",
       "core": false,
-      "unlocked_by": "palindrome-products",
+      "unlocked_by": "binary",
       "difficulty": 5,
       "topics": [
         "control_flow_loops",
@@ -638,8 +638,8 @@
     {
       "slug": "scrabble-score",
       "uuid": "8c631290-13b7-4d25-9ee7-ced2e534deb4",
-      "core": true,
-      "unlocked_by": null,
+      "core": false,
+      "unlocked_by": "binary",
       "difficulty": 4,
       "topics": [
         "pointers",
@@ -690,7 +690,7 @@
       "slug": "etl",
       "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06",
       "core": false,
-      "unlocked_by": "scrabble-score",
+      "unlocked_by": "phone-number",
       "difficulty": 2,
       "topics": [
         "pointers",
@@ -735,7 +735,7 @@
       "slug": "say",
       "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0",
       "core": false,
-      "unlocked_by": "roman-numerals",
+      "unlocked_by": "circular-buffer",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -747,7 +747,7 @@
       "slug": "crypto-square",
       "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b",
       "core": false,
-      "unlocked_by": "atbash-cipher",
+      "unlocked_by": "phone-number",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -784,7 +784,7 @@
       "slug": "minesweeper",
       "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1",
       "core": false,
-      "unlocked_by": "scrabble-score",
+      "unlocked_by": "phone-number",
       "difficulty": 3,
       "topics": [
         "arrays",
@@ -796,7 +796,7 @@
       "slug": "run-length-encoding",
       "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141",
       "core": false,
-      "unlocked_by": "atbash-cipher",
+      "unlocked_by": "phone-number",
       "difficulty": 4,
       "topics": [
         "algorithms",
@@ -808,7 +808,7 @@
       "slug": "two-fer",
       "uuid": "15653c72-5468-415f-9425-6c58d552d346",
       "core": false,
-      "unlocked_by": "beer-song",
+      "unlocked_by": "grains",
       "difficulty": 1,
       "topics": [
         "control_flow_if_statements",
@@ -819,7 +819,7 @@
       "slug": "wordy",
       "uuid": "c1392944-08fd-45c3-b508-41d682f832d3",
       "core": false,
-      "unlocked_by": "beer-song",
+      "unlocked_by": "grains",
       "difficulty": 4,
       "topics": [
         "algorithms",
@@ -845,7 +845,7 @@
       "slug": "diamond",
       "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015",
       "core": false,
-      "unlocked_by": "scrabble-score",
+      "unlocked_by": "phone-number",
       "difficulty": 3,
       "topics": [
         "arrays",
