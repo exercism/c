@@ -333,7 +333,7 @@
       "slug": "roman-numerals",
       "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grains",
       "difficulty": 3,
       "topics": [
         "arrays",
