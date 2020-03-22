@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-roster_t roster = { 0 };
+static roster_t roster = { 0 };
 
 static int compare_student_names(const void *s1, const void *s2)
 {
