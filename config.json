@@ -294,6 +294,22 @@
       ]
     },
     {
+      "slug": "grade-school",
+      "uuid": "68b1de28-7c3d-4e8c-ab51-7abe6779e187",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "control_flow_if_else_statements",
+        "control_flow_loops",
+        "arrays",
+        "pointers",
+        "structs",
+        "sorting",
+        "strings"
+      ]
+    },
+    {
       "slug": "binary-search",
       "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d",
       "core": true,
