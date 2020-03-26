@@ -45,6 +45,14 @@ Then to test:
 $ make test
 ```
 
+### Clean up
+
+To clean up after a build (for example, in case a sunsequent build encounters problems) you can tell make to delete all of the buid output, including the current executable:
+
+```bash
+$ make clean
+```
+
 #### MacOS Build Alternative
 On MacOS you can also use Xcode. 
 To build the code select _Build_ from the toolbar.
