@@ -47,7 +47,7 @@ $ make test
 
 ### Clean up
 
-To clean up after a build (for example, in case a sunsequent build encounters problems) you can tell make to delete all of the buid output, including the current executable:
+To clean up after a build you can tell `make` to delete all of the buid output, including the executable:
 
 ```bash
 $ make clean
