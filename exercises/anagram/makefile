@@ -17,15 +17,18 @@ ASANFLAGS  = -fsanitize=address
 ASANFLAGS += -fno-common
 ASANFLAGS += -fno-omit-frame-pointer
 
+.PHONY: test
 test: tests.out
 	@./tests.out
 
+.PHONY: memcheck
 memcheck: test/*.c src/*.c src/*.h
 	@echo Compiling $@
 	@$(CC) $(ASANFLAGS) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o memcheck.out $(LIBS)
 	@./memcheck.out
 	@echo "Memory check passed"
 
+.PHONY: clean
 clean:
 	rm -rf *.o *.out *.out.dSYM
 
