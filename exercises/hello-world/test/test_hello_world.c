@@ -17,10 +17,10 @@ void tearDown(void)
 // Defines a single test.
 static void test_hello(void)
 {
-   // Check if hello() function returns "Hello, World!"
-   // This test is expected to fail after first downloading this exercise
-   // To make this test pass, fix the hello() function in the src/hello_world.c
-   // source file.
+   // Check if the 'hello()' function returns "Hello, World!"
+   // This test is expected to fail after first downloading this exercise.
+   // To make this test pass, fix the 'hello()' function definition in the
+   // source file src/hello_world.c .
    TEST_ASSERT_EQUAL_STRING("Hello, World!", hello());
 }
 
