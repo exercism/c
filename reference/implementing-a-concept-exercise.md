@@ -8,14 +8,19 @@ This document describes how to implement a concept exercise for the C track.
 - [Rationale for v3][docs-rationale-for-v3].
 - [What are concept exercise and how they are structured?][docs-concept-exercises]
 
+Please also watch the following video:
+
+- [The Anatomy of a Concept Exercise][anatomy-of-a-concept-exercise].
+
 As this document is generic, the following placeholders are used:
 
 - `<SLUG>`: the name of the exercise in kebab-case (e.g. `function-pointers`).
 - `<NAME>`: the name of the exercise in snake_case (e.g. `function_pointers`).
 
-Before implementing the exercise, please make sure you have a good understanding  of what the exercise should be teaching (and what not). This information can be found in the exercise's GitHub issue.
+Before implementing the exercise, please make sure you have a good understanding of what the exercise should be teaching (and what not). This information can be found in the exercise's GitHub issue.
 
 To implement a concept exercise, the following files must be created:
+
 <pre>
 languages
 └── c
@@ -47,7 +52,7 @@ These files are specific to the C track:
 - `<NAME>{.c|.h}`: the stub source and header implementation files, which are the starting point for students to work on the exercise.
 - `test_<NAME>.c`: the unit test source file.
 - `test-framework`: this directory contains the unit test framework, [Unity][unity]
-- `.meta/example{.c|.h}`:  an example implementation that passes all the unit tests.
+- `.meta/example{.c|.h}`: an example implementation that passes all the unit tests.
 
 ## Step 2: Adding Common Files
 
@@ -64,6 +69,7 @@ If you have any questions regarding implementing the exercise, please post them 
 [docs-concept-exercises]: ../../../docs/concept-exercises.md
 [docs-rationale-for-v3]: ../../../docs/rationale-for-v3.md
 [docs-features-of-v3]: ../../../docs/features-of-v3.md
+[anatomy-of-a-concept-exercise]: https://www.youtube.com/watch?v=gkbBqd7hPrA
 [unity]: http://www.throwtheswitch.org/unity
 [how-to-implement-a-concept-exercise]: ../../../docs/maintainers/generic-how-to-implement-a-concept-exercise.md
 [reference]: ../../../reference
