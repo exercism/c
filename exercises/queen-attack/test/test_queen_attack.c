@@ -1,6 +1,14 @@
 #include "vendor/unity.h"
 #include "../src/queen_attack.h"
 
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
 static void test_invalid_if_on_same_position(void)
 {
    position_t white_queen;

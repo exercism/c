@@ -1,9 +1,17 @@
+#include <math.h>
 #include "vendor/unity.h"
 #include "../src/complex_numbers.h"
-#include <math.h>
 
 #define PI acos(-1)
 #define E exp(1)
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
 
 static void compare_complex(complex_t lhs, complex_t rhs)
 {
