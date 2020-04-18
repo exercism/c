@@ -1,6 +1,13 @@
+#include "vendor/unity.h"
 #include "../src/collatz_conjecture.h"
 
-#include "vendor/unity.h"
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
 
 static void test_zero_steps_for_one(void)
 {
