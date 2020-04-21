@@ -9,6 +9,6 @@
 const char *hello(void)
 {
    // To fix this function, change the return statement here to instead return
-   // a string equivelent to the string expected by the failing test.
+   // a string equivalent to the string expected by the failing test.
    return NULL;
 }
