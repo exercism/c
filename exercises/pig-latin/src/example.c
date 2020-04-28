@@ -20,8 +20,8 @@ static bool starts_with_vowel_sound(const char *input)
        || (first_letter == 'y' && sec_letter == 't');
 }
 
-static void count_words_and_chars(const char *input, size_t * words,
-                                  size_t * chars)
+static void count_words_and_chars(const char *input, size_t *words,
+                                  size_t *chars)
 {
    bool in_word = false;
    while (*input) {

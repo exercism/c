@@ -49,12 +49,12 @@ struct list_item **new_list(void)
    return list;
 }
 
-bool is_list_empty(struct list_item ** list)
+bool is_list_empty(struct list_item **list)
 {
    return (list == NULL || *list == NULL);
 }
 
-bool push(struct list_item ** list, ll_data_t item_data)
+bool push(struct list_item **list, ll_data_t item_data)
 {
    bool result = false;
    if (list != NULL) {
@@ -75,7 +75,7 @@ bool push(struct list_item ** list, ll_data_t item_data)
    return result;
 }
 
-ll_data_t pop(struct list_item ** list)
+ll_data_t pop(struct list_item **list)
 {
    ll_data_t result = 0;
    if (list != NULL && *list != NULL) {
@@ -95,7 +95,7 @@ ll_data_t pop(struct list_item ** list)
    return result;
 }
 
-ll_data_t shift(struct list_item ** list)
+ll_data_t shift(struct list_item **list)
 {
    ll_data_t result = 0;
    if (list != NULL && *list != NULL) {
@@ -114,7 +114,7 @@ ll_data_t shift(struct list_item ** list)
    return result;
 }
 
-bool unshift(struct list_item ** list, ll_data_t item_data)
+bool unshift(struct list_item **list, ll_data_t item_data)
 {
    bool result = false;
    if (list != NULL) {
