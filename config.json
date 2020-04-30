@@ -874,7 +874,8 @@
       "slug": "rail-fence-cipher",
       "uuid": "314dcf23-9cd9-4488-b53e-6dee1b303980",
       "core": false,
-      "difficulty": 2,
+      "unlocked_by": "isogram",
+      "difficulty": 4,
       "topics": [
         "arrays",
         "control_flow_if_statements",
