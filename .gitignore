@@ -3,4 +3,5 @@ bin/configlet.exe
 build/
 **/*.out
 **/*.o
+.*.swp
 .DS_Store
