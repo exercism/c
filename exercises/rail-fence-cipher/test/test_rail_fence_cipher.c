@@ -14,7 +14,6 @@ void tearDown(void)
 void test_expected_value(char *actual, char *expected)
 {
    TEST_ASSERT_EQUAL_STRING(expected, actual);
-   free(actual);
 }
 
 void test_encode_with_empty_string(void)
