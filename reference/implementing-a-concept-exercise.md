@@ -46,12 +46,12 @@ languages
 
 ## Step 1: Add code files
 
-The code files are track-specific and should be designed to help the student learn the exercise's concepts. The following C code files must be added (not necessarily in this order):
+The code files are track-specific and should be designed to help the student learn the exercise's concepts. The following files must be added (not necessarily in this order):
 
 - `makefile`: the makefile for the stub files and tests
 - `<NAME>{.c|.h}`: the stub source and header implementation files, which are the starting point for students to work on the exercise.
 - `test_<NAME>.c`: the unit test source file.
-- `test-framework`: this directory contains the unit test framework, [Unity][unity]
+- `test-framework`: this directory contains the source files of unit test framework, [Unity][unity]
 - `.meta/example{.c|.h}`: an example implementation that passes all the unit tests.
 
 ## Step 2: Add documentation files
