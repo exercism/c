@@ -36,7 +36,7 @@ static void read_values_from_buffer(size_t length, buffer_value_t values[],
                                     circular_buffer_t * buffer)
 {
    for (size_t i = 0; i < length; ++i) {
-      buffer_value_t read_value = 0;
+      buffer_value_t read_value = values[i];
       int16_t status = read(buffer, &read_value);
 
       char error_message[MAX_ERROR_MSG_LEN] = { 0 };
