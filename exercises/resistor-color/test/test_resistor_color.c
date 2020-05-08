@@ -3,8 +3,6 @@
 #include "../src/resistor_color.h"
 
 #define ARRAY_LENGTH(A) (sizeof(A) / sizeof(A[0]))
-_Static_assert(sizeof(resistor_band_t) == sizeof(int),
-               "We expected the size to be the size of int");
 
 void setUp(void)
 {
