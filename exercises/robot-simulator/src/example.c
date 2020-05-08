@@ -7,7 +7,7 @@ robot_grid_status_t robot_init(void)
            (DEFAULT_BEARING, DEFAULT_X_COORDINATE, DEFAULT_Y_COORDINATE));
 }
 
-robot_grid_status_t robot_init_with_position(int bearing, int x, int y)
+robot_grid_status_t robot_init_with_position(bearing_t bearing, int x, int y)
 {
    robot_grid_status_t robot = { bearing, {x, y} };
 
