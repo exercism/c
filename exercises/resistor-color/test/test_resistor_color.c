@@ -1,4 +1,3 @@
-#include <assert.h>
 #include "vendor/unity.h"
 #include "../src/resistor_color.h"
 
