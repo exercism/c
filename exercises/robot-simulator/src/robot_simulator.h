@@ -32,7 +32,7 @@ typedef struct robot_grid_status {
 } robot_grid_status_t;
 
 robot_grid_status_t robot_init(void);
-robot_grid_status_t robot_init_with_position(int bearing, int x, int y);
+robot_grid_status_t robot_init_with_position(bearing_t bearing, int x, int y);
 void robot_turn_right(robot_grid_status_t * robot);
 void robot_turn_left(robot_grid_status_t * robot);
 void robot_advance(robot_grid_status_t * robot);
