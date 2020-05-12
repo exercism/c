@@ -23,14 +23,9 @@ extract_version_part() {
 
 test_unity_version() {
     file="$1"
-    if [[  "$(extract_version_part "$file" UNITY_VERSION_MAJOR)" = "$expected_version_major"
-        && "$(extract_version_part "$file" UNITY_VERSION_MINOR)" = "$expected_version_minor"
-        && "$(extract_version_part "$file" UNITY_VERSION_BUILD)" = "$expected_version_build" ]]
-    then
-        return 0
-    else
-        return 1
-    fi
+    [[  "$(extract_version_part "$file" UNITY_VERSION_MAJOR)" = "$expected_version_major"
+    && "$(extract_version_part "$file" UNITY_VERSION_MINOR)" = "$expected_version_minor"
+    && "$(extract_version_part "$file" UNITY_VERSION_BUILD)" = "$expected_version_build" ]]
 }
 
 ERROR_COUNT=0
