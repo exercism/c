@@ -31,7 +31,7 @@ test_unity_version() {
 ERROR_COUNT=0
 for f in exercises/*/test/vendor/unity.h; do
     if ! test_unity_version "$f"; then
-        echo "$f unity version is not expected"
+        echo "$f unexpected unity version"
         (( ERROR_COUNT++ ))
     fi;
 done
