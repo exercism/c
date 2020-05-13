@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+declare -r expected_version_major=2
+declare -r expected_version_minor=5
+declare -r expected_version_build=0
+
+set -e
+
+# Move to the root directory of the repo so you can run this script from anywhere
+SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
+cd "${SCRIPT_DIR}"/..
+
+set +e
+
+extract_version_part() {
+    file="$1"
+    part_name="$2"
+    version=$(grep "#define\\s\\+$part_name" "$file" | awk '{ print $3 }')
+    echo "$version"
+}
+
+test_unity_version() {
+    file="$1"
+    [[  "$(extract_version_part "$file" UNITY_VERSION_MAJOR)" = "$expected_version_major"
+    && "$(extract_version_part "$file" UNITY_VERSION_MINOR)" = "$expected_version_minor"
+    && "$(extract_version_part "$file" UNITY_VERSION_BUILD)" = "$expected_version_build" ]]
+}
+
+ERROR_COUNT=0
+for f in exercises/*/test/vendor/unity.h; do
+    if ! test_unity_version "$f"; then
+        echo "$f unexpected unity version"
+        (( ERROR_COUNT++ ))
+    fi;
+done
+
+exit $ERROR_COUNT

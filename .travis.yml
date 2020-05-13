@@ -13,5 +13,6 @@ script:
 - bin/configlet lint .
 - bin/verify-indent
 - bin/check-unitybegin
+- bin/verify-unity-version
 - shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
 - bin/run-tests
