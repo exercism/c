@@ -12,8 +12,6 @@ cd "${SCRIPT_DIR}"/..
 
 set +e
 
-
-
 extract_version_part() {
     file="$1"
     part_name="$2"
