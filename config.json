@@ -63,8 +63,8 @@
       "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
-        "arrays",
-        "enums"
+        "enums",
+        "arrays"
       ]
     },
     {
