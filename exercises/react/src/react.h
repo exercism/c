@@ -4,8 +4,8 @@
 struct reactor;
 struct cell;
 
-typedef int (*compute1)(int);
-typedef int (*compute2)(int, int);
+typedef int (*compute1) (int);
+typedef int (*compute2) (int, int);
 
 struct reactor *create_reactor();
 // destroy_reactor should free all cells created under that reactor.
