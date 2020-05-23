@@ -4,7 +4,7 @@ on your system:
 * A modern C compiler
 * The Make build tool
 
-Apple's Xcode IDEs combine the compiler and
+Apple's Xcode IDE combines the compiler and
 the native build system into a single IDE (integrated development
 environment). Linux environments typically expose the compiler and native
 build system as separate command-line tools.
