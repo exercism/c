@@ -4,7 +4,7 @@ on your system:
 * A modern C compiler
 * The Make build tool
 
-Microsoft's Visual Studio IDE and Apple's Xcode IDEs combine the compiler and
+Apple's Xcode IDE combines the compiler and
 the native build system into a single IDE (integrated development
 environment). Linux environments typically expose the compiler and native
 build system as separate command-line tools.
@@ -27,8 +27,6 @@ MacOS users can install gcc or clang with [Homebrew](http://brew.sh/) via
 
 #### Windows
 
-Windows users can get [Visual Studio Community][vs], a free download
-that will give you the Visual Studio 2017 IDE and the latest version of the
-Microsoft Visual C compiler.
+Windows 10 users are recommended to use [WSL Bash](https://msdn.microsoft.com/en-us/commandline/wsl/about), and proceed with the instruction for linux above.
 
-[vs]: http://visualstudio.com
+If you are using an earlier version of Windows or WSL Bash is not available to you, you could use [MSYS/MinGW](http://www.mingw.org/) (32-bit only) or [mingw6-w64](http://mingw-w64.org/doku.php) (32 & 64-bit).
