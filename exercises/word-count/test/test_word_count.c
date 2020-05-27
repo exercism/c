@@ -402,7 +402,7 @@ static void test_excessive_length_word(void)
    // build the expected solution
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
-   
+
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "look", STRING_SIZE);
 
