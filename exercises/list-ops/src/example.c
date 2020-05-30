@@ -35,7 +35,7 @@ list_t *append_list(list_t * list1, list_t * list2)
    return list;
 }
 
-list_t *filter_list(list_t * list, bool (*filter)(list_value_t value))
+list_t *filter_list(list_t * list, bool(*filter) (list_value_t value))
 {
    if (!list || !filter)
       return NULL;
@@ -80,9 +80,9 @@ list_t *map_list(list_t * list, list_value_t(*map) (list_value_t value))
    return mapped;
 }
 
-list_value_t
-foldl_list(list_t * list, list_value_t initial,
-           list_value_t(*foldl) (list_value_t value, list_value_t initial))
+list_value_t foldl_list(list_t * list, list_value_t initial,
+                        list_value_t(*foldl) (list_value_t value,
+                                              list_value_t initial))
 {
    if (!list || !foldl)
       return 0;
@@ -93,9 +93,9 @@ foldl_list(list_t * list, list_value_t initial,
    return initial;
 }
 
-list_value_t
-foldr_list(list_t * list, list_value_t initial,
-           list_value_t(*foldr) (list_value_t value, list_value_t initial))
+list_value_t foldr_list(list_t * list, list_value_t initial,
+                        list_value_t(*foldr) (list_value_t value,
+                                              list_value_t initial))
 {
    if (!list || !foldr)
       return 0;
