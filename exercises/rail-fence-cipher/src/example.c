@@ -28,7 +28,7 @@ char *encode(char *text, size_t rails)
 char *decode(char *ciphertext, size_t rails)
 {
    size_t length = strlen(ciphertext);
-   char *text = (char *)calloc(length + 1, sizeof(char));
+   char *text = calloc(length + 1, sizeof(char));
    size_t cell_size = 2 * rails - 2;
    if (cell_size == 0) {
       strcpy(text, ciphertext);
