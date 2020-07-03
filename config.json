@@ -50,8 +50,8 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "enums",
         "arrays",
+        "enums",
         "pointers"
       ]
     },
@@ -75,8 +75,8 @@
       "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
-        "enums",
         "arrays",
+        "enums",
         "structs"
       ]
     },
@@ -288,8 +288,8 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
-        "control_flow_loops",
         "bitwise_operations",
+        "control_flow_loops",
         "math"
       ]
     },
@@ -300,13 +300,13 @@
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
+        "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops",
-        "arrays",
         "pointers",
-        "structs",
         "sorting",
-        "strings"
+        "strings",
+        "structs"
       ]
     },
     {
@@ -366,14 +366,14 @@
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
+        "arrays",
+        "buffers",
         "control_flow_if_else_statements",
         "control_flow_loops",
-        "memory_management",
-        "arrays",
-        "pointers",
-        "structs",
         "flexible_array_members",
-        "buffers"
+        "memory_management",
+        "pointers",
+        "structs"
       ]
     },
     {
@@ -383,14 +383,14 @@
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
+        "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops",
-        "memory_management",
-        "arrays",
-        "pointers",
+        "flexible_array_members",
         "function_pointers",
-        "structs",
-        "flexible_array_members"
+        "memory_management",
+        "pointers",
+        "structs"
       ]
     },
     {
@@ -401,11 +401,11 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
+        "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops",
-        "memory_management",
-        "arrays",
         "flexible_array_members",
+        "memory_management",
         "structs"
       ]
     },
@@ -417,11 +417,11 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
+        "arrays",
         "control_flow_if_else_statements",
         "control_flow_loops",
-        "memory_management",
-        "arrays",
         "flexible_array_members",
+        "memory_management",
         "structs"
       ]
     },
@@ -867,6 +867,18 @@
         "arrays",
         "control_flow_if_statements",
         "functions",
+        "strings"
+      ]
+    },
+    {
+      "slug": "rail-fence-cipher",
+      "uuid": "314dcf23-9cd9-4488-b53e-6dee1b303980",
+      "core": false,
+      "unlocked_by": "isogram",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "control_flow_if_statements",
         "strings"
       ]
     }
