@@ -10,19 +10,19 @@ void tearDown(void)
 {
 }
 
-void test_expected_value(char *actual, char *expected)
+static void test_expected_value(char *actual, char *expected)
 {
    TEST_ASSERT_EQUAL_STRING(actual, expected);
 }
 
-void test_encode_with_empty_string(void)
+static void test_encode_with_empty_string(void)
 {
    char *res = encode("", 4);
    test_expected_value("", res);
    free(res);
 }
 
-void test_encode_with_one_rail(void)
+static void test_encode_with_one_rail(void)
 {
    TEST_IGNORE();
    char *res = encode("One rail, only one rail", 1);
@@ -30,7 +30,7 @@ void test_encode_with_one_rail(void)
    free(res);
 }
 
-void test_encode_with_two_rails(void)
+static void test_encode_with_two_rails(void)
 {
    TEST_IGNORE();
    char *res = encode("XOXOXOXOXOXOXOXOXO", 2);
@@ -38,7 +38,7 @@ void test_encode_with_two_rails(void)
    free(res);
 }
 
-void test_encode_with_three_rails(void)
+static void test_encode_with_three_rails(void)
 {
    TEST_IGNORE();
    char *res = encode("WEAREDISCOVEREDFLEEATONCE", 3);
@@ -46,7 +46,7 @@ void test_encode_with_three_rails(void)
    free(res);
 }
 
-void test_encode_with_ending_in_the_middle(void)
+static void test_encode_with_ending_in_the_middle(void)
 {
    TEST_IGNORE();
    char *res = encode("EXERCISES", 4);
@@ -54,7 +54,7 @@ void test_encode_with_ending_in_the_middle(void)
    free(res);
 }
 
-void test_encode_with_less_letters_than_rails(void)
+static void test_encode_with_less_letters_than_rails(void)
 {
    TEST_IGNORE();
    char *res = encode("More rails than letters", 24);
@@ -62,7 +62,7 @@ void test_encode_with_less_letters_than_rails(void)
    free(res);
 }
 
-void test_decode_with_empty_string(void)
+static void test_decode_with_empty_string(void)
 {
    TEST_IGNORE();
    char *res = decode("", 4);
@@ -70,7 +70,7 @@ void test_decode_with_empty_string(void)
    free(res);
 }
 
-void test_decode_with_one_rail(void)
+static void test_decode_with_one_rail(void)
 {
    TEST_IGNORE();
    char *res = decode("ABCDEFGHIJKLMNOP", 1);
@@ -78,7 +78,7 @@ void test_decode_with_one_rail(void)
    free(res);
 }
 
-void test_decode_with_two_rails(void)
+static void test_decode_with_two_rails(void)
 {
    TEST_IGNORE();
    char *res = decode("XXXXXXXXXOOOOOOOOO", 2);
@@ -86,7 +86,7 @@ void test_decode_with_two_rails(void)
    free(res);
 }
 
-void test_decode_with_three_rails(void)
+static void test_decode_with_three_rails(void)
 {
    TEST_IGNORE();
    char *res = decode("TEITELHDVLSNHDTISEIIEA", 3);
@@ -94,7 +94,7 @@ void test_decode_with_three_rails(void)
    free(res);
 }
 
-void test_decode_with_four_rails(void)
+static void test_decode_with_four_rails(void)
 {
    TEST_IGNORE();
    char *res = decode("TSENEHINVRAYREEOONRWERGOH", 4);
