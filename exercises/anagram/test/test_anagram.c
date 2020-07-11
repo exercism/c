@@ -76,6 +76,22 @@ static void test_detect_simple_anagram(void)
 
 }
 
+static void test_detect_adversarial_sum_anagram(void)
+{
+   TEST_IGNORE();
+
+   char inputs[][MAX_STR_LEN] = {
+      "abcde"
+   };
+
+   char word[] = { "aacdf" };
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   anagrams_for(word, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
 static void test_does_not_confuse_different_duplicates(void)
 {
    TEST_IGNORE();
@@ -247,6 +263,7 @@ int main(void)
 
    RUN_TEST(test_no_matches);
    RUN_TEST(test_detect_simple_anagram);
+   RUN_TEST(test_detect_adversarial_sum_anagram);
    RUN_TEST(test_does_not_confuse_different_duplicates);
    RUN_TEST(test_eliminate_anagram_subsets);
    RUN_TEST(test_detect_anagram);
