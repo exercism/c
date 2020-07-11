@@ -58,6 +58,10 @@ The code files are track-specific and should be designed to help the student lea
 
 How to create the files common to all tracks is described in the [how to implement a concept exercise document][how-to-implement-a-concept-exercise].
 
+## Step 3: Update list of implemented exercises
+
+- Add the exercise to the [list of implemented exercises][implemented-exercises].
+
 ## Inspiration
 
 When implementing an exercise, it can be very useful to look at already implemented C exercises. You can also check the exercise's [general concepts documents][reference] to see if other languages have already implemented an exercise for that concept.
