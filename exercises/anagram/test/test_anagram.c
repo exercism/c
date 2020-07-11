@@ -59,7 +59,6 @@ static void test_no_matches(void)
 
 static void test_detect_simple_anagram(void)
 {
-   TEST_IGNORE();               // delete this line to run test
    char inputs[][MAX_STR_LEN] = {
       "tan",
       "stand",
@@ -71,6 +70,8 @@ static void test_detect_simple_anagram(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
+   TEST_IGNORE();               // delete this line to run test
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 
@@ -78,7 +79,6 @@ static void test_detect_simple_anagram(void)
 
 static void test_does_not_confuse_different_duplicates(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "eagle"
    };
@@ -88,13 +88,14 @@ static void test_does_not_confuse_different_duplicates(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_eliminate_anagram_subsets(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "dog",
       "goody"
@@ -105,13 +106,14 @@ static void test_eliminate_anagram_subsets(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_detect_anagram(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "enlists",
       "google",
@@ -125,13 +127,14 @@ static void test_detect_anagram(void)
    enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_multiple_anagrams(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "gallery",
       "ballerina",
@@ -149,13 +152,14 @@ static void test_multiple_anagrams(void)
       NOT_ANAGRAM
    };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_case_insensitive_anagrams(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "cashregister",
       "Carthorse",
@@ -167,13 +171,14 @@ static void test_case_insensitive_anagrams(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_does_not_detect_a_word_as_its_own_anagram(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "banana"
    };
@@ -183,6 +188,8 @@ static void test_does_not_detect_a_word_as_its_own_anagram(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
@@ -190,7 +197,6 @@ static void test_does_not_detect_a_word_as_its_own_anagram(void)
 static void
 test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
 {
-   TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
       "bAnana"
    };
@@ -200,13 +206,14 @@ test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
+   TEST_IGNORE();
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_unicode_anagrams(void)
 {
-   TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
    // These words don't make sense, they're just greek letters cobbled together.
    char inputs[][MAX_STR_LEN] = {
       "ΒΓΑ",
@@ -219,13 +226,14 @@ static void test_unicode_anagrams(void)
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
+   TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
+
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void test_misleading_unicode_anagrams(void)
 {
-   TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
    // Despite what a human might think these words different letters, the input uses Greek A and B
    // while the list of potential anagrams uses Latin A and B.
    char inputs[][MAX_STR_LEN] = {
@@ -236,6 +244,8 @@ static void test_misleading_unicode_anagrams(void)
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
 
    anagrams_for(word, &candidates);
    assert_correct_anagrams(&candidates, expected);
