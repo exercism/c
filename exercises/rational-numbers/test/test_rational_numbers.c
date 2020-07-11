@@ -329,7 +329,7 @@ static void test_raise_real_number_to_zero_rational_number(void)
 {
    TEST_IGNORE();
    uint16_t x = 2;
-   rational_t r = { 0, 0 };
+   rational_t r = { 0, 1 };
    float delta = 0.000005;
    float expected = 1.0;
    float actual = exp_real(x, r);
