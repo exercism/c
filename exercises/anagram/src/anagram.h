@@ -11,7 +11,7 @@ enum anagram_status {
 
 struct candidate {
    enum anagram_status is_anagram;
-   const char *candidate;
+   const char *word;
 };
 
 struct candidates {

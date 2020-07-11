@@ -29,8 +29,7 @@ void anagrams_for(const char *word, struct candidates *candidates)
    qsort(&sorted_word, strlen(sorted_word), 1, compare);
    for (int i = 0; i < (int)candidates->count; i++) {
       char lower_candidate[MAX_STR_LEN] = { 0 };
-      strncpy(&lower_candidate[0], candidates->candidate[i].candidate,
-              MAX_STR_LEN);
+      strncpy(&lower_candidate[0], candidates->candidate[i].word, MAX_STR_LEN);
       to_lower_case(&lower_candidate[0]);
       if (strcmp(&lower_candidate[0], &lower_word[0]) == 0) {
          candidates->candidate[i].is_anagram = NOT_ANAGRAM;

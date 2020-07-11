@@ -23,7 +23,7 @@ static struct candidates build_candidates(char *inputs, size_t count)
    result.count = count;
    result.candidate = malloc(sizeof(struct candidate) * count);
    for (int i = 0; i < (int)count; i++) {
-      result.candidate[i].candidate = &inputs[i * MAX_STR_LEN];
+      result.candidate[i].word = &inputs[i * MAX_STR_LEN];
       result.candidate[i].is_anagram = UNCHECKED;
    }
 
