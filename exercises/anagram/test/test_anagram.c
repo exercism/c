@@ -15,6 +15,7 @@ void setUp(void)
 void tearDown(void)
 {
    free(candidates.candidate);
+   candidates.candidate = NULL;
 }
 
 static struct candidates build_candidates(char *inputs, size_t count)
