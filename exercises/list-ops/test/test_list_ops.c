@@ -38,6 +38,13 @@ static char *create_error_message(list_t * expected, list_t * actual)
    return message;
 }
 
+static void check_list_contents(list_value_t expected[], list_value_t actual[],
+                                size_t expected_length)
+{
+   TEST_ASSERT_EQUAL_MEMORY_ARRAY(expected, actual,
+                                  sizeof(list_value_t), expected_length);
+}
+
 static void check_lists_match(list_t * expected, list_t * actual)
 {
    // check inputs to be valid lists
@@ -103,10 +110,13 @@ static void test_append_list_to_empty_list(void)
    TEST_IGNORE();               // delete this line to run test
    list_t *list1 = new_list(0, NULL);
    list_t *list2 = new_list(3, (list_value_t[]){ 1, 3, 4 });
-   list_t *expected = new_list(3, (list_value_t[]){ 1, 3, 4 });
+   size_t expected_len = 3;
+   list_value_t expected_values[] = { 1, 3, 4 };
+   list_t *expected = new_list(expected_len, expected_values);
 
    list_t *actual = append_list(list1, list2);
    check_lists_match(expected, actual);
+   check_list_contents(expected_values, actual->values, expected_len);
 
    delete_list(list1);
    delete_list(list2);
@@ -119,10 +129,13 @@ static void test_append_empty_list_to_list(void)
    TEST_IGNORE();
    list_t *list1 = new_list(4, (list_value_t[]){ 1, 2, 3, 4 });
    list_t *list2 = new_list(0, NULL);
-   list_t *expected = new_list(4, (list_value_t[]){ 1, 2, 3, 4 });
+   size_t expected_len = 4;
+   list_value_t expected_values[] = { 1, 2, 3, 4 };
+   list_t *expected = new_list(expected_len, expected_values);
 
    list_t *actual = append_list(list1, list2);
    check_lists_match(expected, actual);
+   check_list_contents(expected_values, actual->values, expected_len);
 
    delete_list(list1);
    delete_list(list2);
@@ -135,10 +148,13 @@ static void test_append_non_empty_lists(void)
    TEST_IGNORE();
    list_t *list1 = new_list(2, (list_value_t[]){ 1, 2 });
    list_t *list2 = new_list(4, (list_value_t[]){ 2, 3, 4, 5 });
-   list_t *expected = new_list(6, (list_value_t[]){ 1, 2, 2, 3, 4, 5 });
+   size_t expected_len = 6;
+   list_value_t expected_values[] = { 1, 2, 2, 3, 4, 5 };
+   list_t *expected = new_list(expected_len, expected_values);
 
    list_t *actual = append_list(list1, list2);
    check_lists_match(expected, actual);
+   check_list_contents(expected_values, actual->values, expected_len);
 
    delete_list(list1);
    delete_list(list2);
@@ -164,10 +180,13 @@ static void test_filter_non_empty_list(void)
 {
    TEST_IGNORE();
    list_t *list = new_list(5, (list_value_t[]){ 1, 2, 3, 4, 5 });
-   list_t *expected = new_list(3, (list_value_t[]){ 1, 3, 5 });
+   size_t expected_len = 3;
+   list_value_t expected_values[] = { 1, 3, 5 };
+   list_t *expected = new_list(expected_len, expected_values);
 
    list_t *actual = filter_list(list, filter_modulo);
    check_lists_match(expected, actual);
+   check_list_contents(expected_values, actual->values, expected_len);
 
    delete_list(list);
    delete_list(expected);
@@ -217,10 +236,13 @@ static void test_map_non_empty_list(void)
 
    TEST_IGNORE();
    list_t *list = new_list(4, (list_value_t[]){ 1, 3, 5, 7 });
-   list_t *expected = new_list(4, (list_value_t[]){ 2, 4, 6, 8 });
+   size_t expected_len = 4;
+   list_value_t expected_values[] = { 2, 4, 6, 8 };
+   list_t *expected = new_list(expected_len, expected_values);
 
    list_t *actual = map_list(list, map_increment);
    check_lists_match(expected, actual);
+   check_list_contents(expected_values, actual->values, expected_len);
 
    delete_list(list);
    delete_list(expected);
@@ -323,10 +345,13 @@ static void test_reverse_non_empty_list(void)
 {
    TEST_IGNORE();
    list_t *list = new_list(4, (list_value_t[]){ 1, 3, 5, 7 });
-   list_t *expected = new_list(4, (list_value_t[]){ 7, 5, 3, 1 });
+   size_t expected_len = 4;
+   list_value_t expected_values[] = { 7, 5, 3, 1 };
+   list_t *expected = new_list(expected_len, expected_values);
 
    list_t *actual = reverse_list(list);
    check_lists_match(expected, actual);
+   check_list_contents(expected_values, actual->values, expected_len);
 
    delete_list(list);
    delete_list(expected);
