@@ -1,6 +1,8 @@
 #ifndef ANAGRAM_H
 #define ANAGRAM_H
 
+#include <stddef.h>
+
 #define MAX_STR_LEN 20
 
 enum anagram_status {
