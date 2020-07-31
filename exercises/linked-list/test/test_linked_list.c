@@ -57,6 +57,7 @@ static void test_list_pop_returns_data_in_correct_order(void)
    for (ll_data_t data = 15; data >= 11; --data) {
       TEST_ASSERT_EQUAL(data, list_pop(list));
    }
+   TEST_ASSERT_TRUE(list_is_empty(list));
 }
 
 static void test_list_unshift_with_multiple_items(void)
@@ -78,6 +79,7 @@ static void test_list_shift_returns_data_in_correct_order(void)
    for (ll_data_t data = 17; data >= 12; --data) {
       TEST_ASSERT_EQUAL(data, list_shift(list));
    }
+   TEST_ASSERT_TRUE(list_is_empty(list));
 }
 
 static void test_pushed_data_can_be_shifted_in_original_order(void)
