@@ -71,11 +71,11 @@ static void test_list_shift_returns_data_in_correct_order(void)
 {
    TEST_IGNORE();
    // pre-populate list
-   for (ll_data_t data = 12; data < 17; ++data) {
+   for (ll_data_t data = 12; data <= 17; ++data) {
       list_unshift(list, data);
    }
 
-   for (ll_data_t data = 17; data < 12; --data) {
+   for (ll_data_t data = 17; data >= 12; --data) {
       TEST_ASSERT_EQUAL(data, list_shift(list));
    }
 }
