@@ -2,8 +2,9 @@
 #include <assert.h>
 #include <stdlib.h>
 
-static struct list_node *list_node_create(
-      struct list_node *prev, struct list_node *next, ll_data_t data)
+static struct list_node *list_node_create(struct list_node *prev,
+                                          struct list_node *next,
+                                          ll_data_t data)
 {
    struct list_node *node = malloc(sizeof(*node));
    if (node != NULL) {
@@ -24,7 +25,7 @@ struct list *list_create(void)
    return list;
 }
 
-bool list_is_empty(const struct list * list)
+bool list_is_empty(const struct list *list)
 {
    assert(list);
    return list->first == NULL;
@@ -93,12 +94,10 @@ void list_destroy(struct list *list)
    if (!list)
       return;
    struct list_node *node = list->first;
-   while (node)
-   {
+   while (node) {
       struct list_node *next = node->next;
       free(node);
       node = next;
    }
    free(list);
 }
-
