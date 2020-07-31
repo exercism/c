@@ -7,4 +7,3 @@ struct list_node {
 struct list {
    struct list_node *first, *last;
 };
-
