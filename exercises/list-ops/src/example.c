@@ -16,7 +16,7 @@ list_t *new_list(size_t length, list_value_t values[])
    return list;
 }
 
-list_t *concat_list(list_t * list1, list_t * list2)
+list_t *concat_list(const list_t * list1, const list_t * list2)
 {
    if (!list1 || !list2)
       return NULL;
@@ -37,7 +37,7 @@ list_t *concat_list(list_t * list1, list_t * list2)
    return list;
 }
 
-list_t *filter_list(list_t * list, bool (*filter)(list_value_t value))
+list_t *filter_list(const list_t * list, bool (*filter)(list_value_t value))
 {
    if(!list || !filter)
       return NULL;
@@ -58,14 +58,14 @@ list_t *filter_list(list_t * list, bool (*filter)(list_value_t value))
    return filtered;
 }
 
-size_t length_list(list_t * list)
+size_t length_list(const list_t * list)
 {
    if (!list)
       return 0;
    return list->length;
 }
 
-list_t *map_list(list_t * list, list_value_t(*map) (list_value_t value))
+list_t *map_list(const list_t * list, list_value_t(*map) (list_value_t value))
 {
    if (!list || !map)
       return NULL;
@@ -82,7 +82,7 @@ list_t *map_list(list_t * list, list_value_t(*map) (list_value_t value))
    return mapped;
 }
 
-list_value_t foldl_list(list_t * list, list_value_t initial,
+list_value_t foldl_list(const list_t * list, list_value_t initial,
                         list_value_t(*foldl) (list_value_t value,
                                               list_value_t initial))
 {
@@ -95,7 +95,7 @@ list_value_t foldl_list(list_t * list, list_value_t initial,
    return initial;
 }
 
-list_value_t foldr_list(list_t * list, list_value_t initial,
+list_value_t foldr_list(const list_t * list, list_value_t initial,
                         list_value_t(*foldr) (list_value_t value,
                                               list_value_t initial))
 {
@@ -108,7 +108,7 @@ list_value_t foldr_list(list_t * list, list_value_t initial,
    return initial;
 }
 
-list_t *reverse_list(list_t * list)
+list_t *reverse_list(const list_t * list)
 {
    if (!list)
       return NULL;
