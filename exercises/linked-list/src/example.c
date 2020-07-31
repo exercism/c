@@ -1,148 +1,105 @@
-#include <stdlib.h>
-#include <stdbool.h>
 #include "linked_list.h"
+#include <assert.h>
+#include <stdlib.h>
 
-struct list_item {
-   struct list_item *next;
-   struct list_item *prev;
-   ll_data_t data;
-};
-
-static struct list_item *new_item(ll_data_t data)
+static struct list_node *list_node_create(
+      struct list_node *prev, struct list_node *next, ll_data_t data)
 {
-   struct list_item *item = malloc(sizeof(*item));
-
-   if (item != NULL) {
-      item->next = NULL;
-      item->prev = NULL;
-      item->data = data;
+   struct list_node *node = malloc(sizeof(*node));
+   if (node != NULL) {
+      node->prev = prev;
+      node->next = next;
+      node->data = data;
    }
-   return item;
+   return node;
 }
 
-static struct list_item *get_list_tail(struct list_item **list)
+struct list *list_create(void)
 {
-   struct list_item *tail = NULL;
+   struct list *list = malloc(sizeof(*list));
    if (list != NULL) {
-      // climb list to tail
-      tail = *list;
-      while (tail->next != NULL) {
-         tail = tail->next;
-      }
-   }
-   return tail;
-}
-
-static void delete_item(struct list_item *item)
-{
-   if (item != NULL) {
-      free(item);
-   }
-}
-
-struct list_item **new_list(void)
-{
-   struct list_item **list = malloc(sizeof(struct list_item *));
-   if (list != NULL) {
-      *list = NULL;
+      list->first = NULL;
+      list->last = NULL;
    }
    return list;
 }
 
-bool is_list_empty(struct list_item ** list)
+bool list_is_empty(const struct list * list)
 {
-   return (list == NULL || *list == NULL);
+   assert(list);
+   return list->first == NULL;
 }
 
-bool push(struct list_item ** list, ll_data_t item_data)
+struct list_node *list_push(struct list *list, ll_data_t data)
 {
-   bool result = false;
-   if (list != NULL) {
-      struct list_item *item = new_item(item_data);
-      if (item != NULL) {
-         if (*list != NULL) {
-            struct list_item *old_tail = get_list_tail(list);
-            // append new tail
-            old_tail->next = item;
-            item->prev = old_tail;
-         } else {
-            // add new tail as only item in list
-            *list = item;
-         }
-         result = true;
-      }
-   }
+   assert(list);
+   struct list_node *node = list_node_create(list->last, NULL, data);
+   if (!node)
+      return NULL;
+   list->last = node;
+   if (list->first == NULL)
+      list->first = node;
+   else
+      node->prev->next = node;
+   return node;
+}
+
+ll_data_t list_pop(struct list *list)
+{
+   assert(list);
+   assert(list->last != NULL);
+   struct list_node *node = list->last;
+   ll_data_t result = node->data;
+   list->last = node->prev;
+   if (list->first == node)
+      list->first = NULL;
+   else
+      node->prev->next = NULL;
+   free(node);
    return result;
 }
 
-ll_data_t pop(struct list_item ** list)
+struct list_node *list_unshift(struct list *list, ll_data_t data)
 {
-   ll_data_t result = 0;
-   if (list != NULL && *list != NULL) {
-      struct list_item *old_tail = get_list_tail(list);
+   assert(list);
+   struct list_node *node = list_node_create(NULL, list->first, data);
+   if (!node)
+      return NULL;
+   list->first = node;
+   if (list->last == NULL)
+      list->last = node;
+   else
+      node->next->prev = node;
+   return node;
+}
 
-      if (old_tail != *list) {
-         // remove tail from preceding item
-         old_tail->prev->next = NULL;
-      } else {
-         // remove only item from list
-         *list = NULL;
-      }
-
-      result = old_tail->data;
-      delete_item(old_tail);
-   }
+ll_data_t list_shift(struct list *list)
+{
+   assert(list);
+   assert(list->first != NULL);
+   struct list_node *node = list->first;
+   ll_data_t result = node->data;
+   list->first = node->next;
+   if (list->last == node)
+      list->last = NULL;
+   else
+      node->next->prev = NULL;
+   free(node);
    return result;
 }
 
-ll_data_t shift(struct list_item ** list)
+void list_destroy(struct list *list)
 {
-   ll_data_t result = 0;
-   if (list != NULL && *list != NULL) {
-      struct list_item *old_head = *list;
-
-      // remove head from following item
-      if ((*list)->next != NULL) {
-         (*list)->next->prev = NULL;
-      }
-      // update list to start with following item
-      *list = (*list)->next;
-
-      result = old_head->data;
-      delete_item(old_head);
+   if (!list)
+      return;
+   struct list_node *node = list->first;
+   while (node)
+   {
+      struct list_node *next = node->next;
+      free(node);
+      node = next;
    }
-   return result;
+   free(list);
 }
 
-bool unshift(struct list_item ** list, ll_data_t item_data)
-{
-   bool result = false;
-   if (list != NULL) {
-      struct list_item *item = new_item(item_data);
-      if (item != NULL) {
-         if (*list != NULL) {
-            // prepend new head
-            (*list)->prev = item;
-            item->next = *list;
-            *list = item;
-         } else {
-            // add new head as only item in list
-            *list = item;
-         }
-      }
-      result = true;
-   }
-   return result;
-}
-
-void delete_list(struct list_item **list)
-{
-   // shift off each item until list is empty
-   while (!is_list_empty(list)) {
-      shift(list);
-   }
-   // free the head
-   if (list != NULL) {
-      free(list);
-   }
-}
+// vim:set sw=3 et:
