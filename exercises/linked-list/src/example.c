@@ -2,6 +2,14 @@
 #include <assert.h>
 #include <stdlib.h>
 
+struct list_node {
+   struct list_node *prev, *next;
+   ll_data_t data;
+};
+struct list {
+   struct list_node *first, *last;
+};
+
 static struct list_node *list_node_create(struct list_node *prev,
                                           struct list_node *next,
                                           ll_data_t data)
