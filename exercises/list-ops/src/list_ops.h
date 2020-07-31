@@ -1,7 +1,7 @@
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+#ifndef LIST_OPS_H
+#define LIST_OPS_H
 
-#include <stdlib.h>
+#include <stddef.h>
 #include <stdbool.h>
 
 typedef int list_value_t;
@@ -14,11 +14,11 @@ typedef struct {
 // constructs a new list
 list_t *new_list(size_t length, list_value_t values[]);
 
-// append entries to a list and return the new list
-list_t *append_list(list_t * list1, list_t * list2);
+// concat two lists into one new list
+list_t *concat_list(list_t * list1, list_t * list2);
 
 // filter list returning only values that satisfy the filter function
-list_t *filter_list(list_t * list, bool(*filter) (list_value_t value));
+list_t *filter_list(list_t * list, bool (*filter)(list_value_t value));
 
 // returns the length of the list
 size_t length_list(list_t * list);
@@ -41,7 +41,7 @@ list_value_t foldr_list(list_t * list, list_value_t initial,
 list_t *reverse_list(list_t * list);
 
 // destroy the entire list
-// list will be a dangling pointer after calling this method on it
+// list will be a dangling pointer after calling this function on it
 void delete_list(list_t * list);
 
 #endif

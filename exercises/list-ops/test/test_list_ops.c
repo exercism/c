@@ -1,5 +1,6 @@
-#include "vendor/unity.h"
 #include "../src/list_ops.h"
+#include "vendor/unity.h"
+#include <stdlib.h>
 
 const int MAX_STRING_LEN = 100;
 
@@ -90,13 +91,13 @@ static list_value_t fold_divide(list_value_t value, list_value_t initial)
    return (initial == 0) ? 0 : value / initial;
 }
 
-static void test_append_empty_lists(void)
+static void test_concat_empty_lists(void)
 {
    list_t *list1 = new_list(0, NULL);
    list_t *list2 = new_list(0, NULL);
    list_t *expected = new_list(0, NULL);
 
-   list_t *actual = append_list(list1, list2);
+   list_t *actual = concat_list(list1, list2);
    check_lists_match(expected, actual);
 
    delete_list(list1);
@@ -105,7 +106,7 @@ static void test_append_empty_lists(void)
    delete_list(actual);
 }
 
-static void test_append_list_to_empty_list(void)
+static void test_concat_list_to_empty_list(void)
 {
    TEST_IGNORE();               // delete this line to run test
    list_t *list1 = new_list(0, NULL);
@@ -114,7 +115,7 @@ static void test_append_list_to_empty_list(void)
    list_value_t expected_values[] = { 1, 3, 4 };
    list_t *expected = new_list(expected_len, expected_values);
 
-   list_t *actual = append_list(list1, list2);
+   list_t *actual = concat_list(list1, list2);
    check_lists_match(expected, actual);
    check_list_contents(expected_values, actual->values, expected_len);
 
@@ -124,7 +125,7 @@ static void test_append_list_to_empty_list(void)
    delete_list(actual);
 }
 
-static void test_append_empty_list_to_list(void)
+static void test_concat_empty_list_to_list(void)
 {
    TEST_IGNORE();
    list_t *list1 = new_list(4, (list_value_t[]){ 1, 2, 3, 4 });
@@ -133,7 +134,7 @@ static void test_append_empty_list_to_list(void)
    list_value_t expected_values[] = { 1, 2, 3, 4 };
    list_t *expected = new_list(expected_len, expected_values);
 
-   list_t *actual = append_list(list1, list2);
+   list_t *actual = concat_list(list1, list2);
    check_lists_match(expected, actual);
    check_list_contents(expected_values, actual->values, expected_len);
 
@@ -143,7 +144,7 @@ static void test_append_empty_list_to_list(void)
    delete_list(actual);
 }
 
-static void test_append_non_empty_lists(void)
+static void test_concat_non_empty_lists(void)
 {
    TEST_IGNORE();
    list_t *list1 = new_list(2, (list_value_t[]){ 1, 2 });
@@ -152,7 +153,7 @@ static void test_append_non_empty_lists(void)
    list_value_t expected_values[] = { 1, 2, 2, 3, 4, 5 };
    list_t *expected = new_list(expected_len, expected_values);
 
-   list_t *actual = append_list(list1, list2);
+   list_t *actual = concat_list(list1, list2);
    check_lists_match(expected, actual);
    check_list_contents(expected_values, actual->values, expected_len);
 
@@ -362,10 +363,10 @@ int main(void)
 {
    UnityBegin("test/test_list_ops.c");
 
-   RUN_TEST(test_append_empty_lists);
-   RUN_TEST(test_append_list_to_empty_list);
-   RUN_TEST(test_append_empty_list_to_list);
-   RUN_TEST(test_append_non_empty_lists);
+   RUN_TEST(test_concat_empty_lists);
+   RUN_TEST(test_concat_list_to_empty_list);
+   RUN_TEST(test_concat_empty_list_to_list);
+   RUN_TEST(test_concat_non_empty_lists);
    RUN_TEST(test_filter_empty_list);
    RUN_TEST(test_filter_non_empty_list);
    RUN_TEST(test_length_empty_list);

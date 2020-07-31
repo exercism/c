@@ -1,5 +1,7 @@
 #include "list_ops.h"
+
 #include <string.h>
+#include <stdlib.h>
 
 list_t *new_list(size_t length, list_value_t values[])
 {
@@ -14,7 +16,7 @@ list_t *new_list(size_t length, list_value_t values[])
    return list;
 }
 
-list_t *append_list(list_t * list1, list_t * list2)
+list_t *concat_list(list_t * list1, list_t * list2)
 {
    if (!list1 || !list2)
       return NULL;
@@ -35,9 +37,9 @@ list_t *append_list(list_t * list1, list_t * list2)
    return list;
 }
 
-list_t *filter_list(list_t * list, bool(*filter) (list_value_t value))
+list_t *filter_list(list_t * list, bool (*filter)(list_value_t value))
 {
-   if (!list || !filter)
+   if(!list || !filter)
       return NULL;
 
    list_t *filtered =
