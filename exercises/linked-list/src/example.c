@@ -102,4 +102,3 @@ void list_destroy(struct list *list)
    free(list);
 }
 
-// vim:set sw=3 et:
