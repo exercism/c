@@ -11,7 +11,7 @@ void setUp(void)
 
 void tearDown(void)
 {
-   if (!list) {
+   if (list) {
       list_destroy(list);
       list = NULL;
    }
