@@ -1,115 +1,125 @@
-#include <stddef.h>
-#include <stdbool.h>
-#include "vendor/unity.h"
 #include "../src/linked_list.h"
+#include <stddef.h>
+#include "vendor/unity.h"
 
-struct list_item **list = NULL;
+struct list *list = NULL;
 
 void setUp(void)
 {
-   list = new_list();
+   list = list_create();
 }
 
 void tearDown(void)
 {
-   if (list != NULL) {
-      delete_list(list);
+   if (list) {
+      list_destroy(list);
       list = NULL;
    }
 }
 
-static void test_new_list(void)
+static void test_list_create(void)
 {
    TEST_IGNORE();               // delete this line to run test
    TEST_ASSERT_NOT_NULL(list);
 }
 
-static void test_is_list_empty_when_empty(void)
+static void test_list_is_empty_returns_true_when_empty(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_TRUE(is_list_empty(list));
-   delete_list(list);
-   list = NULL;                 // stop list from dangling
-   TEST_ASSERT_TRUE(is_list_empty(list));
+   TEST_ASSERT_TRUE(list_is_empty(list));
 }
 
-static void test_is_list_empty_when_not_empty(void)
+static void test_list_is_empty_returns_false_when_not_empty(void)
 {
    TEST_IGNORE();
    // pre-populate list
    ll_data_t data = 12;
-   push(list, data);
-   TEST_ASSERT_FALSE(is_list_empty(list));
+   list_push(list, data);
+   TEST_ASSERT_FALSE(list_is_empty(list));
 }
 
-static void test_push_with_invalid_list(void)
+static void test_list_push_with_multiple_items(void)
 {
    TEST_IGNORE();
-   ll_data_t data = 13;
-   TEST_ASSERT_FALSE(push(NULL, data));
-}
-
-static void test_push_with_valid_list(void)
-{
-   TEST_IGNORE();
-   for (size_t data = 14; data < 19; ++data) {
-      TEST_ASSERT_TRUE(push(list, data));
+   for (ll_data_t data = 14; data < 19; ++data) {
+      TEST_ASSERT_TRUE(list_push(list, data));
    }
 }
 
-static void test_pop_returns_list_data(void)
+static void test_list_pop_returns_data_in_correct_order(void)
 {
    TEST_IGNORE();
    // pre-populate list
-   for (size_t data = 11; data <= 15; ++data) {
-      push(list, data);
+   for (ll_data_t data = 11; data <= 15; ++data) {
+      list_push(list, data);
    }
-   for (size_t data = 15; data >= 11; --data) {
-      TEST_ASSERT_EQUAL(data, pop(list));
+
+   for (ll_data_t data = 15; data >= 11; --data) {
+      TEST_ASSERT_EQUAL(data, list_pop(list));
    }
+   TEST_ASSERT_TRUE(list_is_empty(list));
 }
 
-static void test_unshift_with_invalid_list(void)
+static void test_list_unshift_with_multiple_items(void)
 {
    TEST_IGNORE();
-   ll_data_t data = 16;
-   TEST_ASSERT_FALSE(unshift(NULL, data));
-}
-
-static void test_unshift_with_valid_list(void)
-{
-   TEST_IGNORE();
-   for (size_t data = 14; data < 19; ++data) {
-      TEST_ASSERT_TRUE(unshift(list, data));
+   for (ll_data_t data = 14; data < 19; ++data) {
+      TEST_ASSERT_TRUE(list_unshift(list, data));
    }
 }
 
-static void test_shift_returns_list_data(void)
+static void test_list_shift_returns_data_in_correct_order(void)
 {
    TEST_IGNORE();
    // pre-populate list
-   for (size_t data = 12; data < 17; ++data) {
-      push(list, data);
+   for (ll_data_t data = 12; data <= 17; ++data) {
+      list_unshift(list, data);
    }
 
-   for (size_t data = 12; data < 17; ++data) {
-      TEST_ASSERT_EQUAL(data, shift(list));
+   for (ll_data_t data = 17; data >= 12; --data) {
+      TEST_ASSERT_EQUAL(data, list_shift(list));
    }
+   TEST_ASSERT_TRUE(list_is_empty(list));
+}
+
+static void test_pushed_data_can_be_shifted_in_original_order(void)
+{
+   TEST_IGNORE();
+   for (ll_data_t data = 16; data < 21; ++data) {
+      list_push(list, data);
+   }
+   for (ll_data_t data = 16; data < 21; ++data) {
+      TEST_ASSERT_EQUAL(data, list_shift(list));
+   }
+   TEST_ASSERT_TRUE(list_is_empty(list));
+}
+
+static void test_unshifted_data_can_be_popped_in_original_order(void)
+{
+   TEST_IGNORE();
+   for (ll_data_t data = 16; data < 21; ++data) {
+      list_unshift(list, data);
+   }
+   for (ll_data_t data = 16; data < 21; ++data) {
+      TEST_ASSERT_EQUAL(data, list_pop(list));
+   }
+   TEST_ASSERT_TRUE(list_is_empty(list));
 }
 
 int main(void)
 {
    UnityBegin("test/test_linked_list.c");
 
-   RUN_TEST(test_new_list);
-   RUN_TEST(test_is_list_empty_when_empty);
-   RUN_TEST(test_is_list_empty_when_not_empty);
-   RUN_TEST(test_push_with_invalid_list);
-   RUN_TEST(test_push_with_valid_list);
-   RUN_TEST(test_pop_returns_list_data);
-   RUN_TEST(test_unshift_with_invalid_list);
-   RUN_TEST(test_unshift_with_valid_list);
-   RUN_TEST(test_shift_returns_list_data);
+   RUN_TEST(test_list_create);
+   RUN_TEST(test_list_is_empty_returns_true_when_empty);
+   RUN_TEST(test_list_is_empty_returns_false_when_not_empty);
+   RUN_TEST(test_list_push_with_multiple_items);
+   RUN_TEST(test_list_pop_returns_data_in_correct_order);
+   RUN_TEST(test_list_unshift_with_multiple_items);
+   RUN_TEST(test_list_shift_returns_data_in_correct_order);
+   RUN_TEST(test_pushed_data_can_be_shifted_in_original_order);
+   RUN_TEST(test_pushed_data_can_be_shifted_in_original_order);
+   RUN_TEST(test_unshifted_data_can_be_popped_in_original_order);
 
    return UnityEnd();
 }
