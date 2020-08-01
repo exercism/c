@@ -42,7 +42,7 @@ static void test_list_push_with_multiple_items(void)
 {
    TEST_IGNORE();
    for (ll_data_t data = 14; data < 19; ++data) {
-      TEST_ASSERT_NOT_NULL(list_push(list, data));
+      TEST_ASSERT_TRUE(list_push(list, data));
    }
 }
 
@@ -64,7 +64,7 @@ static void test_list_unshift_with_multiple_items(void)
 {
    TEST_IGNORE();
    for (ll_data_t data = 14; data < 19; ++data) {
-      TEST_ASSERT_NOT_NULL(list_unshift(list, data));
+      TEST_ASSERT_TRUE(list_unshift(list, data));
    }
 }
 

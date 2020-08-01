@@ -39,7 +39,7 @@ bool list_is_empty(const struct list *list)
    return list->first == NULL;
 }
 
-struct list_node *list_push(struct list *list, ll_data_t data)
+bool list_push(struct list *list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(list->last, NULL, data);
@@ -68,7 +68,7 @@ ll_data_t list_pop(struct list *list)
    return result;
 }
 
-struct list_node *list_unshift(struct list *list, ll_data_t data)
+bool list_unshift(struct list *list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(NULL, list->first, data);

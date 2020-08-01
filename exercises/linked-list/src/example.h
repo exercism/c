@@ -13,13 +13,13 @@ struct list *list_create(void);
 bool list_is_empty(const struct list *list);
 
 // inserts item at back of list
-struct list_node *list_push(struct list *list, ll_data_t item_data);
+bool list_push(struct list *list, ll_data_t item_data);
 
 // removes item from back of list
 ll_data_t list_pop(struct list *list);
 
 // inserts item at front of list
-struct list_node *list_unshift(struct list *list, ll_data_t item_data);
+bool list_unshift(struct list *list, ll_data_t item_data);
 
 // removes item from front of list
 ll_data_t list_shift(struct list *list);
