@@ -25,8 +25,8 @@
       "topics": [
         "control_flow_if_else_statements",
         "control_flow_loops",
-        "math",
-        "logic"
+        "logic",
+        "math"
       ]
     },
     {
@@ -38,8 +38,8 @@
       "difficulty": 1,
       "topics": [
         "control_flow_if_else_statements",
-        "math",
-        "logic"
+        "logic",
+        "math"
       ]
     },
     {
@@ -63,8 +63,8 @@
       "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
-        "enums",
-        "arrays"
+        "arrays",
+        "enums"
       ]
     },
     {

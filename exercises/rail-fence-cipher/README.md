@@ -58,28 +58,36 @@ W . . . E . . . C . . . R . . . L . . . T . . . E
 
 If you now read along the zig-zag shape you can read the original message.
 
-* * * *
+## Getting Started
 
-For installation and learning resources, refer to the
-[Ruby resources page](http://exercism.io/languages/ruby/resources).
+Make sure you have read the "Guides" section of the
+[C track](https://exercism.io/my/tracks/c) on the Exercism site. This covers
+the basic information on setting up the development environment expected
+by the exercises.
 
-For running the tests provided, you will need the Minitest gem. Open a
-terminal window and run the following command to install minitest:
 
-    gem install minitest
+## Passing the Tests
 
-If you would like color output, you can `require 'minitest/pride'` in
-the test file, or note the alternative instruction, below, for running
-the test file.
+Get the first test compiling, linking and passing by following the [three
+rules of test-driven development][3-tdd-rules].
 
-Run the tests from the exercise directory using the following command:
+The included makefile can be used to create and run the tests using the `test`
+task.
 
-    ruby rail_fence_cipher_test.rb
+    make test
 
-To include color from the command line:
+Create just the functions you need to satisfy any compiler errors and get the
+test to fail. Then write just enough code to get the test to pass. Once you've
+done that, move onto the next test.
 
-    ruby -r minitest/pride rail_fence_cipher_test.rb
+[3-tdd-rules]: http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd
 
+As you progress through the tests, take the time to refactor your
+implementation for readability and expressiveness and then go on to the next
+test.
+
+Try to use standard C99 facilities in preference to writing your own
+low-level algorithms or facilities by hand.
 
 ## Source
 
