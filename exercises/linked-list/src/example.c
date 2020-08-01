@@ -15,7 +15,7 @@ static struct list_node *list_node_create(struct list_node *prev,
                                           ll_data_t data)
 {
    struct list_node *node = malloc(sizeof(*node));
-   if (node != NULL) {
+   if (node) {
       node->prev = prev;
       node->next = next;
       node->data = data;
@@ -26,7 +26,7 @@ static struct list_node *list_node_create(struct list_node *prev,
 struct list *list_create(void)
 {
    struct list *list = malloc(sizeof(*list));
-   if (list != NULL) {
+   if (list) {
       list->first = NULL;
       list->last = NULL;
    }
@@ -46,7 +46,7 @@ struct list_node *list_push(struct list *list, ll_data_t data)
    if (!node)
       return NULL;
    list->last = node;
-   if (list->first == NULL)
+   if (!list->first)
       list->first = node;
    else
       node->prev->next = node;
@@ -56,7 +56,7 @@ struct list_node *list_push(struct list *list, ll_data_t data)
 ll_data_t list_pop(struct list *list)
 {
    assert(list);
-   assert(list->last != NULL);
+   assert(list->last);
    struct list_node *node = list->last;
    ll_data_t result = node->data;
    list->last = node->prev;
@@ -75,7 +75,7 @@ struct list_node *list_unshift(struct list *list, ll_data_t data)
    if (!node)
       return NULL;
    list->first = node;
-   if (list->last == NULL)
+   if (!list->last)
       list->last = node;
    else
       node->next->prev = node;
@@ -85,7 +85,7 @@ struct list_node *list_unshift(struct list *list, ll_data_t data)
 ll_data_t list_shift(struct list *list)
 {
    assert(list);
-   assert(list->first != NULL);
+   assert(list->first);
    struct list_node *node = list->first;
    ll_data_t result = node->data;
    list->first = node->next;
