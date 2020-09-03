@@ -65,9 +65,18 @@ static void test_reading_empty_buffer_fails(void)
    delete_buffer(buffer);
 }
 
-static void test_can_read_item_just_written(void)
+static void test_reading_invalid_buffer_fails(void)
 {
    TEST_IGNORE();               // delete this line to run test
+   buffer_value_t read_value = 0;
+   int16_t status = read(NULL, &read_value);
+   TEST_ASSERT_EQUAL_INT16(EXIT_FAILURE, status);
+   TEST_ASSERT_EQUAL_INT16(EINVAL, errno);
+}
+
+static void test_can_read_item_just_written(void)
+{
+   TEST_IGNORE();
    size_t capacity = 1;
    buffer_value_t values[] = { 1 };
    size_t values_length = ARRAY_LENGTH(values);
@@ -292,6 +301,7 @@ int main(void)
    UnityBegin("test/test_circular_buffer.c");
 
    RUN_TEST(test_reading_empty_buffer_fails);
+   RUN_TEST(test_reading_invalid_buffer_fails);
    RUN_TEST(test_can_read_item_just_written);
    RUN_TEST(test_each_item_may_only_be_read_once);
    RUN_TEST(test_items_are_read_in_order_written);
