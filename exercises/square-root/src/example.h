@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-uint16_t squareRoot(uint16_t radicand);
+uint16_t square_root(uint16_t radicand);
 
 #endif
