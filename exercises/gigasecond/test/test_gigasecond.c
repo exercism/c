@@ -14,7 +14,7 @@ static inline size_t is_leap_year(int year)
 
 static inline time_t days_from_1ad(int year)
 {
-   --year;                      // The gegorian calander is without a year 0. This is years from 1AD.
+   --year;                      // The gregorian calander is without a year 0. This is years from 1AD.
    // Little complex, add a day for all of the leap years
    // This is a quarter of the days since 0 execpt one in a hundred are lost except 1 in 400 are gained ... simple.
    return 365 * year + (year / 400) - (year / 100) + (year / 4);
