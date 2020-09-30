@@ -2,8 +2,8 @@
 
 In general, exercism assumes you already know the syntax and mechanisms
 of a language in a particular track.  However, knowing the syntax of a
-language is merely the first step in gaining expertise in a language.
-Exercism allows you to practice solving problems and share discussion
+language is just the first step in gaining expertise in a language.
+Exercism allows you to practice solving problems and share discussion and ideas
 with other programmers who have solved the same problem.  It is from
 the shared discussion that we gain expertise and insight into becoming
 better programmers.
