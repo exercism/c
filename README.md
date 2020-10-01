@@ -1,6 +1,6 @@
 # C [![Build Status](https://travis-ci.org/exercism/c.svg?branch=master)](https://travis-ci.org/exercism/c)
 
-Exercism problems in C
+Exercise problems in C
 
 ## Contributing
 
