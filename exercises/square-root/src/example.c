@@ -1,6 +1,6 @@
 #include "square_root.h"
 
-uint16_t squareRoot(uint16_t radicand)
+uint16_t square_root(uint16_t radicand)
 {
    uint16_t result = 0;
    uint16_t bit = 1 << 14;
