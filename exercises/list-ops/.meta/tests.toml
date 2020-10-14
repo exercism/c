@@ -10,13 +10,13 @@
 "71dcf5eb-73ae-4a0e-b744-a52ee387922f" = true
 
 # empty list
-"28444355-201b-4af2-a2f6-5550227bde21" = true
+#"28444355-201b-4af2-a2f6-5550227bde21" = true
 
 # list of lists
-"331451c1-9573-42a1-9869-2d06e3b389a9" = true
+#"331451c1-9573-42a1-9869-2d06e3b389a9" = true
 
 # list of nested lists
-"d6ecd72c-197f-40c3-89a4-aa1f45827e09" = true
+#"d6ecd72c-197f-40c3-89a4-aa1f45827e09" = true
 
 # empty list
 "0524fba8-3e0f-4531-ad2b-f7a43da86a16" = true
@@ -61,4 +61,4 @@
 "fcc03d1e-42e0-4712-b689-d54ad761f360" = true
 
 # list of lists is not flattened
-"40872990-b5b8-4cb8-9085-d91fc0d05d26" = true
+#"40872990-b5b8-4cb8-9085-d91fc0d05d26" = true
