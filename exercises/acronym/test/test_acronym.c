@@ -42,7 +42,7 @@ static void test_basic_abbreviation(void)
    check_abbreviation(phrase, expected);
 }
 
-static void test_lower_case_words(void)
+static void test_lowercase_words(void)
 {
    TEST_IGNORE();
    char *phrase = "Ruby on Rails";
@@ -114,7 +114,7 @@ int main(void)
    RUN_TEST(test_null_string);
    RUN_TEST(test_empty_string);
    RUN_TEST(test_basic_abbreviation);
-   RUN_TEST(test_lower_case_words);
+   RUN_TEST(test_lowercase_words);
    RUN_TEST(test_punctuation);
    RUN_TEST(test_all_caps_words);
    RUN_TEST(test_punctuation_without_whitespace);
