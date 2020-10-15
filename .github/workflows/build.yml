@@ -1,0 +1,28 @@
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: install indent
+      run: |
+        sudo apt-get -qq update
+        sudo apt-get install -y indent
+
+    - uses: actions/checkout@v2
+
+    - name: checks
+      run: |
+        ./bin/fetch-configlet
+        ./bin/configlet lint .
+        ./bin/verify-indent
+        ./bin/check-unitybegin
+        ./bin/verify-unity-version
+        shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
+
+    - name: test
+      run: ./bin/run-tests
