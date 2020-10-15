@@ -1,12 +1,14 @@
 #include "acronym.h"
 #include <ctype.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-static int is_first_letter_of_word(int character, int preceding_character)
+static bool is_first_letter_of_word(int character, int preceding_character)
 {
    return isalpha(character)
        && ((preceding_character == ' ')
-           || (preceding_character == '-')) ? 1 : 0;
+           || (preceding_character == '-')
+           || (preceding_character == '_'));
 }
 
 static int count_words(const char phrase[])
