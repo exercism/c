@@ -8,10 +8,17 @@ size_t rebase(int8_t digits[DIGITS_ARRAY_SIZE], int16_t from_base,
    uint16_t denary = 0;
    size_t new_num_digits = 0;
 
-   if ((from_base <= 1) || (to_base <= 1) || (num_digits == 0))
-      return 0;                 /* invalid bases or length */
-   if (digits[0] == 0)
-      return 0;                 /* leading zeros */
+   if ((digits == NULL) || (num_digits == 0))
+      return 0;                 /* invalid list or length */
+   if ((from_base <= 1) || (to_base <= 1))
+      return 0;                 /* invalid bases */
+
+   size_t first_non_zero = 0;
+   for (size_t i = 0; i < num_digits && digits[i] == 0; ++i)
+      ++first_non_zero;         /* skip leading zeros */
+
+   if (first_non_zero == num_digits)
+      return 0;                 /* check input isn't all zeros */
 
    /* convert to denary */
    for (size_t i = 0; i < num_digits; ++i) {
