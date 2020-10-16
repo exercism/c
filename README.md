@@ -1,4 +1,4 @@
-# C [![Build Status](https://travis-ci.org/exercism/c.svg?branch=master)](https://travis-ci.org/exercism/c)
+# C [![Build Status](https://github.com/exercism/c/workflows/.github/workflows/build.yml/badge.svg)](https://github.com/exercism/c/actions)
 
 Exercism problems in C
 
