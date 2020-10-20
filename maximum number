@@ -1,0 +1,26 @@
+//Program to find maximum number in an array
+#include<stdio.h>
+int main()
+{
+int current[5]={12,4,13,16,78};
+int large;
+large=current[0];
+for(int i=1;i<5;i++)
+{
+
+    if(current[i]>large)
+    {
+
+        large=current[i];
+
+        
+        }
+
+
+}
+
+printf("The largest element in an array is %d \n",large);
+
+
+return 0;
+}
