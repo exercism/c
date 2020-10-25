@@ -1,4 +1,4 @@
-# C [![Build Status](https://github.com/exercism/c/workflows/.github/workflows/build.yml/badge.svg)](https://github.com/exercism/c/actions)
+# C [![Test Actions Status](https://github.com/exercism/c/workflows/test/badge.svg)](https://github.com/exercism/c/actions)
 
 Exercism problems in C
 
