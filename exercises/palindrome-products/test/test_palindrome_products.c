@@ -28,7 +28,7 @@ static bool factor_t_are_equal(const factor_t * const f1,
                                const factor_t * const f2)
 {
    return ((f1->factor_a == f2->factor_a) && (f1->factor_b == f2->factor_b)) ||
-       ((f1->factor_a == f2->factor_b) && (f1->factor_a == f2->factor_b));
+       ((f1->factor_a == f2->factor_b) && (f1->factor_b == f2->factor_a));
 }
 
 /* contains_factor checks if the `factor` variable is stored
