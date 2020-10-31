@@ -22,16 +22,16 @@
 "14a4f3c1-3b47-4695-b645-53d328298942" = true
 
 # hypothetical isogrammic word with hyphen
-#"423b850c-7090-4a8a-b057-97f1cadd7c42" = true
+"423b850c-7090-4a8a-b057-97f1cadd7c42" = true
 
 # hypothetical word with duplicated character following hyphen
-#"93dbeaa0-3c5a-45c2-8b25-428b8eacd4f2" = true
+"93dbeaa0-3c5a-45c2-8b25-428b8eacd4f2" = true
 
 # isogram with duplicated hyphen
-#"36b30e5c-173f-49c6-a515-93a3e825553f" = true
+"36b30e5c-173f-49c6-a515-93a3e825553f" = true
 
 # made-up name that is an isogram
-#"cdabafa0-c9f4-4c1f-b142-689c6ee17d93" = true
+"cdabafa0-c9f4-4c1f-b142-689c6ee17d93" = true
 
 # duplicated character in the middle
 "5fc61048-d74e-48fd-bc34-abfc21552d4d" = true
