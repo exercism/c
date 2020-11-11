@@ -14,8 +14,9 @@ Please also watch the following video:
 
 As this document is generic, the following placeholders are used:
 
-- `<SLUG>`: the name of the exercise in kebab-case (e.g. `function-pointers`).
-- `<NAME>`: the name of the exercise in snake_case (e.g. `function_pointers`).
+- `<SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
+- `<NAME>`: the name of the exercise in snake_case (e.g. `calculator_conundrum`).
+- `<CONCEPT_SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `anonymous-methods`).
 
 Before implementing the exercise, please make sure you have a good understanding of what the exercise should be teaching (and what not). This information can be found in the exercise's GitHub issue.
 
@@ -24,6 +25,10 @@ To implement a concept exercise, the following files must be added:
 <pre>
 languages
 └── c
+    ├── concepts
+    |   └── &lt;CONCEPT_SLUG&gt;
+    |       ├── about.md
+    |       └── links.json
     └── exercises
         └── concept
             └── &lt;SLUG&gt;
@@ -31,8 +36,7 @@ languages
                 │   ├── instructions.md
                 │   ├── introduction.md
                 │   ├── hints.md
-                │   ├── source.md (required if there are third-party sources)
-                │   └── after.md
+                │   └── source.md (required if there are third-party sources)
                 ├── .meta
                 │   ├── config.json
                 │   ├── design.md
