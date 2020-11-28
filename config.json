@@ -881,6 +881,18 @@
         "control_flow_if_statements",
         "strings"
       ]
+    },
+    {
+      "slug": "two-bucket",
+      "uuid": "d8ecb4c4-2af2-423c-9f39-4adab687ecd6",
+      "core": false,
+      "unlocked_by": "grade-school",
+      "difficulty": 6,
+      "topics": [
+        "algorithms",
+        "control_flow_if_else_statements",
+        "control_flow_loops"
+      ]
     }
   ]
 }
