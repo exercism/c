@@ -8,7 +8,7 @@ typedef enum {
    bucket_id_2
 } bucket_id_t;
 
-typedef unsigned bucket_volume_t;
+typedef unsigned int bucket_volume_t;
 
 typedef struct {
    bool possible;
