@@ -4,21 +4,21 @@
 #include <stdbool.h>
 
 typedef enum {
-   bucket_id_1,
-   bucket_id_2
+   BUCKET_ID_1,
+   BUCKET_ID_2
 } bucket_id_t;
 
-typedef unsigned int bucket_volume_t;
+typedef unsigned int bucket_liters_t;
 
 typedef struct {
    bool possible;
    int move_count;
    bucket_id_t goal_bucket;
-   bucket_volume_t other_bucket_volume;
+   bucket_liters_t other_bucket_liters;
 } bucket_result_t;
 
-bucket_result_t measure(bucket_volume_t bucket_1_size,
-                        bucket_volume_t bucket_2_size,
-                        bucket_volume_t goal_volume, bucket_id_t start_bucket);
+bucket_result_t measure(bucket_liters_t bucket_1_size,
+                        bucket_liters_t bucket_2_size,
+                        bucket_liters_t goal_volume, bucket_id_t start_bucket);
 
 #endif
