@@ -21,7 +21,7 @@ jobs:
           git clone $HEAD_REPO .
           git checkout -b "$HEAD_REF" "origin/$HEAD_REF"
 
-      - name: install indent
+      - name: "Install indent"
         run: |
           sudo apt-get -qq update
           sudo apt-get install -y indent
