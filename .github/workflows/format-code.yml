@@ -1,0 +1,47 @@
+name: "Format C code"
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  format:
+    name: "Format C code"
+    runs-on: ubuntu-18.04
+    if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/format')
+    steps:
+      - name: "Checkout code"
+        run: |
+          PR_DATA="/tmp/pr.json"
+          jq -r ".issue.pull_request.url" "$GITHUB_EVENT_PATH" | \
+            xargs curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -o "$PR_DATA" --url
+          HEAD_REF=$(jq -r ".head.ref" "$PR_DATA")
+          HEAD_REPO=$(jq -r '.head.repo.clone_url | sub("https://"; "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@")' "$PR_DATA")
+
+          git clone $HEAD_REPO .
+          git checkout -b "$HEAD_REF" "origin/$HEAD_REF"
+
+      - name: install indent
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get install -y indent
+
+      - name: "Format C code"
+        run: ./indent.sh
+
+      - name: "Commit formatted C code"
+        run: |
+          # Check if there is nothing to commit (i.e. no formatting changes made)
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Code is already formatted correctly"
+            exit 0
+          fi
+
+          # Set up the git user (required to commit anything)
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+          # Commit the changes made for code formatting
+          git add .
+          git commit -m "[CI] Format C code"
+          git push
