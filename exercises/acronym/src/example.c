@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-static bool
-is_first_letter_of_word(int character, int preceding_character)
+static bool is_first_letter_of_word(int character, int preceding_character)
 {
    return isalpha(character)
        && ((preceding_character == ' ')
