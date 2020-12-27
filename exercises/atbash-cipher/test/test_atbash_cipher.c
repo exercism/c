@@ -77,12 +77,6 @@ static void test_encode_all_the_letters(void)
                "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt");
 }
 
-static void test_encode_ignores_non_ascii(void)
-{
-   TEST_IGNORE();
-   test_encode("non ascii éignored", "mlmzh xrrrt mlivw");
-}
-
 static void test_decode_exercism(void)
 {
    TEST_IGNORE();
@@ -109,6 +103,19 @@ static void test_decode_all_the_letters(void)
                "thequickbrownfoxjumpsoverthelazydog");
 }
 
+static void test_decode_with_too_many_spaces(void)
+{
+   TEST_IGNORE();
+   test_decode("vc vix    rhn", "exercism");
+}
+
+static void test_decode_with_no_spaces(void)
+{
+   TEST_IGNORE();
+   test_decode("zmlyhgzxovrhlugvmzhgvkkrmthglmv",
+               "anobstacleisoftenasteppingstone");
+}
+
 int main(void)
 {
    UnityBegin("test/test_atbash_cipher.c");
@@ -121,12 +128,13 @@ int main(void)
    RUN_TEST(test_encode_numbers);
    RUN_TEST(test_encode_deep_thought);
    RUN_TEST(test_encode_all_the_letters);
-   RUN_TEST(test_encode_ignores_non_ascii);
 
    RUN_TEST(test_decode_exercism);
    RUN_TEST(test_decode_a_sentence);
    RUN_TEST(test_decode_numbers);
    RUN_TEST(test_decode_all_the_letters);
+   RUN_TEST(test_decode_with_too_many_spaces);
+   RUN_TEST(test_decode_with_no_spaces);
 
    return UnityEnd();
 }
