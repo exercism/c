@@ -23,8 +23,8 @@ struct candidates {
 
 /**
  * @description - determines if any of the words in candidate are anagrams
- *                for word.  Word buffer and candidate structures may be modified.
+ *                for subject. Subject buffer and candidate structures may be modified.
  */
-void anagrams_for(const char *word, struct candidates *candidates);
+void find_anagrams(const char *subject, struct candidates *candidates);
 
 #endif

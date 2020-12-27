@@ -48,68 +48,35 @@ static void test_no_matches(void)
       "pants"
    };
 
-   char word[] = { "diaper" };
+   char subject[] = { "diaper" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_detect_simple_anagram(void)
+static void test_detect_two_anagrams(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char inputs[][MAX_STR_LEN] = {
-      "tan",
-      "stand",
-      "at"
+      "stream",
+      "Pigeon",
+      "maters"
    };
 
-   char word[] = { "ant" };
+   char subject[] = { "master" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM };
 
-   anagrams_for(word, &candidates);
-   assert_correct_anagrams(&candidates, expected);
-
-}
-
-static void test_detect_adversarial_sum_anagram(void)
-{
-   TEST_IGNORE();
-
-   char inputs[][MAX_STR_LEN] = {
-      "abcde"
-   };
-
-   char word[] = { "aacdf" };
-   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { NOT_ANAGRAM };
-
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_does_not_confuse_different_duplicates(void)
-{
-   TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "eagle"
-   };
-
-   char word[] = { "galea" };
-
-   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { NOT_ANAGRAM };
-
-   anagrams_for(word, &candidates);
-   assert_correct_anagrams(&candidates, expected);
-}
-
-static void test_eliminate_anagram_subsets(void)
+static void test_does_not_detect_anagram_subsets(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -117,16 +84,16 @@ static void test_eliminate_anagram_subsets(void)
       "goody"
    };
 
-   char word[] = { "good" };
+   char subject[] = { "good" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_detect_anagram(void)
+static void test_detects_anagram(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -136,17 +103,17 @@ static void test_detect_anagram(void)
       "banana"
    };
 
-   char word[] = { "listen" };
+   char subject[] = { "listen" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] =
        { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_multiple_anagrams(void)
+static void test_three_anagrams(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -158,7 +125,7 @@ static void test_multiple_anagrams(void)
       "leading"
    };
 
-   char word[] = { "allergy" };
+   char subject[] = { "allergy" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] =
@@ -166,11 +133,44 @@ static void test_multiple_anagrams(void)
       NOT_ANAGRAM
    };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_case_insensitive_anagrams(void)
+static void test_detects_multiple_anagrams_with_different_case(void)
+{
+   TEST_IGNORE();
+   char inputs[][MAX_STR_LEN] = {
+      "Eons",
+      "ONES"
+   };
+
+   char subject[] = { "nose" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { IS_ANAGRAM, IS_ANAGRAM };
+
+   find_anagrams(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+static void test_does_not_detect_non_anagrams_with_identical_checksum(void)
+{
+   TEST_IGNORE();
+   char inputs[][MAX_STR_LEN] = {
+      "last"
+   };
+
+   char subject[] = { "mass" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM };
+
+   find_anagrams(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+static void test_detects_anagrams_case_insensitively(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
@@ -179,45 +179,119 @@ static void test_case_insensitive_anagrams(void)
       "radishes"
    };
 
-   char word[] = { "Orchestra" };
+   char subject[] = { "Orchestra" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_does_not_detect_a_word_as_its_own_anagram(void)
+static void test_detects_anagram_using_case_insensitive_subject(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
-      "banana"
+      "cashregister",
+      "carthorse",
+      "radishes"
    };
 
-   char word[] = { "banana" };
+   char subject[] = { "Orchestra" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { NOT_ANAGRAM };
+   enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+static void test_detects_anagrams_using_case_insensitive_possible_matches(void)
+{
+   TEST_IGNORE();
+   char inputs[][MAX_STR_LEN] = {
+      "cashregister",
+      "Carthorse",
+      "radishes"
+   };
+
+   char subject[] = { "orchestra" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
+
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
 static void
-test_does_not_detect_a_differently_cased_word_as_its_own_anagram(void)
+test_does_not_detect_an_anagram_if_the_original_word_is_repeated(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = {
-      "bAnana"
+      "go",
+      "Go",
+      "GO"
    };
 
-   char word[] = { "banana" };
+   char subject[] = { "orchestra" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+
+   find_anagrams(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+static void test_anagrams_must_use_all_letters_exactly_once(void)
+{
+   TEST_IGNORE();
+   char inputs[][MAX_STR_LEN] = {
+      "patter"
+   };
+
+   char subject[] = { "tapper" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+static void test_words_are_not_anagrams_of_themselves(void)
+{
+   TEST_IGNORE();
+   char inputs[][MAX_STR_LEN] = {
+      "BANANA",
+      "Banana",
+      "banana"
+   };
+
+   char subject[] = { "BANANA" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+
+   find_anagrams(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+
+static void test_words_other_than_themselves_can_be_anagrams(void)
+{
+   TEST_IGNORE();
+   char inputs[][MAX_STR_LEN] = {
+      "Listen",
+      "Silent",
+      "LISTEN"
+   };
+
+   char subject[] = { "LISTEN" };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = { NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
+
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
@@ -231,12 +305,12 @@ static void test_unicode_anagrams(void)
       "γβα"
    };
 
-   char word[] = { "ΑΒΓ" };
+   char subject[] = { "ΑΒΓ" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
@@ -249,12 +323,12 @@ static void test_misleading_unicode_anagrams(void)
       "ABΓ"
    };
 
-   char word[] = { "ΑΒΓ" };
+   char subject[] = { "ΑΒΓ" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { NOT_ANAGRAM };
 
-   anagrams_for(word, &candidates);
+   find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
 
@@ -263,15 +337,19 @@ int main(void)
    UnityBegin("test/test_anagram.c");
 
    RUN_TEST(test_no_matches);
-   RUN_TEST(test_detect_simple_anagram);
-   RUN_TEST(test_detect_adversarial_sum_anagram);
-   RUN_TEST(test_does_not_confuse_different_duplicates);
-   RUN_TEST(test_eliminate_anagram_subsets);
-   RUN_TEST(test_detect_anagram);
-   RUN_TEST(test_multiple_anagrams);
-   RUN_TEST(test_case_insensitive_anagrams);
-   RUN_TEST(test_does_not_detect_a_word_as_its_own_anagram);
-   RUN_TEST(test_does_not_detect_a_differently_cased_word_as_its_own_anagram);
+   RUN_TEST(test_detect_two_anagrams);
+   RUN_TEST(test_does_not_detect_anagram_subsets);
+   RUN_TEST(test_detects_anagram);
+   RUN_TEST(test_three_anagrams);
+   RUN_TEST(test_detects_multiple_anagrams_with_different_case);
+   RUN_TEST(test_does_not_detect_non_anagrams_with_identical_checksum);
+   RUN_TEST(test_detects_anagrams_case_insensitively);
+   RUN_TEST(test_detects_anagram_using_case_insensitive_subject);
+   RUN_TEST(test_detects_anagrams_using_case_insensitive_possible_matches);
+   RUN_TEST(test_does_not_detect_an_anagram_if_the_original_word_is_repeated);
+   RUN_TEST(test_anagrams_must_use_all_letters_exactly_once);
+   RUN_TEST(test_words_are_not_anagrams_of_themselves);
+   RUN_TEST(test_words_other_than_themselves_can_be_anagrams);
 
    // Bonus points
    RUN_TEST(test_unicode_anagrams);
