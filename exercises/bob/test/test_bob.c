@@ -55,9 +55,7 @@ static void test_asking_gibberish(void)
 static void test_talking_forcefully(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob("Let's go make out behind the gym!")
-       );
+   TEST_ASSERT_EQUAL_STRING("Whatever.", hey_bob("Hi there!"));
 }
 
 static void test_using_acronyms_in_regular_speech(void)
@@ -65,7 +63,7 @@ static void test_using_acronyms_in_regular_speech(void)
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob
-                            ("It's OK if you don't want to go to the DMV.")
+                            ("It's OK if you don't want to go work for NASA.")
        );
 }
 
@@ -73,7 +71,7 @@ static void test_forceful_question(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Calm down, I know what I'm doing!",
-                            hey_bob("WHAT THE HELL WERE YOU THINKING?")
+                            hey_bob("WHAT'S GOING ON?")
        );
 }
 
@@ -110,7 +108,7 @@ static void test_shouting_with_special_characters(void)
 static void test_shouting_with_no_exclamation_mark(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("I HATE YOU")
+   TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("I HATE THE DENTIST")
        );
 }
 
@@ -118,7 +116,7 @@ static void test_statement_containing_question_mark(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
-                            hey_bob("Ending with a ? means a question.")
+                            hey_bob("Ending with ? means a question.")
        );
 }
 
@@ -147,7 +145,7 @@ static void test_silence(void)
 static void test_prolonged_silence(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("   ")
+   TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("          ")
        );
 }
 
@@ -164,7 +162,7 @@ static void test_multiple_line_question(void)
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob
-                            ("\nDoes this cryogenic chamber make me look fat?\nno")
+                            ("\nDoes this cryogenic chamber make me look fat?\nNo")
        );
 }
 
