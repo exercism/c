@@ -263,9 +263,8 @@ static void test_absolute_value_of_a_negative_purely_real_number(void)
 }
 
 static void
-test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part
-(void)
-{
+    test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part
+    (void) {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = 5.0 };
 
@@ -276,9 +275,8 @@ test_absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part
 }
 
 static void
-test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part
-(void)
-{
+    test_absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part
+    (void) {
    TEST_IGNORE();
    complex_t z = {.real = 0.0,.imag = -5.0 };
 
