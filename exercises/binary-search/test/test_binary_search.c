@@ -97,14 +97,6 @@ static void test_nothing_is_found_when_the_left_and_right_bounds_cross(void)
    TEST_ASSERT(NULL == binary_search(0, arr, length))
 }
 
-static void test_nothing_is_found_if_array_is_null(void)
-{
-   TEST_IGNORE();
-   int *arr = NULL;
-   size_t length = 0;
-   TEST_ASSERT(NULL == binary_search(1, arr, length));
-}
-
 int main(void)
 {
    UnityBegin("test/test_binary_search.c");
@@ -120,7 +112,6 @@ int main(void)
    RUN_TEST(test_a_value_larger_than_the_arrays_largest_value_is_not_found);
    RUN_TEST(test_nothing_is_found_in_an_empty_array);
    RUN_TEST(test_nothing_is_found_when_the_left_and_right_bounds_cross);
-   RUN_TEST(test_nothing_is_found_if_array_is_null);
 
    return UnityEnd();
 }
