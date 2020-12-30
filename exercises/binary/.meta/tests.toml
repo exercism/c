@@ -31,7 +31,7 @@
 "44f7d8b1-ddc3-4751-8be3-700a538b421c" = true
 
 # a number containing a non-binary digit is invalid
-#"c263a24d-6870-420f-b783-628feefd7b6e" = true
+"c263a24d-6870-420f-b783-628feefd7b6e" = true
 
 # a number with trailing non-binary characters is invalid
 "8d81305b-0502-4a07-bfba-051c5526d7f2" = true
