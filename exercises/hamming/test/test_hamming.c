@@ -50,18 +50,6 @@ static void test_disallow_second_strand_when_longer(void)
    TEST_ASSERT_EQUAL(-1, compute("ATA", "AGTG"));
 }
 
-static void test_disallow_left_empty_strand(void)
-{
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL(-1, compute(NULL, "G"));
-}
-
-static void test_disallow_right_empty_strand(void)
-{
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL(-1, compute("G", NULL));
-}
-
 int main(void)
 {
    UnityBegin("test/test_hamming.c");
@@ -73,8 +61,6 @@ int main(void)
    RUN_TEST(test_long_different_strands);
    RUN_TEST(test_disallow_first_strand_when_longer);
    RUN_TEST(test_disallow_second_strand_when_longer);
-   RUN_TEST(test_disallow_left_empty_strand);
-   RUN_TEST(test_disallow_right_empty_strand);
 
    return UnityEnd();
 }
