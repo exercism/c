@@ -19,13 +19,13 @@
 "2a02716d-685b-4e2e-a804-2adaf281c01e" = true
 
 # talking forcefully
-#"c02f9179-ab16-4aa7-a8dc-940145c385f7" = true
+"c02f9179-ab16-4aa7-a8dc-940145c385f7" = true
 
 # using acronyms in regular speech
-#"153c0e25-9bb5-4ec5-966e-598463658bcd" = true
+"153c0e25-9bb5-4ec5-966e-598463658bcd" = true
 
 # forceful question
-#"a5193c61-4a92-4f68-93e2-f554eb385ec6" = true
+"a5193c61-4a92-4f68-93e2-f554eb385ec6" = true
 
 # shouting numbers
 "a20e0c54-2224-4dde-8b10-bd2cdd4f61bc" = true
@@ -40,7 +40,7 @@
 "496143c8-1c31-4c01-8a08-88427af85c66" = true
 
 # shouting with no exclamation mark
-#"e6793c1c-43bd-4b8d-bc11-499aea73925f" = true
+"e6793c1c-43bd-4b8d-bc11-499aea73925f" = true
 
 # statement containing question mark
 "aa8097cc-c548-4951-8856-14a404dd236a" = true
@@ -61,7 +61,7 @@
 "4428f28d-4100-4d85-a902-e5a78cb0ecd3" = true
 
 # multiple line question
-#"66953780-165b-4e7e-8ce3-4bcb80b6385a" = true
+"66953780-165b-4e7e-8ce3-4bcb80b6385a" = true
 
 # starting with whitespace
 "5371ef75-d9ea-4103-bcfa-2da973ddec1b" = true
