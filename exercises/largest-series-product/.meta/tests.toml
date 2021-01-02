@@ -31,10 +31,10 @@
 "5d81aaf7-4f67-4125-bf33-11493cc7eab7" = true
 
 # reports 1 for empty string and empty product (0 span)
-#"06bc8b90-0c51-4c54-ac22-3ec3893a079e" = true
+"06bc8b90-0c51-4c54-ac22-3ec3893a079e" = true
 
 # reports 1 for nonempty string and empty product (0 span)
-#"3ec0d92e-f2e2-4090-a380-70afee02f4c0" = true
+"3ec0d92e-f2e2-4090-a380-70afee02f4c0" = true
 
 # rejects empty string and nonzero span
 "6d96c691-4374-4404-80ee-2ea8f3613dd4" = true
@@ -43,4 +43,4 @@
 "7a38f2d6-3c35-45f6-8d6f-12e6e32d4d74" = true
 
 # rejects negative span
-#"5fe3c0e5-a945-49f2-b584-f0814b4dd1ef" = true
+"5fe3c0e5-a945-49f2-b584-f0814b4dd1ef" = true
