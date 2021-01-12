@@ -11,7 +11,7 @@ void tearDown(void)
 }
 
 static bool check_triangle(size_t count, size_t expected[][count],
-                           size_t **actual)
+                           size_t ** actual)
 {
    for (size_t i = 0; i < count; i++)
       for (size_t j = 0; j <= i; j++)
