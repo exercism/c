@@ -81,20 +81,69 @@ static void test_four_rows(void)
    free_triangle(r, 4);
 }
 
-static void test_negative_rows(void)
+static void test_five_rows(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_TRUE((create_triangle(-1) == NULL));
+   size_t expected[5][5] = {
+      {1, 0, 0, 0, 0},
+      {1, 1, 0, 0, 0},
+      {1, 2, 1, 0, 0},
+      {1, 3, 3, 1, 0},
+      {1, 4, 6, 4, 1}
+   };
+   size_t **r = create_triangle(5);
+   TEST_ASSERT_TRUE(check(5, expected, r));
+   free_triangle(r, 5);
+}
+
+static void test_six_rows(void)
+{
+   TEST_IGNORE();
+   size_t expected[6][6] = {
+      {1, 0,  0,  0, 0, 0},
+      {1, 1,  0,  0, 0, 0},
+      {1, 2,  1,  0, 0, 0},
+      {1, 3,  3,  1, 0, 0},
+      {1, 4,  6,  4, 1, 0},
+      {1, 5, 10, 10, 5, 1},
+   };
+   size_t **r = create_triangle(6);
+   TEST_ASSERT_TRUE(check(6, expected, r));
+   free_triangle(r, 6);
+}
+
+static void test_ten_rows(void)
+{
+   TEST_IGNORE();
+   size_t expected[10][10] = {
+      {1, 0,  0,  0,   0,   0,  0,  0, 0, 0},
+      {1, 1,  0,  0,   0,   0,  0,  0, 0, 0},
+      {1, 2,  1,  0,   0,   0,  0,  0, 0, 0},
+      {1, 3,  3,  1,   0,   0,  0,  0, 0, 0},
+      {1, 4,  6,  4,   1,   0,  0,  0, 0, 0},
+      {1, 5, 10, 10,   5,   1,  0,  0, 0, 0},
+      {1, 6, 15, 20,  15,   6,  1,  0, 0, 0},
+      {1, 7, 21, 35,  35,  21,  7,  1, 0, 0},
+      {1, 8, 28, 56,  70,  56, 28,  8, 1, 0},
+      {1, 9, 36, 84, 126, 126, 84, 36, 9, 1}
+   };
+   size_t **r = create_triangle(10);
+   TEST_ASSERT_TRUE(check(10, expected, r));
+   free_triangle(r, 10);
 }
 
 int main(void)
 {
    UnityBegin("test/test_pascals_triangle.c");
+
    RUN_TEST(test_no_rows);
    RUN_TEST(test_single_row);
    RUN_TEST(test_two_rows);
    RUN_TEST(test_three_rows);
    RUN_TEST(test_four_rows);
-   RUN_TEST(test_negative_rows);
+   RUN_TEST(test_five_rows);
+   RUN_TEST(test_six_rows);
+   RUN_TEST(test_ten_rows);
+
    return UnityEnd();
 }
