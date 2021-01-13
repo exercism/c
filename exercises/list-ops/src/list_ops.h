@@ -18,7 +18,7 @@ list_t *new_list(size_t length, list_element_t elements[]);
 list_t *append_list(list_t * list1, list_t * list2);
 
 // filter list returning only values that satisfy the filter function
-list_t *filter_list(list_t * list, bool (*filter)(list_element_t));
+list_t *filter_list(list_t * list, bool(*filter) (list_element_t));
 
 // returns the length of the list
 size_t length_list(list_t * list);
