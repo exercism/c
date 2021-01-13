@@ -1,19 +1,19 @@
 [canonical-tests]
 
 # queen with a valid position
-#"3ac4f735-d36c-44c4-a3e2-316f79704203" = true
+"3ac4f735-d36c-44c4-a3e2-316f79704203" = false
 
 # queen must have positive row
-#"4e812d5d-b974-4e38-9a6b-8e0492bfa7be" = true
+"4e812d5d-b974-4e38-9a6b-8e0492bfa7be" = false
 
 # queen must have row on board
-#"f07b7536-b66b-4f08-beb9-4d70d891d5c8" = true
+"f07b7536-b66b-4f08-beb9-4d70d891d5c8" = false
 
 # queen must have positive column
-#"15a10794-36d9-4907-ae6b-e5a0d4c54ebe" = true
+"15a10794-36d9-4907-ae6b-e5a0d4c54ebe" = false
 
 # queen must have column on board
-#"6907762d-0e8a-4c38-87fb-12f2f65f0ce4" = true
+"6907762d-0e8a-4c38-87fb-12f2f65f0ce4" = false
 
 # can not attack
 "33ae4113-d237-42ee-bac1-e1e699c0c007" = true
