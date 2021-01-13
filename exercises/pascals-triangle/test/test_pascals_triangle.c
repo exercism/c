@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-static bool check(size_t count, size_t expected[][count], size_t ** result)
+static bool check(size_t count, size_t expected[][count], size_t **result)
 {
    size_t i, j;
    for (i = 0; i < count; i++) {

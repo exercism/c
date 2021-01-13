@@ -1,6 +1,6 @@
 #include "pascals_triangle.h"
 
-void free_triangle(size_t ** mem_block, size_t n)
+void free_triangle(size_t **mem_block, size_t n)
 {
    for (size_t i = 0; i < n; i++) {
       free(mem_block[i]);
