@@ -24,7 +24,7 @@ static void test_invalid_if_on_same_position(void)
 
 static void test_white_queen_must_have_row_on_board(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();               // delete this line to run test
    position_t white_queen;
    position_t black_queen;
 
@@ -168,10 +168,10 @@ static void test_can_attack_on_fourth_diagonal(void)
    position_t white_queen;
    position_t black_queen;
 
-   white_queen.column = 2;
-   white_queen.row = 2;
-   black_queen.column = 5;
-   black_queen.row = 5;
+   white_queen.column = 7;
+   white_queen.row = 1;
+   black_queen.column = 6;
+   black_queen.row = 0;
 
    TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
