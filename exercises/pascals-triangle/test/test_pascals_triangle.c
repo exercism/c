@@ -15,6 +15,9 @@ void tearDown(void)
 static bool check_triangle(size_t count, uint8_t expected[][count],
                            uint8_t ** actual)
 {
+   if (!actual)
+      return false;
+
    for (size_t i = 0; i < count; i++)
       for (size_t j = 0; j <= i; j++)
          if (expected[i][j] != actual[i][j])
