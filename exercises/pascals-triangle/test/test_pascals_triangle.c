@@ -1,4 +1,6 @@
 #include <stdbool.h>
+#include <stdint.h>
+#include <stddef.h>
 #include "../src/pascals_triangle.h"
 #include "vendor/unity.h"
 
@@ -10,8 +12,8 @@ void tearDown(void)
 {
 }
 
-static bool check_triangle(size_t count, size_t expected[][count],
-                           size_t ** actual)
+static bool check_triangle(size_t count, uint8_t expected[][count],
+                           uint8_t ** actual)
 {
    for (size_t i = 0; i < count; i++)
       for (size_t j = 0; j <= i; j++)
@@ -23,8 +25,8 @@ static bool check_triangle(size_t count, size_t expected[][count],
 
 static void test_no_rows(void)
 {
-   size_t expected[1][1] = { {0} };
-   size_t **actual = create_triangle(0);
+   uint8_t expected[1][1] = { {0} };
+   uint8_t **actual = create_triangle(0);
    TEST_ASSERT_TRUE(check_triangle(1, expected, actual));
    free_triangle(actual, 1);
 }
@@ -32,10 +34,10 @@ static void test_no_rows(void)
 static void test_single_row(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   size_t expected[1][1] = {
+   uint8_t expected[1][1] = {
       {1}
    };
-   size_t **actual = create_triangle(1);
+   uint8_t **actual = create_triangle(1);
    TEST_ASSERT_TRUE(check_triangle(1, expected, actual));
    free_triangle(actual, 1);
 }
@@ -43,11 +45,11 @@ static void test_single_row(void)
 static void test_two_rows(void)
 {
    TEST_IGNORE();
-   size_t expected[2][2] = {
+   uint8_t expected[2][2] = {
       {1, 0},
       {1, 1}
    };
-   size_t **actual = create_triangle(2);
+   uint8_t **actual = create_triangle(2);
    TEST_ASSERT_TRUE(check_triangle(2, expected, actual));
    free_triangle(actual, 2);
 }
@@ -55,12 +57,12 @@ static void test_two_rows(void)
 static void test_three_rows(void)
 {
    TEST_IGNORE();
-   size_t expected[3][3] = {
+   uint8_t expected[3][3] = {
       {1, 0, 0},
       {1, 1, 0},
       {1, 2, 1}
    };
-   size_t **actual = create_triangle(3);
+   uint8_t **actual = create_triangle(3);
    TEST_ASSERT_TRUE(check_triangle(3, expected, actual));
    free_triangle(actual, 3);
 }
@@ -68,13 +70,13 @@ static void test_three_rows(void)
 static void test_four_rows(void)
 {
    TEST_IGNORE();
-   size_t expected[4][4] = {
+   uint8_t expected[4][4] = {
       {1, 0, 0, 0},
       {1, 1, 0, 0},
       {1, 2, 1, 0},
       {1, 3, 3, 1}
    };
-   size_t **actual = create_triangle(4);
+   uint8_t **actual = create_triangle(4);
    TEST_ASSERT_TRUE(check_triangle(4, expected, actual));
    free_triangle(actual, 4);
 }
@@ -82,14 +84,14 @@ static void test_four_rows(void)
 static void test_five_rows(void)
 {
    TEST_IGNORE();
-   size_t expected[5][5] = {
+   uint8_t expected[5][5] = {
       {1, 0, 0, 0, 0},
       {1, 1, 0, 0, 0},
       {1, 2, 1, 0, 0},
       {1, 3, 3, 1, 0},
       {1, 4, 6, 4, 1}
    };
-   size_t **actual = create_triangle(5);
+   uint8_t **actual = create_triangle(5);
    TEST_ASSERT_TRUE(check_triangle(5, expected, actual));
    free_triangle(actual, 5);
 }
@@ -97,7 +99,7 @@ static void test_five_rows(void)
 static void test_six_rows(void)
 {
    TEST_IGNORE();
-   size_t expected[6][6] = {
+   uint8_t expected[6][6] = {
       {1, 0, 0, 0, 0, 0},
       {1, 1, 0, 0, 0, 0},
       {1, 2, 1, 0, 0, 0},
@@ -105,7 +107,7 @@ static void test_six_rows(void)
       {1, 4, 6, 4, 1, 0},
       {1, 5, 10, 10, 5, 1},
    };
-   size_t **actual = create_triangle(6);
+   uint8_t **actual = create_triangle(6);
    TEST_ASSERT_TRUE(check_triangle(6, expected, actual));
    free_triangle(actual, 6);
 }
@@ -113,7 +115,7 @@ static void test_six_rows(void)
 static void test_ten_rows(void)
 {
    TEST_IGNORE();
-   size_t expected[10][10] = {
+   uint8_t expected[10][10] = {
       {1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       {1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
       {1, 2, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -125,7 +127,7 @@ static void test_ten_rows(void)
       {1, 8, 28, 56, 70, 56, 28, 8, 1, 0},
       {1, 9, 36, 84, 126, 126, 84, 36, 9, 1}
    };
-   size_t **actual = create_triangle(10);
+   uint8_t **actual = create_triangle(10);
    TEST_ASSERT_TRUE(check_triangle(10, expected, actual));
    free_triangle(actual, 10);
 }

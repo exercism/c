@@ -1,32 +1,45 @@
+#include <stdlib.h>
 #include "pascals_triangle.h"
 
-void free_triangle(size_t ** mem_block, size_t n)
+void free_triangle(uint8_t ** triangle, size_t rows)
 {
-   for (size_t i = 0; i < n; i++) {
-      free(mem_block[i]);
-   }
-   free(mem_block);
+   for (size_t i = 0; i < rows; i++)
+      free(triangle[i]);
+
+   free(triangle);
 }
 
-size_t **create_triangle(int rows)
+uint8_t **create_triangle(size_t rows)
 {
+   uint8_t **triangle;
+
    if (rows == 0) {
-      size_t **zero = calloc(1, sizeof(size_t *));
-      zero[0] = calloc(1, sizeof(size_t));
-      return zero;
-   } else if (rows < 0) {
-      return NULL;
-   }
-   size_t **result = calloc(rows, sizeof(size_t *));
-   for (int i = 0; i < rows; i++) {
-      result[i] = calloc(rows, sizeof(size_t));
-   }
-   result[0][0] = 1;
-   for (int i = 1; i < rows; ++i) {
-      result[i][0] = 1;
-      for (int j = 1; j <= i; ++j) {
-         result[i][j] = result[i - 1][j] + result[i - 1][j - 1];
+      if (!(triangle = calloc(1, sizeof(uint8_t *))))
+         return NULL;
+
+      if (!(triangle[0] = calloc(1, sizeof(uint8_t)))) {
+         free(triangle);
+         return NULL;
+      }
+
+   } else {
+      if (!(triangle = calloc(rows, sizeof(uint8_t *))))
+         return NULL;
+
+      for (size_t i = 0; i < rows; i++) {
+         if (!(triangle[i] = calloc(rows, sizeof(uint8_t)))) {
+            free_triangle(triangle, i);
+            return NULL;
+         }
+      }
+
+      triangle[0][0] = 1;
+      for (size_t i = 1; i < rows; ++i) {
+         triangle[i][0] = 1;
+         for (size_t j = 1; j <= i; ++j) {
+            triangle[i][j] = triangle[i - 1][j] + triangle[i - 1][j - 1];
+         }
       }
    }
-   return result;
+   return triangle;
 }
