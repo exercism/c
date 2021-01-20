@@ -2,23 +2,23 @@
 #include <string.h>
 #include <stdlib.h>
 
-char *encode(char *text, size_t rails)
+char *encode(char *msg, size_t rails)
 {
-   size_t length = strlen(text);
+   size_t length = strlen(msg);
    char *ciphertext = (char *)calloc(length + 1, sizeof(char));
    size_t cell_size = 2 * rails - 2;
    if (cell_size == 0) {
-      strcpy(ciphertext, text);
+      strcpy(ciphertext, msg);
       return ciphertext;
    }
    size_t j = 0;
    for (size_t rail = 0; rail < rails; rail++) {
       for (size_t i = 0; i < length; i += cell_size) {
          if (i + rail < length)
-            ciphertext[j++] = text[i + rail];
+            ciphertext[j++] = msg[i + rail];
          if (rail > 0 && rail < rails - 1) {
             if (i + rails + rail < length)
-               ciphertext[j++] = text[i + cell_size - rail];
+               ciphertext[j++] = msg[i + cell_size - rail];
          }
       }
    }
