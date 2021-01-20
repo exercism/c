@@ -56,12 +56,6 @@ struct cbinfo {
    int times_called;
 };
 
-// static void cb_noop(void *obj, int v)
-// {
-//    (void)obj;
-//    (void)v;
-// }
-
 static void cb_spy(void *obj, int v)
 {
    struct cbinfo *cbinfo = (struct cbinfo *)obj;
