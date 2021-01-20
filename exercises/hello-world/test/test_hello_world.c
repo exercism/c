@@ -29,7 +29,7 @@ int main(void)
 {
    UnityBegin("test/test_hello_world.c");
 
-   RUN_TEST(test_hello);
+   RUN_TEST(test_say_hi);
 
    return UnityEnd();
 }
