@@ -49,9 +49,8 @@ static void test_the_sound_for_6_is_pling_as_it_has_a_factor_3(void)
 }
 
 static void
-test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base
-(void)
-{
+    test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base
+    (void) {
    TEST_IGNORE();
    check_convert_drops(8, "8");
 }
