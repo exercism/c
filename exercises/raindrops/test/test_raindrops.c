@@ -12,128 +12,140 @@ void tearDown(void)
 {
 }
 
-static void convert_drops(int drops, char *expected)
+static void check_convert_drops(int drops, char *expected)
 {
-   char result[BUFFER_LENGTH] = { 0 };
-   convert(result, drops);
-   TEST_ASSERT_EQUAL_STRING(expected, result);
+   char actual[BUFFER_LENGTH] = { 0 };
+   convert(actual, drops);
+   TEST_ASSERT_EQUAL_STRING(expected, actual);
 }
 
-static void test_one_yields_itself(void)
+static void test_the_sound_for_1_is_1(void)
 {
-   convert_drops(1, "1");
+   check_convert_drops(1, "1");
 }
 
-static void test_three_yields_pling(void)
+static void test_the_sound_for_3_is_pling(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   convert_drops(3, "Pling");
+   check_convert_drops(3, "Pling");
 }
 
-static void test_five_yields_plang(void)
+static void test_the_sound_for_5_is_plang(void)
 {
    TEST_IGNORE();
-   convert_drops(5, "Plang");
+   check_convert_drops(5, "Plang");
 }
 
-static void test_seven_yields_plong(void)
+static void test_the_sound_for_7_is_plong(void)
 {
    TEST_IGNORE();
-   convert_drops(7, "Plong");
+   check_convert_drops(7, "Plong");
 }
 
-static void test_six_yields_pling(void)
+static void test_the_sound_for_6_is_pling_as_it_has_a_factor_3(void)
 {
    TEST_IGNORE();
-   convert_drops(6, "Pling");
+   check_convert_drops(6, "Pling");
 }
 
-static void test_nine_yields_pling(void)
+static void
+test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base
+(void)
 {
    TEST_IGNORE();
-   convert_drops(9, "Pling");
+   check_convert_drops(8, "8");
 }
 
-static void test_ten_yields_plang(void)
+static void test_the_sound_for_9_is_pling_as_it_has_a_factor_3(void)
 {
    TEST_IGNORE();
-   convert_drops(10, "Plang");
+   check_convert_drops(9, "Pling");
 }
 
-static void test_fourteen_yields_plong(void)
+static void test_the_sound_for_10_is_plang_as_it_has_a_factor_5(void)
 {
    TEST_IGNORE();
-   convert_drops(14, "Plong");
+   check_convert_drops(10, "Plang");
 }
 
-static void test_fifteen_yields_plingplang(void)
+static void test_the_sound_for_14_is_plong_as_it_has_a_factor_7(void)
 {
    TEST_IGNORE();
-   convert_drops(15, "PlingPlang");
+   check_convert_drops(14, "Plong");
 }
 
-static void test_twenty_one_yields_plingplong(void)
+static void test_the_sound_for_15_is_plingplang_as_it_has_factors_3_and_5(void)
 {
    TEST_IGNORE();
-   convert_drops(21, "PlingPlong");
+   check_convert_drops(15, "PlingPlang");
 }
 
-static void test_twenty_five_yields_plang(void)
+static void test_the_sound_for_21_is_plingplong_as_it_has_factors_3_and_7(void)
 {
    TEST_IGNORE();
-   convert_drops(25, "Plang");
+   check_convert_drops(21, "PlingPlong");
 }
 
-static void test_thirty_five_yields_plangplong(void)
+static void test_the_sound_for_25_is_plingplang_as_it_has_a_factor_5(void)
 {
    TEST_IGNORE();
-   convert_drops(35, "PlangPlong");
+   check_convert_drops(25, "Plang");
 }
 
-static void test_forty_nine_yields_plong(void)
+static void test_the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7(void)
 {
    TEST_IGNORE();
-   convert_drops(49, "Plong");
+   check_convert_drops(35, "PlangPlong");
 }
 
-static void test_fifty_two_yields_itself(void)
+static void test_the_sound_for_49_is_plong_as_it_has_a_factor_7(void)
 {
    TEST_IGNORE();
-   convert_drops(52, "52");
+   check_convert_drops(49, "Plong");
 }
 
-static void test_one_hundred_five_yields_plingplangplong(void)
+static void test_the_sound_for_52_is_52(void)
 {
    TEST_IGNORE();
-   convert_drops(105, "PlingPlangPlong");
+   check_convert_drops(52, "52");
 }
 
-static void test_big_prime_yields_itself(void)
+static void
+test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7(void)
 {
    TEST_IGNORE();
-   convert_drops(12121, "12121");
+   check_convert_drops(105, "PlingPlangPlong");
+}
+
+static void test_the_sound_for_3125_is_plang_as_it_has_a_factor_5(void)
+{
+   TEST_IGNORE();
+   check_convert_drops(3125, "Plang");
 }
 
 int main(void)
 {
    UnityBegin("test/test_raindrops.c");
 
-   RUN_TEST(test_one_yields_itself);
-   RUN_TEST(test_three_yields_pling);
-   RUN_TEST(test_five_yields_plang);
-   RUN_TEST(test_seven_yields_plong);
-   RUN_TEST(test_six_yields_pling);
-   RUN_TEST(test_nine_yields_pling);
-   RUN_TEST(test_ten_yields_plang);
-   RUN_TEST(test_fourteen_yields_plong);
-   RUN_TEST(test_fifteen_yields_plingplang);
-   RUN_TEST(test_twenty_one_yields_plingplong);
-   RUN_TEST(test_twenty_five_yields_plang);
-   RUN_TEST(test_thirty_five_yields_plangplong);
-   RUN_TEST(test_forty_nine_yields_plong);
-   RUN_TEST(test_fifty_two_yields_itself);
-   RUN_TEST(test_one_hundred_five_yields_plingplangplong);
-   RUN_TEST(test_big_prime_yields_itself);
+   RUN_TEST(test_the_sound_for_1_is_1);
+   RUN_TEST(test_the_sound_for_3_is_pling);
+   RUN_TEST(test_the_sound_for_5_is_plang);
+   RUN_TEST(test_the_sound_for_7_is_plong);
+   RUN_TEST(test_the_sound_for_6_is_pling_as_it_has_a_factor_3);
+   RUN_TEST
+       (test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base);
+   RUN_TEST(test_the_sound_for_9_is_pling_as_it_has_a_factor_3);
+   RUN_TEST(test_the_sound_for_10_is_plang_as_it_has_a_factor_5);
+   RUN_TEST(test_the_sound_for_14_is_plong_as_it_has_a_factor_7);
+   RUN_TEST(test_the_sound_for_15_is_plingplang_as_it_has_factors_3_and_5);
+   RUN_TEST(test_the_sound_for_21_is_plingplong_as_it_has_factors_3_and_7);
+   RUN_TEST(test_the_sound_for_25_is_plingplang_as_it_has_a_factor_5);
+   RUN_TEST(test_the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7);
+   RUN_TEST(test_the_sound_for_49_is_plong_as_it_has_a_factor_7);
+   RUN_TEST(test_the_sound_for_52_is_52);
+   RUN_TEST
+       (test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7);
+   RUN_TEST(test_the_sound_for_3125_is_plang_as_it_has_a_factor_5);
 
    return UnityEnd();
 }
