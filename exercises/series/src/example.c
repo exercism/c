@@ -4,10 +4,10 @@
 
 #include "series.h"
 
-series_results_t series(char *input_text, unsigned int substring_length)
+slices_t slices(char *input_text, unsigned int substring_length)
 {
    int substring_count = strlen(input_text) - (substring_length - 1);
-   series_results_t results;
+   slices_t results;
 
    memset(&results, 0, sizeof(results));
    if ((substring_count > 0) && (substring_length > 0)) {
