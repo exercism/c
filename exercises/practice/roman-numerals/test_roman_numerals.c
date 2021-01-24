@@ -10,149 +10,151 @@ void tearDown(void)
 {
 }
 
-static void test_conversion(int number, char *expected)
+static void check_conversion(int number, char *expected)
 {
    char *result = to_roman_numeral(number);
    TEST_ASSERT_EQUAL_STRING(expected, result);
    free(result);
 }
 
-static void test_one_yields_I(void)
+static void test_1_is_a_single_I(void)
 {
-   test_conversion(1, "I");
+   check_conversion(1, "I");
 }
 
-static void test_two_yields_II(void)
+static void test_2_is_two_Is(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   test_conversion(2, "II");
+   check_conversion(2, "II");
 }
 
-static void test_three_yields_III(void)
+static void test_3_is_three_Is(void)
 {
    TEST_IGNORE();
-   test_conversion(3, "III");
+   check_conversion(3, "III");
 }
 
-static void test_four_yields_IV(void)
+static void test_4_being_5_minus_1_is_IV(void)
 {
    TEST_IGNORE();
-   test_conversion(4, "IV");
+   check_conversion(4, "IV");
 }
 
-static void test_five_yields_V(void)
+static void test_5_is_a_single_V(void)
 {
    TEST_IGNORE();
-   test_conversion(5, "V");
+   check_conversion(5, "V");
 }
 
-static void test_six_yields_VI(void)
+static void test_6_being_5_plus_1_is_VI(void)
 {
    TEST_IGNORE();
-   test_conversion(6, "VI");
+   check_conversion(6, "VI");
 }
 
-static void test_nine_yields_IX(void)
+static void test_nine_being_10_minus_1_is_IX(void)
 {
    TEST_IGNORE();
-   test_conversion(9, "IX");
+   check_conversion(9, "IX");
 }
 
-static void test_twenty_seven_yields_XXVII(void)
+static void test_20_is_two_XXs(void)
 {
    TEST_IGNORE();
-   test_conversion(27, "XXVII");
+   check_conversion(20, "XX");
 }
 
-static void test_forty_eight_yields_XLVIII(void)
+static void test_48_is_not_50_minus_2_but_rather_40_plus_8(void)
 {
    TEST_IGNORE();
-   test_conversion(48, "XLVIII");
+   check_conversion(48, "XLVIII");
 }
 
-static void test_forty_nine_yields_XLIX(void)
+static void
+test_49_is_not_40_plus_5_plus_4_but_rather_50_minus_10_plus_10_minus_1(void)
 {
    TEST_IGNORE();
-   test_conversion(49, "XLIX");
+   check_conversion(49, "XLIX");
 }
 
-static void test_fifty_nine_yields_LIX(void)
+static void test_50_is_a_single_L(void)
 {
    TEST_IGNORE();
-   test_conversion(59, "LIX");
+   check_conversion(50, "L");
 }
 
-static void test_ninety_three_yields_XCIII(void)
+static void test_90_being_100_minus_10_is_XC(void)
 {
    TEST_IGNORE();
-   test_conversion(93, "XCIII");
+   check_conversion(90, "XC");
 }
 
-static void test_one_hundred_forty_one_yields_CXLI(void)
+static void test_100_is_a_single_C(void)
 {
    TEST_IGNORE();
-   test_conversion(141, "CXLI");
+   check_conversion(100, "C");
 }
 
-static void test_one_hundred_sixty_three_yields_CLXIII(void)
+static void test_sixty_being_50_plus_10_is_LX(void)
 {
    TEST_IGNORE();
-   test_conversion(163, "CLXIII");
+   check_conversion(60, "LX");
 }
 
-static void test_four_hundred_two_yields_CDII(void)
+static void test_400_being_500_minus_100_is_CD(void)
 {
    TEST_IGNORE();
-   test_conversion(402, "CDII");
+   check_conversion(400, "CD");
 }
 
-static void test_five_hundred_seventy_five_yields_DLXXV(void)
+static void test_500_is_a_single_D(void)
 {
    TEST_IGNORE();
-   test_conversion(575, "DLXXV");
+   check_conversion(500, "D");
 }
 
-static void test_nine_hundred_eleven_yields_CMXI(void)
+static void test_900_being_1000_minus_100_is_CM(void)
 {
    TEST_IGNORE();
-   test_conversion(911, "CMXI");
+   check_conversion(900, "CM");
 }
 
-static void test_one_thousand_twenty_four_yields_MXXIV(void)
+static void test_1000_is_a_single_M(void)
 {
    TEST_IGNORE();
-   test_conversion(1024, "MXXIV");
+   check_conversion(1000, "M");
 }
 
-static void test_three_thousand_yields_MMM(void)
+static void test_3000_is_3_Ms(void)
 {
    TEST_IGNORE();
-   test_conversion(3000, "MMM");
+   check_conversion(3000, "MMM");
 }
 
 int main(void)
 {
    UnityBegin("test_roman_numerals.c");
 
-   RUN_TEST(test_one_yields_I);
-   RUN_TEST(test_two_yields_II);
-   RUN_TEST(test_three_yields_III);
-   RUN_TEST(test_four_yields_IV);
-   RUN_TEST(test_five_yields_V);
-   RUN_TEST(test_nine_yields_IX);
-   RUN_TEST(test_six_yields_VI);
-   RUN_TEST(test_twenty_seven_yields_XXVII);
-   RUN_TEST(test_forty_eight_yields_XLVIII);
-   RUN_TEST(test_forty_nine_yields_XLIX);
-   RUN_TEST(test_fifty_nine_yields_LIX);
-   RUN_TEST(test_ninety_three_yields_XCIII);
-   RUN_TEST(test_one_hundred_forty_one_yields_CXLI);
-   RUN_TEST(test_one_hundred_sixty_three_yields_CLXIII);
-   RUN_TEST(test_four_hundred_two_yields_CDII);
-   RUN_TEST(test_five_hundred_seventy_five_yields_DLXXV);
-   RUN_TEST(test_nine_hundred_eleven_yields_CMXI);
-   RUN_TEST(test_one_thousand_twenty_four_yields_MXXIV);
-   RUN_TEST(test_three_thousand_yields_MMM);
+   RUN_TEST(test_1_is_a_single_I);
+   RUN_TEST(test_2_is_two_Is);
+   RUN_TEST(test_3_is_three_Is);
+   RUN_TEST(test_4_being_5_minus_1_is_IV);
+   RUN_TEST(test_5_is_a_single_V);
+   RUN_TEST(test_6_being_5_plus_1_is_VI);
+   RUN_TEST(test_nine_being_10_minus_1_is_IX);
+   RUN_TEST(test_20_is_two_XXs);
+   RUN_TEST(test_48_is_not_50_minus_2_but_rather_40_plus_8);
+   RUN_TEST
+       (test_49_is_not_40_plus_5_plus_4_but_rather_50_minus_10_plus_10_minus_1);
+   RUN_TEST(test_50_is_a_single_L);
+   RUN_TEST(test_90_being_100_minus_10_is_XC);
+   RUN_TEST(test_100_is_a_single_C);
+   RUN_TEST(test_sixty_being_50_plus_10_is_LX);
+   RUN_TEST(test_400_being_500_minus_100_is_CD);
+   RUN_TEST(test_500_is_a_single_D);
+   RUN_TEST(test_900_being_1000_minus_100_is_CM);
+   RUN_TEST(test_1000_is_a_single_M);
+   RUN_TEST(test_3000_is_3_Ms);
 
    return UnityEnd();
 }

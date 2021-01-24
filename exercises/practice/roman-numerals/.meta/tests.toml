@@ -22,7 +22,7 @@
 "ff3fb08c-4917-4aab-9f4e-d663491d083d" = true
 
 # 20 is two X's
-#"2bda64ca-7d28-4c56-b08d-16ce65716cf6" = true
+"2bda64ca-7d28-4c56-b08d-16ce65716cf6" = false
 
 # 48 is not 50 - 2 but rather 40 + 8
 "a1f812ef-84da-4e02-b4f0-89c907d0962c" = true
@@ -31,28 +31,28 @@
 "607ead62-23d6-4c11-a396-ef821e2e5f75" = true
 
 # 50 is a single L
-#"d5b283d4-455d-4e68-aacf-add6c4b51915" = true
+"d5b283d4-455d-4e68-aacf-add6c4b51915" = false
 
 # 90, being 100 - 10, is XC
-#"46b46e5b-24da-4180-bfe2-2ef30b39d0d0" = true
+"46b46e5b-24da-4180-bfe2-2ef30b39d0d0" = false
 
 # 100 is a single C
-#"30494be1-9afb-4f84-9d71-db9df18b55e3" = true
+"30494be1-9afb-4f84-9d71-db9df18b55e3" = false
 
 # 60, being 50 + 10, is LX
-#"267f0207-3c55-459a-b81d-67cec7a46ed9" = true
+"267f0207-3c55-459a-b81d-67cec7a46ed9" = false
 
 # 400, being 500 - 100, is CD
-#"cdb06885-4485-4d71-8bfb-c9d0f496b404" = true
+"cdb06885-4485-4d71-8bfb-c9d0f496b404" = false
 
 # 500 is a single D
-#"6b71841d-13b2-46b4-ba97-dec28133ea80" = true
+"6b71841d-13b2-46b4-ba97-dec28133ea80" = false
 
 # 900, being 1000 - 100, is CM
-#"432de891-7fd6-4748-a7f6-156082eeca2f" = true
+"432de891-7fd6-4748-a7f6-156082eeca2f" = false
 
 # 1000 is a single M
-#"e6de6d24-f668-41c0-88d7-889c0254d173" = true
+"e6de6d24-f668-41c0-88d7-889c0254d173" = false
 
 # 3000 is three M's
 "bb550038-d4eb-4be2-a9ce-f21961ac3bc6" = true
