@@ -85,7 +85,8 @@ static void test_slices_of_a_long_series(void)
    TEST_IGNORE();
    char *substrings[] =
        { "91849", "18493", "84939", "49390", "93904", "39042", "90424",
-"04243" };
+      "04243"
+   };
    slices_t expected = { 8, &substrings[0] };
    slices_t actual = slices("918493904243", 5);
 
