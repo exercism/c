@@ -9,8 +9,7 @@ void tearDown(void)
 {
 }
 
-static void check_position(robot_status_t expected,
-                           robot_status_t actual)
+static void check_position(robot_status_t expected, robot_status_t actual)
 {
    TEST_ASSERT_EQUAL(expected.direction, actual.direction);
    TEST_ASSERT_EQUAL(expected.position.x, actual.position.x);
