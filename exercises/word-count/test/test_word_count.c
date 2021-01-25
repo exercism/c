@@ -51,7 +51,7 @@ static void test_count_one_word(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "word", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -79,7 +79,7 @@ static void test_count_one_of_each_word(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "each", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -112,7 +112,7 @@ static void test_multiple_occurrences_of_a_word(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "blue", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -139,7 +139,7 @@ static void test_handles_cramped_lists(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "three", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -166,7 +166,7 @@ static void test_handles_expanded_lists(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "three", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -199,7 +199,7 @@ static void test_ignore_punctuation(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "javascript", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -226,7 +226,7 @@ static void test_include_numbers(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "2", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -250,7 +250,7 @@ static void test_normalize_case(void)
    expected_solution[index].count = 2;
    strncpy(expected_solution[index++].text, "stop", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -283,7 +283,7 @@ static void test_with_apostrophes(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "cry", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -319,7 +319,7 @@ static void test_with_quotations(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "and", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -361,7 +361,7 @@ static void test_substrings_from_the_beginning(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "a", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -386,7 +386,7 @@ static void test_multiple_spaces_not_detected_as_a_word(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "whitespaces", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
@@ -414,7 +414,7 @@ static void test_alternating_word_separators_not_detected_as_a_word(void)
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "three", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   actual_word_count = count_words(input_text, actual_solution);
 
    check_solution(expected_solution,
                   expected_word_count, actual_solution, actual_word_count);
