@@ -1,33 +1,35 @@
 #include "triangle.h"
 
-static bool triangle_equality(triangle_t input)
+#include <stdbool.h>
+
+static bool triangle_equality(triangle_t sides)
 {
-   return (input.a < (input.b + input.c)
-           && input.b < (input.a + input.c)
-           && input.c < (input.a + input.b)
+   return (sides.a < (sides.b + sides.c)
+           && sides.b < (sides.a + sides.c)
+           && sides.c < (sides.a + sides.b)
        );
 }
 
-bool is_equilateral(triangle_t input)
+bool is_equilateral(triangle_t sides)
 {
-   return (triangle_equality(input)
-           && (input.a == input.b)
-           && (input.b == input.c)
+   return (triangle_equality(sides)
+           && (sides.a == sides.b)
+           && (sides.b == sides.c)
        );
 }
 
-bool is_isosceles(triangle_t input)
+bool is_isosceles(triangle_t sides)
 {
-   return (triangle_equality(input) && ((input.a == input.b)
-                                        || (input.b == input.c)
-                                        || (input.a == input.c))
+   return (triangle_equality(sides) && ((sides.a == sides.b)
+                                        || (sides.b == sides.c)
+                                        || (sides.a == sides.c))
        );
 }
 
-bool is_scalene(triangle_t input)
+bool is_scalene(triangle_t sides)
 {
-   return (!(is_equilateral(input))
-           && !(is_isosceles(input))
-           && triangle_equality(input)
+   return (!(is_equilateral(sides))
+           && !(is_isosceles(sides))
+           && triangle_equality(sides)
        );
 }
