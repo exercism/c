@@ -3,8 +3,7 @@
 
 #include <stddef.h>
 
-unsigned int sum_of_multiples(const unsigned int *multiples,
-                              const size_t number_of_multiples,
-                              const unsigned int up_to);
+unsigned int sum(const unsigned int *factors,
+                 const size_t number_of_factors, const unsigned int limit);
 
 #endif
