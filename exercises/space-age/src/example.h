@@ -14,6 +14,6 @@ typedef enum planet {
    NEPTUNE,
 } planet_t;
 
-float convert_planet_age(planet_t planet, int64_t input);
+float age(planet_t planet, int64_t seconds);
 
 #endif

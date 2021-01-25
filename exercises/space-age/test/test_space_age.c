@@ -11,49 +11,49 @@ void tearDown(void)
 
 static void test_age_on_earth(void)
 {
-   TEST_ASSERT_FLOAT_WITHIN(1, 31.69, convert_planet_age(EARTH, 1000000000));
+   TEST_ASSERT_FLOAT_WITHIN(1, 31.69, age(EARTH, 1000000000));
 }
 
 static void test_age_on_mercury(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   TEST_ASSERT_FLOAT_WITHIN(3, 280.88, convert_planet_age(MERCURY, 2134835688));
+   TEST_ASSERT_FLOAT_WITHIN(3, 280.88, age(MERCURY, 2134835688));
 }
 
 static void test_age_on_venus(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FLOAT_WITHIN(1, 9.78, convert_planet_age(VENUS, 189839836));
+   TEST_ASSERT_FLOAT_WITHIN(1, 9.78, age(VENUS, 189839836));
 }
 
 static void test_age_on_mars(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FLOAT_WITHIN(1, 35.88, convert_planet_age(MARS, 2129871239));
+   TEST_ASSERT_FLOAT_WITHIN(1, 35.88, age(MARS, 2129871239));
 }
 
 static void test_age_on_jupiter(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FLOAT_WITHIN(0.1, 2.41, convert_planet_age(JUPITER, 901876382));
+   TEST_ASSERT_FLOAT_WITHIN(0.1, 2.41, age(JUPITER, 901876382));
 }
 
 static void test_age_on_saturn(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FLOAT_WITHIN(0.1, 2.15, convert_planet_age(SATURN, 2000000000));
+   TEST_ASSERT_FLOAT_WITHIN(0.1, 2.15, age(SATURN, 2000000000));
 }
 
 static void test_age_on_uranus(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FLOAT_WITHIN(0.1, 0.46, convert_planet_age(URANUS, 1210123456));
+   TEST_ASSERT_FLOAT_WITHIN(0.1, 0.46, age(URANUS, 1210123456));
 }
 
 static void test_age_on_neptune(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FLOAT_WITHIN(0.1, 0.35, convert_planet_age(NEPTUNE, 1821023456));
+   TEST_ASSERT_FLOAT_WITHIN(0.1, 0.35, age(NEPTUNE, 1821023456));
 }
 
 int main(void)
