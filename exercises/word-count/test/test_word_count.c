@@ -36,7 +36,7 @@ static void check_solution(word_count_word_t * expected_solution,
 }
 
 // Tests Start here
-static void test_word_count_one_word(void)
+static void test_count_one_word(void)
 {
    int index = 0;
    int actual_word_count;
@@ -57,7 +57,7 @@ static void test_word_count_one_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_one_of_each_word(void)
+static void test_count_one_of_each_word(void)
 {
    TEST_IGNORE();               // delete this line to run test
    int index = 0;
@@ -85,7 +85,7 @@ static void test_word_count_one_of_each_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_multiple_occurrences_of_a_word(void)
+static void test_multiple_occurrences_of_a_word(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -118,7 +118,7 @@ static void test_word_count_multiple_occurrences_of_a_word(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_handles_cramped_lists(void)
+static void test_handles_cramped_lists(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -145,7 +145,7 @@ static void test_word_count_handles_cramped_lists(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_handles_expanded_lists(void)
+static void test_handles_expanded_lists(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -172,7 +172,7 @@ static void test_word_count_handles_expanded_lists(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_ignore_punctuation(void)
+static void test_ignore_punctuation(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -205,7 +205,7 @@ static void test_word_count_ignore_punctuation(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_include_numbers(void)
+static void test_include_numbers(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -232,7 +232,7 @@ static void test_word_count_include_numbers(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_normalize_case(void)
+static void test_normalize_case(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -256,7 +256,7 @@ static void test_word_count_normalize_case(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_with_apostrophes(void)
+static void test_with_apostrophes(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -289,7 +289,7 @@ static void test_word_count_with_apostrophes(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_with_quotation(void)
+static void test_with_quotations(void)
 {
    TEST_IGNORE();
    int index = 0;
@@ -325,166 +325,66 @@ static void test_word_count_with_quotation(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_word_count_from_example(void)
+static void test_substrings_from_the_beginning(void)
 {
    TEST_IGNORE();
    int index = 0;
    int actual_word_count;
-   char *input_text = "olly olly in come free";
-   const int expected_word_count = 4;
+   char *input_text = "Joe can't tell between app, apple and a.";
+   const int expected_word_count = 8;
 
    // build the expected solution
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
-   expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "olly", STRING_SIZE);
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "joe", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "in", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "can't", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "come", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "tell", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "free", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "between", STRING_SIZE);
 
-   actual_word_count = word_count(input_text, actual_solution);
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "app", STRING_SIZE);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
-}
-
-static void test_max_length_word(void)
-{
-   TEST_IGNORE();
-   int actual_word_count;
-   int index = 0;
-   char *input_text =
-       "Look thisisaveeeeeerylongwordtypedwithoutusinganyspaces and look again, thisisaveeeeeerylongwordtypedwithoutusinganyspaces";
-
-   const int expected_word_count = 4;
-
-   // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
-   memset(actual_solution, 0, sizeof(actual_solution));
-
-   expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text, "look", STRING_SIZE);
-
-   expected_solution[index].count = 2;
-   strncpy(expected_solution[index++].text,
-           "thisisaveeeeeerylongwordtypedwithoutusinganyspaces", STRING_SIZE);
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "apple", STRING_SIZE);
 
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "and", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "again", STRING_SIZE);
-
-   actual_word_count = word_count(input_text, actual_solution);
-
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
-}
-
-static void test_excessive_length_word(void)
-{
-   TEST_IGNORE();
-   int actual_word_count;
-   int index = 0;
-   char *input_text =
-       "Look thisisanexcessivelylongwordthatsomeonetypedwithoutusingthespacebar enough";
-
-   const int expected_word_count = EXCESSIVE_LENGTH_WORD;
-   word_count_word_t expected_solution[MAX_WORDS];
-
-   // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
-   memset(actual_solution, 0, sizeof(actual_solution));
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "look", STRING_SIZE);
-
-   actual_word_count = word_count(input_text, actual_solution);
-
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
-}
-
-static void test_max_number_words(void)
-{
-   TEST_IGNORE();
-   int actual_word_count;
-   int index = 0;
-   char *input_text =
-       "Once upon a time, a long while in the past, there lived a strange little man who could spin straw into gold";
-
-   const int expected_word_count = 20;
-
-   // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
-   memset(actual_solution, 0, sizeof(actual_solution));
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "once", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "upon", STRING_SIZE);
-
-   expected_solution[index].count = 3;
    strncpy(expected_solution[index++].text, "a", STRING_SIZE);
 
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "time", STRING_SIZE);
+   actual_word_count = word_count(input_text, actual_solution);
+
+   check_solution(expected_solution,
+                  expected_word_count, actual_solution, actual_word_count);
+}
+
+static void test_multiple_spaces_not_detected_as_a_word(void)
+{
+   TEST_IGNORE();
+   int actual_word_count;
+   int index = 0;
+   char *input_text = " multiple   whitespaces";
+
+   const int expected_word_count = 2;
+
+   // build the expected solution
+   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "long", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "multiple", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "while", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "in", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "the", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "past", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "there", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "lived", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "strange", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "little", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "man", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "who", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "could", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "spin", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "straw", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "into", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "gold", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "whitespaces", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -492,82 +392,27 @@ static void test_max_number_words(void)
                   expected_word_count, actual_solution, actual_word_count);
 }
 
-static void test_excessive_number_words(void)
+static void test_alternating_word_separators_not_detected_as_a_word(void)
 {
    TEST_IGNORE();
    int actual_word_count;
    int index = 0;
-   char *input_text =
-       "Once upon a time, a long while in the past, there lived a strange little man who could spin straw into pure gold.";
+   char *input_text = ",\n,one,\n ,two \n 'three'";
 
-   const int expected_word_count = EXCESSIVE_NUMBER_OF_WORDS;
+   const int expected_word_count = 3;
 
    // build the expected solution
    memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "once", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "one", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "upon", STRING_SIZE);
-
-   expected_solution[index].count = 3;
-   strncpy(expected_solution[index++].text, "a", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "two", STRING_SIZE);
 
    expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "time", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "long", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "while", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "in", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "the", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "past", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "there", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "lived", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "strange", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "little", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "man", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "who", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "could", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "spin", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "straw", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "into", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "pure", STRING_SIZE);
-
-   expected_solution[index].count = 1;
-   strncpy(expected_solution[index++].text, "gold", STRING_SIZE);
+   strncpy(expected_solution[index++].text, "three", STRING_SIZE);
 
    actual_word_count = word_count(input_text, actual_solution);
 
@@ -579,21 +424,19 @@ int main(void)
 {
    UnityBegin("test/test_word_count.c");
 
-   RUN_TEST(test_word_count_one_word);
-   RUN_TEST(test_word_count_one_of_each_word);
-   RUN_TEST(test_word_count_multiple_occurrences_of_a_word);
-   RUN_TEST(test_word_count_handles_cramped_lists);
-   RUN_TEST(test_word_count_handles_expanded_lists);
-   RUN_TEST(test_word_count_ignore_punctuation);
-   RUN_TEST(test_word_count_include_numbers);
-   RUN_TEST(test_word_count_normalize_case);
-   RUN_TEST(test_word_count_with_apostrophes);
-   RUN_TEST(test_word_count_with_quotation);
-   RUN_TEST(test_word_count_from_example);
-   RUN_TEST(test_max_length_word);
-   RUN_TEST(test_excessive_length_word);
-   RUN_TEST(test_max_number_words);
-   RUN_TEST(test_excessive_number_words);
+   RUN_TEST(test_count_one_word);
+   RUN_TEST(test_count_one_of_each_word);
+   RUN_TEST(test_multiple_occurrences_of_a_word);
+   RUN_TEST(test_handles_cramped_lists);
+   RUN_TEST(test_handles_expanded_lists);
+   RUN_TEST(test_ignore_punctuation);
+   RUN_TEST(test_include_numbers);
+   RUN_TEST(test_normalize_case);
+   RUN_TEST(test_with_apostrophes);
+   RUN_TEST(test_with_quotations);
+   RUN_TEST(test_substrings_from_the_beginning);
+   RUN_TEST(test_multiple_spaces_not_detected_as_a_word);
+   RUN_TEST(test_alternating_word_separators_not_detected_as_a_word);
 
    return UnityEnd();
 }
