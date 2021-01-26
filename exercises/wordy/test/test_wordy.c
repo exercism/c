@@ -227,7 +227,7 @@ static void test_reject_two_numbers_in_a_row(void)
    TEST_ASSERT_FALSE(success);
 }
 
-static void test_reject_postix_notation(void)
+static void test_reject_postfix_notation(void)
 {
    TEST_IGNORE();
    const char *question = "What is 1 2 plus?";
@@ -270,7 +270,7 @@ int main(void)
    RUN_TEST(test_reject_problem_with_no_operands_or_operators);
    RUN_TEST(test_reject_two_operations_in_a_row);
    RUN_TEST(test_reject_two_numbers_in_a_row);
-   RUN_TEST(test_reject_postix_notation);
+   RUN_TEST(test_reject_postfix_notation);
    RUN_TEST(test_reject_prefix_notation);
 
    return UnityEnd();
