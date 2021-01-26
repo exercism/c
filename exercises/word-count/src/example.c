@@ -20,25 +20,25 @@ static int word_match(char *testWord, int current_word_count,
    return match_index;
 }
 
-int word_count(const char *input_text, word_count_word_t * words)
+int count_words(const char *sentence, word_count_word_t * words)
 {
    int index;
    int unique_words = 0;
    char *test_word;
-   char *lower_case_input_text; // hold lowercase copy of passed text
+   char *lower_case_sentence;   // hold lowercase copy of passed text
    const char *delimiters = " ,.-\n:!!&@$%^&\"";
 
    // convert the input text to lower case
-   lower_case_input_text = malloc(strlen(input_text) + 1);
-   for (index = 0; input_text[index] != 0; index++) {
-      lower_case_input_text[index] = tolower(input_text[index]);
+   lower_case_sentence = malloc(strlen(sentence) + 1);
+   for (index = 0; sentence[index] != 0; index++) {
+      lower_case_sentence[index] = tolower(sentence[index]);
    }
-   lower_case_input_text[index] = '\0';
+   lower_case_sentence[index] = '\0';
 
    // start with known results...
    memset(words, 0, sizeof(word_count_word_t) * MAX_WORDS);
 
-   test_word = strtok(lower_case_input_text, delimiters);
+   test_word = strtok(lower_case_sentence, delimiters);
    while (test_word != NULL) {
       // account for leading/trailing single quote.
       if (('\'' == test_word[0]) && ('\'' == test_word[strlen(test_word) - 1])) {
@@ -69,6 +69,6 @@ int word_count(const char *input_text, word_count_word_t * words)
       test_word = strtok(NULL, delimiters);
    }
 
-   free(lower_case_input_text);
+   free(lower_case_sentence);
    return unique_words;
 }

@@ -13,15 +13,15 @@ typedef struct word_count_word {
 #define EXCESSIVE_LENGTH_WORD     -1
 #define EXCESSIVE_NUMBER_OF_WORDS -2
 
-// word_count - routine to classify the unique words and their frequency in a test input string
+// count_words - routine to classify the unique words and their frequency in a sentence
 // inputs:
-//    input_text =  a null-terminated string containing that is analyzed
+//    sentence =  a null-terminated string containing that is analyzed
 //
 // outputs:
 //    words = allocated structure to record the words found and their frequency
 //    uniqueWords - number of words in the words structure
 //           returns a negative number if an error.
 //           words will contain the results up to that point.
-int word_count(const char *input_text, word_count_word_t * words);
+int count_words(const char *sentence, word_count_word_t * words);
 
 #endif
