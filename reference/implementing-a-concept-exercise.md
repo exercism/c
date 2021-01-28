@@ -40,7 +40,7 @@ languages
                 ├── .meta
                 │   ├── config.json
                 │   ├── design.md
-                │   └── example.c
+                │   └── exemplar.c
                 ├── makefile
                 ├── &lt;NAME&gt;.c
                 ├── &lt;NAME&gt;.h
@@ -56,7 +56,7 @@ The code files are track-specific and should be designed to help the student lea
 - `<NAME>{.c|.h}`: the stub source and header implementation files, which are the starting point for students to work on the exercise.
 - `test_<NAME>.c`: the unit test source file.
 - `test-framework`: this directory contains the source files of unit test framework, [Unity][unity]
-- `.meta/example{.c|.h}`: an example implementation that passes all the unit tests.
+- `.meta/exemplar{.c|.h}`: an exemplar implementation that passes all the unit tests.
 
 ## Step 2: Add documentation files
 
