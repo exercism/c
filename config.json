@@ -1,5 +1,6 @@
 {
   "language": "C",
+  "slug": "c",
   "active": true,
   "status": {
     "concept_exercises": false,
