@@ -1,898 +1,908 @@
 {
   "language": "C",
+  "slug": "c",
   "active": true,
+  "status": {
+    "concept_exercises": false,
+    "test_runner": false,
+    "representer": false,
+    "analyzer": false
+  },
   "blurb": "C is a small, general-purpose, imperative programming language with a static type system, scopes, and structures. It's typically used as an alternative to assembly programming, such as in operating systems.",
+  "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 4
+  },
   "test_pattern": "test/test_.*[.]c",
-  "exercises": [
-    {
-      "slug": "hello-world",
-      "uuid": "ee307061-5bc2-439c-8815-abd730aedc2d",
-      "core": true,
-      "auto_approve": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "strings"
-      ]
-    },
-    {
-      "slug": "armstrong-numbers",
-      "uuid": "a4658ee9-b71c-4764-9652-7ed83d46516b",
-      "core": true,
-      "auto_approve": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "logic",
-        "math"
-      ]
-    },
-    {
-      "slug": "darts",
-      "uuid": "a579e471-86f3-4f29-82ca-e984a2cc8891",
-      "core": false,
-      "auto_approve": true,
-      "unlocked_by": "armstrong-numbers",
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_else_statements",
-        "logic",
-        "math"
-      ]
-    },
-    {
-      "slug": "resistor-color",
-      "uuid": "75653d83-1a64-472c-ac43-49e87833c7f7",
-      "core": true,
-      "auto_approve": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "arrays",
-        "enums",
-        "pointers"
-      ]
-    },
-    {
-      "slug": "resistor-color-duo",
-      "uuid": "93271b2e-8ad9-4e7d-8732-5988140e8c00",
-      "core": false,
-      "auto_approve": true,
-      "unlocked_by": "resistor-color",
-      "difficulty": 1,
-      "topics": [
-        "arrays",
-        "enums"
-      ]
-    },
-    {
-      "slug": "resistor-color-trio",
-      "uuid": "6cd7bb9c-2817-4c44-8bef-5f2916b2db2d",
-      "core": false,
-      "auto_approve": true,
-      "unlocked_by": "resistor-color",
-      "difficulty": 1,
-      "topics": [
-        "arrays",
-        "enums",
-        "structs"
-      ]
-    },
-    {
-      "slug": "isogram",
-      "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "acronym",
-      "uuid": "1a8ba121-d2c4-4994-8c6b-610d8987346d",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 1,
-      "topics": [
-        "control_flow_loops",
-        "memory_management",
-        "strings"
-      ]
-    },
-    {
-      "slug": "word-count",
-      "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 3,
-      "topics": [
-        "filtering",
-        "memory_management",
-        "strings",
-        "structs"
-      ]
-    },
-    {
-      "slug": "pangram",
-      "uuid": "6311b9f8-b438-4186-88b2-1e4f55275ccb",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 3,
-      "topics": [
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "gigasecond",
-      "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 1,
-      "topics": [
-        "dates"
-      ]
-    },
-    {
-      "slug": "space-age",
-      "uuid": "fc03c7de-b0c6-4806-90bb-e9dda846e660",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 1,
-      "topics": [
-        "functions"
-      ]
-    },
-    {
-      "slug": "meetup",
-      "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
-      "core": false,
-      "unlocked_by": "hamming",
-      "difficulty": 4,
-      "topics": [
-        "control_flow_if_statements",
-        "preprocessor_x_macros_in_test",
-        "strings",
-        "structs",
-        "time_functions"
-      ]
-    },
-    {
-      "slug": "hamming",
-      "uuid": "fa5e6bbb-2eaf-484f-a5c5-de5cb2a9175b",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "arrays",
-        "control_flow_loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "rna-transcription",
-      "uuid": "d12fea98-bf4e-476d-a91c-799fc98a1690",
-      "core": false,
-      "unlocked_by": "hamming",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_case_statements",
-        "control_flow_loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "nucleotide-count",
-      "uuid": "38669990-e1e6-4486-a603-575a135d1f5c",
-      "core": false,
-      "unlocked_by": "hamming",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_loops_switch_if_statements",
-        "memory_management",
-        "strings",
-        "text_formatting"
-      ]
-    },
-    {
-      "slug": "grains",
-      "uuid": "53959d50-efad-4911-84de-b67efe1bee5f",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "bitwise_operations",
-        "control_flow_loops",
-        "performance_optimizations"
-      ]
-    },
-    {
-      "slug": "leap",
-      "uuid": "9b047dda-b85e-4378-9487-9f9cce086e4f",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_else_statements",
-        "logic"
-      ]
-    },
-    {
-      "slug": "beer-song",
-      "uuid": "c06789cb-cdd6-44a7-bee5-16e0d85e913a",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "raindrops",
-      "uuid": "93acdd0d-9bd1-4dec-a572-fd12d0c66187",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_if_else_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "bob",
-      "uuid": "b0feb5e2-eb94-4393-b60d-cf8a275d1860",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 5,
-      "topics": [
-        "control_flow_if_else_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "difference-of-squares",
-      "uuid": "9802cbc0-eb70-4840-b8ee-a228f1fc29ea",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "control_flow_loops",
-        "math"
-      ]
-    },
-    {
-      "slug": "sum-of-multiples",
-      "uuid": "06a3660f-16b0-4391-939e-a9786887b0b2",
-      "core": false,
-      "unlocked_by": "difference-of-squares",
-      "difficulty": 4,
-      "topics": [
-        "control_flow_case_statements",
-        "control_flow_loops",
-        "math"
-      ]
-    },
-    {
-      "slug": "square-root",
-      "uuid": "0400f52d-48ae-4300-a72e-32e8a08514d0",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "bitwise_operations",
-        "control_flow_loops",
-        "math"
-      ]
-    },
-    {
-      "slug": "grade-school",
-      "uuid": "68b1de28-7c3d-4e8c-ab51-7abe6779e187",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "pointers",
-        "sorting",
-        "strings",
-        "structs"
-      ]
-    },
-    {
-      "slug": "binary-search",
-      "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "searching"
-      ]
-    },
-    {
-      "slug": "anagram",
-      "uuid": "0b64079a-7fec-42b4-bd2e-1b04dd4b7e6e",
-      "core": false,
-      "unlocked_by": "binary-search",
-      "difficulty": 5,
-      "topics": [
-        "filtering",
-        "strings",
-        "structs"
-      ]
-    },
-    {
-      "slug": "rational-numbers",
-      "uuid": "c3325db9-8067-4c2f-94b3-b5190b056d38",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 5,
-      "topics": [
-        "math",
-        "structs"
-      ]
-    },
-    {
-      "slug": "roman-numerals",
-      "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "control_flow_loops",
-        "memory_management",
-        "strings",
-        "structs"
-      ]
-    },
-    {
-      "slug": "circular-buffer",
-      "uuid": "c54a33a3-8c6f-4964-b770-b602d207fa20",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "buffers",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "flexible_array_members",
-        "memory_management",
-        "pointers",
-        "structs"
-      ]
-    },
-    {
-      "slug": "list-ops",
-      "uuid": "27a56356-d3ad-41d2-923c-2a58fbb36454",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "flexible_array_members",
-        "function_pointers",
-        "memory_management",
-        "pointers",
-        "structs"
-      ]
-    },
-    {
-      "slug": "pythagorean-triplet",
-      "uuid": "7b7c61f4-2849-46b7-9057-900bb6b95052",
-      "core": true,
-      "auto_approve": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "flexible_array_members",
-        "memory_management",
-        "structs"
-      ]
-    },
-    {
-      "slug": "saddle-points",
-      "uuid": "448f9137-4e58-4c26-9853-abe07f01c908",
-      "core": true,
-      "auto_approve": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "flexible_array_members",
-        "memory_management",
-        "structs"
-      ]
-    },
-    {
-      "slug": "allergies",
-      "uuid": "871f1c41-debd-4807-8ee5-bde54c3918f8",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "control_flow_if_statements",
-        "control_flow_loops",
-        "memory_management",
-        "structs"
-      ]
-    },
-    {
-      "slug": "atbash-cipher",
-      "uuid": "180f59f3-78ab-4368-9fa7-e3d98a9dca78",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 5,
-      "topics": [
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "strings"
-      ]
-    },
-    {
-      "slug": "series",
-      "uuid": "40bcec79-7235-4ac6-b69f-8e3a6374188d",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 2,
-      "topics": [
-        "control_flow_if_statements",
-        "memory_management",
-        "strings",
-        "text_formatting"
-      ]
-    },
-    {
-      "slug": "react",
-      "uuid": "929b651e-2017-4f98-b2cb-1dc46c609703",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 10,
-      "topics": [
-        "functions",
-        "memory_management"
-      ]
-    },
-    {
-      "slug": "phone-number",
-      "uuid": "660d1586-c4e0-4537-94b5-455a983820f8",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "memory_management",
-        "strings"
-      ]
-    },
-    {
-      "slug": "clock",
-      "uuid": "b868eeff-400c-4e46-8675-10d85c14b503",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "control_flow_if_statements",
-        "preprocessor_x_macros_in_test",
-        "strings",
-        "text_formatting"
-      ]
-    },
-    {
-      "slug": "sieve",
-      "uuid": "fb2530a3-cbbf-4ba9-88d0-203faac03e96",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "control_flow_if_statements",
-        "math",
-        "memory_management"
-      ]
-    },
-    {
-      "slug": "nth-prime",
-      "uuid": "a0a703b2-244b-4739-b318-b837618b1047",
-      "core": false,
-      "unlocked_by": "sieve",
-      "difficulty": 4,
-      "topics": [
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "math",
-        "performance_optimizations"
-      ]
-    },
-    {
-      "slug": "robot-simulator",
-      "uuid": "e665da31-fda2-4bce-94e9-7d79dffdef14",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "control_flow_if_statements",
-        "pointers",
-        "strings",
-        "structs",
-        "variable_argument_lists"
-      ]
-    },
-    {
-      "slug": "pascals-triangle",
-      "uuid": "be19352f-1b63-4673-9a2d-e763ee807741",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_else_statements",
-        "math",
-        "memory_management"
-      ]
-    },
-    {
-      "slug": "triangle",
-      "uuid": "5c6bc8d2-2509-471a-993c-a5bf9d030ca7",
-      "core": false,
-      "unlocked_by": "pascals-triangle",
-      "difficulty": 1,
-      "topics": [
-        "booleans",
-        "control_flow_if_else_statements",
-        "structs"
-      ]
-    },
-    {
-      "slug": "perfect-numbers",
-      "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733",
-      "core": false,
-      "unlocked_by": "pascals-triangle",
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_else_statements",
-        "math"
-      ]
-    },
-    {
-      "slug": "collatz-conjecture",
-      "uuid": "5a47f8a5-36a1-4479-bb77-ef5fbab4bae0",
-      "core": false,
-      "unlocked_by": "pascals-triangle",
-      "difficulty": 2,
-      "topics": [
-        "functions",
-        "math"
-      ]
-    },
-    {
-      "slug": "binary",
-      "uuid": "8621177c-1068-4610-bf5b-26cf23340ae6",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_statements",
-        "control_flow_loops",
-        "math"
-      ]
-    },
-    {
-      "slug": "all-your-base",
-      "uuid": "e3574f75-89cb-4dda-8fce-14ce3141b595",
-      "core": false,
-      "unlocked_by": "binary",
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "control_flow_if_else_statements",
-        "control_flow_loops",
-        "math"
-      ]
-    },
-    {
-      "slug": "palindrome-products",
-      "uuid": "8dd43f6c-37ba-42b1-bb85-9ad693e4ce03",
-      "core": false,
-      "unlocked_by": "binary",
-      "difficulty": 2,
-      "topics": [
-        "functions",
-        "math",
-        "pointers",
-        "strings",
-        "structs"
-      ]
-    },
-    {
-      "slug": "sublist",
-      "uuid": "a19acc6f-2530-434d-9c98-2d8d4ca635d3",
-      "core": false,
-      "unlocked_by": "binary",
-      "difficulty": 4,
-      "topics": [
-        "arrays",
-        "control_flow_if_statements",
-        "control_flow_loops",
-        "pointers",
-        "searching"
-      ]
-    },
-    {
-      "slug": "largest-series-product",
-      "uuid": "4b5974fe-dcff-4542-ad3e-2782201cba1e",
-      "core": false,
-      "unlocked_by": "binary",
-      "difficulty": 5,
-      "topics": [
-        "control_flow_loops",
-        "math",
-        "performance_optimizations",
-        "strings"
-      ]
-    },
-    {
-      "slug": "scrabble-score",
-      "uuid": "8c631290-13b7-4d25-9ee7-ced2e534deb4",
-      "core": false,
-      "unlocked_by": "binary",
-      "difficulty": 4,
-      "topics": [
-        "pointers",
-        "searching",
-        "strings",
-        "structs"
-      ]
-    },
-    {
-      "slug": "queen-attack",
-      "uuid": "b0a152e9-5a45-41f9-bda0-427111d9a56c",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_statements",
-        "enums",
-        "functions",
-        "structs"
-      ]
-    },
-    {
-      "slug": "linked-list",
-      "uuid": "58107e5f-8091-4429-9130-13f2c7dac9a9",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "functions",
-        "lists",
-        "pointers",
-        "structs"
-      ]
-    },
-    {
-      "slug": "complex-numbers",
-      "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f",
-      "core": false,
-      "unlocked_by": "difference-of-squares",
-      "difficulty": 2,
-      "topics": [
-        "math",
-        "performance_optimizations",
-        "structs"
-      ]
-    },
-    {
-      "slug": "etl",
-      "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 2,
-      "topics": [
-        "pointers",
-        "structs"
-      ]
-    },
-    {
-      "slug": "prime-factors",
-      "uuid": "f34db12c-7acc-4287-92a6-c077938512d7",
-      "core": false,
-      "unlocked_by": "sieve",
-      "difficulty": 2,
-      "topics": [
-        "algorithms",
-        "math"
-      ]
-    },
-    {
-      "slug": "luhn",
-      "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7",
-      "core": false,
-      "unlocked_by": "pascals-triangle",
-      "difficulty": 2,
-      "topics": [
-        "algorithms",
-        "strings"
-      ]
-    },
-    {
-      "slug": "matching-brackets",
-      "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 5,
-      "topics": [
-        "control_flow_if_statements",
-        "recursion",
-        "stacks"
-      ]
-    },
-    {
-      "slug": "say",
-      "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0",
-      "core": false,
-      "unlocked_by": "circular-buffer",
-      "difficulty": 6,
-      "topics": [
-        "algorithms",
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "crypto-square",
-      "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 6,
-      "topics": [
-        "algorithms",
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "secret-handshake",
-      "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d",
-      "core": false,
-      "unlocked_by": "hamming",
-      "difficulty": 3,
-      "topics": [
-        "algorithms",
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "pig-latin",
-      "uuid": "62f539e7-f682-412d-bf86-38503e7cebca",
-      "core": false,
-      "unlocked_by": "hamming",
-      "difficulty": 4,
-      "topics": [
-        "algorithms",
-        "control_flow_if_statements",
-        "functions",
-        "strings"
-      ]
-    },
-    {
-      "slug": "minesweeper",
-      "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "run-length-encoding",
-      "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 4,
-      "topics": [
-        "algorithms",
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "two-fer",
-      "uuid": "15653c72-5468-415f-9425-6c58d552d346",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "wordy",
-      "uuid": "c1392944-08fd-45c3-b508-41d682f832d3",
-      "core": false,
-      "unlocked_by": "grains",
-      "difficulty": 4,
-      "topics": [
-        "algorithms",
-        "control_flow_if_statements",
-        "functions",
-        "strings"
-      ]
-    },
-    {
-      "slug": "binary-search-tree",
-      "uuid": "1b33f528-8f29-4582-a268-07be2d1a4516",
-      "core": false,
-      "unlocked_by": "binary-search",
-      "difficulty": 6,
-      "topics": [
-        "arrays",
-        "control_flow_loops",
-        "recursion",
-        "structs"
-      ]
-    },
-    {
-      "slug": "diamond",
-      "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 3,
-      "topics": [
-        "arrays",
-        "control_flow_if_statements",
-        "functions",
-        "strings"
-      ]
-    },
-    {
-      "slug": "rail-fence-cipher",
-      "uuid": "314dcf23-9cd9-4488-b53e-6dee1b303980",
-      "core": false,
-      "unlocked_by": "isogram",
-      "difficulty": 4,
-      "topics": [
-        "arrays",
-        "control_flow_if_statements",
-        "strings"
-      ]
-    },
-    {
-      "slug": "two-bucket",
-      "uuid": "d8ecb4c4-2af2-423c-9f39-4adab687ecd6",
-      "core": false,
-      "unlocked_by": "grade-school",
-      "difficulty": 6,
-      "topics": [
-        "algorithms",
-        "control_flow_if_else_statements",
-        "control_flow_loops"
-      ]
-    }
-  ]
+  "exercises": {
+    "concept": [],
+    "practice": [
+      {
+        "slug": "hello-world",
+        "name": "Hello World",
+        "uuid": "ee307061-5bc2-439c-8815-abd730aedc2d",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "strings"
+        ]
+      },
+      {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "a4658ee9-b71c-4764-9652-7ed83d46516b",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "logic",
+          "math"
+        ]
+      },
+      {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "75653d83-1a64-472c-ac43-49e87833c7f7",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "arrays",
+          "enums",
+          "pointers"
+        ]
+      },
+      {
+        "slug": "isogram",
+        "name": "Isogram",
+        "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "hamming",
+        "name": "Hamming",
+        "uuid": "fa5e6bbb-2eaf-484f-a5c5-de5cb2a9175b",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "grains",
+        "name": "Grains",
+        "uuid": "53959d50-efad-4911-84de-b67efe1bee5f",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "bitwise_operations",
+          "control_flow_loops",
+          "performance_optimizations"
+        ]
+      },
+      {
+        "slug": "difference-of-squares",
+        "name": "Difference Of Squares",
+        "uuid": "9802cbc0-eb70-4840-b8ee-a228f1fc29ea",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_loops",
+          "math"
+        ]
+      },
+      {
+        "slug": "square-root",
+        "name": "Square Root",
+        "uuid": "0400f52d-48ae-4300-a72e-32e8a08514d0",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "bitwise_operations",
+          "control_flow_loops",
+          "math"
+        ]
+      },
+      {
+        "slug": "grade-school",
+        "name": "Grade School",
+        "uuid": "68b1de28-7c3d-4e8c-ab51-7abe6779e187",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "pointers",
+          "sorting",
+          "strings",
+          "structs"
+        ]
+      },
+      {
+        "slug": "binary-search",
+        "name": "Binary Search",
+        "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "searching"
+        ]
+      },
+      {
+        "slug": "rational-numbers",
+        "name": "Rational Numbers",
+        "uuid": "c3325db9-8067-4c2f-94b3-b5190b056d38",
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "math",
+          "structs"
+        ]
+      },
+      {
+        "slug": "circular-buffer",
+        "name": "Circular Buffer",
+        "uuid": "c54a33a3-8c6f-4964-b770-b602d207fa20",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "buffers",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "flexible_array_members",
+          "memory_management",
+          "pointers",
+          "structs"
+        ]
+      },
+      {
+        "slug": "list-ops",
+        "name": "List Ops",
+        "uuid": "27a56356-d3ad-41d2-923c-2a58fbb36454",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "flexible_array_members",
+          "function_pointers",
+          "memory_management",
+          "pointers",
+          "structs"
+        ]
+      },
+      {
+        "slug": "pythagorean-triplet",
+        "name": "Pythagorean Triplet",
+        "uuid": "7b7c61f4-2849-46b7-9057-900bb6b95052",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "flexible_array_members",
+          "memory_management",
+          "structs"
+        ]
+      },
+      {
+        "slug": "saddle-points",
+        "name": "Saddle Points",
+        "uuid": "448f9137-4e58-4c26-9853-abe07f01c908",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "flexible_array_members",
+          "memory_management",
+          "structs"
+        ]
+      },
+      {
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "871f1c41-debd-4807-8ee5-bde54c3918f8",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "memory_management",
+          "structs"
+        ]
+      },
+      {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "660d1586-c4e0-4537-94b5-455a983820f8",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "memory_management",
+          "strings"
+        ]
+      },
+      {
+        "slug": "clock",
+        "name": "Clock",
+        "uuid": "b868eeff-400c-4e46-8675-10d85c14b503",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_statements",
+          "preprocessor_x_macros_in_test",
+          "strings",
+          "text_formatting"
+        ]
+      },
+      {
+        "slug": "sieve",
+        "name": "Sieve",
+        "uuid": "fb2530a3-cbbf-4ba9-88d0-203faac03e96",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_statements",
+          "math",
+          "memory_management"
+        ]
+      },
+      {
+        "slug": "robot-simulator",
+        "name": "Robot Simulator",
+        "uuid": "e665da31-fda2-4bce-94e9-7d79dffdef14",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_statements",
+          "pointers",
+          "strings",
+          "structs",
+          "variable_argument_lists"
+        ]
+      },
+      {
+        "slug": "pascals-triangle",
+        "name": "Pascals Triangle",
+        "uuid": "be19352f-1b63-4673-9a2d-e763ee807741",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_else_statements",
+          "math",
+          "memory_management"
+        ]
+      },
+      {
+        "slug": "binary",
+        "name": "Binary",
+        "uuid": "8621177c-1068-4610-bf5b-26cf23340ae6",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "math"
+        ]
+      },
+      {
+        "slug": "queen-attack",
+        "name": "Queen Attack",
+        "uuid": "b0a152e9-5a45-41f9-bda0-427111d9a56c",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_statements",
+          "enums",
+          "functions",
+          "structs"
+        ]
+      },
+      {
+        "slug": "linked-list",
+        "name": "Linked List",
+        "uuid": "58107e5f-8091-4429-9130-13f2c7dac9a9",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "functions",
+          "lists",
+          "pointers",
+          "structs"
+        ]
+      },
+      {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "a579e471-86f3-4f29-82ca-e984a2cc8891",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_else_statements",
+          "logic",
+          "math"
+        ]
+      },
+      {
+        "slug": "resistor-color-duo",
+        "name": "Resistor Color Duo",
+        "uuid": "93271b2e-8ad9-4e7d-8732-5988140e8c00",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "arrays",
+          "enums"
+        ]
+      },
+      {
+        "slug": "resistor-color-trio",
+        "name": "Resistor Color Trio",
+        "uuid": "6cd7bb9c-2817-4c44-8bef-5f2916b2db2d",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "arrays",
+          "enums",
+          "structs"
+        ]
+      },
+      {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "1a8ba121-d2c4-4994-8c6b-610d8987346d",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_loops",
+          "memory_management",
+          "strings"
+        ]
+      },
+      {
+        "slug": "gigasecond",
+        "name": "Gigasecond",
+        "uuid": "000340f6-e30d-4d49-a255-016237d6fe60",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "dates"
+        ]
+      },
+      {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "fc03c7de-b0c6-4806-90bb-e9dda846e660",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "functions"
+        ]
+      },
+      {
+        "slug": "pangram",
+        "name": "Pangram",
+        "uuid": "6311b9f8-b438-4186-88b2-1e4f55275ccb",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "word-count",
+        "name": "Word Count",
+        "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "filtering",
+          "memory_management",
+          "strings",
+          "structs"
+        ]
+      },
+      {
+        "slug": "rail-fence-cipher",
+        "name": "Rail Fence Cipher",
+        "uuid": "314dcf23-9cd9-4488-b53e-6dee1b303980",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "matching-brackets",
+        "name": "Matching Brackets",
+        "uuid": "cd573670-54da-4291-ab78-afd5d77fbeac",
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "control_flow_if_statements",
+          "recursion",
+          "stacks"
+        ]
+      },
+      {
+        "slug": "nucleotide-count",
+        "name": "Nucleotide Count",
+        "uuid": "38669990-e1e6-4486-a603-575a135d1f5c",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_loops_switch_if_statements",
+          "memory_management",
+          "strings",
+          "text_formatting"
+        ]
+      },
+      {
+        "slug": "rna-transcription",
+        "name": "Rna Transcription",
+        "uuid": "d12fea98-bf4e-476d-a91c-799fc98a1690",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_case_statements",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "secret-handshake",
+        "name": "Secret Handshake",
+        "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "algorithms",
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "meetup",
+        "name": "Meetup",
+        "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "control_flow_if_statements",
+          "preprocessor_x_macros_in_test",
+          "strings",
+          "structs",
+          "time_functions"
+        ]
+      },
+      {
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "62f539e7-f682-412d-bf86-38503e7cebca",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "algorithms",
+          "control_flow_if_statements",
+          "functions",
+          "strings"
+        ]
+      },
+      {
+        "slug": "leap",
+        "name": "Leap",
+        "uuid": "9b047dda-b85e-4378-9487-9f9cce086e4f",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_else_statements",
+          "logic"
+        ]
+      },
+      {
+        "slug": "two-fer",
+        "name": "Two Fer",
+        "uuid": "15653c72-5468-415f-9425-6c58d552d346",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "beer-song",
+        "name": "Beer Song",
+        "uuid": "c06789cb-cdd6-44a7-bee5-16e0d85e913a",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "raindrops",
+        "name": "Raindrops",
+        "uuid": "93acdd0d-9bd1-4dec-a572-fd12d0c66187",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_else_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "roman-numerals",
+        "name": "Roman Numerals",
+        "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "memory_management",
+          "strings",
+          "structs"
+        ]
+      },
+      {
+        "slug": "wordy",
+        "name": "Wordy",
+        "uuid": "c1392944-08fd-45c3-b508-41d682f832d3",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "algorithms",
+          "control_flow_if_statements",
+          "functions",
+          "strings"
+        ]
+      },
+      {
+        "slug": "bob",
+        "name": "Bob",
+        "uuid": "b0feb5e2-eb94-4393-b60d-cf8a275d1860",
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "control_flow_if_else_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "complex-numbers",
+        "name": "Complex Numbers",
+        "uuid": "472b1a6b-2b7a-4609-a97d-4c2b6c941a1f",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "math",
+          "performance_optimizations",
+          "structs"
+        ]
+      },
+      {
+        "slug": "sum-of-multiples",
+        "name": "Sum Of Multiples",
+        "uuid": "06a3660f-16b0-4391-939e-a9786887b0b2",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "control_flow_case_statements",
+          "control_flow_loops",
+          "math"
+        ]
+      },
+      {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "d8ecb4c4-2af2-423c-9f39-4adab687ecd6",
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "algorithms",
+          "control_flow_if_else_statements",
+          "control_flow_loops"
+        ]
+      },
+      {
+        "slug": "anagram",
+        "name": "Anagram",
+        "uuid": "0b64079a-7fec-42b4-bd2e-1b04dd4b7e6e",
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "filtering",
+          "strings",
+          "structs"
+        ]
+      },
+      {
+        "slug": "binary-search-tree",
+        "name": "Binary Search Tree",
+        "uuid": "1b33f528-8f29-4582-a268-07be2d1a4516",
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "recursion",
+          "structs"
+        ]
+      },
+      {
+        "slug": "say",
+        "name": "Say",
+        "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0",
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "algorithms",
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "etl",
+        "name": "Etl",
+        "uuid": "9b6faac9-10dd-46ff-9d29-7242e74f5c06",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "pointers",
+          "structs"
+        ]
+      },
+      {
+        "slug": "series",
+        "name": "Series",
+        "uuid": "40bcec79-7235-4ac6-b69f-8e3a6374188d",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_statements",
+          "memory_management",
+          "strings",
+          "text_formatting"
+        ]
+      },
+      {
+        "slug": "diamond",
+        "name": "Diamond",
+        "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "functions",
+          "strings"
+        ]
+      },
+      {
+        "slug": "minesweeper",
+        "name": "Minesweeper",
+        "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "run-length-encoding",
+        "name": "Run Length Encoding",
+        "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "algorithms",
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "atbash-cipher",
+        "name": "Atbash Cipher",
+        "uuid": "180f59f3-78ab-4368-9fa7-e3d98a9dca78",
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "crypto-square",
+        "name": "Crypto Square",
+        "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b",
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "algorithms",
+          "control_flow_if_statements",
+          "strings"
+        ]
+      },
+      {
+        "slug": "react",
+        "name": "React",
+        "uuid": "929b651e-2017-4f98-b2cb-1dc46c609703",
+        "prerequisites": [],
+        "difficulty": 10,
+        "topics": [
+          "functions",
+          "memory_management"
+        ]
+      },
+      {
+        "slug": "prime-factors",
+        "name": "Prime Factors",
+        "uuid": "f34db12c-7acc-4287-92a6-c077938512d7",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "algorithms",
+          "math"
+        ]
+      },
+      {
+        "slug": "nth-prime",
+        "name": "Nth Prime",
+        "uuid": "a0a703b2-244b-4739-b318-b837618b1047",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "math",
+          "performance_optimizations"
+        ]
+      },
+      {
+        "slug": "perfect-numbers",
+        "name": "Perfect Numbers",
+        "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "control_flow_if_else_statements",
+          "math"
+        ]
+      },
+      {
+        "slug": "triangle",
+        "name": "Triangle",
+        "uuid": "5c6bc8d2-2509-471a-993c-a5bf9d030ca7",
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "booleans",
+          "control_flow_if_else_statements",
+          "structs"
+        ]
+      },
+      {
+        "slug": "collatz-conjecture",
+        "name": "Collatz Conjecture",
+        "uuid": "5a47f8a5-36a1-4479-bb77-ef5fbab4bae0",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "functions",
+          "math"
+        ]
+      },
+      {
+        "slug": "luhn",
+        "name": "Luhn",
+        "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "algorithms",
+          "strings"
+        ]
+      },
+      {
+        "slug": "palindrome-products",
+        "name": "Palindrome Products",
+        "uuid": "8dd43f6c-37ba-42b1-bb85-9ad693e4ce03",
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "functions",
+          "math",
+          "pointers",
+          "strings",
+          "structs"
+        ]
+      },
+      {
+        "slug": "all-your-base",
+        "name": "All Your Base",
+        "uuid": "e3574f75-89cb-4dda-8fce-14ce3141b595",
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "math"
+        ]
+      },
+      {
+        "slug": "scrabble-score",
+        "name": "Scrabble Score",
+        "uuid": "8c631290-13b7-4d25-9ee7-ced2e534deb4",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "pointers",
+          "searching",
+          "strings",
+          "structs"
+        ]
+      },
+      {
+        "slug": "sublist",
+        "name": "Sublist",
+        "uuid": "a19acc6f-2530-434d-9c98-2d8d4ca635d3",
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "pointers",
+          "searching"
+        ]
+      },
+      {
+        "slug": "largest-series-product",
+        "name": "Largest Series Product",
+        "uuid": "4b5974fe-dcff-4542-ad3e-2782201cba1e",
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "control_flow_loops",
+          "math",
+          "performance_optimizations",
+          "strings"
+        ]
+      }
+    ]
+  },
+  "concepts": [],
+  "key_features": [],
+  "tags": []
 }
