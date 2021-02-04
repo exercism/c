@@ -17,8 +17,6 @@ jobs:
 
     - name: checks
       run: |
-        ./bin/fetch-configlet
-        ./bin/configlet lint .
         ./bin/verify-indent
         ./bin/check-unitybegin
         ./bin/verify-unity-version
