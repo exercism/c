@@ -27,7 +27,7 @@ test_unity_version() {
 }
 
 ERROR_COUNT=0
-for f in exercises/*/test/vendor/unity.h; do
+for f in exercises/practice/*/test/vendor/unity.h; do
     if ! test_unity_version "$f"; then
         echo "$f unexpected unity version"
         (( ERROR_COUNT++ ))

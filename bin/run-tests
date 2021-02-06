@@ -42,11 +42,11 @@ execute_test () {
 # Clone the exercises directory to avoid pollution
 if [ $# -gt 0 ]; then
     mkdir build
-    cd exercises
-    cp -r "$@" ../build
-    cd ../build/
+    cd exercises/practice
+    cp -r "$@" ../../build
+    cd ../../build/
 else
-    cp -r exercises build
+    cp -r exercises/practice build
     cd build/
 fi
 
@@ -60,4 +60,3 @@ else
         execute_test "$exercise"
     done
 fi
-
