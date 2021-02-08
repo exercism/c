@@ -975,5 +975,25 @@
   },
   "concepts": [],
   "key_features": [],
-  "tags": []
+  "tags": [
+    "execution_mode/compiled",
+    "paradigm/procedural",
+    "platform/android",
+    "platform/ios",
+    "platform/linux",
+    "platform/mac",
+    "platform/windows",
+    "runtime/language_specific",
+    "typing/static",
+    "used_for/backends",
+    "used_for/cross_platform_development",
+    "used_for/embedded_systems",
+    "used_for/financial_systems",
+    "used_for/frontends",
+    "used_for/games",
+    "used_for/guis",
+    "used_for/mobile",
+    "used_for/robotics",
+    "used_for/scientific_calculations"
+  ]
 }
