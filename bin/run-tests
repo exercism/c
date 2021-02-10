@@ -18,17 +18,17 @@ execute_test () {
         echo "Running tests for ${EXERCISE_NAME}";
 
         #remove the ignore line
-        sed -i 's/TEST_IGNORE();//' test/test_*.c
+        sed -i 's/TEST_IGNORE();//' ./test_*.c
 
         # Copy the examples with the correct name for the exercise
-        if [ -e "src/example.c" ]
+        if [ -e ".meta/example.c" ]
         then
-          mv src/example.c src/"${EXERCISE_NAME}".c
+          mv .meta/example.c ./"${EXERCISE_NAME}".c
         fi
 
-        if [ -e "src/example.h" ]
+        if [ -e ".meta/example.h" ]
         then
-          mv src/example.h src/"${EXERCISE_NAME}".h
+          mv .meta/example.h ./"${EXERCISE_NAME}".h
         fi
 
         # Make it!

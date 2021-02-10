@@ -9,7 +9,7 @@ set +e
 
 ERROR_COUNT=0
 
-for f in exercises/practice/*/test/test_*; do
+for f in exercises/practice/*/test_*; do
     if ! grep -q UnityBegin\(\"test/"$(basename "$f")"\"\) "$f"; then
         echo "$f needs correct UnityBegin line"
         (( ERROR_COUNT++ ))
