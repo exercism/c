@@ -14,8 +14,7 @@
 #define UNITY_VERSION          ((UNITY_VERSION_MAJOR << 16) | (UNITY_VERSION_MINOR << 8) | UNITY_VERSION_BUILD)
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 
 #include "unity_internals.h"
@@ -28,8 +27,8 @@ extern "C"
  * If using unity directly, these will need to be provided for each test
  * executable built. If you are using the test runner generator and/or
  * Ceedling, these are optional. */
-void setUp(void);
-void tearDown(void);
+   void setUp(void);
+   void tearDown(void);
 
 /* These functions are intended to be called at the beginning and end of an
  * entire test suite.  suiteTearDown() is passed the number of tests that
@@ -37,8 +36,8 @@ void tearDown(void);
  * Unity directly, you're in charge of calling these if they are desired.
  * If using Ceedling or the test runner generator, these will be called
  * automatically if they exist. */
-void suiteSetUp(void);
-int suiteTearDown(int num_failures);
+   void suiteSetUp(void);
+   int suiteTearDown(int num_failures);
 
 /*-------------------------------------------------------
  * Test Reset and Verify
@@ -49,8 +48,8 @@ int suiteTearDown(int num_failures);
  * the test runner generator will create them. resetTest will run teardown and
  * setup again, verifying any end-of-test needs between. verifyTest will only
  * run the verification. */
-void resetTest(void);
-void verifyTest(void);
+   void resetTest(void);
+   void verifyTest(void);
 
 /*-------------------------------------------------------
  * Configuration Options
@@ -260,7 +259,6 @@ void verifyTest(void);
 #define TEST_ASSERT_HEX32_ARRAY_WITHIN(delta, expected, actual, num_elements)                      UNITY_TEST_ASSERT_HEX32_ARRAY_WITHIN((delta), (expected), (actual), num_elements, __LINE__, NULL)
 #define TEST_ASSERT_HEX64_ARRAY_WITHIN(delta, expected, actual, num_elements)                      UNITY_TEST_ASSERT_HEX64_ARRAY_WITHIN((delta), (expected), (actual), num_elements, __LINE__, NULL)
 #define TEST_ASSERT_CHAR_ARRAY_WITHIN(delta, expected, actual, num_elements)                       UNITY_TEST_ASSERT_CHAR_ARRAY_WITHIN((delta), (expected), (actual), num_elements, __LINE__, NULL)
-
 
 /* Structs and Strings */
 #define TEST_ASSERT_EQUAL_PTR(expected, actual)                                                    UNITY_TEST_ASSERT_EQUAL_PTR((expected), (actual), __LINE__, NULL)
@@ -508,7 +506,6 @@ void verifyTest(void);
 #define TEST_ASSERT_HEX32_ARRAY_WITHIN_MESSAGE(delta, expected, actual, num_elements, message)     UNITY_TEST_ASSERT_HEX32_ARRAY_WITHIN((delta), (expected), (actual), num_elements, __LINE__, (message))
 #define TEST_ASSERT_HEX64_ARRAY_WITHIN_MESSAGE(delta, expected, actual, num_elements, message)     UNITY_TEST_ASSERT_HEX64_ARRAY_WITHIN((delta), (expected), (actual), num_elements, __LINE__, (message))
 #define TEST_ASSERT_CHAR_ARRAY_WITHIN_MESSAGE(delta, expected, actual, num_elements, message)      UNITY_TEST_ASSERT_CHAR_ARRAY_WITHIN((delta), (expected), (actual), num_elements, __LINE__, (message))
-
 
 /* Structs and Strings */
 #define TEST_ASSERT_EQUAL_PTR_MESSAGE(expected, actual, message)                                   UNITY_TEST_ASSERT_EQUAL_PTR((expected), (actual), __LINE__, (message))

@@ -51,47 +51,47 @@
  * which may not necessarily be the size in bytes.
  * Therefore, infer it from UINT_MAX if possible. */
 #ifndef UNITY_INT_WIDTH
-  #ifdef UINT_MAX
-    #if (UINT_MAX == 0xFFFF)
-      #define UNITY_INT_WIDTH (16)
-    #elif (UINT_MAX == 0xFFFFFFFF)
-      #define UNITY_INT_WIDTH (32)
-    #elif (UINT_MAX == 0xFFFFFFFFFFFFFFFF)
-      #define UNITY_INT_WIDTH (64)
-    #endif
-  #else /* Set to default */
-    #define UNITY_INT_WIDTH (32)
-  #endif /* UINT_MAX */
+#ifdef UINT_MAX
+#if (UINT_MAX == 0xFFFF)
+#define UNITY_INT_WIDTH (16)
+#elif (UINT_MAX == 0xFFFFFFFF)
+#define UNITY_INT_WIDTH (32)
+#elif (UINT_MAX == 0xFFFFFFFFFFFFFFFF)
+#define UNITY_INT_WIDTH (64)
+#endif
+#else                           /* Set to default */
+#define UNITY_INT_WIDTH (32)
+#endif                          /* UINT_MAX */
 #endif
 
 /* Determine the size of a long, if not already specified. */
 #ifndef UNITY_LONG_WIDTH
-  #ifdef ULONG_MAX
-    #if (ULONG_MAX == 0xFFFF)
-      #define UNITY_LONG_WIDTH (16)
-    #elif (ULONG_MAX == 0xFFFFFFFF)
-      #define UNITY_LONG_WIDTH (32)
-    #elif (ULONG_MAX == 0xFFFFFFFFFFFFFFFF)
-      #define UNITY_LONG_WIDTH (64)
-    #endif
-  #else /* Set to default */
-    #define UNITY_LONG_WIDTH (32)
-  #endif /* ULONG_MAX */
+#ifdef ULONG_MAX
+#if (ULONG_MAX == 0xFFFF)
+#define UNITY_LONG_WIDTH (16)
+#elif (ULONG_MAX == 0xFFFFFFFF)
+#define UNITY_LONG_WIDTH (32)
+#elif (ULONG_MAX == 0xFFFFFFFFFFFFFFFF)
+#define UNITY_LONG_WIDTH (64)
+#endif
+#else                           /* Set to default */
+#define UNITY_LONG_WIDTH (32)
+#endif                          /* ULONG_MAX */
 #endif
 
 /* Determine the size of a pointer, if not already specified. */
 #ifndef UNITY_POINTER_WIDTH
-  #ifdef UINTPTR_MAX
-    #if (UINTPTR_MAX <= 0xFFFF)
-      #define UNITY_POINTER_WIDTH (16)
-    #elif (UINTPTR_MAX <= 0xFFFFFFFF)
-      #define UNITY_POINTER_WIDTH (32)
-    #elif (UINTPTR_MAX <= 0xFFFFFFFFFFFFFFFF)
-      #define UNITY_POINTER_WIDTH (64)
-    #endif
-  #else /* Set to default */
-    #define UNITY_POINTER_WIDTH UNITY_LONG_WIDTH
-  #endif /* UINTPTR_MAX */
+#ifdef UINTPTR_MAX
+#if (UINTPTR_MAX <= 0xFFFF)
+#define UNITY_POINTER_WIDTH (16)
+#elif (UINTPTR_MAX <= 0xFFFFFFFF)
+#define UNITY_POINTER_WIDTH (32)
+#elif (UINTPTR_MAX <= 0xFFFFFFFFFFFFFFFF)
+#define UNITY_POINTER_WIDTH (64)
+#endif
+#else                           /* Set to default */
+#define UNITY_POINTER_WIDTH UNITY_LONG_WIDTH
+#endif                          /* UINTPTR_MAX */
 #endif
 
 /*-------------------------------------------------------
@@ -99,21 +99,21 @@
  *-------------------------------------------------------*/
 
 #if (UNITY_INT_WIDTH == 32)
-    typedef unsigned char   UNITY_UINT8;
-    typedef unsigned short  UNITY_UINT16;
-    typedef unsigned int    UNITY_UINT32;
-    typedef signed char     UNITY_INT8;
-    typedef signed short    UNITY_INT16;
-    typedef signed int      UNITY_INT32;
+typedef unsigned char UNITY_UINT8;
+typedef unsigned short UNITY_UINT16;
+typedef unsigned int UNITY_UINT32;
+typedef signed char UNITY_INT8;
+typedef signed short UNITY_INT16;
+typedef signed int UNITY_INT32;
 #elif (UNITY_INT_WIDTH == 16)
-    typedef unsigned char   UNITY_UINT8;
-    typedef unsigned int    UNITY_UINT16;
-    typedef unsigned long   UNITY_UINT32;
-    typedef signed char     UNITY_INT8;
-    typedef signed int      UNITY_INT16;
-    typedef signed long     UNITY_INT32;
+typedef unsigned char UNITY_UINT8;
+typedef unsigned int UNITY_UINT16;
+typedef unsigned long UNITY_UINT32;
+typedef signed char UNITY_INT8;
+typedef signed int UNITY_INT16;
+typedef signed long UNITY_INT32;
 #else
-    #error Invalid UNITY_INT_WIDTH specified! (16 or 32 are supported)
+#error Invalid UNITY_INT_WIDTH specified! (16 or 32 are supported)
 #endif
 
 /*-------------------------------------------------------
@@ -122,31 +122,31 @@
 
 /* Auto-detect 64 Bit Support */
 #ifndef UNITY_SUPPORT_64
-  #if UNITY_LONG_WIDTH == 64 || UNITY_POINTER_WIDTH == 64
-    #define UNITY_SUPPORT_64
-  #endif
+#if UNITY_LONG_WIDTH == 64 || UNITY_POINTER_WIDTH == 64
+#define UNITY_SUPPORT_64
+#endif
 #endif
 
 /* 64-Bit Support Dependent Configuration */
 #ifndef UNITY_SUPPORT_64
     /* No 64-bit Support */
-    typedef UNITY_UINT32 UNITY_UINT;
-    typedef UNITY_INT32  UNITY_INT;
-    #define UNITY_MAX_NIBBLES (8)  /* Maximum number of nibbles in a UNITY_(U)INT */
+typedef UNITY_UINT32 UNITY_UINT;
+typedef UNITY_INT32 UNITY_INT;
+#define UNITY_MAX_NIBBLES (8)   /* Maximum number of nibbles in a UNITY_(U)INT */
 #else
   /* 64-bit Support */
-  #if (UNITY_LONG_WIDTH == 32)
-    typedef unsigned long long UNITY_UINT64;
-    typedef signed long long   UNITY_INT64;
-  #elif (UNITY_LONG_WIDTH == 64)
-    typedef unsigned long      UNITY_UINT64;
-    typedef signed long        UNITY_INT64;
-  #else
-    #error Invalid UNITY_LONG_WIDTH specified! (32 or 64 are supported)
-  #endif
-    typedef UNITY_UINT64 UNITY_UINT;
-    typedef UNITY_INT64  UNITY_INT;
-    #define UNITY_MAX_NIBBLES (16) /* Maximum number of nibbles in a UNITY_(U)INT */
+#if (UNITY_LONG_WIDTH == 32)
+typedef unsigned long long UNITY_UINT64;
+typedef signed long long UNITY_INT64;
+#elif (UNITY_LONG_WIDTH == 64)
+typedef unsigned long UNITY_UINT64;
+typedef signed long UNITY_INT64;
+#else
+#error Invalid UNITY_LONG_WIDTH specified! (32 or 64 are supported)
+#endif
+typedef UNITY_UINT64 UNITY_UINT;
+typedef UNITY_INT64 UNITY_INT;
+#define UNITY_MAX_NIBBLES (16)  /* Maximum number of nibbles in a UNITY_(U)INT */
 #endif
 
 /*-------------------------------------------------------
@@ -154,24 +154,24 @@
  *-------------------------------------------------------*/
 
 #if (UNITY_POINTER_WIDTH == 32)
-  #define UNITY_PTR_TO_INT UNITY_INT32
-  #define UNITY_DISPLAY_STYLE_POINTER UNITY_DISPLAY_STYLE_HEX32
+#define UNITY_PTR_TO_INT UNITY_INT32
+#define UNITY_DISPLAY_STYLE_POINTER UNITY_DISPLAY_STYLE_HEX32
 #elif (UNITY_POINTER_WIDTH == 64)
-  #define UNITY_PTR_TO_INT UNITY_INT64
-  #define UNITY_DISPLAY_STYLE_POINTER UNITY_DISPLAY_STYLE_HEX64
+#define UNITY_PTR_TO_INT UNITY_INT64
+#define UNITY_DISPLAY_STYLE_POINTER UNITY_DISPLAY_STYLE_HEX64
 #elif (UNITY_POINTER_WIDTH == 16)
-  #define UNITY_PTR_TO_INT UNITY_INT16
-  #define UNITY_DISPLAY_STYLE_POINTER UNITY_DISPLAY_STYLE_HEX16
+#define UNITY_PTR_TO_INT UNITY_INT16
+#define UNITY_DISPLAY_STYLE_POINTER UNITY_DISPLAY_STYLE_HEX16
 #else
-  #error Invalid UNITY_POINTER_WIDTH specified! (16, 32 or 64 are supported)
+#error Invalid UNITY_POINTER_WIDTH specified! (16, 32 or 64 are supported)
 #endif
 
 #ifndef UNITY_PTR_ATTRIBUTE
-  #define UNITY_PTR_ATTRIBUTE
+#define UNITY_PTR_ATTRIBUTE
 #endif
 
 #ifndef UNITY_INTERNAL_PTR
-  #define UNITY_INTERNAL_PTR UNITY_PTR_ATTRIBUTE const void*
+#define UNITY_INTERNAL_PTR UNITY_PTR_ATTRIBUTE const void*
 #endif
 
 /*-------------------------------------------------------
@@ -182,7 +182,7 @@
 
 /* No Floating Point Support */
 #ifndef UNITY_EXCLUDE_DOUBLE
-#define UNITY_EXCLUDE_DOUBLE /* Remove double when excluding float support */
+#define UNITY_EXCLUDE_DOUBLE    /* Remove double when excluding float support */
 #endif
 #ifndef UNITY_EXCLUDE_FLOAT_PRINT
 #define UNITY_EXCLUDE_FLOAT_PRINT
@@ -221,31 +221,31 @@ typedef UNITY_FLOAT_TYPE UNITY_FLOAT;
 #if defined(UNITY_EXCLUDE_DOUBLE) || !defined(UNITY_INCLUDE_DOUBLE)
 
   /* No Floating Point Support */
-  #ifndef UNITY_EXCLUDE_DOUBLE
-  #define UNITY_EXCLUDE_DOUBLE
-  #else
-    #undef UNITY_INCLUDE_DOUBLE
-  #endif
+#ifndef UNITY_EXCLUDE_DOUBLE
+#define UNITY_EXCLUDE_DOUBLE
+#else
+#undef UNITY_INCLUDE_DOUBLE
+#endif
 
-  #ifndef UNITY_EXCLUDE_FLOAT
-    #ifndef UNITY_DOUBLE_TYPE
-    #define UNITY_DOUBLE_TYPE double
-    #endif
-  typedef UNITY_FLOAT UNITY_DOUBLE;
+#ifndef UNITY_EXCLUDE_FLOAT
+#ifndef UNITY_DOUBLE_TYPE
+#define UNITY_DOUBLE_TYPE double
+#endif
+typedef UNITY_FLOAT UNITY_DOUBLE;
   /* For parameter in UnityPrintFloat(UNITY_DOUBLE), which aliases to double or float */
-  #endif
+#endif
 
 #else
 
   /* Double Floating Point Support */
-  #ifndef UNITY_DOUBLE_PRECISION
-  #define UNITY_DOUBLE_PRECISION (1e-12)
-  #endif
+#ifndef UNITY_DOUBLE_PRECISION
+#define UNITY_DOUBLE_PRECISION (1e-12)
+#endif
 
-  #ifndef UNITY_DOUBLE_TYPE
-  #define UNITY_DOUBLE_TYPE double
-  #endif
-  typedef UNITY_DOUBLE_TYPE UNITY_DOUBLE;
+#ifndef UNITY_DOUBLE_TYPE
+#define UNITY_DOUBLE_TYPE double
+#endif
+typedef UNITY_DOUBLE_TYPE UNITY_DOUBLE;
 
 #endif
 
@@ -254,29 +254,29 @@ typedef UNITY_FLOAT_TYPE UNITY_FLOAT;
  *-------------------------------------------------------*/
 #ifndef UNITY_OUTPUT_CHAR
   /* Default to using putchar, which is defined in stdio.h */
-  #include <stdio.h>
-  #define UNITY_OUTPUT_CHAR(a) (void)putchar(a)
+#include <stdio.h>
+#define UNITY_OUTPUT_CHAR(a) (void)putchar(a)
 #else
   /* If defined as something else, make sure we declare it here so it's ready for use */
-  #ifdef UNITY_OUTPUT_CHAR_HEADER_DECLARATION
-    extern void UNITY_OUTPUT_CHAR_HEADER_DECLARATION;
-  #endif
+#ifdef UNITY_OUTPUT_CHAR_HEADER_DECLARATION
+extern void UNITY_OUTPUT_CHAR_HEADER_DECLARATION;
+#endif
 #endif
 
 #ifndef UNITY_OUTPUT_FLUSH
-  #ifdef UNITY_USE_FLUSH_STDOUT
+#ifdef UNITY_USE_FLUSH_STDOUT
     /* We want to use the stdout flush utility */
-    #include <stdio.h>
-    #define UNITY_OUTPUT_FLUSH() (void)fflush(stdout)
-  #else
+#include <stdio.h>
+#define UNITY_OUTPUT_FLUSH() (void)fflush(stdout)
+#else
     /* We've specified nothing, therefore flush should just be ignored */
-    #define UNITY_OUTPUT_FLUSH()
-  #endif
+#define UNITY_OUTPUT_FLUSH()
+#endif
 #else
   /* If defined as something else, make sure we declare it here so it's ready for use */
-  #ifdef UNITY_OUTPUT_FLUSH_HEADER_DECLARATION
-    extern void UNITY_OUTPUT_FLUSH_HEADER_DECLARATION;
-  #endif
+#ifdef UNITY_OUTPUT_FLUSH_HEADER_DECLARATION
+extern void UNITY_OUTPUT_FLUSH_HEADER_DECLARATION;
+#endif
 #endif
 
 #ifndef UNITY_OUTPUT_FLUSH
@@ -298,50 +298,50 @@ typedef UNITY_FLOAT_TYPE UNITY_FLOAT;
 #endif
 
 #ifdef UNITY_INCLUDE_EXEC_TIME
-  #if !defined(UNITY_EXEC_TIME_START) && \
+#if !defined(UNITY_EXEC_TIME_START) && \
       !defined(UNITY_EXEC_TIME_STOP) && \
       !defined(UNITY_PRINT_EXEC_TIME) && \
       !defined(UNITY_TIME_TYPE)
       /* If none any of these macros are defined then try to provide a default implementation */
 
-    #if defined(UNITY_CLOCK_MS)
+#if defined(UNITY_CLOCK_MS)
       /* This is a simple way to get a default implementation on platforms that support getting a millisecond counter */
-      #define UNITY_TIME_TYPE UNITY_UINT
-      #define UNITY_EXEC_TIME_START() Unity.CurrentTestStartTime = UNITY_CLOCK_MS()
-      #define UNITY_EXEC_TIME_STOP() Unity.CurrentTestStopTime = UNITY_CLOCK_MS()
-      #define UNITY_PRINT_EXEC_TIME() { \
+#define UNITY_TIME_TYPE UNITY_UINT
+#define UNITY_EXEC_TIME_START() Unity.CurrentTestStartTime = UNITY_CLOCK_MS()
+#define UNITY_EXEC_TIME_STOP() Unity.CurrentTestStopTime = UNITY_CLOCK_MS()
+#define UNITY_PRINT_EXEC_TIME() { \
         UNITY_UINT execTimeMs = (Unity.CurrentTestStopTime - Unity.CurrentTestStartTime); \
         UnityPrint(" ("); \
         UnityPrintNumberUnsigned(execTimeMs); \
         UnityPrint(" ms)"); \
         }
-    #elif defined(_WIN32)
-      #include <time.h>
-      #define UNITY_TIME_TYPE clock_t
-      #define UNITY_GET_TIME(t) t = (clock_t)((clock() * 1000) / CLOCKS_PER_SEC)
-      #define UNITY_EXEC_TIME_START() UNITY_GET_TIME(Unity.CurrentTestStartTime)
-      #define UNITY_EXEC_TIME_STOP() UNITY_GET_TIME(Unity.CurrentTestStopTime)
-      #define UNITY_PRINT_EXEC_TIME() { \
+#elif defined(_WIN32)
+#include <time.h>
+#define UNITY_TIME_TYPE clock_t
+#define UNITY_GET_TIME(t) t = (clock_t)((clock() * 1000) / CLOCKS_PER_SEC)
+#define UNITY_EXEC_TIME_START() UNITY_GET_TIME(Unity.CurrentTestStartTime)
+#define UNITY_EXEC_TIME_STOP() UNITY_GET_TIME(Unity.CurrentTestStopTime)
+#define UNITY_PRINT_EXEC_TIME() { \
         UNITY_UINT execTimeMs = (Unity.CurrentTestStopTime - Unity.CurrentTestStartTime); \
         UnityPrint(" ("); \
         UnityPrintNumberUnsigned(execTimeMs); \
         UnityPrint(" ms)"); \
         }
-    #elif defined(__unix__)
-      #include <time.h>
-      #define UNITY_TIME_TYPE struct timespec
-      #define UNITY_GET_TIME(t) clock_gettime(CLOCK_MONOTONIC, &t)
-      #define UNITY_EXEC_TIME_START() UNITY_GET_TIME(Unity.CurrentTestStartTime)
-      #define UNITY_EXEC_TIME_STOP() UNITY_GET_TIME(Unity.CurrentTestStopTime)
-      #define UNITY_PRINT_EXEC_TIME() { \
+#elif defined(__unix__)
+#include <time.h>
+#define UNITY_TIME_TYPE struct timespec
+#define UNITY_GET_TIME(t) clock_gettime(CLOCK_MONOTONIC, &t)
+#define UNITY_EXEC_TIME_START() UNITY_GET_TIME(Unity.CurrentTestStartTime)
+#define UNITY_EXEC_TIME_STOP() UNITY_GET_TIME(Unity.CurrentTestStopTime)
+#define UNITY_PRINT_EXEC_TIME() { \
         UNITY_UINT execTimeMs = ((Unity.CurrentTestStopTime.tv_sec - Unity.CurrentTestStartTime.tv_sec) * 1000L); \
         execTimeMs += ((Unity.CurrentTestStopTime.tv_nsec - Unity.CurrentTestStartTime.tv_nsec) / 1000000L); \
         UnityPrint(" ("); \
         UnityPrintNumberUnsigned(execTimeMs); \
         UnityPrint(" ms)"); \
         }
-    #endif
-  #endif
+#endif
+#endif
 #endif
 
 #ifndef UNITY_EXEC_TIME_START
@@ -376,96 +376,92 @@ typedef UNITY_FLOAT_TYPE UNITY_FLOAT;
  * Internal Structs Needed
  *-------------------------------------------------------*/
 
-typedef void (*UnityTestFunction)(void);
+typedef void (*UnityTestFunction) (void);
 
 #define UNITY_DISPLAY_RANGE_INT  (0x10)
 #define UNITY_DISPLAY_RANGE_UINT (0x20)
 #define UNITY_DISPLAY_RANGE_HEX  (0x40)
 #define UNITY_DISPLAY_RANGE_CHAR (0x80)
 
-typedef enum
-{
-    UNITY_DISPLAY_STYLE_INT      = (UNITY_INT_WIDTH / 8) + UNITY_DISPLAY_RANGE_INT,
-    UNITY_DISPLAY_STYLE_INT8     = 1 + UNITY_DISPLAY_RANGE_INT,
-    UNITY_DISPLAY_STYLE_INT16    = 2 + UNITY_DISPLAY_RANGE_INT,
-    UNITY_DISPLAY_STYLE_INT32    = 4 + UNITY_DISPLAY_RANGE_INT,
+typedef enum {
+   UNITY_DISPLAY_STYLE_INT = (UNITY_INT_WIDTH / 8) + UNITY_DISPLAY_RANGE_INT,
+   UNITY_DISPLAY_STYLE_INT8 = 1 + UNITY_DISPLAY_RANGE_INT,
+   UNITY_DISPLAY_STYLE_INT16 = 2 + UNITY_DISPLAY_RANGE_INT,
+   UNITY_DISPLAY_STYLE_INT32 = 4 + UNITY_DISPLAY_RANGE_INT,
 #ifdef UNITY_SUPPORT_64
-    UNITY_DISPLAY_STYLE_INT64    = 8 + UNITY_DISPLAY_RANGE_INT,
+   UNITY_DISPLAY_STYLE_INT64 = 8 + UNITY_DISPLAY_RANGE_INT,
 #endif
 
-    UNITY_DISPLAY_STYLE_UINT     = (UNITY_INT_WIDTH / 8) + UNITY_DISPLAY_RANGE_UINT,
-    UNITY_DISPLAY_STYLE_UINT8    = 1 + UNITY_DISPLAY_RANGE_UINT,
-    UNITY_DISPLAY_STYLE_UINT16   = 2 + UNITY_DISPLAY_RANGE_UINT,
-    UNITY_DISPLAY_STYLE_UINT32   = 4 + UNITY_DISPLAY_RANGE_UINT,
+   UNITY_DISPLAY_STYLE_UINT = (UNITY_INT_WIDTH / 8) + UNITY_DISPLAY_RANGE_UINT,
+   UNITY_DISPLAY_STYLE_UINT8 = 1 + UNITY_DISPLAY_RANGE_UINT,
+   UNITY_DISPLAY_STYLE_UINT16 = 2 + UNITY_DISPLAY_RANGE_UINT,
+   UNITY_DISPLAY_STYLE_UINT32 = 4 + UNITY_DISPLAY_RANGE_UINT,
 #ifdef UNITY_SUPPORT_64
-    UNITY_DISPLAY_STYLE_UINT64   = 8 + UNITY_DISPLAY_RANGE_UINT,
+   UNITY_DISPLAY_STYLE_UINT64 = 8 + UNITY_DISPLAY_RANGE_UINT,
 #endif
 
-    UNITY_DISPLAY_STYLE_HEX8     = 1 + UNITY_DISPLAY_RANGE_HEX,
-    UNITY_DISPLAY_STYLE_HEX16    = 2 + UNITY_DISPLAY_RANGE_HEX,
-    UNITY_DISPLAY_STYLE_HEX32    = 4 + UNITY_DISPLAY_RANGE_HEX,
+   UNITY_DISPLAY_STYLE_HEX8 = 1 + UNITY_DISPLAY_RANGE_HEX,
+   UNITY_DISPLAY_STYLE_HEX16 = 2 + UNITY_DISPLAY_RANGE_HEX,
+   UNITY_DISPLAY_STYLE_HEX32 = 4 + UNITY_DISPLAY_RANGE_HEX,
 #ifdef UNITY_SUPPORT_64
-    UNITY_DISPLAY_STYLE_HEX64    = 8 + UNITY_DISPLAY_RANGE_HEX,
+   UNITY_DISPLAY_STYLE_HEX64 = 8 + UNITY_DISPLAY_RANGE_HEX,
 #endif
 
-    UNITY_DISPLAY_STYLE_CHAR     = 1 + UNITY_DISPLAY_RANGE_CHAR + UNITY_DISPLAY_RANGE_INT,
+   UNITY_DISPLAY_STYLE_CHAR =
+       1 + UNITY_DISPLAY_RANGE_CHAR + UNITY_DISPLAY_RANGE_INT,
 
-    UNITY_DISPLAY_STYLE_UNKNOWN
+   UNITY_DISPLAY_STYLE_UNKNOWN
 } UNITY_DISPLAY_STYLE_T;
 
-typedef enum
-{
-    UNITY_WITHIN           = 0x0,
-    UNITY_EQUAL_TO         = 0x1,
-    UNITY_GREATER_THAN     = 0x2,
-    UNITY_GREATER_OR_EQUAL = 0x2 + UNITY_EQUAL_TO,
-    UNITY_SMALLER_THAN     = 0x4,
-    UNITY_SMALLER_OR_EQUAL = 0x4 + UNITY_EQUAL_TO,
-    UNITY_UNKNOWN
+typedef enum {
+   UNITY_WITHIN = 0x0,
+   UNITY_EQUAL_TO = 0x1,
+   UNITY_GREATER_THAN = 0x2,
+   UNITY_GREATER_OR_EQUAL = 0x2 + UNITY_EQUAL_TO,
+   UNITY_SMALLER_THAN = 0x4,
+   UNITY_SMALLER_OR_EQUAL = 0x4 + UNITY_EQUAL_TO,
+   UNITY_UNKNOWN
 } UNITY_COMPARISON_T;
 
 #ifndef UNITY_EXCLUDE_FLOAT
-typedef enum UNITY_FLOAT_TRAIT
-{
-    UNITY_FLOAT_IS_NOT_INF       = 0,
-    UNITY_FLOAT_IS_INF,
-    UNITY_FLOAT_IS_NOT_NEG_INF,
-    UNITY_FLOAT_IS_NEG_INF,
-    UNITY_FLOAT_IS_NOT_NAN,
-    UNITY_FLOAT_IS_NAN,
-    UNITY_FLOAT_IS_NOT_DET,
-    UNITY_FLOAT_IS_DET,
-    UNITY_FLOAT_INVALID_TRAIT
+typedef enum UNITY_FLOAT_TRAIT {
+   UNITY_FLOAT_IS_NOT_INF = 0,
+   UNITY_FLOAT_IS_INF,
+   UNITY_FLOAT_IS_NOT_NEG_INF,
+   UNITY_FLOAT_IS_NEG_INF,
+   UNITY_FLOAT_IS_NOT_NAN,
+   UNITY_FLOAT_IS_NAN,
+   UNITY_FLOAT_IS_NOT_DET,
+   UNITY_FLOAT_IS_DET,
+   UNITY_FLOAT_INVALID_TRAIT
 } UNITY_FLOAT_TRAIT_T;
 #endif
 
-typedef enum
-{
-    UNITY_ARRAY_TO_VAL = 0,
-    UNITY_ARRAY_TO_ARRAY,
-    UNITY_ARRAY_UNKNOWN
+typedef enum {
+   UNITY_ARRAY_TO_VAL = 0,
+   UNITY_ARRAY_TO_ARRAY,
+   UNITY_ARRAY_UNKNOWN
 } UNITY_FLAGS_T;
 
-struct UNITY_STORAGE_T
-{
-    const char* TestFile;
-    const char* CurrentTestName;
+struct UNITY_STORAGE_T {
+   const char *TestFile;
+   const char *CurrentTestName;
 #ifndef UNITY_EXCLUDE_DETAILS
-    const char* CurrentDetail1;
-    const char* CurrentDetail2;
+   const char *CurrentDetail1;
+   const char *CurrentDetail2;
 #endif
-    UNITY_LINE_TYPE CurrentTestLineNumber;
-    UNITY_COUNTER_TYPE NumberOfTests;
-    UNITY_COUNTER_TYPE TestFailures;
-    UNITY_COUNTER_TYPE TestIgnores;
-    UNITY_COUNTER_TYPE CurrentTestFailed;
-    UNITY_COUNTER_TYPE CurrentTestIgnored;
+   UNITY_LINE_TYPE CurrentTestLineNumber;
+   UNITY_COUNTER_TYPE NumberOfTests;
+   UNITY_COUNTER_TYPE TestFailures;
+   UNITY_COUNTER_TYPE TestIgnores;
+   UNITY_COUNTER_TYPE CurrentTestFailed;
+   UNITY_COUNTER_TYPE CurrentTestIgnored;
 #ifdef UNITY_INCLUDE_EXEC_TIME
-    UNITY_TIME_TYPE CurrentTestStartTime;
-    UNITY_TIME_TYPE CurrentTestStopTime;
+   UNITY_TIME_TYPE CurrentTestStartTime;
+   UNITY_TIME_TYPE CurrentTestStopTime;
 #endif
 #ifndef UNITY_EXCLUDE_SETJMP_H
-    jmp_buf AbortFrame;
+   jmp_buf AbortFrame;
 #endif
 };
 
@@ -475,11 +471,12 @@ extern struct UNITY_STORAGE_T Unity;
  * Test Suite Management
  *-------------------------------------------------------*/
 
-void UnityBegin(const char* filename);
-int  UnityEnd(void);
-void UnitySetTestFile(const char* filename);
+void UnityBegin(const char *filename);
+int UnityEnd(void);
+void UnitySetTestFile(const char *filename);
 void UnityConcludeTest(void);
-void UnityDefaultTestRun(UnityTestFunction Func, const char* FuncName, const int FuncLineNum);
+void UnityDefaultTestRun(UnityTestFunction Func, const char *FuncName,
+                         const int FuncLineNum);
 
 /*-------------------------------------------------------
  * Details Support
@@ -507,15 +504,16 @@ void UnityDefaultTestRun(UnityTestFunction Func, const char* FuncName, const int
  * Test Output
  *-------------------------------------------------------*/
 
-void UnityPrint(const char* string);
+void UnityPrint(const char *string);
 
 #ifdef UNITY_INCLUDE_PRINT_FORMATTED
-void UnityPrintFormatted(const char* format, ...);
+void UnityPrintFormatted(const char *format, ...);
 #endif
 
-void UnityPrintLen(const char* string, const UNITY_UINT32 length);
+void UnityPrintLen(const char *string, const UNITY_UINT32 length);
 void UnityPrintMask(const UNITY_UINT mask, const UNITY_UINT number);
-void UnityPrintNumberByStyle(const UNITY_INT number, const UNITY_DISPLAY_STYLE_T style);
+void UnityPrintNumberByStyle(const UNITY_INT number,
+                             const UNITY_DISPLAY_STYLE_T style);
 void UnityPrintNumber(const UNITY_INT number_to_print);
 void UnityPrintNumberUnsigned(const UNITY_UINT number);
 void UnityPrintNumberHex(const UNITY_UINT number, const char nibbles_to_print);
@@ -534,7 +532,7 @@ void UnityPrintFloat(const UNITY_DOUBLE input_number);
 
 void UnityAssertEqualNumber(const UNITY_INT expected,
                             const UNITY_INT actual,
-                            const char* msg,
+                            const char *msg,
                             const UNITY_LINE_TYPE lineNumber,
                             const UNITY_DISPLAY_STYLE_T style);
 
@@ -548,7 +546,7 @@ void UnityAssertGreaterOrLessOrEqualNumber(const UNITY_INT threshold,
 void UnityAssertEqualIntArray(UNITY_INTERNAL_PTR expected,
                               UNITY_INTERNAL_PTR actual,
                               const UNITY_UINT32 num_elements,
-                              const char* msg,
+                              const char *msg,
                               const UNITY_LINE_TYPE lineNumber,
                               const UNITY_DISPLAY_STYLE_T style,
                               const UNITY_FLAGS_T flags);
@@ -556,39 +554,37 @@ void UnityAssertEqualIntArray(UNITY_INTERNAL_PTR expected,
 void UnityAssertBits(const UNITY_INT mask,
                      const UNITY_INT expected,
                      const UNITY_INT actual,
-                     const char* msg,
-                     const UNITY_LINE_TYPE lineNumber);
+                     const char *msg, const UNITY_LINE_TYPE lineNumber);
 
-void UnityAssertEqualString(const char* expected,
-                            const char* actual,
-                            const char* msg,
-                            const UNITY_LINE_TYPE lineNumber);
+void UnityAssertEqualString(const char *expected,
+                            const char *actual,
+                            const char *msg, const UNITY_LINE_TYPE lineNumber);
 
-void UnityAssertEqualStringLen(const char* expected,
-                            const char* actual,
+void UnityAssertEqualStringLen(const char *expected,
+                               const char *actual,
+                               const UNITY_UINT32 length,
+                               const char *msg,
+                               const UNITY_LINE_TYPE lineNumber);
+
+void UnityAssertEqualStringArray(UNITY_INTERNAL_PTR expected,
+                                 const char **actual,
+                                 const UNITY_UINT32 num_elements,
+                                 const char *msg,
+                                 const UNITY_LINE_TYPE lineNumber,
+                                 const UNITY_FLAGS_T flags);
+
+void UnityAssertEqualMemory(UNITY_INTERNAL_PTR expected,
+                            UNITY_INTERNAL_PTR actual,
                             const UNITY_UINT32 length,
-                            const char* msg,
-                            const UNITY_LINE_TYPE lineNumber);
-
-void UnityAssertEqualStringArray( UNITY_INTERNAL_PTR expected,
-                                  const char** actual,
-                                  const UNITY_UINT32 num_elements,
-                                  const char* msg,
-                                  const UNITY_LINE_TYPE lineNumber,
-                                  const UNITY_FLAGS_T flags);
-
-void UnityAssertEqualMemory( UNITY_INTERNAL_PTR expected,
-                             UNITY_INTERNAL_PTR actual,
-                             const UNITY_UINT32 length,
-                             const UNITY_UINT32 num_elements,
-                             const char* msg,
-                             const UNITY_LINE_TYPE lineNumber,
-                             const UNITY_FLAGS_T flags);
+                            const UNITY_UINT32 num_elements,
+                            const char *msg,
+                            const UNITY_LINE_TYPE lineNumber,
+                            const UNITY_FLAGS_T flags);
 
 void UnityAssertNumbersWithin(const UNITY_UINT delta,
                               const UNITY_INT expected,
                               const UNITY_INT actual,
-                              const char* msg,
+                              const char *msg,
                               const UNITY_LINE_TYPE lineNumber,
                               const UNITY_DISPLAY_STYLE_T style);
 
@@ -596,31 +592,31 @@ void UnityAssertNumbersArrayWithin(const UNITY_UINT delta,
                                    UNITY_INTERNAL_PTR expected,
                                    UNITY_INTERNAL_PTR actual,
                                    const UNITY_UINT32 num_elements,
-                                   const char* msg,
+                                   const char *msg,
                                    const UNITY_LINE_TYPE lineNumber,
                                    const UNITY_DISPLAY_STYLE_T style,
                                    const UNITY_FLAGS_T flags);
 
-void UnityFail(const char* message, const UNITY_LINE_TYPE line);
-void UnityIgnore(const char* message, const UNITY_LINE_TYPE line);
-void UnityMessage(const char* message, const UNITY_LINE_TYPE line);
+void UnityFail(const char *message, const UNITY_LINE_TYPE line);
+void UnityIgnore(const char *message, const UNITY_LINE_TYPE line);
+void UnityMessage(const char *message, const UNITY_LINE_TYPE line);
 
 #ifndef UNITY_EXCLUDE_FLOAT
 void UnityAssertFloatsWithin(const UNITY_FLOAT delta,
                              const UNITY_FLOAT expected,
                              const UNITY_FLOAT actual,
-                             const char* msg,
-                             const UNITY_LINE_TYPE lineNumber);
+                             const char *msg, const UNITY_LINE_TYPE lineNumber);
 
-void UnityAssertEqualFloatArray(UNITY_PTR_ATTRIBUTE const UNITY_FLOAT* expected,
-                                UNITY_PTR_ATTRIBUTE const UNITY_FLOAT* actual,
+void UnityAssertEqualFloatArray(UNITY_PTR_ATTRIBUTE const UNITY_FLOAT *
+                                expected,
+                                UNITY_PTR_ATTRIBUTE const UNITY_FLOAT * actual,
                                 const UNITY_UINT32 num_elements,
-                                const char* msg,
+                                const char *msg,
                                 const UNITY_LINE_TYPE lineNumber,
                                 const UNITY_FLAGS_T flags);
 
 void UnityAssertFloatSpecial(const UNITY_FLOAT actual,
-                             const char* msg,
+                             const char *msg,
                              const UNITY_LINE_TYPE lineNumber,
                              const UNITY_FLOAT_TRAIT_T style);
 #endif
@@ -629,18 +625,19 @@ void UnityAssertFloatSpecial(const UNITY_FLOAT actual,
 void UnityAssertDoublesWithin(const UNITY_DOUBLE delta,
                               const UNITY_DOUBLE expected,
                               const UNITY_DOUBLE actual,
-                              const char* msg,
+                              const char *msg,
                               const UNITY_LINE_TYPE lineNumber);
 
-void UnityAssertEqualDoubleArray(UNITY_PTR_ATTRIBUTE const UNITY_DOUBLE* expected,
-                                 UNITY_PTR_ATTRIBUTE const UNITY_DOUBLE* actual,
-                                 const UNITY_UINT32 num_elements,
-                                 const char* msg,
+void UnityAssertEqualDoubleArray(UNITY_PTR_ATTRIBUTE const UNITY_DOUBLE *
+                                 expected,
+                                 UNITY_PTR_ATTRIBUTE const UNITY_DOUBLE *
+                                 actual, const UNITY_UINT32 num_elements,
+                                 const char *msg,
                                  const UNITY_LINE_TYPE lineNumber,
                                  const UNITY_FLAGS_T flags);
 
 void UnityAssertDoubleSpecial(const UNITY_DOUBLE actual,
-                              const char* msg,
+                              const char *msg,
                               const UNITY_LINE_TYPE lineNumber,
                               const UNITY_FLOAT_TRAIT_T style);
 #endif
@@ -738,7 +735,7 @@ extern const char UnityStrErrShorthand[];
  *-----------------------------------------------*/
 
 #ifdef UNITY_USE_COMMAND_LINE_ARGS
-int UnityParseOptions(int argc, char** argv);
+int UnityParseOptions(int argc, char **argv);
 int UnityTestMatches(void);
 #endif
 
@@ -848,7 +845,6 @@ int UnityTestMatches(void);
 #define UNITY_TEST_ASSERT_HEX16_ARRAY_WITHIN(delta, expected, actual, num_elements, line, message)   UnityAssertNumbersArrayWithin((UNITY_UINT16)(delta), (UNITY_INTERNAL_PTR)(expected), (UNITY_INTERNAL_PTR)(actual), ((UNITY_UINT32)(num_elements)), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_HEX16, UNITY_ARRAY_TO_ARRAY)
 #define UNITY_TEST_ASSERT_HEX32_ARRAY_WITHIN(delta, expected, actual, num_elements, line, message)   UnityAssertNumbersArrayWithin((UNITY_UINT32)(delta), (UNITY_INTERNAL_PTR)(expected), (UNITY_INTERNAL_PTR)(actual), ((UNITY_UINT32)(num_elements)), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_HEX32, UNITY_ARRAY_TO_ARRAY)
 #define UNITY_TEST_ASSERT_CHAR_ARRAY_WITHIN(delta, expected, actual, num_elements, line, message)    UnityAssertNumbersArrayWithin((UNITY_UINT8 )(delta), (UNITY_INTERNAL_PTR)(expected), (UNITY_INTERNAL_PTR)(actual), ((UNITY_UINT32)(num_elements)), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_CHAR, UNITY_ARRAY_TO_ARRAY)
-
 
 #define UNITY_TEST_ASSERT_EQUAL_PTR(expected, actual, line, message)                             UnityAssertEqualNumber((UNITY_PTR_TO_INT)(expected), (UNITY_PTR_TO_INT)(actual), (message), (UNITY_LINE_TYPE)(line), UNITY_DISPLAY_STYLE_POINTER)
 #define UNITY_TEST_ASSERT_EQUAL_STRING(expected, actual, line, message)                          UnityAssertEqualString((const char*)(expected), (const char*)(actual), (message), (UNITY_LINE_TYPE)(line))
