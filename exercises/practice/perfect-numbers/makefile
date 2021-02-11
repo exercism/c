@@ -22,9 +22,9 @@ test: tests.out
 	@./tests.out
 
 .PHONY: memcheck
-memcheck: test/*.c src/*.c src/*.h
+memcheck: ./*.c ./*.h
 	@echo Compiling $@
-	@$(CC) $(ASANFLAGS) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o memcheck.out $(LIBS)
+	@$(CC) $(ASANFLAGS) $(CFLAGS) test-framework/unity.c ./*.c -o memcheck.out $(LIBS)
 	@./memcheck.out
 	@echo "Memory check passed"
 
@@ -32,6 +32,6 @@ memcheck: test/*.c src/*.c src/*.h
 clean:
 	rm -rf *.o *.out *.out.dSYM
 
-tests.out: test/*.c src/*.c src/*.h
+tests.out: ./*.c ./*.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o tests.out $(LIBS)
+	@$(CC) $(CFLAGS) test-framework/unity.c ./*.c -o tests.out $(LIBS)
