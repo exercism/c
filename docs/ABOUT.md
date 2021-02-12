@@ -1,3 +1,5 @@
+# About
+
 C is a general purpose language, used for a wide range of applications, from embedded computers to high-performance computing clusters. 
 
 C is commonly found in low level applications as it's a good alternative to harder-to-read assembly languages. It can be compiled to assembly to keep the same level of performance, while increasing readability, and providing a small level of safety with static types!
