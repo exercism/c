@@ -12,7 +12,7 @@ environment). Linux environments typically expose the compiler and native
 build system as separate command-line tools.
 
 
-#### Linux
+## Linux
 
 Linux users will need gcc or clang for the compiler, and `make` will be needed
 for the native build. Make is pre-installed on most unix systems, but is most
@@ -21,13 +21,13 @@ distributions everything you need can be installed with `sudo apt-get install bu
 if not present.
 
 
-#### MacOS
+## MacOS
 
 MacOS users can install gcc or clang with [Homebrew](http://brew.sh/) via
 `brew install gcc` or `brew install llvm`.
 
 
-#### Windows
+## Windows
 
 Windows 10 users are recommended to use [WSL Bash](https://msdn.microsoft.com/en-us/commandline/wsl/about), and proceed with the instruction for linux above.
 
