@@ -10,13 +10,21 @@ jobs:
     runs-on: ubuntu-18.04
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/format')
     steps:
+      - name: 'Setup SSH deploy key'
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
       - name: "Checkout code"
         run: |
           PR_DATA="/tmp/pr.json"
+
           jq -r ".issue.pull_request.url" "$GITHUB_EVENT_PATH" | \
             xargs curl --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -o "$PR_DATA" --url
+
           HEAD_REF=$(jq -r ".head.ref" "$PR_DATA")
-          HEAD_REPO=$(jq -r '.head.repo.clone_url | sub("https://"; "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@")' "$PR_DATA")
+          HEAD_REPO=$(jq -r '.head.repo.ssh_url' "$PR_DATA")
 
           git clone $HEAD_REPO .
           git checkout -b "$HEAD_REF" "origin/$HEAD_REF"
