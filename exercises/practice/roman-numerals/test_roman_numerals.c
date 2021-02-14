@@ -10,149 +10,149 @@ void tearDown(void)
 {
 }
 
-static void test_conversion(int number, char *expected)
+static void check_conversion(int number, char *expected)
 {
    char *result = to_roman_numeral(number);
    TEST_ASSERT_EQUAL_STRING(expected, result);
    free(result);
 }
 
-static void test_one_yields_I(void)
+static void test_1_is_I(void)
 {
-   test_conversion(1, "I");
+   check_conversion(1, "I");
 }
 
-static void test_two_yields_II(void)
+static void test_2_is_II(void)
 {
    TEST_IGNORE();               // delete this line to run test
-   test_conversion(2, "II");
+   check_conversion(2, "II");
 }
 
-static void test_three_yields_III(void)
+static void test_3_is_III(void)
 {
    TEST_IGNORE();
-   test_conversion(3, "III");
+   check_conversion(3, "III");
 }
 
-static void test_four_yields_IV(void)
+static void test_4_is_IV(void)
 {
    TEST_IGNORE();
-   test_conversion(4, "IV");
+   check_conversion(4, "IV");
 }
 
-static void test_five_yields_V(void)
+static void test_5_is_V(void)
 {
    TEST_IGNORE();
-   test_conversion(5, "V");
+   check_conversion(5, "V");
 }
 
-static void test_six_yields_VI(void)
+static void test_6_is_VI(void)
 {
    TEST_IGNORE();
-   test_conversion(6, "VI");
+   check_conversion(6, "VI");
 }
 
-static void test_nine_yields_IX(void)
+static void test_9_is_IX(void)
 {
    TEST_IGNORE();
-   test_conversion(9, "IX");
+   check_conversion(9, "IX");
 }
 
-static void test_twenty_seven_yields_XXVII(void)
+static void test_27_is_XXVII(void)
 {
    TEST_IGNORE();
-   test_conversion(27, "XXVII");
+   check_conversion(27, "XXVII");
 }
 
-static void test_forty_eight_yields_XLVIII(void)
+static void test_48_is_XLVIII(void)
 {
    TEST_IGNORE();
-   test_conversion(48, "XLVIII");
+   check_conversion(48, "XLVIII");
 }
 
-static void test_forty_nine_yields_XLIX(void)
+static void test_49_is_XLIX(void)
 {
    TEST_IGNORE();
-   test_conversion(49, "XLIX");
+   check_conversion(49, "XLIX");
 }
 
-static void test_fifty_nine_yields_LIX(void)
+static void test_59_is_LIX(void)
 {
    TEST_IGNORE();
-   test_conversion(59, "LIX");
+   check_conversion(59, "LIX");
 }
 
-static void test_ninety_three_yields_XCIII(void)
+static void test_93_is_XCIII(void)
 {
    TEST_IGNORE();
-   test_conversion(93, "XCIII");
+   check_conversion(93, "XCIII");
 }
 
-static void test_one_hundred_forty_one_yields_CXLI(void)
+static void test_141_is_CXLI(void)
 {
    TEST_IGNORE();
-   test_conversion(141, "CXLI");
+   check_conversion(141, "CXLI");
 }
 
-static void test_one_hundred_sixty_three_yields_CLXIII(void)
+static void test_163_is_CLXIII(void)
 {
    TEST_IGNORE();
-   test_conversion(163, "CLXIII");
+   check_conversion(163, "CLXIII");
 }
 
-static void test_four_hundred_two_yields_CDII(void)
+static void test_402_is_CDII(void)
 {
    TEST_IGNORE();
-   test_conversion(402, "CDII");
+   check_conversion(402, "CDII");
 }
 
-static void test_five_hundred_seventy_five_yields_DLXXV(void)
+static void test_575_is_DLXXV(void)
 {
    TEST_IGNORE();
-   test_conversion(575, "DLXXV");
+   check_conversion(575, "DLXXV");
 }
 
-static void test_nine_hundred_eleven_yields_CMXI(void)
+static void test_911_is_CMXI(void)
 {
    TEST_IGNORE();
-   test_conversion(911, "CMXI");
+   check_conversion(911, "CMXI");
 }
 
-static void test_one_thousand_twenty_four_yields_MXXIV(void)
+static void test_1024_is_MXXIV(void)
 {
    TEST_IGNORE();
-   test_conversion(1024, "MXXIV");
+   check_conversion(1024, "MXXIV");
 }
 
-static void test_three_thousand_yields_MMM(void)
+static void test_3000_is_MMM(void)
 {
    TEST_IGNORE();
-   test_conversion(3000, "MMM");
+   check_conversion(3000, "MMM");
 }
 
 int main(void)
 {
    UnityBegin("test_roman_numerals.c");
 
-   RUN_TEST(test_one_yields_I);
-   RUN_TEST(test_two_yields_II);
-   RUN_TEST(test_three_yields_III);
-   RUN_TEST(test_four_yields_IV);
-   RUN_TEST(test_five_yields_V);
-   RUN_TEST(test_nine_yields_IX);
-   RUN_TEST(test_six_yields_VI);
-   RUN_TEST(test_twenty_seven_yields_XXVII);
-   RUN_TEST(test_forty_eight_yields_XLVIII);
-   RUN_TEST(test_forty_nine_yields_XLIX);
-   RUN_TEST(test_fifty_nine_yields_LIX);
-   RUN_TEST(test_ninety_three_yields_XCIII);
-   RUN_TEST(test_one_hundred_forty_one_yields_CXLI);
-   RUN_TEST(test_one_hundred_sixty_three_yields_CLXIII);
-   RUN_TEST(test_four_hundred_two_yields_CDII);
-   RUN_TEST(test_five_hundred_seventy_five_yields_DLXXV);
-   RUN_TEST(test_nine_hundred_eleven_yields_CMXI);
-   RUN_TEST(test_one_thousand_twenty_four_yields_MXXIV);
-   RUN_TEST(test_three_thousand_yields_MMM);
+   RUN_TEST(test_1_is_I);
+   RUN_TEST(test_2_is_II);
+   RUN_TEST(test_3_is_III);
+   RUN_TEST(test_4_is_IV);
+   RUN_TEST(test_5_is_V);
+   RUN_TEST(test_6_is_VI);
+   RUN_TEST(test_9_is_IX);
+   RUN_TEST(test_27_is_XXVII);
+   RUN_TEST(test_48_is_XLVIII);
+   RUN_TEST(test_49_is_XLIX);
+   RUN_TEST(test_59_is_LIX);
+   RUN_TEST(test_93_is_XCIII);
+   RUN_TEST(test_141_is_CXLI);
+   RUN_TEST(test_163_is_CLXIII);
+   RUN_TEST(test_402_is_CDII);
+   RUN_TEST(test_575_is_DLXXV);
+   RUN_TEST(test_911_is_CMXI);
+   RUN_TEST(test_1024_is_MXXIV);
+   RUN_TEST(test_3000_is_MMM);
 
    return UnityEnd();
 }
