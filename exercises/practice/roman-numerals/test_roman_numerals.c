@@ -17,115 +17,114 @@ static void check_conversion(int number, char *expected)
    free(result);
 }
 
-static void test_1_is_a_single_I(void)
+static void test_1_is_I(void)
 {
    check_conversion(1, "I");
 }
 
-static void test_2_is_two_Is(void)
+static void test_2_is_II(void)
 {
    TEST_IGNORE();               // delete this line to run test
    check_conversion(2, "II");
 }
 
-static void test_3_is_three_Is(void)
+static void test_3_is_III(void)
 {
    TEST_IGNORE();
    check_conversion(3, "III");
 }
 
-static void test_4_being_5_minus_1_is_IV(void)
+static void test_4_is_IV(void)
 {
    TEST_IGNORE();
    check_conversion(4, "IV");
 }
 
-static void test_5_is_a_single_V(void)
+static void test_5_is_V(void)
 {
    TEST_IGNORE();
    check_conversion(5, "V");
 }
 
-static void test_6_being_5_plus_1_is_VI(void)
+static void test_6_is_VI(void)
 {
    TEST_IGNORE();
    check_conversion(6, "VI");
 }
 
-static void test_nine_being_10_minus_1_is_IX(void)
+static void test_9_is_IX(void)
 {
    TEST_IGNORE();
    check_conversion(9, "IX");
 }
 
-static void test_20_is_two_XXs(void)
+static void test_27_is_XXVII(void)
 {
    TEST_IGNORE();
-   check_conversion(20, "XX");
+   check_conversion(27, "XXVII");
 }
 
-static void test_48_is_not_50_minus_2_but_rather_40_plus_8(void)
+static void test_48_is_XLVIII(void)
 {
    TEST_IGNORE();
    check_conversion(48, "XLVIII");
 }
 
-static void
-test_49_is_not_40_plus_5_plus_4_but_rather_50_minus_10_plus_10_minus_1(void)
+static void test_49_is_XLIX(void)
 {
    TEST_IGNORE();
    check_conversion(49, "XLIX");
 }
 
-static void test_50_is_a_single_L(void)
+static void test_59_is_LIX(void)
 {
    TEST_IGNORE();
-   check_conversion(50, "L");
+   check_conversion(59, "LIX");
 }
 
-static void test_90_being_100_minus_10_is_XC(void)
+static void test_93_is_XCIII(void)
 {
    TEST_IGNORE();
-   check_conversion(90, "XC");
+   check_conversion(93, "XCIII");
 }
 
-static void test_100_is_a_single_C(void)
+static void test_141_is_CXLI(void)
 {
    TEST_IGNORE();
-   check_conversion(100, "C");
+   check_conversion(141, "CXLI");
 }
 
-static void test_sixty_being_50_plus_10_is_LX(void)
+static void test_163_is_CLXIII(void)
 {
    TEST_IGNORE();
-   check_conversion(60, "LX");
+   check_conversion(163, "CLXIII");
 }
 
-static void test_400_being_500_minus_100_is_CD(void)
+static void test_402_is_CDII(void)
 {
    TEST_IGNORE();
-   check_conversion(400, "CD");
+   check_conversion(402, "CDII");
 }
 
-static void test_500_is_a_single_D(void)
+static void test_575_is_DLXXV(void)
 {
    TEST_IGNORE();
-   check_conversion(500, "D");
+   check_conversion(575, "DLXXV");
 }
 
-static void test_900_being_1000_minus_100_is_CM(void)
+static void test_911_is_CMXI(void)
 {
    TEST_IGNORE();
-   check_conversion(900, "CM");
+   check_conversion(911, "CMXI");
 }
 
-static void test_1000_is_a_single_M(void)
+static void test_1024_is_MXXIV(void)
 {
    TEST_IGNORE();
-   check_conversion(1000, "M");
+   check_conversion(1024, "MXXIV");
 }
 
-static void test_3000_is_3_Ms(void)
+static void test_3000_is_MMM(void)
 {
    TEST_IGNORE();
    check_conversion(3000, "MMM");
@@ -135,26 +134,25 @@ int main(void)
 {
    UnityBegin("test_roman_numerals.c");
 
-   RUN_TEST(test_1_is_a_single_I);
-   RUN_TEST(test_2_is_two_Is);
-   RUN_TEST(test_3_is_three_Is);
-   RUN_TEST(test_4_being_5_minus_1_is_IV);
-   RUN_TEST(test_5_is_a_single_V);
-   RUN_TEST(test_6_being_5_plus_1_is_VI);
-   RUN_TEST(test_nine_being_10_minus_1_is_IX);
-   RUN_TEST(test_20_is_two_XXs);
-   RUN_TEST(test_48_is_not_50_minus_2_but_rather_40_plus_8);
-   RUN_TEST
-       (test_49_is_not_40_plus_5_plus_4_but_rather_50_minus_10_plus_10_minus_1);
-   RUN_TEST(test_50_is_a_single_L);
-   RUN_TEST(test_90_being_100_minus_10_is_XC);
-   RUN_TEST(test_100_is_a_single_C);
-   RUN_TEST(test_sixty_being_50_plus_10_is_LX);
-   RUN_TEST(test_400_being_500_minus_100_is_CD);
-   RUN_TEST(test_500_is_a_single_D);
-   RUN_TEST(test_900_being_1000_minus_100_is_CM);
-   RUN_TEST(test_1000_is_a_single_M);
-   RUN_TEST(test_3000_is_3_Ms);
+   RUN_TEST(test_1_is_I);
+   RUN_TEST(test_2_is_II);
+   RUN_TEST(test_3_is_III);
+   RUN_TEST(test_4_is_IV);
+   RUN_TEST(test_5_is_V);
+   RUN_TEST(test_6_is_VI);
+   RUN_TEST(test_9_is_IX);
+   RUN_TEST(test_27_is_XXVII);
+   RUN_TEST(test_48_is_XLVIII);
+   RUN_TEST(test_49_is_XLIX);
+   RUN_TEST(test_59_is_LIX);
+   RUN_TEST(test_93_is_XCIII);
+   RUN_TEST(test_141_is_CXLI);
+   RUN_TEST(test_163_is_CLXIII);
+   RUN_TEST(test_402_is_CDII);
+   RUN_TEST(test_575_is_DLXXV);
+   RUN_TEST(test_911_is_CMXI);
+   RUN_TEST(test_1024_is_MXXIV);
+   RUN_TEST(test_3000_is_MMM);
 
    return UnityEnd();
 }
