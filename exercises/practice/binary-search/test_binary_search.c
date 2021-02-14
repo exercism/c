@@ -94,7 +94,7 @@ static void test_nothing_is_found_when_the_left_and_right_bounds_cross(void)
    TEST_IGNORE();
    int arr[] = { 1, 2 };
    size_t length = sizeof(arr) / sizeof(arr[0]);
-   TEST_ASSERT(NULL == binary_search(0, arr, length))
+   TEST_ASSERT(NULL == binary_search(0, arr, length));
 }
 
 int main(void)
