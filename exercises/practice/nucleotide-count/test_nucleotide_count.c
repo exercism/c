@@ -28,6 +28,15 @@ static void test_empty_strand(void)
    test_strand_count(dna_strand, expected);
 }
 
+static void test_can_count_one_nucleotide_in_single_character_input(void)
+{
+   TEST_IGNORE();
+   const char *dna_strand = "G";
+   const char *expected = "A:0 C:0 G:1 T:0";
+
+   test_strand_count(dna_strand, expected);
+}
+
 static void test_repeated_nucleotide(void)
 {
    TEST_IGNORE();
@@ -61,6 +70,7 @@ int main(void)
    UnityBegin("test_nucleotide_count.c");
 
    RUN_TEST(test_empty_strand);
+   RUN_TEST(test_can_count_one_nucleotide_in_single_character_input);
    RUN_TEST(test_repeated_nucleotide);
    RUN_TEST(test_multiple_nucleotides);
    RUN_TEST(test_invalid_nucleotide);
