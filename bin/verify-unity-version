@@ -2,7 +2,7 @@
 
 declare -r expected_version_major=2
 declare -r expected_version_minor=5
-declare -r expected_version_build=0
+declare -r expected_version_build=2
 
 set -e
 
