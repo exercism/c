@@ -14,19 +14,23 @@
     "indent_style": "space",
     "indent_size": 4
   },
-  "test_pattern": "test/test_.*[.]c",
+  "test_pattern": "test_.*[.]c",
   "files": {
     "solution": [
-      "path/to/%{kebab_slug}.ext"
+      "%{snake_slug}.c",
+      "%{snake_slug}.h",
+      "makefile"
     ],
     "test": [
-      "path/to/%{kebab_slug}.ext"
+      "test_%{snake_slug}.c"
     ],
     "example": [
-      "path/to/%{kebab_slug}.ext"
+      ".meta/example.c",
+      ".meta/example.h"
     ],
     "exemplar": [
-      "path/to/%{kebab_slug}.ext"
+      ".meta/exemplar.c",
+      ".meta/exemplar.h"
     ]
   },
   "exercises": {
