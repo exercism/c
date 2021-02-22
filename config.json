@@ -2,14 +2,14 @@
   "language": "C",
   "slug": "c",
   "active": true,
+  "blurb": "C is a small, general-purpose, imperative programming language with a static type system, scopes, and structures. It's typically used as an alternative to assembly programming, such as in operating systems.",
+  "version": 3,
   "status": {
     "concept_exercises": false,
     "test_runner": false,
     "representer": false,
     "analyzer": false
   },
-  "blurb": "C is a small, general-purpose, imperative programming language with a static type system, scopes, and structures. It's typically used as an alternative to assembly programming, such as in operating systems.",
-  "version": 3,
   "online_editor": {
     "indent_style": "space",
     "indent_size": 4
