@@ -14,7 +14,6 @@
     "indent_style": "space",
     "indent_size": 4
   },
-  "test_pattern": "test_.*[.]c",
   "files": {
     "solution": [
       "%{snake_slug}.c",
