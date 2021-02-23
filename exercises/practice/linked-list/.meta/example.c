@@ -6,6 +6,7 @@ struct list_node {
    struct list_node *prev, *next;
    ll_data_t data;
 };
+
 struct list {
    struct list_node *first, *last;
 };
@@ -33,10 +34,19 @@ struct list *list_create(void)
    return list;
 }
 
-bool list_is_empty(const struct list * list)
+size_t list_count(const struct list *list)
 {
    assert(list);
-   return list->first == NULL;
+
+   size_t count = 0;
+   struct list_node *node = list->first;
+
+   while (node) {
+      ++count;
+      node = node->next;
+   }
+
+   return count;
 }
 
 bool list_push(struct list * list, ll_data_t data)
