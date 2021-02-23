@@ -49,7 +49,7 @@ size_t list_count(const struct list *list)
    return count;
 }
 
-bool list_push(struct list * list, ll_data_t data)
+struct list_node *list_push(struct list * list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(list->last, NULL, data);
@@ -78,7 +78,7 @@ ll_data_t list_pop(struct list * list)
    return result;
 }
 
-bool list_unshift(struct list * list, ll_data_t data)
+struct list_node *list_unshift(struct list * list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(NULL, list->first, data);
