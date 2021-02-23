@@ -107,6 +107,32 @@ ll_data_t list_shift(struct list * list)
    return result;
 }
 
+void list_delete(struct list *list, ll_data_t data)
+{
+   assert(list);
+
+   struct list_node *node = list->first;
+
+   while(node) {
+      if (node->data == data)
+      {
+         if (node == list->first)
+            list->first = node->next;
+         else
+            node->prev->next = node->next;
+
+         if (node == list->last)
+            list->last = node->prev;
+         else
+            node->next->prev = node->prev;
+
+         free(node);
+         return;
+      }
+      node = node->next;
+   }
+}
+
 void list_destroy(struct list *list)
 {
    if (!list)

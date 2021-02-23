@@ -24,6 +24,9 @@ struct list_node *list_unshift(struct list *list, ll_data_t item_data);
 // removes item from front of a list
 ll_data_t list_shift(struct list *list);
 
+// deletes a node that holds the matching data
+void list_delete(struct list *list, ll_data_t data);
+
 // destroys an entire list
 // list will be a dangling pointer after calling this method on it
 void list_destroy(struct list *list);
