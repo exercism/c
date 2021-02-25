@@ -1,8 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "sublist.c",
+      "sublist.h",
+      "makefile"
+    ],
+    "test": [
+      "test_sublist.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   }
 }

@@ -1,9 +1,18 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "largest_series_product.c",
+      "largest_series_product.h",
+      "makefile"
+    ],
+    "test": [
+      "test_largest_series_product.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "A variation on Problem 8 at Project Euler",
   "source_url": "http://projecteuler.net/problem=8"

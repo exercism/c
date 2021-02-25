@@ -1,9 +1,18 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "linked_list.c",
+      "linked_list.h",
+      "makefile"
+    ],
+    "test": [
+      "test_linked_list.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Classic computer science topic"
 }

@@ -1,8 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "list_ops.c",
+      "list_ops.h",
+      "makefile"
+    ],
+    "test": [
+      "test_list_ops.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   }
 }

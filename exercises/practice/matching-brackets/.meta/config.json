@@ -1,9 +1,18 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "matching_brackets.c",
+      "matching_brackets.h",
+      "makefile"
+    ],
+    "test": [
+      "test_matching_brackets.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Ginna Baker"
 }

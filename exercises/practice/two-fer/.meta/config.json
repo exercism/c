@@ -1,9 +1,18 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "two_fer.c",
+      "two_fer.h",
+      "makefile"
+    ],
+    "test": [
+      "test_two_fer.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source_url": "https://github.com/exercism/problem-specifications/issues/757"
 }

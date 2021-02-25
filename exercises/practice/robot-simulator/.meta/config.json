@@ -1,9 +1,18 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "robot_simulator.c",
+      "robot_simulator.h",
+      "makefile"
+    ],
+    "test": [
+      "test_robot_simulator.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Inspired by an interview question at a famous company.",
   "source_url": ""
