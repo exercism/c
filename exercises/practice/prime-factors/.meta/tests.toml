@@ -1,37 +1,51 @@
-[canonical-tests]
+# This is an auto-generated file. Regular comments will be removed when this
+# file is regenerated. Regenerating will not touch any manually added keys,
+# so comments can be added in a "comment" key.
 
-# no factors
-"924fc966-a8f5-4288-82f2-6b9224819ccd" = true
+[924fc966-a8f5-4288-82f2-6b9224819ccd]
+description = "no factors"
+include = true
 
-# prime number
-"17e30670-b105-4305-af53-ddde182cb6ad" = true
+[17e30670-b105-4305-af53-ddde182cb6ad]
+description = "prime number"
+include = true
 
-# another prime number
-"238d57c8-4c12-42ef-af34-ae4929f94789" = true
+[238d57c8-4c12-42ef-af34-ae4929f94789]
+description = "another prime number"
+include = true
 
-# square of a prime
-"f59b8350-a180-495a-8fb1-1712fbee1158" = true
+[f59b8350-a180-495a-8fb1-1712fbee1158]
+description = "square of a prime"
+include = true
 
-# product of first prime
-"756949d3-3158-4e3d-91f2-c4f9f043ee70" = true
+[756949d3-3158-4e3d-91f2-c4f9f043ee70]
+description = "product of first prime"
+include = true
 
-# cube of a prime
-"bc8c113f-9580-4516-8669-c5fc29512ceb" = true
+[bc8c113f-9580-4516-8669-c5fc29512ceb]
+description = "cube of a prime"
+include = true
 
-# product of second prime
-"7d6a3300-a4cb-4065-bd33-0ced1de6cb44" = true
+[7d6a3300-a4cb-4065-bd33-0ced1de6cb44]
+description = "product of second prime"
+include = true
 
-# product of third prime
-"073ac0b2-c915-4362-929d-fc45f7b9a9e4" = true
+[073ac0b2-c915-4362-929d-fc45f7b9a9e4]
+description = "product of third prime"
+include = true
 
-# product of first and second prime
-"6e0e4912-7fb6-47f3-a9ad-dbcd79340c75" = true
+[6e0e4912-7fb6-47f3-a9ad-dbcd79340c75]
+description = "product of first and second prime"
+include = true
 
-# product of primes and non-primes
-"00485cd3-a3fe-4fbe-a64a-a4308fc1f870" = true
+[00485cd3-a3fe-4fbe-a64a-a4308fc1f870]
+description = "product of primes and non-primes"
+include = true
 
-# product of primes
-"02251d54-3ca1-4a9b-85e1-b38f4b0ccb91" = true
+[02251d54-3ca1-4a9b-85e1-b38f4b0ccb91]
+description = "product of primes"
+include = true
 
-# factors include a large prime
-"070cf8dc-e202-4285-aa37-8d775c9cd473" = true
+[070cf8dc-e202-4285-aa37-8d775c9cd473]
+description = "factors include a large prime"
+include = true
