@@ -33,3 +33,4 @@ include = true
 [bc220626-126c-4e72-8df4-fddfc0c3e458]
 description = "all verses"
 include = false
+comment = "Requires reimplementation of output format, TBD see issue #549"
