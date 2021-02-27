@@ -3,9 +3,9 @@ name: Test Exercises
 on: [push, pull_request]
 
 jobs:
-  strategy:
-    matrix:
-      compiler: [gcc, clang]
+  # strategy:
+  #   matrix:
+  #     compiler: [gcc, clang]
 
   test:
     runs-on: ubuntu-18.04
@@ -13,6 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Test Exercises
-      env:
-        CC: ${{ matrix.compiler }}
+      # env:
+      #   CC: ${{ matrix.compiler }}
       run: ./bin/run-tests
