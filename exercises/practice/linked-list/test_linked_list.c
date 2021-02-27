@@ -145,9 +145,8 @@ test_deletes_the_element_with_the_specified_value_from_the_list(void)
 }
 
 static void
-test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail
-(void)
-{
+ test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail
+    (void) {
    TEST_IGNORE();
    list_push(list, 71);
    list_push(list, 83);
@@ -159,9 +158,8 @@ test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail
 }
 
 static void
-test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head
-(void)
-{
+ test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head
+    (void) {
    TEST_IGNORE();
    list_push(list, 71);
    list_push(list, 83);
