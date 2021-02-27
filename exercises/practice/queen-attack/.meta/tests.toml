@@ -5,22 +5,27 @@
 [3ac4f735-d36c-44c4-a3e2-316f79704203]
 description = "queen with a valid position"
 include = false
+comment = "Create property not used as would make tests dependent upon implementation"
 
 [4e812d5d-b974-4e38-9a6b-8e0492bfa7be]
 description = "queen must have positive row"
 include = false
+comment = "Create property not used as would make tests dependent upon implementation"
 
 [f07b7536-b66b-4f08-beb9-4d70d891d5c8]
 description = "queen must have row on board"
 include = false
+comment = "Create property not used as would make tests dependent upon implementation"
 
 [15a10794-36d9-4907-ae6b-e5a0d4c54ebe]
 description = "queen must have positive column"
 include = false
+comment = "Create property not used as would make tests dependent upon implementation"
 
 [6907762d-0e8a-4c38-87fb-12f2f65f0ce4]
 description = "queen must have column on board"
 include = false
+comment = "Create property not used as would make tests dependent upon implementation"
 
 [33ae4113-d237-42ee-bac1-e1e699c0c007]
 description = "can not attack"
