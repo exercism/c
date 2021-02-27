@@ -4,8 +4,8 @@ on: [push, pull_request]
 
 jobs:
   strategy:
-  matrix:
-    compiler: [gcc, clang]
+    matrix:
+      compiler: [gcc, clang]
 
   test:
     runs-on: ubuntu-18.04
