@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "collatz_conjecture.c",
-      "collatz_conjecture.h",
-      "makefile"
+      "collatz_conjecture.h"
     ],
     "test": [
       "test_collatz_conjecture.c"

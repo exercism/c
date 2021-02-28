@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "series.c",
-      "series.h",
-      "makefile"
+      "series.h"
     ],
     "test": [
       "test_series.c"

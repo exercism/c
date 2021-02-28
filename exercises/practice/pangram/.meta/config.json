@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "pangram.c",
-      "pangram.h",
-      "makefile"
+      "pangram.h"
     ],
     "test": [
       "test_pangram.c"

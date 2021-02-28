@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "wordy.c",
-      "wordy.h",
-      "makefile"
+      "wordy.h"
     ],
     "test": [
       "test_wordy.c"

@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "roman_numerals.c",
-      "roman_numerals.h",
-      "makefile"
+      "roman_numerals.h"
     ],
     "test": [
       "test_roman_numerals.c"

@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "run_length_encoding.c",
-      "run_length_encoding.h",
-      "makefile"
+      "run_length_encoding.h"
     ],
     "test": [
       "test_run_length_encoding.c"

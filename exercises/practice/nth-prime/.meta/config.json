@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "nth_prime.c",
-      "nth_prime.h",
-      "makefile"
+      "nth_prime.h"
     ],
     "test": [
       "test_nth_prime.c"

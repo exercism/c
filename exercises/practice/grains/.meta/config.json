@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "grains.c",
-      "grains.h",
-      "makefile"
+      "grains.h"
     ],
     "test": [
       "test_grains.c"

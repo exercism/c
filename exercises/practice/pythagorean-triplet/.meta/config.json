@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "pythagorean_triplet.c",
-      "pythagorean_triplet.h",
-      "makefile"
+      "pythagorean_triplet.h"
     ],
     "test": [
       "test_pythagorean_triplet.c"

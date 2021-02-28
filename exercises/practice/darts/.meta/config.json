@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "darts.c",
-      "darts.h",
-      "makefile"
+      "darts.h"
     ],
     "test": [
       "test_darts.c"

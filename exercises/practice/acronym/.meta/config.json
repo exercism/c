@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "acronym.c",
-      "acronym.h",
-      "makefile"
+      "acronym.h"
     ],
     "test": [
       "test_acronym.c"

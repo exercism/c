@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "etl.c",
-      "etl.h",
-      "makefile"
+      "etl.h"
     ],
     "test": [
       "test_etl.c"

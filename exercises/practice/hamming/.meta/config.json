@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "hamming.c",
-      "hamming.h",
-      "makefile"
+      "hamming.h"
     ],
     "test": [
       "test_hamming.c"

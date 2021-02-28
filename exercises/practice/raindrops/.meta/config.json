@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "raindrops.c",
-      "raindrops.h",
-      "makefile"
+      "raindrops.h"
     ],
     "test": [
       "test_raindrops.c"

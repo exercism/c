@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "robot_simulator.c",
-      "robot_simulator.h",
-      "makefile"
+      "robot_simulator.h"
     ],
     "test": [
       "test_robot_simulator.c"

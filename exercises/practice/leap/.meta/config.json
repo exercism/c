@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "leap.c",
-      "leap.h",
-      "makefile"
+      "leap.h"
     ],
     "test": [
       "test_leap.c"

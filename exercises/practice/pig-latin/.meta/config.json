@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "pig_latin.c",
-      "pig_latin.h",
-      "makefile"
+      "pig_latin.h"
     ],
     "test": [
       "test_pig_latin.c"

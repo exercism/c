@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "meetup.c",
-      "meetup.h",
-      "makefile"
+      "meetup.h"
     ],
     "test": [
       "test_meetup.c"

@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "word_count.c",
-      "word_count.h",
-      "makefile"
+      "word_count.h"
     ],
     "test": [
       "test_word_count.c"

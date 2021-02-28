@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "sum_of_multiples.c",
-      "sum_of_multiples.h",
-      "makefile"
+      "sum_of_multiples.h"
     ],
     "test": [
       "test_sum_of_multiples.c"

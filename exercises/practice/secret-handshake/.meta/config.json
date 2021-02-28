@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "secret_handshake.c",
-      "secret_handshake.h",
-      "makefile"
+      "secret_handshake.h"
     ],
     "test": [
       "test_secret_handshake.c"

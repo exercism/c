@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "matching_brackets.c",
-      "matching_brackets.h",
-      "makefile"
+      "matching_brackets.h"
     ],
     "test": [
       "test_matching_brackets.c"

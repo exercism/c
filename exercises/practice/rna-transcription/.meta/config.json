@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "rna_transcription.c",
-      "rna_transcription.h",
-      "makefile"
+      "rna_transcription.h"
     ],
     "test": [
       "test_rna_transcription.c"

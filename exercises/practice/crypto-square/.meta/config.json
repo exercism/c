@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "crypto_square.c",
-      "crypto_square.h",
-      "makefile"
+      "crypto_square.h"
     ],
     "test": [
       "test_crypto_square.c"

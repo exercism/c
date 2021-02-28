@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "sieve.c",
-      "sieve.h",
-      "makefile"
+      "sieve.h"
     ],
     "test": [
       "test_sieve.c"

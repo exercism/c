@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "minesweeper.c",
-      "minesweeper.h",
-      "makefile"
+      "minesweeper.h"
     ],
     "test": [
       "test_minesweeper.c"

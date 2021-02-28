@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "pascals_triangle.c",
-      "pascals_triangle.h",
-      "makefile"
+      "pascals_triangle.h"
     ],
     "test": [
       "test_pascals_triangle.c"

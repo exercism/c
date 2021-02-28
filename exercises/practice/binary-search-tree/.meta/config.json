@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "binary_search_tree.c",
-      "binary_search_tree.h",
-      "makefile"
+      "binary_search_tree.h"
     ],
     "test": [
       "test_binary_search_tree.c"

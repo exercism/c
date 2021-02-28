@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "largest_series_product.c",
-      "largest_series_product.h",
-      "makefile"
+      "largest_series_product.h"
     ],
     "test": [
       "test_largest_series_product.c"

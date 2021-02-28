@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "square_root.c",
-      "square_root.h",
-      "makefile"
+      "square_root.h"
     ],
     "test": [
       "test_square_root.c"

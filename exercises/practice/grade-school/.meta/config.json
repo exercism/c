@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "grade_school.c",
-      "grade_school.h",
-      "makefile"
+      "grade_school.h"
     ],
     "test": [
       "test_grade_school.c"

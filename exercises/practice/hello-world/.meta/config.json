@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "hello_world.c",
-      "hello_world.h",
-      "makefile"
+      "hello_world.h"
     ],
     "test": [
       "test_hello_world.c"

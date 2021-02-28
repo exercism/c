@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "scrabble_score.c",
-      "scrabble_score.h",
-      "makefile"
+      "scrabble_score.h"
     ],
     "test": [
       "test_scrabble_score.c"

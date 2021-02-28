@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "sublist.c",
-      "sublist.h",
-      "makefile"
+      "sublist.h"
     ],
     "test": [
       "test_sublist.c"

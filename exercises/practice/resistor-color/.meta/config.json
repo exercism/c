@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "resistor_color.c",
-      "resistor_color.h",
-      "makefile"
+      "resistor_color.h"
     ],
     "test": [
       "test_resistor_color.c"

@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "perfect_numbers.c",
-      "perfect_numbers.h",
-      "makefile"
+      "perfect_numbers.h"
     ],
     "test": [
       "test_perfect_numbers.c"

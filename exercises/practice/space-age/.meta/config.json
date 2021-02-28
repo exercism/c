@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "space_age.c",
-      "space_age.h",
-      "makefile"
+      "space_age.h"
     ],
     "test": [
       "test_space_age.c"

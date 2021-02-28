@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "nucleotide_count.c",
-      "nucleotide_count.h",
-      "makefile"
+      "nucleotide_count.h"
     ],
     "test": [
       "test_nucleotide_count.c"

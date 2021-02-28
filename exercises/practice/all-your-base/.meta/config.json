@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "all_your_base.c",
-      "all_your_base.h",
-      "makefile"
+      "all_your_base.h"
     ],
     "test": [
       "test_all_your_base.c"

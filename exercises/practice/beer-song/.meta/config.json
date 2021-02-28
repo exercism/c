@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "beer_song.c",
-      "beer_song.h",
-      "makefile"
+      "beer_song.h"
     ],
     "test": [
       "test_beer_song.c"

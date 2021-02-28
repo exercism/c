@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "react.c",
-      "react.h",
-      "makefile"
+      "react.h"
     ],
     "test": [
       "test_react.c"

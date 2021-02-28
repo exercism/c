@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "atbash_cipher.c",
-      "atbash_cipher.h",
-      "makefile"
+      "atbash_cipher.h"
     ],
     "test": [
       "test_atbash_cipher.c"

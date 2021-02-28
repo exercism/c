@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "rail_fence_cipher.c",
-      "rail_fence_cipher.h",
-      "makefile"
+      "rail_fence_cipher.h"
     ],
     "test": [
       "test_rail_fence_cipher.c"

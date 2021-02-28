@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "clock.c",
-      "clock.h",
-      "makefile"
+      "clock.h"
     ],
     "test": [
       "test_clock.c"

@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "phone_number.c",
-      "phone_number.h",
-      "makefile"
+      "phone_number.h"
     ],
     "test": [
       "test_phone_number.c"

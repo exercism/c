@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "two_fer.c",
-      "two_fer.h",
-      "makefile"
+      "two_fer.h"
     ],
     "test": [
       "test_two_fer.c"

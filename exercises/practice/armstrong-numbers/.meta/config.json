@@ -3,8 +3,7 @@
   "files": {
     "solution": [
       "armstrong_numbers.c",
-      "armstrong_numbers.h",
-      "makefile"
+      "armstrong_numbers.h"
     ],
     "test": [
       "test_armstrong_numbers.c"
