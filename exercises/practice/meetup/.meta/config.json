@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "meetup.c",
+      "meetup.h"
+    ],
+    "test": [
+      "test_meetup.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Jeremy Hinegardner mentioned a Boulder meetup that happens on the Wednesteenth of every month",
   "source_url": "https://twitter.com/copiousfreetime"

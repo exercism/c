@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "sum_of_multiples.c",
+      "sum_of_multiples.h"
+    ],
+    "test": [
+      "test_sum_of_multiples.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "A variation on Problem 1 at Project Euler",
   "source_url": "http://projecteuler.net/problem=1"

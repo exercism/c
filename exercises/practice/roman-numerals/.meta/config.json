@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "roman_numerals.c",
+      "roman_numerals.h"
+    ],
+    "test": [
+      "test_roman_numerals.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "The Roman Numeral Kata",
   "source_url": "http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals"

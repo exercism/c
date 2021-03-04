@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "nucleotide_count.c",
+      "nucleotide_count.h"
+    ],
+    "test": [
+      "test_nucleotide_count.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "The Calculating DNA Nucleotides_problem at Rosalind",
   "source_url": "http://rosalind.info/problems/dna/"

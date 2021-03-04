@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "pascals_triangle.c",
+      "pascals_triangle.h"
+    ],
+    "test": [
+      "test_pascals_triangle.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Pascal's Triangle at Wolfram Math World",
   "source_url": "http://mathworld.wolfram.com/PascalsTriangle.html"

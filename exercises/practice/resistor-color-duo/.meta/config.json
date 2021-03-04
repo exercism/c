@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "resistor_color_duo.c",
+      "resistor_color_duo.h"
+    ],
+    "test": [
+      "test_resistor_color_duo.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Maud de Vries, Erik Schierboom",
   "source_url": "https://github.com/exercism/problem-specifications/issues/1464"

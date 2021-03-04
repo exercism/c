@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "rna_transcription.c",
+      "rna_transcription.h"
+    ],
+    "test": [
+      "test_rna_transcription.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Hyperphysics",
   "source_url": "http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html"

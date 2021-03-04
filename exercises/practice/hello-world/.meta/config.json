@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "hello_world.c",
+      "hello_world.h"
+    ],
+    "test": [
+      "test_hello_world.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "This is an exercise to introduce users to using Exercism",
   "source_url": "http://en.wikipedia.org/wiki/%22Hello,_world!%22_program"

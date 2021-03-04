@@ -1,8 +1,16 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "all_your_base.c",
+      "all_your_base.h"
+    ],
+    "test": [
+      "test_all_your_base.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   }
 }

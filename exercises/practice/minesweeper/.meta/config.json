@@ -1,8 +1,16 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "minesweeper.c",
+      "minesweeper.h"
+    ],
+    "test": [
+      "test_minesweeper.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   }
 }

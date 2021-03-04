@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "clock.c",
+      "clock.h"
+    ],
+    "test": [
+      "test_clock.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Pairing session with Erin Drummond",
   "source_url": "https://twitter.com/ebdrummond"

@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "grains.c",
+      "grains.h"
+    ],
+    "test": [
+      "test_grains.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "JavaRanch Cattle Drive, exercise 6",
   "source_url": "http://www.javaranch.com/grains.jsp"

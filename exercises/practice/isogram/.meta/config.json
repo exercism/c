@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "isogram.c",
+      "isogram.h"
+    ],
+    "test": [
+      "test_isogram.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Isogram"

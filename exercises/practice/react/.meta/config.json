@@ -1,8 +1,16 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "react.c",
+      "react.h"
+    ],
+    "test": [
+      "test_react.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   }
 }

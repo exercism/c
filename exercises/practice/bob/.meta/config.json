@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "bob.c",
+      "bob.h"
+    ],
+    "test": [
+      "test_bob.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",
   "source_url": "http://pine.fm/LearnToProgram/?Chapter=06"

@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "acronym.c",
+      "acronym.h"
+    ],
+    "test": [
+      "test_acronym.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Julien Vanier",
   "source_url": "https://github.com/monkbroc"

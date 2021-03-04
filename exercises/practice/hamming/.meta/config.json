@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "hamming.c",
+      "hamming.h"
+    ],
+    "test": [
+      "test_hamming.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "The Calculating Point Mutations problem at Rosalind",
   "source_url": "http://rosalind.info/problems/hamm/"

@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "queen_attack.c",
+      "queen_attack.h"
+    ],
+    "test": [
+      "test_queen_attack.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "J Dalbey's Programming Practice problems",
   "source_url": "http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html"

@@ -17,8 +17,7 @@
   "files": {
     "solution": [
       "%{snake_slug}.c",
-      "%{snake_slug}.h",
-      "makefile"
+      "%{snake_slug}.h"
     ],
     "test": [
       "test_%{snake_slug}.c"

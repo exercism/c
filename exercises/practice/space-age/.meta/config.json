@@ -1,9 +1,17 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": []
+    "solution": [
+      "space_age.c",
+      "space_age.h"
+    ],
+    "test": [
+      "test_space_age.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
   },
   "source": "Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial.",
   "source_url": "http://pine.fm/LearnToProgram/?Chapter=01"
