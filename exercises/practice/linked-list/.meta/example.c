@@ -49,18 +49,18 @@ size_t list_count(const struct list * list)
    return count;
 }
 
-struct list_node *list_push(struct list *list, ll_data_t data)
+void list_push(struct list *list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(list->last, NULL, data);
    if (!node)
-      return NULL;
+      return;
    list->last = node;
    if (!list->first)
       list->first = node;
    else
       node->prev->next = node;
-   return node;
+   return;
 }
 
 ll_data_t list_pop(struct list * list)
@@ -78,18 +78,18 @@ ll_data_t list_pop(struct list * list)
    return result;
 }
 
-struct list_node *list_unshift(struct list *list, ll_data_t data)
+void list_unshift(struct list *list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(NULL, list->first, data);
    if (!node)
-      return NULL;
+      return;
    list->first = node;
    if (!list->last)
       list->last = node;
    else
       node->next->prev = node;
-   return node;
+   return;
 }
 
 ll_data_t list_shift(struct list * list)
