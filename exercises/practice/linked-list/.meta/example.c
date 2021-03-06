@@ -6,6 +6,7 @@ struct list_node {
    struct list_node *prev, *next;
    ll_data_t data;
 };
+
 struct list {
    struct list_node *first, *last;
 };
@@ -33,24 +34,33 @@ struct list *list_create(void)
    return list;
 }
 
-bool list_is_empty(const struct list * list)
+size_t list_count(const struct list * list)
 {
    assert(list);
-   return list->first == NULL;
+
+   size_t count = 0;
+   struct list_node *node = list->first;
+
+   while (node) {
+      ++count;
+      node = node->next;
+   }
+
+   return count;
 }
 
-bool list_push(struct list * list, ll_data_t data)
+void list_push(struct list *list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(list->last, NULL, data);
    if (!node)
-      return NULL;
+      return;
    list->last = node;
    if (!list->first)
       list->first = node;
    else
       node->prev->next = node;
-   return node;
+   return;
 }
 
 ll_data_t list_pop(struct list * list)
@@ -68,18 +78,18 @@ ll_data_t list_pop(struct list * list)
    return result;
 }
 
-bool list_unshift(struct list * list, ll_data_t data)
+void list_unshift(struct list *list, ll_data_t data)
 {
    assert(list);
    struct list_node *node = list_node_create(NULL, list->first, data);
    if (!node)
-      return NULL;
+      return;
    list->first = node;
    if (!list->last)
       list->last = node;
    else
       node->next->prev = node;
-   return node;
+   return;
 }
 
 ll_data_t list_shift(struct list * list)
@@ -95,6 +105,31 @@ ll_data_t list_shift(struct list * list)
       node->next->prev = NULL;
    free(node);
    return result;
+}
+
+void list_delete(struct list *list, ll_data_t data)
+{
+   assert(list);
+
+   struct list_node *node = list->first;
+
+   while (node) {
+      if (node->data == data) {
+         if (node == list->first)
+            list->first = node->next;
+         else
+            node->prev->next = node->next;
+
+         if (node == list->last)
+            list->last = node->prev;
+         else
+            node->next->prev = node->prev;
+
+         free(node);
+         return;
+      }
+      node = node->next;
+   }
 }
 
 void list_destroy(struct list *list)
