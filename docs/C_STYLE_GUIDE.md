@@ -2,11 +2,12 @@
 
 This guide describes the style intended for use with the C track exercise example and test files.
 
-The rules within this guide are in addition to, or to call out, those in the [Linux kernel coding style guide](https://www.kernel.org/doc/html/latest/process/coding-style.html).
+The rules within this guide are in addition to, or to call out, those in the [Linux kernel coding style guide][].
 
 ## C Standard
 
-Code should conform to the C99 standard, more formally known as ISO/IEC 9899:1999. POSIX, or otherwise non-standard library functions, types or other references that are external to the implementation should not be used.
+Code should conform to the C99 standard, more formally known as ISO/IEC 9899:1999.
+POSIX, or otherwise non-standard library functions, types or other references that are external to the implementation should not be used.
 
 ## Names
 
@@ -54,22 +55,24 @@ While aware that POSIX reserves the `_t` suffix, the track does not currently ut
 
 ## Parameters
 
-Function parameters should be named in both the declaration and definition of all functions. This applies to both `.c` and `.h` files.
+Function parameters should be named in both the declaration and definition of all functions.
+This applies to both `.c` and `.h` files.
 The names used should match in all instances.
 That is to say that while the following function prototype is valid C, the style is incorrect because the parameter is unnamed: `void foo(int);`.
 The correct prototype, providing that all other declarations and the definition also use the parameter name `bar`, would be `void foo(int bar);`.
 
-Where it is simpler or more appropriate to do so, parameters that require passing arguments by value rather than by pointer are preferred. Note especially that this includes `struct` type parameters.
+Where it is simpler or more appropriate to do so, parameters that require passing arguments by value rather than by pointer are preferred.
+Note especially that this includes `struct` type parameters.
 
 In the case that a student is not expected to change the values of a pointer-type parameter within their implementation, that parameter should be `const` qualified.
 
 ## Indentation and Format
 
-The repository uses the `indent` tool, as outlined in the [contributing guide](https://github.com/exercism/c/blob/master/docs/CONTRIBUTING.md).
+The repository uses the `indent` tool, as outlined in the [contributing guide][].
 
-The options described for use with indent there are `-linux -i3 -nut`. The `-linux` option is a shortcut that is equivelent to a secific fixed group of options. The combined equivalent options are `-nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1`.
+The options described for use with indent there are `-linux -i3 -nut`. The `-linux` option is a shortcut that is equivalent to a specific fixed group of options. The combined equivalent options are `-nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1`.
 
-What these options do is indicated by the [GNU `indent` manual](https://www.gnu.org/software/indent/manual/indent.html#SEC4), but is also described here for easy reference if editing files manually.
+What these options do is indicated by the [GNU `indent` manual][ident-manual], but is also described here for easy reference if editing files manually.
 
 - `nbad` - Do _not_ force blank lines after every block of declarations
 - `bap` - Force a black line after every function body
@@ -107,7 +110,7 @@ What these options do is indicated by the [GNU `indent` manual](https://www.gnu.
 
 ## Test file layout
 
-Each exercise's test file follows a particular layout.
+the test file of each exercise follows a particular layout.
 The layout is intended to both help contributors to identify parts of the file, and to help learners to understand how the tests work.
 
 Like most C source files, a test file begins with includes.
@@ -138,6 +141,7 @@ Next are the test functions themselves.
 The names of these functions use a `test_` prefix.
 Excepting the first, each test function should have `TEST_IGNORE();` as its first statement.
 The first occurrence of this should be followed by the line comment `// delete this line to run test`.
+
 For example:
 
 ```c
@@ -177,3 +181,7 @@ int main(void)
     return 0;
 }
 ```
+
+[Linux kernel coding style guide]: https://www.kernel.org/doc/html/latest/process/coding-style.html
+[contributing guide]: ./CONTRIBUTING.md
+[ident-manual]: https://www.gnu.org/software/indent/manual/indent.html#SEC4
