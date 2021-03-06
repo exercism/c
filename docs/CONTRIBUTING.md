@@ -121,17 +121,50 @@ FYI - to get the install artifact for the configlet tool, checkout the configlet
 
 ## Continuous Integration & Tests
 
-The repository uses Travis CI to run some scripts on each commit to a pull request.
-The simplest way to run these scripts on your own contribution is to open a PR on this repository with your changes, edit the PR title to add `[WIP]` then allow this repository's CI setup to take care of things for you automatically.
+This repository uses GitHub workflows to run some scripts on each commit to a pull request.
+The simplest way to run these scripts on your own contribution is to open a PR on this repository with your changes, set the PR draft, then allow this repository's CI setup to take care of things for you automatically.
+
+### CI environment
+
+GitHub runs the CI on virtual machines it refers to as [hosted runners][hosted-runners].
+Workflows can configure some aspects of the runners they would like to be run on.
+
+The workflows in this repository specify only that they each should be run on Ubuntu 18.04.
+The later LTS version of Ubuntu (20.04) is specifically not used due to ongoing work by GitHub on the virtual machines.
+This work means that specifying `latest`, for example, is not guaranteed to result in 20.04 machine, but could result in an 18.04 one.
+As some of the tools (namely `indent`) perform differently on different these different OS versions, the maintainers of this repo have taken the decision to stay with 18.04 until GitHub have completed their work (see [actions/virtual-environments#1816][1816] for information on progress).
 
 ### Run CI on Your Own Fork
 
-If you would like, it is also possible to run Travis on your own fork.
-The good folks at fish-shell have [some great information](https://github.com/fish-shell/fish-shell/blob/master/CONTRIBUTING.md#travis-ci-build-and-test) to help you get started with setting up Travis on your own fork.
+If you would like, it is also possible to run the CI on your own fork, simply clone this repository as normal on GitHub.
+The YAML files located in [`./.github/workflows/`][workflows] should work just the same.
+If you would like the [`/format`][format-workflow] automated action to work correctly, you will need to add a deploy key to your cloned repository.
 
-### Run CI Scripts Locally
-You can also run individual scripts on your own machine before committing.
-Firstly make sure you have the necessary tools installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/) and a C compiler), and then run the required script from the repository root. For example:
+### The Workflows
+
+- `checks.yml` runs `shellcheck` on the tool scripts and subsequently runs the following of those tools:
+  - `./bin/verify-indent`
+  - `./bin/check-unitybegin`
+  - `./bin/verify-unity-version`
+- `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
+- `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `indent` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
+- `build.yml` runs the `./bin/run-tests` tool on all exercises
+
+### The Tools
+
+You can see from the [workflows][] that GitHub is instructed to run tools from the [`./bin`](https://github.com/exercism/c/tree/master/bin) directory.
+The work the tools in this directory perform is described as follows:
+
+- `check-unitybegin` ensures that every test file correctly adds the `UnityBegin("{test-file-name}")` line at the start of its `main()` function.
+- `fetch-configlet` fetches the `configlet` tool from its [repository](https://github.com/exercism/configlet).
+- `verify-indent` runs the `indent` tool and verifies that it did not result in any file changes.
+- `verify-unity-version` checks the version of the Unity test framework used by every exercise. The version this file should check for is specified in [`./docs/VERSIONS.md`][versions]
+- _`run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with AddressSanitizer.
+
+### Run Tools Locally
+
+You can also run individual tools on your own machine before committing.
+Firstly make sure you have the necessary applications installed (such as `indent`, [`git`](https://git-scm.com/), [`sed`](https://www.gnu.org/software/sed/manual/sed.html), [`make`](https://www.gnu.org/software/make/) and a C compiler), and then run the required tool from the repository root. For example:
 
 ```bash
 ~/git/c$ ./bin/run-tests
@@ -143,17 +176,8 @@ If you'd like to run only some of the tests to check your work, you can specify 
 ~/git/c$ ./bin/run-tests acronym all-your-base allergies
 ```
 
-### What Are the CI Scripts?
-You can see from the [.travis.yml](https://github.com/exercism/c/blob/master/.travis.yml) file that Travis is instructed to run scripts from the [`./bin`](https://github.com/exercism/c/tree/master/bin) directory.
-The work these scripts perform is described as follows:
-
-- `fetch-configlet` just fetches the `configlet` tool from its [repository](https://github.com/exercism/configlet).
-
-- `configlet` is a tool, specific to Exercism, that performs some repository management tasks.
-The command for `configlet` used by Travis is [`lint`](https://github.com/exercism/configlet/blob/master/README.md#lint). If `configlet` finds any issues Travis will output the details and report a failure on the related PR.
-
-- `verify-indent` runs `indent` and verifies that it did not result in any file changes.
-If the check does result in file changes, Travis will output the details and report a failure on the related PR.
-
-- `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with AddressSanitizer.
-If there are build errors, any test fails or there is a memory leak, Travis will output the details and report a failure on the related PR.
+[hosted-runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+[1816]: https://github.com/actions/virtual-environments/issues/1816
+[workflows]: https://github.com/exercism/c/blob/master/.github/workflows/
+[format-workflow]: https://github.com/exercism/c/blob/master/.github/workflows/format-code.yml
+[versions]: https://github.com/exercism/c/blob/master/docs/VERSIONS.md
