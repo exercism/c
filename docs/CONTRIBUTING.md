@@ -124,7 +124,7 @@ FYI - to get the install artifact for the configlet tool, checkout the [configle
 ## Continuous Integration
 
 This repository uses GitHub workflows to run some tools on each commit to a pull request.
-The simplest way to run these scripts on your own contribution is to open a PR on this repository with your changes, set the PR as a draft, then allow this repository's CI setup to take care of things for you automatically.
+The simplest way to run these workflows on your own contribution is to open a PR on this repository with your changes, set the PR as a draft, then allow this repository's CI setup to take care of things for you automatically.
 
 ### CI environment
 
