@@ -72,7 +72,7 @@ The repository uses the `indent` tool, as outlined in the [contributing guide][]
 
 The options described for use with indent there are `-linux -i3 -nut`. The `-linux` option is a shortcut that is equivalent to a specific fixed group of options. The combined equivalent options are `-nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1`.
 
-What these options do is indicated by the [GNU `indent` manual][ident-manual], but is also described here for easy reference if editing files manually.
+What these options do is indicated by the [GNU `indent` manual][indent-manual], but is also described here for easy reference if editing files manually.
 
 - `nbad` - Do _not_ force blank lines after every block of declarations
 - `bap` - Force a black line after every function body
@@ -184,4 +184,4 @@ int main(void)
 
 [Linux kernel coding style guide]: https://www.kernel.org/doc/html/latest/process/coding-style.html
 [contributing guide]: ./CONTRIBUTING.md
-[ident-manual]: https://www.gnu.org/software/indent/manual/indent.html#SEC4
+[indent-manual]: https://www.gnu.org/software/indent/manual/indent.html#SEC4
