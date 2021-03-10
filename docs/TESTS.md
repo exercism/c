@@ -7,6 +7,7 @@ Each test file is meant to link against your implementation to provide a console
 Running the test executable prints messages for each failing test and reports a non-zero exit status when tests fail.
 
 To work through an exercise:
+
 * Create the initial build with Make
 * For each unit test:
   * Remove the `TEST_IGNORE()` line.
@@ -24,39 +25,39 @@ For instance, the exercise `bob` expects an implementation in `src/bob.h` and `s
 For exercises with dashes in their name, the source files are assumed to use underscores, so `word-count` expects `src/word_count.h` and `src/word_count.c`.
 You may decide that your implementation is sufficiently simple that it can live entirely in the header, in which case you can omit the `c` file.
 
-**Create your initial implementation files before running Make.**  
+**Create your initial implementation files before running Make.**
 If you do not have files `src/bob.h` and `src/bob.c` when running Make for exercise `bob`, then Make will generate an error about files not being found.
 **These files can be empty, but they must exist.**
 
 ### Build your code
 
 The simplest way to build your code is by using `make` at the command line (CLI).
-On Linux the CLI is available in bash or similar, on MacOS use Terminal. 
+On Linux the CLI is available in bash or similar, on MacOS use Terminal.
 On Windows 10, the Windows Subsystem for Linux (WSL) Bash is available.
 
-To do this, assuming we're in the exercise folder:
+To do this, assuming the current directory is the exercise folder:
 
 ```bash
-$ make
+make
 ```
 
 This will compile your code, and run the tests.
 
-The `makefile` comes also with a build that checks some common mistakes regarding memory leaks and out of bound access to arrays. To run these checks, simply run:
+The `makefile` comes also with a build that checks some common mistakes regarding memory leaks and out of bound access to arrays. To run these checks, use the following at the command line:
+
+```bash
+make memcheck
 ```
-$ make memcheck
-```
-from the command line.
 
 ### Clean up
 
 To clean up after a build, you can tell `make` to delete all of the build output, including the executable:
 
 ```bash
-$ make clean
+make clean
 ```
 
 #### MacOS Build Alternative
-On MacOS you can also use Xcode. 
-To build the code select _Build_ from the toolbar.
 
+On MacOS you can also use Xcode.
+To build the code select _Build_ from the toolbar.
