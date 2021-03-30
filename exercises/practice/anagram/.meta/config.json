@@ -1,6 +1,25 @@
 {
   "blurb": "Given a word and a list of possible anagrams, select the correct sublist.",
-  "authors": [],
+  "authors": [
+    "kdar"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "gea-migration",
+    "h-3-0",
+    "hintjens",
+    "JacobMikkelsen",
+    "kytrinyx",
+    "lpil",
+    "patricksjackson",
+    "QLaille",
+    "RealBarrettBrown",
+    "ryanplusplus",
+    "siebenschlaefer",
+    "wolf99",
+    "xihh87"
+  ],
   "files": {
     "solution": [
       "anagram.c",

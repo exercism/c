@@ -1,6 +1,12 @@
 {
   "blurb": "Implement rational numbers.",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "ryanplusplus",
+    "xihh87"
+  ],
   "files": {
     "solution": [
       "rational_numbers.c",

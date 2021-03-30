@@ -1,6 +1,14 @@
 {
   "blurb": "Implement complex numbers.",
   "authors": [],
+  "contributors": [
+    "h-3-0",
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "sjwarner",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "complex_numbers.c",

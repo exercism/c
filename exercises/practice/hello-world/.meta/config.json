@@ -1,6 +1,21 @@
 {
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
-  "authors": [],
+  "authors": [
+    "JacobMikkelsen"
+  ],
+  "contributors": [
+    "bcc32",
+    "benkelaar",
+    "gea-migration",
+    "h-3-0",
+    "kytrinyx",
+    "patricksjackson",
+    "QLaille",
+    "RealBarrettBrown",
+    "ryanplusplus",
+    "siebenschlaefer",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "hello_world.c",

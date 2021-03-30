@@ -1,6 +1,14 @@
 {
   "blurb": "Implement a doubly linked list",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "siebenschlaefer"
+  ],
   "files": {
     "solution": [
       "linked_list.c",

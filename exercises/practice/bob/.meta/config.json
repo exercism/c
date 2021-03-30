@@ -1,6 +1,23 @@
 {
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
-  "authors": [],
+  "authors": [
+    "lpil"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "gea-migration",
+    "h-3-0",
+    "hintjens",
+    "JacobMikkelsen",
+    "kytrinyx",
+    "patricksjackson",
+    "QLaille",
+    "RealBarrettBrown",
+    "ryanplusplus",
+    "sjwarner",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "bob.c",

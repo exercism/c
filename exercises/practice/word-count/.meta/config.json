@@ -1,6 +1,21 @@
 {
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
-  "authors": [],
+  "authors": [
+    "StevenRoot"
+  ],
+  "contributors": [
+    "bcc32",
+    "Bulagro",
+    "ethagnawl",
+    "Gamecock",
+    "h-3-0",
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "sesamemucho",
+    "ShadowWolf387",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "word_count.c",

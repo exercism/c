@@ -1,6 +1,18 @@
 {
   "blurb": "Given a DNA strand, return its RNA Complement Transcription.",
   "authors": [],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "gea-migration",
+    "h-3-0",
+    "patricksjackson",
+    "QLaille",
+    "RealBarrettBrown",
+    "ryanplusplus",
+    "sjwarner",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "rna_transcription.c",
