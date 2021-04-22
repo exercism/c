@@ -17,16 +17,16 @@ To work through an exercise:
 
 ## Compiling and running the tests
 
-Each exercise will bring a `makefile` file along with the unit tests in the `tests/` directory.
+Each exercise will bring a `makefile` file along with a `.c` with the unit tests.
 You should not need to edit the Make file.
-The provided recipe assumes that your implementation exists as a header file and a source file named after the exercise.
+The provided Make file assumes that your implementation exists as a header file (`.h`) and a source file (`.c`) named after the exercise.
 
-For instance, the exercise `bob` expects an implementation in `src/bob.h` and `src/bob.c`.
-For exercises with dashes in their name, the source files are assumed to use underscores, so `word-count` expects `src/word_count.h` and `src/word_count.c`.
-You may decide that your implementation is sufficiently simple that it can live entirely in the header, in which case you can omit the `c` file.
+For instance, the exercise `bob` expects an implementation in `bob.h` and `bob.c`.
+For exercises with dashes in their name, the source files are assumed to use underscores, so `word-count` expects `word_count.h` and `word_count.c`.
+You may decide that your implementation is sufficiently simple that it can live entirely in the header, in which case you can omit the `.c` file.
 
 **Create your initial implementation files before running Make.**
-If you do not have files `src/bob.h` and `src/bob.c` when running Make for exercise `bob`, then Make will generate an error about files not being found.
+If you do not have files `bob.h` and `bob.c` when running Make for exercise `bob`, then Make will generate an error about files not being found.
 **These files can be empty, but they must exist.**
 
 ### Build your code
@@ -37,24 +37,24 @@ On Windows 10, the Windows Subsystem for Linux (WSL) Bash is available.
 
 To do this, assuming the current directory is the exercise folder:
 
-```bash
-make
+```console
+$ make
 ```
 
 This will compile your code, and run the tests.
 
 The `makefile` comes also with a build that checks some common mistakes regarding memory leaks and out of bound access to arrays. To run these checks, use the following at the command line:
 
-```bash
-make memcheck
+```console
+$ make memcheck
 ```
 
 ### Clean up
 
 To clean up after a build, you can tell `make` to delete all of the build output, including the executable:
 
-```bash
-make clean
+```console
+$ make clean
 ```
 
 #### MacOS Build Alternative
