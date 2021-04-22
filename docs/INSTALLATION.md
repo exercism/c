@@ -17,13 +17,13 @@ On Debian and Ubuntu based distributions everything you need can be installed wi
 
 ## MacOS
 
-MacOS users can install gcc or clang with [Homebrew][]] via `brew install gcc` or `brew install llvm`.
+MacOS users can install gcc or clang with [Homebrew][] via `brew install gcc` or `brew install llvm`.
 
 ## Windows
 
 Windows 10 users are recommended to use the [Windows Subsystem for Linux][], and proceed with the instruction for linux above.
 
-If you are using an earlier version of Windows or WSL Bash is not available to you, you could use [MSYS][] or or [mingw-w64][].
+If you are using an earlier version of Windows or WSL Bash is not available to you, you could use [MSYS][] or [mingw-w64][].
 
 [Homebrew]: https://brew.sh
 [Windows Subsystem for Linux]: https://msdn.microsoft.com/en-us/commandline/wsl/about
