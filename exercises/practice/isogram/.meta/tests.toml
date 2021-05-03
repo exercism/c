@@ -53,3 +53,7 @@ include = true
 [310ac53d-8932-47bc-bbb4-b2b94f25a83e]
 description = "same first and last characters"
 include = true
+
+[0d0b8644-0a1e-4a31-a432-2b3ee270d847]
+description = "word with duplicated character and with two hyphens"
+include = true
