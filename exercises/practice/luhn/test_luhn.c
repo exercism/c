@@ -117,6 +117,14 @@ static void test_ascii_value_for_doubled_non_digit_isnt_allowed(void)
    TEST_ASSERT_FALSE(luhn(":9"));
 }
 
+static void
+test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed
+(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_FALSE(luhn("59%59"));
+}
+
 int main(void)
 {
    UnityBegin("test_luhn.c");
@@ -140,6 +148,8 @@ int main(void)
    RUN_TEST(test_input_digit_9_is_correctly_converted_to_output_digit_9);
    RUN_TEST(test_ascii_value_for_non_doubled_non_digit_isnt_allowed);
    RUN_TEST(test_ascii_value_for_doubled_non_digit_isnt_allowed);
+   RUN_TEST
+       (test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed);
 
    return UnityEnd();
 }
