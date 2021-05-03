@@ -118,9 +118,8 @@ static void test_ascii_value_for_doubled_non_digit_isnt_allowed(void)
 }
 
 static void
-test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed
-(void)
-{
+    test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed
+    (void) {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn("59%59"));
 }
