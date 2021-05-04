@@ -1,6 +1,18 @@
 {
   "blurb": "Convert a long phrase to its acronym",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "h-3-0",
+    "kgashok",
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "sesamemucho"
+  ],
   "files": {
     "solution": [
       "acronym.c",

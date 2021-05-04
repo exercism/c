@@ -1,6 +1,19 @@
 {
   "blurb": "Determine if a word or phrase is an isogram.",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "h-3-0",
+    "PakkuDon",
+    "patricksjackson",
+    "QLaille",
+    "rootbeersoup",
+    "ryanplusplus",
+    "sesamemucho"
+  ],
   "files": {
     "solution": [
       "isogram.c",

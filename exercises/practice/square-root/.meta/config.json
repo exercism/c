@@ -1,6 +1,11 @@
 {
   "blurb": "Given a natural radicand, return its square root.",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "ryanplusplus"
+  ],
   "files": {
     "solution": [
       "square_root.c",

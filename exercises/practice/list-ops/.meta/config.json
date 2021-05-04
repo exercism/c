@@ -1,6 +1,14 @@
 {
   "blurb": "Implement basic list operations",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "patricksjackson",
+    "rootbeersoup",
+    "ryanplusplus",
+    "xihh87"
+  ],
   "files": {
     "solution": [
       "list_ops.c",

@@ -1,6 +1,22 @@
 {
   "blurb": "Given a year, report if it is a leap year.",
-  "authors": [],
+  "authors": [
+    "lpil"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "gea-migration",
+    "h-3-0",
+    "hintjens",
+    "JacobMikkelsen",
+    "kytrinyx",
+    "patricksjackson",
+    "QLaille",
+    "RealBarrettBrown",
+    "ryanplusplus",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "leap.c",

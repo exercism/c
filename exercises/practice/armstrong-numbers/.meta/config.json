@@ -1,6 +1,13 @@
 {
   "blurb": "Determine if a number is an Armstrong number",
-  "authors": [],
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "computermouth",
+    "elyashiv",
+    "ryanplusplus"
+  ],
   "files": {
     "solution": [
       "armstrong_numbers.c",
