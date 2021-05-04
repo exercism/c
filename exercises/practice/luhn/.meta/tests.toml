@@ -55,3 +55,6 @@ description = "using ascii value for non-doubled non-digit isn't allowed"
 
 [f94cf191-a62f-4868-bc72-7253114aa157]
 description = "using ascii value for doubled non-digit isn't allowed"
+
+[8b72ad26-c8be-49a2-b99c-bcc3bf631b33]
+description = "non-numeric, non-space char in the middle with a sum that's divisible by 10 isn't allowed"
