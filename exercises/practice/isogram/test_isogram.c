@@ -94,6 +94,12 @@ static void test_same_first_and_last_characters(void)
    TEST_ASSERT_FALSE(is_isogram("angola"));
 }
 
+static void test_word_with_duplicated_character_and_with_two_hyphens(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_FALSE(is_isogram("up-to-date"));
+}
+
 int main(void)
 {
    UnityBegin("test_isogram.c");
@@ -112,6 +118,7 @@ int main(void)
    RUN_TEST(test_made_up_name_that_is_an_isogram);
    RUN_TEST(test_duplicated_character_in_the_middle);
    RUN_TEST(test_same_first_and_last_characters);
+   RUN_TEST(test_word_with_duplicated_character_and_with_two_hyphens);
 
    return UnityEnd();
 }
