@@ -1,6 +1,5 @@
 bin/configlet
 bin/configlet.exe
-bin/canonical_data_syncer
 build/
 **/*.out
 **/*.o
