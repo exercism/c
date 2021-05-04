@@ -7,6 +7,11 @@ description = "no matches"
 
 [b3cca662-f50a-489e-ae10-ab8290a09bdc]
 description = "detects two anagrams"
+include = false
+comment = "reimplemented"
+
+[03eb9bbe-8906-4ea0-84fa-ffe711b52c8b]
+description = "detects two anagrams"
 
 [a27558ee-9ba0-4552-96b1-ecf665b06556]
 description = "does not detect anagram subsets"

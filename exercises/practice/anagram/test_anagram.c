@@ -62,12 +62,12 @@ static void test_detect_two_anagrams(void)
 {
    TEST_IGNORE();               // delete this line to run test
    char inputs[][MAX_STR_LEN] = {
-      "stream",
-      "Pigeon",
-      "maters"
+      "lemons",
+      "cherry",
+      "melons"
    };
 
-   char subject[] = { "master" };
+   char subject[] = { "solemn" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM };
