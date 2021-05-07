@@ -994,32 +994,32 @@
   "concepts": [],
   "key_features": [
     {
-      "icon": "", // TODO
+      "icon": "TODO",
       "title": "Cross-platform",
       "content": "C is portable and can run on almost any platform and chipset."
     },
     {
-      "icon": "", // TODO
+      "icon": "TODO",
       "title": "General purpose",
       "content": "C can be used for a wide variety of workloads from IoT to game engines."
     },
     {
-      "icon": "", // TODO
+      "icon": "TODO",
       "title": "Performant",
       "content": "C has been consistently rated as one of the highest performing languages for energy and time."
     },
     {
-      "icon": "", // TODO
+      "icon": "TODO",
       "title": "Stable",
       "content": "The C standard values stability and backwards compatibility, C programs can run for decades."
     },
     {
-      "icon": "", // TODO
+      "icon": "TODO",
       "title": "Powerful",
       "content": "C allows both lower and higher level functionality, making it very powerful."
     },
     {
-      "icon": "", // TODO
+      "icon": "TODO",
       "title": "Efficient",
       "content": "C allows swift implementation using constructs that map efficiently to machine instructions."
     }
