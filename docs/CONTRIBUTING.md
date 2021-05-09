@@ -184,7 +184,7 @@ This track has a test runner for Exercism v3!
 You can check it out [here][c-test-runner].
 
 Test runners provide a docker-ised method to run an exercise's tests against a students code in Exercism v3.
-This Docker approach helps to allow in-broswer coding by students.
+This Docker approach helps to allow in-browser coding by students.
 Read more about [test runners].
 
 [Exercism docs]: https://github.com/exercism/docs
