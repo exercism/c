@@ -183,6 +183,10 @@ If you'd like to run only some of the tests to check your work, you can specify 
 This track has a test runner for Exercism v3!
 You can check it out [here][c-test-runner].
 
+Test runners provide a docker-ised method to run an exercise's tests against a students code in Exercism v3.
+This Docker approach helps to allow in-broswer coding by students.
+Read more about [test runners].
+
 [Exercism docs]: https://github.com/exercism/docs
 [contributing to a language track]: https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md
 [problem-specifications]: https://github.com/exercism/problem-specifications
@@ -215,3 +219,4 @@ You can check it out [here][c-test-runner].
 [sed]: https://www.gnu.org/software/sed/manual/sed.html
 [make]: https://www.gnu.org/software/make/
 [c-test-runner]: https://github.com/exercism/c-test-runner
+[test runners]: https://github.com/exercism/docs/blob/main/building/tooling/test-runners/README.md
