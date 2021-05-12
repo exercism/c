@@ -22,8 +22,7 @@
       "test_acronym.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "Julien Vanier",

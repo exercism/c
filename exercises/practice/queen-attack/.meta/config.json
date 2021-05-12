@@ -20,8 +20,7 @@
       "test_queen_attack.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "J Dalbey's Programming Practice problems",

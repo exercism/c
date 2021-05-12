@@ -24,8 +24,7 @@
       "test_sieve.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "Sieve of Eratosthenes at Wikipedia",

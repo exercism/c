@@ -23,8 +23,7 @@
       "test_series.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "A subset of the Problem 8 at Project Euler",

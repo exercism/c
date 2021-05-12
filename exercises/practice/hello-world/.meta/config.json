@@ -25,8 +25,7 @@
       "test_hello_world.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "This is an exercise to introduce users to using Exercism",

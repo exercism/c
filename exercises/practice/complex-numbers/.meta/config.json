@@ -18,8 +18,7 @@
       "test_complex_numbers.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "Wikipedia",

@@ -29,8 +29,7 @@
       "test_anagram.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "Inspired by the Extreme Startup game",
