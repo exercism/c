@@ -22,8 +22,7 @@
       "test_clock.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "Pairing session with Erin Drummond",

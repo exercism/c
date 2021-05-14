@@ -20,8 +20,7 @@
       "test_collatz_conjecture.c"
     ],
     "example": [
-      ".meta/example.c",
-      ".meta/example.h"
+      ".meta/example.c"
     ]
   },
   "source": "An unsolved problem in mathematics named after mathematician Lothar Collatz",
