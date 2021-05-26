@@ -24,7 +24,7 @@ Please read and abide by the [Code of Conduct][].
 2. Add this repository as a new remote to your clone: `git remote add upstream https://github.com/exercism/c.git`
 3. Create a new branch: `git checkout -b name-of-branch`
 4. Commit and push as usual on your new branch
-5. When you're ready to submit a pull request, rebase your branch onto the upstream master so that you can resolve any conflicts: `git fetch upstream && git rebase upstream/master` You may need to push up to your branch using `--force` after resolving conflicts.
+5. When you're ready to submit a pull request, rebase your branch onto the upstream main so that you can resolve any conflicts: `git fetch upstream && git rebase upstream/main` You may need to push up to your branch using `--force` after resolving conflicts.
 6. When you've got everything ready, push up to your branch and create the pull request as outlined below.
 
 ## Issues
@@ -52,7 +52,7 @@ When submitting a pull request, sometimes we will ask you to make changes before
 Please do not close the first pull request and open a second one with these changes.
 If you push more commits to a branch that you've opened a pull request for, it automatically updates the pull request.
 
-If you want to create a PR with changes that aren't quite ready to be merged to master yet (maybe you would like to discuss some particular item, for example), create the PR as normal but use the GitHub website interface to [convert the PR to a draft][] so that maintainers know that it isn't quite ready to be merged just yet.
+If you want to create a PR with changes that aren't quite ready to be merged to main yet (maybe you would like to discuss some particular item, for example), create the PR as normal but use the GitHub website interface to [convert the PR to a draft][] so that maintainers know that it isn't quite ready to be merged just yet.
 
 As with adding more commits, you do not need to close your pull request and open a new one if you change the history (rebase, squash, amend), and use git push --force to update the branch on your fork.
 The pull request points to that branch, not to specific commits.
@@ -188,19 +188,19 @@ This Docker approach helps to allow in-browser coding by students.
 Read more about [test runners].
 
 [Exercism docs]: https://github.com/exercism/docs
-[contributing to a language track]: https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md
+[contributing to a language track]: https://github.com/exercism/docs/blob/main/contributing-to-language-tracks/README.md
 [problem-specifications]: https://github.com/exercism/problem-specifications
 [issue]: ./CONTRIBUTING.md#issues
 [Code of Conduct]: https://exercism.io/code-of-conduct
 [issues]: https://github.com/exercism/c/issues
 [discussions]: https://github.com/exercism/discussions/issues
 [good-first-patch]: https://github.com/exercism/c/good-first-patch
-[pull request guidelines]: https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md
+[pull request guidelines]: https://github.com/exercism/docs/blob/main/contributing/pull-request-guidelines.md
 [Continuous Integration]: ./CONTRIBUTING.md#continuous-integration
 [convert the PR to a draft]: https://github.blog/changelog/2020-04-08-convert-pull-request-to-draft/
 [style guide]: ./C_STYLE_GUIDE.md
 [Homebrew]: https://brew.sh
-[implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md
+[implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/you-can-help/implement-an-exercise-from-specification.md
 [Unity]: http://www.throwtheswitch.org/unity/
 [ThrowTheSwitch]: http://www.throwtheswitch.org/#intro-1-section
 [getting started with unity]: http://www.throwtheswitch.org/getting-started-with-unity/
