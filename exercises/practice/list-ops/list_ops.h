@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef int list_value_t;
+typedef int list_element_t;
 
 typedef struct {
    size_t length;
