@@ -1,0 +1,72 @@
+- name: "Hacktoberfest"
+  description: ""
+  color: "31c4c1"
+
+- name: "awaiting-configlet"
+  description: ""
+  color: "950E09"
+
+- name: "bug"
+  description: ""
+  color: "fc2929"
+
+- name: "dependencies"
+  description: "Pull requests that update a dependency file"
+  color: "0366d6"
+
+- name: "documentation"
+  description: ""
+  color: "4ACDD1"
+
+- name: "duplicate"
+  description: ""
+  color: "cccccc"
+
+- name: "enhancement"
+  description: ""
+  color: "84b6eb"
+
+- name: "first-timers only"
+  description: ""
+  color: "159818"
+
+- name: "good first patch"
+  description: ""
+  color: "159818"
+
+- name: "hacktoberfest spam"
+  description: ""
+  color: "8dedf4"
+
+- name: "hacktoberfest-accepted"
+  description: ""
+  color: "00a59d"
+
+- name: "help wanted"
+  description: ""
+  color: "159818"
+
+- name: "invalid"
+  description: ""
+  color: "e6e6e6"
+
+- name: "new exercise"
+  description: ""
+  color: "a7f9d4"
+
+- name: "pinned"
+  description: ""
+  color: "bfd4f2"
+
+- name: "question"
+  description: ""
+  color: "cc317c"
+
+- name: "v3-migration 🤖"
+  description: "Preparing for Exercism v3"
+  color: "E99695"
+
+- name: "wontfix"
+  description: ""
+  color: "ffffff"
+
