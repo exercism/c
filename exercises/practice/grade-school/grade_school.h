@@ -9,7 +9,7 @@
 
 typedef struct {
    uint8_t grade;
-   char *name;
+   char name[MAX_NAME_LENGTH + 1];
 } student_t;
 
 typedef struct {
