@@ -28,7 +28,7 @@ bool add_student(char *name, uint8_t grade)
 {
    bool added = false;
 
-   if (roster.count < MAX_STUDENTS) {
+   if (roster.count < MAX_STUDENTS && strlen(name) <= MAX_NAME_LENGTH) {
       strcpy(roster.students[roster.count].name, name);
       roster.students[roster.count].grade = grade;
       ++roster.count;
@@ -63,9 +63,5 @@ roster_t get_grade(uint8_t grade)
 
 void clear_roster(void)
 {
-   for (size_t i = 0; i < roster.count; ++i) {
-      roster.students[i].name[0] = '\0';
-      roster.students[i].grade = 0;
-   }
-   roster.count = 0;
+   memset(&roster, 0, sizeof(roster));
 }
