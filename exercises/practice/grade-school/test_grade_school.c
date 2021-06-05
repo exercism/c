@@ -15,7 +15,7 @@ void tearDown(void)
 static void populate_roster(roster_t * expected)
 {
    for (size_t i = 0; i < expected->count; ++i) {
-      char name_buffer[MAX_NAME_LENGTH + 1];
+      char name_buffer[MAX_NAME_LENGTH];
       strcpy(name_buffer, expected->students[i].name);
       TEST_ASSERT_TRUE(add_student(name_buffer, expected->students[i].grade));
    }
