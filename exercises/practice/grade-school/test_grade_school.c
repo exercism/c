@@ -1,6 +1,7 @@
 #include "test-framework/unity.h"
 #include "grade_school.h"
 #include <stdlib.h>
+#include <string.h>
 
 void setUp(void)
 {
@@ -13,10 +14,11 @@ void tearDown(void)
 
 static void populate_roster(roster_t * expected)
 {
-   for (size_t i = 0; i < expected->count; ++i)
-      TEST_ASSERT_TRUE(add_student
-                       (expected->students[i].name,
-                        expected->students[i].grade));
+   for (size_t i = 0; i < expected->count; ++i) {
+      char name_buffer[MAX_NAME_LENGTH];
+      strcpy(name_buffer, expected->students[i].name);
+      TEST_ASSERT_TRUE(add_student(name_buffer, expected->students[i].grade));
+   }
 }
 
 static void check_roster_names(roster_t * expected, roster_t * actual)
