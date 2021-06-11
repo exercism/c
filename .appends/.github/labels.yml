@@ -1,72 +1,40 @@
-- name: "Hacktoberfest"
-  description: ""
-  color: "31c4c1"
-
-- name: "awaiting-configlet"
-  description: ""
-  color: "950E09"
+# ----------------------------------------------------------------------------------------- #
+# These are the repository-specific labels that augment the Exercise-wide labels defined in #
+# https://github.com/exercism/org-wide-files/blob/main/global-files/.github/labels.yml.     #
+# ----------------------------------------------------------------------------------------- #
 
 - name: "bug"
-  description: ""
-  color: "fc2929"
-
-- name: "dependencies"
-  description: "Pull requests that update a dependency file"
-  color: "0366d6"
+  description: "Something isn't working"
+  color: "d73a4a"
 
 - name: "documentation"
-  description: ""
-  color: "4ACDD1"
+  description: "Improvements or additions to documentation"
+  color: "0075ca"
 
 - name: "duplicate"
-  description: ""
-  color: "cccccc"
+  description: "This issue or pull request already exists"
+  color: "cfd3d7"
 
 - name: "enhancement"
-  description: ""
-  color: "84b6eb"
+  description: "New feature or request"
+  color: "a2eeef"
 
-- name: "first-timers only"
-  description: ""
-  color: "159818"
-
-- name: "good first patch"
-  description: ""
-  color: "159818"
-
-- name: "hacktoberfest spam"
-  description: ""
-  color: "8dedf4"
-
-- name: "hacktoberfest-accepted"
-  description: ""
-  color: "00a59d"
+- name: "good first issue"
+  description: "Good for newcomers"
+  color: "7057ff"
 
 - name: "help wanted"
-  description: ""
-  color: "159818"
+  description: "Extra attention is needed"
+  color: "008672"
 
 - name: "invalid"
-  description: ""
-  color: "e6e6e6"
-
-- name: "new exercise"
-  description: ""
-  color: "a7f9d4"
-
-- name: "pinned"
-  description: ""
-  color: "bfd4f2"
+  description: "This doesn't seem right"
+  color: "e4e669"
 
 - name: "question"
-  description: ""
-  color: "cc317c"
-
-- name: "v3-migration 🤖"
-  description: "Preparing for Exercism v3"
-  color: "E99695"
+  description: "Further information is requested"
+  color: "d876e3"
 
 - name: "wontfix"
-  description: ""
+  description: "This will not be worked on"
   color: "ffffff"
-
