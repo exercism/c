@@ -105,7 +105,7 @@ static void test_15_bit_integer(void)
 static void test_empty_list(void)
 {
    TEST_IGNORE();
-   int8_t input[] = { 0 };
+   int8_t input[DIGITS_ARRAY_SIZE] = { 0 };
    TEST_ASSERT_EQUAL_size_t(0, rebase(input, 2, 10, 0));
 }
 
