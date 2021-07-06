@@ -295,43 +295,6 @@ static void test_words_other_than_themselves_can_be_anagrams(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_unicode_anagrams(void)
-{
-   TEST_IGNORE();               // This is an extra credit test.  Delete this line to accept the challenge
-   // These words don't make sense, they're just greek letters cobbled together.
-   char inputs[][MAX_STR_LEN] = {
-      "ΒΓΑ",
-      "ΒΓΔ",
-      "γβα"
-   };
-
-   char subject[] = { "ΑΒΓ" };
-
-   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
-
-   find_anagrams(subject, &candidates);
-   assert_correct_anagrams(&candidates, expected);
-}
-
-static void test_misleading_unicode_anagrams(void)
-{
-   TEST_IGNORE();               //This is an extra credit test, are you up for the challenge
-   // Despite what a human might think these words different letters, the input uses Greek A and B
-   // while the list of potential anagrams uses Latin A and B.
-   char inputs[][MAX_STR_LEN] = {
-      "ABΓ"
-   };
-
-   char subject[] = { "ΑΒΓ" };
-
-   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { NOT_ANAGRAM };
-
-   find_anagrams(subject, &candidates);
-   assert_correct_anagrams(&candidates, expected);
-}
-
 int main(void)
 {
    UnityBegin("test_anagram.c");
@@ -350,10 +313,6 @@ int main(void)
    RUN_TEST(test_anagrams_must_use_all_letters_exactly_once);
    RUN_TEST(test_words_are_not_anagrams_of_themselves);
    RUN_TEST(test_words_other_than_themselves_can_be_anagrams);
-
-   // Bonus points
-   RUN_TEST(test_unicode_anagrams);
-   RUN_TEST(test_misleading_unicode_anagrams);
 
    return UnityEnd();
 }
