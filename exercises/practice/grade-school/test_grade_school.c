@@ -24,7 +24,8 @@ static void populate_roster(roster_t * expected)
 
 static void check_roster_names(roster_t * expected, roster_t * actual)
 {
-   TEST_ASSERT_EQUAL_size_t_MESSAGE(expected->count, actual->count, "Incorrect number of students");
+   TEST_ASSERT_EQUAL_size_t_MESSAGE(expected->count, actual->count,
+                                    "Incorrect number of students");
 
    for (size_t i = 0; i < expected->count; ++i)
       TEST_ASSERT_EQUAL_STRING(expected->students[i].name,
@@ -55,7 +56,8 @@ static void test_adding_student_adds_to_the_sorted_roster(void)
    check_roster(&input, &expected);
 }
 
-static void test_student_can_only_be_added_to_the_same_grade_in_the_roster_once(void)
+static void
+test_student_can_only_be_added_to_the_same_grade_in_the_roster_once(void)
 {
    TEST_IGNORE();               // delete this line to run test
    roster_t input = {
@@ -109,7 +111,7 @@ test_adding_students_to_different_grades_adds_to_the_same_sorted_roster(void)
 }
 
 static void
-test_student_cannot_be_added_to_more_than_one_grade_in_the_sorted_roster (void)
+test_student_cannot_be_added_to_more_than_one_grade_in_the_sorted_roster(void)
 {
    TEST_IGNORE();
    roster_t input = {
@@ -202,7 +204,8 @@ int main(void)
    UnityBegin("test_grade_school.c");
 
    RUN_TEST(test_adding_student_adds_to_the_sorted_roster);
-   RUN_TEST(test_student_can_only_be_added_to_the_same_grade_in_the_roster_once);
+   RUN_TEST
+       (test_student_can_only_be_added_to_the_same_grade_in_the_roster_once);
    RUN_TEST(test_adding_more_students_adds_to_the_sorted_roster);
    RUN_TEST
        (test_adding_students_to_different_grades_adds_to_the_same_sorted_roster);
