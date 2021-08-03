@@ -4,7 +4,7 @@
 
 static roster_t roster = { 0 };
 
-static bool is_student_on_roster(char *name, roster_t roster)
+static bool student_is_on_roster(char *name, roster_t roster)
 {
    bool is_on_roster = false;
    for (size_t i = 0; i < roster.count; ++i) {
@@ -40,7 +40,7 @@ bool add_student(char *name, uint8_t grade)
 {
    bool added = false;
 
-   if (is_student_on_roster(name, roster)) {
+   if (student_is_on_roster(name, roster)) {
       added = false;
    } else if (roster.count < MAX_STUDENTS && strlen(name) < MAX_NAME_LENGTH) {
       strcpy(roster.students[roster.count].name, name);
