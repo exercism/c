@@ -4,6 +4,18 @@
 
 static roster_t roster = { 0 };
 
+static bool student_is_on_roster(char *name, roster_t roster)
+{
+   bool is_on_roster = false;
+   for (size_t i = 0; i < roster.count; ++i) {
+      if (!strncmp(roster.students[i].name, name, MAX_NAME_LENGTH)) {
+         is_on_roster = true;
+         break;
+      }
+   }
+   return is_on_roster;
+}
+
 static int compare_student_names(const void *s1, const void *s2)
 {
    const student_t *student1 = (const student_t *)s1;
@@ -28,7 +40,9 @@ bool add_student(char *name, uint8_t grade)
 {
    bool added = false;
 
-   if (roster.count < MAX_STUDENTS && strlen(name) < MAX_NAME_LENGTH) {
+   if (student_is_on_roster(name, roster)) {
+      added = false;
+   } else if (roster.count < MAX_STUDENTS && strlen(name) < MAX_NAME_LENGTH) {
       strcpy(roster.students[roster.count].name, name);
       roster.students[roster.count].grade = grade;
       ++roster.count;
