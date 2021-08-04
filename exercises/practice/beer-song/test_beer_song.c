@@ -36,7 +36,9 @@ static void delete_song(uint16_t expected_line_count, char **actual_song)
    free(actual_song);
 }
 
-static void check_song(uint16_t expected_line_count, const char expected_song[][MAX_LINE_LENGTH], char **actual)
+static void check_song(uint16_t expected_line_count,
+                       const char expected_song[][MAX_LINE_LENGTH],
+                       char **actual)
 {
    for (size_t i = 0; i < expected_line_count; ++i)
       TEST_ASSERT_EQUAL_STRING(expected_song[i], actual[i]);
@@ -48,8 +50,8 @@ static void test_first_generic_verse(void)
 {
    uint16_t expected_line_count = 2;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "99 bottles of beer on the wall, 99 bottles of beer.",
-       "Take one down and pass it around, 98 bottles of beer on the wall."
+      "99 bottles of beer on the wall, 99 bottles of beer.",
+      "Take one down and pass it around, 98 bottles of beer on the wall."
    };
 
    recite(99, 1, actual_song);
@@ -62,8 +64,8 @@ static void test_last_generic_verse(void)
    TEST_IGNORE();               // delete this line to run test
    uint16_t expected_line_count = 2;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "3 bottles of beer on the wall, 3 bottles of beer.",
-       "Take one down and pass it around, 2 bottles of beer on the wall."
+      "3 bottles of beer on the wall, 3 bottles of beer.",
+      "Take one down and pass it around, 2 bottles of beer on the wall."
    };
 
    recite(3, 1, actual_song);
@@ -76,8 +78,8 @@ static void test_verse_with_2_bottles(void)
    TEST_IGNORE();
    uint16_t expected_line_count = 2;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "2 bottles of beer on the wall, 2 bottles of beer.",
-       "Take one down and pass it around, 1 bottle of beer on the wall."
+      "2 bottles of beer on the wall, 2 bottles of beer.",
+      "Take one down and pass it around, 1 bottle of beer on the wall."
    };
 
    recite(2, 1, actual_song);
@@ -90,8 +92,8 @@ static void test_verse_with_1_bottle(void)
    TEST_IGNORE();
    uint16_t expected_line_count = 2;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "1 bottle of beer on the wall, 1 bottle of beer.",
-       "Take it down and pass it around, no more bottles of beer on the wall."
+      "1 bottle of beer on the wall, 1 bottle of beer.",
+      "Take it down and pass it around, no more bottles of beer on the wall."
    };
 
    recite(1, 1, actual_song);
@@ -104,8 +106,8 @@ static void test_verse_with_0_bottles(void)
    TEST_IGNORE();
    uint16_t expected_line_count = 2;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "No more bottles of beer on the wall, no more bottles of beer.",
-       "Go to the store and buy some more, 99 bottles of beer on the wall."
+      "No more bottles of beer on the wall, no more bottles of beer.",
+      "Go to the store and buy some more, 99 bottles of beer on the wall."
    };
 
    recite(0, 1, actual_song);
@@ -118,11 +120,11 @@ static void test_first_two_verses(void)
    TEST_IGNORE();
    uint16_t expected_line_count = 5;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "99 bottles of beer on the wall, 99 bottles of beer.",
-       "Take one down and pass it around, 98 bottles of beer on the wall.",
-       "",
-       "98 bottles of beer on the wall, 98 bottles of beer.",
-       "Take one down and pass it around, 97 bottles of beer on the wall."
+      "99 bottles of beer on the wall, 99 bottles of beer.",
+      "Take one down and pass it around, 98 bottles of beer on the wall.",
+      "",
+      "98 bottles of beer on the wall, 98 bottles of beer.",
+      "Take one down and pass it around, 97 bottles of beer on the wall."
    };
 
    recite(99, 2, actual_song);
@@ -135,14 +137,14 @@ static void test_last_three_verses(void)
    TEST_IGNORE();
    uint16_t expected_line_count = 8;
    const char expected_song[][MAX_LINE_LENGTH] = {
-       "2 bottles of beer on the wall, 2 bottles of beer.",
-       "Take one down and pass it around, 1 bottle of beer on the wall.",
-       "",
-       "1 bottle of beer on the wall, 1 bottle of beer.",
-       "Take it down and pass it around, no more bottles of beer on the wall.",
-       "",
-       "No more bottles of beer on the wall, no more bottles of beer.",
-       "Go to the store and buy some more, 99 bottles of beer on the wall."
+      "2 bottles of beer on the wall, 2 bottles of beer.",
+      "Take one down and pass it around, 1 bottle of beer on the wall.",
+      "",
+      "1 bottle of beer on the wall, 1 bottle of beer.",
+      "Take it down and pass it around, no more bottles of beer on the wall.",
+      "",
+      "No more bottles of beer on the wall, no more bottles of beer.",
+      "Go to the store and buy some more, 99 bottles of beer on the wall."
    };
 
    recite(2, 3, actual_song);
