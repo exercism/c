@@ -5,7 +5,7 @@ Get the first test compiling, linking and passing by following the [three rules 
 The included makefile can be used to create and run the tests using the `test` task.
 
 ```console
-    make test
+$ make test
 ```
 
 Create just the functions you need to satisfy any compiler errors and get the test to fail.
