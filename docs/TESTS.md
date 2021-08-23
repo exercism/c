@@ -43,7 +43,8 @@ $ make
 
 This will compile your code, and run the tests.
 
-The `makefile` comes also with a build that checks some common mistakes regarding memory leaks and out of bound access to arrays. To run these checks, use the following at the command line:
+The `makefile` comes also with a build that checks some common mistakes regarding memory leaks and out of bound access to arrays.
+To run these checks, use the following at the command line:
 
 ```console
 $ make memcheck
