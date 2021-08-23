@@ -10,145 +10,199 @@ void setUp(void)
 
 void tearDown(void)
 {
-   clear_roster();
 }
 
-static void populate_roster(roster_t * expected)
+static void check_roster_names(roster_t expected, roster_t actual)
 {
-   for (size_t i = 0; i < expected->count; ++i) {
-      char name_buffer[MAX_NAME_LENGTH];
-      strcpy(name_buffer, expected->students[i].name);
-      add_student(name_buffer, expected->students[i].grade);
-   }
+   for (size_t i = 0; i < expected.count; ++i)
+      TEST_ASSERT_EQUAL_STRING(expected.students[i].name,
+                               actual.students[i].name);
 }
 
-static void check_roster_names(roster_t * expected, roster_t * actual)
+static void check_rosters(roster_t expected, roster_t actual)
 {
-   TEST_ASSERT_EQUAL_size_t_MESSAGE(expected->count, actual->count,
+   TEST_ASSERT_EQUAL_size_t_MESSAGE(expected.count, actual.count,
                                     "Incorrect number of students");
-
-   for (size_t i = 0; i < expected->count; ++i)
-      TEST_ASSERT_EQUAL_STRING(expected->students[i].name,
-                               actual->students[i].name);
+   check_roster_names(expected, actual);
 }
 
-static void check_roster(roster_t * input, roster_t * expected)
+static void test_roster_is_empty_when_no_student_added(void)
 {
-   populate_roster(input);
-
-   roster_t actual = get_roster();
-
-   check_roster_names(expected, &actual);
-}
-
-static void test_adding_student_adds_to_the_sorted_roster(void)
-{
-   roster_t input = {
-      .count = 1,
-      .students = {
-                   (student_t) {
-                                .grade = 2,
-                                .name = "Aimee"}}
-   };
-
-   roster_t expected = { 1, {(student_t) {2, "Aimee"}} };
-
-   check_roster(&input, &expected);
-}
-
-static void
-test_student_can_only_be_added_to_the_same_grade_in_the_roster_once(void)
-{
-   TEST_IGNORE();               // delete this line to run test
-   roster_t input = {
-      2, {
-          (student_t) {2, "Aimee"},
-          (student_t) {2, "Aimee"}}
-   };
-
-   roster_t expected = { 1, {(student_t) {2, "Aimee"}} };
-
-   check_roster(&input, &expected);
-}
-
-static void test_adding_more_students_adds_to_the_sorted_roster(void)
-{
-   TEST_IGNORE();
-   roster_t input = {
-      3, {
-          (student_t) {2, "Blair"},
-          (student_t) {2, "James"},
-          (student_t) {2, "Paul"}}
-   };
-
-   roster_t expected = {
-      3, {
-          (student_t) {2, "Blair"},
-          (student_t) {2, "James"},
-          (student_t) {2, "Paul"}}
-   };
-
-   check_roster(&input, &expected);
-}
-
-static void
-test_adding_students_to_different_grades_adds_to_the_same_sorted_roster(void)
-{
-   TEST_IGNORE();
-   roster_t input = {
-      2, {
-          (student_t) {3, "Chelsea"},
-          (student_t) {7, "Logan"}}
-   };
-
-   roster_t expected = {
-      2, {
-          (student_t) {3, "Chelsea"},
-          (student_t) {7, "Logan"}}
-   };
-
-   check_roster(&input, &expected);
-}
-
-static void
-test_student_cannot_be_added_to_more_than_one_grade_in_the_sorted_roster(void)
-{
-   TEST_IGNORE();
-   roster_t input = {
-      2, {
-          (student_t) {2, "Aimee"},
-          (student_t) {1, "Aimee"}}
-   };
-
-   roster_t expected = { 1, {(student_t) {2, "Aimee"}} };
-
-   check_roster(&input, &expected);
-}
-
-static void
-test_roster_returns_an_empty_list_if_there_are_no_students_enrolled(void)
-{
-   TEST_IGNORE();
-   roster_t actual = get_roster();
-
+   roster_t actual = { 0 };
    TEST_ASSERT_EQUAL(0, actual.count);
 }
 
-static void
-test_student_names_with_grades_displayed_in_the_same_sorted_roster(void)
+static void test_add_student(void)
+{
+   TEST_IGNORE();               // delete this line to run test
+   roster_t actual = { 0 };
+
+   TEST_ASSERT_TRUE(add_student(&actual, "Aimee", 2));
+}
+
+static void test_student_added_to_roster(void)
 {
    TEST_IGNORE();
-   roster_t input = {
-      7, {
-          (student_t) {2, "Peter"},
-          (student_t) {1, "Anna"},
-          (student_t) {1, "Barb"},
-          (student_t) {2, "Zoe"},
-          (student_t) {2, "Alex"},
-          (student_t) {3, "Jim"},
-          (student_t) {1, "Charlie"}}
-   };
+   roster_t expected = { 1, {(student_t) {2, "Aimee"}} };
+   roster_t actual = { 0 };
 
+   add_student(&actual, "Aimee", 2);
+
+   check_rosters(expected, actual);
+}
+
+static void test_adding_multiple_students_in_same_grade_in_roster(void)
+{
+   TEST_IGNORE();
+   roster_t actual = { 0 };
+
+   TEST_ASSERT_TRUE(add_student(&actual, "Blair", 2));
+   TEST_ASSERT_TRUE(add_student(&actual, "James", 2));
+   TEST_ASSERT_TRUE(add_student(&actual, "Paul", 2));
+}
+
+static void test_multiple_students_in_same_grade_are_added_to_roster(void)
+{
+   TEST_IGNORE();
+   roster_t expected = {
+      3, {
+          (student_t) {2, "Blair"},
+          (student_t) {2, "James"},
+          (student_t) {2, "Paul"}}
+   };
+   roster_t actual = { 0 };
+
+   add_student(&actual, "Blair", 2);
+   add_student(&actual, "James", 2);
+   add_student(&actual, "Paul", 2);;
+
+   check_rosters(expected, actual);
+}
+
+static void test_cannot_add_student_to_same_grade_more_than_once(void)
+{
+   TEST_IGNORE();
+   roster_t actual = { 0 };
+
+   TEST_ASSERT_TRUE(add_student(&actual, "Blair", 2));
+   TEST_ASSERT_TRUE(add_student(&actual, "James", 2));
+   TEST_ASSERT_FALSE(add_student(&actual, "James", 2));
+   TEST_ASSERT_TRUE(add_student(&actual, "Paul", 2));
+}
+
+static void test_student_not_added_to_same_grade_in_roster_more_than_once(void)
+{
+   TEST_IGNORE();
+   roster_t expected = {
+      3, {
+          (student_t) {2, "Blair"},
+          (student_t) {2, "James"},
+          (student_t) {2, "Paul"}}
+   };
+   roster_t actual = { 0 };
+
+   add_student(&actual, "Blair", 2);
+   add_student(&actual, "James", 2);
+   add_student(&actual, "James", 2);
+   add_student(&actual, "Paul", 2);
+
+   check_rosters(expected, actual);
+}
+
+static void test_adding_students_in_multiple_grades(void)
+{
+   TEST_IGNORE();
+   roster_t actual = { 0 };
+
+   TEST_ASSERT_TRUE(add_student(&actual, "Chelsea", 3));
+   TEST_ASSERT_TRUE(add_student(&actual, "Logan", 7));
+}
+
+static void test_students_in_multiple_grades_are_added_to_roster(void)
+{
+   TEST_IGNORE();
+   roster_t expected = {
+      2, {
+          (student_t) {3, "Chelsea"},
+          (student_t) {7, "Logan"}},
+   };
+   roster_t actual = { 0 };
+
+   add_student(&actual, "Chelsea", 3);
+   add_student(&actual, "Logan", 7);
+
+   check_rosters(expected, actual);
+}
+
+static void test_cannot_add_same_student_to_multiple_grades_in_roster(void)
+{
+   TEST_IGNORE();
+   roster_t actual = { 0 };
+
+   TEST_ASSERT_TRUE(add_student(&actual, "Blair", 2));
+   TEST_ASSERT_TRUE(add_student(&actual, "James", 2));
+   TEST_ASSERT_FALSE(add_student(&actual, "James", 3));
+   TEST_ASSERT_TRUE(add_student(&actual, "Paul", 3));
+}
+
+static void test_student_not_added_to_multiple_grades_in_roster(void)
+{
+   TEST_IGNORE();
+   roster_t expected = {
+      3, {
+          (student_t) {2, "Blair"},
+          (student_t) {2, "James"},
+          (student_t) {3, "Paul"}}
+   };
+   roster_t actual = { 0 };
+
+   add_student(&actual, "Blair", 2);
+   add_student(&actual, "James", 2);
+   add_student(&actual, "James", 3);
+   add_student(&actual, "Paul", 3);
+
+   check_rosters(expected, actual);
+}
+
+static void test_students_are_sorted_by_grades_in_roster(void)
+{
+   TEST_IGNORE();
+   roster_t expected = {
+      3, {
+          (student_t) {1, "Anna"},
+          (student_t) {2, "Peter"},
+          (student_t) {3, "Jim"}}
+   };
+   roster_t actual = { 0 };
+
+   add_student(&actual, "Jim", 3);
+   add_student(&actual, "Peter", 2);
+   add_student(&actual, "Anna", 1);
+
+   check_rosters(expected, actual);
+}
+
+static void test_students_are_sorted_by_name_in_roster(void)
+{
+   TEST_IGNORE();
+   roster_t expected = {
+      3, {
+          (student_t) {2, "Alex"},
+          (student_t) {2, "Peter"},
+          (student_t) {2, "Zoe"}}
+   };
+   roster_t actual = { 0 };
+
+   add_student(&actual, "Peter", 2);
+   add_student(&actual, "Zoe", 2);
+   add_student(&actual, "Alex", 2);
+
+   check_rosters(expected, actual);
+}
+
+static void test_students_are_sorted_by_grades_and_then_by_names_in_roster(void)
+{
+   TEST_IGNORE();
    roster_t expected = {
       7, {
           (student_t) {1, "Anna"},
@@ -159,64 +213,153 @@ test_student_names_with_grades_displayed_in_the_same_sorted_roster(void)
           (student_t) {2, "Zoe"},
           (student_t) {3, "Jim"}}
    };
+   roster_t actual = { 0 };
 
-   check_roster(&input, &expected);
+   add_student(&actual, "Peter", 2);
+   add_student(&actual, "Anna", 1);
+   add_student(&actual, "Barb", 1);
+   add_student(&actual, "Zoe", 2);
+   add_student(&actual, "Alex", 2);
+   add_student(&actual, "Jim", 3);
+   add_student(&actual, "Charlie", 1);
+
+   check_rosters(expected, actual);
 }
 
-static void
-test_grade_returns_students_in_that_grade_in_alphabetical_order(void)
+static void test_grade_empty_if_no_students_in_roster(void)
 {
    TEST_IGNORE();
-   roster_t input = {
-      3, {
-          (student_t) {5, "Franklin"},
-          (student_t) {5, "Bradley"},
-          (student_t) {1, "Jeff"}}
-   };
+   uint8_t desired_grade = 1;
+   roster_t roster = { 0 };
 
+   roster_t actual = get_grade(&roster, desired_grade);
+
+   TEST_ASSERT_EQUAL(0, actual.count);
+}
+
+static void test_grade_empty_if_no_students_in_grade(void)
+{
+   TEST_IGNORE();
+   uint8_t desired_grade = 1;
+   roster_t roster = { 0 };
+
+   add_student(&roster, "Peter", 2);
+   add_student(&roster, "Zoe", 2);
+   add_student(&roster, "Alex", 2);
+   add_student(&roster, "Jim", 3);
+
+   roster_t actual = get_grade(&roster, desired_grade);
+
+   TEST_ASSERT_EQUAL(0, actual.count);
+}
+
+static void test_student_not_added_to_same_grade_more_than_once(void)
+{
+   TEST_IGNORE();
+   uint8_t desired_grade = 2;
+   roster_t expected = {
+      3, {
+          (student_t) {2, "Blair"},
+          (student_t) {2, "James"},
+          (student_t) {2, "Paul"}}
+   };
+   roster_t roster = { 0 };
+
+   add_student(&roster, "Blair", 2);
+   add_student(&roster, "James", 2);
+   add_student(&roster, "James", 2);
+   add_student(&roster, "Paul", 2);
+
+   roster_t actual = get_grade(&roster, desired_grade);
+
+   check_rosters(expected, actual);
+}
+
+static void test_student_not_added_to_multiple_grades(void)
+{
+   TEST_IGNORE();
+   uint8_t desired_grade = 2;
+   roster_t expected = {
+      2, {
+          (student_t) {2, "Blair"},
+          (student_t) {2, "James"}}
+   };
+   roster_t roster = { 0 };
+
+   add_student(&roster, "Blair", 2);
+   add_student(&roster, "James", 2);
+   add_student(&roster, "James", 3);
+   add_student(&roster, "Paul", 3);
+
+   roster_t actual = get_grade(&roster, desired_grade);
+
+   check_rosters(expected, actual);
+}
+
+static void test_student_not_added_to_other_grade_for_multiple_grades(void)
+{
+   TEST_IGNORE();
+   uint8_t desired_grade = 3;
+   roster_t expected = {
+      1, {
+          (student_t) {3, "Paul"}}
+   };
+   roster_t roster = { 0 };
+
+   add_student(&roster, "Blair", 2);
+   add_student(&roster, "James", 2);
+   add_student(&roster, "James", 3);
+   add_student(&roster, "Paul", 3);
+
+   roster_t actual = get_grade(&roster, desired_grade);
+
+   check_rosters(expected, actual);
+}
+
+static void test_students_are_sorted_by_name_in_grade(void)
+{
+   TEST_IGNORE();
    uint8_t desired_grade = 5;
    roster_t expected = {
       2, {
           (student_t) {5, "Bradley"},
           (student_t) {5, "Franklin"}}
    };
+   roster_t roster = { 0 };
 
-   populate_roster(&input);
+   add_student(&roster, "Franklin", 5);
+   add_student(&roster, "Bradley", 5);
+   add_student(&roster, "Jeff", 1);
 
-   roster_t actual = get_grade(desired_grade);
+   roster_t actual = get_grade(&roster, desired_grade);
 
-   check_roster_names(&expected, &actual);
-}
-
-static void
-test_grade_returns_an_empty_list_if_there_are_no_students_in_that_grade(void)
-{
-   TEST_IGNORE();
-
-   uint8_t desired_grade = 1;
-   roster_t actual = get_grade(desired_grade);
-
-   TEST_ASSERT_EQUAL(0, actual.count);
+   check_rosters(expected, actual);
 }
 
 int main(void)
 {
    UnityBegin("test_grade_school.c");
 
-   RUN_TEST(test_adding_student_adds_to_the_sorted_roster);
-   RUN_TEST
-       (test_student_can_only_be_added_to_the_same_grade_in_the_roster_once);
-   RUN_TEST(test_adding_more_students_adds_to_the_sorted_roster);
-   RUN_TEST
-       (test_adding_students_to_different_grades_adds_to_the_same_sorted_roster);
-   RUN_TEST
-       (test_student_cannot_be_added_to_more_than_one_grade_in_the_sorted_roster);
-   RUN_TEST
-       (test_roster_returns_an_empty_list_if_there_are_no_students_enrolled);
-   RUN_TEST(test_student_names_with_grades_displayed_in_the_same_sorted_roster);
-   RUN_TEST(test_grade_returns_students_in_that_grade_in_alphabetical_order);
-   RUN_TEST
-       (test_grade_returns_an_empty_list_if_there_are_no_students_in_that_grade);
+   RUN_TEST(test_roster_is_empty_when_no_student_added);
+   RUN_TEST(test_add_student);
+   RUN_TEST(test_student_added_to_roster);
+   RUN_TEST(test_adding_multiple_students_in_same_grade_in_roster);
+   RUN_TEST(test_multiple_students_in_same_grade_are_added_to_roster);
+   RUN_TEST(test_cannot_add_student_to_same_grade_more_than_once);
+   RUN_TEST(test_student_not_added_to_same_grade_in_roster_more_than_once);
+   RUN_TEST(test_adding_students_in_multiple_grades);
+   RUN_TEST(test_students_in_multiple_grades_are_added_to_roster);
+   RUN_TEST(test_cannot_add_same_student_to_multiple_grades_in_roster);
+   RUN_TEST(test_student_not_added_to_multiple_grades_in_roster);
+   RUN_TEST(test_students_are_sorted_by_grades_in_roster);
+   RUN_TEST(test_students_are_sorted_by_name_in_roster);
+   RUN_TEST(test_students_are_sorted_by_grades_and_then_by_names_in_roster);
+   RUN_TEST(test_grade_empty_if_no_students_in_roster);
+   RUN_TEST(test_grade_empty_if_no_students_in_grade);
+   RUN_TEST(test_student_not_added_to_same_grade_more_than_once);
+   RUN_TEST(test_student_not_added_to_multiple_grades);
+   RUN_TEST(test_student_not_added_to_other_grade_for_multiple_grades);
+   RUN_TEST(test_students_are_sorted_by_name_in_grade);
 
    return UnityEnd();
 }
