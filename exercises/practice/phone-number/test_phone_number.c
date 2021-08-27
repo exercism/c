@@ -138,7 +138,7 @@ static void test_invalid_if_area_code_starts_with_0(void)
 static void test_invalid_if_area_code_starts_with_1(void)
 {
    TEST_IGNORE();
-   const char input[] = "(023) 456-7890";
+   const char input[] = "(123) 456-7890";
    const char expected[] = "0000000000";
 
    result = phone_number_clean(input);
