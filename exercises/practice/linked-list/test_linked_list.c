@@ -1,6 +1,6 @@
-#include "linked_list.h"
 #include <stddef.h>
 #include "test-framework/unity.h"
+#include "linked_list.h"
 
 struct list *list = NULL;
 
