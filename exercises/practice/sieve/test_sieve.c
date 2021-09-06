@@ -1,6 +1,6 @@
 #include <string.h>
-#include "sieve.h"
 #include "test-framework/unity.h"
+#include "sieve.h"
 
 #define RESULT_ARRAY_LEN (1000)
 static uint32_t result_array[RESULT_ARRAY_LEN];

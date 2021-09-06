@@ -1,5 +1,5 @@
-#include "robot_simulator.h"
 #include "test-framework/unity.h"
+#include "robot_simulator.h"
 
 void setUp(void)
 {
