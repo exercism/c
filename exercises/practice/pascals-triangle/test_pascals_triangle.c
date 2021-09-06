@@ -1,8 +1,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stddef.h>
-#include "pascals_triangle.h"
 #include "test-framework/unity.h"
+#include "pascals_triangle.h"
 
 void setUp(void)
 {
