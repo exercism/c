@@ -117,6 +117,21 @@ test_consistency_encode_followed_by_decode_gives_original_string(void)
    free(res_dec);
 }
 
+static void test_encode_invalid_input_contains_digits(void)
+{
+   TEST_IGNORE();
+   char *res_enc = encode("AABB1A");
+   TEST_ASSERT_NULL(res_enc);
+}
+
+static void test_decode_invalid_input_ends_with_digits(void)
+{
+   TEST_IGNORE();
+   char *res_dec = decode("AABBA2");
+   TEST_ASSERT_NULL(res_dec);
+}
+
+
 int main(void)
 {
    UnityBegin("test_run_length_encoding.c");
@@ -134,6 +149,8 @@ int main(void)
    RUN_TEST(test_decode_multiple_whitespace_mixed_in_string);
    RUN_TEST(test_decode_lower_case_string);
    RUN_TEST(test_consistency_encode_followed_by_decode_gives_original_string);
+   RUN_TEST(test_encode_invalid_input_contains_digits);
+   RUN_TEST(test_decode_invalid_input_ends_with_digits);
 
    return UnityEnd();
 }
