@@ -92,7 +92,7 @@ char *encode(const char *text)
 
    /* get length */
    const size_t enc_len = enc_helper(NULL, text, READ);
-   /* lucky empty string is handled separately */
+   /* empty string is handled above */
    if (enc_len == 0)
        return NULL;
 
@@ -118,7 +118,7 @@ char *decode(const char *data)
 
    /* get length */
    const size_t dec_len = dec_helper(NULL, data, READ);
-   /* lucky empty string is handled separately */
+   /* empty string is handled above */
    if (dec_len == 0)
        return NULL;
 
