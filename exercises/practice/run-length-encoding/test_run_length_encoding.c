@@ -131,7 +131,6 @@ static void test_decode_invalid_input_ends_with_digits(void)
    TEST_ASSERT_NULL(res_dec);
 }
 
-
 int main(void)
 {
    UnityBegin("test_run_length_encoding.c");

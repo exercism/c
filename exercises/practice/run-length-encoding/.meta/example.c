@@ -21,9 +21,9 @@ static size_t enc_helper(char *encoded, const char *text,
 {
    size_t enc_len = 0;
    while (*text) {
-       /* digits not allowed in input */
-       if (isdigit(*text))
-           return 0;
+      /* digits not allowed in input */
+      if (isdigit(*text))
+         return 0;
       /* smallest count means a single char */
       size_t count = 1;
       while (*text == *(text + 1)) {
@@ -70,7 +70,7 @@ static size_t dec_helper(char *decoded, const char *data,
       }
       /* digit at the end is forbidden */
       if (count && *data == '\0')
-          return 0;
+         return 0;
       for (size_t i = 0; i < count; i++) {
          dec_len++;
          if (mode == WRITE)
@@ -94,7 +94,7 @@ char *encode(const char *text)
    const size_t enc_len = enc_helper(NULL, text, READ);
    /* empty string is handled above */
    if (enc_len == 0)
-       return NULL;
+      return NULL;
 
    char *encoded = malloc(enc_len + 1);
    if (encoded == NULL) {
@@ -120,7 +120,7 @@ char *decode(const char *data)
    const size_t dec_len = dec_helper(NULL, data, READ);
    /* empty string is handled above */
    if (dec_len == 0)
-       return NULL;
+      return NULL;
 
    char *decoded = malloc(dec_len + 1);
    if (decoded == NULL) {
