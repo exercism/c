@@ -68,7 +68,7 @@ static size_t dec_helper(char *decoded, const char *data,
          count = count * 10 + *data - '0';
          data++;
       }
-      /* digit at the end is forbidden. Note: I believe  */
+      /* digit at the end is forbidden */
       if (count && *data == '\0')
           return 0;
       for (size_t i = 0; i < count; i++) {
