@@ -138,7 +138,7 @@ static void test_input_base_is_one(void)
    TEST_IGNORE();
    int8_t input[] = { 0 };
    int8_t expected[] = { 0 };
-   check_rebase(1, input, LENGTH(input), 10, expected, LENGTH(expected));
+   check_rebase(1, input, LENGTH(input), 10, expected, 0);
 }
 
 static void test_input_base_is_zero(void)
