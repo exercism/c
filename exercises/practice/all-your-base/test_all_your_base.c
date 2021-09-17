@@ -114,7 +114,7 @@ static void test_single_zero(void)
    TEST_IGNORE();
    int8_t input[] = { 0 };
    int8_t expected[] = { 0 };
-   check_rebase(2, input, LENGTH(input), 10, expected, 0);
+   check_rebase(2, input, LENGTH(input), 10, expected, LENGTH(expected));
 }
 
 static void test_multiple_zeros(void)
@@ -122,7 +122,7 @@ static void test_multiple_zeros(void)
    TEST_IGNORE();
    int8_t input[] = { 0, 0, 0 };
    int8_t expected[] = { 0 };
-   check_rebase(10, input, LENGTH(input), 2, expected, 0);
+   check_rebase(10, input, LENGTH(input), 2, expected, LENGTH(expected));
 }
 
 static void test_leading_zeros(void)
@@ -138,7 +138,7 @@ static void test_input_base_is_one(void)
    TEST_IGNORE();
    int8_t input[] = { 0 };
    int8_t expected[] = { 0 };
-   check_rebase(1, input, LENGTH(input), 10, expected, 0);
+   check_rebase(1, input, LENGTH(input), 10, expected, LENGTH(expected));
 }
 
 static void test_input_base_is_zero(void)
