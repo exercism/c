@@ -28,8 +28,8 @@ size_t rebase(int8_t digits[DIGITS_ARRAY_SIZE], int16_t from_base,
 
    /* calculate number of new digits */
    uint16_t j = denary;
-   do { // if proper input, there is at least 1-digit (zero included)
-        ++new_num_digits;
+   do {
+      ++new_num_digits;
     } while ((j /= to_base) != 0);
 
    /* calculate and store new digits */
@@ -37,7 +37,7 @@ size_t rebase(int8_t digits[DIGITS_ARRAY_SIZE], int16_t from_base,
    for (size_t i = new_num_digits - 1; denary > 0; --i) {
       digits[i] = denary % to_base;
       denary /= to_base;
-   }  
+   }
 
    /* ensure rest of array is zero */
    memset(&digits[new_num_digits], 0, DIGITS_ARRAY_SIZE - new_num_digits);
