@@ -30,7 +30,7 @@ size_t rebase(int8_t digits[DIGITS_ARRAY_SIZE], int16_t from_base,
    uint16_t j = denary;
    do {
       ++new_num_digits;
-    } while ((j /= to_base) != 0);
+   } while ((j /= to_base) != 0);
 
    /* calculate and store new digits */
    digits[0] = 0;
