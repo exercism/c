@@ -1007,7 +1007,7 @@
     },
     {
       "icon": "fast",
-      "title": "Performant",
+      "title": "Fast",
       "content": "C has been consistently rated as one of the highest performing languages for energy and time."
     },
     {
@@ -1021,9 +1021,9 @@
       "content": "C allows both lower and higher level functionality, making it very powerful."
     },
     {
-      "icon": "fast",
-      "title": "Efficient",
-      "content": "C allows swift implementation using constructs that map efficiently to machine instructions."
+      "icon": "widely-used",
+      "title": "Widely used",
+      "content": "C is consistently one of the most popular languages for writing everything from operating systems to firmware"
     }
   ],
   "tags": [
