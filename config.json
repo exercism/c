@@ -1003,12 +1003,12 @@
     {
       "icon": "general-purpose",
       "title": "General purpose",
-      "content": "C can be used for a wide variety of workloads from IoT to game engines."
+      "content": "Can be used for a wide variety of workloads from IoT to game engines."
     },
     {
       "icon": "fast",
       "title": "Fast",
-      "content": "C has been consistently rated as one of the highest performing languages for energy and time."
+      "content": "Consistently rated as one of the highest performing languages for energy and time."
     },
     {
       "icon": "stable",
@@ -1018,12 +1018,12 @@
     {
       "icon": "powerful",
       "title": "Powerful",
-      "content": "C allows both lower and higher level functionality, making it very powerful."
+      "content": "Allows both lower and higher level functionality, making it very powerful."
     },
     {
       "icon": "widely-used",
       "title": "Widely used",
-      "content": "C is consistently one of the most popular languages for everything from operating systems to firmware"
+      "content": "Consistently one of the most popular languages for everything from operating systems to firmware"
     }
   ],
   "tags": [
