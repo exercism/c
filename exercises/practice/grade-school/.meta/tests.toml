@@ -8,7 +8,7 @@ description = "Adding a student adds them to the sorted roster"
 [c125dab7-2a53-492f-a99a-56ad511940d8]
 description = "A student can't be in two different grades"
 include = false
-comment = "Reimplimented"
+comment = "Reimplemented"
 
 [a0c7b9b8-0e89-47f8-8b4a-c50f885e79d1]
 description = "A student can only be added to the same grade in the roster once"
