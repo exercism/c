@@ -26,3 +26,14 @@ jobs:
 
       - name: Check unitybegin()
         run: ./bin/check-unitybegin
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v1.0.9
+        id: lychee
+        with:
+          args: --no-progress **/*.md **/*.html
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Fail if there were link errors
+        run: exit ${{ steps.lychee.outputs.exit_code }}
