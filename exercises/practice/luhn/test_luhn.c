@@ -105,6 +105,12 @@ static void test_input_digit_9_is_correctly_converted_to_output_digit_9(void)
    TEST_ASSERT_TRUE(luhn("091"));
 }
 
+static void test_number_with_odd_number_of_digits_and_non_zero_first_digit(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_TRUE(luhn("109"));
+}
+
 static void test_ascii_value_for_non_doubled_non_digit_isnt_allowed(void)
 {
    TEST_IGNORE();
@@ -145,6 +151,7 @@ int main(void)
    RUN_TEST(test_single_zero_with_space_is_invalid);
    RUN_TEST(test_more_than_a_single_zero_is_valid);
    RUN_TEST(test_input_digit_9_is_correctly_converted_to_output_digit_9);
+   RUN_TEST(test_number_with_odd_number_of_digits_and_non_zero_first_digit);
    RUN_TEST(test_ascii_value_for_non_doubled_non_digit_isnt_allowed);
    RUN_TEST(test_ascii_value_for_doubled_non_digit_isnt_allowed);
    RUN_TEST
