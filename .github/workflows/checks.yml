@@ -8,16 +8,21 @@ jobs:
 
     steps:
 
-    - name: Install Indent
-      run: |
-        sudo apt-get -qq update
-        sudo apt-get install -y indent
+      - name: Install Indent
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get install -y indent
 
-    - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.3.5
 
-    - name: Run Checks
-      run: |
-        shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
-        ./bin/verify-indent
-        ./bin/check-unitybegin
-        ./bin/verify-unity-version
+      - name: Shell script static analysis
+        run: shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
+
+      - name: Check style
+        run: ./bin/verify-indent
+
+      - name: Check Unity version
+        run: ./bin/verify-unity-version
+
+      - name: Check unitybegin()
+        run: ./bin/check-unitybegin
