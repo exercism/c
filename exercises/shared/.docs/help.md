@@ -1,6 +1,6 @@
 # Help
 
-Make sure you have read the "Guides" section of the [C track][c-track] on the Exercism site.
+Make sure you have read the [C track-specific documentation][c-track] on the Exercism site.
 This covers the basic information on setting up the development environment expected by the exercises.
 
 ## Submitting Incomplete Solutions
@@ -16,7 +16,7 @@ To get help if having trouble, you can use the following resources:
 - [TutorialsPoint][] has similar content as CPPReference in its C programming section.
 - [The C Programming][K&R] book by K&R is the original source of the language and is still useful today.
 
-[c-track]: https://exercism.io/my/tracks/c
+[c-track]: https://exercism.org/docs/tracks/c
 [stackoverflow]: http://stackoverflow.com/questions/tagged/c
 [cppreference]: https://en.cppreference.com/w/c
 [tutorialspoint]: https://www.tutorialspoint.com/cprogramming/
