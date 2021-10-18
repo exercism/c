@@ -13,7 +13,7 @@ jobs:
         sudo apt-get -qq update
         sudo apt-get install -y indent
 
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2.3.5
 
     - name: Run Checks
       run: |
