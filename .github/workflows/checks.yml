@@ -7,17 +7,32 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+      - name: Install Indent
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get install -y indent
 
-    - name: Install Indent
-      run: |
-        sudo apt-get -qq update
-        sudo apt-get install -y indent
+      - uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
-    - uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+      - name: Shell script static analysis
+        run: shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
 
-    - name: Run Checks
-      run: |
-        shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
-        ./bin/verify-indent
-        ./bin/check-unitybegin
-        ./bin/verify-unity-version
+      - name: Check style
+        run: ./bin/verify-indent
+
+      - name: Check Unity version
+        run: ./bin/verify-unity-version
+
+      - name: Check unitybegin()
+        run: ./bin/check-unitybegin
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@461548a4b2634c47139a559953e4a6e8faafab1f
+        id: lychee
+        with:
+          args: --no-progress **/*.md **/*.html
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Fail if there were link errors
+        run: exit ${{ steps.lychee.outputs.exit_code }}
