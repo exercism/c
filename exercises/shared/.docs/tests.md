@@ -16,4 +16,4 @@ As you progress through the tests, take the time to refactor your implementation
 
 Try to use standard C99 facilities in preference to writing your own low-level algorithms or facilities by hand.
 
-[3-tdd-rules]: http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd
+[3-tdd-rules]: https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html
