@@ -34,6 +34,11 @@ static int compare_student_grades_and_names(const void *s1, const void *s2)
       return compare_student_names(student1, student2);
 }
 
+void init_roster(roster_t * roster)
+{
+   memset(roster, 0, sizeof(*roster));
+}
+
 bool add_student(roster_t * roster, char *name, uint8_t grade)
 {
    bool added = false;
