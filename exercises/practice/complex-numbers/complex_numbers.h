@@ -1,5 +1,5 @@
-#ifndef _COMPLEX_NUMBERS_H_
-#define _COMPLEX_NUMBERS_H_
+#ifndef COMPLEX_NUMBERS_H
+#define COMPLEX_NUMBERS_H
 
 typedef struct {
    double real;
