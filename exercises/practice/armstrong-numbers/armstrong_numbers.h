@@ -1,5 +1,5 @@
-#ifndef ARMSTRONG_NUMBERS
-#define ARMSTRONG_NUMBERS
+#ifndef ARMSTRONG_NUMBERS_H
+#define ARMSTRONG_NUMBERS_H
 
 #include <stdbool.h>
 

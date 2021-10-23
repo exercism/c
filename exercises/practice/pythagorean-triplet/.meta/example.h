@@ -1,5 +1,5 @@
-#ifndef PYTHAGOREAN_TRIPLET
-#define PYTHAGOREAN_TRIPLET
+#ifndef PYTHAGOREAN_TRIPLET_H
+#define PYTHAGOREAN_TRIPLET_H
 
 #include <stdint.h>
 #include <stdlib.h>

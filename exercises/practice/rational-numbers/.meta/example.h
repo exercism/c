@@ -1,5 +1,5 @@
-#ifndef RATIONAL_NUMBERS
-#define RATIONAL_NUMBERS
+#ifndef RATIONAL_NUMBERS_H
+#define RATIONAL_NUMBERS_H
 
 #include <stdint.h>
 
