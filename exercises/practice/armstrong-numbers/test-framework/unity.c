@@ -31,7 +31,7 @@ const char PROGMEM UnityStrPass[]                          = "\033[42mPASS\033[0
 const char PROGMEM UnityStrFail[]                          = "\033[41mFAIL\033[00m";
 const char PROGMEM UnityStrIgnore[]                        = "\033[43mIGNORE\033[00m";
 #else
-const char PROGMEM UnityStrOk[]                            = "OK";
+const char PROGMEM UnityStrOk[]                            = "OK"
 const char PROGMEM UnityStrPass[]                          = "PASS";
 const char PROGMEM UnityStrFail[]                          = "FAIL";
 const char PROGMEM UnityStrIgnore[]                        = "IGNORE";
