@@ -2,8 +2,6 @@
 
 set +e
 
-cd ./exercises/practice || exit
-
 ERROR_COUNT=0
 
 echo "Checking include guards format"
@@ -17,16 +15,17 @@ check_guard() {
     fi
 }
 
-for slug in *; do
-    practice=$(printf "%s" "${slug}" | tr "-" "_")
-    guard=$(printf "%s" "${practice}_H" | tr "[:lower:]" "[:upper:]");
+for directory in ./exercises/practice/*; do
+    slug=$(basename "${directory}")
+    stub=$(printf "%s" "${slug}" | tr "-" "_")
+    guard=$(printf "%s" "${stub}_H" | tr "[:lower:]" "[:upper:]");
     guard="#ifndef ${guard}\n#define ${guard}"
 
-    exercise="${slug}/${practice}.h"
-    check_guard "$exercise" "$guard"
+    practice="${directory}/${stub}.h"
+    check_guard "$practice" "$guard"
     (( ERROR_COUNT+=$? ))
 
-    example="${slug}/.meta/example.h"
+    example="${directory}/.meta/example.h"
     check_guard "$example" "$guard"
     (( ERROR_COUNT+=$? ))
 done
