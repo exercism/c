@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set +e
+
 cd ./exercises/practice || exit
 
 ERROR_COUNT=0
