@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+cd ./exercises/practice || exit
+
+ERROR_COUNT=0
+
+echo "Checking include guards format"
+
+check_guard() {
+    if [ -f "$1" ]; then
+        if grep -LPzo "$2" "$1" > /dev/null; then
+            printf "%s does not have correctly formatted include guards\n" "$1"
+            return 1
+        fi
+    fi
+}
+
+for slug in *; do
+    practice=$(printf "%s" "${slug}" | tr "-" "_")
+    guard=$(printf "%s" "${practice}_H" | tr "[:lower:]" "[:upper:]");
+    guard="#ifndef ${guard}\n#define ${guard}"
+
+    exercise="${slug}/${practice}.h"
+    check_guard "$exercise" "$guard"
+    (( ERROR_COUNT+=$? ))
+
+    example="${slug}/.meta/example.h"
+    check_guard "$example" "$guard"
+    (( ERROR_COUNT+=$? ))
+done
+
+echo "Include guard check complete"
+
+exit "${ERROR_COUNT}"

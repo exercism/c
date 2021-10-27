@@ -138,6 +138,9 @@ If you would like the [`/format`][format-workflow] automated action to work corr
 * `checks.yml` runs `shellcheck` on the tool scripts and subsequently runs the following of those tools:
   * `./bin/check-unitybegin`
   * `./bin/verify-unity-version`
+  * `./bin/check-unitybegin`
+  * `./bin/check-include-guards`
+  * [Lychee link checker][lychee] action
 * `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
 * `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `format.sh` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
 * `build.yml` runs the `./bin/run-tests` tool on all exercises
@@ -150,6 +153,15 @@ The work the tools in this directory perform is described as follows:
 * `check-unitybegin` ensures that every test file correctly adds the `UnityBegin("{test-file-name}")` line at the start of its `main()` function.
 * `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
 * `verify-unity-version` checks the version of the Unity test framework used by every exercise. The version this file should check for is specified in [`./docs/VERSIONS.md`][versions]
+* `check-unitybegin` ensures that every test file correctly adds the `UnityBegin("{test-file-name}")` line at the start of its `main()` function.
+* `check-include-guards` checks that the include guards used in each exercises stub and example header are using the correct format, as follows:
+
+    ```c
+    #ifndef {EXERCISE_NAME}_H
+    #define {EXERCISE_NAME}_H
+    ```
+
+* `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
 * `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with AddressSanitizer.
 
 ### Run Tools Locally
@@ -203,6 +215,7 @@ Read more about [test runners].
 [hosted runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
 [actions/virtual-environments#1816]: https://github.com/actions/virtual-environments/issues/1816
 [workflows]: ../.github/workflows/
+[lychee]: https://github.com/lycheeverse/lychee-action
 [bin]: ../bin
 [format-workflow]: ../.github/workflows/format-code.yml
 [git]: https://git-scm.com/
