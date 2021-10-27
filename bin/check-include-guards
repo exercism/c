@@ -8,7 +8,7 @@ echo "Checking include guards format"
 
 check_guard() {
     if [ -f "$1" ]; then
-        if grep -LPzo "$2" "$1" > /dev/null; then
+        if grep -Lzo "$2" "$1" > /dev/null; then
             printf "%s does not have correctly formatted include guards\n" "$1"
             return 1
         fi
@@ -19,7 +19,8 @@ for directory in ./exercises/practice/*; do
     slug=$(basename "${directory}")
     stub=$(printf "%s" "${slug}" | tr "-" "_")
     guard=$(printf "%s" "${stub}_H" | tr "[:lower:]" "[:upper:]");
-    guard="#ifndef ${guard}\n#define ${guard}"
+    # guard="#ifndef ${guard}\n#define ${guard}"
+    guard="#ifndef ${guard}"
 
     practice="${directory}/${stub}.h"
     check_guard "$practice" "$guard"
