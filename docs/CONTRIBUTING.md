@@ -88,7 +88,7 @@ See [implement-an-exercise-from-specification][] for in depth details on impleme
 
 The structure of en exercise directory is as follows (note the differing hyphen and underscore usage for directory names and file names respectively):
 
-<pre>
+```text
 +-- {exercise-name}
     +-- makefile
     +-- README.md
@@ -101,7 +101,7 @@ The structure of en exercise directory is as follows (note the differing hyphen 
             +-- unity.c
             +-- unity.h
             +-- unity_internals.h
-</pre>
+```
 
 * `test` - contains the test file `test_{exercise_name}.c` and a `vendor` directory containing the test harness [Unity][] from [ThrowTheSwitch][].
   ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.
