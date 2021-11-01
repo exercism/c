@@ -18,8 +18,8 @@ check_guard() {
 for directory in ./exercises/practice/*; do
     slug=$(basename "${directory}")
     stub=$(printf "%s" "${slug}" | tr "-" "_")
-    guard=$(printf "%s" "${stub}_H" | tr "[:lower:]" "[:upper:]");
-    guard="#ifndef ${guard}\n#define ${guard}"
+    macro=$(printf "%s" "${stub}_H" | tr "[:lower:]" "[:upper:]");
+    guard="#ifndef ${macro}\n#define ${macro}"
 
     practice="${directory}/${stub}.h"
     check_guard "$practice" "$guard"
