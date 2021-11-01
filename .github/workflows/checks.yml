@@ -13,31 +13,31 @@ jobs:
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
-      - name: Shell script static analysis
-        run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin bin/run-tests format.sh
+      # - name: Shell script static analysis
+      #   run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin bin/run-tests format.sh
 
-      - name: Check practices formatting
-        run: |
-          find exercises/practice/ -path '*/test-framework' -prune -o \
-            \( -iname '*.h' -o -iname '*.c' \) -print0 |\
-            xargs --null clang-format --dry-run --Werror
+      # - name: Check practices formatting
+      #   run: |
+      #     find exercises/practice/ -path '*/test-framework' -prune -o \
+      #       \( -iname '*.h' -o -iname '*.c' \) -print0 |\
+      #       xargs --null clang-format --dry-run --Werror
 
-      - name: Check Unity version
-        run: ./bin/verify-unity-version
+      # - name: Check Unity version
+      #   run: ./bin/verify-unity-version
 
-      - name: Check unitybegin()
-        run: ./bin/check-unitybegin
+      # - name: Check unitybegin()
+      #   run: ./bin/check-unitybegin
 
       - name: Check include guards
         run: ./bin/check-include-guards
 
-      - name: Check links
-        uses: lycheeverse/lychee-action@f76b8412c668f78311212d16d33c4784a7d8762c
-        id: lychee
-        with:
-          args: --no-progress **/*.md **/*.html
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      # - name: Check links
+      #   uses: lycheeverse/lychee-action@f76b8412c668f78311212d16d33c4784a7d8762c
+      #   id: lychee
+      #   with:
+      #     args: --no-progress **/*.md **/*.html
+      #   env:
+      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Fail if there were link errors
-        run: exit ${{ steps.lychee.outputs.exit_code }}
+      # - name: Fail if there were link errors
+      #   run: exit ${{ steps.lychee.outputs.exit_code }}
