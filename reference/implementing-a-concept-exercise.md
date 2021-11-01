@@ -22,7 +22,7 @@ Before implementing the exercise, please make sure you have a good understanding
 
 To implement a concept exercise, the following files must be added:
 
-<pre>
+```text
 languages
 └── c
     ├── concepts
@@ -46,7 +46,7 @@ languages
                 ├── &lt;NAME&gt;.h
                 ├── test_&lt;NAME&gt;.c
                 └── test-framework
-</pre>
+```
 
 ## Step 1: Add code files
 

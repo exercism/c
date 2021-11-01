@@ -6,7 +6,7 @@ The C concept exercises are based on language concepts. The list below contains 
 
 ### Specialities
 
-#### Concepts
+#### Speciality Concepts
 
 - [Algorithms](https://en.cppreference.com/w/c/algorithm)
 - [Bit Fields](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Bit-Fields)
@@ -34,7 +34,7 @@ The C concept exercises are based on language concepts. The list below contains 
 - [Variable Length Parameter Lists](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Variable-Length-Parameter-Lists)
 - [Volatile](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Type-Qualifiers)
 
-#### Types
+#### Speciality Types
 
 - [Complex Number Types](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Complex-Number-Types)
 - [Enumerations](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Enumerations)
@@ -51,7 +51,7 @@ The C concept exercises are based on language concepts. The list below contains 
 
 ### General
 
-#### Concepts
+#### General Concepts
 
 - [Arithmetic](https://github.com/exercism/v3/blob/master/reference/concepts/arithmetic.md)
 - [ASCII](https://github.com/exercism/v3/blob/master/reference/concepts/ascii.md)
@@ -75,7 +75,7 @@ The C concept exercises are based on language concepts. The list below contains 
 - [Variable Shadowing](https://github.com/exercism/v3/blob/master/reference/concepts/variable_shadowing.md)
 - [Variables](https://github.com/exercism/v3/blob/master/reference/concepts/variables.md)
 
-#### Types
+#### General Types
 
 - [Array](https://github.com/exercism/v3/blob/master/reference/types/array.md)
 - [Bit](https://github.com/exercism/v3/blob/master/reference/types/bit.md)
