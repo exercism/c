@@ -6,7 +6,7 @@ The C concept exercises are based on language concepts. The list below contains 
 
 ### Specialities
 
-#### Speciality Concepts
+#### Specialty Concepts
 
 - [Algorithms](https://en.cppreference.com/w/c/algorithm)
 - [Bit Fields](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Bit-Fields)
@@ -34,7 +34,7 @@ The C concept exercises are based on language concepts. The list below contains 
 - [Variable Length Parameter Lists](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Variable-Length-Parameter-Lists)
 - [Volatile](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Type-Qualifiers)
 
-#### Speciality Types
+#### Specialty Types
 
 - [Complex Number Types](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Complex-Number-Types)
 - [Enumerations](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Enumerations)
