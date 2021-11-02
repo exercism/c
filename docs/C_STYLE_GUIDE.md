@@ -53,6 +53,26 @@ Likewise, `size_t` and `ptrdiff_t` (of `stddef.h`) are preferred for representin
 Types defined by a program using `typedef` should be named with a `_t` suffix.
 While aware that POSIX reserves the `_t` suffix, the track does not currently utilise POSIX.
 
+## Include Guards
+
+Include guards should be used in all header files.
+
+Generally, one set of include guards should wrap the full contents of the header.
+
+Guards in the example implementation (`.meta/example.h`) and the exercise stub (`exercise_name.h`) should use macro names that follow the exercise name.
+Guard macro names should follow the above rule for macros regarding casing.
+
+For example, for the exercise `hello-world`, use:
+
+```c
+#ifndef HELLO_WORLD_H
+#define HELLO_WORLD_H
+
+//...
+
+#endif
+```
+
 ## Parameters
 
 Function parameters should be named in both the declaration and definition of all functions.
