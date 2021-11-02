@@ -18,8 +18,8 @@ static size_t mstrlen(const char *input)
 }
 
 /* get_cols_and_rows: calculate columns and rows for the input square */
-static void get_cols_and_rows_input(size_t len, size_t * cols_inp,
-                                    size_t * rows_inp)
+static void get_cols_and_rows_input(size_t len, size_t *cols_inp,
+                                    size_t *rows_inp)
 {
    *cols_inp = sqrt(len);
 
