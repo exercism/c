@@ -75,7 +75,7 @@ The options described for use with indent there are `-linux -i3 -nut`. The `-lin
 What these options do is indicated by the [GNU `indent` manual][indent-manual], but is also described here for easy reference if editing files manually.
 
 - `nbad` - Do _not_ force blank lines after every block of declarations
-- `bap` - Force a black line after every function body
+- `bap` - Force a blank line after every function body
 - `nbc` - Do _not_ force a newline after each comma in a declaration
 - `bbo` - Prefer to break long lines before the boolean operators `&&` and `||`
 - `hnl` - Honour newlines in the file by giving them the highest possible priority to break lines at
