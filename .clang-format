@@ -1,0 +1,60 @@
+---
+Language: Cpp
+AlignAfterOpenBracket: Align
+AlignOperands: true
+AlignTrailingComments: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+# BitFieldColonSpacing: None
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterFunction: true
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: true
+  BeforeElse: false
+  # BeforeWhile: false
+BreakBeforeBinaryOperators: None
+# BraceBreakingStyle: Linux
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: false
+ColumnLimit: 80
+ContinuationIndentWidth: 3
+Cpp11BracedListStyle: false
+# IndentCaseBlocks: false
+IndentCaseLabels: false
+# IndentExternBlock: Indent
+IndentPPDirectives: None
+IndentWidth: 3
+IndentWrappedFunctionNames: false
+MaxEmptyLinesToKeep: 1
+# PPIndentWidth: 0
+PointerAlignment: Right
+# QualifierAlignment: Left
+# QualifierOrder: ['inline', 'static', 'volatile', 'const', 'type']
+ReflowComments: true
+SortIncludes: false
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+# SpaceAroundPointerQualifiers: Before
+SpaceBeforeAssignmentOperators: true
+# SpaceBeforeCaseColon: false
+SpaceBeforeParens: ControlStatements
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 3
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+# SpacesInLineCommentPrefix:
+#   Minimum: 1
+#   Maximum: 1
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+UseTab: Never
