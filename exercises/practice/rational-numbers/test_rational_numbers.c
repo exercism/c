@@ -28,7 +28,7 @@ static void test_add_two_positive_rational_numbers(void)
 
 static void test_add_positive_and_negative_rational_numbers(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    rational_t r1 = { 1, 2 };
    rational_t r2 = { -2, 3 };
    rational_t expected = { -1, 6 };
@@ -206,8 +206,9 @@ static void test_absolute_value_of_positive_rational_number(void)
 }
 
 static void
-    test_absolute_value_of_positive_rational_with_negative_numerator_and_denominator
-    (void) {
+test_absolute_value_of_positive_rational_with_negative_numerator_and_denominator(
+    void)
+{
    TEST_IGNORE();
    rational_t r = { -1, -2 };
    rational_t expected = { 1, 2 };
@@ -414,11 +415,11 @@ int main(void)
    RUN_TEST(test_divide_two_negative_rational_numbers);
    RUN_TEST(test_divide_rational_number_by_one);
    RUN_TEST(test_absolute_value_of_positive_rational_number);
-   RUN_TEST
-       (test_absolute_value_of_positive_rational_with_negative_numerator_and_denominator);
+   RUN_TEST(
+       test_absolute_value_of_positive_rational_with_negative_numerator_and_denominator);
    RUN_TEST(test_absolute_value_of_negative_rational_number);
-   RUN_TEST
-       (test_absolute_value_of_negative_rational_number_with_negative_denominator);
+   RUN_TEST(
+       test_absolute_value_of_negative_rational_number_with_negative_denominator);
    RUN_TEST(test_absolute_value_of_zero);
    RUN_TEST(test_raise_positive_rational_number_to_integer_power);
    RUN_TEST(test_raise_negative_rational_number_to_integer_power);
@@ -431,8 +432,8 @@ int main(void)
    RUN_TEST(test_raise_real_number_to_zero_rational_number);
    RUN_TEST(test_reduce_positive_rational_number_to_lowest_terms);
    RUN_TEST(test_reduce_negative_rational_number_to_lowest_terms);
-   RUN_TEST
-       (test_reduce_rational_number_with_negative_denominator_to_lowest_terms);
+   RUN_TEST(
+       test_reduce_rational_number_with_negative_denominator_to_lowest_terms);
    RUN_TEST(test_reduce_zero_to_lowest_terms);
    RUN_TEST(test_reduce_integer_to_lowest_terms);
    RUN_TEST(test_reduce_one_to_lowest_terms);

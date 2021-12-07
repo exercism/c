@@ -13,12 +13,12 @@ struct circular_buffer_t {
    buffer_value_t values[];
 };
 
-static inline bool is_empty(circular_buffer_t * buffer)
+static inline bool is_empty(circular_buffer_t *buffer)
 {
    return (buffer->count == 0);
 }
 
-static inline bool is_full(circular_buffer_t * buffer)
+static inline bool is_full(circular_buffer_t *buffer)
 {
    return (buffer->count >= buffer->capacity);
 }
@@ -28,7 +28,7 @@ static inline size_t increment_index(size_t index, size_t capacity)
    return (index + 1) % capacity;
 }
 
-static int16_t optional_overwrite(circular_buffer_t * buffer,
+static int16_t optional_overwrite(circular_buffer_t *buffer,
                                   buffer_value_t value, bool writeover)
 {
    if (!buffer) {
@@ -65,7 +65,7 @@ circular_buffer_t *new_circular_buffer(size_t capacity)
    return buffer;
 }
 
-int16_t read(circular_buffer_t * buffer, buffer_value_t * value)
+int16_t read(circular_buffer_t *buffer, buffer_value_t *value)
 {
    if (!buffer) {
       errno = EINVAL;
@@ -83,24 +83,24 @@ int16_t read(circular_buffer_t * buffer, buffer_value_t * value)
    return EXIT_SUCCESS;
 }
 
-int16_t write(circular_buffer_t * buffer, buffer_value_t value)
+int16_t write(circular_buffer_t *buffer, buffer_value_t value)
 {
    return optional_overwrite(buffer, value, false);
 }
 
-int16_t overwrite(circular_buffer_t * buffer, buffer_value_t value)
+int16_t overwrite(circular_buffer_t *buffer, buffer_value_t value)
 {
    return optional_overwrite(buffer, value, true);
 }
 
-void clear_buffer(circular_buffer_t * buffer)
+void clear_buffer(circular_buffer_t *buffer)
 {
    buffer->head = 0;
    buffer->tail = 0;
    buffer->count = 0;
 }
 
-void delete_buffer(circular_buffer_t * buffer)
+void delete_buffer(circular_buffer_t *buffer)
 {
    free(buffer);
 }

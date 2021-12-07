@@ -16,7 +16,7 @@ static void test_single_digit_strings_can_not_be_valid(void)
 
 static void test_a_single_zero_is_invalid(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_FALSE(luhn("0"));
 }
 
@@ -124,8 +124,9 @@ static void test_ascii_value_for_doubled_non_digit_isnt_allowed(void)
 }
 
 static void
-    test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed
-    (void) {
+test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed(
+    void)
+{
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn("59%59"));
 }
@@ -144,8 +145,8 @@ int main(void)
    RUN_TEST(test_invalid_long_number_with_an_even_remainder);
    RUN_TEST(test_valid_number_with_an_even_number_of_digits);
    RUN_TEST(test_valid_number_with_an_odd_number_of_spaces);
-   RUN_TEST
-       (test_valid_string_with_a_non_digit_added_at_the_end_to_become_invalid);
+   RUN_TEST(
+       test_valid_string_with_a_non_digit_added_at_the_end_to_become_invalid);
    RUN_TEST(test_valid_strings_with_punctuation_included_become_invalid);
    RUN_TEST(test_valid_strings_with_symbols_included_become_invalid);
    RUN_TEST(test_single_zero_with_space_is_invalid);
@@ -154,8 +155,8 @@ int main(void)
    RUN_TEST(test_number_with_odd_number_of_digits_and_non_zero_first_digit);
    RUN_TEST(test_ascii_value_for_non_doubled_non_digit_isnt_allowed);
    RUN_TEST(test_ascii_value_for_doubled_non_digit_isnt_allowed);
-   RUN_TEST
-       (test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed);
+   RUN_TEST(
+       test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed);
 
    return UnityEnd();
 }

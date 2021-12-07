@@ -16,7 +16,7 @@ static void test_smallest_perfect_number_is_classified_correctly(void)
 
 static void test_medium_perfect_number_is_classified_correctly(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(PERFECT_NUMBER, classify_number(28));
 }
 

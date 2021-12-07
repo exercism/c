@@ -17,7 +17,7 @@ static void test_not_allergic_to_anything_for_eggs(void)
 
 static void test_allergic_only_to_eggs(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
 
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_EGGS, 1));
 }

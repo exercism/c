@@ -5,11 +5,7 @@
 
 #define MAX_STR_LEN 20
 
-enum anagram_status {
-   UNCHECKED = -1,
-   NOT_ANAGRAM,
-   IS_ANAGRAM
-};
+enum anagram_status { UNCHECKED = -1, NOT_ANAGRAM, IS_ANAGRAM };
 
 struct candidate {
    enum anagram_status is_anagram;

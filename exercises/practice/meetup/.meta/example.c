@@ -37,8 +37,7 @@ static int days_in_month(int year, int month)
    return number_of_days;
 }
 
-static int get_number_given_text(const char *text,
-                                 text_to_int_lookup_t * lookup,
+static int get_number_given_text(const char *text, text_to_int_lookup_t *lookup,
                                  size_t number_entries)
 {
    int match_number = -1;
@@ -73,35 +72,25 @@ static int get_day_of_week_from_date(unsigned int year, unsigned int month,
 static int get_week_of_month(const char *week)
 {
    text_to_int_lookup_t which_week_of_month_lookup[] = {
-      {"first", 1},
-      {"second", 2},
-      {"third", 3},
-      {"fourth", 4},
-      {"fifth", 5},
-      {"last", 6},
-      {"teenth", 7}
+      { "first", 1 }, { "second", 2 }, { "third", 3 }, { "fourth", 4 },
+      { "fifth", 5 }, { "last", 6 },   { "teenth", 7 }
    };
 
    return get_number_given_text(week, &which_week_of_month_lookup[0],
                                 sizeof(which_week_of_month_lookup) /
-                                sizeof(text_to_int_lookup_t));
+                                    sizeof(text_to_int_lookup_t));
 }
 
 static int get_requested_day_of_week(const char *day_of_week)
 {
-   text_to_int_lookup_t day_lookup[] = {
-      {"Sunday", 0},
-      {"Monday", 1},
-      {"Tuesday", 2},
-      {"Wednesday", 3},
-      {"Thursday", 4},
-      {"Friday", 5},
-      {"Saturday", 6}
-   };
+   text_to_int_lookup_t day_lookup[] = { { "Sunday", 0 },   { "Monday", 1 },
+                                         { "Tuesday", 2 },  { "Wednesday", 3 },
+                                         { "Thursday", 4 }, { "Friday", 5 },
+                                         { "Saturday", 6 } };
 
    return get_number_given_text(day_of_week, &day_lookup[0],
                                 sizeof(day_lookup) /
-                                sizeof(text_to_int_lookup_t));
+                                    sizeof(text_to_int_lookup_t));
 }
 
 int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
@@ -116,16 +105,19 @@ int meetup_day_of_month(unsigned int year, unsigned int month, const char *week,
    // check for valid lookup...
    if ((which_week_of_month >= 0) && (target_day_in_week >= 0)) {
       int day_offset;
-      int reference_day = 1;    // used to calculate a baseline day of week given a target date.
+      int reference_day =
+          1;   // used to calculate a baseline day of week given a target date.
       // first - fifth Xday of month
       if (which_week_of_month <= 5) {
          day_offset = 1 + ((which_week_of_month - 1) * 7);
       } else {
          // code for last Xday of month
          if (6 == which_week_of_month) {
-            reference_day = days_in_test_month - 6;     // use the last unique day near end of month as reference
+            reference_day =
+                days_in_test_month -
+                6;   // use the last unique day near end of month as reference
          } else {
-            reference_day = 13; // use first teenth day as reference
+            reference_day = 13;   // use first teenth day as reference
          }
          day_offset = reference_day;
       }

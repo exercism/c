@@ -10,7 +10,7 @@ allergen_list_t get_allergens(unsigned int score)
 {
    allergen_list_t list = {
       .count = 0,
-      .allergens = {0},
+      .allergens = { 0 },
    };
 
    for (allergen_t allergen = 0; allergen < ALLERGEN_COUNT; ++allergen) {

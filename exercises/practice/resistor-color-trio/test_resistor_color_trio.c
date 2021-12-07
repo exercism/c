@@ -19,7 +19,7 @@ static void test_orange_orange_black(void)
 
 static void test_blue_grey_brown(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    resistor_value_t actual =
        color_code((resistor_band_t[]){ BLUE, GREY, BROWN });
    TEST_ASSERT_EQUAL_UINT16(680, actual.value);

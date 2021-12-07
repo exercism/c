@@ -21,6 +21,6 @@ typedef struct {
 } robot_status_t;
 
 robot_status_t robot_create(robot_direction_t direction, int x, int y);
-void robot_move(robot_status_t * robot, const char *commands);
+void robot_move(robot_status_t *robot, const char *commands);
 
 #endif

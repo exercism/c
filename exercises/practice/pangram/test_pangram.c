@@ -16,7 +16,7 @@ static void test_null(void)
 
 static void test_empty_sentence(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    const char sentence[] = "";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));

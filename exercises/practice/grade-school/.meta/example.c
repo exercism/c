@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-static bool student_is_on_roster(roster_t * roster, char *name)
+static bool student_is_on_roster(roster_t *roster, char *name)
 {
    bool is_on_roster = false;
    for (size_t i = 0; i < roster->count; ++i) {
@@ -34,12 +34,12 @@ static int compare_student_grades_and_names(const void *s1, const void *s2)
       return compare_student_names(student1, student2);
 }
 
-void init_roster(roster_t * roster)
+void init_roster(roster_t *roster)
 {
    memset(roster, 0, sizeof(*roster));
 }
 
-bool add_student(roster_t * roster, char *name, uint8_t grade)
+bool add_student(roster_t *roster, char *name, uint8_t grade)
 {
    bool added = false;
 
@@ -56,7 +56,7 @@ bool add_student(roster_t * roster, char *name, uint8_t grade)
    return added;
 }
 
-roster_t get_grade(roster_t * roster, uint8_t grade)
+roster_t get_grade(roster_t *roster, uint8_t grade)
 {
    roster_t grade_roster = { 0 };
 

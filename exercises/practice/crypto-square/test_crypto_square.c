@@ -21,7 +21,7 @@ static void test_empty_text_res_in_an_empty_ciphertext(void)
 
 static void test_lowercase(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    const char *input = "A";
    const char *expected = "a";
    char *res = ciphertext(input);
@@ -93,8 +93,8 @@ int main(void)
    RUN_TEST(test_remove_punctuation);
    RUN_TEST(test_9_char_plaintext_gives_3_chunks_of_3_chars);
    RUN_TEST(test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space);
-   RUN_TEST
-       (test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces);
+   RUN_TEST(
+       test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces);
 
    return UnityEnd();
 }

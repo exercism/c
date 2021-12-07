@@ -24,7 +24,7 @@ static void to_int(clock_t clock, int *hour, int *minute)
 
 clock_t clock_create(int hour, int minute)
 {
-   clock_t clock = { {0} };
+   clock_t clock = { { 0 } };
    normalize_clock(&hour, &minute);
    sprintf(clock.text, CLOCK_FORMAT, hour, minute);
    return clock;

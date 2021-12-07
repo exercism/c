@@ -25,7 +25,7 @@ static void test_pop_gets_element_from_the_list(void)
 
 static void test_push_pop_respectively_add_remove_at_the_end_of_the_list(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    list_push(list, 11);
    list_push(list, 13);
    TEST_ASSERT_EQUAL(13, list_pop(list));
@@ -145,8 +145,9 @@ test_deletes_the_element_with_the_specified_value_from_the_list(void)
 }
 
 static void
- test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail
-    (void) {
+test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail(
+    void)
+{
    TEST_IGNORE();
    list_push(list, 71);
    list_push(list, 83);
@@ -158,8 +159,9 @@ static void
 }
 
 static void
- test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head
-    (void) {
+test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head(
+    void)
+{
    TEST_IGNORE();
    list_push(list, 71);
    list_push(list, 83);
@@ -230,10 +232,10 @@ int main(void)
    RUN_TEST(test_shifting_to_empty_does_not_break_the_list);
    RUN_TEST(test_deletes_the_only_element);
    RUN_TEST(test_deletes_the_element_with_the_specified_value_from_the_list);
-   RUN_TEST
-       (test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail);
-   RUN_TEST
-       (test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head);
+   RUN_TEST(
+       test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail);
+   RUN_TEST(
+       test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head);
    RUN_TEST(test_deletes_the_first_of_two_elements);
    RUN_TEST(test_deletes_the_second_of_two_elements);
    RUN_TEST(test_delete_does_not_modify_the_list_if_the_element_is_not_found);

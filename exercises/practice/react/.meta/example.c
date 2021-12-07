@@ -162,7 +162,10 @@ struct cell *create_compute2_cell(struct reactor *r, struct cell *input1,
    return c;
 }
 
-#define each_child(c) struct child *child = (c)->child; child; child = child->next
+#define each_child(c)                                                          \
+   struct child *child = (c)->child;                                           \
+   child;                                                                      \
+   child = child->next
 
 int get_cell_value(struct cell *c)
 {
@@ -198,7 +201,7 @@ static void fire_callbacks(struct cell *c)
       return;
    }
    c->last_cb_value = c->value;
-   for (struct cb * cb = c->cb; cb; cb = cb->next) {
+   for (struct cb *cb = c->cb; cb; cb = cb->next) {
       cb->f(cb->obj, c->value);
    }
    for (each_child(c)) {
@@ -243,7 +246,7 @@ void remove_callback(struct cell *c, callback_id to_remove)
    // in case the ID to remove is at the head of the list.
    struct cb dummy;
    dummy.next = c->cb;
-   for (struct cb * prev = &dummy, *cb = c->cb; cb;
+   for (struct cb *prev = &dummy, *cb = c->cb; cb;
         prev = prev->next, cb = cb->next) {
       if (cb->id == to_remove) {
          if (cb == c->cb) {

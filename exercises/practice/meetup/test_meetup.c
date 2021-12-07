@@ -16,7 +16,7 @@ static void test_monteenth_of_May_2013(void)
 
 static void test_monteenth_of_August_2013(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL_INT(19, meetup_day_of_month(2013, 8, "teenth", "Monday"));
 }
 

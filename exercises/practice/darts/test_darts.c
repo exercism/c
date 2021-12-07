@@ -19,7 +19,7 @@ static void test_missed_target(void)
 
 static void test_on_the_outer_circle(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    coordinate_t landing_position = { 0.0F, 10.0F };
    uint8_t expected = 1;
    uint8_t actual = score(landing_position);

@@ -16,7 +16,7 @@ static void test_finds_the_largest_product_if_span_equals_length(void)
 
 static void test_can_find_the_largest_product_of_2_with_numbers_in_order(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(72, largest_series_product("0123456789", 2));
 }
 
@@ -47,9 +47,9 @@ static void test_can_find_the_largest_product_of_5_with_numbers_in_order(void)
 static void test_can_get_the_largest_product_of_a_big_number(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_EQUAL(23520,
-                     largest_series_product
-                     ("73167176531330624919225119674426574742355349194934", 6));
+   TEST_ASSERT_EQUAL(
+       23520, largest_series_product(
+                  "73167176531330624919225119674426574742355349194934", 6));
 }
 
 static void test_reports_zero_if_the_only_digits_are_zero(void)

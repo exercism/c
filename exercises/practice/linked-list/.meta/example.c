@@ -11,9 +11,8 @@ struct list {
    struct list_node *first, *last;
 };
 
-static struct list_node *list_node_create(struct list_node *prev,
-                                          struct list_node *next,
-                                          ll_data_t data)
+static struct list_node *
+list_node_create(struct list_node *prev, struct list_node *next, ll_data_t data)
 {
    struct list_node *node = malloc(sizeof(*node));
    if (node) {
@@ -34,7 +33,7 @@ struct list *list_create(void)
    return list;
 }
 
-size_t list_count(const struct list * list)
+size_t list_count(const struct list *list)
 {
    assert(list);
 
@@ -63,7 +62,7 @@ void list_push(struct list *list, ll_data_t data)
    return;
 }
 
-ll_data_t list_pop(struct list * list)
+ll_data_t list_pop(struct list *list)
 {
    assert(list);
    assert(list->last);
@@ -92,7 +91,7 @@ void list_unshift(struct list *list, ll_data_t data)
    return;
 }
 
-ll_data_t list_shift(struct list * list)
+ll_data_t list_shift(struct list *list)
 {
    assert(list);
    assert(list->first);

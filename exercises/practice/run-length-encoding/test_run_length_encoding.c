@@ -19,7 +19,7 @@ static void test_encode_empty_string(void)
 
 static void test_encode_single_characters_only_are_encoded_without_count(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    char *res = encode("XYZ");
    TEST_ASSERT_EQUAL_STRING("XYZ", res);
    free(res);
@@ -85,8 +85,8 @@ static void test_decode_single_characters_with_repeated_characters(void)
 {
    TEST_IGNORE();
    char *res = decode("12WB12W3B24WB");
-   TEST_ASSERT_EQUAL_STRING
-       ("WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB", res);
+   TEST_ASSERT_EQUAL_STRING(
+       "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB", res);
    free(res);
 }
 

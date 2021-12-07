@@ -12,23 +12,21 @@ static saddle_points_t *noSaddlePoints(void)
    return saddle_points;
 }
 
-static saddle_points_t *add(saddle_points_t * saddle_points, size_t row,
+static saddle_points_t *add(saddle_points_t *saddle_points, size_t row,
                             size_t column)
 {
    size_t count = 0;
    if (saddle_points)
       count = saddle_points->count;
 
-   saddle_points_t *new_saddle_points = realloc(saddle_points,
-                                                sizeof(saddle_points_t) +
-                                                sizeof(saddle_point_t) *
-                                                ++count);
+   saddle_points_t *new_saddle_points =
+       realloc(saddle_points,
+               sizeof(saddle_points_t) + sizeof(saddle_point_t) * ++count);
 
    if (new_saddle_points) {
       saddle_points = new_saddle_points;
       saddle_points->count = count;
-      saddle_points->points[count - 1] = (saddle_point_t) {
-      row, column};
+      saddle_points->points[count - 1] = (saddle_point_t){ row, column };
    } else {
       free(saddle_points);
       saddle_points = NULL;
@@ -65,14 +63,14 @@ saddle_points_t *saddle_points(size_t rows, size_t columns,
    if (rows > 0 && columns > 0 && matrix != NULL)
       for (size_t row = 0; row < rows; ++row)
          for (size_t column = 0; column < columns; ++column)
-            if (is_greatest_in_row(row, column, columns, matrix)
-                && is_least_in_column(row, column, rows, columns, matrix))
+            if (is_greatest_in_row(row, column, columns, matrix) &&
+                is_least_in_column(row, column, rows, columns, matrix))
                saddle_points = add(saddle_points, row + 1, column + 1);
 
    return saddle_points;
 }
 
-void free_saddle_points(saddle_points_t * saddle_points)
+void free_saddle_points(saddle_points_t *saddle_points)
 {
    free(saddle_points);
 }

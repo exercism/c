@@ -12,7 +12,6 @@ typedef struct {
    int value;
 } new_map;
 
-int convert(const legacy_map * input, const size_t input_len,
-            new_map ** output);
+int convert(const legacy_map *input, const size_t input_len, new_map **output);
 
 #endif

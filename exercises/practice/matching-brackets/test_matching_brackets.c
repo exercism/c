@@ -18,7 +18,7 @@ static void test_paired_square_brackets(void)
 
 static void test_empty_string(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    const char *input = "";
    TEST_ASSERT_TRUE(is_paired(input));
 }

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define ARRAY_SIZE(arr) (sizeof(arr)/sizeof(arr[0]))
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
 typedef struct {
    const char *cmd;
@@ -11,8 +11,7 @@ typedef struct {
 } cmd_t;
 
 static const cmd_t cmds[] = {
-   {"wink", 1}, {"double blink", 2},
-   {"close your eyes", 4}, {"jump", 8}
+   { "wink", 1 }, { "double blink", 2 }, { "close your eyes", 4 }, { "jump", 8 }
 };
 
 static const size_t CMD_COUNT = ARRAY_SIZE(cmds);
@@ -22,7 +21,8 @@ static const size_t CMD_REVERSE = 16;
 static size_t bitcount(size_t num)
 {
    size_t count;
-   for (count = 0; num; num = num & (num - 1), count++) ;
+   for (count = 0; num; num = num & (num - 1), count++)
+      ;
    return count;
 }
 

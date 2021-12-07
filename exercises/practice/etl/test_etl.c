@@ -10,7 +10,7 @@ void tearDown(void)
 {
 }
 
-static int compare_map(new_map * a, new_map * b, int len)
+static int compare_map(new_map *a, new_map *b, int len)
 {
    if (a == NULL)
       return (b == NULL) ? 0 : 1;
@@ -24,10 +24,10 @@ static int compare_map(new_map * a, new_map * b, int len)
 
 static void test_a_single_letter(void)
 {
-   legacy_map input[] = { {1, "A"} };
+   legacy_map input[] = { { 1, "A" } };
    int input_len = 1;
 
-   new_map expected_map[] = { {'a', 1} };
+   new_map expected_map[] = { { 'a', 1 } };
    int expected_length = 1;
 
    new_map *output = NULL;
@@ -41,12 +41,12 @@ static void test_a_single_letter(void)
 
 static void test_single_score_with_multiple_letters(void)
 {
-   TEST_IGNORE();               // delete this line to run test
-   legacy_map input[] = { {1, "AEIOU"} };
+   TEST_IGNORE();   // delete this line to run test
+   legacy_map input[] = { { 1, "AEIOU" } };
    int input_len = 1;
 
    new_map expected_map[] = {
-      {'a', 1}, {'e', 1}, {'i', 1}, {'o', 1}, {'u', 1}
+      { 'a', 1 }, { 'e', 1 }, { 'i', 1 }, { 'o', 1 }, { 'u', 1 }
    };
    int expected_length = 5;
 
@@ -62,12 +62,10 @@ static void test_single_score_with_multiple_letters(void)
 static void test_multiple_scores_with_multiple_letters(void)
 {
    TEST_IGNORE();
-   legacy_map input[] = { {1, "AE"}, {2, "DG"} };
+   legacy_map input[] = { { 1, "AE" }, { 2, "DG" } };
    int input_len = 2;
 
-   new_map expected_map[] = {
-      {'a', 1}, {'d', 2}, {'e', 1}, {'g', 2}
-   };
+   new_map expected_map[] = { { 'a', 1 }, { 'd', 2 }, { 'e', 1 }, { 'g', 2 } };
    int expected_length = 4;
 
    new_map *output = NULL;
@@ -82,19 +80,18 @@ static void test_multiple_scores_with_multiple_letters(void)
 static void test_multiple_scores_with_differing_numbers_of_letters(void)
 {
    TEST_IGNORE();
-   legacy_map input[] = {
-      {10, "QZ"}, {1, "AEIOULNRST"}, {3, "BCMP"}, {2, "DG"},
-      {5, "K"}, {4, "FHVWY"}, {8, "JX"}
-   };
+   legacy_map input[] = { { 10, "QZ" }, { 1, "AEIOULNRST" }, { 3, "BCMP" },
+                          { 2, "DG" },  { 5, "K" },          { 4, "FHVWY" },
+                          { 8, "JX" } };
    int input_len = 7;
 
-   new_map expected_map[] = {
-      {'a', 1}, {'b', 3}, {'c', 3}, {'d', 2}, {'e', 1}, {'f', 4},
-      {'g', 2}, {'h', 4}, {'i', 1}, {'j', 8}, {'k', 5}, {'l', 1},
-      {'m', 3}, {'n', 1}, {'o', 1}, {'p', 3}, {'q', 10}, {'r', 1},
-      {'s', 1}, {'t', 1}, {'u', 1}, {'v', 4}, {'w', 4}, {'x', 8},
-      {'y', 4}, {'z', 10}
-   };
+   new_map expected_map[] = { { 'a', 1 },  { 'b', 3 }, { 'c', 3 }, { 'd', 2 },
+                              { 'e', 1 },  { 'f', 4 }, { 'g', 2 }, { 'h', 4 },
+                              { 'i', 1 },  { 'j', 8 }, { 'k', 5 }, { 'l', 1 },
+                              { 'm', 3 },  { 'n', 1 }, { 'o', 1 }, { 'p', 3 },
+                              { 'q', 10 }, { 'r', 1 }, { 's', 1 }, { 't', 1 },
+                              { 'u', 1 },  { 'v', 4 }, { 'w', 4 }, { 'x', 8 },
+                              { 'y', 4 },  { 'z', 10 } };
    int expected_length = 26;
 
    new_map *output = NULL;

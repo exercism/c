@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-#define LENGTH(A) (sizeof(A)/sizeof(A[0]))
+#define LENGTH(A) (sizeof(A) / sizeof(A[0]))
 
 void setUp(void)
 {
@@ -48,7 +48,7 @@ static void test_single_bit_to_decimal(void)
 
 static void test_binary_to_single_decimal(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    int8_t input[] = { 1, 0, 1 };
    int8_t expected[] = { 5 };
    check_rebase(2, input, LENGTH(input), 10, expected, LENGTH(expected));

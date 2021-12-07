@@ -3,11 +3,7 @@
 
 #include <stdint.h>
 
-typedef enum {
-   CAN_NOT_ATTACK,
-   CAN_ATTACK,
-   INVALID_POSITION
-} attack_status_t;
+typedef enum { CAN_NOT_ATTACK, CAN_ATTACK, INVALID_POSITION } attack_status_t;
 
 typedef struct {
    uint8_t row;

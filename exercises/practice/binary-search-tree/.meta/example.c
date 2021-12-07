@@ -8,7 +8,7 @@ static bool mem_ok;
 static int *parsed_tree;
 static size_t parsed_len;
 
-void free_tree(node_t * head)
+void free_tree(node_t *head)
 {
    if (head == NULL)
       return;
@@ -17,7 +17,7 @@ void free_tree(node_t * head)
    free(head);
 }
 
-static node_t *add_node(node_t * head, int data)
+static node_t *add_node(node_t *head, int data)
 {
    if (!mem_ok)
       return NULL;
@@ -38,12 +38,11 @@ static node_t *add_node(node_t * head, int data)
 
    } else if (head->data < data) {
       head->right = add_node(head->right, data);
-
    }
    return head;
 }
 
-static void walk_tree(node_t * head)
+static void walk_tree(node_t *head)
 {
    if (head == NULL || !mem_ok)
       return;
@@ -81,7 +80,7 @@ node_t *build_tree(int *tree_data, size_t tree_data_len)
    return head;
 }
 
-int *sorted_data(node_t * head)
+int *sorted_data(node_t *head)
 {
    if (head == NULL)
       return NULL;
