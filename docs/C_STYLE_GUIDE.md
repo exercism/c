@@ -2,7 +2,7 @@
 
 This guide describes the style intended for use with the C track exercise example and test files.
 
-The rules within this guide are in addition to, or to call out, those in the [Linux kernel coding style guide][].
+The rules within this guide are in addition to, or to call out, those set by the [.clang-format][]file.
 
 ## C Standard
 
@@ -66,47 +66,9 @@ Note especially that this includes `struct` type parameters.
 
 In the case that a student is not expected to change the values of a pointer-type parameter within their implementation, that parameter should be `const` qualified.
 
-## Indentation and Format
+## Format
 
-The repository uses the `indent` tool, as outlined in the [contributing guide][].
-
-The options described for use with indent there are `-linux -i3 -nut`. The `-linux` option is a shortcut that is equivalent to a specific fixed group of options. The combined equivalent options are `-nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1`.
-
-What these options do is indicated by the [GNU `indent` manual][indent-manual], but is also described here for easy reference if editing files manually.
-
-- `nbad` - Do _not_ force blank lines after every block of declarations
-- `bap` - Force a blank line after every function body
-- `nbc` - Do _not_ force a newline after each comma in a declaration
-- `bbo` - Prefer to break long lines before the boolean operators `&&` and `||`
-- `hnl` - Honour newlines in the file by giving them the highest possible priority to break lines at
-- `br` - Place an opening brace on the same line as the `if (condition)`
-- `brs` - Place an opening brace on same line as `struct struct_name`
-- `c33` - Put comments to the right of code in column 33
-- `cd33` - Put comments to the right of the declarations in column 33
-- `ncdb` - Do _not_ put comment delimiters on blank lines
-- `ce` - Place the `else` on the same line as the preceding closing brace, so the it is 'cuddled' like so `} else {`
-- `ci4` - Indent by 4 spaces for hard line-breaks within statements (continuation indentation)
-- `cli0` - Indent case labels by 0 spaces to the right of the containing switch statement
-- `d0` - Set indentation of comments, that are _not_ to the right of code, to 0 spaces.
-- `di1` - Line up identifiers in the first column
-- `nfc1` - Do _not_ format comments that are in the first column
-- `i3` - Set the indentation level to 3 spaces
-- `nut` - Use spaces instead of tabs
-- `ip0` - Use 0 extra offset indentation for breaks between two or more parenthesis pairs `(...)`
-- `l80` - The maximum length of a line of C code is 80, not including possible comments that follow it
-- `lp` - Line up continued lines at parentheses
-- `npcs` - Do _not_ put space between the name of the function being called and the ‘(’, eg `puts("Hi");` not `puts ("Hi");`)
-- `nprs` - Do _not_ put a space after every '(' and before every ')'
-- `npsl` - Put the type of a function on the same line as its name
-- `sai` - Force a space between an `if` and the following parenthesis
-- `saf` - Force a space between a `for` and the following parenthesis
-- `saw` - Force a space between a `while` and the following parenthesis
-- `ncs` - Do _not_ put a space after cast operators
-- `sob` - Swallow (remove) any optional blank lines
-- `nfca` - Do _not_ format any comments
-- `cp33` - Put comments to the right of `#else` and `#endif` statements in column 33
-- `ss` - On one-line `for` and `while` statements, force a blank before the semicolon, like so `while (condition) ;`
-- `il1` - Set the offset for labels to column 1
+The repository uses the `clang-format` tool, as outlined in the [contributing guide][].
 
 ## Test file layout
 
@@ -182,6 +144,5 @@ int main(void)
 }
 ```
 
-[Linux kernel coding style guide]: https://www.kernel.org/doc/html/latest/process/coding-style.html
+[.clang-format]: ./../.clang-format
 [contributing guide]: ./CONTRIBUTING.md
-[indent-manual]: https://www.gnu.org/software/indent/manual/indent.html#SEC4
