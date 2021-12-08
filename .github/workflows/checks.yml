@@ -21,7 +21,7 @@ jobs:
       - name: Shell script static analysis
         run: shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests format.sh
 
-      - name: Check style
+      - name: Check practices formatting
         run: |
           find exercises/practice/ -path '*/test-framework' -prune -o \
             \( -iname '*.h' -o -iname '*.c' \) -print0 |\

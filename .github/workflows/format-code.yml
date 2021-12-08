@@ -29,10 +29,9 @@ jobs:
           git clone $HEAD_REPO .
           git checkout -b "$HEAD_REF" "origin/$HEAD_REF"
 
-      # - name: "Install clang-format"
-      #   run: |
-      #     sudo apt-get -qq update
-      #     sudo apt-get install -y clang-format
+      - name: "Update"
+        run: |
+          sudo apt-get -qq update
 
       - name: "Format C code"
         run: ./format.sh
