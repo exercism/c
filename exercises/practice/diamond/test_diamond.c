@@ -33,7 +33,7 @@ test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces(void)
    TEST_IGNORE();   // delete this line to run test
    const char letter = 'B';
    const char *expected[] = {
-      // clang-format off
+      // clang-format on
       " A ",
       "B B",
       " A "

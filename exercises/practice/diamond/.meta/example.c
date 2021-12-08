@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 
-char **make_diamond(const char letter)
+char **make_diamond(const char letter)                                   //loooooooooooooooooong
 {
    if (!isalpha(letter))
       return NULL;
