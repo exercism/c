@@ -7,7 +7,7 @@ on:
 jobs:
   format:
     name: "Format C code"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/format')
     steps:
       - name: 'Setup SSH deploy key'
@@ -29,13 +29,13 @@ jobs:
           git clone $HEAD_REPO .
           git checkout -b "$HEAD_REF" "origin/$HEAD_REF"
 
-      - name: "Install indent"
-        run: |
-          sudo apt-get -qq update
-          sudo apt-get install -y indent
+      # - name: "Install clang-format"
+      #   run: |
+      #     sudo apt-get -qq update
+      #     sudo apt-get install -y clang-format
 
       - name: "Format C code"
-        run: ./indent.sh
+        run: ./format.sh
 
       - name: "Commit formatted C code"
         run: |
