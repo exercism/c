@@ -27,7 +27,7 @@ jobs:
         run: ./bin/check-unitybegin
 
       - name: Check links
-        uses: lycheeverse/lychee-action@cb79c9607b37671965f8dbb54cae47795758a440
+        uses: lycheeverse/lychee-action@f76b8412c668f78311212d16d33c4784a7d8762c
         id: lychee
         with:
           args: --no-progress **/*.md **/*.html
