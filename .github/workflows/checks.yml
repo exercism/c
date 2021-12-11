@@ -11,12 +11,6 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Install Dependencies
-        run: |
-          # sudo apt-get -qq update
-          command clang-format --version
-          # sudo apt-get install -y clang-format
-
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Shell script static analysis
