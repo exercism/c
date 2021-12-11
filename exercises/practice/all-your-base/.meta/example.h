@@ -1,4 +1,4 @@
-#ifndef ALL_YOUR_BAS_H
+#ifndef ALL_YOUR_BASE_H
 #define ALL_YOUR_BASE_H
 
 #include <stddef.h>
