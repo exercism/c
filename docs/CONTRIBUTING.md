@@ -69,7 +69,7 @@ On Linux `clang-format` should be available for install via your distribution's 
 On a Mac you can install the package `clang-format` using [Homebrew][].
 
 clang-format can be run on all files by executing `format.sh`.
-To manually run it on a single file, you can execute the following from the same location as the `.clang-format` file:
+To manually run it on a single file, you can execute the following:
 
 ```bash
 clang-format -i $(file)
@@ -188,7 +188,7 @@ Read more about [test runners].
 [Continuous Integration]: ./CONTRIBUTING.md#continuous-integration
 [convert the PR to a draft]: https://github.blog/changelog/2020-04-08-convert-pull-request-to-draft/
 [style guide]: ./C_STYLE_GUIDE.md
-[clang-formt]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
+[clang-format]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
 [Homebrew]: https://brew.sh
 [implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/you-can-help/implement-an-exercise-from-specification.md
 [Unity]: http://www.throwtheswitch.org/unity/
