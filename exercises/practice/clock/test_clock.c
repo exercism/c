@@ -60,7 +60,7 @@ static void test_on_the_hour(void)
 
 static void test_past_the_hour(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    int hour = 11, minute = 9;
    clock_t expected = { "11:09" };
 

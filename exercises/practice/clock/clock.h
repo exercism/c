@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-#define MAX_STR_LEN (5 + 1)     // "##:##\0"
+#define MAX_STR_LEN (5 + 1)   // "##:##\0"
 
 typedef struct {
    char text[MAX_STR_LEN];

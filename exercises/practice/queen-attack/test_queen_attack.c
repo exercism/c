@@ -24,7 +24,7 @@ static void test_invalid_if_on_same_position(void)
 
 static void test_white_queen_must_have_row_on_board(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    position_t white_queen;
    position_t black_queen;
 

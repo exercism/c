@@ -16,7 +16,7 @@ static void test_square_1(void)
 
 static void test_square_2(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT(2ull == square(2));
 }
 

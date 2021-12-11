@@ -1,8 +1,8 @@
 #include "sum_of_multiples.h"
 #include <stdbool.h>
 
-unsigned int sum(const unsigned int *factors,
-                 const size_t number_of_factors, const unsigned int limit)
+unsigned int sum(const unsigned int *factors, const size_t number_of_factors,
+                 const unsigned int limit)
 {
    unsigned int sum = 0;
    if (NULL == factors)

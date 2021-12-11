@@ -6,12 +6,12 @@
 
 static int compare(const void *a, const void *b)
 {
-   new_map *p = (new_map *) a;
-   new_map *q = (new_map *) b;
+   new_map *p = (new_map *)a;
+   new_map *q = (new_map *)b;
    return (p->key - q->key);
 }
 
-int convert(const legacy_map * input, const size_t input_len, new_map ** output)
+int convert(const legacy_map *input, const size_t input_len, new_map **output)
 {
    if (input == NULL || input_len <= 0)
       return 0;

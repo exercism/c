@@ -17,7 +17,7 @@ static void test_equilateral_triangle_all_sides_are_equal(void)
 
 static void test_equilateral_triangle_if_any_side_is_unequal(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    triangle_t sides = { 2, 3, 2 };
    TEST_ASSERT_FALSE(is_equilateral(sides));
 }

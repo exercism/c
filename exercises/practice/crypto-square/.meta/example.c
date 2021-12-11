@@ -18,8 +18,8 @@ static size_t mstrlen(const char *input)
 }
 
 /* get_cols_and_rows: calculate columns and rows for the input square */
-static void get_cols_and_rows_input(size_t len, size_t * cols_inp,
-                                    size_t * rows_inp)
+static void get_cols_and_rows_input(size_t len, size_t *cols_inp,
+                                    size_t *rows_inp)
 {
    *cols_inp = sqrt(len);
 
@@ -50,8 +50,8 @@ char *ciphertext(const char *input)
    get_cols_and_rows_input(len_inp, &cols_inp, &rows_inp);
 
    /* no need for extra row if single line */
-   size_t len_out = rows_inp > 1
-       ? (rows_inp + 1) * cols_inp : rows_inp * cols_inp;
+   size_t len_out =
+       rows_inp > 1 ? (rows_inp + 1) * cols_inp : rows_inp * cols_inp;
 
    char *res = malloc(len_out + 1);
    if (res == NULL) {

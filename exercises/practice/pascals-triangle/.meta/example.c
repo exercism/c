@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "pascals_triangle.h"
 
-void free_triangle(uint8_t ** triangle, size_t rows)
+void free_triangle(uint8_t **triangle, size_t rows)
 {
    for (size_t i = 0; i < rows; i++)
       free(triangle[i]);

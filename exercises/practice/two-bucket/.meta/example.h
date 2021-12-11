@@ -3,10 +3,7 @@
 
 #include <stdbool.h>
 
-typedef enum {
-   BUCKET_ID_1,
-   BUCKET_ID_2
-} bucket_id_t;
+typedef enum { BUCKET_ID_1, BUCKET_ID_2 } bucket_id_t;
 
 typedef unsigned int bucket_liters_t;
 

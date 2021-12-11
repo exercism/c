@@ -7,22 +7,20 @@ on:
   pull_request:
 
 jobs:
-  test:
-    runs-on: ubuntu-18.04
+  check:
+    runs-on: ubuntu-20.04
 
     steps:
-      - name: Install Indent
-        run: |
-          sudo apt-get -qq update
-          sudo apt-get install -y indent
-
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: Shell script static analysis
-        run: shellcheck bin/fetch-configlet bin/verify-indent bin/check-unitybegin bin/run-tests indent.sh
+        run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin bin/run-tests format.sh
 
-      - name: Check style
-        run: ./bin/verify-indent
+      - name: Check practices formatting
+        run: |
+          find exercises/practice/ -path '*/test-framework' -prune -o \
+            \( -iname '*.h' -o -iname '*.c' \) -print0 |\
+            xargs --null clang-format --dry-run --Werror
 
       - name: Check Unity version
         run: ./bin/verify-unity-version

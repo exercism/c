@@ -80,7 +80,7 @@ static void test_input_cells_have_value(void)
 
 static void test_input_cells_value_can_be_set(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    struct reactor *r = create_reactor();
    struct cell *input = create_input_cell(r, 4);
 
@@ -253,8 +253,9 @@ static void test_callbacks_can_be_added_and_removed(void)
 }
 
 static void
-    test_removing_a_callback_multiple_times_doesnt_interfere_with_other_callbacks
-    (void) {
+test_removing_a_callback_multiple_times_doesnt_interfere_with_other_callbacks(
+    void)
+{
    TEST_IGNORE();
    struct reactor *r = create_reactor();
    struct cell *input = create_input_cell(r, 1);
@@ -300,8 +301,9 @@ test_callbacks_only_called_once_even_if_multiple_dependencies_change(void)
 }
 
 static void
- test_callbacks_not_called_if_dependencies_change_but_output_value_doesnt_change
-    (void) {
+test_callbacks_not_called_if_dependencies_change_but_output_value_doesnt_change(
+    void)
+{
    TEST_IGNORE();
    struct reactor *r = create_reactor();
    struct cell *input = create_input_cell(r, 1);
@@ -337,12 +339,12 @@ int main(void)
    RUN_TEST(test_callbacks_do_not_report_already_reported_values);
    RUN_TEST(test_callbacks_can_fire_from_multiple_cells);
    RUN_TEST(test_callbacks_can_be_added_and_removed);
-   RUN_TEST
-       (test_removing_a_callback_multiple_times_doesnt_interfere_with_other_callbacks);
-   RUN_TEST
-       (test_callbacks_only_called_once_even_if_multiple_dependencies_change);
-   RUN_TEST
-       (test_callbacks_not_called_if_dependencies_change_but_output_value_doesnt_change);
+   RUN_TEST(
+       test_removing_a_callback_multiple_times_doesnt_interfere_with_other_callbacks);
+   RUN_TEST(
+       test_callbacks_only_called_once_even_if_multiple_dependencies_change);
+   RUN_TEST(
+       test_callbacks_not_called_if_dependencies_change_but_output_value_doesnt_change);
 
    return UnityEnd();
 }

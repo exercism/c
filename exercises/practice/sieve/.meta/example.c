@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-uint32_t sieve(uint32_t limit, uint32_t * primes, size_t max_primes)
+uint32_t sieve(uint32_t limit, uint32_t *primes, size_t max_primes)
 {
    if (limit <= 1) {
       // no primes that small

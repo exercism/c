@@ -20,6 +20,6 @@ struct product {
 typedef struct product product_t;
 
 product_t *get_palindrome_product(int from, int to);
-void free_product(product_t * p);
+void free_product(product_t *p);
 
 #endif

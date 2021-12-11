@@ -26,7 +26,7 @@ static void test_cleans_the_number(void)
 
 static void test_cleans_numbers_with_dots(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    const char input[] = "223.456.7890";
    const char expected[] = "2234567890";
 
@@ -226,8 +226,8 @@ int main(void)
    RUN_TEST(test_invalid_when_9_digits);
    RUN_TEST(test_invalid_when_11_digits_does_not_start_with_a_1);
    RUN_TEST(test_valid_when_11_digits_and_starting_with_1);
-   RUN_TEST
-       (test_valid_when_11_digits_and_starting_with_1_even_with_punctuation);
+   RUN_TEST(
+       test_valid_when_11_digits_and_starting_with_1_even_with_punctuation);
    RUN_TEST(test_invalid_when_more_than_11_digits);
    RUN_TEST(test_invalid_with_letters);
    RUN_TEST(test_invalid_with_punctuations);
@@ -237,10 +237,10 @@ int main(void)
    RUN_TEST(test_invalid_if_exchange_code_starts_with_1);
    RUN_TEST(test_invalid_if_area_code_starts_with_0_on_valid_11_digit_number);
    RUN_TEST(test_invalid_if_area_code_starts_with_1_on_valid_11_digit_number);
-   RUN_TEST
-       (test_invalid_if_exchange_code_starts_with_0_on_valid_11_digit_number);
-   RUN_TEST
-       (test_invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number);
+   RUN_TEST(
+       test_invalid_if_exchange_code_starts_with_0_on_valid_11_digit_number);
+   RUN_TEST(
+       test_invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number);
 
    return UnityEnd();
 }

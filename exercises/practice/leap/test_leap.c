@@ -16,7 +16,7 @@ static void test_year_not_divisible_by_4_in_common_year(void)
 
 static void test_year_divisible_by_2_not_divisible_by_4_in_common_year(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_FALSE(leap_year(1970));
 }
 

@@ -20,7 +20,7 @@ static void check_abbreviation(char *phrase, char *expected)
 
 static void test_null_string(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    char *phrase = NULL;
    char *expected = NULL;
    check_abbreviation(phrase, expected);
@@ -78,7 +78,7 @@ static void test_long_abbreviation(void)
 {
    TEST_IGNORE();
    char *phrase = "Rolling On The Floor Laughing So Hard "
-       "That My Dogs Came Over And Licked Me";
+                  "That My Dogs Came Over And Licked Me";
    char *expected = "ROTFLSHTMDCOALM";
    check_abbreviation(phrase, expected);
 }

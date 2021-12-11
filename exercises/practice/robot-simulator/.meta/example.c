@@ -9,7 +9,7 @@ enum {
 
 robot_status_t robot_create(robot_direction_t direction, int x, int y)
 {
-   robot_status_t robot = { direction, {x, y} };
+   robot_status_t robot = { direction, { x, y } };
 
    if ((direction < DIRECTION_NORTH) || (direction >= DIRECTION_MAX))
       robot.direction = DIRECTION_DEFAULT;
@@ -17,17 +17,17 @@ robot_status_t robot_create(robot_direction_t direction, int x, int y)
    return robot;
 }
 
-static void robot_turn_right(robot_status_t * robot)
+static void robot_turn_right(robot_status_t *robot)
 {
    robot->direction = (robot->direction + 1) % DIRECTION_MAX;
 }
 
-static void robot_turn_left(robot_status_t * robot)
+static void robot_turn_left(robot_status_t *robot)
 {
    robot->direction = ((robot->direction - 1) + DIRECTION_MAX) % DIRECTION_MAX;
 }
 
-static void robot_advance(robot_status_t * robot)
+static void robot_advance(robot_status_t *robot)
 {
    switch (robot->direction) {
    case DIRECTION_NORTH:
@@ -51,7 +51,7 @@ static void robot_advance(robot_status_t * robot)
    }
 }
 
-void robot_move(robot_status_t * robot, const char *instructions)
+void robot_move(robot_status_t *robot, const char *instructions)
 {
    for (unsigned long index = 0; index < strlen(instructions); index++) {
       switch (instructions[index]) {

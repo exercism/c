@@ -21,7 +21,7 @@ static void test_strand_count(const char *dna_strand, const char *expected)
 
 static void test_empty_strand(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    const char *dna_strand = "";
    const char *expected = "A:0 C:0 G:0 T:0";
 

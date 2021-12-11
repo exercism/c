@@ -21,7 +21,7 @@ static void test_just_a_number(void)
 
 static void test_addition(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    const char *question = "What is 1 plus 1?";
    const int expected = 2;
    int result;

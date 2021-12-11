@@ -16,7 +16,7 @@ static void test_binary_0_is_decimal_0(void)
 
 static void test_binary_1_is_decimal_1(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(1, convert("1"));
 }
 

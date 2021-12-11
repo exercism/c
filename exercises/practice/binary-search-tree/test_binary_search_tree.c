@@ -28,7 +28,7 @@ static void test_data_data_is_retained(void)
 
 static void test_data_smaller_number_at_left_node(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    int tree_data[] = { 4, 2 };
    node_t *tree = build_tree(tree_data, ARRAY_SIZE(tree_data));
 

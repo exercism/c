@@ -21,7 +21,7 @@ static void test_no_factors(void)
 
 static void test_prime_number(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    uint64_t expected_factors[] = { 2 };
    size_t expected_len = 1;
    size_t actual_len = find_factors(2, buf);

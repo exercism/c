@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define GROUP_SIZE      (5)
+#define GROUP_SIZE (5)
 
 static void remove_trailing_space(char *string)
 {

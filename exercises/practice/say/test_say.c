@@ -21,7 +21,7 @@ static void test_zero(void)
 
 static void test_one(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    char *ans = NULL;
    int res = say(1, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
@@ -116,7 +116,8 @@ static void test_one_million_two_thousand_three_hundred_forty_five(void)
    int res = say(1002345, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
    TEST_ASSERT_EQUAL_STRING("one million two thousand three hundred "
-                            "forty-five", ans);
+                            "forty-five",
+                            ans);
    free(ans);
 }
 
@@ -138,7 +139,8 @@ static void test_a_big_number(void)
    TEST_ASSERT_EQUAL_INT(0, res);
    TEST_ASSERT_EQUAL_STRING("nine hundred eighty-seven billion six hundred "
                             "fifty-four million three hundred twenty-one "
-                            "thousand one hundred twenty-three", ans);
+                            "thousand one hundred twenty-three",
+                            ans);
    free(ans);
 }
 

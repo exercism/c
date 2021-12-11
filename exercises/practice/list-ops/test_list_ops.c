@@ -42,7 +42,7 @@ static char *create_error_message(size_t length,
 
 static void check_lists_match(size_t expected_length,
                               list_element_t expected_elements[],
-                              list_t * actual)
+                              list_t *actual)
 {
    // check actual list is a valid list
    TEST_ASSERT_NOT_NULL(actual);
@@ -53,13 +53,11 @@ static void check_lists_match(size_t expected_length,
 
    // check elements match in non-zero length list
    if (expected_length) {
-      char *error_message =
-          create_error_message(expected_length, expected_elements,
-                               actual->elements);
-      TEST_ASSERT_EQUAL_MEMORY_ARRAY_MESSAGE(expected_elements,
-                                             actual->elements,
-                                             sizeof(list_element_t),
-                                             expected_length, error_message);
+      char *error_message = create_error_message(
+          expected_length, expected_elements, actual->elements);
+      TEST_ASSERT_EQUAL_MEMORY_ARRAY_MESSAGE(
+          expected_elements, actual->elements, sizeof(list_element_t),
+          expected_length, error_message);
       free(error_message);
    }
 }
@@ -107,7 +105,7 @@ static void test_append_empty_lists(void)
 
 static void test_append_list_to_empty_list(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    list_t *list1 = new_list(0, NULL);
    list_t *list2 = new_list(3, (list_element_t[]){ 1, 3, 4 });
    size_t expected_length = 3;
@@ -353,12 +351,12 @@ int main(void)
    RUN_TEST(test_map_empty_list);
    RUN_TEST(test_map_non_empty_list);
    RUN_TEST(test_foldl_empty_list);
-   RUN_TEST
-       (test_foldl_direction_independent_function_applied_to_non_empty_list);
+   RUN_TEST(
+       test_foldl_direction_independent_function_applied_to_non_empty_list);
    RUN_TEST(test_foldl_direction_dependent_function_applied_to_non_empty_list);
    RUN_TEST(test_foldr_empty_list);
-   RUN_TEST
-       (test_foldr_direction_independent_function_applied_to_non_empty_list);
+   RUN_TEST(
+       test_foldr_direction_independent_function_applied_to_non_empty_list);
    RUN_TEST(test_foldr_direction_dependent_function_applied_to_non_empty_list);
    RUN_TEST(test_reverse_empty_list);
    RUN_TEST(test_reverse_non_empty_list);

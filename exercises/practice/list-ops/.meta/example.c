@@ -14,7 +14,7 @@ list_t *new_list(size_t length, list_element_t elements[])
    return list;
 }
 
-list_t *append_list(list_t * list1, list_t * list2)
+list_t *append_list(list_t *list1, list_t *list2)
 {
    if (!list1 || !list2)
       return NULL;
@@ -36,7 +36,7 @@ list_t *append_list(list_t * list1, list_t * list2)
    return list;
 }
 
-list_t *filter_list(list_t * list, bool(*filter) (list_element_t))
+list_t *filter_list(list_t *list, bool (*filter)(list_element_t))
 {
    if (!list || !filter)
       return NULL;
@@ -57,14 +57,14 @@ list_t *filter_list(list_t * list, bool(*filter) (list_element_t))
    return filtered;
 }
 
-size_t length_list(list_t * list)
+size_t length_list(list_t *list)
 {
    if (!list)
       return 0;
    return list->length;
 }
 
-list_t *map_list(list_t * list, list_element_t(*map) (list_element_t))
+list_t *map_list(list_t *list, list_element_t (*map)(list_element_t))
 {
    if (!list || !map)
       return NULL;
@@ -82,8 +82,8 @@ list_t *map_list(list_t * list, list_element_t(*map) (list_element_t))
    return mapped;
 }
 
-list_element_t foldl_list(list_t * list, list_element_t initial,
-                          list_element_t(*foldl) (list_element_t,
+list_element_t foldl_list(list_t *list, list_element_t initial,
+                          list_element_t (*foldl)(list_element_t,
                                                   list_element_t))
 {
    if (!list || !foldl)
@@ -95,8 +95,8 @@ list_element_t foldl_list(list_t * list, list_element_t initial,
    return initial;
 }
 
-list_element_t foldr_list(list_t * list, list_element_t initial,
-                          list_element_t(*foldr) (list_element_t,
+list_element_t foldr_list(list_t *list, list_element_t initial,
+                          list_element_t (*foldr)(list_element_t,
                                                   list_element_t))
 {
    if (!list || !foldr)
@@ -108,7 +108,7 @@ list_element_t foldr_list(list_t * list, list_element_t initial,
    return initial;
 }
 
-list_t *reverse_list(list_t * list)
+list_t *reverse_list(list_t *list)
 {
    if (!list)
       return NULL;
@@ -120,14 +120,15 @@ list_t *reverse_list(list_t * list)
       return NULL;
 
    reversed->length = list->length;
-   for (size_t i = 0, j = reversed->length - 1; i < reversed->length; i++, j--) {
+   for (size_t i = 0, j = reversed->length - 1; i < reversed->length;
+        i++, j--) {
       reversed->elements[i] = list->elements[j];
    }
 
    return reversed;
 }
 
-void delete_list(list_t * list)
+void delete_list(list_t *list)
 {
    free(list);
 }

@@ -27,8 +27,8 @@ static bool palindrome(int n)
       n /= 10;
    }
 
-   return (n == tail)           /* even length */
-       ||(n == tail / 10);      /* odd length - discard the middle */
+   return (n == tail)          /* even length */
+          || (n == tail / 10); /* odd length - discard the middle */
 }
 
 static void free_ll(struct factors *p)
@@ -40,7 +40,7 @@ static void free_ll(struct factors *p)
    free(p);
 }
 
-static int addfactors(factor_t ** p, int factor_one, int factor_two)
+static int addfactors(factor_t **p, int factor_one, int factor_two)
 {
    int n = factor_one * factor_two;
    if ((*p == NULL) || (((*p)->factor_a) * (*p)->factor_b != n)) {
@@ -107,7 +107,7 @@ product_t *get_palindrome_product(int from, int to)
    return result;
 }
 
-void free_product(product_t * p)
+void free_product(product_t *p)
 {
    if (p == NULL)
       return;

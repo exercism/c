@@ -24,7 +24,7 @@ static void test_1_is_I(void)
 
 static void test_2_is_II(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    check_conversion(2, "II");
 }
 

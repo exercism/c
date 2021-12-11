@@ -11,8 +11,8 @@ void tearDown(void)
 }
 
 // helper routines to validate test results
-static void test_solution(slices_t * expected_solution,
-                          slices_t * actual_solution)
+static void test_solution(slices_t *expected_solution,
+                          slices_t *actual_solution)
 {
    // result count correct
    TEST_ASSERT_EQUAL(expected_solution->substring_count,
@@ -42,7 +42,7 @@ static void test_slices_of_one_from_one(void)
 
 static void test_slices_of_one_from_two(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    char *substrings[] = { "1", "2" };
    slices_t expected = { 2, &substrings[0] };
    slices_t actual = slices("12", 1);
@@ -83,10 +83,8 @@ static void test_slices_can_include_duplicates(void)
 static void test_slices_of_a_long_series(void)
 {
    TEST_IGNORE();
-   char *substrings[] =
-       { "91849", "18493", "84939", "49390", "93904", "39042", "90424",
-      "04243"
-   };
+   char *substrings[] = { "91849", "18493", "84939", "49390",
+                          "93904", "39042", "90424", "04243" };
    slices_t expected = { 8, &substrings[0] };
    slices_t actual = slices("918493904243", 5);
 

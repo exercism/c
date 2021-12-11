@@ -7,8 +7,8 @@
 
 static bool is_vowel(const char letter)
 {
-   return letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o'
-       || letter == 'u';
+   return letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' ||
+          letter == 'u';
 }
 
 static bool starts_with_vowel_sound(const char *input)
@@ -16,12 +16,13 @@ static bool starts_with_vowel_sound(const char *input)
    const char first_letter = tolower(input[0]);
    const char sec_letter = tolower(input[1]);
 
-   return is_vowel(first_letter) || (first_letter == 'x' && sec_letter == 'r')
-       || (first_letter == 'y' && sec_letter == 't');
+   return is_vowel(first_letter) ||
+          (first_letter == 'x' && sec_letter == 'r') ||
+          (first_letter == 'y' && sec_letter == 't');
 }
 
-static void count_words_and_chars(const char *input, size_t * words,
-                                  size_t * chars)
+static void count_words_and_chars(const char *input, size_t *words,
+                                  size_t *chars)
 {
    bool in_word = false;
    while (*input) {
@@ -37,7 +38,8 @@ static void count_words_and_chars(const char *input, size_t * words,
 
 static void strncpy_tolower(char *dst, const char *src, size_t n)
 {
-   while ((n--) && (*dst++ = tolower(*src++))) ;
+   while ((n--) && (*dst++ = tolower(*src++)))
+      ;
 }
 
 static void append_ay(char *translated)

@@ -16,7 +16,7 @@ static void test_empty_strands(void)
 
 static void test_single_identical_strands(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(0, compute("A", "A"));
 }
 

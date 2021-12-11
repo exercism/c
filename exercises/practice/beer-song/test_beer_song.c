@@ -3,8 +3,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#define MAX_LINE_LENGTH   (1024)
-#define MAX_LINE_COUNT    (299)
+#define MAX_LINE_LENGTH (1024)
+#define MAX_LINE_COUNT (299)
 
 char **actual_song;
 
@@ -61,7 +61,7 @@ static void test_first_generic_verse(void)
 
 static void test_last_generic_verse(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    uint16_t expected_line_count = 2;
    const char expected_song[][MAX_LINE_LENGTH] = {
       "3 bottles of beer on the wall, 3 bottles of beer.",
@@ -121,8 +121,7 @@ static void test_first_two_verses(void)
    uint16_t expected_line_count = 5;
    const char expected_song[][MAX_LINE_LENGTH] = {
       "99 bottles of beer on the wall, 99 bottles of beer.",
-      "Take one down and pass it around, 98 bottles of beer on the wall.",
-      "",
+      "Take one down and pass it around, 98 bottles of beer on the wall.", "",
       "98 bottles of beer on the wall, 98 bottles of beer.",
       "Take one down and pass it around, 97 bottles of beer on the wall."
    };

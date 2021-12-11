@@ -26,7 +26,7 @@ static void test_the_sound_for_1_is_1(void)
 
 static void test_the_sound_for_3_is_pling(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    check_convert_drops(3, "Pling");
 }
 
@@ -49,8 +49,9 @@ static void test_the_sound_for_6_is_pling_as_it_has_a_factor_3(void)
 }
 
 static void
-    test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base
-    (void) {
+test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base(
+    void)
+{
    TEST_IGNORE();
    check_convert_drops(8, "8");
 }
@@ -131,8 +132,8 @@ int main(void)
    RUN_TEST(test_the_sound_for_5_is_plang);
    RUN_TEST(test_the_sound_for_7_is_plong);
    RUN_TEST(test_the_sound_for_6_is_pling_as_it_has_a_factor_3);
-   RUN_TEST
-       (test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base);
+   RUN_TEST(
+       test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base);
    RUN_TEST(test_the_sound_for_9_is_pling_as_it_has_a_factor_3);
    RUN_TEST(test_the_sound_for_10_is_plang_as_it_has_a_factor_5);
    RUN_TEST(test_the_sound_for_14_is_plong_as_it_has_a_factor_7);
@@ -142,8 +143,8 @@ int main(void)
    RUN_TEST(test_the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7);
    RUN_TEST(test_the_sound_for_49_is_plong_as_it_has_a_factor_7);
    RUN_TEST(test_the_sound_for_52_is_52);
-   RUN_TEST
-       (test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7);
+   RUN_TEST(
+       test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7);
    RUN_TEST(test_the_sound_for_3125_is_plang_as_it_has_a_factor_5);
 
    return UnityEnd();

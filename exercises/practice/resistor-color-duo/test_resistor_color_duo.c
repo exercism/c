@@ -17,7 +17,7 @@ static void test_brown_and_black(void)
 
 static void test_blue_and_grey(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    uint16_t actual = color_code((resistor_band_t[]){ BLUE, GREY });
    TEST_ASSERT_EQUAL_UINT16(68, actual);
 }

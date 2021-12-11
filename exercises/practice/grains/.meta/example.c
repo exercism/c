@@ -1,6 +1,6 @@
 #include "grains.h"
 
-#define NUMBER_OF_SQUARES   (64)
+#define NUMBER_OF_SQUARES (64)
 
 uint64_t square(uint8_t index)
 {
@@ -8,7 +8,7 @@ uint64_t square(uint8_t index)
       return 0;
    }
 
-   return (uint64_t) 1 << (index - 1);
+   return (uint64_t)1 << (index - 1);
 }
 
 uint64_t total(void)

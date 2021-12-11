@@ -10,11 +10,11 @@ typedef struct {
 
 static const map_t q_init = { "What is", 7 };
 
-#define COMMANDS \
-        CMD(+, "plus", 4) \
-        CMD(-, "minus", 5) \
-        CMD(*, "multiplied by", 13) \
-        CMD(/, "divided by", 10)
+#define COMMANDS                                                               \
+   CMD(+, "plus", 4)                                                           \
+   CMD(-, "minus", 5)                                                          \
+   CMD(*, "multiplied by", 13)                                                 \
+   CMD(/, "divided by", 10)
 
 bool answer(const char *question, int *result)
 {
@@ -34,14 +34,14 @@ bool answer(const char *question, int *result)
    while (*question != '?') {
       int tmp;
 
-#define CMD(a, b, c) \
-      if (strncmp(b, question, c) == 0) { \
-         question += c; \
-         if (sscanf(question, " %d %n", &tmp, &chars_read) != 1) \
-            return false; \
-         question += chars_read; \
-         *result a##= tmp; \
-      } else
+#define CMD(a, b, c)                                                           \
+   if (strncmp(b, question, c) == 0) {                                         \
+      question += c;                                                           \
+      if (sscanf(question, " %d %n", &tmp, &chars_read) != 1)                  \
+         return false;                                                         \
+      question += chars_read;                                                  \
+      *result a## = tmp;                                                       \
+   } else
       COMMANDS
 #undef CMD
       {

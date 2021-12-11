@@ -22,7 +22,7 @@ static void test_two_fer_no_name_given(void)
 
 static void test_two_fer_a_name_given(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    char response[BUFFER_SIZE];
    const char *expected = "One for Alice, one for me.";
    two_fer(response, "Alice");

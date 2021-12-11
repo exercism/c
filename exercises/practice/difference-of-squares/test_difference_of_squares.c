@@ -16,7 +16,7 @@ static void test_square_of_sum_1(void)
 
 static void test_square_of_sum_5(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(225, square_of_sum(5));
 }
 

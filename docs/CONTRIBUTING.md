@@ -62,23 +62,17 @@ The pull request points to that branch, not to specific commits.
 The code style expected for code change contributions is explained in the [style guide][].
 
 The exercise code is checked during [CI][Continuous Integration] for conformance to the spacing and indentation style rules.
-The check uses the GNU `indent` CLI tool.
+The check uses the [`clang-format`][clang-format] CLI tool.
 When adding or making a change to an exercise, you can check that your change conforms to these rules by running the tool locally before committing.
 
-On Linux `indent` should be available for install via your distribution's package manager.
-On a Mac you can install the package `gnu-indent` using [Homebrew][].
+On Linux `clang-format` should be available for install via your distribution's package manager.
+On a Mac you can install the package `clang-format` using [Homebrew][].
 
-Indent can be run on all files by executing `indent.sh`.
-To manually run it on a single file, you can execute:
-
-```bash
-indent -linux -i3 -nut $(file)
-```
-
-If your system does not support the `-linux` option, you can run the long-form command instead:
+clang-format can be run on all files by executing `format.sh`.
+To manually run it on a single file, you can execute the following:
 
 ```bash
-indent -nbad -bap -nbc -bbo -hnl -br -brs -c33 -cd33 -ncdb -ce -ci4 -cli0 -d0 -di1 -nfc1 -i3 -nut -ip0 -l80 -lp -npcs -nprs -npsl -sai -saf -saw -ncs -nsc -sob -nfca -cp33 -ss -il1 $(file)
+clang-format -i $(file)
 ```
 
 ## Exercise anatomy
@@ -131,10 +125,7 @@ The simplest way to run these workflows on your own contribution is to open a PR
 GitHub runs the CI on virtual machines it refers to as [hosted runners][].
 Workflows can configure some aspects of the runners they would like to be run on.
 
-The workflows in this repository specify only that they each should be run on Ubuntu 18.04.
-The later LTS version of Ubuntu (20.04) is specifically not used due to ongoing work by GitHub on the virtual machines.
-This work means that specifying `latest`, for example, is not guaranteed to result in 20.04 machine, but could result in an 18.04 one.
-As some of the tools (namely `indent`) perform differently on different these different OS versions, the maintainers of this repo have taken the decision to stay with 18.04 until GitHub have completed their work (see [actions/virtual-environments#1816][] for information on progress).
+The workflows in this repository specify only that they each should be run on Ubuntu 20.04. The workflows are pinned to specific versions rather than refer to `latest` as some tools used can perform differently on different versions.
 
 ### Run CI on Your Own Fork
 
@@ -145,11 +136,10 @@ If you would like the [`/format`][format-workflow] automated action to work corr
 ### The Workflows
 
 * `checks.yml` runs `shellcheck` on the tool scripts and subsequently runs the following of those tools:
-  * `./bin/verify-indent`
   * `./bin/check-unitybegin`
   * `./bin/verify-unity-version`
 * `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
-* `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `indent` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
+* `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `format.sh` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
 * `build.yml` runs the `./bin/run-tests` tool on all exercises
 
 ### The Tools
@@ -159,14 +149,13 @@ The work the tools in this directory perform is described as follows:
 
 * `check-unitybegin` ensures that every test file correctly adds the `UnityBegin("{test-file-name}")` line at the start of its `main()` function.
 * `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
-* `verify-indent` runs the `indent` tool and verifies that it did not result in any file changes.
 * `verify-unity-version` checks the version of the Unity test framework used by every exercise. The version this file should check for is specified in [`./docs/VERSIONS.md`][versions]
 * `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with AddressSanitizer.
 
 ### Run Tools Locally
 
 You can also run individual tools on your own machine before committing.
-Firstly make sure you have the necessary applications installed (such as `indent`, [`git`][git], [`sed`][sed], [`make`][make] and a C compiler), and then run the required tool from the repository root. For example:
+Firstly make sure you have the necessary applications installed (such as `clang-format`, [`git`][git], [`sed`][sed], [`make`][make] and a C compiler), and then run the required tool from the repository root. For example:
 
 ```bash
 ~/git/c$ ./bin/run-tests
@@ -199,6 +188,7 @@ Read more about [test runners].
 [Continuous Integration]: ./CONTRIBUTING.md#continuous-integration
 [convert the PR to a draft]: https://github.blog/changelog/2020-04-08-convert-pull-request-to-draft/
 [style guide]: ./C_STYLE_GUIDE.md
+[clang-format]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
 [Homebrew]: https://brew.sh
 [implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/you-can-help/implement-an-exercise-from-specification.md
 [Unity]: http://www.throwtheswitch.org/unity/

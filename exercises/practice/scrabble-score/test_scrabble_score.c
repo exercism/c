@@ -16,7 +16,7 @@ static void test_lowercase_letter(void)
 
 static void test_uppercase_letter(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(1, score("A"));
 }
 

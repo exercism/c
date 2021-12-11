@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define NUM_OF_ELEMENTS(a)    (sizeof(a) / sizeof(a[0]))
-#define MAX_NUMERAL_LENGTH    (7)
+#define NUM_OF_ELEMENTS(a) (sizeof(a) / sizeof(a[0]))
+#define MAX_NUMERAL_LENGTH (7)
 
 typedef struct {
    char *numeral;
@@ -11,19 +11,9 @@ typedef struct {
 } numeral_values_t;
 
 const numeral_values_t numeral_values[] = {
-   {"M", 1000},
-   {"CM", 900},
-   {"D", 500},
-   {"CD", 400},
-   {"C", 100},
-   {"XC", 90},
-   {"L", 50},
-   {"XL", 40},
-   {"X", 10},
-   {"IX", 9},
-   {"V", 5},
-   {"IV", 4},
-   {"I", 1}
+   { "M", 1000 }, { "CM", 900 }, { "D", 500 }, { "CD", 400 }, { "C", 100 },
+   { "XC", 90 },  { "L", 50 },   { "XL", 40 }, { "X", 10 },   { "IX", 9 },
+   { "V", 5 },    { "IV", 4 },   { "I", 1 }
 };
 
 char *to_roman_numeral(unsigned int number)

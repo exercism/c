@@ -14,24 +14,25 @@ static inline size_t is_leap_year(int year)
 
 static inline time_t days_from_1ad(int year)
 {
-   --year;                      // The gregorian calander is without a year 0. This is years from 1AD.
+   --year;   // The gregorian calander is without a year 0. This is years from
+             // 1AD.
    // Little complex, add a day for all of the leap years
-   // This is a quarter of the days since 0 execpt one in a hundred are lost except 1 in 400 are gained ... simple.
+   // This is a quarter of the days since 0 execpt one in a hundred are lost
+   // except 1 in 400 are gained ... simple.
    return 365 * year + (year / 400) - (year / 100) + (year / 4);
 }
 
-static time_t
-construct_date(int year, int month, int day, int hour, int min, int sec)
+static time_t construct_date(int year, int month, int day, int hour, int min,
+                             int sec)
 {
-   static const time_t seconds_in_day = 86400;  // 60 * 60 * 24
+   static const time_t seconds_in_day = 86400;   // 60 * 60 * 24
    static const time_t days[2][12] = {
-      {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334},
-      {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335}
+      { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 },
+      { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335 }
    };
 
-   time_t days_since_epoch =
-       (days_from_1ad(year) - days_from_1ad(1970)) +
-       days[is_leap_year(year)][(month - 1)] + (day - 1);
+   time_t days_since_epoch = (days_from_1ad(year) - days_from_1ad(1970)) +
+                             days[is_leap_year(year)][(month - 1)] + (day - 1);
    time_t result =
        (seconds_in_day * days_since_epoch) + (60 * ((hour * 60) + min) + sec);
 
@@ -55,7 +56,7 @@ static void test_date(void)
 
 static void test_another_date(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    time_t expected = construct_date(2009, 2, 19, 1, 46, 40);
    time_t actual = gigasecond_after(construct_date(1977, 6, 13, 0, 0, 0));
    TEST_ASSERT(expected == actual);
@@ -103,7 +104,7 @@ int main(void)
    RUN_TEST(test_third_date);
    RUN_TEST(test_date_and_time);
    RUN_TEST(test_date_and_time_with_day_rollover);
-   //RUN_TEST(test_your_birthday);
+   // RUN_TEST(test_your_birthday);
 
    return UnityEnd();
 }

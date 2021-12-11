@@ -17,9 +17,9 @@ void tearDown(void)
 {
 }
 
-static void check_solution(word_count_word_t * expected_solution,
+static void check_solution(word_count_word_t *expected_solution,
                            int expected_word_count,
-                           word_count_word_t * actual_solution,
+                           word_count_word_t *actual_solution,
                            int actual_word_count)
 {
    // All words counted?
@@ -44,7 +44,8 @@ static void test_count_one_word(void)
    const int expected_word_count = 1;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    // fill in the expected words
@@ -53,20 +54,21 @@ static void test_count_one_word(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_count_one_of_each_word(void)
 {
-   TEST_IGNORE();               // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    int index = 0;
    int actual_word_count;
    char *input_text = "one of each";
    const int expected_word_count = 3;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    // fill in the expected words
@@ -81,8 +83,8 @@ static void test_count_one_of_each_word(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_multiple_occurrences_of_a_word(void)
@@ -94,7 +96,8 @@ static void test_multiple_occurrences_of_a_word(void)
    const int expected_word_count = 5;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -114,8 +117,8 @@ static void test_multiple_occurrences_of_a_word(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_handles_cramped_lists(void)
@@ -127,7 +130,8 @@ static void test_handles_cramped_lists(void)
    const int expected_word_count = 3;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -141,8 +145,8 @@ static void test_handles_cramped_lists(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_handles_expanded_lists(void)
@@ -154,7 +158,8 @@ static void test_handles_expanded_lists(void)
    const int expected_word_count = 3;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -168,8 +173,8 @@ static void test_handles_expanded_lists(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_ignore_punctuation(void)
@@ -181,7 +186,8 @@ static void test_ignore_punctuation(void)
    const int expected_word_count = 5;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -201,8 +207,8 @@ static void test_ignore_punctuation(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_include_numbers(void)
@@ -214,7 +220,8 @@ static void test_include_numbers(void)
    const int expected_word_count = 3;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 2;
@@ -228,8 +235,8 @@ static void test_include_numbers(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_normalize_case(void)
@@ -241,7 +248,8 @@ static void test_normalize_case(void)
    const int expected_word_count = 2;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 3;
@@ -252,8 +260,8 @@ static void test_normalize_case(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_with_apostrophes(void)
@@ -265,7 +273,8 @@ static void test_with_apostrophes(void)
    const int expected_word_count = 5;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -285,8 +294,8 @@ static void test_with_apostrophes(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_with_quotations(void)
@@ -298,7 +307,8 @@ static void test_with_quotations(void)
    const int expected_word_count = 6;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -321,8 +331,8 @@ static void test_with_quotations(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_substrings_from_the_beginning(void)
@@ -334,7 +344,8 @@ static void test_substrings_from_the_beginning(void)
    const int expected_word_count = 8;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -363,8 +374,8 @@ static void test_substrings_from_the_beginning(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_multiple_spaces_not_detected_as_a_word(void)
@@ -377,7 +388,8 @@ static void test_multiple_spaces_not_detected_as_a_word(void)
    const int expected_word_count = 2;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -388,8 +400,8 @@ static void test_multiple_spaces_not_detected_as_a_word(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 static void test_alternating_word_separators_not_detected_as_a_word(void)
@@ -402,7 +414,8 @@ static void test_alternating_word_separators_not_detected_as_a_word(void)
    const int expected_word_count = 3;
 
    // build the expected solution
-   memset(expected_solution, 0, sizeof(expected_solution));     // clear to start with a known value
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
    expected_solution[index].count = 1;
@@ -416,8 +429,8 @@ static void test_alternating_word_separators_not_detected_as_a_word(void)
 
    actual_word_count = count_words(input_text, actual_solution);
 
-   check_solution(expected_solution,
-                  expected_word_count, actual_solution, actual_word_count);
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
 }
 
 int main(void)

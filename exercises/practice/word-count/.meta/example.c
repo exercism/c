@@ -20,7 +20,7 @@ static int word_match(char *testWord, int current_word_count,
    return match_index;
 }
 
-int count_words(const char *sentence, word_count_word_t * words)
+int count_words(const char *sentence, word_count_word_t *words)
 {
    int index;
    int unique_words = 0;
@@ -41,7 +41,8 @@ int count_words(const char *sentence, word_count_word_t * words)
    test_word = strtok(lower_case_sentence, delimiters);
    while (test_word != NULL) {
       // account for leading/trailing single quote.
-      if (('\'' == test_word[0]) && ('\'' == test_word[strlen(test_word) - 1])) {
+      if (('\'' == test_word[0]) &&
+          ('\'' == test_word[strlen(test_word) - 1])) {
          test_word[strlen(test_word) - 1] = '\0';
          test_word++;
       }

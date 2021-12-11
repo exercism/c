@@ -41,18 +41,13 @@ static void assert_correct_anagrams(struct candidates *candidates,
 
 static void test_no_matches(void)
 {
-   char inputs[][MAX_STR_LEN] = {
-      "hello",
-      "world",
-      "zombies",
-      "pants"
-   };
+   char inputs[][MAX_STR_LEN] = { "hello", "world", "zombies", "pants" };
 
    char subject[] = { "diaper" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] =
-       { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM,
+                                      NOT_ANAGRAM };
 
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -60,12 +55,8 @@ static void test_no_matches(void)
 
 static void test_detect_two_anagrams(void)
 {
-   TEST_IGNORE();               // delete this line to run test
-   char inputs[][MAX_STR_LEN] = {
-      "lemons",
-      "cherry",
-      "melons"
-   };
+   TEST_IGNORE();   // delete this line to run test
+   char inputs[][MAX_STR_LEN] = { "lemons", "cherry", "melons" };
 
    char subject[] = { "solemn" };
 
@@ -79,10 +70,7 @@ static void test_detect_two_anagrams(void)
 static void test_does_not_detect_anagram_subsets(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "dog",
-      "goody"
-   };
+   char inputs[][MAX_STR_LEN] = { "dog", "goody" };
 
    char subject[] = { "good" };
 
@@ -96,18 +84,13 @@ static void test_does_not_detect_anagram_subsets(void)
 static void test_detects_anagram(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "enlists",
-      "google",
-      "inlets",
-      "banana"
-   };
+   char inputs[][MAX_STR_LEN] = { "enlists", "google", "inlets", "banana" };
 
    char subject[] = { "listen" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] =
-       { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM };
+   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
+                                      NOT_ANAGRAM };
 
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -116,22 +99,14 @@ static void test_detects_anagram(void)
 static void test_three_anagrams(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "gallery",
-      "ballerina",
-      "regally",
-      "clergy",
-      "largely",
-      "leading"
-   };
+   char inputs[][MAX_STR_LEN] = { "gallery", "ballerina", "regally",
+                                  "clergy",  "largely",   "leading" };
 
    char subject[] = { "allergy" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] =
-       { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
-      NOT_ANAGRAM
-   };
+   enum anagram_status expected[] = { IS_ANAGRAM,  NOT_ANAGRAM, IS_ANAGRAM,
+                                      NOT_ANAGRAM, IS_ANAGRAM,  NOT_ANAGRAM };
 
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
@@ -140,10 +115,7 @@ static void test_three_anagrams(void)
 static void test_detects_multiple_anagrams_with_different_case(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "Eons",
-      "ONES"
-   };
+   char inputs[][MAX_STR_LEN] = { "Eons", "ONES" };
 
    char subject[] = { "nose" };
 
@@ -157,9 +129,7 @@ static void test_detects_multiple_anagrams_with_different_case(void)
 static void test_does_not_detect_non_anagrams_with_identical_checksum(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "last"
-   };
+   char inputs[][MAX_STR_LEN] = { "last" };
 
    char subject[] = { "mass" };
 
@@ -173,11 +143,7 @@ static void test_does_not_detect_non_anagrams_with_identical_checksum(void)
 static void test_detects_anagrams_case_insensitively(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "cashregister",
-      "Carthorse",
-      "radishes"
-   };
+   char inputs[][MAX_STR_LEN] = { "cashregister", "Carthorse", "radishes" };
 
    char subject[] = { "Orchestra" };
 
@@ -191,11 +157,7 @@ static void test_detects_anagrams_case_insensitively(void)
 static void test_detects_anagram_using_case_insensitive_subject(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "cashregister",
-      "carthorse",
-      "radishes"
-   };
+   char inputs[][MAX_STR_LEN] = { "cashregister", "carthorse", "radishes" };
 
    char subject[] = { "Orchestra" };
 
@@ -209,11 +171,7 @@ static void test_detects_anagram_using_case_insensitive_subject(void)
 static void test_detects_anagrams_using_case_insensitive_possible_matches(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "cashregister",
-      "Carthorse",
-      "radishes"
-   };
+   char inputs[][MAX_STR_LEN] = { "cashregister", "Carthorse", "radishes" };
 
    char subject[] = { "orchestra" };
 
@@ -228,11 +186,7 @@ static void
 test_does_not_detect_an_anagram_if_the_original_word_is_repeated(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "go",
-      "Go",
-      "GO"
-   };
+   char inputs[][MAX_STR_LEN] = { "go", "Go", "GO" };
 
    char subject[] = { "orchestra" };
 
@@ -246,9 +200,7 @@ test_does_not_detect_an_anagram_if_the_original_word_is_repeated(void)
 static void test_anagrams_must_use_all_letters_exactly_once(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "patter"
-   };
+   char inputs[][MAX_STR_LEN] = { "patter" };
 
    char subject[] = { "tapper" };
 
@@ -262,11 +214,7 @@ static void test_anagrams_must_use_all_letters_exactly_once(void)
 static void test_words_are_not_anagrams_of_themselves(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "BANANA",
-      "Banana",
-      "banana"
-   };
+   char inputs[][MAX_STR_LEN] = { "BANANA", "Banana", "banana" };
 
    char subject[] = { "BANANA" };
 
@@ -280,11 +228,7 @@ static void test_words_are_not_anagrams_of_themselves(void)
 static void test_words_other_than_themselves_can_be_anagrams(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = {
-      "Listen",
-      "Silent",
-      "LISTEN"
-   };
+   char inputs[][MAX_STR_LEN] = { "Listen", "Silent", "LISTEN" };
 
    char subject[] = { "LISTEN" };
 
