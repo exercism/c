@@ -166,6 +166,17 @@ static void test_second_list_missing_element_from_first_list(void)
                                           ELEMENT_COUNT(base_list)));
 }
 
+static void test_first_list_missing_additional_digits_from_second_list(void)
+{
+   TEST_IGNORE();
+   int list_to_compare[] = { 1, 2 };
+   int base_list[] = { 1, 22 };
+
+   TEST_ASSERT_EQUAL(UNEQUAL, check_lists(list_to_compare, base_list,
+                                          ELEMENT_COUNT(list_to_compare),
+                                          ELEMENT_COUNT(base_list)));
+}
+
 static void test_order_matters_to_a_list(void)
 {
    TEST_IGNORE();
@@ -218,6 +229,7 @@ int main(void)
    RUN_TEST(test_at_end_of_superlist);
    RUN_TEST(test_first_list_missing_element_from_second_list);
    RUN_TEST(test_second_list_missing_element_from_first_list);
+   RUN_TEST(test_first_list_missing_additional_digits_from_second_list);
    RUN_TEST(test_order_matters_to_a_list);
    RUN_TEST(test_same_digits_but_different_numbers);
    RUN_TEST(test_different_signs);
