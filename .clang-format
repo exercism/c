@@ -28,7 +28,7 @@ ColumnLimit: 80
 ContinuationIndentWidth: 4
 Cpp11BracedListStyle: false
 # IndentCaseBlocks: false
-IndentCaseLabels: false
+IndentCaseLabels: true
 # IndentExternBlock: Indent
 IndentPPDirectives: None
 IndentWidth: 3

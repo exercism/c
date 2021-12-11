@@ -17,21 +17,21 @@ char *count(const char *dna_strand)
    for (index = 0; (index < strlen(dna_strand)) && (invalid_char == false);
         index++) {
       switch (dna_strand[index]) {
-      case 'A':
-         nucleotide_a_count++;
-         break;
-      case 'C':
-         nucleotide_c_count++;
-         break;
-      case 'G':
-         nucleotide_g_count++;
-         break;
-      case 'T':
-         nucleotide_t_count++;
-         break;
-      default:
-         invalid_char = true;
-         break;
+         case 'A':
+            nucleotide_a_count++;
+            break;
+         case 'C':
+            nucleotide_c_count++;
+            break;
+         case 'G':
+            nucleotide_g_count++;
+            break;
+         case 'T':
+            nucleotide_t_count++;
+            break;
+         default:
+            invalid_char = true;
+            break;
       }
    }
 

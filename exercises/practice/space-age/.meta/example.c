@@ -20,7 +20,7 @@ static bool isPlanet(planet_t planet)
 {
    bool result = false;
 
-   switch(planet) {
+   switch (planet) {
       case MERCURY:
       case VENUS:
       case EARTH:

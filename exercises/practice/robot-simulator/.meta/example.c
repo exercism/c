@@ -30,24 +30,24 @@ static void robot_turn_left(robot_status_t *robot)
 static void robot_advance(robot_status_t *robot)
 {
    switch (robot->direction) {
-   case DIRECTION_NORTH:
-      robot->position.y++;
-      break;
+      case DIRECTION_NORTH:
+         robot->position.y++;
+         break;
 
-   case DIRECTION_EAST:
-      robot->position.x++;
-      break;
+      case DIRECTION_EAST:
+         robot->position.x++;
+         break;
 
-   case DIRECTION_SOUTH:
-      robot->position.y--;
-      break;
+      case DIRECTION_SOUTH:
+         robot->position.y--;
+         break;
 
-   case DIRECTION_WEST:
-      robot->position.x--;
-      break;
+      case DIRECTION_WEST:
+         robot->position.x--;
+         break;
 
-   default:
-      break;
+      default:
+         break;
    }
 }
 
@@ -55,20 +55,20 @@ void robot_move(robot_status_t *robot, const char *instructions)
 {
    for (unsigned long index = 0; index < strlen(instructions); index++) {
       switch (instructions[index]) {
-      case INSTRUCTION_LEFT:
-         robot_turn_left(robot);
-         break;
+         case INSTRUCTION_LEFT:
+            robot_turn_left(robot);
+            break;
 
-      case INSTRUCTION_RIGHT:
-         robot_turn_right(robot);
-         break;
+         case INSTRUCTION_RIGHT:
+            robot_turn_right(robot);
+            break;
 
-      case INSTRUCTION_ADVANCE:
-         robot_advance(robot);
-         break;
+         case INSTRUCTION_ADVANCE:
+            robot_advance(robot);
+            break;
 
-      default:
-         break;
+         default:
+            break;
       }
    }
 }

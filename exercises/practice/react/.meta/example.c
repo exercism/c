@@ -176,15 +176,15 @@ static void propagate(struct cell *c)
 {
    int new_value;
    switch (c->kind) {
-   case KIND_COMPUTE_1:
-      new_value = c->compute1(get_cell_value(c->input1));
-      break;
-   case KIND_COMPUTE_2:
-      new_value =
-          c->compute2(get_cell_value(c->input1), get_cell_value(c->input2));
-      break;
-   default:
-      return;
+      case KIND_COMPUTE_1:
+         new_value = c->compute1(get_cell_value(c->input1));
+         break;
+      case KIND_COMPUTE_2:
+         new_value =
+             c->compute2(get_cell_value(c->input1), get_cell_value(c->input2));
+         break;
+      default:
+         return;
    }
 
    if (new_value != c->value) {
