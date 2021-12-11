@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set +e
+
+ERROR_COUNT=0
+
+echo "Checking include guards format"
+
+check_guard() {
+    if [ -f "$1" ]; then
+        if grep -LPzo "$2" "$1" > /dev/null; then
+            printf "%s does not have correctly formatted include guards\n" "$1"
+            return 1
+        fi
+    fi
+}
+
+for directory in ./exercises/practice/*; do
+    slug=$(basename "${directory}")
+    stub=$(printf "%s" "${slug}" | tr "-" "_")
+    macro=$(printf "%s" "${stub}_H" | tr "[:lower:]" "[:upper:]");
+    guard="#ifndef ${macro}\n#define ${macro}"
+
+    practice="${directory}/${stub}.h"
+    check_guard "$practice" "$guard"
+    (( ERROR_COUNT+=$? ))
+
+    example="${directory}/.meta/example.h"
+    check_guard "$example" "$guard"
+    (( ERROR_COUNT+=$? ))
+done
+
+echo "Include guard check complete"
+
+exit "${ERROR_COUNT}"
