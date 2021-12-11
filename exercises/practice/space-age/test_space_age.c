@@ -56,6 +56,14 @@ static void test_age_on_neptune(void)
    TEST_ASSERT_FLOAT_WITHIN(0.1, 0.35, age(NEPTUNE, 1821023456));
 }
 
+static void test_invalid_planet_causes_error(void)
+{
+   TEST_IGNORE();
+   // Here, we chose -1 to indicate an error
+   // (because all valid inputs would result in positive ages)
+   TEST_ASSERT_EQUAL_FLOAT(-1.0, age((planet_t)-1, 680804807));
+}
+
 int main(void)
 {
    UnityBegin("test_space_age.c");
@@ -68,6 +76,7 @@ int main(void)
    RUN_TEST(test_age_on_saturn);
    RUN_TEST(test_age_on_uranus);
    RUN_TEST(test_age_on_neptune);
+   RUN_TEST(test_invalid_planet_causes_error);
 
    return UnityEnd();
 }
