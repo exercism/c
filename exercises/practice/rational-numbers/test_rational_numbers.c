@@ -346,6 +346,15 @@ static void test_reduce_positive_rational_number_to_lowest_terms(void)
    check_rational_numbers_equal(expected, actual);
 }
 
+static void test_reduce_places_minus_sign_on_numerator(void)
+{
+   TEST_IGNORE();
+   rational_t r = { 3, -4 };
+   rational_t expected = { -3, 4 };
+   rational_t actual = reduce(r);
+   check_rational_numbers_equal(expected, actual);
+}
+
 static void test_reduce_negative_rational_number_to_lowest_terms(void)
 {
    TEST_IGNORE();
@@ -431,6 +440,7 @@ int main(void)
    RUN_TEST(test_raise_real_number_to_negative_rational_number);
    RUN_TEST(test_raise_real_number_to_zero_rational_number);
    RUN_TEST(test_reduce_positive_rational_number_to_lowest_terms);
+   RUN_TEST(test_reduce_places_minus_sign_on_numerator);
    RUN_TEST(test_reduce_negative_rational_number_to_lowest_terms);
    RUN_TEST(
        test_reduce_rational_number_with_negative_denominator_to_lowest_terms);
