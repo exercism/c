@@ -380,6 +380,102 @@ static void test_exponential_of_a_number_with_real_and_imaginary_part(void)
    compare_complex(expected, actual);
 }
 
+static void test_add_real_number_to_complex_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 1.0, .imag = 2.0 };
+   complex_t z2 = { .real = 5.0, .imag = 0.0 };
+
+   complex_t expected = { .real = 6.0, .imag = 2.0 };
+   complex_t actual = c_add(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_add_complex_number_to_real_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 5.0, .imag = 0.0 };
+   complex_t z2 = { .real = 1.0, .imag = 2.0 };
+
+   complex_t expected = { .real = 6.0, .imag = 2.0 };
+   complex_t actual = c_add(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_subtract_real_number_from_complex_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 5.0, .imag = 7.0 };
+   complex_t z2 = { .real = 4.0, .imag = 0.0 };
+
+   complex_t expected = { .real = 1.0, .imag = 7.0 };
+   complex_t actual = c_sub(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_subtract_complex_number_from_real_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 4.0, .imag = 0.0 };
+   complex_t z2 = { .real = 5.0, .imag = 7.0 };
+
+   complex_t expected = { .real = -1.0, .imag = -7.0 };
+   complex_t actual = c_sub(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_multiply_complex_number_by_real_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 2.0, .imag = 5.0 };
+   complex_t z2 = { .real = 5.0, .imag = 0.0 };
+
+   complex_t expected = { .real = 10.0, .imag = 25.0 };
+   complex_t actual = c_mul(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_multiply_real_number_by_complex_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 5.0, .imag = 0.0 };
+   complex_t z2 = { .real = 2.0, .imag = 5.0 };
+
+   complex_t expected = { .real = 10.0, .imag = 25.0 };
+   complex_t actual = c_mul(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_divide_complex_number_by_real_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 10.0, .imag = 100.0 };
+   complex_t z2 = { .real = 10.0, .imag = 0.0 };
+
+   complex_t expected = { .real = 1.0, .imag = 10.0 };
+   complex_t actual = c_div(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
+static void test_divide_real_number_by_complex_number(void)
+{
+   TEST_IGNORE();
+   complex_t z1 = { .real = 5.0, .imag = 0.0 };
+   complex_t z2 = { .real = 1.0, .imag = 1.0 };
+
+   complex_t expected = { .real = 2.5, .imag = -2.5 };
+   complex_t actual = c_div(z1, z2);
+
+   compare_complex(expected, actual);
+}
+
 int main(void)
 {
    UnityBegin("test_complex_numbers.c");
@@ -425,6 +521,15 @@ int main(void)
    RUN_TEST(test_exponential_of_zero);
    RUN_TEST(test_exponential_of_a_purely_real_number);
    RUN_TEST(test_exponential_of_a_number_with_real_and_imaginary_part);
+
+   RUN_TEST(test_add_real_number_to_complex_number);
+   RUN_TEST(test_add_complex_number_to_real_number);
+   RUN_TEST(test_subtract_real_number_from_complex_number);
+   RUN_TEST(test_subtract_complex_number_from_real_number);
+   RUN_TEST(test_multiply_complex_number_by_real_number);
+   RUN_TEST(test_multiply_real_number_by_complex_number);
+   RUN_TEST(test_divide_complex_number_by_real_number);
+   RUN_TEST(test_divide_real_number_by_complex_number);
 
    return UnityEnd();
 }
