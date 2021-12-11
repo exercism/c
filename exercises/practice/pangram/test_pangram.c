@@ -87,7 +87,8 @@ static void test_mixed_case_and_punctuation(void)
    TEST_ASSERT_TRUE(is_pangram(sentence));
 }
 
-static void test_a_to_m_and_A_to_M_are_26_different_characters_but_not_pangram(void)
+static void
+test_a_to_m_and_A_to_M_are_26_different_characters_but_not_pangram(void)
 {
    TEST_IGNORE();
    const char sentence[] = "abcdefghijklm ABCDEFGHIJKLM";
