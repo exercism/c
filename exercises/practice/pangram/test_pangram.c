@@ -87,10 +87,11 @@ static void test_mixed_case_and_punctuation(void)
    TEST_ASSERT_TRUE(is_pangram(sentence));
 }
 
-static void test_case_insensitive(void)
+static void
+test_a_to_m_and_A_to_M_are_26_different_characters_but_not_pangram(void)
 {
    TEST_IGNORE();
-   const char sentence[] = "the quick brown fox jumps over with lazy FX";
+   const char sentence[] = "abcdefghijklm ABCDEFGHIJKLM";
 
    TEST_ASSERT_FALSE(is_pangram(sentence));
 }
@@ -109,7 +110,7 @@ int main(void)
    RUN_TEST(test_with_numbers);
    RUN_TEST(test_missing_letters_replaced_by_numbers);
    RUN_TEST(test_mixed_case_and_punctuation);
-   RUN_TEST(test_case_insensitive);
+   RUN_TEST(test_a_to_m_and_A_to_M_are_26_different_characters_but_not_pangram);
 
    return UnityEnd();
 }
