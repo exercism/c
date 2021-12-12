@@ -20,19 +20,19 @@ static int days_in_month(int year, int month)
    int number_of_days = 31;
 
    switch (month) {
-   case 4:
-   case 6:
-   case 9:
-   case 11:
-      number_of_days = 30;
-      break;
-   case 2:
-      if (is_leap_year(year)) {
-         number_of_days = 29;
-      } else {
-         number_of_days = 28;
-      }
-      break;
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+         number_of_days = 30;
+         break;
+      case 2:
+         if (is_leap_year(year)) {
+            number_of_days = 29;
+         } else {
+            number_of_days = 28;
+         }
+         break;
    }
    return number_of_days;
 }
