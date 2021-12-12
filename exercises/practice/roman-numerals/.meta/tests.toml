@@ -1,6 +1,13 @@
-# This is an auto-generated file. Regular comments will be removed when this
-# file is regenerated. Regenerating will not touch any manually added keys,
-# so comments can be added in a "comment" key.
+# This is an auto-generated file.
+#
+# Regenerating this file via `configlet sync` will:
+# - Recreate every `description` key/value pair
+# - Recreate every `reimplements` key/value pair, where they exist in problem-specifications
+# - Remove any `include = true` key/value pair (an omitted `include` key implies inclusion)
+# - Preserve any other key/value pair
+#
+# As user-added comments (using the # character) will be removed when this file
+# is regenerated, comments can be added via a `comment` key.
 
 [19828a3a-fbf7-4661-8ddd-cbaeee0e2178]
 description = "1 is I"
@@ -58,3 +65,18 @@ description = "1024 is MXXIV"
 
 [bb550038-d4eb-4be2-a9ce-f21961ac3bc6]
 description = "3000 is MMM"
+
+[6d1d82d5-bf3e-48af-9139-87d7165ed509]
+description = "16 is XVI"
+
+[4465ffd5-34dc-44f3-ada5-56f5007b6dad]
+description = "66 is LXVI"
+
+[902ad132-0b4d-40e3-8597-ba5ed611dd8d]
+description = "166 is CLXVI"
+
+[dacb84b9-ea1c-4a61-acbb-ce6b36674906]
+description = "666 is DCLXVI"
+
+[efbe1d6a-9f98-4eb5-82bc-72753e3ac328]
+description = "1666 is MDCLXVI"

@@ -130,6 +130,36 @@ static void test_3000_is_MMM(void)
    check_conversion(3000, "MMM");
 }
 
+static void test_16_is_XVI(void)
+{
+   TEST_IGNORE();
+   check_conversion(16, "XVI");
+}
+
+static void test_66_is_LXVI(void)
+{
+   TEST_IGNORE();
+   check_conversion(66, "LXVI");
+}
+
+static void test_166_is_CLXVI(void)
+{
+   TEST_IGNORE();
+   check_conversion(166, "CLXVI");
+}
+
+static void test_666_is_DCLXVI(void)
+{
+   TEST_IGNORE();
+   check_conversion(666, "DCLXVI");
+}
+
+static void test_1666_is_MDCLXVI(void)
+{
+   TEST_IGNORE();
+   check_conversion(1666, "MDCLXVI");
+}
+
 int main(void)
 {
    UnityBegin("test_roman_numerals.c");
@@ -153,6 +183,11 @@ int main(void)
    RUN_TEST(test_911_is_CMXI);
    RUN_TEST(test_1024_is_MXXIV);
    RUN_TEST(test_3000_is_MMM);
+   RUN_TEST(test_16_is_XVI);
+   RUN_TEST(test_66_is_LXVI);
+   RUN_TEST(test_166_is_CLXVI);
+   RUN_TEST(test_666_is_DCLXVI);
+   RUN_TEST(test_1666_is_MDCLXVI);
 
    return UnityEnd();
 }
