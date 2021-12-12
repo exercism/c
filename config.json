@@ -993,7 +993,178 @@
       }
     ]
   },
-  "concepts": [],
+  "concepts": [
+    {
+      "uuid": "069824b6-4c28-4b5b-8e70-fd52d5968ab3",
+      "slug": "arrays",
+      "name": "Arrays"
+    },
+    {
+      "uuid": "5e93a50c-0b68-46ad-b900-6206d813bd9b",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "a32a510a-bb13-4b0f-9e30-a10e1f041e4b",
+      "slug": "bit-fields",
+      "name": "Bit Fields"
+    },
+    {
+      "uuid": "37095ec8-1145-4977-aeb6-ce8b62aaa67c",
+      "slug": "bit-manipulation",
+      "name": "Bit Manipulation"
+    },
+    {
+      "uuid": "151f101c-cf37-44b4-8e49-19dc3f12b62c",
+      "slug": "callbacks",
+      "name": "Callbacks"
+    },
+    {
+      "uuid": "10f3abb7-cd32-4b71-9217-ae777fed29e2",
+      "slug": "calling-convention",
+      "name": "Calling Convention"
+    },
+    {
+      "uuid": "9fab51b7-a0e0-4ee8-96d3-33591fa3f06b",
+      "slug": "complex-number-types",
+      "name": "Complex Number Types"
+    },
+    {
+      "uuid": "3497ed2f-9f69-483d-98f1-04b93596ff5f",
+      "slug": "constants",
+      "name": "Constants"
+    },
+    {
+      "uuid": "6b64e31f-27b4-4c2b-8367-e561fafd29e7",
+      "slug": "dates-and-times",
+      "name": "Dates & Times"
+    },
+    {
+      "uuid": "35fd1524-58e6-4b4d-b636-8db1d29712b0",
+      "slug": "encapsulation",
+      "name": "Encapsulation"
+    },
+    {
+      "uuid": "5dc2f8dd-f819-45b7-a0f7-f9c16f87d391",
+      "slug": "enumerations",
+      "name": "Enumerations"
+    },
+    {
+      "uuid": "d13dcf14-29d1-453e-8adc-de397a3aba0d",
+      "slug": "file-io",
+      "name": "File I/O"
+    },
+    {
+      "uuid": "4973da81-31d6-4c8e-aa63-5d9aac740259",
+      "slug": "fixed-width-types",
+      "name": "Fixed Width Types"
+    },
+    {
+      "uuid": "9db95ab5-488f-41ed-b183-35e2bca2a05b",
+      "slug": "forward-declaration",
+      "name": "Forward Declaration"
+    },
+    {
+      "uuid": "65d98f43-3829-468b-b735-8077b6c6f716",
+      "slug": "function-pointers",
+      "name": "Function Pointers"
+    },
+    {
+      "uuid": "03c4aacf-f5fd-4169-ad35-657686381881",
+      "slug": "function-scope",
+      "name": "Function Scope"
+    },
+    {
+      "uuid": "d5071ddc-e981-4ac5-82b3-16e28e915d6b",
+      "slug": "goto",
+      "name": "Goto"
+    },
+    {
+      "uuid": "5e0ac7f4-7e5d-4aee-9268-bf2d260b7d40",
+      "slug": "includes",
+      "name": "Includes"
+    },
+    {
+      "uuid": "76d42954-78cd-43b8-9831-5ab3ceb3e804",
+      "slug": "inlining",
+      "name": "Inlining"
+    },
+    {
+      "uuid": "72233aff-8ea8-4fb5-aaeb-3d83d3ba192f",
+      "slug": "labels",
+      "name": "Labels"
+    },
+    {
+      "uuid": "90755256-7285-4510-a1e1-520abc9d4580",
+      "slug": "macros",
+      "name": "Macros"
+    },
+    {
+      "uuid": "b8e9bed0-9e8e-4c81-936c-4822f9becaf7",
+      "slug": "memory-management",
+      "name": "Memory Management"
+    },
+    {
+      "uuid": "21c156d1-488c-4dc9-a486-0b106fd5b5e3",
+      "slug": "pointers",
+      "name": "Pointers"
+    },
+    {
+      "uuid": "313ad5f2-84de-43e3-9c82-029267c37df8",
+      "slug": "pragmas",
+      "name": "Pragmas"
+    },
+    {
+      "uuid": "71b3abda-5482-4cb3-a317-399ebda9b94e",
+      "slug": "recursion",
+      "name": "Recursion"
+    },
+    {
+      "uuid": "42c30e6d-eaa2-4ea9-9ec7-95acf7cd0649",
+      "slug": "signedness",
+      "name": "Signedness"
+    },
+    {
+      "uuid": "f2d8083f-97ff-4609-a7cb-82809ee73340",
+      "slug": "strings",
+      "name": "Strings"
+    },
+    {
+      "uuid": "905b7fc3-ccaf-4813-92bc-459db72169f9",
+      "slug": "structs",
+      "name": "Structs"
+    },
+    {
+      "uuid": "520e7dd1-b5aa-4730-8e9d-0dcc0d877d94",
+      "slug": "switches",
+      "name": "Switches"
+    },
+    {
+      "uuid": "3fde170f-f2d9-4d0f-bb3f-16d2ef4192d2",
+      "slug": "type-casting",
+      "name": "Type Casting"
+    },
+    {
+      "uuid": "9abbf042-85d0-4ecf-a52a-1116905124f3",
+      "slug": "unions",
+      "name": "Unions"
+    },
+    {
+      "uuid": "b655459d-86e9-4afc-a413-b6c6f08fb677",
+      "slug": "variable-scope",
+      "name": "Variable scope"
+    },
+    {
+      "uuid": "b7c3c3b0-dd20-45b0-9c6f-5016eba672f0",
+      "slug": "variadic-functions",
+      "name": "Variadic Functions"
+    },
+    {
+      "uuid": "1f25185d-0a1a-406c-83e5-9a218b36aeaa",
+      "slug": "volatility",
+      "name": "Volatility"
+    }
+  ],
   "key_features": [
     {
       "icon": "cross-platform",
