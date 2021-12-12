@@ -114,6 +114,20 @@ static void test_too_many_closing_brackets(void)
    TEST_ASSERT_FALSE(is_paired(input));
 }
 
+static void test_early_unexpected_brackets(void)
+{
+   TEST_IGNORE();
+   const char *input = ")()";
+   TEST_ASSERT_FALSE(is_paired(input));
+}
+
+static void test_early_mismatched_brackets(void)
+{
+   TEST_IGNORE();
+   const char *input = "{)()";
+   TEST_ASSERT_FALSE(is_paired(input));
+}
+
 static void test_math_expression(void)
 {
    TEST_IGNORE();
@@ -148,6 +162,8 @@ int main(void)
    RUN_TEST(test_paired_and_wrong_nested_brackets);
    RUN_TEST(test_paired_and_incomplete_brackets);
    RUN_TEST(test_too_many_closing_brackets);
+   RUN_TEST(test_early_unexpected_brackets);
+   RUN_TEST(test_early_mismatched_brackets);
    RUN_TEST(test_math_expression);
    RUN_TEST(test_complex_latex_expression);
 
