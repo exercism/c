@@ -4,7 +4,7 @@
 
 Conditional statements are decision-making statements that can either execute
 side-effects or control the flow of execution through a program. Conditional 
-statements include `if`, `if/else`, `switch`, and 'ternary` statements.
+statements include `if`, `if/else`, `switch`, and `ternary` statements.
 
 Conditional statements are used to ask questions about a value or a relation of
 values. The question evaluates to a Boolean answer, but the `if` statement
