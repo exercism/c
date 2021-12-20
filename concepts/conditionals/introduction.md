@@ -74,7 +74,7 @@ else
     return "odd";
 ```
 
-##Switch
+## Switch
 
 
 Sometimes an `if-else-if ladder` can be better represented by a
