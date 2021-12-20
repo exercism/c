@@ -57,7 +57,7 @@ operand is an expression with a side effect that is expected to always happen,
 then it will be a bug depending on the Boolean value of the left-hand operand.
 
 
-##Returning a Boolean Expression
+## Returning a Boolean Expression
 
 The result of a Boolean expression can be directly returned. For example, this
 `if` statement
