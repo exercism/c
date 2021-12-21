@@ -108,7 +108,7 @@ This is similar to the `while` loop in that `i` is initialized before the loop
 and is incremented inside the loop. Also, `i` is tested inside the loop and the
 loop ends with the `break` statement.
 
-## Break Statement
+## Break statement
 
 Sometimes a loop may need to end on a special condition not tested in its
 Boolean expression. The `break` statement will end the loop and execution will
@@ -132,7 +132,7 @@ j is 5
 After the loop
 ```
 
-## Continue Statement
+## Continue statement
 
 Sometimes a loop may need to start its next iteration without completing its
 current iteration. The `continue` statement stops execution of the current
