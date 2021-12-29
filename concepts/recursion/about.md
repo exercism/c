@@ -78,7 +78,7 @@ To refactor it to a tail call, make `j` a parameter of `printIncrement`
 int printIncrement (int i, int maxValue, int j){
     if (i > maxValue) return j;
     printf("The number is %i\n", i++);
-    printIncrement(i, maxValue, ++j);
+    return printIncrement(i, maxValue, ++j);
 }
 
 int main() {
