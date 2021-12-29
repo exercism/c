@@ -88,9 +88,6 @@ int main() {
 }
 ```
 
-When using the return value from a tail call, the only return statement needed
-is for the line with the Boolean expression that is tested to end the recursion.
-
 You may find that a tail call may be easier to reason through than a recursive
 call that is not a tail call. However, compilers usually do not guarantee that
 all tail calls will be optimized. It is always important when using recursion
