@@ -105,7 +105,8 @@ switch (number) {
         msg = "one"; break;
     case 2: case 3: case 4:
         msg = "more than one and less than five"; break;
-    default: msg = "don't care";
+    default:
+        msg = "don't care";
 }
 ```
 
@@ -119,7 +120,8 @@ switch (number) {
         msg = "one"; break; 
     case 2: case 3: case 4:
         msg = "more than one and less than five"; break;
-    default: msg = "don't care";
+    default:
+        msg = "don't care";
 }
 ```
 
