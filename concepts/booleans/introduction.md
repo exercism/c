@@ -2,7 +2,7 @@
 
 A Boolean expression is a question asked of one or more values which can be
 answered with `true` or `false`. A true expression returns `1`; a false
-expression returns `0`. Also, numbers have true/false values. Zero is false`;
+expression returns `0`. Also, numbers have true/false values. Zero is `false`;
 non-zero is `true`. 
 
 Old C code will either use the `int` type directly for Boolean values, or the
