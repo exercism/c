@@ -171,4 +171,30 @@ Because of how floating point numbers are implemented, a simple math operation m
 ```
 
 A tolerance value, referred to as `epsilon`, can be used to determine a range within which a value can fall to still be considered equal when compared with another value.
-Be wary when comparing `float`s or `double`s for equality.
+Some platforms have built-in constants for float and double epsilons.
+Refer to the documentation for your compiler to learn more.
+Float comparisons can be sophistiated and may vary between platforms: even between individual machines.
+Here is an example program using a simple comparison.
+
+```c
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+
+const double MY_EPSILON = .002;
+
+bool same(double x, double y)
+{
+    return fabs(x - y) < MY_EPSILON;
+}
+
+int main()
+{
+    // Same should return true if the difference is less than MY_EPSILON
+    printf("%s\n", same(1.1, 1.099) ? "true" : "false"); // prints true
+    printf("%s\n", same(1.1, 1.098) ? "true" : "false"); // prints false
+    return 0;
+}
+```
+
+Be wary when comparing `float`s or `double`s for equality!
