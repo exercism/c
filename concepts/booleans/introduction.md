@@ -1,4 +1,4 @@
-# About
+# Introduction
 
 A Boolean expression is a question asked of one or more values which can be answered with `true` or `false`.
 A true expression returns `1`; a false expression returns `0`.
