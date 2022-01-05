@@ -1,17 +1,13 @@
 # About
-
-A loop is a way of repeatedly calling one or more statements in a batch. Each 
-run of a batch of statements is called an iteration.
+A loop is a way of repeatedly calling one or more statements in a batch.
+Each run of a batch of statements is called an iteration.
 
 ## While loop
 
-A `while` loop executes a batch of statements while a Boolean expression at the 
-top of the loop is true. When the Boolean expression is false the loop stops 
-running and execution proceeds to the next line of code after the loop.
+A `while` loop executes a batch of statements while a Boolean expression at the top of the loop is true.
+When the Boolean expression is false the loop stops running and execution proceeds to the next line of code after the loop.
 
-If the Boolean expression evaluates to false from the beginning the `while` loop
-will not run at all and execution will proceed to the next line of code after
-the loop.
+If the Boolean expression evaluates to false from the beginning the `while` loop will not run at all and execution will proceed to the next line of code after the loop.
 
 ```c
 int main() {
@@ -23,14 +19,13 @@ int main() {
 }
 ```
 
-It is important for there to be a condition to end the loop; otherwise it is an
-infinite loop which will block all progress of the code. If the above code had
-the `++` removed from `i` it would be an infinite loop.
+It is important for there to be a condition to end the loop; otherwise it is an infinite loop which will block all progress of the code.
+If the above code had the `++` removed from `i` it would be an infinite loop.
 
 ## Do loop
 
-A `do` loop has its Boolean expression tested at the bottom of the loop. A `do`
-loop will always run at least once, as in the following example
+A `do` loop has its Boolean expression tested at the bottom of the loop.
+A `do` loop will always run at least once, as in the following example
 
 ```c
 do {
@@ -53,11 +48,9 @@ while (answer != 42) {
 
 ## For loop
 
-Often a loop will update a variable and end when the variable reaches a
-certain value. A `for` loop is a way of initializing, updating and testing
-one or more variables in one line within parentheses. The first section is for
-initializing the variable, the second section for testing the variable, and
-the third section is for updating the value of the variable.
+Often a loop will update a variable and end when the variable reaches a certain value.
+A `for` loop is a way of initializing, updating and testing one or more variables in one line within parentheses.
+The first section is for initializing the variable, the second section for testing the variable, and the third section is for updating the value of the variable.
 
 ```c
 for (int i = 0; i < 5; i++) {
@@ -65,11 +58,9 @@ for (int i = 0; i < 5; i++) {
 }
 ```
 
-This is less verbose than the `while` loop equivalent, and yet it is still
-readable.
+This is less verbose than the `while` loop equivalent, and yet it is still readable.
 
-The initializing and updating sections of the `for` loop may handle more than
-one variable.
+The initializing and updating sections of the `for` loop may handle more than one variable by using the comma operator to separate expressions within the conditions.
 
 ```c
     int i, j;
@@ -92,9 +83,8 @@ j is 3
 After the loop
 ```
 
-None of the sections of the `for` need to be defined. An empty testing
-expression evaluates to true, so a `for` loop could be used to define an
-infinite loop like so
+None of the sections of the `for` need to be defined.
+An empty testing expression evaluates to true, so a `for` loop could be used to define an infinite loop like so
 
 ```c
 int i = 0;
@@ -104,15 +94,13 @@ for (;;) {
 }
 ```
 
-This is similar to the `while` loop in that `i` is initialized before the loop
-and is incremented inside the loop. Also, `i` is tested inside the loop and the
-loop ends with the `break` statement.
+This is similar to the `while` loop in that `i` is initialized before the loop and is incremented inside the loop.
+Also, `i` is tested inside the loop and the loop ends with the `break` statement.
 
 ## Break statement
 
-Sometimes a loop may need to end on a special condition not tested in its
-Boolean expression. The `break` statement will end the loop and execution will
-proceed to the next line of code after the loop.
+Sometimes a loop may need to end on a special condition not tested in its Boolean expression.
+The `break` statement will end the loop and execution will proceed to the next line of code after the loop.
 
 ```c
 int i, j, k;
@@ -134,9 +122,8 @@ After the loop
 
 ## Continue statement
 
-Sometimes a loop may need to start its next iteration without completing its
-current iteration. The `continue` statement stops execution of the current
-iteration and continues execution at the start of the next iteration.
+Sometimes a loop may need to start its next iteration without completing its current iteration.
+The `continue` statement stops execution of the current iteration and continues execution at the start of the next iteration.
 
 ```c
 int i, j;
