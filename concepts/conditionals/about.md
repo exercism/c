@@ -173,7 +173,7 @@ Because of how floating point numbers are implemented, a simple math operation m
 A tolerance value, referred to as `epsilon`, can be used to determine a range within which a value can fall to still be considered equal when compared with another value.
 Some platforms have built-in constants for float and double epsilons.
 Refer to the documentation for your compiler to learn more.
-Float comparisons can be sophistiated and may vary between platforms: even between individual machines.
+Calculating the epsilon can be sophisticated and may vary between platforms: even between individual machines.
 Here is an example program using a simple comparison.
 
 ```c
