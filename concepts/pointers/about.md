@@ -9,15 +9,24 @@ int i = 5;
 ```
 
 When we assign a value to a variable we can then ask two questions.
-Who are you? _I am `i`_.
-What do you have? _I have the integer `5`_.
+
+Who are you?
+
+_I am `i`_.
+
+What do you have?
+
+_I have the integer `5`_.
 
 There is also a third question we can ask.
-Where are you? _I am at `0x6dfed4`_.
+
+Where are you?
+
+_I am at `0x6dfed4`_.
 
 Wait, what?
 
-Variable and constants store their value in a memory location.
+Variables and constants store their value in a memory location.
 That location in memory is known as the address of the variable or constant.
 
 ## Address operator
@@ -31,9 +40,13 @@ int *i_address = &i;
 ```
 
 Wait, what does that `*` mean before `i_address`? Doesn't that mean multiply?
+
 A type followed by a `*` followed by an identifier is the way to declare a pointer for a variable of that type.
+
 Okay, but why make a variable just to hold the address of another variable? 
+
 Why do we care what the address of a variable is in the first place?
+
 Well, we care where variables are when they are in an array.
 
 ## Arrays and Pointers
@@ -161,7 +174,7 @@ A string is often declared using pointer  syntax, like so
 ```c
 char *my_string = "This is my string";
 // instead of
-char my_string[] = "This is my string";
+// char my_string[] = "This is my string";
 ```
 
 One question, though.
