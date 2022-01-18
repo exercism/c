@@ -67,16 +67,21 @@ To better see this, try running the following
 int main() {
     // my_int's value is its address
     int my_ints[] = {1, 2};
+    
     // since my_ints is already an address
     // we don't need the address operator to make a pointer from it.
     // a pointer to my_ints holds the address of my_ints
     int *my_ptr = my_ints;
+    
     // the address of my_ints and the value of my_ptr are the same
     printf("my_ints is %p. my_ptr is %p.\n", my_ints, my_ptr);
+    
     // both addresses of the first element are the same as the original addresses
     printf("&my_ints[0] is %p. my_ptr + 0 is %p.\n", &my_ints[0], my_ptr + 0);
+    
     // both addresses for the second element have increased by the size of an int
     printf("&my_ints[1] is %p. my_ptr + 1 is %p.\n", &my_ints[1], my_ptr + 1); // 
+    
     return 0;
 }
 ```
@@ -115,12 +120,18 @@ An example shows how to use the dereferencing operator
 #include <stdio.h>
 
 int main() {
+    // define the variable
     int my_ints[] = {1, 2};
+    
+    // define the pointer from the address of the variable
     int *my_ptr = my_ints;
+    
     // prints: my_ints[0] is 1. *(my_ptr + 0) is 1.
     printf("my_ints[0] is %u. *(my_ptr + 0) is %u.\n", my_ints[0], *(my_ptr + 0));
+    
     // prints: my_ints[1] is 2. *(my_ptr + 1) is 2.
     printf("my_ints[1] is %u. *(my_ptr + 1) is %u.\n", my_ints[1], *(my_ptr + 1));
+    
     return 0;
 }
 ```
@@ -134,8 +145,10 @@ The following example may not print what the programmer intended to
 int main() {
     int my_ints[] = {1, 42};
     int *my_ptr = my_ints;
+    
     // prints: my_ints[0] is 1. *++my_ptr is 42.
     printf("my_ints[0] is %u. *++my_ptr is %u.\n", my_ints[0], *++my_ptr);
+    
     // prints: my_ints[1] is 43. ++*my_ptr++ is 43.
     printf("my_ints[1] is %u. ++*my_ptr++ is %u.\n", my_ints[1], ++*my_ptr);
 
@@ -193,6 +206,7 @@ int *my_ptr1, *my_ptr2;
 ```
 
 So it's good to put the `*` near the identifier to minimize ambiguity.
+Or declare only one identifier per line.
 And, if you haven't had enough of `*`, welcome to...
 
 ## Pointer to Pointers
@@ -214,7 +228,7 @@ int main() {
 }
 ```
 
-It may not be obvious, but the strings are declared and initialized as a pointer to an array of `char` arrays.
+It may not be obvious, but the array of strings is declared and initialized as a pointer to an array of `char` arrays.
 When the array of `char` arrays is passed into `print_strings`, the signature describes it as a pointer to pointer(s) to `char`.
 
 So how do we know that `char **` is really a pointer to an array of pointers to char arrays, and not a pointer to a pointer of a single char?
