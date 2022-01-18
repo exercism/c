@@ -41,7 +41,7 @@ int *i_address = &i;
 
 Wait, what does that `*` mean before `i_address`? Doesn't that mean multiply?
 
-A type followed by a `*` followed by an identifier is the way to declare a pointer for a variable of that type.
+A type followed by a `*` followed by an identifier is the way to declare a pointer to a variable of that type.
 
 Okay, but why make a variable just to hold the address of another variable? 
 
@@ -117,9 +117,9 @@ An example shows how to use the dereferencing operator
 int main() {
     int my_ints[] = {1, 2};
     int *my_ptr = my_ints;
-    // both values are 1
+    // prints: my_ints[0] is 1. *(my_ptr + 0) is 1.
     printf("my_ints[0] is %u. *(my_ptr + 0) is %u.\n", my_ints[0], *(my_ptr + 0));
-    // both values are 2
+    // prints: my_ints[1] is 2. *(my_ptr + 1) is 2.
     printf("my_ints[1] is %u. *(my_ptr + 1) is %u.\n", my_ints[1], *(my_ptr + 1));
     return 0;
 }
@@ -153,11 +153,10 @@ If we add this line to the above example
 printf("my_ints[1] is %u. *++my_ptr is %u.\n", my_ints[1], *++my_ptr);
 ```
 
-In that line have incremented the pointer to be beyond the array.
+In that line we have incremented the pointer to be beyond the array.
 We have overrun the array and we are pointing at the next four bytes in memory which the pointer interprets as an int, but, in fact, those bytes could belong to another variable or variables.
 Those four bytes could  be part of a `double` or they could be four `char`s.
 The problem is we shouldn't even be looking at them with our pointer.
-
 
 We could have used
 
@@ -169,7 +168,7 @@ printf("my_ints[2] is %u", my_ints[2]);
 Since array indexing is implemented with a pointer, the same danger of overunning the array applies.
 
 And, since a string is an array of `char`s, pointers can be used with strings, too.
-A string is often declared using pointer  syntax, like so
+A string is often declared using pointer syntax, like so
 
 ```c
 char *my_string = "This is my string";
@@ -186,7 +185,7 @@ Because this
 int* my_ptr1, my_ptr2_that_is_really_an_int;
 ```
 
-does not declare two pointers to an int, but a pointer and an int.
+does not declare two pointers to an int, but declares a pointer to an int, and an int.
 To declare two pointers to an int would be like so
 
 ```c
@@ -215,7 +214,7 @@ int main() {
 }
 ```
 
-Notice that the strings are declared and initialized as a pointer to an array of pointers to char arrays.
+It may not be obvious, but the strings are declared and initialized as a pointer to an array of `char` arrays.
 When the array of `char` arrays is passed into `print_strings`, the signature describes it as a pointer to pointer(s) to `char`.
 
 So how do we know that `char **` is really a pointer to an array of pointers to char arrays, and not a pointer to a pointer of a single char?
@@ -251,4 +250,4 @@ void print_strings(char *passed_in_strings[]) {
 
 may still compile and still print gibberish.
 But there is really no value to passing in a pointer to a pointer to a single char.
-Chances are, when you see `** string`, it represents a pointer to to an array of pointers to char arrays.
+Chances are, when you see `char **`, it represents a pointer to to an array of pointers to char arrays.
