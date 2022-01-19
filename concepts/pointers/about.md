@@ -336,3 +336,69 @@ That's a lot of `*`s in `swap` now, but it now works as intended.
 
 A way to read the dereference operator is "value at".
 So, `*a` is the value at `a`.
+How well does this work with strings?
+
+## Pointers to Char
+
+We know that the value of an array variable is the address where the array starts.
+And we know we can define a string as either a char array, `char my_string[]`, or as a pointer to `char`, `char *`.
+How are they different?
+
+In this code we pass a `char *` argument to `describe_me`.
+The `adjective` argument is defined as a `char` array and is accepted by the function as a pointer to `char`.
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+// takes pointer to char
+void describe_me(char *adjective){
+    strcpy(adjective, "evil");
+    // prints: I am evil.
+    printf("I am %s.\n", adjective);
+}
+
+int main() {
+    // defined as a char array
+    char adjective[] = "good";
+    describe_me(adjective);
+    // prints: I am really evil.
+    printf("I am really %s.\n", adjective);
+    
+    return 0;
+}
+```
+
+We are able to make a persistent change to `adjective`, demonstrating that the defined char array can be accepted as a pointer to char.
+
+Now let's try defining `adjective` as a pointer to `char` directly.
+
+```c
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+void describe_me(char *adjective){
+    // segmentation fault on this line
+    strcpy(adjective, "evil");
+    printf("I am %s.\n", adjective);
+}
+
+int main() {
+    char *adjective= "good";
+    describe_me(adjective);
+    printf("I am really %s.\n", adjective);
+    
+    return 0;
+}
+```
+
+Remember how pointers are powerful, but also potentially dangerous?
+But why doesn't it work?
+An array is a pointer and a pointer worked with a char array!
+The reason is that, before, `adjective` was defined as a `char` array which is a variable belonging to `main`.
+Now, `adjective` is defined as a string _literal_, meaning that it is written to read-only static memory which belongs to the entire program.
+Trying to change a literal string value is like trying to change the literal value of `5`.
+It is not allowed.
+So, the problem isn't really that it's a pointer.
+The problem is what it is pointing to.
