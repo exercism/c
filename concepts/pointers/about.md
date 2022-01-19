@@ -265,3 +265,74 @@ void print_strings(char *passed_in_strings[]) {
 may still compile and still print gibberish.
 But there is really no value to passing in a pointer to a pointer to a single char.
 Chances are, when you see `char **`, it represents a pointer to to an array of pointers to char arrays.
+
+We've seen a pointer passed into a function.
+But why pass a pointer into a function?
+
+## Passing a Pointer to a Function
+
+In C, arguments are passed to functions by value. That means that the value is copied from the argument and that copy is local to the function. When the function ends, so does the copied value.
+
+See what happens when we try to change values inside a function
+
+```c
+#include <stdio.h>
+
+void swap(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    //prints:  In 'swap', a is 4 and b is 3.
+    printf("In 'swap', a is %d and b is %d.\n", a, b);
+}
+
+int main() {
+    int a = 3, b = 4;
+    swap(a, b);
+    // prints: After 'swap', a is 3 and b is 4
+    printf("After 'swap', a is %d and b is %d.\n", a, b);
+    return 0;
+}
+```
+
+This is because, even though the variables have the same names, `a` and `b` in `swap` are not the same `a` and `b` in `main`.
+They are _copies_ of the values of `a` and `b`.
+Can we change `swap` to make it work as we intend?
+
+Yes we can!
+We can pass in the addresses of `a` and `b` as pointers.
+But, what good will that do, since the function copies the pointers?
+It is good, because a copied address is still the same address.
+By dereferencing the address we can get access to the original value as it was defined in `main`
+
+```c
+#include <stdio.h>
+
+// pass in pointers to a and b
+void swap(int *a, int *b) {
+    // set temp to value at a's dereferenced address
+    int temp = *a;
+
+    // set a's value to value at b's dereferenced address
+    *a = *b;
+
+    // set b's value to temp
+    *b = temp;
+
+    // prints: In 'swap', a is 4 and b is 3.
+    printf("In 'swap', a is %d and b is %d.\n", *a, *b);
+}
+
+int main() {
+    int a = 3, b = 4;
+    swap(&a, &b);
+    // prints: After 'swap', a is 4 and b is 3.
+    printf("After 'swap', a is %d and b is %d.\n", a, b);
+    return 0;
+}
+```
+
+That's a lot of `*`s in `swap` now, but it now works as intended.
+
+A way to read the dereference operator is "value at".
+So, `*a` is the value at `a`.
