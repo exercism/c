@@ -1,5 +1,6 @@
 #include "test-framework/unity.h"
 #include "resistor_color.h"
+#include <stdlib.h>
 
 #define ARRAY_LENGTH(A) (sizeof(A) / sizeof(A[0]))
 
@@ -33,7 +34,9 @@ static void test_colors(void)
    TEST_IGNORE();
    const resistor_band_t expected[] = { BLACK, BROWN, RED,    ORANGE, YELLOW,
                                         GREEN, BLUE,  VIOLET, GREY,   WHITE };
-   TEST_ASSERT_EQUAL_INT_ARRAY(expected, colors(), ARRAY_LENGTH(expected));
+   resistor_band_t *colors_values = colors();
+   TEST_ASSERT_EQUAL_INT_ARRAY(expected, colors_values, ARRAY_LENGTH(expected));
+   free(colors_values);
 }
 
 int main(void)
