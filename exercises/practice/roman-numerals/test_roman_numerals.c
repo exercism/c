@@ -2,6 +2,7 @@
 #include "roman_numerals.h"
 #include <stdlib.h>
 
+static char *result = NULL;
 void setUp(void)
 {
 }
@@ -12,9 +13,8 @@ void tearDown(void)
 
 static void check_conversion(int number, char *expected)
 {
-   char *result = to_roman_numeral(number);
+   result = to_roman_numeral(number);
    TEST_ASSERT_EQUAL_STRING(expected, result);
-   free(result);
 }
 
 static void test_1_is_I(void)
