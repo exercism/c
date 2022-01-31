@@ -3,19 +3,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+static char *actual = NULL;
 void setUp(void)
 {
 }
 
 void tearDown(void)
 {
+   if (actual)
+      free(actual);
+   actual = NULL;
 }
 
 static void check_abbreviation(char *phrase, char *expected)
 {
-   char *actual = abbreviate(phrase);
+   actual = abbreviate(phrase);
    TEST_ASSERT_EQUAL_STRING(expected, actual);
-   free(actual);
 }
 
 static void test_null_string(void)
