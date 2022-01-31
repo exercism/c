@@ -12,7 +12,7 @@ void tearDown(void)
 {
    if (ans)
       free(ans);
-   ans = NULL;   
+   ans = NULL;
 }
 
 static void test_zero(void)
