@@ -9,6 +9,9 @@ void setUp(void)
 
 void tearDown(void)
 {
+   if (result)
+      free(result);
+   result = NULL;
 }
 
 static void check_conversion(int number, char *expected)
