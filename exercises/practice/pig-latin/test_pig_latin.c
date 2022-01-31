@@ -11,7 +11,7 @@ void tearDown(void)
 {
    if (res)
       free(res);
-   res = NULL;   
+   res = NULL;
 }
 
 static void test_word_beginning_with_a(void)
