@@ -27,7 +27,7 @@ static void test_word_beginning_with_a(void)
 
 static void test_word_beginning_with_e(void)
 {
-   TEST_IGNORE(); // delete this line to run test
+   TEST_IGNORE();   // delete this line to run test
    check_transate("ear", "earay");
 }
 
