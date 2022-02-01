@@ -2,210 +2,154 @@
 #include "pig_latin.h"
 #include <stdlib.h>
 
+static char *res = NULL;
 void setUp(void)
 {
 }
 
 void tearDown(void)
 {
+   if (res)
+      free(res);
+   res = NULL;
+}
+
+static void check_transate(const char *phrase, const char *expected)
+{
+   res = translate(phrase);
+   TEST_ASSERT_EQUAL_STRING(res, expected);
 }
 
 static void test_word_beginning_with_a(void)
 {
-   const char *phrase = "apple";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("appleay", res);
-   free(res);
+   check_transate("apple", "appleay");
 }
 
 static void test_word_beginning_with_e(void)
 {
    TEST_IGNORE();   // delete this line to run test
-   const char *phrase = "ear";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("earay", res);
-   free(res);
+   check_transate("ear", "earay");
 }
 
 static void test_word_beginning_with_i(void)
 {
    TEST_IGNORE();
-   const char *phrase = "igloo";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("iglooay", res);
-   free(res);
+   check_transate("igloo", "iglooay");
 }
 
 static void test_word_beginning_with_o(void)
 {
    TEST_IGNORE();
-   const char *phrase = "object";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("objectay", res);
-   free(res);
+   check_transate("object", "objectay");
 }
 
 static void test_word_beginning_with_u(void)
 {
    TEST_IGNORE();
-   const char *phrase = "under";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("underay", res);
-   free(res);
+   check_transate("under", "underay");
 }
 
 static void test_word_beginning_with_a_vowel_and_followed_by_a_qu(void)
 {
    TEST_IGNORE();
-   const char *phrase = "equal";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("equalay", res);
-   free(res);
+   check_transate("equal", "equalay");
 }
 
 static void test_word_beginning_with_p(void)
 {
    TEST_IGNORE();
-   const char *phrase = "pig";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("igpay", res);
-   free(res);
+   check_transate("pig", "igpay");
 }
 
 static void test_word_beginning_with_k(void)
 {
    TEST_IGNORE();
-   const char *phrase = "koala";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("oalakay", res);
-   free(res);
+   check_transate("koala", "oalakay");
 }
 
 static void test_word_beginning_with_x(void)
 {
    TEST_IGNORE();
-   const char *phrase = "xenon";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("enonxay", res);
-   free(res);
+   check_transate("xenon", "enonxay");
 }
 
 static void test_word_beginning_with_q_without_a_following_u(void)
 {
    TEST_IGNORE();
-   const char *phrase = "qat";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("atqay", res);
-   free(res);
+   check_transate("qat", "atqay");
 }
 
 static void test_word_beginning_with_ch(void)
 {
    TEST_IGNORE();
-   const char *phrase = "chair";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("airchay", res);
-   free(res);
+   check_transate("chair", "airchay");
 }
 
 static void test_word_beginning_with_qu(void)
 {
    TEST_IGNORE();
-   const char *phrase = "queen";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("eenquay", res);
-   free(res);
+   check_transate("queen", "eenquay");
 }
 
 static void test_word_beginning_with_qu_and_a_preceding_consonant(void)
 {
    TEST_IGNORE();
-   const char *phrase = "square";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("aresquay", res);
-   free(res);
+   check_transate("square", "aresquay");
 }
 
 static void test_word_beginning_with_th(void)
 {
    TEST_IGNORE();
-   const char *phrase = "therapy";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("erapythay", res);
-   free(res);
+   check_transate("therapy", "erapythay");
 }
 
 static void test_word_beginning_with_thr(void)
 {
    TEST_IGNORE();
-   const char *phrase = "thrush";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("ushthray", res);
-   free(res);
+   check_transate("thrush", "ushthray");
 }
 
 static void test_word_beginning_with_sch(void)
 {
    TEST_IGNORE();
-   const char *phrase = "school";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("oolschay", res);
-   free(res);
+   check_transate("school", "oolschay");
 }
 
 static void test_word_beginning_with_yt(void)
 {
    TEST_IGNORE();
-   const char *phrase = "yttria";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("yttriaay", res);
-   free(res);
+   check_transate("yttria", "yttriaay");
 }
 
 static void test_word_beginning_with_xr(void)
 {
    TEST_IGNORE();
-   const char *phrase = "xray";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("xrayay", res);
-   free(res);
+   check_transate("xray", "xrayay");
 }
 
 static void test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word(void)
 {
    TEST_IGNORE();
-   const char *phrase = "yellow";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("ellowyay", res);
-   free(res);
+   check_transate("yellow", "ellowyay");
 }
 
 static void
 test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(void)
 {
    TEST_IGNORE();
-   const char *phrase = "rhythm";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("ythmrhay", res);
-   free(res);
+   check_transate("rhythm", "ythmrhay");
 }
 
 static void test_y_as_second_letter_in_two_letter_word(void)
 {
    TEST_IGNORE();
-   const char *phrase = "my";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("ymay", res);
-   free(res);
+   check_transate("my", "ymay");
 }
 
 static void test_a_whole_phrase(void)
 {
    TEST_IGNORE();
-   const char *phrase = "quick fast run";
-   char *res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING("ickquay astfay unray", res);
-   free(res);
+   check_transate("quick fast run", "ickquay astfay unray");
 }
 
 int main(void)
