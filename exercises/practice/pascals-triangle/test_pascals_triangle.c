@@ -1,8 +1,12 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <stdlib.h>
 #include "test-framework/unity.h"
 #include "pascals_triangle.h"
+
+uint8_t **actual = NULL;
+size_t count = 0;
 
 void setUp(void)
 {
@@ -10,6 +14,19 @@ void setUp(void)
 
 void tearDown(void)
 {
+   if (actual)
+   {
+      for (size_t i = 0; i < count; ++i)
+      {
+         if (actual[i])
+         {
+            free(actual[i]);
+            actual[i] = NULL;
+         }
+      }
+      free(actual);
+      actual = NULL;
+   }  
 }
 
 static bool check_triangle(size_t count, uint8_t expected[][count],
@@ -29,18 +46,20 @@ static bool check_triangle(size_t count, uint8_t expected[][count],
 static void test_no_rows(void)
 {
    uint8_t expected[1][1] = { { 0 } };
-   uint8_t **actual = create_triangle(0);
-   TEST_ASSERT_TRUE(check_triangle(1, expected, actual));
+   actual = create_triangle(0);
+   TEST_ASSERT_TRUE(check_triangle((count = 1), expected, actual));
    free_triangle(actual, 1);
+   actual = NULL;
 }
 
 static void test_single_row(void)
 {
    TEST_IGNORE();   // delete this line to run test
    uint8_t expected[1][1] = { { 1 } };
-   uint8_t **actual = create_triangle(1);
-   TEST_ASSERT_TRUE(check_triangle(1, expected, actual));
+   actual = create_triangle(1);
+   TEST_ASSERT_TRUE(check_triangle((count = 1), expected, actual));
    free_triangle(actual, 1);
+   actual = NULL;
 }
 
 static void test_two_rows(void)
@@ -52,9 +71,10 @@ static void test_two_rows(void)
       {1, 1}
       // clang-format on
    };
-   uint8_t **actual = create_triangle(2);
-   TEST_ASSERT_TRUE(check_triangle(2, expected, actual));
+   actual = create_triangle(2);
+   TEST_ASSERT_TRUE(check_triangle((count = 2), expected, actual));
    free_triangle(actual, 2);
+   actual = NULL;
 }
 
 static void test_three_rows(void)
@@ -67,9 +87,10 @@ static void test_three_rows(void)
       {1, 2, 1}
       // clang-format on
    };
-   uint8_t **actual = create_triangle(3);
-   TEST_ASSERT_TRUE(check_triangle(3, expected, actual));
+   actual = create_triangle(3);
+   TEST_ASSERT_TRUE(check_triangle((count = 3), expected, actual));
    free_triangle(actual, 3);
+   actual = NULL;
 }
 
 static void test_four_rows(void)
@@ -83,9 +104,10 @@ static void test_four_rows(void)
       {1, 3, 3, 1}
       // clang-format on
    };
-   uint8_t **actual = create_triangle(4);
-   TEST_ASSERT_TRUE(check_triangle(4, expected, actual));
+   actual = create_triangle(4);
+   TEST_ASSERT_TRUE(check_triangle((count = 4), expected, actual));
    free_triangle(actual, 4);
+   actual = NULL;
 }
 
 static void test_five_rows(void)
@@ -100,9 +122,10 @@ static void test_five_rows(void)
       {1, 4, 6, 4, 1}
       // clang-format on
    };
-   uint8_t **actual = create_triangle(5);
-   TEST_ASSERT_TRUE(check_triangle(5, expected, actual));
+   actual = create_triangle(5);
+   TEST_ASSERT_TRUE(check_triangle((count = 5), expected, actual));
    free_triangle(actual, 5);
+   actual = NULL;
 }
 
 static void test_six_rows(void)
@@ -118,9 +141,10 @@ static void test_six_rows(void)
       {1, 5, 10, 10, 5, 1},
       // clang-format on
    };
-   uint8_t **actual = create_triangle(6);
-   TEST_ASSERT_TRUE(check_triangle(6, expected, actual));
+   actual = create_triangle(6);
+   TEST_ASSERT_TRUE(check_triangle((count = 6), expected, actual));
    free_triangle(actual, 6);
+   actual = NULL;
 }
 
 static void test_ten_rows(void)
@@ -140,9 +164,10 @@ static void test_ten_rows(void)
       {1, 9, 36, 84, 126, 126, 84, 36, 9, 1}
       // clang-format off
    };
-   uint8_t **actual = create_triangle(10);
-   TEST_ASSERT_TRUE(check_triangle(10, expected, actual));
+   actual = create_triangle(10);
+   TEST_ASSERT_TRUE(check_triangle((count = 10), expected, actual));
    free_triangle(actual, 10);
+   actual = NULL;
 }
 
 int main(void)
