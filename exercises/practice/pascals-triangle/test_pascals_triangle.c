@@ -14,12 +14,9 @@ void setUp(void)
 
 void tearDown(void)
 {
-   if (actual)
-   {
-      for (size_t i = 0; i < count; ++i)
-      {
-         if (actual[i])
-         {
+   if (actual) {
+      for (size_t i = 0; i < count; ++i) {
+         if (actual[i]) {
             free(actual[i]);
             actual[i] = NULL;
          }
