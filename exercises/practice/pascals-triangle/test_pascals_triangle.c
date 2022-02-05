@@ -23,7 +23,7 @@ void tearDown(void)
       }
       free(actual);
       actual = NULL;
-   }  
+   }
 }
 
 static bool check_triangle(size_t count, uint8_t expected[][count],
