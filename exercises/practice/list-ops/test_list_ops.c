@@ -2,11 +2,11 @@
 #include "list_ops.h"
 #include "test-framework/unity.h"
 
-const int MAX_STRING_LEN = 100;
-list_t *list = NULL;
-list_t *list2 = NULL;
-list_t *actual = NULL;
-char *error_message = NULL;
+static const int MAX_STRING_LEN = 100;
+static list_t *list = NULL;
+static list_t *list2 = NULL;
+static list_t *actual = NULL;
+static char *error_message = NULL;
 
 void setUp(void)
 {
