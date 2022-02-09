@@ -12,35 +12,15 @@ void setUp(void)
 {
 }
 
-static void call_delete_list(int count, ...)
-{
-   va_list ptr;
-   va_start(ptr, count);
-   for (int i = 0; i < count; i++) {
-      list_t **list = va_arg(ptr, list_t **);
-      delete_list(*list);
-      *list = NULL;
-   }
-   va_end(ptr);
-}
-
 static void release(int count, ...)
 {
    va_list ptr;
    va_start(ptr, count);
    for (int i = 0; i < count; i++) {
-      if (i < 3) {
-         list_t **list = va_arg(ptr, list_t **);
-         if (*list) {
-            free(*list);
-            *list = NULL;
-         }
-      } else {
-         char **err_msg = va_arg(ptr, char **);
-         if (*err_msg) {
-            free(*err_msg);
-            *err_msg = NULL;
-         }
+      list_t **list = va_arg(ptr, list_t **);
+      if (*list) {
+         free(*list);
+         *list = NULL;
       }
    }
    va_end(ptr);
@@ -48,7 +28,11 @@ static void release(int count, ...)
 
 void tearDown(void)
 {
-   release(4, &list, &list2, &actual, &error_message);
+   release(3, &list, &list2, &actual);
+   if (error_message) {
+      free(error_message);
+      error_message = NULL;
+   }
 }
 
 static char *print_elements(size_t length, list_element_t list_elements[])
@@ -131,6 +115,12 @@ static list_element_t fold_divide(list_element_t element,
    return (accumulator == 0) ? 0 : element / accumulator;
 }
 
+static void call_delete_list(list_t **list)
+{
+   delete_list(*list);
+   *list = NULL;
+}
+
 static void test_append_empty_lists(void)
 {
    list = new_list(0, NULL);
@@ -139,7 +129,9 @@ static void test_append_empty_lists(void)
    actual = append_list(list, list2);
    check_lists_match(0, NULL, actual);
 
-   call_delete_list(3, &list, &list2, &actual);
+   call_delete_list(&list);
+   call_delete_list(&list2);
+   call_delete_list(&actual);
 }
 
 static void test_append_list_to_empty_list(void)
@@ -153,7 +145,9 @@ static void test_append_list_to_empty_list(void)
    actual = append_list(list, list2);
    check_lists_match(expected_length, expected_elements, actual);
 
-   call_delete_list(3, &list, &list2, &actual);
+   call_delete_list(&list);
+   call_delete_list(&list2);
+   call_delete_list(&actual);
 }
 
 static void test_append_empty_list_to_list(void)
@@ -167,7 +161,9 @@ static void test_append_empty_list_to_list(void)
    actual = append_list(list, list2);
    check_lists_match(expected_length, expected_elements, actual);
 
-   call_delete_list(3, &list, &list2, &actual);
+   call_delete_list(&list);
+   call_delete_list(&list2);
+   call_delete_list(&actual);
 }
 
 static void test_append_non_empty_lists(void)
@@ -181,7 +177,9 @@ static void test_append_non_empty_lists(void)
    actual = append_list(list, list2);
    check_lists_match(expected_length, expected_elements, actual);
 
-   call_delete_list(3, &list, &list2, &actual);
+   call_delete_list(&list);
+   call_delete_list(&list2);
+   call_delete_list(&actual);
 }
 
 static void test_filter_empty_list(void)
@@ -192,7 +190,8 @@ static void test_filter_empty_list(void)
    actual = filter_list(list, filter_modulo);
    check_lists_match(0, NULL, actual);
 
-   call_delete_list(2, &list, &actual);
+   call_delete_list(&list);
+   call_delete_list(&actual);
 }
 
 static void test_filter_non_empty_list(void)
@@ -205,7 +204,8 @@ static void test_filter_non_empty_list(void)
    actual = filter_list(list, filter_modulo);
    check_lists_match(expected_length, expected_elements, actual);
 
-   call_delete_list(2, &list, &actual);
+   call_delete_list(&list);
+   call_delete_list(&actual);
 }
 
 static void test_length_empty_list(void)
@@ -217,7 +217,7 @@ static void test_length_empty_list(void)
    size_t actual = length_list(list);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void test_length_non_empty_list(void)
@@ -229,7 +229,7 @@ static void test_length_non_empty_list(void)
    size_t actual = length_list(list);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void test_map_empty_list(void)
@@ -240,7 +240,8 @@ static void test_map_empty_list(void)
    actual = map_list(list, map_increment);
    check_lists_match(0, NULL, actual);
 
-   call_delete_list(2, &list, &actual);
+   call_delete_list(&list);
+   call_delete_list(&actual);
 }
 
 static void test_map_non_empty_list(void)
@@ -254,7 +255,8 @@ static void test_map_non_empty_list(void)
    actual = map_list(list, map_increment);
    check_lists_match(expected_length, expected_elements, actual);
 
-   call_delete_list(2, &list, &actual);
+   call_delete_list(&list);
+   call_delete_list(&actual);
 }
 
 static void test_foldl_empty_list(void)
@@ -267,7 +269,7 @@ static void test_foldl_empty_list(void)
    list_element_t actual = foldl_list(list, initial, fold_divide);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void
@@ -281,7 +283,7 @@ test_foldl_direction_independent_function_applied_to_non_empty_list(void)
    list_element_t actual = foldl_list(list, initial, fold_add);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void
@@ -295,7 +297,7 @@ test_foldl_direction_dependent_function_applied_to_non_empty_list(void)
    list_element_t actual = foldl_list(list, initial, fold_divide);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void test_foldr_empty_list(void)
@@ -308,7 +310,7 @@ static void test_foldr_empty_list(void)
    list_element_t actual = foldr_list(list, initial, fold_multiply);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void
@@ -322,7 +324,7 @@ test_foldr_direction_independent_function_applied_to_non_empty_list(void)
    list_element_t actual = foldr_list(list, initial, fold_add);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void
@@ -336,7 +338,7 @@ test_foldr_direction_dependent_function_applied_to_non_empty_list(void)
    list_element_t actual = foldr_list(list, initial, fold_divide);
    TEST_ASSERT_EQUAL(expected, actual);
 
-   call_delete_list(1, &list);
+   call_delete_list(&list);
 }
 
 static void test_reverse_empty_list(void)
@@ -347,7 +349,8 @@ static void test_reverse_empty_list(void)
    actual = reverse_list(list);
    check_lists_match(0, NULL, actual);
 
-   call_delete_list(2, &list, &actual);
+   call_delete_list(&list);
+   call_delete_list(&actual);
 }
 
 static void test_reverse_non_empty_list(void)
@@ -360,7 +363,8 @@ static void test_reverse_non_empty_list(void)
    actual = reverse_list(list);
    check_lists_match(expected_length, expected_elements, actual);
 
-   call_delete_list(2, &list, &actual);
+   call_delete_list(&list);
+   call_delete_list(&actual);
 }
 
 int main(void)
