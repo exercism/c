@@ -12,11 +12,11 @@ void setUp(void)
 {
 }
 
-static void release(int count, ...)
+static void release_lists(int count, ...)
 {
    va_list ptr;
    va_start(ptr, count);
-   for (int i = 0; i < count; i++) {
+   for (int i = 0; i < count; ++i) {
       list_t **list = va_arg(ptr, list_t **);
       if (*list) {
          free(*list);
@@ -28,7 +28,7 @@ static void release(int count, ...)
 
 void tearDown(void)
 {
-   release(3, &list, &list2, &actual);
+   release_lists(3, &list, &list2, &actual);
    if (error_message) {
       free(error_message);
       error_message = NULL;
