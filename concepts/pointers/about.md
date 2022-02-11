@@ -165,7 +165,7 @@ printf("my_ints[1] is %u. *++my_ptr is %u.\n", my_ints[1], *++my_ptr);
 ```
 
 In that line we have incremented the pointer to be beyond the array.
-We have overrun the array and we are pointing at the next four bytes in memory which the pointer interprets as an int, but, in fact, those bytes could belong to another variable or variables.
+We have overrun the array and we are pointing at the next four bytes in memory which the pointer interprets as an `int`, but, in fact, those bytes could belong to another variable or variables.
 Those four bytes could  be part of a `double` or they could be four `char`s.
 The problem is we shouldn't even be looking at them with our pointer.
 
