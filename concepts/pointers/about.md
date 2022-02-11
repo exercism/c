@@ -32,8 +32,6 @@ That location in memory is known as the address of the variable or constant.
 ## Address operator
 
 To get the address of a variable we use the address operator, which is `&`.
-
-
 ```c
 int i = 5;
 int *i_address = &i;
