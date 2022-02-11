@@ -384,7 +384,7 @@ void describe_me(char *adjective){
 }
 
 int main() {
-    char *adjective= "good";
+    char *adjective = "good";
     describe_me(adjective);
     printf("I am really %s.\n", adjective);
     
