@@ -55,7 +55,7 @@ When we create an array like so
 int my_ints[] = {1, 2};
 ```
 
-the value of `my_ints` is actually its address, which also happens to be the same as the address of its first element. The address of its second element will be the first element's address plus the size of an int on the system.
+The value of `my_ints` is actually its address, which also happens to be the same as the address of its first element. The address of its second element will be the first element's address plus the size of an `int` on the system.
 
 To better see this, try running the following
 
