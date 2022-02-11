@@ -231,7 +231,7 @@ When the array of `char` arrays is passed into `print_strings()`, the signature 
 
 So how do we know that `char **` is really a pointer to an array of pointers to char arrays, and not a pointer to a pointer of a single char?
 We don't.
-And this is what can make using pointers confusing.
+This is one of the may things that can make using pointers confusing.
 The following may compile
 
 ```c
