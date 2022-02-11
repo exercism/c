@@ -269,7 +269,8 @@ But why pass a pointer into a function?
 
 ## Passing a Pointer to a Function
 
-In C, arguments are passed to functions by value. That means that the value is copied from the argument and that copy is local to the function. When the function ends, so does the copied value.
+In C, arguments are passed to functions by value. 
+That means that the value is copied from the argument and that copy is local to the function. When the function ends, so does the copied value.
 
 See what happens when we try to change values inside a function
 
