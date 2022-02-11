@@ -227,7 +227,7 @@ int main() {
 ```
 
 It may not be obvious, but the array of strings is declared and initialized as a pointer to an array of `char` arrays.
-When the array of `char` arrays is passed into `print_strings`, the signature describes it as a pointer to pointer(s) to `char`.
+When the array of `char` arrays is passed into `print_strings()`, the signature describes it as a pointer to pointer(s) to `char`.
 
 So how do we know that `char **` is really a pointer to an array of pointers to char arrays, and not a pointer to a pointer of a single char?
 We don't.
