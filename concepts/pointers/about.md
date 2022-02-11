@@ -76,10 +76,10 @@ int main() {
     // the address of my_ints and the value of my_ptr are the same
     printf("my_ints is %p. my_ptr is %p.\n", my_ints, my_ptr);
     
-    // both addresses of the first element are the same as the original addresses
+    // the address of the first element is the same as the values in the line above
     printf("&my_ints[0] is %p. my_ptr + 0 is %p.\n", &my_ints[0], my_ptr + 0);
     
-    // both addresses for the second element have increased by the size of an int
+    // the address of the second element has increased by the size of an int
     printf("&my_ints[1] is %p. my_ptr + 1 is %p.\n", &my_ints[1], my_ptr + 1); // 
     
     return 0;
