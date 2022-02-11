@@ -29,7 +29,7 @@ Wait, what?
 Variables and constants store their value in a memory location.
 That location in memory is known as the address of the variable or constant.
 
-## Address operator
+## Address operator, and Indirection operator (part 1)
 
 To get the address of a variable we use the address operator, which is `&`.
 ```c
@@ -40,6 +40,7 @@ int *i_address = &i;
 Wait, what does that `*` mean before `i_address`? Doesn't that mean multiply?
 
 A type followed by a `*` followed by an identifier is the way to declare a pointer to a variable of that type.
+It is known as the indirection operator because it indirectly refers to the value for which the pointer holds the address.
 
 Okay, but why make a variable just to hold the address of another variable? 
 
@@ -55,7 +56,8 @@ When we create an array like so
 int my_ints[] = {1, 2};
 ```
 
-The value of `my_ints` is actually its address, which also happens to be the same as the address of its first element. The address of its second element will be the first element's address plus the size of an `int` on the system.
+The value of `my_ints` is actually its address, which also happens to be the same as the address of its first element.
+The address of its second element will be the first element's address plus the size of an `int` on the system.
 
 To better see this, try running the following
 
@@ -88,8 +90,8 @@ int main() {
 
 The previous example shows why array indexing begins at `0` instead of `1`.
 The index into an array multiplies the index by the size of the type and adds it to the starting address of the array.
-Since the first element aligns with the beginning of the array, we multiply the type by zero for adding to the start address to get the first element.
-To get the second element we multiple the type by 1 for adding to the start address.
+Since the first element aligns with the beginning of the array, we multiply the type by `0` for adding to the start address to get the first element.
+To get the second element we multiple the type by `1` for adding to the start address.
 If the type is four bytes in length, the address of the second element will be four bytes higher than the first element.
 
 This is also why pointers are declared to be of a certain type.
@@ -99,20 +101,22 @@ It means we're adding `1` times the length of its type in bytes.
 
 But wait, there's more! You didn't think we were finished with `*`, did you?
 
-## Dereference Operator
+## Indirection Operator (part 2)
 
 Now that we understand how addresses work with array indexing, what good is it if we don't get the value stored at an address?
 How do we do that?
-To get the value stored at an address we use the dereference operator, which is, you guessed it, `*`.
+To get the value stored at an address we use the indirection operator, which, you may recall, is `*`.
+In this situation the indirection operator is also sometimes referred to as the dereference operator, because it dereferences the value for which the pointer has the address.
+Calling it the dereference operator when used for dereferencing distinguishes it from the indirection operator for defining a pointer, but `*` for both uses is technically named the indirection operator.
 
 Come on!
 Are you kidding me?
 How many uses are there for `*`?!
-Multiplication, declaring a pointer, and now derefencing!
+Multiplication, declaring a pointer, and now dereferencing!
 It's confusing!
 And what exactly is dereferencing, anyway?
 
-An example shows how to use the dereferencing operator
+An example shows how to use the indirection operator for dereferencing
 
 ```c
 #include <stdio.h>
@@ -196,8 +200,8 @@ Because this
 int* my_ptr1, my_ptr2_that_is_really_an_int;
 ```
 
-does not declare two pointers to an int, but declares a pointer to an int, and an int.
-To declare two pointers to an int would be like so
+does not declare two pointers to an `int`, but declares a pointer to an `int`, and an `int`.
+To declare two pointers to an `int` would be like so
 
 ```c
 int *my_ptr1, *my_ptr2;
@@ -229,7 +233,7 @@ int main() {
 It may not be obvious, but the array of strings is declared and initialized as a pointer to an array of `char` arrays.
 When the array of `char` arrays is passed into `print_strings()`, the signature describes it as a pointer to pointer(s) to `char`.
 
-So how do we know that `char **` is really a pointer to an array of pointers to char arrays, and not a pointer to a pointer of a single char?
+So how do we know that `char **` is really a pointer to an array of pointers to `char` arrays, and not a pointer to a pointer of a single `char`?
 We don't.
 This is one of the may things that can make using pointers confusing.
 The following may compile
@@ -258,11 +262,13 @@ Using a different signature doesn't help. Changing the signature to this
 
 ```c
 void print_strings(char *passed_in_strings[]) {
+    // code snipped
+}
 ```
 
 may still compile and still print gibberish.
-But there is really no value to passing in a pointer to a pointer to a single char.
-Chances are, when you see `char **`, it represents a pointer to to an array of pointers to char arrays.
+But there is really no value to passing in a pointer to a pointer to a single `char`.
+Chances are, when you see `char **`, it represents a pointer to to an array of pointers to `char` arrays.
 
 We've seen a pointer passed into a function.
 But why pass a pointer into a function?
@@ -270,7 +276,8 @@ But why pass a pointer into a function?
 ## Passing a Pointer to a Function
 
 In C, arguments are passed to functions by value. 
-That means that the value is copied from the argument and that copy is local to the function. When the function ends, so does the copied value.
+That means that the value is copied from the argument and that copy is local to the function.
+When the function ends, so does the copied value.
 
 See what happens when we try to change values inside a function
 
@@ -302,7 +309,7 @@ Yes we can!
 We can pass in the addresses of `a` and `b` as pointers.
 But, what good will that do, since the function copies the pointers?
 It is good, because a copied address is still the same address.
-By dereferencing the address we can get access to the original value as it was defined in `main`
+By dereferencing the address we can get access to the original value as it was defined in `main()`.
 
 ```c
 #include <stdio.h>
@@ -333,17 +340,17 @@ int main() {
 
 That's a lot of `*`s in `swap` now, but it now works as intended.
 
-A way to read the dereference operator is "value at".
+A way to read the indirection operator is "value at".
 So, `*a` is the value at `a`.
 How well does this work with strings?
 
 ## Pointers to Char
 
 We know that the value of an array variable is the address where the array starts.
-And we know we can define a string as either a char array, `char my_string[]`, or as a pointer to `char`, `char *`.
+And we know we can define a string as either a `char` array, `char my_string[]`, or as a pointer to `char`, `char *`.
 How are they different?
 
-In this code we pass a `char *` argument to `describe_me`.
+In this code we pass a `char *` argument to `describe_me()`.
 The `adjective` argument is defined as a `char` array and is accepted by the function as a pointer to `char`.
 
 ```c
@@ -368,12 +375,11 @@ int main() {
 }
 ```
 
-We are able to make a persistent change to `adjective`, demonstrating that the defined char array can be accepted as a pointer to char.
+We are able to make a persistent change to `adjective`, demonstrating that the defined `char` array can be accepted as a pointer to `char`.
 
 Now let's try defining `adjective` as a pointer to `char` directly.
 
 ```c
-// Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
 
@@ -394,9 +400,10 @@ int main() {
 
 Remember how pointers are powerful, but also potentially dangerous?
 But why doesn't it work?
-An array is a pointer and a pointer worked with a char array!
-The reason is that, before, `adjective` was defined as a `char` array which is a variable belonging to `main`.
+An array is a pointer and a pointer worked with a `char` array!
+The reason is that, before, `adjective` was defined as a `char` array which is a variable belonging to `main()`.
 Now, `adjective` is defined as a string _literal_, meaning that it is written to read-only static memory which belongs to the entire program.
+They are both pointers, but they point to different things.
 Trying to change a literal string value is like trying to change the literal value of `5`.
 It is not allowed.
 So, the problem isn't really that it's a pointer.
