@@ -90,7 +90,7 @@ The previous example shows why array indexing begins at `0` instead of `1`.
 The index into an array multiplies the index by the size of the type and adds it to the starting address of the array.
 Since the first element aligns with the beginning of the array, we multiply the type by zero for adding to the start address to get the first element.
 To get the second element we multiple the type by 1 for adding to the start address.
-If the type is four bytes in length, the second element will be four bytes higher than the first element.
+If the type is four bytes in length, the address of the second element will be four bytes higher than the first element.
 
 This is also why pointers are declared to be of a certain type.
 If a pointer did not know what type it points to, it would not know how many bytes to advance when adding `1` to it.
