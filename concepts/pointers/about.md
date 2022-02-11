@@ -253,7 +253,7 @@ int main() {
 }
 ```
 
-but `print_strings` is not being used as intended.
+But `print_strings()` is not being used as intended.
 Using a different signature doesn't help. Changing the signature to this
 
 ```c
