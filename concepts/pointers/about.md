@@ -378,7 +378,7 @@ Now let's try defining `adjective` as a pointer to `char` directly.
 #include <string.h>
 
 void describe_me(char *adjective){
-    // segmentation fault on this line
+    // segmentation fault on this line when program is executed
     strcpy(adjective, "evil");
     printf("I am %s.\n", adjective);
 }
