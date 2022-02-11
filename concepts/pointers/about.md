@@ -294,7 +294,7 @@ int main() {
 }
 ```
 
-This is because, even though the variables have the same names, `a` and `b` in `swap` are not the same `a` and `b` in `main`.
+This is because, even though the variables have the same names, `a` and `b` in `swap()` are not the same `a` and `b` in `main()`.
 They are _copies_ of the values of `a` and `b`.
 Can we change `swap` to make it work as we intend?
 
