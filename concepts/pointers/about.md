@@ -40,7 +40,7 @@ int *i_address = &i;
 Wait, what does that `*` mean before `i_address`? Doesn't that mean multiply?
 
 A type followed by a `*` followed by an identifier is the way to declare a pointer to a variable of that type.
-It is known as the indirection operator because it indirectly refers to the value for which the pointer holds the address.
+The `*` is known as the indirection operator because it indirectly refers to the value for which the pointer holds the address.
 
 Okay, but why make a variable just to hold the address of another variable? 
 
