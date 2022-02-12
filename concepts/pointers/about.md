@@ -234,7 +234,9 @@ It may not be obvious, but the array of strings is declared and initialized as a
 When the array of `char` arrays is passed into `print_strings()`, the signature describes it as a pointer to pointer(s) to `char`.
 
 So how do we know that `char **` is really a pointer to an array of pointers to `char` arrays, and not a pointer to a pointer of a single `char`?
+
 We don't.
+
 This is one of the may things that can make using pointers confusing.
 The following may compile
 
@@ -402,7 +404,7 @@ Remember how pointers are powerful, but also potentially dangerous?
 But why doesn't it work?
 An array is a pointer and a pointer worked with a `char` array!
 The reason is that, before, `adjective` was defined as a `char` array which is a variable belonging to `main()`.
-Now, `adjective` is defined as a string _literal_, meaning that it is written to read-only static memory which belongs to the entire program.
+Now, `adjective` is defined as a string _literal_, meaning that the `chars` are written to read-only static memory which belongs to the entire program.
 They are both pointers, but they point to different things.
 Trying to change a literal string value is like trying to change the literal value of `5`.
 It is not allowed.
