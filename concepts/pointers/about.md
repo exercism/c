@@ -91,7 +91,7 @@ int main() {
 The previous example shows why array indexing begins at `0` instead of `1`.
 The index into an array multiplies the index by the size of the type and adds it to the starting address of the array.
 Since the first element aligns with the beginning of the array, we multiply the type by `0` for adding to the start address to get the first element.
-To get the second element we multiple the type by `1` for adding to the start address.
+To get the second element we multiply the type by `1` for adding to the start address.
 If the type is four bytes in length, the address of the second element will be four bytes higher than the first element.
 
 This is also why pointers are declared to be of a certain type.
