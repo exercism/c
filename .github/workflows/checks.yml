@@ -32,7 +32,7 @@ jobs:
         run: ./bin/check-include-guards
 
       - name: Check links
-        uses: lycheeverse/lychee-action@768a13171aff975543be1d2f2dd740bc3dcd113c
+        uses: lycheeverse/lychee-action@b64a484daf764c3f01323fc9dfc4546adb9a6718
         id: lychee
         with:
           args: --no-progress **/*.md **/*.html
