@@ -16,26 +16,31 @@ static void test_expected_minutes_in_oven(void)
 
 static void test_remaining_minutes_in_oven(void)
 {
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL_INT(15, remaining_minutes_in_oven(25));
 }
 
 static void test_preparation_time_in_oven_for_one_layer(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_INT(2, preparation_time_in_minutes(1));
 }
 
 static void test_preparation_time_in_minutes_for_multiple_layers(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_INT(8, preparation_time_in_minutes(4));
 }
 
 static void test_elapsed_time_in_minutes_for_one_layer(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_INT(32, elapsed_time_in_minutes(1, 30));
 }
 
 static void test_elapsed_time_in_minutes_for_multiple_layers(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL_INT(16, elapsed_time_in_minutes(4, 8));
 }
 
