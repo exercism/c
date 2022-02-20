@@ -1,5 +1,7 @@
 {
-    "blurb": "",
-    "authors": ["wolf99"],
+    "blurb": "C is a statically-typed language, which means that everything has a type at compile-time. C allows one to use an imperative procedural coding style.",
+    "authors": [
+        "wolf99"
+    ],
     "contributors": []
 }
