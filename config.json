@@ -1009,6 +1009,21 @@
       "name": "Arrays"
     },
     {
+      "uuid": "43b437f2-9f9d-4ac3-a59a-b9ed4a5ffdf6",
+      "slug": "alignment",
+      "name": "Alignment"
+    },
+    {
+      "uuid": "6d80598f-3f97-4488-8526-c5b60505026a",
+      "slug": "assertions",
+      "name": "Assertions"
+    },
+    {
+      "uuid": "d9170884-0ed6-49b8-bc16-797e1f2bb28d",
+      "slug": "atomics",
+      "name": "Atomics"
+    },
+    {
       "uuid": "5e93a50c-0b68-46ad-b900-6206d813bd9b",
       "slug": "basics",
       "name": "Basics"
@@ -1024,9 +1039,19 @@
       "name": "Bit Manipulation"
     },
     {
+      "uuid": "2c087541-a5fa-4cfd-b0f1-5355f933b94b",
+      "slug": "booleans",
+      "name": "Booleans"
+    },
+    {
       "uuid": "151f101c-cf37-44b4-8e49-19dc3f12b62c",
       "slug": "callbacks",
       "name": "Callbacks"
+    },
+    {
+      "uuid": "101662f2-6448-43ab-9f7c-0a45d1216589",
+      "slug": "chars",
+      "name": "chars"
     },
     {
       "uuid": "10f3abb7-cd32-4b71-9217-ae777fed29e2",
@@ -1059,6 +1084,11 @@
       "name": "Enumerations"
     },
     {
+      "uuid": "2b60ed97-ce90-40d5-b528-bc12bf4b5a01",
+      "slug": "exiting",
+      "name": "Exiting"
+    },
+    {
       "uuid": "d13dcf14-29d1-453e-8adc-de397a3aba0d",
       "slug": "file-io",
       "name": "File I/O"
@@ -1079,11 +1109,6 @@
       "name": "Function Pointers"
     },
     {
-      "uuid": "03c4aacf-f5fd-4169-ad35-657686381881",
-      "slug": "function-scope",
-      "name": "Function Scope"
-    },
-    {
       "uuid": "d5071ddc-e981-4ac5-82b3-16e28e915d6b",
       "slug": "goto",
       "name": "Goto"
@@ -1099,9 +1124,24 @@
       "name": "Inlining"
     },
     {
+      "uuid": "1d5e513d-d90e-43a0-b7c4-08c71d525e5c",
+      "slug": "jumping",
+      "name": "Jumping"
+    },
+    {
       "uuid": "72233aff-8ea8-4fb5-aaeb-3d83d3ba192f",
       "slug": "labels",
       "name": "Labels"
+    },
+    {
+      "uuid": "3d79388b-e909-4e1b-99e9-d28e30e54fde",
+      "slug": "loops",
+      "name": "Loops"
+    },
+    {
+      "uuid": "997508f5-48e5-4dbb-b68e-28ab9b082983",
+      "slug": "localization",
+      "name": "Localization"
     },
     {
       "uuid": "90755256-7285-4510-a1e1-520abc9d4580",
@@ -1129,9 +1169,24 @@
       "name": "Recursion"
     },
     {
+      "uuid": "03c4aacf-f5fd-4169-ad35-657686381881",
+      "slug": "scope",
+      "name": "Scope"
+    },
+    {
+      "uuid": "b61747b7-c52c-4dab-929a-d35fa6c3c5f6",
+      "slug": "signalling",
+      "name": "Signalling"
+    },
+    {
       "uuid": "42c30e6d-eaa2-4ea9-9ec7-95acf7cd0649",
       "slug": "signedness",
       "name": "Signedness"
+    },
+    {
+      "uuid": "1985db3b-d431-48a5-b33d-b10be0615f4c",
+      "slug": "static-assertions",
+      "name": "Static Assertions"
     },
     {
       "uuid": "f2d8083f-97ff-4609-a7cb-82809ee73340",
@@ -1154,14 +1209,29 @@
       "name": "Type Casting"
     },
     {
+      "uuid": "bc9bae66-ba78-4129-9d5e-2e43c2d77973",
+      "slug": "type-generic-expressions",
+      "name": "Type-generic expressions"
+    },
+    {
+      "uuid": "2fd8695d-370d-4b1a-a591-9d68451960e7",
+      "slug": "multi-threading",
+      "name": "Multi-threading"
+    },
+    {
       "uuid": "9abbf042-85d0-4ecf-a52a-1116905124f3",
       "slug": "unions",
       "name": "Unions"
     },
     {
-      "uuid": "b655459d-86e9-4afc-a413-b6c6f08fb677",
-      "slug": "variable-scope",
-      "name": "Variable scope"
+      "uuid": "53d2a4a8-2c10-4db3-b50f-2ee45f1da398",
+      "slug": "unicode",
+      "name": "Unicode"
+    },
+    {
+      "uuid": "2e8c6605-cf12-418f-9e12-8165e256f751",
+      "slug": "variable-length-arrays",
+      "name": "Variable Length Arrays"
     },
     {
       "uuid": "b7c3c3b0-dd20-45b0-9c6f-5016eba672f0",
