@@ -1,21 +1,31 @@
 #!/usr/bin/env bash
-set -e
+set -eu
 
-# Move to the root directory of the repo so you can run this script from anywhere
-SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
-cd "${SCRIPT_DIR}"/..
+usage="run-test - runs exercise tests
+Usage:
+  run-tests [OPTIONS] [-e <exercise-slug>]
 
-# Clear up any previous run
-rm -rf build
+Options:
+
+  -c    Look in concept exercises, if no exercise specified all concept exercises will be tested
+  -p    Look practice exercises, if no exercise specified all practice exercises will be tested
+  -e    A specific exercise to test
+  -a    Test all concept and practice exercises
+  -h    Print this help"
+
+help () {
+    # Display help
+    echo "${usage}"
+}
 
 execute_test () {
     if [ -d "${1}" ]; then
         (
         cd "${1}"
         # Get the exercise name from the directory
-        EXERCISE_NAME=$(echo "$1" | tr '-' '_')
+        exercise_name=$(echo "$1" | tr '-' '_')
 
-        echo "Running tests for ${EXERCISE_NAME}";
+        echo "Running tests for ${exercise_name}";
 
         #remove the ignore line
         sed -i 's/TEST_IGNORE();//' ./test_*.c
@@ -23,12 +33,12 @@ execute_test () {
         # Copy the examples with the correct name for the exercise
         if [ -e ".meta/example.c" ]
         then
-          mv .meta/example.c ./"${EXERCISE_NAME}".c
+          mv .meta/example.c ./"${exercise_name}".c
         fi
 
         if [ -e ".meta/example.h" ]
         then
-          mv .meta/example.h ./"${EXERCISE_NAME}".h
+          mv .meta/example.h ./"${exercise_name}".h
         fi
 
         # Make it!
@@ -39,24 +49,101 @@ execute_test () {
     fi
 }
 
-# Clone the exercises directory to avoid pollution
-if [ $# -gt 0 ]; then
-    mkdir build
-    cd exercises/practice
-    cp -r "$@" ../../build
-    cd ../../build/
-else
-    cp -r exercises/practice build
-    cd build/
+copy_exercises () {
+    # Copies exercises from a given directory in ./exercises to the same
+    # directory in ./build
+    if [ $# -gt 0 ] && [ -d "exercises/${1}" ]
+    then
+        local directory="${1}"
+        shift
+        echo "Copying ${directory} exercises ${*}"
+        mkdir -p "build/${directory}"
+        if [ $# -gt 0 ]
+        then
+            cd "exercises/${directory}"
+            cp -r "$@" "../../build/${directory}/"
+            cd "../.."
+        else
+            cp -r "exercises/${directory}" "build"
+        fi
+    fi
+}
+
+execute_tests () {
+    # Executes all exercises in the given directory
+    if [ $# -gt 0 ] && [ -d "${1}" ]
+    then
+        pushd "${1}" > /dev/null
+        for exercise in *
+        do
+            execute_test "${exercise}"
+        done
+        popd > /dev/null
+    fi
+}
+
+# Move to the root directory of the repo so you can run this script from anywhere
+script_dir="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
+cd "${script_dir}"/..
+
+# Clear up any previous run
+rm -rf build
+
+concept="false"
+practice="false"
+exercise=()
+
+# Handle arguments
+while getopts "acpe:h" option
+do
+    case "${option}" in
+        a)
+            concept="true"
+            practice="true"
+            break;;
+        c)
+            concept="true";;
+        p)
+            practice="true";;
+        e)
+            exercise+=("${OPTARG}");;
+        h)
+            help
+            exit;;
+        *)
+            exit 1;;
+    esac
+done
+
+# Handle a lack of arguments
+if [ $OPTIND -eq 1 ]
+then
+    echo "$0: no arguments were passed"
+    exit 1
 fi
 
-# Allow specifying which tests to run as arguments
-if [ $# -gt 0 ]; then
-    for exercise in "$@"; do
-        execute_test "$exercise"
-    done
-else
-    for exercise in *; do
-        execute_test "$exercise"
-    done
+# Decide which exercises to copy the build dir
+# Copying to a new avoids polluting the track exercises
+if [ "$concept" == "true" ]
+then
+    if [ "$practice" != "true" ] && [ ${#exercise[@]} -ne 0 ]
+    then
+        copy_exercises "concept" "${exercise[@]}"
+    else
+        copy_exercises "concept"
+    fi
 fi
+
+if [ "$practice" == "true" ]
+then
+    if [ "$concept" != "true" ] && [ ${#exercise[@]} -ne 0 ]
+    then
+        copy_exercises "practice" "${exercise[@]}"
+    else
+        copy_exercises "practice"
+    fi
+fi
+
+# Execute any copied exercises
+execute_tests "build/concept"
+execute_tests "build/practice"
