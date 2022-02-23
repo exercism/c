@@ -387,6 +387,15 @@ static void test_no_allergen_score_parts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
 
+static void test_score_roll_over(void)
+{
+   TEST_IGNORE();
+
+   allergen_list_t list = get_allergens(257);
+   TEST_ASSERT_EQUAL(1, list.count);
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
+}
+
 int main(void)
 {
    UnityBegin("test_allergies.c");
@@ -448,6 +457,7 @@ int main(void)
    RUN_TEST(test_lots_of_stuff);
    RUN_TEST(test_everything);
    RUN_TEST(test_no_allergen_score_parts);
+   RUN_TEST(test_score_roll_over);
 
    return UnityEnd();
 }
