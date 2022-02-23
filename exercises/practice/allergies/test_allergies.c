@@ -394,6 +394,13 @@ static void test_score_roll_over(void)
    allergen_list_t list = get_allergens(257);
    TEST_ASSERT_EQUAL(1, list.count);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_PEANUTS]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_SHELLFISH]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_STRAWBERRIES]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_TOMATOES]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_CHOCOLATE]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_POLLEN]);
+   TEST_ASSERT_FALSE(list.allergens[ALLERGEN_CATS]);
 }
 
 int main(void)
