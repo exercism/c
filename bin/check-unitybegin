@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
+usage="check-unitybegin - checks UnityBegin() line for all exercises in a given directory
+Usage:
+  check-unitybegin <path-to-exercises>
+
+Example:
+  check-unitybegin ./exercises/concept ./exercises/practice"
+
 # Move to the root directory of the repo so you can run this script from anywhere
 SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
 cd "${SCRIPT_DIR}"/..
@@ -9,11 +16,35 @@ set +e
 
 ERROR_COUNT=0
 
-for f in exercises/practice/*/test_*; do
-    if ! grep -q UnityBegin\(\""$(basename "$f")"\"\) "$f"; then
-        echo "$f needs correct UnityBegin line"
-        (( ERROR_COUNT++ ))
-    fi;
-done
+check_exercises () {
+    for f in "${1}"/*/test_*; do
+        if [ -f "${f}" ]
+        then
+            if ! grep -q UnityBegin\(\""$(basename "$f")"\"\) "$f"; then
+                echo "$f needs correct UnityBegin line"
+                (( ERROR_COUNT++ ))
+            fi
+        else
+            echo "WARNING: file not found. Ignoring ${1}"
+        fi
+    done
+}
 
-exit $ERROR_COUNT
+if [ $# -gt 0 ]
+then
+    for directory
+    do
+        if [ -d "${directory}" ]
+        then
+            check_exercises "${directory}"
+        else
+            echo "WARNING: Directory not found. Ignoring: ${1}"
+        fi
+    done
+
+    exit "${ERROR_COUNT}"
+else
+    echo "${usage}"
+    echo ""
+    exit 1
+fi

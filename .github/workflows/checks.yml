@@ -26,7 +26,7 @@ jobs:
         run: ./bin/verify-unity-version ./exercises/concept ./exercises/practice
 
       - name: Check unitybegin()
-        run: ./bin/check-unitybegin
+        run: ./bin/check-unitybegin ./exercises/concept ./exercises/practice
 
       - name: Check include guards
         run: ./bin/check-include-guards ./exercises/concept ./exercises/practice
