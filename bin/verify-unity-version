@@ -44,7 +44,8 @@ check_exercises () {
                 (( ERROR_COUNT++ ))
             fi
         else
-            echo "WARNING: file not found. Ignoring ${1}"
+            echo "ERROR: file not found: ${1}"
+            exit 1
         fi
     done
 }
