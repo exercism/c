@@ -16,20 +16,26 @@ jobs:
       - name: Shell script static analysis
         run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin bin/run-tests format.sh
 
-      - name: Check practices formatting
+      - name: Check concept exercises formatting
+        run: |
+          find exercises/concept/ -path '*/test-framework' -prune -o \
+            \( -iname '*.h' -o -iname '*.c' \) -print0 |\
+            xargs --null clang-format --dry-run --Werror
+
+      - name: Check practice exercises formatting
         run: |
           find exercises/practice/ -path '*/test-framework' -prune -o \
             \( -iname '*.h' -o -iname '*.c' \) -print0 |\
             xargs --null clang-format --dry-run --Werror
 
       - name: Check Unity version
-        run: ./bin/verify-unity-version
+        run: ./bin/verify-unity-version ./exercises/concept ./exercises/practice
 
       - name: Check unitybegin()
-        run: ./bin/check-unitybegin
+        run: ./bin/check-unitybegin ./exercises/concept ./exercises/practice
 
       - name: Check include guards
-        run: ./bin/check-include-guards
+        run: ./bin/check-include-guards ./exercises/concept ./exercises/practice
 
       - name: Check links
         uses: lycheeverse/lychee-action@d2bc7de736f6be63f02f38316295eaf5ea507b9f

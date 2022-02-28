@@ -19,4 +19,4 @@ jobs:
     - name: Test Exercises
       env:
         CC: ${{ matrix.compiler }}
-      run: ./bin/run-tests
+      run: ./bin/run-tests -a

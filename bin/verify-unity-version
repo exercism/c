@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+usage="verify-unity-version - verifies unity version for all exercises in a given directory
+Usage:
+  verify-unity-version <path-to-exercises>
+
+Example:
+  verify-unity-version ./exercises/concept ./exercises/practice"
+
 declare -r expected_version_major=2
 declare -r expected_version_minor=5
 declare -r expected_version_build=2
@@ -27,11 +34,38 @@ test_unity_version() {
 }
 
 ERROR_COUNT=0
-for f in exercises/practice/*/test-framework/unity.h; do
-    if ! test_unity_version "$f"; then
-        echo "$f unexpected unity version"
-        (( ERROR_COUNT++ ))
-    fi;
-done
 
-exit $ERROR_COUNT
+check_exercises () {
+    for f in "${1}"/*/test-framework/unity.h; do
+        if [ -f "${f}" ]
+        then
+            if ! test_unity_version "$f"; then
+                echo "$f unexpected unity version"
+                (( ERROR_COUNT++ ))
+            fi
+        else
+            echo "ERROR: file not found: ${1}"
+            exit 1
+        fi
+    done
+}
+
+if [ $# -gt 0 ]
+then
+    echo "Expecting Unity version ${expected_version_major}.${expected_version_minor}.${expected_version_build}"
+    for directory
+    do
+        if [ -d "${directory}" ]
+        then
+            check_exercises "${directory}"
+        else
+            echo "WARNING: Directory not found. Ignoring: ${1}"
+        fi
+    done
+
+    exit "${ERROR_COUNT}"
+else
+    echo "${usage}"
+    echo ""
+    exit 1
+fi
