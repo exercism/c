@@ -30,7 +30,18 @@ execute_test () {
         #remove the ignore line
         sed -i 's/TEST_IGNORE();//' ./test_*.c
 
-        # Copy the examples with the correct name for the exercise
+        # Copy the examples with the correct name for the concept exercise
+        if [ -e ".meta/exemplar.c" ]
+        then
+          mv .meta/exemplar.c ./"${exercise_name}".c
+        fi
+
+        if [ -e ".meta/exemplar.h" ]
+        then
+          mv .meta/exemplar.h ./"${exercise_name}".h
+        fi
+
+        # Copy the examples with the correct name for the practice exercise
         if [ -e ".meta/example.c" ]
         then
           mv .meta/example.c ./"${exercise_name}".c
