@@ -1,0 +1,24 @@
+{
+  "blurb": "Learn about the basics of C by following a lasagna recipe.",
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [],
+  "forked_from": [
+    "csharp/lucians-luscious-lasagna"
+  ],
+  "files": {
+    "solution": [
+      "lucians_luscious_lasagna.h",
+      "lucians_luscious_lasagna.c"
+    ],
+    "test": [
+      "test_lucians_luscious_lasagna.c"
+    ],
+    "exemplar": [
+      ".meta/exemplar.c"
+    ],
+    "editor": []
+  },
+  "language_versions": "c99"
+}
