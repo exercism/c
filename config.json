@@ -875,7 +875,7 @@
         "name": "Perfect Numbers",
         "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733",
         "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_if_else_statements","control_flow_loops"],
+        "prerequisites": ["control_flow_loops"],
         "difficulty": 1,
         "topics": [
           "control_flow_if_else_statements",
