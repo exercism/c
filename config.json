@@ -5,26 +5,26 @@
   "blurb": "C is a small, general-purpose, imperative programming language with a static type system, scopes, and structures. It's typically used as an alternative to assembly programming, such as in operating systems.",
   "version": 3,
   "status": {
-    "concept_exercises": false,
-    "test_runner": true,
+    "concept-exercises": false,
+    "test-runner": true,
     "representer": false,
     "analyzer": false
   },
-  "online_editor": {
-    "indent_style": "space",
-    "indent_size": 4,
-    "highlightjs_language": "c"
+  "online-editor": {
+    "indent-style": "space",
+    "indent-size": 4,
+    "highlightjs-language": "c"
   },
-  "test_runner": {
-    "average_run_time": 2.0
+  "test-runner": {
+    "average-run-time": 2.0
   },
   "files": {
     "solution": [
-      "%{snake_slug}.c",
-      "%{snake_slug}.h"
+      "%{snake-slug}.c",
+      "%{snake-slug}.h"
     ],
     "test": [
-      "test_%{snake_slug}.c"
+      "test-%{snake-slug}.c"
     ],
     "example": [
       ".meta/example.c",
@@ -53,12 +53,12 @@
         "slug": "armstrong-numbers",
         "name": "Armstrong Numbers",
         "uuid": "a4658ee9-b71c-4764-9652-7ed83d46516b",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "logic",
           "math"
         ]
@@ -85,8 +85,8 @@
         "difficulty": 1,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "strings"
         ]
       },
@@ -94,12 +94,12 @@
         "slug": "hamming",
         "name": "Hamming",
         "uuid": "fa5e6bbb-2eaf-484f-a5c5-de5cb2a9175b",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 2,
         "topics": [
           "arrays",
-          "control_flow_loops",
+          "control-flow-loops",
           "strings"
         ]
       },
@@ -107,13 +107,13 @@
         "slug": "grains",
         "name": "Grains",
         "uuid": "53959d50-efad-4911-84de-b67efe1bee5f",
-        "practices": ["control_flow_loops","bitwise_operations"],
-        "prerequisites": ["control_flow_loops"],
+        "practices": ["control-flow-loops","bitwise-operations"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 1,
         "topics": [
-          "bitwise_operations",
-          "control_flow_loops",
-          "performance_optimizations"
+          "bitwise-operations",
+          "control-flow-loops",
+          "performance-optimizations"
         ]
       },
       {
@@ -121,10 +121,10 @@
         "name": "Difference Of Squares",
         "uuid": "9802cbc0-eb70-4840-b8ee-a228f1fc29ea",
         "practices": ["math"],
-        "prerequisites": ["control_flow_loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 1,
         "topics": [
-          "control_flow_loops",
+          "control-flow-loops",
           "math"
         ]
       },
@@ -132,12 +132,12 @@
         "slug": "square-root",
         "name": "Square Root",
         "uuid": "0400f52d-48ae-4300-a72e-32e8a08514d0",
-        "practices": ["bitwise_operations","math"],
-        "prerequisites": ["bitwise_operations","control_flow_loops"],
+        "practices": ["bitwise-operations","math"],
+        "prerequisites": ["bitwise-operations","control-flow-loops"],
         "difficulty": 4,
         "topics": [
-          "bitwise_operations",
-          "control_flow_loops",
+          "bitwise-operations",
+          "control-flow-loops",
           "math"
         ]
       },
@@ -150,8 +150,8 @@
         "difficulty": 3,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "pointers",
           "sorting",
           "strings",
@@ -162,13 +162,13 @@
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "db1771d2-afd8-4e01-9b6a-6be75029ef1d",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops","arrays"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops","arrays"],
         "difficulty": 2,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "searching"
         ]
       },
@@ -188,16 +188,16 @@
         "slug": "circular-buffer",
         "name": "Circular Buffer",
         "uuid": "c54a33a3-8c6f-4964-b770-b602d207fa20",
-        "practices": ["structs","memory_management","pointers"],
+        "practices": ["structs","memory-management","pointers"],
         "prerequisites": ["arrays","buffers","structs","pointers"],
         "difficulty": 3,
         "topics": [
           "arrays",
           "buffers",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
-          "flexible_array_members",
-          "memory_management",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
+          "flexible-array-members",
+          "memory-management",
           "pointers",
           "structs"
         ]
@@ -206,16 +206,16 @@
         "slug": "list-ops",
         "name": "List Ops",
         "uuid": "27a56356-d3ad-41d2-923c-2a58fbb36454",
-        "practices": ["pointers","memory_management","structs"],
-        "prerequisites": ["function_pointers","pointers","structs"],
+        "practices": ["pointers","memory-management","structs"],
+        "prerequisites": ["function-pointers","pointers","structs"],
         "difficulty": 3,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
-          "flexible_array_members",
-          "function_pointers",
-          "memory_management",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
+          "flexible-array-members",
+          "function-pointers",
+          "memory-management",
           "pointers",
           "structs"
         ]
@@ -224,15 +224,15 @@
         "slug": "pythagorean-triplet",
         "name": "Pythagorean Triplet",
         "uuid": "7b7c61f4-2849-46b7-9057-900bb6b95052",
-        "practices": ["memory_management","structs"],
-        "prerequisites": ["memory_management","structs","control_flow_if_else_statements"],
+        "practices": ["memory-management","structs"],
+        "prerequisites": ["memory-management","structs","control-flow-if-else-statements"],
         "difficulty": 4,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
-          "flexible_array_members",
-          "memory_management",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
+          "flexible-array-members",
+          "memory-management",
           "structs"
         ]
       },
@@ -241,14 +241,14 @@
         "name": "Saddle Points",
         "uuid": "448f9137-4e58-4c26-9853-abe07f01c908",
         "practices": ["structs","arrays"],
-        "prerequisites": ["structs","control_flow_loops","arrays"],
+        "prerequisites": ["structs","control-flow-loops","arrays"],
         "difficulty": 4,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
-          "flexible_array_members",
-          "memory_management",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
+          "flexible-array-members",
+          "memory-management",
           "structs"
         ]
       },
@@ -256,13 +256,13 @@
         "slug": "allergies",
         "name": "Allergies",
         "uuid": "871f1c41-debd-4807-8ee5-bde54c3918f8",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["structs","control_flow_loops"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["structs","control-flow-loops"],
         "difficulty": 4,
         "topics": [
-          "control_flow_if_statements",
-          "control_flow_loops",
-          "memory_management",
+          "control-flow-if-statements",
+          "control-flow-loops",
+          "memory-management",
           "structs"
         ]
       },
@@ -270,13 +270,13 @@
         "slug": "phone-number",
         "name": "Phone Number",
         "uuid": "660d1586-c4e0-4537-94b5-455a983820f8",
-        "practices": ["control_flow_loops","memory_management"],
-        "prerequisites": ["control_flow_loops","memory_management"],
+        "practices": ["control-flow-loops","memory-management"],
+        "prerequisites": ["control-flow-loops","memory-management"],
         "difficulty": 4,
         "topics": [
-          "control_flow_if_else_statements",
-          "control_flow_loops",
-          "memory_management",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
+          "memory-management",
           "strings"
         ]
       },
@@ -284,27 +284,27 @@
         "slug": "clock",
         "name": "Clock",
         "uuid": "b868eeff-400c-4e46-8675-10d85c14b503",
-        "practices": ["structs","memory_management"],
+        "practices": ["structs","memory-management"],
         "prerequisites": ["structs","pointers"],
         "difficulty": 2,
         "topics": [
-          "control_flow_if_statements",
-          "preprocessor_x_macros_in_test",
+          "control-flow-if-statements",
+          "preprocessor-x-macros-in-test",
           "strings",
-          "text_formatting"
+          "text-formatting"
         ]
       },
       {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "fb2530a3-cbbf-4ba9-88d0-203faac03e96",
-        "practices": ["memory_management","algorithms"],
-        "prerequisites": ["control_flow_loops","pointers","structs"],
+        "practices": ["memory-management","algorithms"],
+        "prerequisites": ["control-flow-loops","pointers","structs"],
         "difficulty": 2,
         "topics": [
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "math",
-          "memory_management"
+          "memory-management"
         ]
       },
       {
@@ -315,36 +315,36 @@
         "prerequisites": ["pointers","structs"],
         "difficulty": 2,
         "topics": [
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "pointers",
           "strings",
           "structs",
-          "variable_argument_lists"
+          "variable-argument-lists"
         ]
       },
       {
         "slug": "pascals-triangle",
         "name": "Pascals Triangle",
         "uuid": "be19352f-1b63-4673-9a2d-e763ee807741",
-        "practices": ["memory_management","pointers"],
-        "prerequisites": ["pointers","structs","control_flow_loops"],
+        "practices": ["memory-management","pointers"],
+        "prerequisites": ["pointers","structs","control-flow-loops"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "math",
-          "memory_management"
+          "memory-management"
         ]
       },
       {
         "slug": "binary",
         "name": "Binary",
         "uuid": "8621177c-1068-4610-bf5b-26cf23340ae6",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_statements",
-          "control_flow_loops",
+          "control-flow-if-statements",
+          "control-flow-loops",
           "math"
         ]
       },
@@ -353,10 +353,10 @@
         "name": "Queen Attack",
         "uuid": "b0a152e9-5a45-41f9-bda0-427111d9a56c",
         "practices": ["math"],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "enums",
           "functions",
           "structs"
@@ -381,10 +381,10 @@
         "name": "Darts",
         "uuid": "a579e471-86f3-4f29-82ca-e984a2cc8891",
         "practices": ["math"],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "logic",
           "math"
         ]
@@ -419,11 +419,11 @@
         "name": "Acronym",
         "uuid": "1a8ba121-d2c4-4994-8c6b-610d8987346d",
         "practices": [],
-        "prerequisites": ["control_flow_loops","pointers","strings"],
+        "prerequisites": ["control-flow-loops","pointers","strings"],
         "difficulty": 1,
         "topics": [
-          "control_flow_loops",
-          "memory_management",
+          "control-flow-loops",
+          "memory-management",
           "strings"
         ]
       },
@@ -454,11 +454,11 @@
         "name": "Pangram",
         "uuid": "6311b9f8-b438-4186-88b2-1e4f55275ccb",
         "practices": ["strings"],
-        "prerequisites": ["control_flow_loops","strings"],
+        "prerequisites": ["control-flow-loops","strings"],
         "difficulty": 3,
         "topics": [
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "strings"
         ]
       },
@@ -467,11 +467,11 @@
         "name": "Word Count",
         "uuid": "1e4f4fcf-c32d-459f-8920-15ac56008666",
         "practices": ["structs"],
-        "prerequisites": ["structs","memory_management"],
+        "prerequisites": ["structs","memory-management"],
         "difficulty": 3,
         "topics": [
           "filtering",
-          "memory_management",
+          "memory-management",
           "strings",
           "structs"
         ]
@@ -481,11 +481,11 @@
         "name": "Rail Fence Cipher",
         "uuid": "314dcf23-9cd9-4488-b53e-6dee1b303980",
         "practices": ["structs"],
-        "prerequisites": ["arrays","memory_management","structs"],
+        "prerequisites": ["arrays","memory-management","structs"],
         "difficulty": 4,
         "topics": [
           "arrays",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -497,7 +497,7 @@
         "prerequisites": ["recursion"],
         "difficulty": 5,
         "topics": [
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "recursion",
           "stacks"
         ]
@@ -506,26 +506,26 @@
         "slug": "nucleotide-count",
         "name": "Nucleotide Count",
         "uuid": "38669990-e1e6-4486-a603-575a135d1f5c",
-        "practices": ["control_flow_loops","memory_management"],
-        "prerequisites": ["control_flow_loops","pointers"],
+        "practices": ["control-flow-loops","memory-management"],
+        "prerequisites": ["control-flow-loops","pointers"],
         "difficulty": 2,
         "topics": [
-          "control_flow_loops_switch_if_statements",
-          "memory_management",
+          "control-flow-loops-switch-if-statements",
+          "memory-management",
           "strings",
-          "text_formatting"
+          "text-formatting"
         ]
       },
       {
         "slug": "rna-transcription",
         "name": "Rna Transcription",
         "uuid": "d12fea98-bf4e-476d-a91c-799fc98a1690",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 2,
         "topics": [
-          "control_flow_case_statements",
-          "control_flow_loops",
+          "control-flow-case-statements",
+          "control-flow-loops",
           "strings"
         ]
       },
@@ -534,11 +534,11 @@
         "name": "Secret Handshake",
         "uuid": "119c20a6-849f-412e-b0a6-113a2cedc72d",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 3,
         "topics": [
           "algorithms",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -547,14 +547,14 @@
         "name": "Meetup",
         "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
         "practices": ["structs"],
-        "prerequisites": ["structs","time_functions"],
+        "prerequisites": ["structs","time-functions"],
         "difficulty": 4,
         "topics": [
-          "control_flow_if_statements",
-          "preprocessor_x_macros_in_test",
+          "control-flow-if-statements",
+          "preprocessor-x-macros-in-test",
           "strings",
           "structs",
-          "time_functions"
+          "time-functions"
         ]
       },
       {
@@ -562,11 +562,11 @@
         "name": "Pig Latin",
         "uuid": "62f539e7-f682-412d-bf86-38503e7cebca",
         "practices": ["pointers","algorithms"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements","pointers"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements","pointers"],
         "difficulty": 4,
         "topics": [
           "algorithms",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "functions",
           "strings"
         ]
@@ -576,10 +576,10 @@
         "name": "Leap",
         "uuid": "9b047dda-b85e-4378-9487-9f9cce086e4f",
         "practices": [],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "logic"
         ]
       },
@@ -591,7 +591,7 @@
         "prerequisites": ["strings"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -600,11 +600,11 @@
         "name": "Beer Song",
         "uuid": "c06789cb-cdd6-44a7-bee5-16e0d85e913a",
         "practices": ["strings"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements","strings"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements","strings"],
         "difficulty": 2,
         "topics": [
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "strings"
         ]
       },
@@ -616,7 +616,7 @@
         "prerequisites": ["strings"],
         "difficulty": 2,
         "topics": [
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "strings"
         ]
       },
@@ -624,13 +624,13 @@
         "slug": "roman-numerals",
         "name": "Roman Numerals",
         "uuid": "6cde608f-9819-46cd-884b-dbda39a4fa16",
-        "practices": ["structs","memory_management"],
+        "practices": ["structs","memory-management"],
         "prerequisites": ["structs","strings"],
         "difficulty": 3,
         "topics": [
           "arrays",
-          "control_flow_loops",
-          "memory_management",
+          "control-flow-loops",
+          "memory-management",
           "strings",
           "structs"
         ]
@@ -644,7 +644,7 @@
         "difficulty": 4,
         "topics": [
           "algorithms",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "functions",
           "strings"
         ]
@@ -654,10 +654,10 @@
         "name": "Bob",
         "uuid": "b0feb5e2-eb94-4393-b60d-cf8a275d1860",
         "practices": ["strings"],
-        "prerequisites": ["strings","control_flow_if_else_statements"],
+        "prerequisites": ["strings","control-flow-if-else-statements"],
         "difficulty": 5,
         "topics": [
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "strings"
         ]
       },
@@ -670,7 +670,7 @@
         "difficulty": 2,
         "topics": [
           "math",
-          "performance_optimizations",
+          "performance-optimizations",
           "structs"
         ]
       },
@@ -678,12 +678,12 @@
         "slug": "sum-of-multiples",
         "name": "Sum Of Multiples",
         "uuid": "06a3660f-16b0-4391-939e-a9786887b0b2",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 4,
         "topics": [
-          "control_flow_case_statements",
-          "control_flow_loops",
+          "control-flow-case-statements",
+          "control-flow-loops",
           "math"
         ]
       },
@@ -692,12 +692,12 @@
         "name": "Two Bucket",
         "uuid": "d8ecb4c4-2af2-423c-9f39-4adab687ecd6",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements","control_flow_loops"],
+        "prerequisites": ["control-flow-if-else-statements","control-flow-loops"],
         "difficulty": 6,
         "topics": [
           "algorithms",
-          "control_flow_if_else_statements",
-          "control_flow_loops"
+          "control-flow-if-else-statements",
+          "control-flow-loops"
         ]
       },
       {
@@ -722,7 +722,7 @@
         "difficulty": 6,
         "topics": [
           "arrays",
-          "control_flow_loops",
+          "control-flow-loops",
           "recursion",
           "structs"
         ]
@@ -732,11 +732,11 @@
         "name": "Say",
         "uuid": "523fa391-08d4-4c4e-95e6-20335cd157a0",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements","strings"],
+        "prerequisites": ["control-flow-if-else-statements","strings"],
         "difficulty": 6,
         "topics": [
           "algorithms",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -756,14 +756,14 @@
         "slug": "series",
         "name": "Series",
         "uuid": "40bcec79-7235-4ac6-b69f-8e3a6374188d",
-        "practices": ["memory_management"],
-        "prerequisites": ["control_flow_loops"],
+        "practices": ["memory-management"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 2,
         "topics": [
-          "control_flow_if_statements",
-          "memory_management",
+          "control-flow-if-statements",
+          "memory-management",
           "strings",
-          "text_formatting"
+          "text-formatting"
         ]
       },
       {
@@ -771,11 +771,11 @@
         "name": "Diamond",
         "uuid": "8605a296-1c67-4723-84ac-3a25d77ed015",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 3,
         "topics": [
           "arrays",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "functions",
           "strings"
         ]
@@ -785,11 +785,11 @@
         "name": "Minesweeper",
         "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements"],
         "difficulty": 3,
         "topics": [
           "arrays",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -798,11 +798,11 @@
         "name": "Run Length Encoding",
         "uuid": "b22152b9-99d1-411c-8cf2-f89e8f5f8141",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 4,
         "topics": [
           "algorithms",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -811,11 +811,11 @@
         "name": "Atbash Cipher",
         "uuid": "180f59f3-78ab-4368-9fa7-e3d98a9dca78",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements"],
         "difficulty": 5,
         "topics": [
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "strings"
         ]
       },
@@ -824,11 +824,11 @@
         "name": "Crypto Square",
         "uuid": "23c2a169-eea2-4636-af62-4a77a4dc3d7b",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 6,
         "topics": [
           "algorithms",
-          "control_flow_if_statements",
+          "control-flow-if-statements",
           "strings"
         ]
       },
@@ -837,11 +837,11 @@
         "name": "React",
         "uuid": "929b651e-2017-4f98-b2cb-1dc46c609703",
         "practices": ["structs"],
-        "prerequisites": ["pointers","control_flow_loops","structs"],
+        "prerequisites": ["pointers","control-flow-loops","structs"],
         "difficulty": 10,
         "topics": [
           "functions",
-          "memory_management"
+          "memory-management"
         ]
       },
       {
@@ -849,7 +849,7 @@
         "name": "Prime Factors",
         "uuid": "f34db12c-7acc-4287-92a6-c077938512d7",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 2,
         "topics": [
           "algorithms",
@@ -860,25 +860,25 @@
         "slug": "nth-prime",
         "name": "Nth Prime",
         "uuid": "a0a703b2-244b-4739-b318-b837618b1047",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops","control_flow_if_else_statements"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops","control-flow-if-else-statements"],
         "difficulty": 4,
         "topics": [
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "math",
-          "performance_optimizations"
+          "performance-optimizations"
         ]
       },
       {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733",
-        "practices": ["control_flow_loops"],
-        "prerequisites": ["control_flow_loops"],
+        "practices": ["control-flow-loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 1,
         "topics": [
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "math"
         ]
       },
@@ -887,11 +887,11 @@
         "name": "Triangle",
         "uuid": "5c6bc8d2-2509-471a-993c-a5bf9d030ca7",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements"],
+        "prerequisites": ["control-flow-if-else-statements"],
         "difficulty": 1,
         "topics": [
           "booleans",
-          "control_flow_if_else_statements",
+          "control-flow-if-else-statements",
           "structs"
         ]
       },
@@ -900,7 +900,7 @@
         "name": "Collatz Conjecture",
         "uuid": "5a47f8a5-36a1-4479-bb77-ef5fbab4bae0",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 2,
         "topics": [
           "functions",
@@ -912,7 +912,7 @@
         "name": "Luhn",
         "uuid": "8c0762e6-702e-4733-a0a1-65099e2a46f7",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_if_else_statements","control_flow_loops"],
+        "prerequisites": ["control-flow-if-else-statements","control-flow-loops"],
         "difficulty": 2,
         "topics": [
           "algorithms",
@@ -924,7 +924,7 @@
         "name": "Palindrome Products",
         "uuid": "8dd43f6c-37ba-42b1-bb85-9ad693e4ce03",
         "practices": ["structs","pointers"],
-        "prerequisites": ["pointers","structs","control_flow_loops"],
+        "prerequisites": ["pointers","structs","control-flow-loops"],
         "difficulty": 2,
         "topics": [
           "functions",
@@ -939,12 +939,12 @@
         "name": "All Your Base",
         "uuid": "e3574f75-89cb-4dda-8fce-14ce3141b595",
         "practices": ["algorithms"],
-        "prerequisites": ["arrays","control_flow_loops"],
+        "prerequisites": ["arrays","control-flow-loops"],
         "difficulty": 3,
         "topics": [
           "arrays",
-          "control_flow_if_else_statements",
-          "control_flow_loops",
+          "control-flow-if-else-statements",
+          "control-flow-loops",
           "math"
         ]
       },
@@ -953,7 +953,7 @@
         "name": "Scrabble Score",
         "uuid": "8c631290-13b7-4d25-9ee7-ced2e534deb4",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops","pointers","structs"],
+        "prerequisites": ["control-flow-loops","pointers","structs"],
         "difficulty": 4,
         "topics": [
           "pointers",
@@ -967,12 +967,12 @@
         "name": "Sublist",
         "uuid": "a19acc6f-2530-434d-9c98-2d8d4ca635d3",
         "practices": ["algorithms"],
-        "prerequisites": ["pointers","control_flow_loops"],
+        "prerequisites": ["pointers","control-flow-loops"],
         "difficulty": 4,
         "topics": [
           "arrays",
-          "control_flow_if_statements",
-          "control_flow_loops",
+          "control-flow-if-statements",
+          "control-flow-loops",
           "pointers",
           "searching"
         ]
@@ -982,19 +982,19 @@
         "name": "Largest Series Product",
         "uuid": "4b5974fe-dcff-4542-ad3e-2782201cba1e",
         "practices": ["algorithms"],
-        "prerequisites": ["control_flow_loops"],
+        "prerequisites": ["control-flow-loops"],
         "difficulty": 5,
         "topics": [
-          "control_flow_loops",
+          "control-flow-loops",
           "math",
-          "performance_optimizations",
+          "performance-optimizations",
           "strings"
         ]
       }
     ]
   },
   "concepts": [],
-  "key_features": [
+  "key-features": [
     {
       "icon": "cross-platform",
       "title": "Cross-platform",
@@ -1027,7 +1027,7 @@
     }
   ],
   "tags": [
-    "execution_mode/compiled",
+    "execution-mode/compiled",
     "paradigm/procedural",
     "typing/static",
     "platform/android",
@@ -1035,16 +1035,16 @@
     "platform/linux",
     "platform/mac",
     "platform/windows",
-    "runtime/language_specific",
-    "used_for/backends",
-    "used_for/cross_platform_development",
-    "used_for/embedded_systems",
-    "used_for/financial_systems",
-    "used_for/frontends",
-    "used_for/games",
-    "used_for/guis",
-    "used_for/mobile",
-    "used_for/robotics",
-    "used_for/scientific_calculations"
+    "runtime/language-specific",
+    "used-for/backends",
+    "used-for/cross-platform-development",
+    "used-for/embedded-systems",
+    "used-for/financial-systems",
+    "used-for/frontends",
+    "used-for/games",
+    "used-for/guis",
+    "used-for/mobile",
+    "used-for/robotics",
+    "used-for/scientific-calculations"
   ]
 }
