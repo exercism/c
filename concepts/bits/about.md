@@ -77,7 +77,7 @@ The result of the `|` operator will be `1` in each position where either the lef
 So, the result of `0010 | 0001` would be `0011`.
 (It's important to remember that the value is `11` in binary, but is `3` in decimal.)
 To assign the result to a value, the `|` operator can be combined with the assignment operator to set the bits like so: `|=`.
-To keep it simple, the following example does not use a loop, but it demonstrates how we could process the letters 'ABA` in a bit mask.
+To keep it simple, the following example does not use a loop, but it demonstrates how we could process the letters `ABA` in a bit mask.
 
 ```c
 #include <stdio.h>
@@ -103,6 +103,29 @@ We could have avoided setting the bit again by looking to see if `A` had already
 
 ### Bitwise AND operator: a way to read a bit
 
+`&` is the bitwise AND operator.
+The result of the `&` operator will be `1` in each position where both the left and right operand has a bit set.
+So, the result of `0011 & 0001` would be `0001`.
+We can see this in action in the following example.
 
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+int main() {
+    uint32_t mask = 0;
+    char letter_A = 'A';
+    char letter_B = 'B';
+    char letter_A_again = 'A';
+    mask |= 1 << letter_A - 'A';
+    mask |= 1 << letter_B - 'A';
+    // prints A already set
+    if (mask & 1 << letter_A_again - 'A')
+        printf("A already set\n");
+    else
+        mask |= 1 << letter_A_again - 'A';
+    printf("%d", mask);
+}
+```
 
 ## Bit Fields
