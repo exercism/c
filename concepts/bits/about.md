@@ -11,7 +11,7 @@ For example, a `byte` commonly consists of eight `bits`.
 
 `Bits` make up a base 2 number system.
 Every multiple of `2` is put into what we think of as the tens/hundreds/thousands/etc. place, except that "tens" would be "two", "hundreds" would be "four", "thousands" would be "eight", and so on.
-So, the decimal value `2` would be `10`, `4` would be `100`, and `8` would be `1000`.
+So, the decimal value `2` would be the binary value `10`, `4` would be `100`, and `8` would be `1000`.
 Like decimal numbers, the values become higher as they go from right to left.
 We can think of the decimal value `5` being represented by `101` in binary, with a `1` in the "ones" place and a `1` in the "four" place.
 However, binary literals are not part of the `C` language standard.
@@ -36,7 +36,7 @@ Since the decimal value `16` is represented as `1` in the tens place, the decima
 So, for example, the decimal value `42` would be written as `0x2A`: `2` times `16` (= `32`) plus `10` (= `42`).
 
 In binary, we can think of `42` as `00101010`: `32` plus `8` plus `2`.
-We would say that the second, fourth, and sixth bits are "set", meaning that they are `1` instead of `0`.
+We would say that the second, fourth, and sixth bits from the right are "set", meaning that they are `1` instead of `0`.
 The second bit is `2`, the fourth bit is `8`, and the sixth bit is `32`.
 Setting those three bits defines a value of `42`.
 
