@@ -128,4 +128,96 @@ int main() {
 }
 ```
 
+### Bitwise exclusive OR operator: a way to flip a bit
+
+`^` is the bitwise exclusive OR operator.
+An inclusive OR operator implies that there is an exclusive OR operator with different behavior.
+The result of the `^` operator will be `1` in each position where only _one_ of the left or right operands has a bit set.
+So, the result of `0001 ^ 0011` would be `0010`.
+The rightmost bit will not be set because _both_ operands have `1` in the rightmost position.
+The exclusive OR operation is sometimes notated as XOR.
+If the result of a value that is XOR'd is itself XOR'd it will return the original value.
+This can be used for a very simple encryption where the same key is used to both encrypt and decrypt the data.
+For example
+
+```c
+#include <stdio.h>
+
+int main() {
+    char a = 'a';
+    char b = 'b';
+    char c = 'c';
+    // we will use "a" for the "key"
+    char first = a ^ 'a';
+    char second = b ^ 'a';
+    char third = c ^ 'a';
+    // prints three "dots" for unprintable characters
+    printf("%c %c %c\n", first, second, third);
+    // prints the ascii values 0 3 2
+    printf("%d %d %d\n", first, second, third);
+    first = first ^ 'a';
+    second = second ^ 'a';
+    third = third ^ 'a';
+    // prints a b c
+    printf("%c %c %c\n", first, second, third);
+    // prints the ascii values 97 98 99
+    printf("%d %d %d\n", first, second, third);
+}
+```
+
+### Bitwise shift right operator: a way to halve a value
+
+`>>` is the bitwise operator for shifting right.
+Usually, for every position that a value's bits are shifted right, the result is the value divided by two.
+For example
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 16;
+    number >>= 2;
+    // prints 4, or 16 / 2 = 8 / 2 = 4
+    printf("%d\n", number);
+}
+```
+
+If the value of the right operand is negative or is greater than or equal to the width of the promoted left operand, the behavior is undefined.
+That also applies to the left shift operator.
+When a signed integer is used instead of an unsigned integer, then the signedness may also factor in.
+The following example shows behavior on a system when shifting too far to the left or right for a signed integer.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 16;
+    number <<= 250;
+    // prints 1073741824
+    printf("%d\n", number);
+    number <<= 1;
+    // prints -2147483648
+    printf("%d\n", number);
+    number <<= 1;
+    // prints 0
+    printf("%d\n", number);
+    // total shifts are now 256, done incrementally
+    number <<= 4;
+    // prints 0
+    printf("%d\n", number);
+    number = 16;
+    // prints 16 when 256 total shifts done at once
+    printf("%d\n", number << 256);
+    // prints 0 when bits shifted right far enough
+    printf("%d\n", number >> 5);    
+    // still prints 0
+    printf("%d\n", number >> 255);
+    // prints 16 when shifted right far enough to "wrap around"
+    printf("%d\n", number >> 256);
+}
+```
+
+Since the behavior is undefined, a different system may yield different results.
+It is important when shifting bits to understand the confines of the data type being used.
+
 ## Bit Fields
