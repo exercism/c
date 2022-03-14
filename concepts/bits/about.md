@@ -221,3 +221,43 @@ Since the behavior is undefined, a different system may yield different results.
 It is important when shifting bits to understand the confines of the data type being used.
 
 ## Bit Fields
+
+We've seen how bits packed into a simple data type can be addressed by their position.
+Bits packed into a `struct` can be addressed by name.
+Such a data type is called a `bit field`.
+A use case for `bit fields` can be when a collection of ON/OFF flags is needed and the minimizing of memory use is desired.
+
+```c
+#include <stdio.h>
+
+int main() {
+
+    struct lights {
+        unsigned int number_of_lights;
+        unsigned int red   : 1;
+        unsigned int green : 1;
+        unsigned int blue  : 1;
+    };
+    struct lights lightboard = {3, 0, 0, 0};
+     
+    //  prints 000
+    printf("%d", lightboard.red);
+    printf("%d", lightboard.green);
+    printf("%d\n", lightboard.blue);
+    
+    lightboard.green = 1;
+
+    //  prints 010
+    printf("%d", lightboard.red);
+    printf("%d", lightboard.green);
+    printf("%d\n", lightboard.blue);
+    
+    // prints 3
+    printf("%d\n", lightboard.number_of_lights);
+}
+```
+
+The syntax of `unsigned int variable_name : 1;` creates a field of `1` bit within an `unsigned int` placed within the struct.
+Instead of an `unsigned int`, a `signed int` could be used, or, as of C99 or later, a `bool` type could be used.
+A struct containing bit fields can also contain fields of other data types, such as `number_of_lights` in the above example.
+
