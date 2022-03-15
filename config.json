@@ -993,7 +993,43 @@
       }
     ]
   },
-  "concepts": [],
+  "concepts": [
+    {
+      "uuid": "5e93a50c-0b68-46ad-b900-6206d813bd9b",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "20948c69-20f7-498d-b743-fada00e5c79d",
+      "slug": "bits",
+      "name": "Bits"
+    },    
+    {
+      "uuid": "2c087541-a5fa-4cfd-b0f1-5355f933b94b",
+      "slug": "booleans",
+      "name": "Booleans"
+    },
+    {
+      "uuid": "e5725455-3ce3-48e9-a3c6-ceb522434b5b",
+      "slug": "conditionals",
+      "name": "Conditionals"
+    },
+    {
+      "uuid": "3d79388b-e909-4e1b-99e9-d28e30e54fde",
+      "slug": "loops",
+      "name": "Loops"
+    },
+    {
+      "uuid": "21c156d1-488c-4dc9-a486-0b106fd5b5e3",
+      "slug": "pointers",
+      "name": "Pointers"
+    },
+    {
+      "uuid": "71b3abda-5482-4cb3-a317-399ebda9b94e",
+      "slug": "recursion",
+      "name": "Recursion"
+    }
+  ],
   "key_features": [
     {
       "icon": "cross-platform",
