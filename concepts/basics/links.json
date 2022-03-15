@@ -1,0 +1,50 @@
+[
+    {
+        "url": "https://docs.microsoft.com/en-us/cpp/c-language/overview-of-c-statements",
+        "description": "statements"
+    },
+    {
+        "url": "https://www.w3schools.in/c-tutorial/variables/",
+        "description": "variables"
+    },
+    {
+        "url": "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Assignment-Operators",
+        "description": "assignment"
+    },
+    {
+        "url": "https://www.cs.auckland.ac.nz/references/unix/digital/AQTLTBTE/DOCU_056.HTM",
+        "description": "parameters"
+    },
+    {
+        "url": "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Functions",
+        "description": "functions"
+    },
+    {
+        "url": "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#The-return-Statement",
+        "description": "return"
+    },
+    {
+        "url": "https://www.programiz.com/c-programming/c-storage-class",
+        "description": "storage-class"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/scope-rules-in-c/",
+        "description": "scope"
+    },
+    {
+        "url": "https://en.wikipedia.org/wiki/Comment_(computer_programming)",
+        "description": "comments"
+    },
+    {
+        "url": "https://www.tutorialspoint.com/what-is-an-identifier-and-its-rules-in-c-language",
+        "description": "variable-names"
+    },
+    {
+        "url": "https://en.cppreference.com/w/c/keyword",
+        "description": "c-keywords"
+    },
+    {
+        "url": "https://en.cppreference.com/w/c/language/identifier",
+        "description": "reserved-identifiers"
+    }
+]
