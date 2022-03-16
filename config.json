@@ -1010,6 +1010,11 @@
       "name": "Conditionals"
     },
     {
+      "uuid": "d505c3fb-ff8a-4706-9cff-b624eec4a066",
+      "slug": "dynamic-memory-management",
+      "name": "Dynamic Memory Management"
+    },
+    {
       "uuid": "3d79388b-e909-4e1b-99e9-d28e30e54fde",
       "slug": "loops",
       "name": "Loops"
