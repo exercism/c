@@ -49,13 +49,50 @@ int main()
 
 ## The four types of storage durations: static; thread; automatic; allocated
 
-## constants: values that dont change which are alive during the entire program
+The storage duration of a value refers to the lifetime of that value.
 
-## static variables: values that change which are alive during the entire program
+A value with `static` duration has a lifetime for the entire duration of the program.
+Note that the keyword `static` has multiple meanings.
+`static`, as a specifier for a value with file scope, defines it as having _internal linkage_.
+A value with file scope always has a static _storage duration_, regardless of its linkage.
+A value with block scope usually only has a lifetime for the duration of its block.
+To allow a variable with block scope to live during the entire program, the variable can be given the `static` specifier.
+The variable will have the same value when its block is re-entered as it had when its block was last exited.
 
-## automatic variables: values that are only alive during the functions they are in 
+The details of thread storage duration are beyond the scope of this article.
+A simplified definition is that a value with thread storage duration lives for as long as its thread.
 
-## dynamic values: values that can be created and destroyed at any time during the program
+A value with automatic storage duration usually lives from the time the block in which it is defined is entered until that block is exited.
+This means that the memory for a value with automatic storage duration is usually automatically allocated when the block is entered and is deallocated when the block is exited.
+
+This example shows the difference between automatic and static lifetimes
+
+```c
+#include <stdio.h>
+
+void my_function(void) {
+    int short_lived_count = 0;
+    static int long_lived_count = 0;
+    printf("I've been called %d time(s) by short-lived count\n", ++short_lived_count);
+    printf("I've been called %d time(s) by long-lived count\n", ++long_lived_count);  
+}
+
+int main() {
+    
+    // prints
+    // I've been called 1 time(s) by short-lived count
+    // I've been called 1 time(s) by long-lived count
+    my_function();
+    // prints
+    // I've been called 1 time(s) by short-lived count
+    // I've been called 2 time(s) by long-lived count
+    my_function();
+}
+```
+
+The examples we've seen have happened to use variables whose size is known at compile time.
+Dynamic memory is used for variables whose size is only known at runtime.
+This is commonly useful for arrays whose number of elements may vary between one runtime and the next.
 
 ## malloc
 
