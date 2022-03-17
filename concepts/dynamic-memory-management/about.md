@@ -17,7 +17,7 @@ As of C99, even if an `if` or loop statement uses no curly braces, a block exist
 Function scope is a special kind of scope that applies to labels used with `goto` statements.
 Two labels with the same name cannot be used in the same function, even if the labels are defined in separate blocks in the function.
 
-Function prototype scope is another special kind of scope that applies only to parameteres named within the protoype declaration.
+Function prototype scope is another special kind of scope that applies only to parameters named within the protoype declaration.
 A parameter name is usually optional in a function declaration.
 A function definition does not have to use the same name for a parameter that was used in the function declaration.
 
@@ -140,7 +140,7 @@ int main() {
 It's important to remember that the memory newly allocated by `malloc` is not initialized but may hold garbage values.
 Note that the `sizeof` the `numbers` pointer is not the number of its array's elements, nor the total amount of memory allocated.
 The size of the pointer returned by `malloc` is the size of any pointer on that particular system.
-For the example the code was run on a 64-bit system, so the size of the pointer was 8 byes (multiplied by 8 bits per byte = 64 bits.)
+The example code was run on a 64-bit system, so the size of the pointer was 8 byes (multiplied by 8 bits per byte = 64 bits.)
 The pointer type was converted from pointer-to-void to pointer-to-int.
 Whether the pointer-to-int points to a single `int` or to an array of `ints` is something the programmer can deal with as seen fit.
 For example
