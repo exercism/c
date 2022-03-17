@@ -25,7 +25,7 @@ A value with file scope can be accessed from anywhere in the file.
 
 ## The three types of linkage: external; internal; none
 
-Linkage is a way of describing accessibility of a value from outside the file.
+Linkage is a way of describing accessibility of a value from outside the file in which it is defined.
 Values with block, function, or function prototype scope have no linkage.
 This means they can't be accessed from outside their scope.
 
@@ -95,6 +95,8 @@ Dynamic memory is used for variables whose size is only known at runtime.
 This is commonly useful for arrays whose number of elements may vary between one runtime and the next.
 
 ## malloc
+
+
 
 ## calloc
 
