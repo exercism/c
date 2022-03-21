@@ -94,6 +94,7 @@ The examples we've seen have happened to use variables whose size is known at co
 Dynamic memory is used for variables whose size is only known at runtime.
 This is commonly useful for arrays whose number of elements may vary between one runtime and the next.
 Variable length arrays are another way to handle arrays whose element size is only known at runtime.
+A VLA uses automatic storage, which means its memory is destroyed on leaving its defining block.
 A detailed analysis of variable length arrays is outside the scope of this article.
 VLAs were brought into the C language by C99, but as of C11 VLAs are optional, so compilers supporting C11 onward do not have to support VLAs.
 
@@ -105,7 +106,7 @@ If the allocation is not successful, `NULL` is returned.
 It is prudent to check the result of `malloc` for `NULL` and gracefully handle it if it fails.
 The pointer returned is of type `pointer-to-void` which can roughly be considered as a "generic" pointer that can be converted to the specific type used by the memory.
 `malloc` has one parameter, which is the size of the desired memory in bytes.
-The total size for allocating an array would be the size of each element's data type multiplied by the number of elements.
+The total size for allocating an array is the size of each element's data type multiplied by the number of elements.
 The `sizeof` operator is commonly used to get the size of each element's data type.
 The following example demonstrates this
 
@@ -138,10 +139,11 @@ int main() {
 ```
 
 It's important to remember that the memory newly allocated by `malloc` is not initialized but may hold garbage values.
-Note that the `sizeof` the `numbers` pointer is not the number of its array's elements, nor the total amount of memory allocated.
+Note that the `sizeof` the `numbers` pointer is not the number of the array's elements, nor the total amount of memory allocated.
 The size of the pointer returned by `malloc` is the size of any pointer on that particular system.
 The example code was run on a 64-bit system, so the size of the pointer was 8 byes (multiplied by 8 bits per byte = 64 bits.)
-The pointer type was converted from pointer-to-void to pointer-to-int.
+The pointer type was implicitly converted from pointer-to-void to pointer-to-int.
+It could also have been explicilty converted like so : `int * numbers = (int *) malloc(sizeof(int) * count);`.
 Whether the pointer-to-int points to a single `int` or to an array of `ints` is something the programmer can deal with as seen fit.
 For example
 
@@ -174,7 +176,13 @@ int main() {
 }
 ```
 
+If the value(s) will definitely be written to before being read, then to use `malloc` can be an efficient way to allocate memory.
+But, if there is a chance the value(s) will be read before being intialized, then to use `malloc` is risky.
+A safer way to allocate memory is to use `calloc`.
+
 ## calloc
+
+
 
 ## realloc
 
