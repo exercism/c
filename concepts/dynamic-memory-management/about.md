@@ -135,6 +135,7 @@ int main() {
     // prints The third element of the array is 3
     printf("The third element of the array is %d\n", numbers[2]);
     free(numbers);
+    numbers = NULL;
 }
 ```
 
@@ -173,17 +174,102 @@ int main() {
     // prints numbers is 2
     printf("numbers is %d\n", *numbers);    
     free(numbers);
+    numbers = NULL;    
+}
+```
+If the value(s) will definitely be written to before being read, then to use `malloc` can be an efficient way to allocate memory.
+But, if there is a chance the value(s) will be read before being intialized, then to use `malloc` is risky.
+A safer way to allocate memory is to use `calloc`, which initializes all of the bits in the newly allocated memory to zero.
+
+Note in the examples above that `free(numbers)` was used.
+
+## free
+
+`free` is a function declared in `stdlib.h` which is used for deallocating memory which has been dynamically allocated.
+Dynamically allocated memory stays claimed in memory until released by `free`.
+Some operating systems may automatically free dynamically allocated memory when the program finishes, but it is best practice not to depend on that.
+`free` has one parameter, which is a pointer to the memory which was dynamically allocated.
+The use or lack of use of `free` is associated with several memory issues.
+
+#### memory leak
+
+Not freeing memory after it is no longer needed is referred to as a memory leak.
+Leaked memory is memory which is claimed by the system but is no longer accessible by the program.
+This can be a particular problem if memory is allocated in a loop, not freed at the end of the loop, and allocated again at the beginning of the loop.
+If enough memory is allocated without being freed, the call to allocate memory will fail due to insufficient memory remaining to allocate.
+It's important to remember that, although dynamically allocated memory is claimed by the system until freed, the pointer it is assigned to may only have block scope.
+For instance, in the `malloc` examples, memory is allocated in `my_function`.
+That memory would be leaked if the pointer to it were not returned and used to set the `numbers` pointer in `main`.
+Thus, passing that `numbers` pointer to `free` releases the memory allocated in `my_function`.
+
+#### use after free (UAF)
+
+If memory is accessed after it is freed, the value(s) could be anything.
+In the following example, the memory pointed to by `numbers` is freed and then is read from in `printf`.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int * my_function(int count) {
+    // pointer-to-void from malloc is converted to a pointer-to-int
+    int * numbers = (int *) malloc(sizeof(int) * count);
+    return numbers;
+}
+
+int main() {
+    int * numbers = my_function(1);
+    if (!numbers) return -1;
+    *numbers = 1;
+    // prints numbers is 1
+    printf("numbers is %d\n", *numbers);
+    free(numbers);
+    // could  print anything, e.g.
+    // The first element of the array is 18178656
+    printf("The first element of the array is %d\n", numbers[0]);
 }
 ```
 
-If the value(s) will definitely be written to before being read, then to use `malloc` can be an efficient way to allocate memory.
-But, if there is a chance the value(s) will be read before being intialized, then to use `malloc` is risky.
-A safer way to allocate memory is to use `calloc`.
+The `numbers` pointer, after it has been freed, is referred to as a dangling pointer.
+A dangling pointer can refer to other memory than that for which it was intended.
+Thus, a dangling pointer can lead to data corruption and arbitrary code substitution and execution.
+A pointer to allocated memory which has not been cleared by setting to `NULL` can be used to hack the program.
+In the above example, if `numbers` was set to `NULL` like so: `numbers = NULL;` after being freed, the following `printf` would result in program termination, perhaps reporting a segmentation fault when attempting to read `numbers[0]`.
+
+#### double free
+
+If `free` is called twice on a pointer to dynamically allocated memory, it results in undefined behavior.
+This means the compiler can arbitrarily handle it any way it wants to.
+The following example, compiled with two different compilers, can have two different outcomes
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int * my_function(int count) {
+    // pointer-to-void from malloc is converted to a pointer-to-int
+    int * numbers = (int *) malloc(sizeof(int) * count);
+    return numbers;
+}
+
+int main() {
+    int * numbers = my_function(1);
+    if (!numbers) return -1;
+    *numbers = 1;
+    // prints numbers is 1
+    printf("numbers is %d\n", *numbers);
+    free(numbers);
+    // first compiler generates runtime error: double free detected in tcache 2
+    // second compiler generates no error
+    free(numbers);
+}
+```
+
+The first compiler generated no runtime error when `numbers` was set to `NULL` between each call to `free`, but that would not be guaranteed to work with a third compiler.
+A common source of double free is to have two pointers which point at the same dynamically allocated memory.
+One pointer may point at the beginning of an array at one place in the program, and the other pointer may be used to step though the array at another place in the program.
+At different places in the program, each pointer is freed, thus causing a double free.
 
 ## calloc
 
-
-
 ## realloc
-
-## free
