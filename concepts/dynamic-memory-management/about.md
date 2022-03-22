@@ -144,7 +144,7 @@ Note that the `sizeof` the `numbers` pointer is not the number of the array's el
 The size of the pointer returned by `malloc` is the size of any pointer on that particular system.
 The example code was run on a 64-bit system, so the size of the pointer was 8 byes (multiplied by 8 bits per byte = 64 bits.)
 The pointer type was implicitly converted from pointer-to-void to pointer-to-int.
-It could also have been explicilty converted like so : `int * numbers = (int *) malloc(sizeof(int) * count);`.
+It could also have been explicitly converted like so : `int * numbers = (int *) malloc(sizeof(int) * count);`.
 Whether the pointer-to-int points to a single `int` or to an array of `ints` is something the programmer can deal with as seen fit.
 For example
 
@@ -179,7 +179,7 @@ int main() {
 ```
 If the value(s) will definitely be written to before being read, then to use `malloc` can be an efficient way to allocate memory.
 But, if there is a chance the value(s) will be read before being intialized, then to use `malloc` is risky.
-A safer way to allocate memory is to use `calloc`, which initializes all of the bits in the newly allocated memory to zero.
+A safer way to allocate memory is to use `calloc`, which initializes the newly allocated memory to zero.
 
 Note in the examples above that `free(numbers)` was used.
 
@@ -202,7 +202,7 @@ For instance, in the `malloc` examples, memory is allocated in `my_function`.
 That memory would be leaked if the pointer to it were not returned and used to set the `numbers` pointer in `main`.
 Thus, passing that `numbers` pointer to `free` releases the memory allocated in `my_function`.
 
-#### use after free (UAF)
+#### use after free (**UAF**)
 
 If memory is accessed after it is freed, the value(s) could be anything.
 In the following example, the memory pointed to by `numbers` is freed and then is read from in `printf`.
@@ -238,7 +238,7 @@ In the above example, if `numbers` was set to `NULL` like so: `numbers = NULL;` 
 
 #### double free
 
-If `free` is called twice on a pointer to dynamically allocated memory, it results in undefined behavior.
+If `free` is called twice on a pointer to dynamically allocated memory, it results in undefined behavior (**UB**.)
 This means the compiler can arbitrarily handle it any way it wants to.
 The following example, compiled with two different compilers, can have two different outcomes
 
@@ -271,5 +271,40 @@ One pointer may point at the beginning of an array at one place in the program, 
 At different places in the program, each pointer is freed, thus causing a double free.
 
 ## calloc
+
+`calloc` is a function declared in `stdlib.h` which is used for both allocating dynamic memory and initializing the newly allocated memory to zero.
+If the allocation is successful, a pointer is returned which points to the address of the first byte of the allocated memory.
+If the allocation is not successful, `NULL` is returned.
+It is prudent to check the result of `calloc` for `NULL` and gracefully handle it if it fails.
+The pointer returned is of type `pointer-to-void` which can roughly be considered as a "generic" pointer that can be converted to the specific type used by the memory.
+`calloc` has two parameters.
+The first parameter is how many of the data type to be allocated.
+The second parameter is the size of the data type to be allocated.
+
+In the following example all of the `printf` statements should always show `0`, since `calloc` is guaranteed to zero the newly allocated values.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int * my_function(int count) {
+    // pointer-to-void from calloc is converted to a pointer-to-int
+    int * numbers = calloc(count, sizeof(int));
+    return numbers;
+}
+
+int main() {
+    int * numbers = my_function(3);
+    if (!numbers) return -1;
+    // prints The first element of the array is 0
+    printf("The first element of the array is %d\n", numbers[0]);
+    // prints The second element of the array is 0
+    printf("The second element of the array is %d\n", numbers[1]);
+    // prints The third element of the array is 0
+    printf("The third element of the array is %d\n", numbers[2]);
+    free(numbers);
+    numbers = NULL;
+}
+```
 
 ## realloc
