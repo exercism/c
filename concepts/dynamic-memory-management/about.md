@@ -278,8 +278,8 @@ If the allocation is not successful, `NULL` is returned.
 It is prudent to check the result of `calloc` for `NULL` and gracefully handle it if it fails.
 The pointer returned is of type `pointer-to-void` which can roughly be considered as a "generic" pointer that can be converted to the specific type used by the memory.
 `calloc` has two parameters.
-The first parameter is how many of the data type to be allocated.
-The second parameter is the size of the data type to be allocated.
+The first parameter is for how many of the specified data type is to be allocated.
+The second parameter is for the size of the specified data type to be allocated.
 
 In the following example all of the `printf` statements should always show `0`, since `calloc` is guaranteed to zero the newly allocated values.
 
@@ -288,7 +288,7 @@ In the following example all of the `printf` statements should always show `0`, 
 #include <stdlib.h>
 
 int * my_function(int count) {
-    // pointer-to-void from calloc is converted to a pointer-to-int
+    // allocates the amount of bytes in an int, multiplied by count
     int * numbers = calloc(count, sizeof(int));
     return numbers;
 }
