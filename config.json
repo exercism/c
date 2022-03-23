@@ -1000,6 +1000,11 @@
       "name": "Basics"
     },
     {
+      "uuid": "629909c3-0a42-456c-8212-672c832f3748",
+      "slug": "blocks",
+      "name": "Blocks"
+    },
+    {
       "uuid": "2c087541-a5fa-4cfd-b0f1-5355f933b94b",
       "slug": "booleans",
       "name": "Booleans"
