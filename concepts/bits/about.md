@@ -66,9 +66,9 @@ Say that we are processing all of the letters in the string in a loop, so we wan
 
 If our letter is `A` we don't want to shift left, but if our letter is `B` we want to shift left one position, and if our letter is `C` we want to shift left two positions, and so on.
 Although we can perceive `chars` as letters like `A` or `B`,  a `char` is implemented as an integer type in memory, so we can do simple math with a `char`.
-Given a variable named `letter` which is the `char` we are processing, we can shift left the required number of positions by shifting `1` to the left by the difference between `letter` and the `A` `char`, like so: `1 << letter - 'A'`.
-`A` - `A` is `0`, so it would shift left `0` positions.
-`B` - `A` is `1`, so it would shift left `1` position, and so on.
+Given a variable named `letter` which represents the `char` we are processing, we can shift left the required number of positions by shifting `1` to the left by the difference between `letter` and the `A` `char`, like so: `1 << letter - 'A'`.
+`A` - `A` is `0`, so it would shift left `0` positions if `letter` is `A`.
+`B` - `A` is `1`, so it would shift left `1` position if `letter` is `B`, and so on.
 
 ### Bitwise inclusive OR operator: a way to set a bit
 
@@ -131,8 +131,8 @@ int main() {
 ### Bitwise exclusive OR operator: a way to flip a bit
 
 `^` is the bitwise exclusive OR operator.
-An inclusive OR operator implies that there is an exclusive OR operator with different behavior.
-The result of the `^` operator will be `1` in each position where only _one_ of the left or right operands has a bit set.
+An _inclusive_ OR operator implies that there is an _exclusive_ OR operator with different behavior.
+The result of the `^` operator will be `1` in each position where _only one_ of the left or right operands has a bit set.
 So, the result of `0001 ^ 0011` would be `0010`.
 The rightmost bit will not be set because _both_ operands have `1` in the rightmost position.
 The exclusive OR operation is sometimes notated as XOR.
