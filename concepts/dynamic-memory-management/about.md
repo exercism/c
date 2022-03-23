@@ -308,3 +308,55 @@ int main() {
 ```
 
 ## realloc
+
+`realloc` is a function declared in `stdlib.h` which is used for either expanding or shrinking existing allocated memory.
+If the reallocation is successful, a pointer is returned which points to the address of the first byte of the reallocated memory.
+If the reallocation is not successful, `NULL` is returned.
+It is prudent to check the result of `realloc` for `NULL` and gracefully handle it if it fails.
+`realloc` has two parameters.
+The first parameter is a pointer to the existing memory to be reallocated.
+The second parameter is for the size in bytes of the reallocated memory.
+It is important to remember that expanded memory is not initialized to zero and its value(s) could be anything.
+Also, memory which is removed when shrinking memory is also not initialized and could retain the value(s).
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int * my_function(int count) {
+    // allocates the amount of bytes in an int, multiplied by count
+    int * numbers = calloc(count, sizeof(int));
+    return numbers;
+}
+
+int * my_function_2 (int * ptr , int count) {
+    // reallocates the memory to the size of an int multiplied by count
+    int * numbers = realloc(ptr, sizeof(int) * count);
+    // if realloc fails, exit the program
+    if (!numbers) exit(-1);
+    return numbers;
+}
+
+int main() {
+    int * numbers = my_function(3);
+    if (!numbers) return -1;
+    numbers[0] = 1;
+    numbers[1] = 2;
+    numbers[2] = 3;
+    // expand the size of the array
+    numbers = my_function_2(numbers, 6);
+    // prints The first element of the array is 1
+    printf("The first element of the array is %d\n", numbers[0]);
+    // prints The sixth element of the array is [whatever is there]
+    // the additional memory is not initialized, so it could be
+    // 0 or it could be 18728 or anything else
+    printf("The sixth element of the array is %d\n", numbers[5]);
+    numbers[5] = 6;
+    // shrink the size of the array
+    numbers = my_function_2(numbers, 3);
+    // prints The sixth element of the array is [whatever is there]
+    // the removed memory is not initialized, so it could be
+    // 6 or it could be 43164 or anything else
+    printf("The sixth element of the array is %d\n", numbers[5]);
+}
+```
