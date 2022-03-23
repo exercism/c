@@ -316,8 +316,10 @@ It is prudent to check the result of `realloc` for `NULL` and gracefully handle 
 `realloc` has two parameters.
 The first parameter is a pointer to the existing memory to be reallocated.
 The second parameter is for the size in bytes of the reallocated memory.
-It is important to remember that expanded memory is not initialized to zero and its value(s) could be anything.
+Values that were set before memory is expanded are retained.
+It is important to remember that memory added when expanding memory is not initialized to zero and its value(s) could be anything.
 Also, memory which is removed when shrinking memory is also not initialized and could retain the value(s).
+The following example demonstrates expanding and shrinking an array
 
 ```c
 #include <stdio.h>
