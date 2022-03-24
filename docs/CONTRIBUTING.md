@@ -189,20 +189,20 @@ This Docker approach helps to allow in-browser coding by students.
 Read more about [test runners].
 
 [Exercism docs]: https://github.com/exercism/docs
-[contributing to a language track]: https://github.com/exercism/docs/blob/main/contributing-to-language-tracks/README.md
+[contributing to a language track]: https://github.com/exercism/docs/tree/main/building
 [problem-specifications]: https://github.com/exercism/problem-specifications
 [issue]: ./CONTRIBUTING.md#issues
 [Code of Conduct]: https://exercism.io/code-of-conduct
 [issues]: https://github.com/exercism/c/issues
 [discussions]: https://github.com/exercism/discussions/issues
-[good-first-patch]: https://github.com/exercism/c/good-first-patch
-[pull request guidelines]: https://github.com/exercism/docs/blob/main/contributing/pull-request-guidelines.md
+[good-first-patch]: https://github.com/exercism/c/labels/good%20first%20patch
+[pull request guidelines]: https://github.com/exercism/docs/blob/main/building/github/contributors-pull-request-guide.md
 [Continuous Integration]: ./CONTRIBUTING.md#continuous-integration
 [convert the PR to a draft]: https://github.blog/changelog/2020-04-08-convert-pull-request-to-draft/
 [style guide]: ./C_STYLE_GUIDE.md
 [clang-format]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
 [Homebrew]: https://brew.sh
-[implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/you-can-help/implement-an-exercise-from-specification.md
+[implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md
 [Unity]: http://www.throwtheswitch.org/unity/
 [ThrowTheSwitch]: http://www.throwtheswitch.org/#intro-1-section
 [getting started with unity]: http://www.throwtheswitch.org/getting-started-with-unity/
