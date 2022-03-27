@@ -2,9 +2,10 @@
 
 A block is a set of statements and declarations grouped into one syntactic unit.
 Blocks are often, but not always, defined within curly braces.
+Blocks can be nested within functions and within other blocks.
 
 In the following example, `number` is defined within the `main` function.
-`flag` is defined within the `if` block.
+`flag` is defined within the `if` block which is nested within the `main` function.
 Variables defined within a block are only valid within that block.
 Thus, attempting to compile the code results in a compilation error.
 
