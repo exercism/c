@@ -79,7 +79,7 @@ Another gave warning
 'function': incompatible types - from 'void (__cdecl *)(int,char *)' to 'bool (__cdecl *)(int)'
 ```
 
-For the second platform, the warning did not prevent compilation and the program still crashed when calling a function with the wrong signature to `test_number`.
+For the second platform, the warning did not prevent compilation and the program still crashed when calling a function with the wrong signature in `test_number`.
 
 The following example shows what happens when `test_number` keeps its signature but has its implementation changed to handle `is_zero`.
 
@@ -92,7 +92,8 @@ void is_zero(int number, char *text) {
 }
 
 void test_number(bool (*func) (int), int number, char * text){
-    // func does not have the expected signature, but we call it correctly
+    // func does not have the expected signature of taking an int
+    // and returning a bool defined above, but we call it correctly
     func(number, text);
 }
 
