@@ -5,4 +5,138 @@ A function pointer can be used to pass a function to another function.
 A function which is passed as a parameter value to another function is known as a first class function.
 A function which takes one or more functions as a parameter, or which returns a function, is known as a higher order function.
 
-TODO: example
+In the following example, `is_even` and `is_odd` are first class functions.
+The higher order function is `test_number`.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_even (int number) {
+    return number & 1 != 1;
+}
+
+bool is_odd (int number) {
+    return number & 1 == 1;
+}
+
+// this function takes any other function which takes a number and returns a bool
+void test_number(bool (*func) (int), int number, char *text){
+    printf(text, number, func(number)? "true": "false");
+}
+
+int main() {
+    // prints Testing odd for 3 is true
+    test_number(is_odd, 3,"Testing odd for %d is %s\n");
+    // prints Testing even for 3 is false
+    test_number(is_even, 3,"Testing even for %d is %s\n");
+}
+```
+The function signature of `bool (*func) (int)` for the first argument to `test_number` matches the signatures of the functions passed in.
+Both `is_even` and `is_odd` take an `int` parameter and return a `bool`.
+In `(*func)`, `func` represents the name of the function to be used.
+if `(*fn)` were used, then it would have been called like so: `printf(text, number, fn(number)? "true": "false");`.
+To satisfy the function pointer paremater, we pass the name of a function having the expected signature when calling `test_number`.
+Thus, we see that a function name points to the address of that function.
+
+The following example compiles but crashes when passing a function without the expected signature
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_even (int number) {
+    return number & 1 != 1;
+}
+
+bool is_odd (int number) {
+    return number & 1 == 1;
+}
+
+void is_zero(int number, char *text) {
+    printf(text, number, number == 0? "true": "false");
+}
+
+void test_number(bool (*func) (int), int number, char * text){
+    printf(text, number, func(number)? "true": "false");
+}
+
+int main() {
+    // prints Testing odd for 3 is true
+    test_number(is_odd, 3,"Testing odd for %d is %s\n");
+    // prints Testing even for 3 is false
+    test_number(is_even, 3,"Testing even for %d is %s\n");
+    // program crashes. May report segmentation fault.
+    test_number(is_zero, 3,"Testing zero for %d is %s\n");
+}
+```
+
+One platform reported a segmentation fault. Another gave warning
+
+```
+'void (__cdecl *)(int,char *)' differs in parameter lists from 'bool (__cdecl *)(int)'
+'function': incompatible types - from 'void (__cdecl *)(int,char *)' to 'bool (__cdecl *)(int)'
+```
+
+The warning did not prevent compilation and the program still crashed when passing a function with the wrong signature to `test_number`.
+
+The following example shows what happens when `test_number` keeps its signature but has its implementation changed to handle `is_zero`.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_even (int number) {
+    return number & 1 != 1;
+}
+
+bool is_odd (int number) {
+    return number & 1 == 1;
+}
+
+void is_zero(int number, char *text) {
+    printf(text, number, number == 0? "true": "false");
+}
+
+void test_number(bool (*func) (int), int number, char * text){
+    //printf(text, number, func(number)? "true": "false");
+    func(number, text);
+}
+
+int main() {
+    // test_number(is_odd, 3,"Testing odd for %d is %s\n");
+    // test_number(is_even, 3,"Testing even for %d is %s\n");
+    // one platform doesn't compile. Another platform compiles with warnings and prints
+    // Testing zero for 3 is false
+    test_number(is_zero, 3,"Testing zero for %d is %s\n");
+}
+```
+
+One platform did not compile with the following errors
+
+```
+In function 'test_number':
+/tmp/7WSD1Rhh5e.c:18:5: error: too many arguments to function 'func'
+   18 |     func(number, text);
+      |     ^~~~
+/tmp/7WSD1Rhh5e.c: In function 'main':
+/tmp/7WSD1Rhh5e.c:24:17: warning: passing argument 1 of 'test_number' from incompatible pointer type [-Wincompatible-pointer-types]
+   24 |     test_number(is_zero, 3,"Testing zero for %d is %s\n");
+      |                 ^~~~~~~
+      |                 |
+      |                 void (*)(int,  char *)
+/tmp/7WSD1Rhh5e.c:16:25: note: expected '_Bool (*)(int)' but argument is of type 'void (*)(int,  char *)'
+   16 | void test_number(bool (*func) (int), int number, char * text){
+```
+
+Another platform compiled with the following warnings
+
+```
+'func': too many actual parameters
+'void (__cdecl *)(int,char *)' differs in parameter lists from 'bool (__cdecl *)(int)'
+'function': incompatible types - from 'void (__cdecl *)(int,char *)' to 'bool (__cdecl *)(int)'
+```
+
+Since passing the functions with the correct signature was commented out, the implementation of `test_number` changed to handle the signature of `is_zero` executed without crashing.
+
+When we see that the same code can result in different results on different platforms we can infer that passing a function pointer with the wrong signature results in undefined behavior (UB.)
