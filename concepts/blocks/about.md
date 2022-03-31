@@ -58,7 +58,12 @@ If the last `printf` statement is removed, the program will compile and print `0
 Some languages, such as Go and Rust, are explicit that single-line conditional and loop statements constitute a block.
 They require that such single-line statements still be enclosed in curly braces.
 
-A function acts somewhat like a block, but functions and blocks are not identical.
+A function acts somewhat like a block.
+An identifier for a variable defined in a function cannot be seen outside the function, just as an indentifier for a variable defined in a block cannot be seen outside the block.
+Two variables in two functions can have the same name, since the two functions don't see into each other, just as two variables in two blocks can have the same name, since the two blocks don't see into each other.
+But functions and blocks are not identical.
+A function cannot be nested inside another function, but a block can be nested inside another block.
+And some identifiers in a block can be seen outside the block.
 In the following example, the code will not compile
 
 ```c
