@@ -4,6 +4,12 @@ A block is a set of statements and declarations grouped into one syntactic unit.
 Blocks are often, but not always, defined within curly braces.
 Blocks can be nested within functions and within other blocks.
 
+A function acts somewhat like a block.
+An identifier for a variable defined in a function cannot be seen outside the function, just as an indentifier for a variable defined in a block cannot be seen outside the block.
+Two variables in two functions can have the same name, since the two functions don't see into each other, just as two variables in two blocks can have the same name, since the two blocks don't see into each other.
+But functions and blocks are not identical.
+A function cannot be nested inside another function, but a block can be nested inside another block.
+
 In the following example, `number` is defined within the `main` function.
 `flag` is defined within the `if` block which is nested within the `main` function.
 Variables defined within a block are only valid within that block.
