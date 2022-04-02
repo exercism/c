@@ -1024,6 +1024,16 @@
       "slug": "recursion",
       "name": "Recursion"
     }
+    {
+      "uuid": "3d59a87b-8f00-45dd-ba57-6a041304358f",
+      "slug": "scope",
+      "name": "Scope"
+    }
+    {
+      "uuid": "c065ddca-627c-45b6-a92f-7144dd852111",
+      "slug": "storage-class-specifiers",
+      "name": "Storage Class Specifiers"
+    }
   ],
   "key_features": [
     {
