@@ -62,7 +62,7 @@ A function acts somewhat like a block.
 An identifier for a variable defined in a function cannot be seen outside the function, just as an indentifier for a variable defined in a block cannot be seen outside the block.
 Two variables in two functions can have the same name, since the two functions don't see into each other, just as two variables in two blocks can have the same name, since the two blocks don't see into each other.
 But functions and blocks are not identical.
-A function cannot be nested inside another function, but a block can be nested inside another block.
+A function cannot be defined inside another function, but a block can be nested inside another block.
 And some identifiers in a block can be seen outside the block.
 In the following example, the code will not compile
 
@@ -162,4 +162,68 @@ int main() {
             // prints 1 3 5 7 9 
             printf("%d ", i);
 }
+```
+
+We've seen that values defined within a block cannot be accessed from outside of the block.
+And we've seen that values defined outside of a block can usually be accessed from within the block.
+It is possible for a variable outside of a block to be hidden inside a block if the identifier for that variable is used in defining a block variable.
+In the following example, the `number` identifier is used for both a function-level variable and a block-level variable.
+We say that the block-level variable hides or _shadows_ the function-level variable.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 1;
+    // prints number in function is 1
+    printf("number in function is %d\n", number);
+    
+    if (number == 1) {
+        // the definition of a block-level variable using the same name
+        // shadows the function-level variable
+        int number = 2;
+        // prints number in function is 2
+        printf("number in if block is %d\n", number);
+    }
+    // prints number in function is 1
+    printf("number in function is %d\n", number);
+}
+```
+
+Compilers may generate an error if a function parameter is attempted to be shadowed.
+The following example
+
+```c
+#include <stdio.h>
+
+void print_number(int number) {
+    // will fail to compile
+    int number = 2;
+    printf("number in function is %d\n", number);
+}
+
+int main() {
+    int number = 1;
+    printf("number in main is %d\n", number);
+    print_number(number);
+    printf("number in main is %d\n", number);
+}
+```
+
+results in the following errors on two platforms
+
+```
+/tmp/jIvhD5UOop.c: In function 'print_number':
+/tmp/jIvhD5UOop.c:5:9: error: 'number' redeclared as different kind of symbol
+    5 |     int number = 2;
+      |         ^~~~~~
+/tmp/jIvhD5UOop.c:3:23: note: previous definition of 'number' was here
+    3 | void print_number(int number) {
+      |                   ~~~~^~~~~~
+```
+
+and
+
+```
+redefinition of formal parameter 'number'
 ```
