@@ -48,7 +48,6 @@ char **make_diamond(const char letter)
 
 void free_diamond(char **diamond)
 {
-    free(diamond[0]);
-    free(diamond);
+   free(diamond[0]);
+   free(diamond);
 }
-
