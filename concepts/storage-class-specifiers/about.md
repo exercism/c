@@ -25,7 +25,7 @@ A file scope variable marked `static` has internal linkage, meaning it can only 
 If a variable is defined wthn a function or a block within a function it has block scope.
 Block scope means the variable can be accessed only in the block in which it was created.
 A block scope variable marked `static` has static storage duration.
-The static variable's value persists between calls to the function or block.
+The `static` variable's value persists between calls to the function or block.
 
 In the following example we see two static variables at work.
 The first `count` variable is defined within the `print_stuff` function and retains its value between calls to the function.
@@ -59,4 +59,9 @@ int main() {
     print_stuff();
 }
 ```
+
+If a `static` variable is explicitly initialized, it must be done so with a constant expression.
+A constant expression is one which can be evaluated at compile time.
+
+
 
