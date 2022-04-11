@@ -16,5 +16,47 @@ An `auto` variable can be intialized by any valid expression.
 
 
 ## static (the storage specifier not to be confused with the static linkage type)
+A variable defined outside of a block or function has file scope and always has static storage duration.
+File scope means it can be accessed anywhere in the file.
+Static storage means it exists from the beginning of the program until the end.
+Unless explicitly initialized, a static variable is initialized with its default zero value.
+If a file scope variable is marked with `static`, the `static` refers to its linkage.
+A file scope variable marked `static` has internal linkage, meaning it can only be accessed within the file.
+If a variable is defined wthn a function or a block within a function it has block scope.
+Block scope means the variable can be accessed only in the block in which it was created.
+A block scope variable marked `static` has static storage duration.
+The static variable's value persists between calls to the function or block.
 
+In the following example we see two static variables at work.
+The first `count` variable is defined within the `print_stuff` function and retains its value between calls to the function.
+The second `count` variable is defined within an arbitrary block and hides (or shadows) the first `count` variable within its block.
+The second `count` variable independently retains its value between entries into the block.
+
+```c
+#include <stdio.h>
+
+void print_stuff(void) {
+    // static variable is initialized to 0
+    static int count;
+    count++;
+    printf("function count is %d\n", count);
+    {
+        // static variable is initialized to 0
+        static int count;
+        count++;
+        printf("block count is %d\n", count);
+    }
+}
+
+int main() {
+    // prints
+    // function count is 1
+    // block count is 1
+    print_stuff();
+    // prints
+    // function count is 2
+    // block count is 2    
+    print_stuff();
+}
+```
 
