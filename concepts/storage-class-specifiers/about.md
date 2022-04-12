@@ -63,5 +63,43 @@ int main() {
 If a `static` variable is explicitly initialized, it must be done so with a constant expression.
 A constant expression is one which can be evaluated at compile time.
 
+## extern (how not to shadow a variable in the enclosing scope)
 
+TODO: Explain
+
+```c
+#include <stdio.h>
+
+void set_val() {
+    extern int val;
+    val += 42;
+    printf("val is %d\n", val);
+}
+
+int main() {
+    set_val();
+    extern int val;
+    printf("val is %d\n", val);
+}
+// this value could be defined in another file.
+// as a variable with static storage, it is initialized to zero
+int val;
+```
+
+```c
+#include <stdio.h>
+
+void set_val() {
+    // defined with static storage, but not in enclosing scope
+    static int val;
+    val += 42;
+    printf("val is %d\n", val);
+}
+
+int main() {
+    set_val();
+    extern int val;
+    printf("val is %d\n", val);
+}
+```
 
