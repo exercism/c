@@ -12,7 +12,7 @@ An `auto` variable's lifetime begins when its block is entered and ends when its
 An `auto` variable has memory allocated for it, _but with no default value_, when its block is entered.
 An exception is for variable length arrays (VLAs.)
 A VLA's allocation happens where it is declared or defined in its block and ends when its block is exited.
-An `auto` variable can be intialized by any valid expression.
+An `auto` variable can be initialized by any valid expression.
 
 
 ## static (the storage specifier not to be confused with the static linkage type)
@@ -22,7 +22,7 @@ Static storage means it exists from the beginning of the program until the end.
 Unless explicitly initialized, a static variable is initialized with its default zero value.
 If a file scope variable is marked with `static`, the `static` refers to its linkage.
 A file scope variable marked `static` has internal linkage, meaning it can only be accessed within the file.
-If a variable is defined wthn a function or a block within a function it has block scope.
+If a variable is defined within a function or in a block within a function it has block scope.
 Block scope means the variable can be accessed only in the block in which it was created.
 A block scope variable marked `static` has static storage duration.
 The `static` variable's value persists between calls to the function or block.
