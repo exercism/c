@@ -103,3 +103,56 @@ int main() {
 }
 ```
 
+```c
+#include <stdio.h>
+
+extern int val = 42;
+
+int main() {
+    extern int val;
+    printf("val is %d", val);
+}
+```
+
+```c
+#include <stdio.h>
+
+int val = 42;
+
+int main() {
+    extern int val;
+    printf("val is %d", val);
+}
+```
+
+```c
+#include <stdio.h>
+
+int val = 42;
+
+int main() {
+    printf("val is %d", val);
+}
+```
+
+```c
+#include <stdio.h>
+
+int val = 42;
+
+int main() {
+    int val = 84;
+    printf("val is %d", val);
+}
+```
+
+```c
+#include <stdio.h>
+
+int val = 42;
+
+int main() {
+    extern int val = 84;
+    printf("val is %d", val);
+}
+```
