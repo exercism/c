@@ -3,7 +3,7 @@
 Storage-class specifiers relate to how variables are stored in memory.
 They are closely related to the storage duration (also referred to as the lifetime) of a value.
 
-## auto (the default storage class for variables)
+## auto (the default storage class for function or block scope variables)
 
 Since variables defined within a block or function are `auto` by default, it is not common to explicitly use the term.
 Another reason that `auto` is often avoided is because it has a different meaning in C++.
@@ -155,3 +155,30 @@ int main() {
     printf("val is %d\n", val);
 }
 ```
+
+## register (how to possibly speed access to a variable)
+
+A variable marked as `register` expresses the programmer's desire to have the value placed in a register for quick access.
+A `register` variable is like an `auto` variable in that it must be in function or block scope.
+Since the value is intended to be placed in a register instead of memory, accessing the address of the variable should be disallowed by the compiler, since the adress of a register can't be taken.
+However, a memory address itself can be placed in a register.
+The following example demonstrates that
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 42;
+    register int *i_ptr = &i;
+    // prints i is 42, i_ptr is 0x7ffd0c2055c4 (or some other address)
+    printf("i is %d, i_ptr is %p", i, i_ptr);
+}
+```
+
+`register` is essentially a hint, since the value may or may not be actually placed in a register.
+
+## typedef (the storage class specifier that isn't really)
+
+`typedef` is described as a storage class specifier for syntactic reasons only.
+This is because a storage class specifier can't be used with another storage class specifer.
+So, `typedef auto int i = 42;` is just as illegal as `static auto int i = 42;`.
