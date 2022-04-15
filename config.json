@@ -999,6 +999,11 @@
       "slug": "basics",
       "name": "Basics"
     },
+    {    
+      "uuid": "20948c69-20f7-498d-b743-fada00e5c79d",
+      "slug": "bits",
+      "name": "Bits"
+    },
     {
       "uuid": "629909c3-0a42-456c-8212-672c832f3748",
       "slug": "blocks",

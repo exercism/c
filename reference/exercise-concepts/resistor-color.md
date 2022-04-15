@@ -9,9 +9,9 @@
 - [Function parameters](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Function-Parameters): The definition of the function under test uses parameters
 - [Header files](https://www.gnu.org/software/libc/manual/html_mono/libc.html#Header-Files): Used to access the standard library
 - [Pointers](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Pointers): The `colors()` function returns an array by pointer
-- [Renaming types](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Renaming-Types): The enum for band colors is named using `typefdef`
+- [Renaming types](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Renaming-Types): The enum for band colors is named using `typedef`
 - [Storage class specifiers](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Storage-Class-Specifiers): A `static` array is defined
 - [The return statement](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#The-return-Statement): The implemented functions return a value
 - [Type casting (type conversion, type coercion)](https://github.com/exercism/v3/blob/master/reference/concepts/type_casting.md): A band color enum value is converted to an integer to present its numerical value.
-- [Typedef statement](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#The-typedef-Statement): The enum for band colors is named using `typefdef`
+- [Typedef statement](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#The-typedef-Statement): The enum for band colors is named using `typedef`
 - [Void type](https://en.wikipedia.org/wiki/Void_type): The `void` type is used in a function definition
