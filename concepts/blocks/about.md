@@ -147,8 +147,9 @@ int main() {
 
 Single-line statements can be "stacked" and still be within one block without the use of curly braces.
 In the example below, the `for` statement contains an `if` statement which in turn contains a `printf` statement.
-Although there are two total statements in the `for` block, it "sees" only its single-line `if` statement.
-The `if` statement in turn "sees" its single-line `printf` statement.
+Although there are two total statements in the `for` block, only its single-line `if` statement is evaluated as the body of the `for` loop.
+The `if` statement's single-line `printf` statement in turn is evaluated as its body.
+If nested blocks are each only a single line, none of the blocks need curly braces.
 Note that the comment does not require curly braces for enclosing it and the `printf` statement within the `if` block, since the comment is not a statement.
 The indentation makes it clear what's happening, but a development team may have have its own coding guidelines about placing curly braces in such situations to remove any kind of ambiguity.
 
