@@ -1015,6 +1015,11 @@
       "name": "Booleans"
     },
     {
+      "uuid": "1721552b-9c55-432d-a776-05e618c25bb4",
+      "slug": "function-pointers",
+      "name": "Function Pointers"
+    },    
+    {
       "uuid": "e5725455-3ce3-48e9-a3c6-ceb522434b5b",
       "slug": "conditionals",
       "name": "Conditionals"
