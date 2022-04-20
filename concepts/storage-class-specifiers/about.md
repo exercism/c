@@ -175,7 +175,7 @@ int main() {
 }
 ```
 
-`register` is essentially a hint, since the value may or may not be actually placed in a register.
+register` is essentially a hint, since compilers are free to chose if they follow this specifier or not, so the value may or may not be actually placed in a register.
 
 ## typedef (the storage class specifier that isn't really)
 
