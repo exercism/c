@@ -160,7 +160,7 @@ int main() {
 
 A variable marked as `register` expresses the programmer's desire to have the value placed in a register for quick access.
 A `register` variable is like an `auto` variable in that it must be in function or block scope.
-Since the value is intended to be placed in a register instead of memory, accessing the address of the variable should be disallowed by the compiler, since the adress of a register can't be taken.
+Since the value is intended to be placed in a register instead of memory, accessing the address of the variable should be disallowed by the compiler, since the address of a register can't be taken.
 However, a memory address itself can be placed in a register.
 The following example demonstrates that
 
