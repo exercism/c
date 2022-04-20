@@ -6,7 +6,7 @@ The scope of a value relates to where in the program that value can be accessed.
 
 A value with block scope can only be accessed from within the block where it is defined.
 A block is usually but not always defined within matching curly braces, such as those used for a function definition.
-Examples of values with block scope are variables defined within function definitions, `if` statements or any of the loop statements.
+Examples of values with block scope are variables defined within function definitions, within `if` statements or within any of the loop statements.
 As of C99, even if an `if` or loop statement uses no curly braces, a block exists within the statement.
 Also as of C99, values with block scope no longer have to be declared at the beginning of the block.
 
