@@ -13,6 +13,7 @@ An `auto` variable has memory allocated for it, _but with no default value_, whe
 An exception is for variable length arrays (VLAs.)
 A VLA's allocation happens where it is declared or defined in its block and ends when its block is exited.
 An `auto` variable can be initialized by any valid expression.
+
 ## static: the storage specifier not to be confused with the static linkage type
 
 A variable defined outside of a block or function has file scope and always has static storage duration.
