@@ -3,7 +3,7 @@
 Storage-class specifiers relate to how variables are stored in memory.
 They are closely related to the storage duration (also referred to as the lifetime) of a value.
 
-## auto (the default storage class for function or block scope variables)
+## auto: the default storage class for function or block scope variables
 
 Since variables defined within a block or function are `auto` by default, it is not common to explicitly use the term.
 Another reason that `auto` is often avoided is because it has a different meaning in C++.
@@ -15,7 +15,7 @@ A VLA's allocation happens where it is declared or defined in its block and ends
 An `auto` variable can be initialized by any valid expression.
 
 
-## static (the storage specifier not to be confused with the static linkage type)
+## static: the storage specifier not to be confused with the static linkage type
 A variable defined outside of a block or function has file scope and always has static storage duration.
 File scope means it can be accessed anywhere in the file.
 Static storage means it exists from the beginning of the programs execution until the end.
@@ -63,7 +63,7 @@ int main() {
 If a `static` variable is explicitly initialized, it must be done so with a constant expression.
 A constant expression is one which can be evaluated at compile time.
 
-## extern (how to access a variable in another file)
+## extern: how to access a variable in another translation unit
 
 Although a variable with file scope can be declared and initialized as `extern`, the `extern` keyword is usually used to refer to an existing variable, not to define a new one.
 The variable referred to by `extern` must have file scope.
@@ -92,7 +92,7 @@ int main() {
     // prints val is 84
     printf("val is %d\n", val);
 }
-// this value could be defined in another file.
+// this value could be defined in another source file.
 // as a variable with static storage, it is initialized to zero
 int val;
 ```
@@ -134,7 +134,7 @@ int main() {
 ```
 
 The `static` could be removed from `static int val;`, giving `val` external linkage,  and `val` would still work the same in `set_val` and `main`.
-If another file included this file, it could only use `val` if `val` had external linkage (not declared as `static`) and the other file declared `extern int val;`.
+If another source file included this file, it could only use `val` if `val` had external linkage (not declared as `static`) and the other file declared `extern int val;`.
 
 A variable referred to by `extern` must not only have `static` storage, but must also have file scope.
 The following example will most likely not compile, because `val`, though `static`, does not have file scope.
@@ -156,7 +156,7 @@ int main() {
 }
 ```
 
-## register (how to possibly speed access to a variable)
+## register: how to possibly speed access to a variable
 
 A variable marked as `register` expresses the programmer's desire to have the value placed in a register for quick access.
 A `register` variable is like an `auto` variable in that it must be in function or block scope.
@@ -177,7 +177,7 @@ int main() {
 
 register` is essentially a hint, since compilers are free to chose if they follow this specifier or not, so the value may or may not be actually placed in a register.
 
-## typedef (the storage class specifier that isn't really)
+## typedef: the storage class specifier that isn't really
 
 `typedef` is described as a storage class specifier for syntactic reasons only.
 This is because a storage class specifier can't be used with another storage class specifer.
