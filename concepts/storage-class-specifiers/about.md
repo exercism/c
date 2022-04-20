@@ -65,6 +65,7 @@ A constant expression is one which can be evaluated at compile time.
 
 ## extern: how to access a variable in another translation unit
 
+A translation unit consists of a source file and any other file it `#include`s.
 Although a variable with file scope can be declared and initialized as `extern`, the `extern` keyword is usually used to refer to an existing variable, not to define a new one.
 The variable referred to by `extern` must have file scope.
 A variable in file scope always has `static` storage.
