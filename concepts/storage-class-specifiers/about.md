@@ -16,6 +16,7 @@ An `auto` variable can be initialized by any valid expression.
 
 
 ## static: the storage specifier not to be confused with the static linkage type
+
 A variable defined outside of a block or function has file scope and always has static storage duration.
 File scope means it can be accessed anywhere in the file.
 Static storage means it exists from the beginning of the programs execution until the end.
