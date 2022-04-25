@@ -19,7 +19,7 @@ Two labels with the same name cannot be used in the same function, even if the l
 
 ### Function prototype scope
 
-Function prototype scope is another special kind of scope that applies only to parameters named within the protoype (also referred to as the declaration.)
+Function prototype scope is another special kind of scope that applies only to parameters named within the protoype (also referred to as the declaration, keeping in mind that not all declarations are prototypes.)
 A parameter name is usually optional in a function declaration.
 The scope of a name is relevant only within the declaration.
 In the following example the `len` identifier is defined and then referred to later in the function declaration.
