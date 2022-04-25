@@ -11,9 +11,8 @@ An `auto` variable has memory allocated for it, _but with no default value_, whe
 
 ## static: the storage specifier not to be confused with the static linkage type
 
-If a variable is defined within a function or in a block within a function, it has block scope.
-Block scope means the variable can be accessed only in the block in which it was created.
-A block scope variable marked `static` has `static` storage duration.
+If a variable is defined outside of a block or function and is marked with `static`, the `static` refers to its linkage, meaning it can only be accessed within the file.
+If a variable is defined within a function or in a block within a function and is marked `static`, it has `static` storage duration.
 The `static` variable's value persists between calls to the function or block.
 
 ## extern: how to access a variable in another translation unit
