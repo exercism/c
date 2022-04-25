@@ -45,3 +45,9 @@ char **make_diamond(const char letter)
 
    return diamond;
 }
+
+void free_diamond(char **diamond)
+{
+   free(diamond[0]);
+   free(diamond);
+}

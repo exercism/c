@@ -999,11 +999,26 @@
       "slug": "basics",
       "name": "Basics"
     },
+    {    
+      "uuid": "20948c69-20f7-498d-b743-fada00e5c79d",
+      "slug": "bits",
+      "name": "Bits"
+    },
+    {
+      "uuid": "629909c3-0a42-456c-8212-672c832f3748",
+      "slug": "blocks",
+      "name": "Blocks"
+    },
     {
       "uuid": "2c087541-a5fa-4cfd-b0f1-5355f933b94b",
       "slug": "booleans",
       "name": "Booleans"
     },
+    {
+      "uuid": "1721552b-9c55-432d-a776-05e618c25bb4",
+      "slug": "function-pointers",
+      "name": "Function Pointers"
+    },    
     {
       "uuid": "e5725455-3ce3-48e9-a3c6-ceb522434b5b",
       "slug": "conditionals",
