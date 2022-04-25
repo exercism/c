@@ -12,19 +12,13 @@ void tearDown(void)
 {
 }
 
-static void free_all(char **diamond)
-{
-   free(diamond[0]);
-   free(diamond);
-}
-
 static void test_rows_degenerate_case_with_a_single_a_row(void)
 {
    const char letter = 'A';
    const char *expected[] = { "A" };
    char **diamond = make_diamond(letter);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, diamond, ARRAY_SIZE(expected));
-   free_all(diamond);
+   free_diamond(diamond);
 }
 
 static void
@@ -41,7 +35,7 @@ test_rows_degenerate_case_with_no_row_with_3_distinct_groups_of_spaces(void)
    };
    char **diamond = make_diamond(letter);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, diamond, ARRAY_SIZE(expected));
-   free_all(diamond);
+   free_diamond(diamond);
 }
 
 static void
@@ -60,7 +54,7 @@ test_rows_smallest_non_degenerate_case_with_odd_diamond_side_length(void)
    };
    char **diamond = make_diamond(letter);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, diamond, ARRAY_SIZE(expected));
-   free_all(diamond);
+   free_diamond(diamond);
 }
 
 static void
@@ -81,7 +75,7 @@ test_rows_smallest_non_degenerate_case_with_even_diamond_side_length(void)
    };
    char **diamond = make_diamond(letter);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, diamond, ARRAY_SIZE(expected));
-   free_all(diamond);
+   free_diamond(diamond);
 }
 
 static void test_rows_largest_possible_diamond(void)
@@ -145,7 +139,7 @@ static void test_rows_largest_possible_diamond(void)
    };
    char **diamond = make_diamond(letter);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, diamond, ARRAY_SIZE(expected));
-   free_all(diamond);
+   free_diamond(diamond);
 }
 
 int main(void)

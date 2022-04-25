@@ -157,7 +157,7 @@ else if (k > 5) i = k;
 else i = 10;
 ```
 
-## Conditional Comparisions for Floating Point Values
+## Conditional Comparisons for Floating Point Values
 
 Because of how floating point numbers are implemented, a simple math operation may result in a rounding error which can cause a test for equality to not return the expected result.
 
