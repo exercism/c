@@ -22,9 +22,7 @@ Static storage means it exists from the beginning of the programs execution unti
 Unless explicitly initialized, a `static` variable is initialized with its default zero value.
 If a file scope variable is marked with `static`, the `static` refers to its linkage.
 A file scope variable marked `static` has internal linkage, meaning it can only be accessed within the file.
-If a variable is defined within a function or in a block within a function, it has block scope.
-Block scope means the variable can be accessed only in the block in which it was created.
-A block scope variable marked `static` has `static` storage duration.
+If a variable is defined within a function or in a block within a function and is marked `static`, it has `static` storage duration.
 The `static` variable's value persists between calls to the function or block.
 
 In the following example we see two `static` variables at work.
