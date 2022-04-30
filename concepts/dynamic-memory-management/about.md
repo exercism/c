@@ -362,3 +362,10 @@ int main() {
     printf("The sixth element of the array is %d\n", numbers[5]);
 }
 ```
+
+## When the size passed is 0
+
+If the size passed to `malloc`, `calloc`, or `relloac` is `0`, then what happens depends on how the compiler implements it.
+A compiler may either return a `NULL` pointer or a non-null pointer.
+For example, if allocating memory for a pointer to `char`, the compiler may return either `NULL` or a non-null pointer to an empty string.
+To avoid differing results with differing compilers it is best to not allocate with a size of 0.
