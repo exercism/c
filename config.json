@@ -1038,6 +1038,16 @@
       "uuid": "71b3abda-5482-4cb3-a317-399ebda9b94e",
       "slug": "recursion",
       "name": "Recursion"
+    },
+    {
+      "uuid": "3d59a87b-8f00-45dd-ba57-6a041304358f",
+      "slug": "scope",
+      "name": "Scope"
+    },
+    {
+      "uuid": "c065ddca-627c-45b6-a92f-7144dd852111",
+      "slug": "storage-class-specifiers",
+      "name": "Storage-class specifiers"
     }
   ],
   "key_features": [
