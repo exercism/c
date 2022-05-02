@@ -1025,6 +1025,11 @@
       "name": "Conditionals"
     },
     {
+      "uuid": "e39f5003-8ed9-4d82-ab9b-f79bbca78679",
+      "slug": "linkage",
+      "name": "Linkage"
+    },    
+    {
       "uuid": "3d79388b-e909-4e1b-99e9-d28e30e54fde",
       "slug": "loops",
       "name": "Loops"
