@@ -1050,6 +1050,11 @@
       "name": "Scope"
     },
     {
+      "uuid": "f4946fe8-afb3-4110-8fca-b1476f19be6f",
+      "slug": "static-functions",
+      "name": "Static Functions"
+    },    
+    {
       "uuid": "c065ddca-627c-45b6-a92f-7144dd852111",
       "slug": "storage-class-specifiers",
       "name": "Storage-class specifiers"
