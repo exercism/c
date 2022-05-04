@@ -7,8 +7,8 @@ For more on scope please see the [scope concept](../scope/introduction.md#Introd
 
 ## External linkage
 
-Values with file scope have external linkage by default.
-A value with external linkage can be used from any file in the program.
+Identifiers with file scope have external linkage by default.
+An identifier with external linkage can be called from any file in the program.
 
 ## Internal linkage
 
@@ -36,3 +36,7 @@ int main()
 
 Static linkage should not be confused with static storage duration.
 For more on static storage duration, please see the [storage duration concept](https://github.com/exercism/c/blob/main/concepts/storage-class-specifiers/about.md#static-the-storage-specifier-not-to-be-confused-with-the-static-linkage-type).
+
+If a value (as opposed to a function) is declared in a header but is defined in the source file as a `static` file-scoped identifier with an initialized value, it's initialized value will not be accessible from outside of its source file.
+It may compile and link and run without an error, but the value will be the zero value for the identifier.
+A file-scoped identifier marked as `static` in a source file should not be declared in its header file.
