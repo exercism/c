@@ -36,7 +36,19 @@
     ]
   },
   "exercises": {
-    "concept": [],
+    "concept": [
+      {
+        "status": "wip",
+        "uuid": "42d2c263-3350-4197-9129-1ab016762326",
+        "slug": "lucians-luscious-lasagna",
+        "name": "Lucians luscious lasagna",
+        "concepts": [
+          "basics"
+        ],
+        "prerequisites": [],
+        "status": "wip"
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
@@ -995,14 +1007,69 @@
   },
   "concepts": [
     {
-      "status": "wip",
-      "uuid": "42d2c263-3350-4197-9129-1ab016762326",
-      "slug": "lucians-luscious-lasagna",
-      "name": "Lucians luscious lasagna",
-      "concepts": [
-        "basics"
-      ],
-      "prerequisites": []
+      "uuid": "5e93a50c-0b68-46ad-b900-6206d813bd9b",
+      "slug": "basics",
+      "name": "Basics"
+    },          
+    {    
+      "uuid": "20948c69-20f7-498d-b743-fada00e5c79d",
+      "slug": "bits",
+      "name": "Bits"
+    },
+    {
+      "uuid": "629909c3-0a42-456c-8212-672c832f3748",
+      "slug": "blocks",
+      "name": "Blocks"
+    },
+    {
+      "uuid": "2c087541-a5fa-4cfd-b0f1-5355f933b94b",
+      "slug": "booleans",
+      "name": "Booleans"
+    },
+    {
+      "uuid": "1721552b-9c55-432d-a776-05e618c25bb4",
+      "slug": "function-pointers",
+      "name": "Function Pointers"
+    },    
+    {
+      "uuid": "e5725455-3ce3-48e9-a3c6-ceb522434b5b",
+      "slug": "conditionals",
+      "name": "Conditionals"
+    },
+    {
+      "uuid": "e39f5003-8ed9-4d82-ab9b-f79bbca78679",
+      "slug": "linkage",
+      "name": "Linkage"
+    },    
+    {
+      "uuid": "3d79388b-e909-4e1b-99e9-d28e30e54fde",
+      "slug": "loops",
+      "name": "Loops"
+    },
+    {
+      "uuid": "21c156d1-488c-4dc9-a486-0b106fd5b5e3",
+      "slug": "pointers",
+      "name": "Pointers"
+    },
+    {
+      "uuid": "71b3abda-5482-4cb3-a317-399ebda9b94e",
+      "slug": "recursion",
+      "name": "Recursion"
+    },
+    {
+      "uuid": "3d59a87b-8f00-45dd-ba57-6a041304358f",
+      "slug": "scope",
+      "name": "Scope"
+    },
+    {
+      "uuid": "f4946fe8-afb3-4110-8fca-b1476f19be6f",
+      "slug": "static-functions",
+      "name": "Static Functions"
+    },    
+    {
+      "uuid": "c065ddca-627c-45b6-a92f-7144dd852111",
+      "slug": "storage-class-specifiers",
+      "name": "Storage-class specifiers"
     }
   ],
   "key_features": [

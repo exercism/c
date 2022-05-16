@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
 
       - name: Shell script static analysis
         run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin bin/run-tests format.sh
@@ -38,10 +38,10 @@ jobs:
         run: ./bin/check-include-guards ./exercises/concept ./exercises/practice
 
       - name: Check links
-        uses: lycheeverse/lychee-action@d2bc7de736f6be63f02f38316295eaf5ea507b9f
+        uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6
         id: lychee
         with:
-          args: --no-progress **/*.md **/*.html
+          args: --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" --no-progress **/*.md **/*.html
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 

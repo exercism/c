@@ -96,7 +96,7 @@ If the type is four bytes in length, the address of the second element will be f
 
 This is also why pointers are declared to be of a certain type.
 If a pointer did not know what type it points to, it would not know how many bytes to advance when adding `1` to it.
-Adding `1` to a pointer does not necessariy mean we're adding one byte to the address.
+Adding `1` to a pointer does not necessarily mean we're adding one byte to the address.
 It means we're adding `1` times the length of its type in bytes.
 
 But wait, there's more! You didn't think we were finished with `*`, did you?
@@ -138,7 +138,7 @@ int main() {
 }
 ```
 
-Using parentheses can help remove ambiguity of intentions when using pointer arthimetic.
+Using parentheses can help remove ambiguity of intentions when using pointer arithmetic.
 The following example may not print what the programmer intended to
 
 ```c
@@ -180,7 +180,7 @@ We could have used
 printf("my_ints[2] is %u", my_ints[2]);
 ```
 
-Since array indexing is implemented with a pointer, the same danger of overunning the array applies.
+Since array indexing is implemented with a pointer, the same danger of over-running the array applies.
 
 And, since a string is an array of `char`s, pointers can be used with strings, too.
 A string is often declared using pointer syntax, like so
@@ -270,7 +270,7 @@ void print_strings(char *passed_in_strings[]) {
 
 may still compile and still print gibberish.
 But there is really no value to passing in a pointer to a pointer to a single `char`.
-Chances are, when you see `char **`, it represents a pointer to to an array of pointers to `char` arrays.
+Chances are, when you see `char **`, it represents a pointer to an array of pointers to `char` arrays.
 
 We've seen a pointer passed into a function.
 But why pass a pointer into a function?
