@@ -17,7 +17,7 @@ void tearDown(void)
 static void check_transate(const char *phrase, const char *expected)
 {
    res = translate(phrase);
-   TEST_ASSERT_EQUAL_STRING(res, expected);
+   TEST_ASSERT_EQUAL_STRING(expected, res);
 }
 
 static void test_word_beginning_with_a(void)
