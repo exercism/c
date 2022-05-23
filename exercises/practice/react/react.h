@@ -7,7 +7,7 @@ struct cell;
 typedef int (*compute1)(int);
 typedef int (*compute2)(int, int);
 
-struct reactor *create_reactor();
+struct reactor *create_reactor(void);
 // destroy_reactor should free all cells created under that reactor.
 void destroy_reactor(struct reactor *);
 
