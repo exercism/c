@@ -38,7 +38,7 @@ struct cell {
    int callbacks_issued;
 };
 
-struct reactor *create_reactor()
+struct reactor *create_reactor(void)
 {
    return calloc(1, sizeof(struct reactor));
 }
