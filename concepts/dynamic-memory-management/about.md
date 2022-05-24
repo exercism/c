@@ -6,7 +6,7 @@ For that reason, dynamic memory is one of the  major sources for programming bug
 
 Dynamic memory is used for variables whose size is only known at runtime.
 This is commonly useful for arrays whose number of elements may vary between one runtime and the next.
-Variable length arrays are another way to handle arrays whose element size is known only at runtime.
+Variable length arrays (VLA) are another way to handle arrays whose element size is known only at runtime.
 A VLA uses automatic storage, which means its memory is destroyed on leaving its defining block.
 (For more on storage, please see the [storage class specifiers](https://github.com/exercism/c/tree/main/concepts/storage-class-specifiers) concept.)
 VLAs were brought into the C language by C99, but as of C11 VLAs are optional, so compilers supporting C11 onward do not have to support VLAs.
