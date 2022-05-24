@@ -162,7 +162,7 @@ The following example, compiled with two different compilers, can have two diffe
 
 int * my_function(int count) {
     // pointer-to-void from malloc is converted to a pointer-to-int
-    int * numbers = (int *) malloc(sizeof(int) * count);
+    int * numbers = malloc(sizeof(int) * count);
     return numbers;
 }
 
