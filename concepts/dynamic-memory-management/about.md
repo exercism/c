@@ -58,7 +58,6 @@ Note that the `sizeof` the `numbers` pointer is not the number of the array's el
 The size of the pointer returned by `malloc` is the size of any pointer on that particular system.
 The example code was run on a 64-bit system, so the size of the pointer was 8 byes (multiplied by 8 bits per byte = 64 bits.)
 The pointer type was implicitly converted from pointer-to-void to pointer-to-int.
-It could also have been explicitly converted like so : `int * numbers = (int *) malloc(sizeof(int) * count);`.
 Whether the pointer-to-int points to a single `int` or to an array of `ints` is something the programmer can deal with as seen fit.
 For example
 
