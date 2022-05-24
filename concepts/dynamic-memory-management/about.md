@@ -173,13 +173,14 @@ int main() {
     // prints numbers is 1
     printf("numbers is %d\n", *numbers);
     free(numbers);
+    // numbers = NULL;
     // first compiler generates runtime error: double free detected in tcache 2
     // second compiler generates no error
     free(numbers);
 }
 ```
 
-The first compiler generated no runtime error when `numbers` was set to `NULL` between each call to `free`, but that would not be guaranteed to work with a third compiler.
+The first and second compiler generated no runtime error when `numbers` was set to `NULL` between each call to `free`, but that would not be guaranteed to work with a third compiler.
 A common source of double free is to have two pointers which point at the same dynamically allocated memory.
 One pointer may point at the beginning of an array at one place in the program, and the other pointer may be used to step though the array at another place in the program.
 At different places in the program, each pointer is freed, thus causing a double free.
@@ -274,6 +275,7 @@ int main() {
     // the removed memory is not initialized, so it could be
     // 6 or it could be 43164 or anything else
     printf("The sixth element of the array is %d\n", numbers[5]);
+    free(numbers);
 }
 ```
 
