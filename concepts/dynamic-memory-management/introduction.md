@@ -3,6 +3,7 @@
 Dynamic memory is implemented by library functions which the programmer uses to allocate and deallocate memory at runtime.
 Since the programmer controls the allocation and deallocation of memory, dynamic memory is as safe as the programmer is free from human error.
 For that reason, dynamic memory is one of the  major sources for programming bugs and a major target for hacking attacks.
+
 ## malloc
 
 `malloc` is a function declared in `stdlib.h` which is used for allocating dynamic memory.
