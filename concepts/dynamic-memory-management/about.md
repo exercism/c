@@ -107,7 +107,7 @@ The use or lack of use of `free` is associated with several memory issues.
 
 #### memory leak
 
-Not freeing memory after it is no longer needed is referred to as a memory leak.
+Not freeing dynamically allocated memory after the reference to that memory reaches the end of its lifetime, or is otherwise destroyed, is referred to as a memory leak.
 Leaked memory is memory which is claimed by the system but is no longer accessible by the program.
 This can be a particular problem if memory is allocated in a loop, not freed at the end of the loop, and allocated again at the beginning of the loop.
 If enough memory is allocated without being freed, the call to allocate memory will fail due to insufficient memory remaining to allocate.
