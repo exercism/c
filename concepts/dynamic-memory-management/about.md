@@ -90,6 +90,7 @@ int main() {
     numbers = NULL;    
 }
 ```
+
 If the value(s) will definitely be written to before being read, then to use `malloc` can be an efficient way to allocate memory.
 But, if there is a chance the value(s) will be read before being intialized, then to use `malloc` is risky.
 A safer way to allocate memory is to use `calloc`, which initializes the newly allocated memory to zero.
