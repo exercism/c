@@ -56,6 +56,12 @@ static void test_invalid_long_number_with_an_even_remainder(void)
    TEST_ASSERT_FALSE(luhn("1 2345 6789 1234 5678 9012"));
 }
 
+static void invalid_long_number_with_a_remainder_divisible_by_5(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_FALSE(luhn("1 2345 6789 1234 5678 9013"));
+}
+
 static void test_valid_number_with_an_even_number_of_digits(void)
 {
    TEST_IGNORE();
@@ -149,6 +155,7 @@ int main(void)
    RUN_TEST(test_invalid_Canadian_SIN);
    RUN_TEST(test_invalid_credit_card);
    RUN_TEST(test_invalid_long_number_with_an_even_remainder);
+   RUN_TEST(invalid_long_number_with_a_remainder_divisible_by_5);
    RUN_TEST(test_valid_number_with_an_even_number_of_digits);
    RUN_TEST(test_valid_number_with_an_odd_number_of_spaces);
    RUN_TEST(
