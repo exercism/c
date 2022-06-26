@@ -148,3 +148,6 @@ description = "everything"
 
 [12ce86de-b347-42a0-ab7c-2e0570f0c65b]
 description = "no allergen score parts"
+
+[93c2df3e-4f55-4fed-8116-7513092819cd]
+description = "no allergen score parts without highest valid score"
