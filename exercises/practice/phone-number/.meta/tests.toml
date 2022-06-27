@@ -28,8 +28,18 @@ description = "invalid when more than 11 digits"
 
 [63f38f37-53f6-4a5f-bd86-e9b404f10a60]
 description = "invalid with letters"
+include = false
+comment = "Reimplemented"
+
+[eb8a1fc0-64e5-46d3-b0c6-33184208e28a]
+description = "invalid with letters"
 
 [4bd97d90-52fd-45d3-b0db-06ab95b1244e]
+description = "invalid with punctuations"
+include = false
+comment = "Reimplemented"
+
+[065f6363-8394-4759-b080-e6c8c351dd1f]
 description = "invalid with punctuations"
 
 [d77d07f8-873c-4b17-8978-5f66139bf7d7]
