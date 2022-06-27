@@ -176,6 +176,22 @@ static void test_can_attack_on_fourth_diagonal(void)
    TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
 }
 
+static void
+test_cannot_attack_if_falling_diagonals_only_same_when_reflected_across_longest_falling_diagonal(
+    void)
+{
+   TEST_IGNORE();
+   position_t white_queen;
+   position_t black_queen;
+
+   white_queen.column = 1;
+   white_queen.row = 4;
+   black_queen.column = 5;
+   black_queen.row = 2;
+
+   TEST_ASSERT_EQUAL(CAN_NOT_ATTACK, can_attack(white_queen, black_queen));
+}
+
 int main(void)
 {
    UnityBegin("test_queen_attack.c");
@@ -192,6 +208,8 @@ int main(void)
    RUN_TEST(test_can_attack_on_second_diagonal);
    RUN_TEST(test_can_attack_on_third_diagonal);
    RUN_TEST(test_can_attack_on_fourth_diagonal);
+   RUN_TEST(
+       test_cannot_attack_if_falling_diagonals_only_same_when_reflected_across_longest_falling_diagonal);
 
    return UnityEnd();
 }
