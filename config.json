@@ -1025,6 +1025,11 @@
       "name": "Conditionals"
     },
     {
+      "uuid": "d505c3fb-ff8a-4706-9cff-b624eec4a066",
+      "slug": "dynamic-memory-management",
+      "name": "Dynamic Memory Management"
+    },
+    {
       "uuid": "e39f5003-8ed9-4d82-ab9b-f79bbca78679",
       "slug": "linkage",
       "name": "Linkage"

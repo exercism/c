@@ -1,0 +1,7 @@
+{
+  "blurb": "Dynamic memory is implemented by library functions which the programmer uses to allocate/deallocate memory at runtime.",
+  "authors": [
+    "bobahop"
+  ],
+  "contributors": []
+}
