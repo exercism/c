@@ -269,8 +269,8 @@ static void test_with_apostrophes(void)
    TEST_IGNORE();
    int index = 0;
    int actual_word_count;
-   char *input_text = "First: don't laugh. Then: don't cry.";
-   const int expected_word_count = 5;
+   char *input_text = "First: don't laugh. Then: don't cry. You're getting it.";
+   const int expected_word_count = 8;
 
    // build the expected solution
    memset(expected_solution, 0,
@@ -291,6 +291,15 @@ static void test_with_apostrophes(void)
 
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "cry", STRING_SIZE);
+
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "you're", STRING_SIZE);
+
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "getting", STRING_SIZE);
+
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "it", STRING_SIZE);
 
    actual_word_count = count_words(input_text, actual_solution);
 
