@@ -105,7 +105,7 @@ static void test_invalid_when_more_than_11_digits(void)
 static void test_invalid_with_letters(void)
 {
    TEST_IGNORE();
-   const char input[] = "123-abc-7890";
+   const char input[] = "523-abc-7890";
    const char expected[] = "0000000000";
 
    result = phone_number_clean(input);
@@ -116,7 +116,7 @@ static void test_invalid_with_letters(void)
 static void test_invalid_with_punctuations(void)
 {
    TEST_IGNORE();
-   const char input[] = "123-@:!-7890";
+   const char input[] = "523-@:!-7890";
    const char expected[] = "0000000000";
 
    result = phone_number_clean(input);
