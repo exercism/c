@@ -244,22 +244,63 @@ static void test_absolute_value_of_zero(void)
    check_rational_numbers_equal(expected, actual);
 }
 
-static void test_raise_positive_rational_number_to_integer_power(void)
+static void test_absolute_value_of_rational_number_reduced_to_lowest_terms(void)
+{
+   TEST_IGNORE();
+   rational_t r = { 2, 4 };
+   rational_t expected = { 1, 2 };
+   rational_t actual = absolute(r);
+   check_rational_numbers_equal(expected, actual);
+}
+
+static void test_raise_positive_rational_number_to_positive_integer_power(void)
 {
    TEST_IGNORE();
    rational_t r = { 1, 2 };
-   uint16_t n = 3;
+   int16_t n = 3;
    rational_t expected = { 1, 8 };
    rational_t actual = exp_rational(r, n);
    check_rational_numbers_equal(expected, actual);
 }
 
-static void test_raise_negative_rational_number_to_integer_power(void)
+static void test_raise_negative_rational_number_to_positive_integer_power(void)
 {
    TEST_IGNORE();
    rational_t r = { -1, 2 };
-   uint16_t n = 3;
+   int16_t n = 3;
    rational_t expected = { -1, 8 };
+   rational_t actual = exp_rational(r, n);
+   check_rational_numbers_equal(expected, actual);
+}
+
+static void test_raise_positive_rational_number_to_negative_integer_power(void)
+{
+   TEST_IGNORE();
+   rational_t r = { 3, 5 };
+   int16_t n = -2;
+   rational_t expected = { 25, 9 };
+   rational_t actual = exp_rational(r, n);
+   check_rational_numbers_equal(expected, actual);
+}
+
+static void
+test_raise_negative_rational_number_to_even_negative_integer_power(void)
+{
+   TEST_IGNORE();
+   rational_t r = { -3, 5 };
+   int16_t n = -2;
+   rational_t expected = { 25, 9 };
+   rational_t actual = exp_rational(r, n);
+   check_rational_numbers_equal(expected, actual);
+}
+
+static void
+test_raise_negative_rational_number_to_odd_negative_integer_power(void)
+{
+   TEST_IGNORE();
+   rational_t r = { -3, 5 };
+   int16_t n = -3;
+   rational_t expected = { -125, 27 };
    rational_t actual = exp_rational(r, n);
    check_rational_numbers_equal(expected, actual);
 }
@@ -268,7 +309,7 @@ static void test_raise_zero_to_integer_power(void)
 {
    TEST_IGNORE();
    rational_t r = { 0, 1 };
-   uint16_t n = 5;
+   int16_t n = 5;
    rational_t expected = { 0, 1 };
    rational_t actual = exp_rational(r, n);
    check_rational_numbers_equal(expected, actual);
@@ -277,9 +318,9 @@ static void test_raise_zero_to_integer_power(void)
 static void test_raise_one_to_integer_power(void)
 {
    TEST_IGNORE();
-   rational_t r = { 1, 2 };
-   uint16_t n = 3;
-   rational_t expected = { 1, 8 };
+   rational_t r = { 1, 1 };
+   int16_t n = 4;
+   rational_t expected = { 1, 1 };
    rational_t actual = exp_rational(r, n);
    check_rational_numbers_equal(expected, actual);
 }
@@ -288,7 +329,7 @@ static void test_raise_positive_rational_number_to_power_of_zero(void)
 {
    TEST_IGNORE();
    rational_t r = { 1, 2 };
-   uint16_t n = 0;
+   int16_t n = 0;
    rational_t expected = { 1, 1 };
    rational_t actual = exp_rational(r, n);
    check_rational_numbers_equal(expected, actual);
@@ -298,7 +339,7 @@ static void test_raise_negative_rational_number_to_power_of_zero(void)
 {
    TEST_IGNORE();
    rational_t r = { -1, 2 };
-   uint16_t n = 0;
+   int16_t n = 0;
    rational_t expected = { 1, 1 };
    rational_t actual = exp_rational(r, n);
    check_rational_numbers_equal(expected, actual);
@@ -430,8 +471,12 @@ int main(void)
    RUN_TEST(
        test_absolute_value_of_negative_rational_number_with_negative_denominator);
    RUN_TEST(test_absolute_value_of_zero);
-   RUN_TEST(test_raise_positive_rational_number_to_integer_power);
-   RUN_TEST(test_raise_negative_rational_number_to_integer_power);
+   RUN_TEST(test_absolute_value_of_rational_number_reduced_to_lowest_terms);
+   RUN_TEST(test_raise_positive_rational_number_to_positive_integer_power);
+   RUN_TEST(test_raise_negative_rational_number_to_positive_integer_power);
+   RUN_TEST(test_raise_positive_rational_number_to_negative_integer_power);
+   RUN_TEST(test_raise_negative_rational_number_to_even_negative_integer_power);
+   RUN_TEST(test_raise_negative_rational_number_to_odd_negative_integer_power);
    RUN_TEST(test_raise_zero_to_integer_power);
    RUN_TEST(test_raise_one_to_integer_power);
    RUN_TEST(test_raise_positive_rational_number_to_power_of_zero);

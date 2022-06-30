@@ -85,16 +85,26 @@ rational_t absolute(rational_t r)
    return reduce((rational_t){ numerator, denominator });
 }
 
-rational_t exp_rational(rational_t r, uint16_t n)
+rational_t exp_rational(rational_t r, int16_t n)
 {
    if (n == 0)   // shortcut power of 0
       return (rational_t){ 1, 1 };
    if (r.numerator == 0)   // shortcut rational of 0
       return (rational_t){ 0, 1 };
 
-   // r^n = (a^|n|)/(b^|n|)
-   int16_t numerator = pow(r.numerator, n);
-   int16_t denominator = pow(r.denominator, n);
+   int16_t numerator;
+   int16_t denominator;
+   int16_t m = abs(n);
+
+   if (n < 0) {
+      // r^n = (b^|n|)/(a^|n|)
+      numerator = pow(r.denominator, m);
+      denominator = pow(r.numerator, m);
+   } else {
+      // r^n = (a^|n|)/(b^|n|)
+      numerator = pow(r.numerator, m);
+      denominator = pow(r.denominator, m);
+   }
    return reduce((rational_t){ numerator, denominator });
 }
 
