@@ -208,7 +208,7 @@ Read more about [test runners].
 [getting started with unity]: http://www.throwtheswitch.org/getting-started-with-unity/
 [versions]: ./VERSIONS.md
 [test-file-layout]: ./C_STYLE_GUIDE.md#test-file-layout
-[include guards]: http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html
+[include guards]: https://en.wikipedia.org/wiki/Include_guard
 [run-tests]: ../bin/run-tests
 [configlet]: https://github.com/exercism/configlet
 [configlet releases page]: https://github.com/exercism/configlet/releases
