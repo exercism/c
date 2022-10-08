@@ -2,13 +2,10 @@
 
 Implement basic list operations.
 
-In functional languages list operations like `length`, `map`, and
-`reduce` are very common. Implement a series of basic list operations,
-without using existing functions.
+In functional languages list operations like `length`, `map`, and `reduce` are very common.
+Implement a series of basic list operations, without using existing functions.
 
-The precise number and names of the operations to be implemented will be
-track dependent to avoid conflicts with existing names, but the general
-operations you will implement include:
+The precise number and names of the operations to be implemented will be track dependent to avoid conflicts with existing names, but the general operations you will implement include:
 
 * `append` (*given two lists, add all items in the second list to the end of the first list*);
 * `concatenate` (*given a series of lists, combine all items in all lists into one flattened list*);
