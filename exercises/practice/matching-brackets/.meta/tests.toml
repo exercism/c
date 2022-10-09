@@ -3,6 +3,7 @@
 # Regenerating this file via `configlet sync` will:
 # - Recreate every `description` key/value pair
 # - Recreate every `reimplements` key/value pair, where they exist in problem-specifications
+# - Remove any `include = true` key/value pair (an omitted `include` key implies inclusion)
 # - Preserve any other key/value pair
 #
 # As user-added comments (using the # character) will be removed when this file
@@ -46,6 +47,9 @@ description = "unpaired and nested brackets"
 
 [a0205e34-c2ac-49e6-a88a-899508d7d68e]
 description = "paired and wrong nested brackets"
+
+[1d5c093f-fc84-41fb-8c2a-e052f9581602]
+description = "paired and wrong nested brackets but innermost are correct"
 
 [ef47c21b-bcfd-4998-844c-7ad5daad90a8]
 description = "paired and incomplete brackets"
