@@ -101,6 +101,16 @@ static void test_slice_length_is_too_large(void)
    test_solution(&expected, &actual);
 }
 
+static void test_slice_length_is_way_too_large(void)
+{
+   TEST_IGNORE();
+   char *substrings[] = { "" };
+   slices_t expected = { 0, &substrings[0] };
+   slices_t actual = slices("12345", 42);
+
+   test_solution(&expected, &actual);
+}
+
 static void test_slice_length_cannot_be_zero(void)
 {
    TEST_IGNORE();
@@ -132,6 +142,7 @@ int main(void)
    RUN_TEST(test_slices_can_include_duplicates);
    RUN_TEST(test_slices_of_a_long_series);
    RUN_TEST(test_slice_length_is_too_large);
+   RUN_TEST(test_slice_length_is_way_too_large);
    RUN_TEST(test_slice_length_cannot_be_zero);
    RUN_TEST(test_empty_series_is_invalid);
 
