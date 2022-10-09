@@ -442,6 +442,32 @@ static void test_alternating_word_separators_not_detected_as_a_word(void)
                   actual_word_count);
 }
 
+static void test_quotation_for_word_with_apostrophe(void)
+{
+   TEST_IGNORE();
+   int actual_word_count;
+   int index = 0;
+   char *input_text = "can, can't, 'can't'";
+
+   const int expected_word_count = 2;
+
+   // build the expected solution
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
+   memset(actual_solution, 0, sizeof(actual_solution));
+
+   expected_solution[index].count = 1;
+   strncpy(expected_solution[index++].text, "can", STRING_SIZE);
+
+   expected_solution[index].count = 2;
+   strncpy(expected_solution[index++].text, "can't", STRING_SIZE);
+
+   actual_word_count = count_words(input_text, actual_solution);
+
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
+}
+
 int main(void)
 {
    UnityBegin("test_word_count.c");
@@ -459,6 +485,7 @@ int main(void)
    RUN_TEST(test_substrings_from_the_beginning);
    RUN_TEST(test_multiple_spaces_not_detected_as_a_word);
    RUN_TEST(test_alternating_word_separators_not_detected_as_a_word);
+   RUN_TEST(test_quotation_for_word_with_apostrophe);
 
    return UnityEnd();
 }
