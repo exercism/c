@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 static char *result = NULL;
+
 void setUp(void)
 {
 }
@@ -163,6 +164,18 @@ static void test_1666_is_MDCLXVI(void)
    check_conversion(1666, "MDCLXVI");
 }
 
+static void test_3001_is_MMMI(void)
+{
+   TEST_IGNORE();
+   check_conversion(3001, "MMMI");
+}
+
+static void test_3999_is_MMMCMXCIX(void)
+{
+   TEST_IGNORE();
+   check_conversion(3999, "MMMCMXCIX");
+}
+
 int main(void)
 {
    UnityBegin("test_roman_numerals.c");
@@ -191,6 +204,8 @@ int main(void)
    RUN_TEST(test_166_is_CLXVI);
    RUN_TEST(test_666_is_DCLXVI);
    RUN_TEST(test_1666_is_MDCLXVI);
+   RUN_TEST(test_3001_is_MMMI);
+   RUN_TEST(test_3999_is_MMMCMXCIX);
 
    return UnityEnd();
 }

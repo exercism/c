@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define NUM_OF_ELEMENTS(a) (sizeof(a) / sizeof(a[0]))
-#define MAX_NUMERAL_LENGTH (8)
+#define MAX_NUMERAL_LENGTH (10)
 
 typedef struct {
    char *numeral;
