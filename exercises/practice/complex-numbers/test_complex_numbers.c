@@ -372,9 +372,21 @@ static void test_exponential_of_a_number_with_real_and_imaginary_part(void)
    TEST_IGNORE();
    // In math.h the log() function computes log to the base e, which
    // is the natural logarithm, often written in mathematics as ln
-   complex_t z = { .real = log(2), .imag = PI };
+   complex_t z = { .real = log(2.0), .imag = PI };
 
-   complex_t expected = { .real = -2, .imag = 0 };
+   complex_t expected = { .real = -2.0, .imag = 0 };
+   complex_t actual = c_exp(z);
+
+   compare_complex(expected, actual);
+}
+
+static void
+test_exponential_resulting_in_number_with_real_and_imaginary_part(void)
+{
+   TEST_IGNORE();
+   complex_t z = { .real = log(2.0) / 2.0, .imag = PI / 4.0 };
+
+   complex_t expected = { .real = 1.0, .imag = 1.0 };
    complex_t actual = c_exp(z);
 
    compare_complex(expected, actual);
@@ -521,6 +533,7 @@ int main(void)
    RUN_TEST(test_exponential_of_zero);
    RUN_TEST(test_exponential_of_a_purely_real_number);
    RUN_TEST(test_exponential_of_a_number_with_real_and_imaginary_part);
+   RUN_TEST(test_exponential_resulting_in_number_with_real_and_imaginary_part);
 
    RUN_TEST(test_add_real_number_to_complex_number);
    RUN_TEST(test_add_complex_number_to_real_number);
