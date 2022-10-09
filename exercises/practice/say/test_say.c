@@ -54,6 +54,22 @@ static void test_twenty_two(void)
    TEST_ASSERT_EQUAL_STRING("twenty-two", ans);
 }
 
+static void test_thirty(void)
+{
+   TEST_IGNORE();
+   int res = say(30, &ans);
+   TEST_ASSERT_EQUAL_INT(0, res);
+   TEST_ASSERT_EQUAL_STRING("thirty", ans);
+}
+
+static void test_ninety_nine(void)
+{
+   TEST_IGNORE();
+   int res = say(99, &ans);
+   TEST_ASSERT_EQUAL_INT(0, res);
+   TEST_ASSERT_EQUAL_STRING("ninety-nine", ans);
+}
+
 static void test_one_hundred(void)
 {
    TEST_IGNORE();
@@ -68,6 +84,22 @@ static void test_one_hundred_twenty_three(void)
    int res = say(123, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
    TEST_ASSERT_EQUAL_STRING("one hundred twenty-three", ans);
+}
+
+static void test_two_hundred(void)
+{
+   TEST_IGNORE();
+   int res = say(200, &ans);
+   TEST_ASSERT_EQUAL_INT(0, res);
+   TEST_ASSERT_EQUAL_STRING("two hundred", ans);
+}
+
+static void test_nine_hundred_ninety_nine(void)
+{
+   TEST_IGNORE();
+   int res = say(999, &ans);
+   TEST_ASSERT_EQUAL_INT(0, res);
+   TEST_ASSERT_EQUAL_STRING("nine hundred ninety-nine", ans);
 }
 
 static void test_one_thousand(void)
@@ -146,9 +178,13 @@ int main(void)
    RUN_TEST(test_fourteen);
    RUN_TEST(test_twenty);
    RUN_TEST(test_twenty_two);
+   RUN_TEST(test_thirty);
+   RUN_TEST(test_ninety_nine);
    RUN_TEST(test_one_hundred);
    RUN_TEST(test_one_hundred_twenty_three);
+   RUN_TEST(test_two_hundred);
    RUN_TEST(test_one_thousand);
+   RUN_TEST(test_nine_hundred_ninety_nine);
    RUN_TEST(test_one_thousand_two_hundred_thirty_four);
    RUN_TEST(test_one_million);
    RUN_TEST(test_one_million_two_thousand_three_hundred_forty_five);
