@@ -1,6 +1,6 @@
 #include "binary_search.h"
 
-int *binary_search(const int value, const int *arr, const size_t length)
+const int *binary_search(const int value, const int *arr, const size_t length)
 {
    if (0 == length || NULL == arr) {
       return NULL;
@@ -14,7 +14,7 @@ int *binary_search(const int value, const int *arr, const size_t length)
       } else if (*mid < value) {
          low = mid + 1;
       } else {
-         return (int *)mid;
+         return mid;
       }
    }
    return NULL;
