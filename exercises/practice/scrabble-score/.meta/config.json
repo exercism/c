@@ -1,5 +1,4 @@
 {
-  "blurb": "Given a word, compute the Scrabble score for that word.",
   "authors": [
     "subpop"
   ],
@@ -25,6 +24,7 @@
       ".meta/example.h"
     ]
   },
+  "blurb": "Given a word, compute the Scrabble score for that word.",
   "source": "Inspired by the Extreme Startup game",
   "source_url": "https://github.com/rchatley/extreme_startup"
 }

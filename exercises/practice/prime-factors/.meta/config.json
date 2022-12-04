@@ -1,5 +1,4 @@
 {
-  "blurb": "Compute the prime factors of a given natural number.",
   "authors": [
     "vlzware"
   ],
@@ -23,6 +22,7 @@
       ".meta/example.h"
     ]
   },
+  "blurb": "Compute the prime factors of a given natural number.",
   "source": "The Prime Factors Kata by Uncle Bob",
   "source_url": "http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata"
 }

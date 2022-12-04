@@ -1,5 +1,4 @@
 {
-  "blurb": "Add the numbers to a minesweeper board.",
   "authors": [
     "vlzware"
   ],
@@ -22,5 +21,6 @@
       ".meta/example.c",
       ".meta/example.h"
     ]
-  }
+  },
+  "blurb": "Add the numbers to a minesweeper board."
 }

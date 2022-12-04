@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement basic list operations.",
   "authors": [
     "wolf99"
   ],
@@ -21,5 +20,6 @@
       ".meta/example.c",
       ".meta/example.h"
     ]
-  }
+  },
+  "blurb": "Implement basic list operations."
 }

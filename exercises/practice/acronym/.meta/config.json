@@ -1,5 +1,4 @@
 {
-  "blurb": "Convert a long phrase to its acronym.",
   "authors": [
     "wolf99"
   ],
@@ -25,6 +24,7 @@
       ".meta/example.c"
     ]
   },
+  "blurb": "Convert a long phrase to its acronym.",
   "source": "Julien Vanier",
   "source_url": "https://github.com/monkbroc"
 }
