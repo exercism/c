@@ -1,5 +1,4 @@
 {
-  "blurb": "Determine if a number is an Armstrong number.",
   "authors": [
     "wolf99"
   ],
@@ -21,6 +20,7 @@
       ".meta/example.h"
     ]
   },
+  "blurb": "Determine if a number is an Armstrong number.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Narcissistic_number"
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement rational numbers.",
   "authors": [
     "wolf99"
   ],
@@ -20,6 +19,7 @@
       ".meta/example.h"
     ]
   },
+  "blurb": "Implement rational numbers.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Rational_number"
 }

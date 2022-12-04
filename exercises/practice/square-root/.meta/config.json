@@ -1,5 +1,4 @@
 {
-  "blurb": "Given a natural radicand, return its square root.",
   "authors": [
     "wolf99"
   ],
@@ -19,6 +18,7 @@
       ".meta/example.h"
     ]
   },
+  "blurb": "Given a natural radicand, return its square root.",
   "source": "wolf99",
   "source_url": "https://github.com/exercism/problem-specifications/pull/1582"
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a clock that handles times without dates.",
   "authors": [
     "StevenRoot"
   ],
@@ -25,6 +24,7 @@
       ".meta/example.c"
     ]
   },
+  "blurb": "Implement a clock that handles times without dates.",
   "source": "Pairing session with Erin Drummond",
   "source_url": "https://twitter.com/ebdrummond"
 }

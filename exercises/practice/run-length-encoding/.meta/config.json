@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement run-length encoding and decoding.",
   "authors": [
     "vlzware"
   ],
@@ -23,6 +22,7 @@
       ".meta/example.h"
     ]
   },
+  "blurb": "Implement run-length encoding and decoding.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Run-length_encoding"
 }

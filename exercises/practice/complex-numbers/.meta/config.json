@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement complex numbers.",
   "authors": [],
   "contributors": [
     "h-3-0",
@@ -21,6 +20,7 @@
       ".meta/example.c"
     ]
   },
+  "blurb": "Implement complex numbers.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Complex_number"
 }
