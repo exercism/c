@@ -21,19 +21,15 @@ bool is_pangram(const char *sentence)
     if (!sentence)
         return false;
     int phrasemask = 0;
-    const char *pos = sentence;
     char letter;
     
-    while ((letter = *pos) != '\0')
-    {
-        // a-z
-        if (letter > 96 && letter < 123)
-            phrasemask |= 1 << (letter - 97);
-        // A - Z
-        else if (letter > 64 && letter < 91)
-            phrasemask |= 1 << (letter - 65);
-        pos++;
-    }
+   while ((letter = *sentence) != '\0') {
+      if (letter >= 'a' && letter <= 'z')
+         phrasemask |= 1 << (letter - 'a');
+      else if (letter >= 'A' && letter <= 'Z')
+         phrasemask |= 1 << (letter - 'A');
+      sentence++;
+   }
      return phrasemask == 67108863;
 }
 ```
@@ -44,20 +40,12 @@ There is a difference between a NULL pointer and a valid pointer pointing to a n
 An `int` is defined to keep track of the used letters of the English alphabet.
 Since only the rightmost 26 bits will be used, there is no need to have unsignedness.
 
-A pointer is defined to point at the same address as the input sentence pointer.
-It points at `const char` to indicate that it will not be modifying the `char`s pointed at.
-It isn't strictly necessary to define a separate variable.
-`C` arguments are passed by value, meaning that the actual pointer to the input sentence is not passed in, but a copy of the address it's pointing to.
-So the `sentence` address passed in could be incremented directly.
-A reason to use a separate pointer would be if you wanted to refer to the beginning of the input sentence variable again in the body of the function.
-You won't do that here, but if you wanted to refactor to do that in the future, it would make doing so a bit easier by having incremented a separate pointer.
-
 A `char` is defined for each character to be tested in the loop.
 
 The `while` loop uses an assignment expression for its condition.
-The expression `(letter = *pos)` has the value of `letter` after it has been been assigned the value of the dereferenced `pos` pointer.
+The expression `(letter = *sentence)` has the value of `letter` after it has been been assigned the value of the dereferenced `pos` pointer.
 If the value of `letter` is a null character (`'\0'`), then the while loop will not run.
-Note that, had the `sentence` pointer not been checked for being NULL, then trying to dereference `*pos` if it were a NULL pointer would be undefined behavior.
+Note that, had the `sentence` pointer not been checked for being NULL, then trying to dereference `*sentence` if it were a NULL pointer would be undefined behavior.
 It likely would result in a segmentation fault.
 
 
@@ -82,6 +70,8 @@ So, for a 32-bit integer, if the values for `a` and `Z` were both set, the bits 
       zyxwvutsrqponmlkjihgfedcba
 00000010000000000000000000000001
 ```
+
+The loop increments the `sentence` pointer so it points to the address of the next `char`.
 
 After the loop completes, the function returns if the `phrasemask` value is the same value as when all `26` bits are set.
 The value for all `26` bits being set is `67108863`.
