@@ -1,14 +1,14 @@
 # Introduction
 
 There are many ways to solve Pangram.
-One approach is to use a bitfield to keep track of used letters.
+One approach is to use a bit field to keep track of used letters.
 
 ## General guidance
 
 The key to solving Pangram is determining if all of the letters in the English alphabet are in the string being tested.
 The occurrence of either the letter `a` or the letter `A` would count as the same letter.
 
-## Approach: Bitfield
+## Approach: Bit field
 
 **pangram.h**
 ```c
@@ -48,6 +48,6 @@ bool is_pangram(const char *sentence)
 }
 ```
 
-For more information, check the [Bitfield approach][approach-bitfield].
+For more information, check the [Bit field approach][approach-bitfield].
 
 [approach-bitfield]: https://exercism.org/tracks/c/exercises/pangram/approaches/bitfield
