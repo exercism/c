@@ -34,8 +34,8 @@ bool is_pangram(const char *sentence)
 }
 ```
 
-The `is_pangram` function starts by using the logical NOT operator (`!`) to check if the pointer to the input is NULL.
-There is a difference between a NULL pointer and a valid pointer pointing to a null character (`'\0'`).
+The `is_pangram` function starts by using the logical NOT operator (`!`) to check if the pointer to the input is `NULL`.
+There is a difference between a `NULL` pointer and a valid pointer pointing to a null character (`'\0'`).
 
 An `int` is defined to keep track of the used letters of the English alphabet.
 Since only the rightmost 26 bits will be used, there is no need to have unsignedness.
@@ -45,7 +45,7 @@ A `char` is defined for each character to be tested in the loop.
 The `while` loop uses an assignment expression for its condition.
 The expression `(letter = *sentence)` has the value of `letter` after it has been been assigned the value of the dereferenced `sentence` pointer.
 If the value of `letter` is a null character (`'\0'`), then the while loop will not run.
-Note that, had the `sentence` pointer not been checked for being NULL, then trying to dereference it (`*sentence`) if it were a NULL pointer would be undefined behavior.
+Note that, had the `sentence` pointer not been checked for being `NULL`, then trying to dereference it (`*sentence`) if it were a `NULL` pointer would be undefined behavior.
 It likely would result in a segmentation fault.
 
 
