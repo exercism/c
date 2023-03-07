@@ -92,7 +92,7 @@ If the number passed in is `3`, which is `00011` in binary, then it is ANDed wit
 `00011` ANDed with `00010` is not equal to `0` (so not `false`), so the string at index `1` of the array of signals is added to the output array
 at the current output index.
 
-If the number passed in ANDed with `1` shifted left for the value of the index is equal to `0`, then the signal in the array for that index is not set in the output aray.
+If the number passed in, ANDed with `1` shifted left for the value of the index, is equal to `0`, then the signal in the array for that index is not set in the output array.
 
 After iterating through the array of signals is done, the output array is returned from the function.
 
