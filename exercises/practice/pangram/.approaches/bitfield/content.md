@@ -43,9 +43,9 @@ Since only the rightmost 26 bits will be used, there is no need to have unsigned
 A `char` is defined for each character to be tested in the loop.
 
 The `while` loop uses an assignment expression for its condition.
-The expression `(letter = *sentence)` has the value of `letter` after it has been been assigned the value of the dereferenced `pos` pointer.
+The expression `(letter = *sentence)` has the value of `letter` after it has been been assigned the value of the dereferenced `sentence` pointer.
 If the value of `letter` is a null character (`'\0'`), then the while loop will not run.
-Note that, had the `sentence` pointer not been checked for being NULL, then trying to dereference `*sentence` if it were a NULL pointer would be undefined behavior.
+Note that, had the `sentence` pointer not been checked for being NULL, then trying to dereference it (`*sentence`) if it were a NULL pointer would be undefined behavior.
 It likely would result in a segmentation fault.
 
 
@@ -64,6 +64,8 @@ the ASCII value of the `letter` is compared with a range of ASCII values to chec
   So `A` would have `1` [shifted left][shift-left] 0 places (so not shifted at all) and `Z` would have `1` shifted left 25 places
 - The [bitwise OR operator][bitwise-or] is used to set the bit at that position in the `phrasemask`.
 
+In that way, both a lowercase `z` and an uppercase `Z` can share the same position in the bit field.
+
 So, for a 32-bit integer, if the values for `a` and `Z` were both set, the bits would look like
 
 ```
@@ -72,6 +74,8 @@ So, for a 32-bit integer, if the values for `a` and `Z` were both set, the bits 
 ```
 
 The loop increments the `sentence` pointer so it points to the address of the next `char`.
+`C` arguments are passed by value, meaning that the actual pointer to the input `sentence` is not passed in, but a copy of the address it's pointing to.
+So the address `sentence` points to when passed in can be incremented directly without affecting the original pointer in the calling code.
 
 After the loop completes, the function returns if the `phrasemask` value is the same value as when all `26` bits are set.
 The value for all `26` bits being set is `67108863`.
