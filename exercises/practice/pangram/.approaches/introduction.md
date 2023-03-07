@@ -34,10 +34,8 @@ bool is_pangram(const char *sentence)
     char letter;
     
    while ((letter = *sentence) != '\0') {
-      // a-z
       if (letter >= 'a' && letter <= 'z')
          phrasemask |= 1 << (letter - 'a');
-      // A - Z
       else if (letter >= 'A' && letter <= 'Z')
          phrasemask |= 1 << (letter - 'A');
       sentence++;
