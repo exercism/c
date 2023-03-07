@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["bobahop"]
+  },
+  "approaches": [
+    {
+      "uuid": "31f53b6f-013c-40dd-8407-b490db4f7435",
+      "slug": "bitfield",
+      "title": "Bit field",
+      "blurb": "Use a bit field to keep track of used letters.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
