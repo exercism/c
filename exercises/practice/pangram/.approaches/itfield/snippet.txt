@@ -1,0 +1,8 @@
+while ((letter = *pos) != '\0') {
+    if (letter > 96 && letter < 123)
+        phrasemask |= 1 << (letter - 97);
+    else if (letter > 64 && letter < 91)
+        phrasemask |= 1 << (letter - 65);
+    pos++;
+}
+return phrasemask == 67108863;
