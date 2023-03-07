@@ -31,19 +31,17 @@ bool is_pangram(const char *sentence)
     if (!sentence)
         return false;
     int phrasemask = 0;
-    const char *pos = sentence;
     char letter;
     
-    while ((letter = *pos) != '\0')
-    {
-        // a-z
-        if (letter > 96 && letter < 123)
-            phrasemask |= 1 << (letter - 97);
-        // A - Z
-        else if (letter > 64 && letter < 91)
-            phrasemask |= 1 << (letter - 65);
-        pos++;
-    }
+   while ((letter = *sentence) != '\0') {
+      // a-z
+      if (letter >= 'a' && letter <= 'z')
+         phrasemask |= 1 << (letter - 'a');
+      // A - Z
+      else if (letter >= 'A' && letter <= 'Z')
+         phrasemask |= 1 << (letter - 'A');
+      sentence++;
+   }
      return phrasemask == 67108863;
 }
 ```
