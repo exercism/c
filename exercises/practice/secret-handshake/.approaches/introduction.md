@@ -1,6 +1,6 @@
 # Introduction
 
-There are various wys to solve Secret Handshake.
+There are various ways to solve Secret Handshake.
 One approach is to iterate once even if the actions are meant to be reversed.
 
 ## Approach: Iterate once
