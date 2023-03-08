@@ -1,8 +1,8 @@
 for (uint32_t number = 2; number <= limit; number++) {
-    if (!composite[number]) {
-       primes[output_pos++] = number;
-       if (output_pos == max_primes)
-          break;
-       for (uint32_t idx = number * number; idx <= limit; idx += number)
-          composite[idx] = 1;
-    }
+   if (!composite[number]) {
+      primes[output_pos++] = number;
+      if (output_pos == max_primes)
+         break;
+      for (uint32_t idx = number * number; idx <= limit; idx += number)
+         composite[idx] = 1;
+   }
