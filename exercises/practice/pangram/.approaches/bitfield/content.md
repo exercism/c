@@ -48,8 +48,8 @@ If the value of `letter` is a null character (`'\0'`), then the while loop will 
 Note that, had the `sentence` pointer not been checked for being `NULL`, then trying to dereference it (`*sentence`) if it were a `NULL` pointer would be undefined behavior.
 It likely would result in a segmentation fault.
 
-
 The [ASCII][ascii] value of the `letter` is compared with a range of ASCII values to check if it is one of the lowercase English letters.
+
 - The ASCII value for `a` is `97`, and for `z` is `122`.
 - If the lowercase letter is subtracted by `97`, then `a` will result in `0`, because `97` minus `97` equals `0`.
   `z` would result in `25`, because `122` minus `97` equals `25`.
@@ -58,6 +58,7 @@ The [ASCII][ascii] value of the `letter` is compared with a range of ASCII value
 
 If the `letter` is not a lowercase English letter,
 the ASCII value of the `letter` is compared with a range of ASCII values to check if it is one of the uppercase English letters.
+
 - The ASCII value for `A` is `65`, and for `Z` is `90`.
 - If the uppercase letter is subtracted by `65`, then `A` will result in `0`, because `65` minus `65` equals `0`.
   `Z` would result in `25`, because `90` minus `65` equals `25`.
