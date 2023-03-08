@@ -1,0 +1,8 @@
+while (left < right) {
+    size_t mid = left + ((right - left) / 2);
+    int look = arr[mid];
+    if (look == value) return (int *) &arr[mid];
+    if (look < value) left = mid + 1;
+    else right = mid;
+}
+return NULL;
