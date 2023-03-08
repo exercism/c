@@ -1,0 +1,8 @@
+const char **output = calloc(4, sizeof(char *));
+int signal = 0, signal_incr = 1, output_idx = 0, end = 4;
+if (n & 16) {signal = 3; signal_incr = -1; end = -1;}
+
+for (; signal != end; signal+=signal_incr)
+    if (n & 1 << signal)
+        output[output_idx++] = signals[signal];
+return output;
