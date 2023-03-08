@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "49609966-f2d7-42e6-89f5-3e567cc20713",
+      "slug": "array-of-ones-and-zeros",
+      "title": "Array of ones and zeros",
+      "blurb": "Use an array of ones and zeros to keep track of composite numbers.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
