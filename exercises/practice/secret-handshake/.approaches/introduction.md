@@ -6,6 +6,7 @@ One approach is to iterate once even if the actions are meant to be reversed.
 ## Approach: Iterate once
 
 **secret_handshake.h**
+
 ```c
 #ifndef SECRET_HANDSHAKE_H
 #define SECRET_HANDSHAKE_H
