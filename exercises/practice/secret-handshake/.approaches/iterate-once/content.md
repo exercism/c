@@ -32,7 +32,7 @@ const char **commands(size_t n) {
 }
 ```
 
-This approach starts by defining an array of pointers to `const` `char`s.
+This approach starts by defining an array of pointers to `const` `char` strings.
 The [`const`][const] indicates that the content of the elements can't be changed.
 The `static` is to indicate that the array has internal linkage within the file, and is not declared in the header for external use. 
 
