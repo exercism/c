@@ -39,6 +39,7 @@ The `left` is initialized to `0` and the `right` is initialized to the length pa
 The while loop will loop as long as the `left` position is less than the `right` position.
 
 Inside the loop, the middle value is set by `left` plus ((`right` - `left`) divided by `2`).
+
 - For example, if `left` is `0` and `right` is `10`, then the middle is calculated to `5`.
 - If `left` is `6` and `right` is `10`, then the middle is calculated to `8`.
 
