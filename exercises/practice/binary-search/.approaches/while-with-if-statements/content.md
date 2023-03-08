@@ -39,8 +39,9 @@ The `left` is initialized to `0` and the `right` is initialized to the length pa
 The while loop will loop as long as the `left` position is less than the `right` position.
 
 Inside the loop, the middle value is set by `left` plus ((`right` - `left`) divided by `2`).
-For example, if `left` is `0` and `right` is `10`, then the middle is calculated to `5`.
-if `left` is `6` and `right` is `10`, then the middle is calculated to `8`.
+- For example, if `left` is `0` and `right` is `10`, then the middle is calculated to `5`.
+- If `left` is `6` and `right` is `10`, then the middle is calculated to `8`.
+
 The reason for not doing (`left` + `right`) divided by `2` is to prevent overflow for very large sizes of the input array, as explained [here][mid-bug].
 
 An `if` statement is used to check if the value in the array at the `mid` index is the value being searched for.
