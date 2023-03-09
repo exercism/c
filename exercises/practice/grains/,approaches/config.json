@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["bobahop"]
+  },
+  "approaches": [
+    {
+      "uuid": "54b082d1-f2d2-4bc7-856b-efb72babed8e",
+      "slug": "bit-shifting",
+      "title": "Bit-shifting",
+      "blurb": "Use bit-shifting to set the correct value.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
