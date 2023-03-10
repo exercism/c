@@ -12,8 +12,8 @@
 
 typedef enum RESISTOR_BANDS { COLORS } resistor_band_t;
 
-int color_code(resistor_band_t color);
-resistor_band_t *colors();
+uint16_t color_code(resistor_band_t color);
+resistor_band_t *colors(void);
 
 #endif
 ```
@@ -25,12 +25,12 @@ resistor_band_t *colors();
 
 static resistor_band_t color_array[10] = { COLORS };
 
-resistor_band_t *colors()
+resistor_band_t *colors(void)
 {
    return color_array;
 }
 
-int color_code(resistor_band_t color)
+uint16_t color_code(resistor_band_t color)
 {
    return color;
 }
