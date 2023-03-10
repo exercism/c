@@ -71,7 +71,7 @@ The next thing is to calculate is the input string is a shout.
 The `msg` pointer is initialized to the position of the first character.
 The `shout` variable is initialized to `true` as a condition to disprove, and the `has_letter` variable is initialized to `false`
 as a condition to prove.
-`has_letters  ` is needed, because if the input were only `"123"`, `shout` would never be disproved, but without letters it would not really be a shout.
+`has_letter` is needed, because if the input were only `"123"`, `shout` would never be disproved, but without letters it would not really be a shout.
 
 Each character from the first through the `end_pos` is checked.
 The `isalpha` function from `ctype.h` is used to see if `has_letter` should be set to `true`.
