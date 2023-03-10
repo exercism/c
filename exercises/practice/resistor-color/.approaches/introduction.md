@@ -3,7 +3,7 @@
 There are several ways to solve Resistor Color.
 One approach is to use the [`#define`][define] directive to set the values needed for both the `enum`  and the array.
 
-# General guidance
+## General guidance
 
 One thing to try is to minimize duplication in the code.
 For instance, to avoid duplicating the value definitions in both the `enum` and in the array.
