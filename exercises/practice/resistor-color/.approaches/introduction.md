@@ -20,7 +20,7 @@ For instance, to avoid duplicating the value definitions in both the `enum` and 
 #define COLORS                                                                 \
    BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET, GREY, WHITE
 
-typedef enum RESISTOR_BAND { COLORS } resistor_band_t;
+typedef enum RESISTOR_BANDS { COLORS } resistor_band_t;
 
 int color_code(resistor_band_t color);
 resistor_band_t *colors();
