@@ -8,7 +8,7 @@ One approach is to use the [`#define`][define] directive to set the values neede
 One thing to try is to minimize duplication in the code.
 For instance, to avoid duplicating the value definitions in both the `enum` and in the array.
 
-## Approach: Define  consecutive values
+## Approach: Define consecutive values
 
 **resistor_color.h**
 
