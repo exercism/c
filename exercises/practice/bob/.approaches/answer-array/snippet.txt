@@ -1,0 +1,3 @@
+int is_shout = shout && has_letter ? 2 : 0;
+int is_question = *end_pos == '?' ? 1 : 0;
+return answers[is_question + is_shout];
