@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "1e004736-9760-4097-bc1f-9e02a289c484",
+      "slug": "define-consecutive-values",
+      "title": "Define consecutive values",
+      "blurb": "Define consecutive values for the enum and array.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
