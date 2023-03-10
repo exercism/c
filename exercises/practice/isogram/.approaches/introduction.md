@@ -3,7 +3,7 @@
 There are various idiomatic ways to solve Isogram.
 One approach can use a bit field to keep track of used letters.
 
-# General guidance
+## General guidance
 
 The key to solving Isogram is to determine if any of the letters in the `string` being checked are repeated.
 A repeated letter means the `string` is not an isogram.
