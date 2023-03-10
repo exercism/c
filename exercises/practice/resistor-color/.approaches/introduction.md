@@ -33,11 +33,11 @@ resistor_band_t *colors();
 ```c
 #include "resistor_color.h"
 
-static resistor_band_t colorArray[10] = { COLORS };
+static resistor_band_t color_array[10] = { COLORS };
 
 resistor_band_t *colors()
 {
-   return colorArray;
+   return color_array;
 }
 
 int color_code(resistor_band_t color)
