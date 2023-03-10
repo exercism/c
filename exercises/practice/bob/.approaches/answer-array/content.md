@@ -74,7 +74,7 @@ as a condition to prove.
 `has_letters  ` is needed, because if the input were only `"123"`, `shout` would never be disproved, but without letters it would not really be a shout.
 
 Each character from the first through the `end_pos` is checked.
-The `isalpha` function from `ctype.h` is used to see if `has_letters` should be set to `true`.
+The `isalpha` function from `ctype.h` is used to see if `has_letter` should be set to `true`.
 If the characters is a letter, it's checked by the `isupper` function from `ctype.h` to see if `shout` should be set to `false`.
 If a character is a letter but is not uppercase, then the input string cannot be shout, so `break` is used to exit the loop.
 
