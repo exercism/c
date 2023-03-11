@@ -49,7 +49,7 @@ The falsiness of `0` is used by the [logical NOT operator][logical-not] (`!`) to
 
 - For example, if the number is `4`, which is binary `100`, then `100` is bitwise ANDed (`&`) with `001`.
 Since `1` is not the rightmost digit in `100`, the result of the AND is `000`, determining that `4` is an even number.
-- if the number is `5`, which is binary `101`, then `101` is ANDed with `001`.
+- If the number is `5`, which is binary `101`, then `101` is ANDed with `001`.
 Since `1` is the rightmost digit in `101`, the result of the AND is `001`, determining that `5` is an odd number.
 
 If the number is even, then the number is set to half of itself.
