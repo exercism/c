@@ -80,4 +80,3 @@ In the case of the `153` example, they are equal, so the function returns true.
 
 [log10]: https://www.tutorialspoint.com/c_standard_library/c_function_log10.htm
 [modulo]: https://www.geeksforgeeks.org/modulo-operator-in-c-cpp-with-examples/
-[pow]: https://www.tutorialspoint.com/c_standard_library/c_function_pow.htm
