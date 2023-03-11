@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "37545957-ff24-41be-b38e-16e8373a28fc",
+      "slug": "increment-pointers",
+      "title": "Increment pointers",
+      "blurb": "Increment pointers directly.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
