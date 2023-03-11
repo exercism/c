@@ -50,6 +50,5 @@ bool is_armstrong_number(int candidate)
 For more information, check the [`log10` with no `pow` approach][approach-log10-no-pow].
 
 [approach-log10-no-pow]: https://exercism.org/tracks/c/exercises/armstrong-numbers/approaches/log10-no-pow
-
 [log10]: https://www.tutorialspoint.com/c_standard_library/c_function_log10.htm
 [pow]: https://www.tutorialspoint.com/c_standard_library/c_function_pow.htm
