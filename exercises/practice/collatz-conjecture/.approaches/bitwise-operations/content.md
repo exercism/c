@@ -34,7 +34,7 @@ int steps(int start)
 }
 ```
 
-This approach starts be defining an `ERROR_VALUE` in the header file instead of using `-1` as a [magic number][magic-number].
+This approach starts by defining an `ERROR_VALUE` in the header file instead of using `-1` as a [magic number][magic-number].
 
 The `steps` function starts by checking if the input number is less than `1`.
 If so, the function returns the `ERROR_VALUE`.
