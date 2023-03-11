@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "256eab9e-7148-4392-a305-9209ac20eee8",
+      "slug": "log10-no-pow",
+      "title": "log10 with no pow",
+      "blurb": "Use log10 for digit count and avoid pow to return the answer.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
