@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "88f16869-2492-4525-ab6d-f8fe14860b2f",
+      "slug": "bitwise-operations",
+      "title": "Bitwise operations",
+      "blurb": "Use bitwise operations to check for even and divide.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
