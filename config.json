@@ -64,19 +64,6 @@
         ]
       },
       {
-        "slug": "resistor-color",
-        "name": "Resistor Color",
-        "uuid": "75653d83-1a64-472c-ac43-49e87833c7f7",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "topics": [
-          "arrays",
-          "enums",
-          "pointers"
-        ]
-      },
-      {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "b3c9d339-60bc-48fe-84ba-77cbc0017a89",
@@ -218,6 +205,19 @@
           "memory_management",
           "pointers",
           "structs"
+        ]
+      },
+      {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "75653d83-1a64-472c-ac43-49e87833c7f7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "arrays",
+          "enums",
+          "pointers"
         ]
       },
       {

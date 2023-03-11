@@ -33,7 +33,8 @@ static void test_colors(void)
    TEST_IGNORE();
    const resistor_band_t expected[] = { BLACK, BROWN, RED,    ORANGE, YELLOW,
                                         GREEN, BLUE,  VIOLET, GREY,   WHITE };
-   TEST_ASSERT_EQUAL_INT_ARRAY(expected, colors(), ARRAY_LENGTH(expected));
+   const resistor_band_t *actual = colors();
+   TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, ARRAY_LENGTH(expected));
 }
 
 int main(void)
