@@ -214,7 +214,74 @@ if (node == list->tail)
 ```
 
 If the node being removed is either the `head` or the `tail`, then the `head` or `tail` is adjusted accordingly.
-If the removed node is both the `head` and `tail`, then the removed node is the last node left, and the `head` and `tail`
-are set to `NULL`.
+
+The removed node's `prev` and `next` fields are set to `NULL`, the removed node's memory is freed, and the removed node is set to `NULL`.
+
+The list `length` is decremented for the removed node, and if there are no nodes remaining, then the `head` and `tail` are set to `NULL`. 
+
+Finally, the removed node's data is returned from the `destroy_node` function.
+
+The `list_push` function sets the list's `tail` to the node returned from calling the `create_node` function.
+
+The `list_pop` function returns the data resulting from pasing the list's `tail` to the `destroy_node` function.
+
+The `list_unshift` function sets the list's `head` to the node returned from calling the `create_node` function.
+
+The `list_shift` function returns the data resulting from pasing the list's `head` to the `destroy_node` function.
+
+The `list_delete` function sets a `node` variable to the list `head`.
+The `while` loop will iterate if the `node` variable is not `NULL`.
+If the `head` is already `NULL`, then the list is empty, the loop will not execute, and no node will be deleted.
+
+```c
+void list_delete(struct list *list, ll_data_t data)
+{
+   node_t *node = list->head;
+   while (node) {
+      if (node->data == data) {
+         destroy_node(node, list);
+         break;
+      }
+      if (node->next == list->head)
+         break;
+      node = node->next;
+   }
+}
+```
+
+Inside the `while` loop, the data for the `node` variable is tested against the data passed into the function.
+If the values match, then `destroy_node` is passed the `node` variable, and `break` is used to exit the loop.
+If the values don't match, then the `node`'s `next` field is checked for being the `head`.
+If so, then the looping has gone "full circle" and the loop is exited without having found a node with matching data.
+If the `next` field is not the `head`, then `node` is set to its `next` node, and the loop iterates again.
+
+The `list_destroy` function sets a `node` variable to the list `head`.
+The `while` loop will iterate if the `node` variable is not `NULL`.
+If the `head` is already `NULL`, then the list is empty, the loop will not execute, and no node will be deleted.
+
+```c
+void list_destroy(struct list *list)
+{
+   node_t *node = list->head;
+   while (node) {
+      node_t *next_node = node->next;
+      destroy_node(node, list);
+      if (node == next_node)
+         break;
+      node = next_node;
+   }
+   free(list);
+   list = NULL;
+}
+```
+
+A `next_node` variable is set from the `next` field of the `node` variable.
+The `node` variable is passed to the `destroy_node` function.
+Although the node passed in was removed from the list in `destroy_node`, the `node` variable in `list_destroy` still holds its address.
+If the `node`'s address is the same as the address for `next_node`, then it pointed to itself because it was the last node to be removed,
+and `break is used to exit the loop.
+Otherwise, the `node` variable is assigned the `next_node`.
+
+Once the `while` is done, the list is freed and set to `NULL`.
 
 [circular-doubly-linked-list]: https://www.sanfoundry.com/c-program-circular-doubly-linked-list/
