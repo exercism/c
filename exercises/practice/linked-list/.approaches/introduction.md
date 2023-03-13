@@ -1,7 +1,7 @@
 # Introduction
 
 There are several ways to solve Linked List.
-One approach is to implement a circular linked list.
+One approach is to implement a circular doubly-linked list.
 
 ## General guidance
 
@@ -12,7 +12,7 @@ As the instructions say:
 >To keep your implementation simple, the tests will not cover error conditions.
 >Specifically: `pop` or `shift` will never be called on an empty list.
 
-## Approach: Circular Linked List
+## Approach: Circular Doubly-Linked List
 
 **linked_list.h**
 
@@ -177,6 +177,7 @@ void list_destroy(struct list *list)
 }
 ```
 
-For more information, check the [Circular Linked List approach][approach-circular-linked-list].
+For more information, check the [Circular Doubly-Linked List approach][approach-circular-doubly-linked-list].
 
-[approach-circular-linked-list]: https://exercism.org/tracks/c/exercises/armstrong-numbers/approaches/circular-linked-list
+[approach-circular-doubly-linked-list]: https://exercism.org/tracks/c/exercises/armstrong-numbers/approaches/circular-doubly-linked-list
+[circular-doubly-linked-list]: https://www.sanfoundry.com/c-program-circular-doubly-linked-list/
