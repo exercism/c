@@ -175,17 +175,17 @@ Likewise, node `B` will point to node `A` for both its `prev` and `next` fields.
 Node `B`'s `prev` will point at node `A` and node `B`'s `next` will point at node `C`.
 Node `C`'s `prev` will point at node `B` and node `C`'s `next` will point at node `A`.
 
-The only item the list's `head` and `tail` will be `NULL` is when the list is empty.
+The only time the list's `head` and `tail` will be `NULL` is when the list is empty.
 This is enforced by the `list_create` function.
 
-The `list_count` function returns the value of the lists's `length` field.
+The `list_count` function returns the value of the list's `length` field.
 
 The `create_node` function is a helper function to handle adding a node.
-Whether the node is added to the back or the front of the list, the new node is always placed between the `tail` and the `end` of the list,
-so the same implementation for creating the node is used for adding to either the front or back.
+Whether the node is added to the back or the front of the list, the new node is always placed between the `tail` and the `head` of the list,
+so the same implementation for creating the node is used for adding a node to either the front or back.
 
 If it is thought that the most usual case is that the list already has one node, then the condition can be tested that the `head` is not `NULL`.
-If so, then the new node is "wired up" to have its `prev` be the `tail` and its `next` be the head.
+If so, then the new node is "wired up" to have its `prev` be the `tail` and its `next` be the `head`.
 Also, the `tail`'s `next` will be the new node and the `head`'s `prev` will be the new node.
 
 If the `head` is `NULL`, then the new node will be the only node in the list, so its `prev` and `next` fields will point at itself,
@@ -198,11 +198,11 @@ Whether the node is removed from the back or front of the list, or from somewher
 
 The removed node's data is saved to be returned at the end of the function.
 
-The removed node's `next` field is assigned to the `next` field of the node before the removed node,
-so the node before the removed node now has a `next` pointing at the node after the removed node.
+The removed node's `next` field is assigned to the `next` field of the node _before_ the removed node,
+so the node before the removed node now has a `next` pointing at the node _after_ the removed node.
 
-The removed node's `prev` field is assigned to the `prev` field of the node after the removed node,
-so the node after the removed node now has a `prev` pointing at the node before the removed node.
+The removed node's `prev` field is assigned to the `prev` field of the node _after_ the removed node,
+so the node after the removed node now has a `prev` pointing at the node _before_ the removed node.
 
 ```c
 node->prev->next = node->next;
@@ -217,17 +217,30 @@ If the node being removed is either the `head` or the `tail`, then the `head` or
 
 The removed node's `prev` and `next` fields are set to `NULL`, the removed node's memory is freed, and the removed node is set to `NULL`.
 
+```c
+node->prev = NULL;
+node->next = NULL;
+free(node);
+node = NULL;
+list->length--;
+if (list->length == 0) {
+   list->head = NULL;
+   list->tail = NULL;
+}
+return data;
+```
+
 The list `length` is decremented for the removed node, and if there are no nodes remaining, then the `head` and `tail` are set to `NULL`. 
 
 Finally, the removed node's data is returned from the `destroy_node` function.
 
 The `list_push` function sets the list's `tail` to the node returned from calling the `create_node` function.
 
-The `list_pop` function returns the data resulting from pasing the list's `tail` to the `destroy_node` function.
+The `list_pop` function returns the data resulting from passing the list's `tail` to the `destroy_node` function.
 
 The `list_unshift` function sets the list's `head` to the node returned from calling the `create_node` function.
 
-The `list_shift` function returns the data resulting from pasing the list's `head` to the `destroy_node` function.
+The `list_shift` function returns the data resulting from passing the list's `head` to the `destroy_node` function.
 
 The `list_delete` function sets a `node` variable to the list `head`.
 The `while` loop will iterate if the `node` variable is not `NULL`.
@@ -257,7 +270,7 @@ If the `next` field is not the `head`, then `node` is set to its `next` node, an
 
 The `list_destroy` function sets a `node` variable to the list `head`.
 The `while` loop will iterate if the `node` variable is not `NULL`.
-If the `head` is already `NULL`, then the list is empty, the loop will not execute, and no node will be deleted.
+If the `head` is already `NULL`, then the list is empty, the loop will not execute, and no node will be destroyed.
 
 ```c
 void list_destroy(struct list *list)
@@ -277,9 +290,9 @@ void list_destroy(struct list *list)
 
 A `next_node` variable is set from the `next` field of the `node` variable.
 The `node` variable is passed to the `destroy_node` function.
-Although the node passed in was removed from the list in `destroy_node`, the `node` variable in `list_destroy` still holds its address.
+Although the node passed in was removed from the list within `destroy_node`, the `node` variable in `list_destroy` still holds its address.
 If the `node`'s address is the same as the address for `next_node`, then it pointed to itself because it was the last node to be removed,
-and `break is used to exit the loop.
+and `break` is used to exit the loop.
 Otherwise, the `node` variable is assigned the `next_node`.
 
 Once the `while` is done, the list is freed and set to `NULL`.
