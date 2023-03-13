@@ -217,6 +217,16 @@ If the node being removed is either the `head` or the `tail`, then the `head` or
 
 The removed node's `prev` and `next` fields are set to `NULL`, the removed node's memory is freed, and the removed node is set to `NULL`.
 
+```exercism/note
+Setting the freed pointer to `NULL` is a housekeeping habit to ensure that if the freed pointer is tested for `NULL` later in the function,
+it will properly be `NULL`.
+That test doesn't happen in the current code, but if the function were ever refactored it might be helpful to have that housekeeping done.
+The pointer in the calling code which was passed into the `destroy_node` function is passed by value,
+meaning that the address it points to is copied into the function.
+Setting the copy of the pointer address to `NULL` has no effect on the original pointer in the calling code.
+With its memory freed, the original pointer still retains its address, now pointing to deallocated memory, making it a [dangling pointer](https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/).
+```
+
 ```c
 node->prev = NULL;
 node->next = NULL;
