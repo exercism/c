@@ -291,6 +291,7 @@ void list_destroy(struct list *list)
 A `next_node` variable is set from the `next` field of the `node` variable.
 The `node` variable is passed to the `destroy_node` function.
 Although the node passed in was removed from the list within `destroy_node`, the `node` variable in `list_destroy` still holds its address.
+This is known as a [dangling pointer][dangling-pointer], because the memory at the address it points to has been freed.
 If the `node`'s address is the same as the address for `next_node`, then it pointed to itself because it was the last node to be removed,
 and `break` is used to exit the loop.
 Otherwise, the `node` variable is assigned the `next_node`.
@@ -298,3 +299,4 @@ Otherwise, the `node` variable is assigned the `next_node`.
 Once the `while` is done, the list is freed and set to `NULL`.
 
 [circular-doubly-linked-list]: https://www.sanfoundry.com/c-program-circular-doubly-linked-list/
+[dangling-pointer]: https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/
