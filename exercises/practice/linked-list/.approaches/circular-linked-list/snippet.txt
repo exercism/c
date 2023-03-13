@@ -1,0 +1,7 @@
+while (node) {
+  node_t *next_node = node->next;
+  destroy_node(node, list);
+  if (node == next_node)
+     break;
+  node = next_node;
+}
