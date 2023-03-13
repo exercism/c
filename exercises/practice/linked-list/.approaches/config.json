@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "8e575515-a5cd-440e-86e1-bad15ba28e2c",
+      "slug": "circular-linked-list",
+      "title": "Circular linked list",
+      "blurb": "Use a circular linked list for implementation.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
