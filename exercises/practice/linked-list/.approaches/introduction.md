@@ -3,6 +3,15 @@
 There are several ways to solve Linked List.
 One approach is to implement a circular linked list.
 
+## General guidance
+
+At the time of writing the tests don't cover certain error conditions, so some error handling that would be used in production
+won't necessarily be used here.
+
+As the instructions say:
+>To keep your implementation simple, the tests will not cover error conditions.
+>Specifically: `pop` or `shift` will never be called on an empty list.
+
 ## Approach: Circular Linked List
 
 **linked_list.h**
