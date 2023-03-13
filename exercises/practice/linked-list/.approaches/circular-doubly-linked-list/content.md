@@ -74,7 +74,7 @@ size_t list_count(const struct list *list)
 
 static node_t *create_node(ll_data_t data, struct list *list)
 {
-   node_t *new_node = (node_t *)malloc(sizeof(node_t));
+   node_t *new_node = malloc(sizeof(node_t));
    if (!new_node)
       return NULL;
    new_node->data = data;
