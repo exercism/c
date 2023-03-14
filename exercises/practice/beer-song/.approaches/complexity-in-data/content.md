@@ -66,10 +66,10 @@ This approach minimizes complexity in code by allowing for a bit more duplicate 
 The maximum length for a line is defined with the value taken from the test file.
 
 Arrays are defined to hold the varying values for the first and second lines of each verse.
-The last element of each array is a template for the verses that have the same wording and only change the bottle number.
+The last element of each array is a template for the verses that have the same wording and only change the `bottle` number.
 
 The `recite` function accepts two arguments of `uint8_t` and a buffer for writing the output.
-Since 8-bit unsigned integers can hold values from `0` through `255`, so they are big enough to hold the values of bottles from `0` through `99`.
+Since 8-bit unsigned integers can hold values from `0` through `255`, they are big enough to hold the values of bottles from `0` through `99`.
 
 The `end_bottle` is defined in a way so that it will not be `-1`.
 If the `start_bottles` is `1` and the `take_down` is `2`, the `end_bottle` is defined as `0` so it can be a `uint8_t`.
