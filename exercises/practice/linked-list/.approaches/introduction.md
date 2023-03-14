@@ -174,5 +174,5 @@ void list_destroy(struct list *list)
 
 For more information, check the [Circular Doubly-Linked List approach][approach-circular-doubly-linked-list].
 
-[approach-circular-doubly-linked-list]: https://exercism.org/tracks/c/exercises/armstrong-numbers/approaches/circular-doubly-linked-list
+[approach-circular-doubly-linked-list]: https://exercism.org/tracks/c/exercises/linked-list/approaches/circular-doubly-linked-list
 [circular-doubly-linked-list]: https://www.sanfoundry.com/c-program-circular-doubly-linked-list/
