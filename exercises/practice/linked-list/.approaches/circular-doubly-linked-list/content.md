@@ -179,8 +179,9 @@ The `create_node` function is a helper function to handle adding a node.
 Whether the node is added to the back or the front of the list, the new node is always placed between the `tail` and the `head` of the list,
 so the same implementation for creating the node is used for adding a node to either the front or back.
 
-If it is thought that the most usual case is that the list already has one node, then the condition can be tested that the `head` is not `NULL`.
-If so, then the new node is "wired up" to have its `prev` be the `tail` and its `next` be the `head`.
+If it is thought that the most usual case is that the list already has one node, then the condition can be tested that the `head` is not `NULL`
+(instead of testing first for if the `head` _is_ `NULL`).
+If the `head` is not `NULL`, then the new node is "wired up" to have its `prev` be the `tail` and its `next` be the `head`.
 Also, the `tail`'s `next` will be the new node and the `head`'s `prev` will be the new node.
 
 If the `head` is `NULL`, then the new node will be the only node in the list, so its `prev` and `next` fields will point at itself,
