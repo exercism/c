@@ -164,13 +164,8 @@ void list_delete(struct list *list, ll_data_t data)
 
 void list_destroy(struct list *list)
 {
-   node_t *node = list->head;
-   while (node) {
-      node_t *next_node = node->next;
-      destroy_node(node, list);
-      if (node == next_node)
-         break;
-      node = next_node;
+   while (list->length > 0) {
+      list_pop(list);
    }
    free(list);
    list = NULL;
