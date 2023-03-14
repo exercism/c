@@ -274,8 +274,7 @@ If the values don't match, then the `node`'s `next` field is checked for being t
 If so, then the looping has gone "full circle" and the loop is exited without having found a node with matching data.
 If the `next` field is not the `head`, then `node` is set to its `next` node, and the loop iterates again.
 
-The `list_destroy` function sets a `node` variable to the list `head`.
-The `while` loop will iterate if the `length` of the list is greater than `0`.
+The `while` loop in the `list_destroy` function will iterate if the `length` of the list is greater than `0`.
 If the `length` is already `0`, then the list is empty, the loop will not execute, and no node will be destroyed.
 
 ```c
