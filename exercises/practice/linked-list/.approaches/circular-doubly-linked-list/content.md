@@ -150,13 +150,8 @@ void list_delete(struct list *list, ll_data_t data)
 
 void list_destroy(struct list *list)
 {
-   node_t *node = list->head;
-   while (node) {
-      node_t *next_node = node->next;
-      destroy_node(node, list);
-      if (node == next_node)
-         break;
-      node = next_node;
+   while (list->length > 0) {
+      list_pop(list);
    }
    free(list);
    list = NULL;
@@ -279,34 +274,23 @@ If so, then the looping has gone "full circle" and the loop is exited without ha
 If the `next` field is not the `head`, then `node` is set to its `next` node, and the loop iterates again.
 
 The `list_destroy` function sets a `node` variable to the list `head`.
-The `while` loop will iterate if the `node` variable is not `NULL`.
-If the `head` is already `NULL`, then the list is empty, the loop will not execute, and no node will be destroyed.
+The `while` loop will iterate if the `length` of the list is greater than `0`.
+If the `length` is already `0`, then the list is empty, the loop will not execute, and no node will be destroyed.
 
 ```c
 void list_destroy(struct list *list)
 {
-   node_t *node = list->head;
-   while (node) {
-      node_t *next_node = node->next;
-      destroy_node(node, list);
-      if (node == next_node)
-         break;
-      node = next_node;
+   while (list->length > 0) {
+     list_pop(list);
    }
    free(list);
    list = NULL;
 }
 ```
 
-A `next_node` variable is set from the `next` field of the `node` variable.
-The `node` variable is passed to the `destroy_node` function.
-Although the node passed in was removed from the list within `destroy_node`, the `node` variable in `list_destroy` still holds its address.
-This is known as a [dangling pointer][dangling-pointer], because the memory at the address it points to has been freed.
-If the `node`'s address is the same as the address for `next_node`, then it pointed to itself because it was the last node to be removed,
-and `break` is used to exit the loop.
-Otherwise, the `node` variable is assigned the `next_node`.
+Inside the `while` loop the `list_pop` function is called on the list until the `length` of the list is `0`.
 
-Once the `while` is done, the list is freed and set to `NULL`.
+Once the `while` loop is done, the list is freed and set to `NULL`.
 
 [circular-doubly-linked-list]: https://www.sanfoundry.com/c-program-circular-doubly-linked-list/
 [dangling-pointer]: https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/
