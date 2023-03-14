@@ -48,7 +48,7 @@ void recite(uint8_t start_bottles, uint8_t take_down, char **song)
       snprintf(*song++, MAX_LINE_LENGTH, FIRST_LINE[bottle > 1 ? 2 : bottle],
                bottle, bottle);
       snprintf(*song++, MAX_LINE_LENGTH,
-               SECOND_LINE[bottle - 1 > 2 ? 3 : bottle], bottle - 1);
+               SECOND_LINE[bottle - 1 > 1 ? 3 : bottle], bottle - 1);
       song++;
    }
 }
