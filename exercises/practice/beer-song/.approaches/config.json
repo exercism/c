@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "7012cfe4-eb04-46c7-9934-491f480f71f1",
+      "slug": "complexity-in-data",
+      "title": "Complexity in data",
+      "blurb": "Put the complexity in data to return the answer.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
