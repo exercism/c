@@ -44,7 +44,7 @@ static const char *SECOND_LINE[] = {
 void recite(uint8_t start_bottles, uint8_t take_down, char **song)
 {
    uint8_t end_bottle = start_bottles - (take_down - 1);
-   for (int bottle = start_bottles; bottle >= end_bottle; bottle--) {
+   for (int8_t bottle = start_bottles; bottle >= end_bottle; bottle--) {
       snprintf(*song++, MAX_LINE_LENGTH, FIRST_LINE[bottle > 1 ? 2 : bottle],
                bottle, bottle);
       snprintf(*song++, MAX_LINE_LENGTH,
