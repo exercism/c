@@ -8,6 +8,9 @@ One approach can use the [`strchr`][strchr] and [`strstr`][strstr] functions to 
 At the time of writing only four rules need to be handled, but when they have similar output, they don't need to be handled completely separately.
 Handling each rule independently might lead to longer code than is needed.
 
+Also, at the time of writing the tests don't cover error conditions, so to keep the implementation simple,
+some error handling that would be used in production won't necessarily be used here.
+
 ## Approach: `strchr` and `ststr`
 
 **pig_latin.h**
