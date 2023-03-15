@@ -78,10 +78,29 @@ char *translate(const char *phrase)
 ```
 
 This approach starts by defining the maximum expected length of the beginning part of the word that will be moved to the end of the word.
-It then defines the maximum expected length of the input into the `translate` function, based on the test input.
+It then defines the maximum expected length of the input string into the `translate` function, based on the test input.
 
 A space is defined as the delimiter between words.
 Then vowels are defined both without and with a `y`.
+
+```c
+#define MAX_SUFFIX_LEN 8
+#define MAX_PHRASE_LEN 32
+static const char DELIMITERS[] = " ";
+static const char *VOWELS = "aeiou";
+static const char *VOWELS_Y = "aeiouy";
+
+static bool process_vowel_start(const char *word, char *output)
+{
+   if (strchr(VOWELS, *word) != NULL || strstr(word, "xr") == word ||
+       strstr(word, "yt") == word) {
+      strncat(output, word, MAX_PHRASE_LEN);
+      strncat(output, "ay", MAX_PHRASE_LEN);
+      return true;
+   }
+   return false;
+}
+```
 
 The `process_vowel_start` function takes pointers to the `word` string and the `output` string .
 The [`strchr`][strchr] functon is used to check if the first character of the `word` is in the `VOWELS` string.
@@ -90,7 +109,8 @@ If the return from `strchr` is not `NULL`, then the logical OR (`||`) [short-cir
 to the `output` string.
 
 The [`strncat`][strncat] function is used to concatenate to the `output`.
-When the input to the `translate` function is only one word (which is all but one test), it will ensure the `output` is not longer than the maximum phrase length.
+When the input to the `translate` function is only one word (which happens in all but one of the tests),
+it will ensure the `output` is not longer than the maximum phrase length.
 
 If the `word` does not start with a vowel, then the [`strstr`][strstr] function is used to check if the `word` starts with `xr` or `yt`.
 If it starts with either, then the `word` and `ay` will be concatenated to the `output` string.
@@ -185,7 +205,7 @@ When the loop is done, the function returns the `output` string.
 
 [strchr]: https://cplusplus.com/reference/cstring/strchr/
 [strstr]: https://cplusplus.com/reference/cstring/strstr/
-[short-cicruit]: https://www.geeksforgeeks.org/short-circuit-evaluation-in-programming/
+[short-circuit]: https://www.geeksforgeeks.org/short-circuit-evaluation-in-programming/
 [strncat]: https://cplusplus.com/reference/cstring/strncat/
 [calloc]: https://cplusplus.com/reference/cstdlib/calloc/
 [strncpy]: https://cplusplus.com/reference/cstring/strncpy/
