@@ -224,7 +224,7 @@ The `while` check uses an assignment expression that assigns the `word` variable
 By passing `NULL` as the first argument to the `strtok` function, it continues scanning where a previously successful call to the function ended,
 as the point where the last token was found is kept internally by the function to be used on the next call.
 
-The `while` evaluates the value of `word` after assigning it the result of calling `strtok`.
+The `while` evaluates the value of `word` after assigning it to the result of calling `strtok`.
 If `word` is not a `NULL` pointer, then the loop will iterate again, otherwise the loop will exit.
 
 When the loop is done, the function returns the `output` string.
