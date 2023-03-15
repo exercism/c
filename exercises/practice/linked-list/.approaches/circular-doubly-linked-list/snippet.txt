@@ -1,0 +1,8 @@
+while (node) {
+  if (node->data == data) {
+     destroy_node(node, list);
+     break;
+  }
+  if (node->next == list->head)
+     break;
+  node = node->next;
