@@ -1,7 +1,7 @@
 # Introduction
 
 There are various ways to solve Pig Latin.
-One approach can use the [`strchr`][strchr] and [`strstr`][strstr] functions to look for vowels.
+One approach can use the [`strchr`][strchr], [`strstr`][strstr] and [`strtok`][strtok] functions to parse.
 
 ## General guidance
 
@@ -11,7 +11,7 @@ Handling each rule independently might lead to longer code than is needed.
 Also, at the time of writing the tests don't cover error conditions, so to keep the implementation simple,
 some error handling that would be used in production won't necessarily be used here.
 
-## Approach: `strchr` and `ststr`
+## Approach: `strchr` and `ststr` with `strtok`
 
 **pig_latin.h**
 
@@ -90,8 +90,9 @@ char *translate(const char *phrase)
 }
 ```
 
-For more information, check the [`strchr` and `strstr` approach][approach-strchr-and-strstr].
+For more information, check the [`strchr` and `strstr` with `strtok` approach][approach-strchr-strstr-strtok].
 
-[approach-strchr-and-strstr]: https://exercism.org/tracks/c/exercises/pig-latin/approaches/strchr-and-strstr
+[approach-strchr-strstr-strtok]: https://exercism.org/tracks/c/exercises/pig-latin/approaches/strchr-strstr-strtok
 [strchr]: https://cplusplus.com/reference/cstring/strchr/
 [strstr]: https://cplusplus.com/reference/cstring/strstr/
+[strtok]: https://cplusplus.com/reference/cstring/strtok/
