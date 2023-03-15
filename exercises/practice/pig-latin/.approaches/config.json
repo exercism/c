@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "2b474e3a-38eb-4561-b42e-ea74d7f51ad9",
+      "slug": "strchr-and-strstr",
+      "title": "strchr and strstr",
+      "blurb": "Use strchr and strstr for parsing.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
