@@ -122,52 +122,64 @@ A `char` array for the word suffix is defined, and the first character is initia
 making it an empty string.
 The first character of `word` is concatenated to the suffix.
 
-The `for` loop creates another pointer to the `word` and it initializes it to point to the second character (`word + 1`).
+The `for` loop creates another pointer to the `word` and initializes it to point to the second character (`word + 1`).
 The loop will iterate as long as the `cur_word` is pointing to a non-`NULL` character.
+The dereference of `*cur_word` returns `true` if the pointer is not currently pointing to a null character (`'\0'`).
 
 ```c
-if (strchr(VOWELS_Y, *cur_word) != NULL) {
-   if (*cur_word == 'u') {
-      if (*--cur_word == 'q') {
-         strncat(pig_suffix, ++cur_word, 1);
+static void process_vowel_y(const char *word, char *output)
+{
+   char pig_suffix[MAX_SUFFIX_LEN] = { 0 };
+   strncat(pig_suffix, word, 1);
+   for (const char *cur_word = word + 1; *cur_word; cur_word++) {
+      if (strchr(VOWELS_Y, *cur_word) != NULL) {
+         if (*cur_word == 'u') {
+            if (*--cur_word == 'q') {
+               strncat(pig_suffix, ++cur_word, 1);
+            }
+            ++cur_word;
+         }
+         strncat(output, cur_word, MAX_PHRASE_LEN);
+         strncat(output, pig_suffix, MAX_PHRASE_LEN);
+         strncat(output, "ay", MAX_PHRASE_LEN);
+         return;
       }
-      ++cur_word;
+      strncat(pig_suffix, cur_word, 1);
    }
-   strncat(output, cur_word, MAX_PHRASE_LEN);
    strncat(output, pig_suffix, MAX_PHRASE_LEN);
-   strncat(output, "ay", MAX_PHRASE_LEN);
-   return;
 }
 ```
 
 The `strchr` function is used to check if the `char` currently pointed at is in the `VOWELS_Y` string.
 If so, and the current `char` is a `u`, then the pointer is decremented to see if the previous character is a `q`.
 If the previous `char` was a `q`, then the pointer is incremented back to point to `u`, and the `u` is concatenated to the suffix.
-If the word was `quick`, then the pointer is desired to be at the `i` (one past `q`).
-If the word was `bug`, then the pointer is desired to be at the `u`.
+
+If the word is `quick`, then the pointer is now desired to be at the `i` (one past `q`, where it iw now).
+If the word is `bug`, then the pointer is now desired to be at the `u`.
 Testing for `q` in `bug` moved the pointer to `b`, and since it was not preceeded by `q` it was not incremented back to `u`.
-So, for both situations, the pointer is incremented again.
+So, for both situations, the pointer is incremented again: from `u` to `i` for `quick`, or from `b` to `u` for `bug`.
 
 Concatenation for any vowel is the same.
-The word from the `char` curently pointed at until the end of the word is concatenated to the `output` string.
-Then the first part of the word (now in the suffix string), is concatenated to the `output` string.
+The word from the `char` currently pointed at until the end of the word is concatenated to the `output` string.
+Then the first part of the word (now in the suffix string) before the current `char` is concatenated to the `output` string.
 Finally, `ay` is concatenated to the `output` string, and the function returns.
 
-If the current `char` is not a vowel, then it is concatenated to the suffix and the pointer is incremented.
+If the current `char` is not a vowel, then it is concatenated to the suffix string and the pointer is incremented.
 
-After the loop is done, if no vowel was found, the the suffix, which would now be the whole `word`, is concatenated to the `output` string as is.
+After the loop is done, if no vowel was found, then the suffix, which is now the whole `word`, is concatenated to the `output` string as is.
 
 The `translate` function takes a pointer to the `input` phrase.
 
 ```exercism/note
-For production, the pointer should be checked for `NULL` and that the string is not longer than the `MAX_PHRASE_LEN`, but those and other checks
-are not made in this approach to keep the implementation simple.
+For production, checks would be made that the pointer is not `NULL`, that the string is not longer than the `MAX_PHRASE_LEN`,
+and that allocated memory does not return a `NULL` pointer, but those and other checks are not made in this approach to keep the implementation simple.
 ```
 
 The [`calloc`][calloc] function is used to allocate memory for the `output` string.
 
-The [`strncpy`][strncpy] function is used to copy the input phrase into a `char` array that can be iterated with the [`strtok`][strtok`] function.
-The `strtok` function take a `char *` input string (not a `const char *` string ) and a string of delimiters to split the input string by the delimiters.
+The [`strncpy`][strncpy] function is used to copy the input phrase into a `char` array that can be iterated with the [`strtok`][strtok] function.
+The `strtok` function takes a `char *` input string (not a `const char *` string ) and a string of delimiters to split the input string by the delimiters.
+For this, the only delimiter defined is a space.
 
 ```c
 char *output = calloc(MAX_PHRASE_LEN + 1, 1);
@@ -193,13 +205,15 @@ For a discussion of why `strcat` is used here instead of `strncat`, see this
 [StackOverflow thread](https://stackoverflow.com/questions/53408543/strncat-wformat-overflow-warning-when-using-gcc-8-2-1).
 ```
 
-If the call to the `process_vowel_start` function returns `true`, then the word starts wioth a vowel (or `xr` or `yt`) and `continue` is used
+If the call to the `process_vowel_start` function returns `true`, then the word starts with a vowel (or `xr` or `yt`) and `continue` is used
 to go to the `while` check of the loop.
 
 If `process_vowel_start` returns false, then `process_vowel_y` is called.
 
 The `while` check uses an assignment expression that assigns the `word` variable to the result of calling `strtok`.
-If `word` is not a `NULL` pointer then the loop will iterate again, otherwise the loop will exit.
+By passing `NULL` as the first argument to the `strtok` function, it continues scanning where a previously successful call to the function ended,
+as the point where the last token was found is kept internally by the function to be used on the next call.
+If `word` is not a `NULL` pointer, then the loop will iterate again, otherwise the loop will exit.
 
 When the loop is done, the function returns the `output` string.
 
