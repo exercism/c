@@ -77,8 +77,8 @@ char *translate(const char *phrase)
 }
 ```
 
-This approach starts by defining the maximum expected length of the beginning part of the word that will be moved to the end of the word.
-It then defines the maximum expected length of the input string into the `translate` function, based on the test input.
+This approach starts by defining the maximum expected length of the beginning part of the word that will be moved to the end of the word (the suffix).
+It then defines the maximum expected length of the input string passed into the `translate` function, based on the test input.
 
 A space is defined as the delimiter between words.
 Then vowels are defined both without and with a `y`.
@@ -113,7 +113,12 @@ When the input to the `translate` function is only one word (which happens in al
 it will ensure the `output` is not longer than the maximum phrase length.
 
 If the `word` does not start with a vowel, then the [`strstr`][strstr] function is used to check if the `word` starts with `xr` or `yt`.
-If it starts with either, then the `word` and `ay` will be concatenated to the `output` string.
+
+- For example, if the word is `"xray"`, then `strstr(word, "xr")` will return a pointer at the beginning of `word`.
+- If the word is `"boxroom"`, then `strstr(word, "xr")` will return a pointer, but it won't be equal to the pointer at the beginning of `word`.
+- If the word is `"else"`, then `strstr(word, "xr")` will return a `NULL` pointer, which is not equal to the pointer at the beginning of `word`.
+
+If the `word` starts with either `xr` or `yt`, then the `word` and `ay` will be concatenated to the `output` string.
 
 If the `word` was concatenated to the `output` string, then the function returns `true`, otherwise it returns `false`.
 
@@ -122,9 +127,9 @@ A `char` array for the word suffix is defined, and the first character is initia
 making it an empty string.
 The first character of `word` is concatenated to the suffix.
 
-The `for` loop creates another pointer to the `word` and initializes it to point to the second character (`word + 1`).
+The `for` loop creates another pointer to the `word` and initializes it to point at the second character (`word + 1`).
 The loop will iterate as long as the `cur_word` is pointing to a non-`NULL` character.
-The dereference of `*cur_word` returns `true` if the pointer is not currently pointing to a null character (`'\0'`).
+The dereference of `*cur_word` returns `true` if the pointer is not currently pointing at a null character (`'\0'`), otherwise it returns `false`.
 
 ```c
 static void process_vowel_y(const char *word, char *output)
@@ -154,8 +159,9 @@ The `strchr` function is used to check if the `char` currently pointed at is in 
 If so, and the current `char` is a `u`, then the pointer is decremented to see if the previous character is a `q`.
 If the previous `char` was a `q`, then the pointer is incremented back to point to `u`, and the `u` is concatenated to the suffix.
 
-If the word is `quick`, then the pointer is now desired to be at the `i` (one past `q`, where it iw now).
-If the word is `bug`, then the pointer is now desired to be at the `u`.
+- If the word is `quick`, then the pointer is now at `u` and is desired to be at `i`.
+- If the word is `bug`, then the pointer is now at `b` and is desired to be at `u`.
+
 Testing for `q` in `bug` moved the pointer to `b`, and since it was not preceeded by `q` it was not incremented back to `u`.
 So, for both situations, the pointer is incremented again: from `u` to `i` for `quick`, or from `b` to `u` for `bug`.
 
@@ -163,6 +169,10 @@ Concatenation for any vowel is the same.
 The word from the `char` currently pointed at until the end of the word is concatenated to the `output` string.
 Then the first part of the word (now in the suffix string) before the current `char` is concatenated to the `output` string.
 Finally, `ay` is concatenated to the `output` string, and the function returns.
+
+- For example, `"quick"` would be `"ickquay".
+- `"bug"` would be `"ugbay"`.
+- `"boxroom"` would be `"oxroombay"`.
 
 If the current `char` is not a vowel, then it is concatenated to the suffix string and the pointer is incremented.
 
@@ -213,6 +223,8 @@ If `process_vowel_start` returns false, then `process_vowel_y` is called.
 The `while` check uses an assignment expression that assigns the `word` variable to the result of calling `strtok`.
 By passing `NULL` as the first argument to the `strtok` function, it continues scanning where a previously successful call to the function ended,
 as the point where the last token was found is kept internally by the function to be used on the next call.
+
+The `while` evaluates the value of `word` after assigning it the result of calling `strtok`.
 If `word` is not a `NULL` pointer, then the loop will iterate again, otherwise the loop will exit.
 
 When the loop is done, the function returns the `output` string.
