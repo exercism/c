@@ -32,7 +32,6 @@ char *translate(const char *phrase);
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_SUFFIX_LEN 8
 #define MAX_PHRASE_LEN 32
 static const char DELIMITERS[] = " ";
 static const char *VOWELS = "aeiou";
@@ -51,7 +50,7 @@ static bool process_vowel_start(const char *word, char *output)
 
 static void process_vowel_y(const char *word, char *output)
 {
-   char pig_suffix[MAX_SUFFIX_LEN] = { 0 };
+   char pig_suffix[MAX_PHRASE_LEN + 1] = { 0 };
    strncat(pig_suffix, word, 1);
    for (const char *cur_word = word + 1; *cur_word; cur_word++) {
       if (strchr(VOWELS_Y, *cur_word) != NULL) {
@@ -63,7 +62,7 @@ static void process_vowel_y(const char *word, char *output)
          }
          strncat(output, cur_word,
                  MAX_PHRASE_LEN - (strlen(output) + strlen(pig_suffix) + 2));
-         strncat(output, pig_suffix, MAX_SUFFIX_LEN);
+         strcat(output, pig_suffix);
          strcat(output, "ay");
          return;
       }
