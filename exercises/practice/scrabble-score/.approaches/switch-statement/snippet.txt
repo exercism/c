@@ -1,0 +1,8 @@
+case 'd':
+case 'g':
+   return 2;
+case 'b':
+case 'c':
+case 'm':
+case 'p':
+   return 3;
