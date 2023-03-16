@@ -63,6 +63,7 @@ static unsigned int letter_score(char letter)
    }
    return 0;
 }
+
 unsigned int score(const char *word)
 {
    if (word == NULL)
