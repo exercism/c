@@ -19,7 +19,6 @@ char *translate(const char *phrase);
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_SUFFIX_LEN 8
 #define MAX_PHRASE_LEN 32
 static const char DELIMITERS[] = " ";
 static const char *VOWELS = "aeiou";
@@ -29,8 +28,8 @@ static bool process_vowel_start(const char *word, char *output)
 {
    if (strchr(VOWELS, *word) != NULL || strstr(word, "xr") == word ||
        strstr(word, "yt") == word) {
-      strncat(output, word, MAX_PHRASE_LEN);
-      strncat(output, "ay", MAX_PHRASE_LEN);
+      strncat(output, word, MAX_PHRASE_LEN - (strlen(output) + 2));
+      strcat(output, "ay");
       return true;
    }
    return false;
@@ -38,7 +37,7 @@ static bool process_vowel_start(const char *word, char *output)
 
 static void process_vowel_y(const char *word, char *output)
 {
-   char pig_suffix[MAX_SUFFIX_LEN] = { 0 };
+   char pig_suffix[MAX_PHRASE_LEN + 1] = { 0 };
    strncat(pig_suffix, word, 1);
    for (const char *cur_word = word + 1; *cur_word; cur_word++) {
       if (strchr(VOWELS_Y, *cur_word) != NULL) {
@@ -48,9 +47,10 @@ static void process_vowel_y(const char *word, char *output)
             }
             ++cur_word;
          }
-         strncat(output, cur_word, MAX_PHRASE_LEN);
-         strncat(output, pig_suffix, MAX_PHRASE_LEN);
-         strncat(output, "ay", MAX_PHRASE_LEN);
+         strncat(output, cur_word,
+                 MAX_PHRASE_LEN - (strlen(output) + strlen(pig_suffix) + 2));
+         strcat(output, pig_suffix);
+         strcat(output, "ay");
          return;
       }
       strncat(pig_suffix, cur_word, 1);
@@ -77,14 +77,12 @@ char *translate(const char *phrase)
 }
 ```
 
-This approach starts by defining the maximum expected length of the beginning part of the word that will be moved to the end of the word (the suffix).
-It then defines the maximum expected length of the input string passed into the `translate` function, based on the test input.
+This approach starts by defining the maximum expected length of the output string returned from the `translate` function, based on the test input.
 
 A space is defined as the delimiter between words.
 Then vowels are defined both without and with a `y`.
 
 ```c
-#define MAX_SUFFIX_LEN 8
 #define MAX_PHRASE_LEN 32
 static const char DELIMITERS[] = " ";
 static const char *VOWELS = "aeiou";
@@ -94,8 +92,8 @@ static bool process_vowel_start(const char *word, char *output)
 {
    if (strchr(VOWELS, *word) != NULL || strstr(word, "xr") == word ||
        strstr(word, "yt") == word) {
-      strncat(output, word, MAX_PHRASE_LEN);
-      strncat(output, "ay", MAX_PHRASE_LEN);
+      strncat(output, word, MAX_PHRASE_LEN - (strlen(output) + 2));
+      strcat(output, "ay");
       return true;
    }
    return false;
@@ -108,9 +106,12 @@ Dereferencing `word` (`*word`) will return the `char` currently being pointed to
 If the return from `strchr` is not `NULL`, then the logical OR (`||`) [short-circuits][short-circuit] as `true`, and the word and `ay` are concatenated
 to the `output` string.
 
-The [`strncat`][strncat] function is used to concatenate to the `output`.
-When the input to the `translate` function is only one word (which happens in all but one of the tests),
-it will ensure the `output` is not longer than the maximum phrase length.
+The [`strncat`][strncat] function is used to concatenate to the `output` to ensure we don't attempt to write past the end of the output string.
+
+```exercism/note
+For a discussion of why `strcat` is used instead of `strncat` to append a string of known size (e.g. `"ay"`), see this
+[StackOverflow thread](https://stackoverflow.com/questions/53408543/strncat-wformat-overflow-warning-when-using-gcc-8-2-1).
+```
 
 If the `word` does not start with a vowel, then the [`strstr`][strstr] function is used to check if the `word` starts with `xr` or `yt`.
 
@@ -134,7 +135,7 @@ The dereference of `*cur_word` returns `true` if the pointer is not currently po
 ```c
 static void process_vowel_y(const char *word, char *output)
 {
-   char pig_suffix[MAX_SUFFIX_LEN] = { 0 };
+   char pig_suffix[MAX_PHRASE_LEN + 1] = { 0 };
    strncat(pig_suffix, word, 1);
    for (const char *cur_word = word + 1; *cur_word; cur_word++) {
       if (strchr(VOWELS_Y, *cur_word) != NULL) {
@@ -144,9 +145,10 @@ static void process_vowel_y(const char *word, char *output)
             }
             ++cur_word;
          }
-         strncat(output, cur_word, MAX_PHRASE_LEN);
-         strncat(output, pig_suffix, MAX_PHRASE_LEN);
-         strncat(output, "ay", MAX_PHRASE_LEN);
+         strncat(output, cur_word,
+                 MAX_PHRASE_LEN - (strlen(output) + strlen(pig_suffix) + 2));
+         strcat(output, pig_suffix);
+         strcat(output, "ay");
          return;
       }
       strncat(pig_suffix, cur_word, 1);
@@ -161,8 +163,8 @@ If the previous `char` was a `q`, then the pointer is incremented back to point 
 
 - If the word is `quick`, then the pointer is now at `u` and is desired to be at `i`.
 - If the word is `bug`, then the pointer is now at `b` and is desired to be at `u`.
-
 Testing for `q` in `bug` moved the pointer to `b`, and since it was not preceeded by `q` it was not incremented back to `u`.
+
 So, for both situations, the pointer is incremented again: from `u` to `i` for `quick`, or from `b` to `u` for `bug`.
 
 Concatenation for any vowel is the same.
@@ -181,8 +183,8 @@ After the loop is done, if no vowel was found, then the suffix, which is now the
 The `translate` function takes a pointer to the `input` phrase.
 
 ```exercism/note
-For production, checks would be made that the pointer is not `NULL`, that the string is not longer than the `MAX_PHRASE_LEN`,
-and that allocated memory does not return a `NULL` pointer, but those and other checks are not made in this approach to keep the implementation simple.
+For production, checks would be made that the pointer is not `NULL` and that allocated memory does not return a `NULL` pointer,
+but those and other checks are not made in this approach to keep the implementation simple.
 ```
 
 The [`calloc`][calloc] function is used to allocate memory for the `output` string.
@@ -192,28 +194,26 @@ The `strtok` function takes a `char *` input string (not a `const char *` string
 For this, the only delimiter defined is a space.
 
 ```c
-char *output = calloc(MAX_PHRASE_LEN + 1, 1);
-char input[MAX_PHRASE_LEN + 1];
-strncpy(input, phrase, MAX_PHRASE_LEN);
-char *word = strtok(input, DELIMITERS);
-bool starting = true;
-do {
-   if (!starting)
-      strcat(output, " ");
-   if (process_vowel_start(word, output))
-      continue;
-   process_vowel_y(word, output);
-   starting = false;
-} while ((word = strtok(NULL, DELIMITERS)));
-return output;
+char *translate(const char *phrase)
+{
+   char *output = calloc(MAX_PHRASE_LEN + 1, 1);
+   char input[MAX_PHRASE_LEN + 1];
+   strncpy(input, phrase, MAX_PHRASE_LEN);
+   char *word = strtok(input, DELIMITERS);
+   bool starting = true;
+   do {
+      if (!starting)
+         strcat(output, " ");
+      if (process_vowel_start(word, output))
+         continue;
+      process_vowel_y(word, output);
+      starting = false;
+   } while ((word = strtok(NULL, DELIMITERS)));
+   return output;
+}
 ```
 
 Inside the `do` loop, if the loop is not starting, then a space is concatenated to the `output` string with the [`strcat`][strcat] function.
-
-```exercism/note
-For a discussion of why `strcat` is used here instead of `strncat`, see this
-[StackOverflow thread](https://stackoverflow.com/questions/53408543/strncat-wformat-overflow-warning-when-using-gcc-8-2-1).
-```
 
 If the call to the `process_vowel_start` function returns `true`, then the word starts with a vowel (or `xr` or `yt`) and `continue` is used
 to go to the `while` check of the loop.
