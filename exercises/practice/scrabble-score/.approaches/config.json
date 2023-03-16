@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "4a3004d1-8cf1-4ff8-97e4-541724993e54",
+      "slug": "array-lookup",
+      "title": "Array lookup",
+      "blurb": "Look up scores in an array to return the answer.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
