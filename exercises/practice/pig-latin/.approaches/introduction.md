@@ -42,8 +42,8 @@ static bool process_vowel_start(const char *word, char *output)
 {
    if (strchr(VOWELS, *word) != NULL || strstr(word, "xr") == word ||
        strstr(word, "yt") == word) {
-      strncat(output, word, MAX_PHRASE_LEN);
-      strncat(output, "ay", MAX_PHRASE_LEN);
+      strncat(output, word, MAX_PHRASE_LEN - (strlen(output) + 2));
+      strcat(output, "ay");
       return true;
    }
    return false;
@@ -61,9 +61,10 @@ static void process_vowel_y(const char *word, char *output)
             }
             ++cur_word;
          }
-         strncat(output, cur_word, MAX_PHRASE_LEN);
-         strncat(output, pig_suffix, MAX_PHRASE_LEN);
-         strncat(output, "ay", MAX_PHRASE_LEN);
+         strncat(output, cur_word,
+                 MAX_PHRASE_LEN - (strlen(output) + strlen(pig_suffix) + 2));
+         strncat(output, pig_suffix, MAX_SUFFIX_LEN);
+         strcat(output, "ay");
          return;
       }
       strncat(pig_suffix, cur_word, 1);
