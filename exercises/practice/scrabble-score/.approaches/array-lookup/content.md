@@ -72,8 +72,8 @@ The conditional statement will iterate the inner loop as long as the `ltrs` poin
 The inner loop increments the `ltrs` pointer.
 Since the `ltrs` pointer is being incremented directly, there is no counter variable needed to be defined and incremented.
 
-Inside the inner `for` loop, the element in the `score` array for that letter has its score set from `score` field of the current struct.
-The corresponding elements of the `score` array relate to the position of the letter in the English alphabet.
+Inside the inner `for` loop, the element in the `scores` array for the current letter has its score set from `score` field of the current struct.
+The corresponding elements of the `scores` array relate to the position of the letter in the English alphabet.
 So `a` is at index `0`, `b` is at index `1`, up through `z` which is at index `25`.
 Subtracting the current `char` by `a` subtracts the [`ASCII`][ascii] value of the current `char` by the ASCII value of `a`.
 
