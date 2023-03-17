@@ -17,9 +17,6 @@ it might be considered to define them as [constants][const] with meaningful name
 Another concern is to minimize duplicate code between the `clock_create`, `clock_add` and `clock_subtract` functions,
 thus keeping the code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
-Finally, for `clock_add` and `clock_subtract`, consider returning a new `clock_t` struct instead of mutating the existing `clock_t`.
-For the benefits of immutability in general, see [this article][immutability-benefits].
-
 ## Approach: Minimize duplicate code
 
 **clock.h**
@@ -101,4 +98,3 @@ For more information, check the [Minimize duplicate code approach][approach-mini
 [magic numbers]: https://en.wikipedia.org/wiki/Magic_number_(programming)
 [const]: [https://go.dev/tour/basics/15](https://www.geeksforgeeks.org/const-qualifier-in-c/)
 [DRY]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
-[immutability-benefits]: https://hackernoon.com/5-benefits-of-immutable-objects-worth-considering-for-your-next-project-f98e7e85b6ac
