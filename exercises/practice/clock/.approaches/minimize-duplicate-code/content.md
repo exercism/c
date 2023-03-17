@@ -5,7 +5,7 @@
 ```c
 #include <stdbool.h>
 
-#define MAX_STR_LEN 6 // "##:##\0"
+#define MAX_STR_LEN 14 // "##:##\0" for int values
 
 typedef struct
 {
@@ -71,6 +71,11 @@ bool clock_is_equal(clock_t a, clock_t b)
    return (!strcmp(a.text, b.text));
 }
 ```
+
+The header defines the maximum length of the Clock struct `text` to be `14`.
+In practice, six bytes would suffice for `2` hour digits, a colon, `2` minute digits and the null terminating character,
+however, when setting the `text`, some compilers realize that `int` values could be large enough so that the null terminating character
+could be written past the end of the `text`, unless it is made to be at least fourteen bytes.
 
 This approach starts by defining some [`const`][const] values for the amount of minutes in a day and the amount of minutes in an hour.
 The `const` values are given meaningful names instead of using the integer literals as [magic numbers][magic-numbers].
