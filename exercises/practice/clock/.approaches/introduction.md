@@ -57,10 +57,10 @@ static int normalize_minutes(int minutes)
                         : minutes % DAY_MINUTES;
 }
 
-static void set_text(clock_t *clock, int allMinutes)
+static void set_text(clock_t *clock, int all_minutes)
 {
-   int hours = allMinutes / 60;
-   int minutes = allMinutes % 60;
+   int hours = all_minutes / 60;
+   int minutes = all_minutes % 60;
    sprintf(clock->text, "%02d:%02d", hours, minutes);
 }
 
