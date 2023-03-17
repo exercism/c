@@ -53,11 +53,8 @@ const int HOUR_MINUTES = 60;
 
 static int normalize_minutes(int minutes)
 {
-   if (minutes < 0)
-      return DAY_MINUTES + (minutes % DAY_MINUTES);
-   else if (minutes >= DAY_MINUTES)
-      return minutes % DAY_MINUTES;
-   return minutes;
+   return (minutes < 0) ? DAY_MINUTES + (minutes % DAY_MINUTES)
+                        : minutes % DAY_MINUTES;
 }
 
 static void set_text(clock_t *clock, int allMinutes)
