@@ -39,22 +39,22 @@ static float radius(coordinate_t throw)
    return hypot(throw.x, throw.y);
 }
 
-static bool hit(float throw, float ring)
+static bool throw(float radius, float ring)
 {
-   return throw <= ring;
+   return radius <= ring;
 }
 
-uint8_t score(coordinate_t throw)
+uint8_t score(coordinate_t dart_throw)
 {
-   float is_within = radius(throw);
+   float is_within = radius(dart_throw);
 
-   if (hit(is_within, INNER_RING)) {
+   if (throw(is_within, INNER_RING)) {
       return 10;
    }
-   if (hit(is_within, MIDDLE_RING)) {
+   if (throw(is_within, MIDDLE_RING)) {
       return 5;
    }
-   if (hit(is_within, OUTER_RING)) {
+   if (throw(is_within, OUTER_RING)) {
       return 1;
    }
    return 0;
