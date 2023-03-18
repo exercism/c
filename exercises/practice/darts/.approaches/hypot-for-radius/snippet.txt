@@ -1,0 +1,8 @@
+static float radius(coordinate_t throw)
+{
+   return hypot(throw.x, throw.y);
+}
+static bool hit(float throw, float ring)
+{
+   return throw <= ring;
+}
