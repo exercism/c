@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "64106118-5265-4d81-8088-aa0cf8bc3c38",
+      "slug": "look-for-start-chars",
+      "title": "Look for start chars",
+      "blurb": "Look for start characters.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
