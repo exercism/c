@@ -1,6 +1,6 @@
 # Introduction
 
-There are serveral ways to solve Darts.
+There are several ways to solve Darts.
 One approach is to use the [`hypot`][hypot] function to get the [radius][radius] of the throw.
 
 ## Approach: `hypot` for radius
