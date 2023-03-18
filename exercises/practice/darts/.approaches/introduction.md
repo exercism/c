@@ -46,15 +46,15 @@ static bool hit(float throw, float ring)
 
 uint8_t score(coordinate_t throw)
 {
-   float within = radius(throw);
+   float is_within = radius(throw);
 
-   if (hit(within, INNER_RING)) {
+   if (hit(is_within, INNER_RING)) {
       return 10;
    }
-   if (hit(within, MIDDLE_RING)) {
+   if (hit(is_within, MIDDLE_RING)) {
       return 5;
    }
-   if (hit(within, OUTER_RING)) {
+   if (hit(is_within, OUTER_RING)) {
       return 1;
    }
    return 0;
