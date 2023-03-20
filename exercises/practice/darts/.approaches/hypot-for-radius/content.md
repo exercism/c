@@ -73,6 +73,6 @@ If it returns `true`, then the function returns with the score for throwing with
 If the throw is not within a defined ring, then the function returns `0`.
 
 [magic-numbers]: https://en.wikipedia.org/wiki/Magic_number_(programming)
-[const]: [https://go.dev/tour/basics/15](https://www.geeksforgeeks.org/const-qualifier-in-c/)
+[const]: (https://www.geeksforgeeks.org/const-qualifier-in-c/)
 [hypot]: https://en.cppreference.com/w/c/numeric/math/hypot
 [radius]: https://www.mathopenref.com/coordbasiccircle.html
