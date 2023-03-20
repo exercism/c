@@ -169,7 +169,7 @@ It uses the falsiness of `0` and the [logical NOT operator][logical-not] (`!`) t
 between the two strings.
 
 [magic-numbers]: https://en.wikipedia.org/wiki/Magic_number_(programming)
-[const]: [https://go.dev/tour/basics/15](https://www.geeksforgeeks.org/const-qualifier-in-c/)
+[const]: https://www.geeksforgeeks.org/const-qualifier-in-c/
 [ternary]: https://www.geeksforgeeks.org/conditional-or-ternary-operator-in-c-c/
 [modulo-operator]: https://www.geeksforgeeks.org/modulo-operator-in-c-cpp-with-examples/
 [static-5]: https://stackoverflow.com/questions/3430315/what-is-the-purpose-of-static-keyword-in-array-parameter-of-function-like-char
