@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "f06822a4-1d59-4d9d-b682-0c4c78885e7d",
+      "slug": "helper-functions",
+      "title": "Helper functions",
+      "blurb": "Use helper functions to return the answer.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
