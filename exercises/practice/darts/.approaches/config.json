@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "ea833bea-ff7a-4a98-98c2-d56b66df6e58",
+      "slug": "hypot-for-radius",
+      "title": "hypot for radius",
+      "blurb": "Use the hypot function to get the radius of the throw.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
