@@ -1,0 +1,7 @@
+if (strchr(VOWELS, *word) != NULL || strstr(word, "xr") == word ||
+    strstr(word, "yt") == word) {
+   strncat(output, word, MAX_PHRASE_LEN - (strlen(output) + 2));
+   strcat(output, "ay");
+   return true;
+}
+return false;
