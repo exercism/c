@@ -1,0 +1,15 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "b804e2be-3c8d-431a-9b4b-437ba16e0129",
+      "slug": "minimize-duplicate-code",
+      "title": "Minimize duplicate code",
+      "blurb": "Minimize duplicate code for creating, changing or comparing a clock.",
+      "authors": ["bobahop"]
+    }
+  ]
+}

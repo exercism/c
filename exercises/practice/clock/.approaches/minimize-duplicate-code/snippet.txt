@@ -1,0 +1,8 @@
+clock_t clock_add(clock_t clock, int minute_add)
+{
+   return clock_create(0, minutes_from_text(clock.text) + minute_add);
+}
+clock_t clock_subtract(clock_t clock, int minute_subtract)
+{
+   return clock_create(0, minutes_from_text(clock.text) - minute_subtract);
+}
