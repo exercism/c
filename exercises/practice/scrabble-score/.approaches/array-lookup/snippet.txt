@@ -1,0 +1,7 @@
+if (word == NULL)
+  return 0;
+initialize_scores();
+unsigned int total_score = 0;
+for (; *word; word++)
+  total_score += scores[tolower(*word) - 'a'];
+return total_score;

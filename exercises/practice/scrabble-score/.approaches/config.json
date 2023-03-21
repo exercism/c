@@ -1,0 +1,22 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "9ad3c6de-2a1c-497d-b8d4-f81b149883b2",
+      "slug": "switch-statement",
+      "title": "switch statement",
+      "blurb": "Look up scores in a switch to return the answer.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "4a3004d1-8cf1-4ff8-97e4-541724993e54",
+      "slug": "array-lookup",
+      "title": "Array lookup",
+      "blurb": "Look up scores in an array to return the answer.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
