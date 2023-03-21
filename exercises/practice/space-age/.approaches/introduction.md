@@ -40,7 +40,7 @@ static const double RATIOS [] = {
     11.862615, 29.447498, 84.016846, 164.79132 // outer planets
 };
 
-float age(planet_t planet, int64_t seconds){
+float age(planet_t planet, int64_t seconds) {
     return planet >= 0 && planet <= 7 ?
         seconds / EARTH_YEAR_SECONDS / RATIOS[planet] : -1;
 }
