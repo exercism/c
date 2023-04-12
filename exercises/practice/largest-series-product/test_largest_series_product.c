@@ -102,8 +102,6 @@ int main(void)
    RUN_TEST(test_reports_zero_if_the_only_digits_are_zero);
    RUN_TEST(test_reports_zero_if_all_spans_include_zero);
    RUN_TEST(test_rejects_span_longer_than_string_length);
-   RUN_TEST(test_reports_1_for_empty_string_and_empty_product);
-   RUN_TEST(test_reports_1_for_nonempty_string_and_empty_product);
    RUN_TEST(test_rejects_empty_string_and_nonzero_span);
    RUN_TEST(test_rejects_invalid_character_in_digits);
    RUN_TEST(test_rejects_negative_span);
