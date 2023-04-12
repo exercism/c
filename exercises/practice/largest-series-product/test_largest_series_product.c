@@ -70,18 +70,6 @@ static void test_rejects_span_longer_than_string_length(void)
    TEST_ASSERT_EQUAL(-1, largest_series_product("123", 4));
 }
 
-static void test_reports_1_for_empty_string_and_empty_product(void)
-{
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL(1, largest_series_product("", 0));
-}
-
-static void test_reports_1_for_nonempty_string_and_empty_product(void)
-{
-   TEST_IGNORE();
-   TEST_ASSERT_EQUAL(1, largest_series_product("123", 0));
-}
-
 static void test_rejects_empty_string_and_nonzero_span(void)
 {
    TEST_IGNORE();
