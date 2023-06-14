@@ -208,6 +208,19 @@
         ]
       },
       {
+        "slug": "reverse-string",
+        "name": "Reverse String",
+        "uuid": "a540d3d9-3c8b-46f5-a150-983308e02289",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "loops",
+          "memory_management",
+          "strings"
+        ]
+      },
+      {
         "slug": "resistor-color",
         "name": "Resistor Color",
         "uuid": "75653d83-1a64-472c-ac43-49e87833c7f7",
