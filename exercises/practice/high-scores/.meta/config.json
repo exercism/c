@@ -1,0 +1,24 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "contributors": [
+    "ryanplusplus",
+    "siebenschlaefer"
+  ],
+  "files": {
+    "solution": [
+      "high_scores.c",
+      "high_scores.h"
+    ],
+    "test": [
+      "test_high_scores.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Manage a player's High Score list.",
+  "source": "Tribute to the eighties' arcade game Frogger"
+}

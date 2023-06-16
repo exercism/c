@@ -463,6 +463,18 @@
         ]
       },
       {
+        "slug": "high-scores",
+        "name": "High Scores",
+        "uuid": "2c81f99a-991a-4914-aae7-d5bf72456119",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_loops"
+        ]
+      },
+      {
         "slug": "pangram",
         "name": "Pangram",
         "uuid": "6311b9f8-b438-4186-88b2-1e4f55275ccb",
