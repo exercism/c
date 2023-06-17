@@ -468,7 +468,7 @@
         "uuid": "2c81f99a-991a-4914-aae7-d5bf72456119",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 2,
+        "difficulty": 3,
         "topics": [
           "arrays",
           "control_flow_loops"

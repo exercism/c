@@ -13,12 +13,11 @@ int32_t latest(const int32_t *scores, size_t scores_len)
 
 int32_t personal_best(const int32_t *scores, size_t scores_len)
 {
-   int32_t best;
    if (scores_len == 0) {
       return 0;
    }
 
-   best = scores[0];
+   int32_t best = scores[0];
    for (size_t i = 1; i < scores_len; i++) {
       if (best < scores[i]) {
          best = scores[i];
