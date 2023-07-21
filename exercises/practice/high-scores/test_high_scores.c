@@ -32,14 +32,14 @@ static void check_personal_top_three(const int32_t *scores, size_t scores_len,
 static void test_latest_score(void)
 {
    const int scores[] = { 100, 0, 90, 30 };
-   TEST_ASSERT_EQUAL_INT(latest(scores, ARRAY_SIZE(scores)), 30);
+   TEST_ASSERT_EQUAL_INT(30, latest(scores, ARRAY_SIZE(scores)));
 }
 
 static void test_personal_best(void)
 {
    TEST_IGNORE();   // delete this line to run test
    const int scores[] = { 40, 100, 70 };
-   TEST_ASSERT_EQUAL_INT(personal_best(scores, ARRAY_SIZE(scores)), 100);
+   TEST_ASSERT_EQUAL_INT(100, personal_best(scores, ARRAY_SIZE(scores)));
 }
 
 static void test_personal_top_three_from_a_list_of_scores(void)
