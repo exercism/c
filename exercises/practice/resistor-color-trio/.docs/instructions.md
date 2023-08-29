@@ -23,7 +23,7 @@ For this exercise, you need to know only three things about them:
 - Grey: 8
 - White: 9
 
-In `resistor-color duo` you decoded the first two colors.
+In Resistor Color Duo you decoded the first two colors.
 For instance: orange-orange got the main value `33`.
 The third color stands for how many zeros need to be added to the main value.
 The main value plus the zeros gives us a value in ohms.
@@ -46,9 +46,11 @@ So an input of `"orange", "orange", "black"` should return:
 
 > "33 ohms"
 
-When we get more than a thousand ohms, we say "kiloohms".
-That's similar to saying "kilometer" for 1000 meters, and "kilograms" for 1000 grams.
+When we get to larger resistors, a [metric prefix][metric-prefix] is used to indicate a larger magnitude of ohms, such as "kiloohms".
+That is similar to saying "2 kilometers" instead of "2000 meters", or "2 kilograms" for "2000 grams".
 
-So an input of `"orange", "orange", "orange"` should return:
+For example, an input of `"orange", "orange", "orange"` should return:
 
 > "33 kiloohms"
+
+[metric-prefix]: https://en.wikipedia.org/wiki/Metric_prefix
