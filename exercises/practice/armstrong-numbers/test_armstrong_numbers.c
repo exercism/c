@@ -62,6 +62,12 @@ static void test_seven_digit_number_that_is_not_an_armstrong_number(void)
    TEST_ASSERT_FALSE(is_armstrong_number(9926314));
 }
 
+static void test_negative_number_that_is_not_an_armstrong_number(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_FALSE(is_armstrong_number(-1));
+}
+
 int main(void)
 {
    UnityBegin("test_armstrong_numbers.c");
@@ -75,6 +81,7 @@ int main(void)
    RUN_TEST(test_four_digit_number_that_is_not_an_armstrong_number);
    RUN_TEST(test_seven_digit_number_that_is_an_armstrong_number);
    RUN_TEST(test_seven_digit_number_that_is_not_an_armstrong_number);
-
+   RUN_TEST(test_negative_number_that_is_not_an_armstrong_number);
+   
    return UnityEnd();
 }
