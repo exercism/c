@@ -50,11 +50,11 @@ If so, then a pointer to that value is returned.
 
 If the first `if` statement does not return, then another `if` statement is used to check the element.
 
-```exercism/note
+~~~~exercism/note
 Note that if an `if` statement can return, it does not need to be followed by an `else if ` or an `else`.
 If the statement returns, then control flow will leave the function.
 If the statement does not return, control will fall through to the next statement anyway.
-```
+~~~~
 
 If the value at the middle index is less than the value being searched for, then `left` is set to the middle index
 plus one so that the next iteration will look for higher numbers.
