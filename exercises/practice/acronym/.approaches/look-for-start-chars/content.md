@@ -44,9 +44,9 @@ char *abbreviate(const char *phrase)
 
 This `abbreviate` function starts by checking for the input pointer being `NULL` or an empty string.
 
-```exercism/note
+~~~~exercism/note
 There is a difference between a `NULL` pointer and a valid pointer pointing to a null character (`'\0'`).
-```
+~~~~
 
 If the pointer is either `NULL` or en empty string, the function returns `NULL`.
 

@@ -47,11 +47,11 @@ uint32_t sieve(uint32_t limit, uint32_t *primes, size_t max_primes)
 This approach starts by defining the `MAX_LEN` of the array of composite values to be `1001`,
 given that the largest length for the result array expected by the tests is `1000`.
 
-```exercism/warning
+~~~~exercism/warning
 It would be tempting to set the length of the composite array as a [Variable-length array](https://en.wikipedia.org/wiki/Variable-length_array)
 dependent on the value of the `limit`, however, although VLAs were legal in C99, they were made optional in C11,
 so compilers that support C11 and later are not required to implement VLAs.
-```
+~~~~
 
 The `sieve` function starts by returning `0` if either the `limit` is too small to contain a prime,
 or if the number of primes expected back is `0`.

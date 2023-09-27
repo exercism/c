@@ -53,9 +53,9 @@ This approach uses the [ASCII][ascii] value of the letter to set the correspondi
 The approach starts by checking if the pointer to the input phrase is `NULL`.
 If so, then the function returns `false`.
 
-```exercism/note
+~~~~exercism/note
 There is a difference between a `NULL` pointer and a valid pointer pointing to a null character (`'\0'`).
-```
+~~~~
 
 The `uint32_t` value for the bit field is initialized with `0`.
 A character to subtract by is initialized to `'a'`.

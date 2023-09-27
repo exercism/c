@@ -108,10 +108,10 @@ to the `output` string.
 
 The [`strncat`][strncat] function is used to concatenate to the `output` to ensure we don't attempt to write past the end of the output string.
 
-```exercism/note
+~~~~exercism/note
 For a discussion of why `strcat` is used instead of `strncat` to append a string of known size (e.g. `"ay"`), see this
 [StackOverflow thread](https://stackoverflow.com/questions/53408543/strncat-wformat-overflow-warning-when-using-gcc-8-2-1).
-```
+~~~~
 
 If the `word` does not start with a vowel, then the [`strstr`][strstr] function is used to check if the `word` starts with `xr` or `yt`.
 
@@ -182,10 +182,10 @@ After the loop is done, if no vowel was found, then the suffix, which is now the
 
 The `translate` function takes a pointer to the `input` phrase.
 
-```exercism/note
+~~~~exercism/note
 For production, checks would be made that the pointer is not `NULL` and that allocated memory does not return a `NULL` pointer,
 but those and other checks are not made in this approach to keep the implementation simple.
-```
+~~~~
 
 The [`calloc`][calloc] function is used to allocate memory for the `output` string.
 

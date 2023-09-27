@@ -33,9 +33,9 @@ int compute(const char *lhs, const char *rhs)
 This approach starts by checking if either the `lhs` or `rhs` strings are `NULL`.
 If so, then the function returns `-1`.
 
-```exercism/note
+~~~~exercism/note
 There is a difference between a `NULL` pointer and a valid pointer pointing to a null character (`'\0'`).
-```
+~~~~
 
 The variable to keep track of the distance count is initialized to `0`.
 

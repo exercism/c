@@ -74,10 +74,10 @@ does not equal `1 - 4 = -3` (the absolute of which is `3`.)
 
 The `can_attack` function uses a couple of chained [ternary operators][ternary] that use the helper functions to return the answer.
 
-```exercism/note
+~~~~exercism/note
 Some coders do not find chained ternary operators to be as readable as a series of `if`, `else/if`, and/or `else` statements,
 which could be used here instead.
-```
+~~~~
 
 If the first ternary expression determines the positions are not valid, then `INVALID_POSITION` is returned.
 Otherwise, the second ternary expression checks if the queens can attack each other.

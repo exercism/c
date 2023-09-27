@@ -79,9 +79,9 @@ The `score` function takes a pointer to the `word` being scored.
 It checks if the pointer is `NULL`.
 If so, then the function returns `0`.
 
-```exercism/note
+~~~~exercism/note
 There is a difference between a `NULL` pointer and a valid pointer pointing to a null character (`'\0'`).
-```
+~~~~
 
 The variable to keep track of the accumulated score is initialized to `0`.
 

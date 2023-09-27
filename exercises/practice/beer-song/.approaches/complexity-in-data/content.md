@@ -79,12 +79,12 @@ Accordingly, the `for` loop iterates from the `start_bottles` while the `bottle`
 
 Inside the `for` loop, the [snprintf][snprintf] function uses the `MAX_LINE_LENGTH` value to write each line to the buffer.
 
-```exercism/note
+~~~~exercism/note
 The `snprintf` function is used instead of `sprintf`, because the `sprintf` function can be dangerous,
 as it can potentially output more characters than can fit in the allocation size of the buffer.
 That is particularly a concern when writing user input to the buffer.
 This approach does not do that, but to use `snprintf` instead of `sprintf` is a good habit for secure coding.
-```
+~~~~
 
 A [ternary operator][ternary] is used to check if the `bottle` number is greater than `1`.
 If so, the element at index `2` of the `FIRST_LINE` array is used as a template,
