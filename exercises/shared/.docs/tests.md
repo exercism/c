@@ -16,4 +16,13 @@ As you progress through the tests, take the time to refactor your implementation
 
 Try to use standard C99 facilities in preference to writing your own low-level algorithms or facilities by hand.
 
+## Checking for memory leaks
+
+The makefile comes also with a build that checks some common mistakes regarding memory leaks and out of bound access to arrays.
+To run these checks, use the following at the command line:
+
+```console
+$ make memcheck
+```
+
 [3-tdd-rules]: https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html
