@@ -1,7 +1,7 @@
 #include "test-framework/unity.h"
 #include "gigasecond.h"
 
-#define BUFFER_SIZE 20   // "YYYY-mm-dd HH:MM:SS"
+#define BUFFER_SIZE sizeof("YYYY-mm-dd HH:MM:SS")
 
 static inline size_t is_leap_year(int year)
 {
