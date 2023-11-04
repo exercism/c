@@ -1,6 +1,8 @@
 #include "test-framework/unity.h"
 #include "gigasecond.h"
 
+#define BUFFER_SIZE 20  // "YYYY-mm-dd HH:MM:SS"
+
 static inline size_t is_leap_year(int year)
 {
    if (year % 400 == 0)
@@ -49,49 +51,55 @@ void tearDown(void)
 
 static void test_date(void)
 {
-   time_t expected = construct_date(2043, 1, 1, 1, 46, 40);
-   time_t actual = gigasecond_after(construct_date(2011, 4, 25, 0, 0, 0));
-   TEST_ASSERT(expected == actual);
+   time_t before = construct_date(2011, 4, 25, 0, 0, 0);
+   char after[BUFFER_SIZE] = {0};
+   gigasecond(before, after, BUFFER_SIZE);
+   TEST_ASSERT_EQUAL_STRING("2043-01-01 01:46:40", after);
 }
 
 static void test_another_date(void)
 {
    TEST_IGNORE();   // delete this line to run test
-   time_t expected = construct_date(2009, 2, 19, 1, 46, 40);
-   time_t actual = gigasecond_after(construct_date(1977, 6, 13, 0, 0, 0));
-   TEST_ASSERT(expected == actual);
+   time_t before = construct_date(1977, 6, 13, 0, 0, 0);
+   char after[BUFFER_SIZE] = {0};
+   gigasecond(before, after, BUFFER_SIZE);
+   TEST_ASSERT_EQUAL_STRING("2009-02-19 01:46:40", after);
 }
 
 static void test_third_date(void)
 {
    TEST_IGNORE();
-   time_t expected = construct_date(1991, 3, 27, 1, 46, 40);
-   time_t actual = gigasecond_after(construct_date(1959, 7, 19, 0, 0, 0));
-   TEST_ASSERT(expected == actual);
+   time_t before = construct_date(1959, 7, 19, 0, 0, 0);
+   char after[BUFFER_SIZE] = {0};
+   gigasecond(before, after, BUFFER_SIZE);
+   TEST_ASSERT_EQUAL_STRING("1991-03-27 01:46:40", after);
 }
 
 static void test_date_and_time(void)
 {
    TEST_IGNORE();
-   time_t expected = construct_date(2046, 10, 2, 23, 46, 40);
-   time_t actual = gigasecond_after(construct_date(2015, 1, 24, 22, 0, 0));
-   TEST_ASSERT(expected == actual);
+   time_t before = construct_date(2015, 1, 24, 22, 0, 0);
+   char after[BUFFER_SIZE] = {0};
+   gigasecond(before, after, BUFFER_SIZE);
+   TEST_ASSERT_EQUAL_STRING("2046-10-02 23:46:40", after);
 }
 
 static void test_date_and_time_with_day_rollover(void)
 {
    TEST_IGNORE();
-   time_t expected = construct_date(2046, 10, 3, 1, 46, 39);
-   time_t actual = gigasecond_after(construct_date(2015, 1, 24, 23, 59, 59));
-   TEST_ASSERT(expected == actual);
+   time_t before = construct_date(2015, 1, 24, 23, 59, 59);
+   char after[BUFFER_SIZE] = {0};
+   gigasecond(before, after, BUFFER_SIZE);
+   TEST_ASSERT_EQUAL_STRING("2046-10-03 01:46:39", after);
 }
 
 /*
 static void test_your_birthday(void)
 {
    time_t birthday = construct_date(1989, 1, 1, 1, 1, 1);
-   time_t gigday = gigasecond_after(birthday);
-   printf("%s", ctime(&gigday));
+   char gigday[BUFFER_SIZE] = {0};
+   gigasecond(birthday, gigday, BUFFER_SIZE);
+   printf("%s", gigday);
 }
 */
 
