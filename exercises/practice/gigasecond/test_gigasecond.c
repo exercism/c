@@ -1,7 +1,7 @@
 #include "test-framework/unity.h"
 #include "gigasecond.h"
 
-#define BUFFER_SIZE 20  // "YYYY-mm-dd HH:MM:SS"
+#define BUFFER_SIZE 20   // "YYYY-mm-dd HH:MM:SS"
 
 static inline size_t is_leap_year(int year)
 {
@@ -52,7 +52,7 @@ void tearDown(void)
 static void test_date(void)
 {
    time_t before = construct_date(2011, 4, 25, 0, 0, 0);
-   char after[BUFFER_SIZE] = {0};
+   char after[BUFFER_SIZE] = { 0 };
    gigasecond(before, after, BUFFER_SIZE);
    TEST_ASSERT_EQUAL_STRING("2043-01-01 01:46:40", after);
 }
@@ -61,7 +61,7 @@ static void test_another_date(void)
 {
    TEST_IGNORE();   // delete this line to run test
    time_t before = construct_date(1977, 6, 13, 0, 0, 0);
-   char after[BUFFER_SIZE] = {0};
+   char after[BUFFER_SIZE] = { 0 };
    gigasecond(before, after, BUFFER_SIZE);
    TEST_ASSERT_EQUAL_STRING("2009-02-19 01:46:40", after);
 }
@@ -70,7 +70,7 @@ static void test_third_date(void)
 {
    TEST_IGNORE();
    time_t before = construct_date(1959, 7, 19, 0, 0, 0);
-   char after[BUFFER_SIZE] = {0};
+   char after[BUFFER_SIZE] = { 0 };
    gigasecond(before, after, BUFFER_SIZE);
    TEST_ASSERT_EQUAL_STRING("1991-03-27 01:46:40", after);
 }
@@ -79,7 +79,7 @@ static void test_date_and_time(void)
 {
    TEST_IGNORE();
    time_t before = construct_date(2015, 1, 24, 22, 0, 0);
-   char after[BUFFER_SIZE] = {0};
+   char after[BUFFER_SIZE] = { 0 };
    gigasecond(before, after, BUFFER_SIZE);
    TEST_ASSERT_EQUAL_STRING("2046-10-02 23:46:40", after);
 }
@@ -88,7 +88,7 @@ static void test_date_and_time_with_day_rollover(void)
 {
    TEST_IGNORE();
    time_t before = construct_date(2015, 1, 24, 23, 59, 59);
-   char after[BUFFER_SIZE] = {0};
+   char after[BUFFER_SIZE] = { 0 };
    gigasecond(before, after, BUFFER_SIZE);
    TEST_ASSERT_EQUAL_STRING("2046-10-03 01:46:39", after);
 }
