@@ -5,7 +5,7 @@
 ```c
 #include <stdbool.h>
 
-#define MAX_STR_LEN 14 // "##:##\0" for int values
+#define MAX_STR_LEN sizeof("##:##")
 
 typedef struct
 {
