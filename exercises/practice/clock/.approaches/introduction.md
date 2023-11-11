@@ -96,5 +96,5 @@ For more information, check the [Minimize duplicate code approach][approach-mini
 [approach-minimize-duplicate-code]: https://exercism.org/tracks/c/exercises/clock/approaches/minimize-duplicate-code
 [separating the concern]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [magic numbers]: https://en.wikipedia.org/wiki/Magic_number_(programming)
-[const]: [https://go.dev/tour/basics/15](https://www.geeksforgeeks.org/const-qualifier-in-c/)
+[const]: https://www.geeksforgeeks.org/const-qualifier-in-c/
 [DRY]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
