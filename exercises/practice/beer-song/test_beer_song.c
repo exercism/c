@@ -43,7 +43,7 @@ static void check_song(uint16_t expected_line_count,
    for (size_t i = 0; i < expected_line_count; ++i)
       TEST_ASSERT_EQUAL_STRING(expected_song[i], actual[i]);
    for (size_t i = expected_line_count; i < MAX_LINE_COUNT; ++i)
-      TEST_ASSERT_EQUAL_STRING(actual_song[i], "");
+      TEST_ASSERT_EQUAL_STRING("", actual_song[i]);
 }
 
 static void test_first_generic_verse(void)
