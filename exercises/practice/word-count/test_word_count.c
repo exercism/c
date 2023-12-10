@@ -17,6 +17,13 @@ void tearDown(void)
 {
 }
 
+
+int cmp_word_count_word(const void *a, const void *b){
+    word_count_word_t *w1 = (word_count_word_t *)a;
+    word_count_word_t *w2 = (word_count_word_t *)b;
+    return strcmp(w1->text, w2->text);
+}
+
 static void check_solution(word_count_word_t *expected_solution,
                            int expected_word_count,
                            word_count_word_t *actual_solution,
@@ -24,6 +31,10 @@ static void check_solution(word_count_word_t *expected_solution,
 {
    // All words counted?
    TEST_ASSERT_EQUAL(expected_word_count, actual_word_count);
+
+   // Sort the words before comparing
+   qsort(expected_solution, expected_word_count, sizeof(word_count_word_t), cmp_word_count_word);
+   qsort(actual_solution, actual_word_count, sizeof(word_count_word_t), cmp_word_count_word);
 
    // now test the word count for the words...
    for (int index = 0; index < MAX_WORDS; index++) {
