@@ -26,7 +26,4 @@ typedef struct word_count_word {
 //           words will contain the results up to that point.
 int count_words(const char *sentence, word_count_word_t *words);
 
-// used to sort the words before comparison
-int cmp_word_count_word(const void *a, const void *b);
-
 #endif
