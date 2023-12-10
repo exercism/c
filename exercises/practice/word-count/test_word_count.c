@@ -17,8 +17,7 @@ void tearDown(void)
 {
 }
 
-
-int cmp_word_count_word(const void *a, const void *b){
+static int cmp_word_count_word(const void *a, const void *b){
     word_count_word_t *w1 = (word_count_word_t *)a;
     word_count_word_t *w2 = (word_count_word_t *)b;
     return strcmp(w1->text, w2->text);
