@@ -1015,6 +1015,19 @@
           "performance_optimizations",
           "strings"
         ]
+      },
+      {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "2e5f7544-68fc-4993-9ee0-27b74b1176e7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "pointers"
+        ]
       }
     ]
   },
@@ -1024,7 +1037,7 @@
       "slug": "basics",
       "name": "Basics"
     },
-    {    
+    {
       "uuid": "20948c69-20f7-498d-b743-fada00e5c79d",
       "slug": "bits",
       "name": "Bits"
@@ -1043,7 +1056,7 @@
       "uuid": "1721552b-9c55-432d-a776-05e618c25bb4",
       "slug": "function-pointers",
       "name": "Function Pointers"
-    },    
+    },
     {
       "uuid": "e5725455-3ce3-48e9-a3c6-ceb522434b5b",
       "slug": "conditionals",
@@ -1058,7 +1071,7 @@
       "uuid": "e39f5003-8ed9-4d82-ab9b-f79bbca78679",
       "slug": "linkage",
       "name": "Linkage"
-    },    
+    },
     {
       "uuid": "3d79388b-e909-4e1b-99e9-d28e30e54fde",
       "slug": "loops",
@@ -1083,7 +1096,7 @@
       "uuid": "f4946fe8-afb3-4110-8fca-b1476f19be6f",
       "slug": "static-functions",
       "name": "Static Functions"
-    },    
+    },
     {
       "uuid": "c065ddca-627c-45b6-a92f-7144dd852111",
       "slug": "storage-class-specifiers",
