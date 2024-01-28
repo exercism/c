@@ -13,6 +13,15 @@
       "authors": [
         "danilopiazza"
       ]
+    },
+    {
+      "uuid": "cac9cf42-cd7b-4070-8f86-5a9753d17d8e",
+      "slug": "sprintf",
+      "title": "sprintf Function",
+      "blurb": "Use the sprintf function.",
+      "authors": [
+        "danilopiazza"
+      ]
     }
   ]
 }

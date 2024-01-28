@@ -55,5 +55,50 @@ char *convert(char result[], int drops)
 This approach uses a series of `if`-statements and string concatentation to build up the result string.
 For more information, check the [`if` statements approach][approach-if-statements].
 
+## Approach: `sprintf` Function
+
+**raindrops.h**
+
+```c
+#ifndef RAINDROPS_H
+#define RAINDROPS_H
+
+char *convert(char result[], int drops);
+
+#endif
+```
+
+**raindrops.c**
+
+```c
+#include "raindrops.h"
+
+#include <stdio.h>
+#include <string.h>
+
+#include "raindrops.h"
+
+#include <stdio.h>
+#include <string.h>
+
+char *convert(char result[], int drops)
+{
+   sprintf(result, "%s%s%s", drops % 3 == 0 ? "Pling" : "",
+           drops % 5 == 0 ? "Plang" : "", drops % 7 == 0 ? "Plong" : "");
+
+   if (strlen(result) == 0)
+      sprintf(result, "%d", drops);
+
+   return result;
+}
+```
+
+This approach uses a single call to the [`sprintf` function][sprintf] to build the result string;
+it contains a series of [ternary conditional operators][conditional-opeator].
+For more information, check the [`sprintf` functon approach][approach-sprintf].
+
 [modulo-operator]: https://www.geeksforgeeks.org/modulo-operator-in-c-cpp-with-examples/
+[conditional-operator]: https://www.geeksforgeeks.org/conditional-or-ternary-operator-in-c/
+[sprintf]: https://pubs.opengroup.org/onlinepubs/9699919799/functions/sprintf.html
 [approach-if-statements]: https://exercism.org/tracks/c/exercises/raindrops/approaches/if-statements
+[approach-sprintf]: https://exercism.org/tracks/c/exercises/raindrops/approaches/sprintf
