@@ -1,8 +1,8 @@
 #include "pop_count.h"
 
-int egg_count(int value)
+unsigned int egg_count(unsigned int value)
 {
-   int count = 0;
+   unsigned int count = 0;
    while (value != 0) {
       count += value & 1;
       value = value >> 1;

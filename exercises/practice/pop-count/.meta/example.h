@@ -1,6 +1,6 @@
 #ifndef POP_COUNT_H
 #define POP_COUNT_H
 
-int egg_count(int value);
+unsigned int egg_count(unsigned int value);
 
 #endif
