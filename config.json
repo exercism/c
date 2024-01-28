@@ -1027,6 +1027,19 @@
           "control_flow_loops",
           "strings"
         ]        
+      },
+      {
+        "slug": "pop-count",
+        "name": "Eliud's Eggs",
+        "uuid": "8a813e24-6263-437d-a610-7f5da1456b7f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "bitwise_operations",
+          "control_flow_if_statements",
+          "control_flow_loops"
+        ]
       }
     ]
   },
