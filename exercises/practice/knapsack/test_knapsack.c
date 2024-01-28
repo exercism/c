@@ -12,9 +12,11 @@ void tearDown(void)
 
 static void test_no_items(void)
 {
+   item_t *items = NULL;
+   size_t item_count = 0;
    unsigned int maximum_weight = 100;
 
-   TEST_ASSERT_EQUAL_UINT(0, maximum_value(maximum_weight, NULL, 0));
+   TEST_ASSERT_EQUAL_UINT(0, maximum_value(maximum_weight, items, item_count));
 }
 
 static void test_one_item_too_heavy(void)
