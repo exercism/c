@@ -1016,6 +1016,19 @@
         ]
       },
       {
+        "slug": "kindergarten-garden",
+        "name": "Kindergarten Garden",
+        "uuid": "9484317e-d638-4714-afba-2a10baccff16",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "strings"
+        ]        
+      },
+      {
         "slug": "pop-count",
         "name": "Eliud's Eggs",
         "uuid": "8a813e24-6263-437d-a610-7f5da1456b7f",
