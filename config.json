@@ -2,14 +2,14 @@
   "language": "C",
   "slug": "c",
   "active": true,
-  "blurb": "C is a small, general-purpose, imperative programming language with a static type system, scopes, and structures. It's typically used as an alternative to assembly programming, such as in operating systems.",
-  "version": 3,
   "status": {
     "concept_exercises": false,
     "test_runner": true,
     "representer": false,
     "analyzer": false
   },
+  "blurb": "C is a small, general-purpose, imperative programming language with a static type system, scopes, and structures. It's typically used as an alternative to assembly programming, such as in operating systems.",
+  "version": 3,
   "online_editor": {
     "indent_style": "space",
     "indent_size": 4,
@@ -36,7 +36,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -1017,6 +1016,32 @@
         ]
       },
       {
+        "slug": "kindergarten-garden",
+        "name": "Kindergarten Garden",
+        "uuid": "9484317e-d638-4714-afba-2a10baccff16",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "pop-count",
+        "name": "Eliud's Eggs",
+        "uuid": "8a813e24-6263-437d-a610-7f5da1456b7f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "bitwise_operations",
+          "control_flow_if_statements",
+          "control_flow_loops"
+        ]
+      },
+      {
         "slug": "spiral-matrix",
         "name": "Spiral Matrix",
         "uuid": "2e5f7544-68fc-4993-9ee0-27b74b1176e7",
@@ -1105,46 +1130,46 @@
   ],
   "key_features": [
     {
-      "icon": "cross-platform",
       "title": "Cross-platform",
-      "content": "C is portable and can run on almost any platform and chipset."
+      "content": "C is portable and can run on almost any platform and chipset.",
+      "icon": "cross-platform"
     },
     {
-      "icon": "general-purpose",
       "title": "General purpose",
-      "content": "Can be used for a wide variety of workloads from IoT to game engines."
+      "content": "Can be used for a wide variety of workloads from IoT to game engines.",
+      "icon": "general-purpose"
     },
     {
-      "icon": "fast",
       "title": "Fast",
-      "content": "Consistently rated as one of the highest performing languages for energy and time."
+      "content": "Consistently rated as one of the highest performing languages for energy and time.",
+      "icon": "fast"
     },
     {
-      "icon": "stable",
       "title": "Stable",
-      "content": "The C standard values stability and backwards compatibility, C programs can run for decades."
+      "content": "The C standard values stability and backwards compatibility, C programs can run for decades.",
+      "icon": "stable"
     },
     {
-      "icon": "powerful",
       "title": "Powerful",
-      "content": "Allows both lower and higher level functionality, making it very powerful."
+      "content": "Allows both lower and higher level functionality, making it very powerful.",
+      "icon": "powerful"
     },
     {
-      "icon": "widely-used",
       "title": "Widely used",
-      "content": "Consistently one of the most popular languages for everything from operating systems to firmware"
+      "content": "Consistently one of the most popular languages for everything from operating systems to firmware",
+      "icon": "widely-used"
     }
   ],
   "tags": [
     "execution_mode/compiled",
     "paradigm/procedural",
-    "typing/static",
     "platform/android",
     "platform/ios",
     "platform/linux",
     "platform/mac",
     "platform/windows",
     "runtime/language_specific",
+    "typing/static",
     "used_for/backends",
     "used_for/cross_platform_development",
     "used_for/embedded_systems",
