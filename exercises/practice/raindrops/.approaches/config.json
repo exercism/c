@@ -22,6 +22,15 @@
       "authors": [
         "danilopiazza"
       ]
+    },
+    {
+      "uuid": "ec393164-0222-4bed-9234-fc25755d8746",
+      "slug": "data-driven",
+      "title": "Data-Driven Programming",
+      "blurb": "Use data-driven programming.",
+      "authors": [
+        "danilopiazza"
+      ]
     }
   ]
 }

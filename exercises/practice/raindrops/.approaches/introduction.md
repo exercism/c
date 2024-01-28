@@ -2,6 +2,7 @@
 
 There are various idioomatic ways to solve Raindrops.
 A straightforward and approach is to use a series of `if` statements.
+Another approach could look up both factors and raindrop sounds from an array, using data-driven programming to make the code as simple as possible.
 
 ## General Guidance
 
@@ -97,8 +98,62 @@ This approach uses a single call to the [`sprintf` function][sprintf] to build t
 it contains a series of [ternary conditional operators][conditional-opeator].
 For more information, check the [`sprintf` functon approach][approach-sprintf].
 
+## Approach: Data-Driven Programming
+
+**raindrops.h**
+
+```c
+#ifndef RAINDROPS_H
+#define RAINDROPS_H
+
+char *convert(char result[], int drops);
+
+#endif
+```
+
+**raindrops.c**
+
+```c
+#include "raindrops.h"
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+   int factor;
+   const char *sound;
+} sound_t;
+
+static const sound_t SOUNDS[] = {
+   { 3, "Pling" },
+   { 5, "Plang" },
+   { 7, "Plong" },
+};
+
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
+
+char *convert(char result[], int drops)
+{
+   for (size_t i = 0; i < ARRAY_SIZE(SOUNDS); i++) {
+      if (drops % SOUNDS[i].factor == 0) {
+         strcat(result, SOUNDS[i].sound);
+      }
+   }
+
+   if (strlen(result) == 0) {
+      sprintf(result, "%d", drops);
+   }
+
+   return result;
+}
+```
+
+This approach puts some of the logic into data, simplifying the code.
+For more information, check the [data-driven approach][approach-data-driven].
+
 [modulo-operator]: https://www.geeksforgeeks.org/modulo-operator-in-c-cpp-with-examples/
 [conditional-operator]: https://www.geeksforgeeks.org/conditional-or-ternary-operator-in-c/
 [sprintf]: https://pubs.opengroup.org/onlinepubs/9699919799/functions/sprintf.html
 [approach-if-statements]: https://exercism.org/tracks/c/exercises/raindrops/approaches/if-statements
 [approach-sprintf]: https://exercism.org/tracks/c/exercises/raindrops/approaches/sprintf
+[approach-data-driven]: https://exercism.org/tracks/c/exercises/raindrops/approaches/data-driven
