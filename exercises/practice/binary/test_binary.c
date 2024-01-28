@@ -100,7 +100,7 @@ static void test_a_number_and_a_word_whitespace_separated_is_invalid(void)
 
 int main(void)
 {
-   UnityBegin("test_binary.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_binary_0_is_decimal_0);
    RUN_TEST(test_binary_1_is_decimal_1);
@@ -118,5 +118,5 @@ int main(void)
    RUN_TEST(test_a_number_with_internal_non_binary_characters_is_invalid);
    RUN_TEST(test_a_number_and_a_word_whitespace_separated_is_invalid);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -158,7 +158,7 @@ static void test_scalene_triangle_sides_may_be_floats(void)
 
 int main(void)
 {
-   UnityBegin("test_triangle.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_equilateral_triangle_all_sides_are_equal);
    RUN_TEST(test_equilateral_triangle_if_any_side_is_unequal);
@@ -182,5 +182,5 @@ int main(void)
    RUN_TEST(test_scalene_triangle_may_not_violate_triangle_inequality);
    RUN_TEST(test_scalene_triangle_sides_may_be_floats);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -125,7 +125,7 @@ static void test_the_sound_for_3125_is_plang_as_it_has_a_factor_5(void)
 
 int main(void)
 {
-   UnityBegin("test_raindrops.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_the_sound_for_1_is_1);
    RUN_TEST(test_the_sound_for_3_is_pling);
@@ -147,5 +147,5 @@ int main(void)
        test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7);
    RUN_TEST(test_the_sound_for_3125_is_plang_as_it_has_a_factor_5);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -52,7 +52,7 @@ static void test_an_even_sized_word(void)
 
 int main(void)
 {
-   UnityBegin("test_reverse_string.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_an_empty_string);
    RUN_TEST(test_a_word);
@@ -61,5 +61,5 @@ int main(void)
    RUN_TEST(test_a_palindrome);
    RUN_TEST(test_an_even_sized_word);
 
-   return UnityEnd();
+   return UNITY_END();
 }

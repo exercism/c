@@ -339,7 +339,7 @@ static void test_students_are_sorted_by_name_in_grade(void)
 
 int main(void)
 {
-   UnityBegin("test_grade_school.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_roster_is_empty_when_no_student_added);
    RUN_TEST(test_add_student);
@@ -362,5 +362,5 @@ int main(void)
    RUN_TEST(test_student_not_added_to_other_grade_for_multiple_grades);
    RUN_TEST(test_students_are_sorted_by_name_in_grade);
 
-   return UnityEnd();
+   return UNITY_END();
 }

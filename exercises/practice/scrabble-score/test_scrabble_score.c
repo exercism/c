@@ -76,7 +76,7 @@ static void test_entire_alphabet_available(void)
 
 int main(void)
 {
-   UnityBegin("test_scrabble_score.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_lowercase_letter);
    RUN_TEST(test_uppercase_letter);
@@ -90,5 +90,5 @@ int main(void)
    RUN_TEST(test_empty_input);
    RUN_TEST(test_entire_alphabet_available);
 
-   return UnityEnd();
+   return UNITY_END();
 }

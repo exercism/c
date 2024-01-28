@@ -273,7 +273,7 @@ static void test_annotate_large_minefield(void)
 
 int main(void)
 {
-   UnityBegin("test_minesweeper.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_annotate_no_rows);
    RUN_TEST(test_annotate_no_columns);
@@ -288,5 +288,5 @@ int main(void)
    RUN_TEST(test_annotate_cross);
    RUN_TEST(test_annotate_large_minefield);
 
-   return UnityEnd();
+   return UNITY_END();
 }

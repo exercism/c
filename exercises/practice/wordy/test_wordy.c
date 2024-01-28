@@ -247,7 +247,7 @@ static void test_reject_prefix_notation(void)
 
 int main(void)
 {
-   UnityBegin("test_wordy.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_just_a_number);
    RUN_TEST(test_addition);
@@ -273,5 +273,5 @@ int main(void)
    RUN_TEST(test_reject_postfix_notation);
    RUN_TEST(test_reject_prefix_notation);
 
-   return UnityEnd();
+   return UNITY_END();
 }

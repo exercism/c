@@ -119,7 +119,7 @@ test_consistency_encode_followed_by_decode_gives_original_string(void)
 
 int main(void)
 {
-   UnityBegin("test_run_length_encoding.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_encode_empty_string);
    RUN_TEST(test_encode_single_characters_only_are_encoded_without_count);
@@ -135,5 +135,5 @@ int main(void)
    RUN_TEST(test_decode_lower_case_string);
    RUN_TEST(test_consistency_encode_followed_by_decode_gives_original_string);
 
-   return UnityEnd();
+   return UNITY_END();
 }

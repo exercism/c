@@ -40,11 +40,11 @@ static void test_two_fer_another_name_given(void)
 
 int main(void)
 {
-   UnityBegin("test_two_fer.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_two_fer_no_name_given);
    RUN_TEST(test_two_fer_a_name_given);
    RUN_TEST(test_two_fer_another_name_given);
 
-   return UnityEnd();
+   return UNITY_END();
 }

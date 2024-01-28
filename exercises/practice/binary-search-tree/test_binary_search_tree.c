@@ -192,7 +192,7 @@ static void test_sorted_data_can_sort_complex_tree(void)
 
 int main(void)
 {
-   UnityBegin("test_binary_search_tree.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_data_data_is_retained);
    RUN_TEST(test_data_smaller_number_at_left_node);
@@ -205,5 +205,5 @@ int main(void)
    RUN_TEST(test_sorted_data_can_sort_if_second_number_is_greater_than_first);
    RUN_TEST(test_sorted_data_can_sort_complex_tree);
 
-   return UnityEnd();
+   return UNITY_END();
 }

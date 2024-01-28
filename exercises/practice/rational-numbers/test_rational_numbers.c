@@ -444,7 +444,7 @@ static void test_reduce_one_to_lowest_terms(void)
 
 int main(void)
 {
-   UnityBegin("test_rational_numbers.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_add_two_positive_rational_numbers);
    RUN_TEST(test_add_positive_and_negative_rational_numbers);
@@ -493,5 +493,5 @@ int main(void)
    RUN_TEST(test_reduce_integer_to_lowest_terms);
    RUN_TEST(test_reduce_one_to_lowest_terms);
 
-   return UnityEnd();
+   return UNITY_END();
 }

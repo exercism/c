@@ -90,7 +90,7 @@ static void test_rejects_negative_span(void)
 
 int main(void)
 {
-   UnityBegin("test_largest_series_product.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_finds_the_largest_product_if_span_equals_length);
    RUN_TEST(test_can_find_the_largest_product_of_2_with_numbers_in_order);
@@ -106,5 +106,5 @@ int main(void)
    RUN_TEST(test_rejects_invalid_character_in_digits);
    RUN_TEST(test_rejects_negative_span);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -105,12 +105,12 @@ static void test_multiple_scores_with_differing_numbers_of_letters(void)
 
 int main(void)
 {
-   UnityBegin("test_etl.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_a_single_letter);
    RUN_TEST(test_single_score_with_multiple_letters);
    RUN_TEST(test_multiple_scores_with_multiple_letters);
    RUN_TEST(test_multiple_scores_with_differing_numbers_of_letters);
 
-   return UnityEnd();
+   return UNITY_END();
 }
