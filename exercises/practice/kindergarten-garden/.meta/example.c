@@ -9,7 +9,7 @@ static int student_to_index(const char *student)
    static const char *students[] = { "Alice",  "Bob",    "Charlie", "David",
                                      "Eve",    "Fred",   "Ginny",   "Harriet",
                                      "Ileana", "Joseph", "Kincaid", "Larry" };
-   for (size_t i = 0; i < sizeof(students); ++i) {
+   for (size_t i = 0; i < sizeof(students) / sizeof(students[0]); ++i) {
       if (strcmp(students[i], student) == 0) {
          return i;
       }
@@ -34,13 +34,15 @@ static plant_t letter_to_plant(char letter)
    exit(1);
 }
 
-void plants(const char *diagram, const char *student, plant_t *plants)
+plants_t plants(const char *diagram, const char *student)
 {
    const char *rows[] = { diagram, strchr(diagram, '\n') + 1 };
    const size_t student_col = student_to_index(student) * 2;
+   plants_t res;
    for (int i = 0; i < 4; ++i) {
       const size_t row_index = i / 2;
       const size_t col_index = student_col + i % 2;
-      plants[i] = letter_to_plant(rows[row_index][col_index]);
+      res.plants[i] = letter_to_plant(rows[row_index][col_index]);
    }
+   return res;
 }
