@@ -1,0 +1,19 @@
+{
+  "authors": ["ryanplusplus"],
+  "files": {
+    "solution": [
+      "knapsack.c",
+      "knapsack.h"
+    ],
+    "test": [
+      "test_knapsack.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Given a knapsack that can only carry a certain weight, determine which items to put in the knapsack in order to maximize their combined value.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Knapsack_problem"
+}
