@@ -1,6 +1,7 @@
 # Introduction
 
 There are various idioomatic ways to solve Raindrops.
+A straightforward and approach is to use a series of `if` statements.
 
 ## General Guidance
 
@@ -14,4 +15,45 @@ The key to solving Raindrops is to know if the input is evenly divisible by `3`,
   - 10 bytes for the largest possible value of `drops`, plus one for `'\0'`.
 - `result` has been initialized as an empty string (that is, `result[0]` is `'\0'`).
 
+## Approach: `if` Statements
+
+**raindrops.h**
+
+```c
+#ifndef RAINDROPS_H
+#define RAINDROPS_H
+
+char *convert(char result[], int drops);
+
+#endif
+```
+
+**raindrops.c**
+
+```c
+#include "raindrops.h"
+
+#include <stdio.h>
+#include <string.h>
+
+char *convert(char result[], int drops)
+{
+   if (drops % 3 == 0)
+      strcat(result, "Pling");
+   if (drops % 5 == 0)
+      strcat(result, "Plang");
+   if (drops % 7 == 0)
+      strcat(result, "Plong");
+
+   if (strlen(result) == 0)
+      sprintf(result, "%d", drops);
+
+   return result;
+}
+```
+
+This approach uses a series of `if`-statements and string concatentation to build up the result string.
+For more information, check the [`if` statements approach][approach-if-statements].
+
 [modulo-operator]: https://www.geeksforgeeks.org/modulo-operator-in-c-cpp-with-examples/
+[approach-if-statements]: https://exercism.org/tracks/c/exercises/raindrops/approaches/if-statements

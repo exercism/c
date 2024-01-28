@@ -3,5 +3,16 @@
     "authors": [
       "danilopiazza"
     ]
-  }
+  },
+  "approaches": [
+    {
+      "uuid": "830f6fb9-cd91-4c53-8b73-cbcb4585ad51",
+      "slug": "if-statements",
+      "title": "if Statements",
+      "blurb": "Use multiple if statements.",
+      "authors": [
+        "danilopiazza"
+      ]
+    }
+  ]
 }
