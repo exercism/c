@@ -28,7 +28,7 @@ execute_test () {
         echo "Running tests for ${exercise_name}";
 
         #remove the ignore line
-        sed -i -e 's/TEST_IGNORE();//' ./test_*.c
+        sed -i 's/TEST_IGNORE();//' ./test_*.c
 
         # Copy the examples with the correct name for the exercise
         if [ -e ".meta/example.c" ]
