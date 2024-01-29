@@ -119,7 +119,7 @@ static void test_fifteen_items(void)
 
 int main(void)
 {
-   UnityBegin("test_knapsack.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_no_items);
    RUN_TEST(test_one_item_too_heavy);
@@ -129,5 +129,5 @@ int main(void)
    RUN_TEST(test_eight_items);
    RUN_TEST(test_fifteen_items);
 
-   return UnityEnd();
+   return UNITY_END();
 }
