@@ -261,7 +261,7 @@ static void test_initial_clear_does_not_affect_wrapping(void)
 
 int main(void)
 {
-   UnityBegin("test_circular_buffer.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_reading_empty_buffer_fails);
    RUN_TEST(test_can_read_item_just_written);
@@ -278,5 +278,5 @@ int main(void)
    RUN_TEST(test_overwrite_replaces_oldest_item_remaining_following_read);
    RUN_TEST(test_initial_clear_does_not_affect_wrapping);
 
-   return UnityEnd();
+   return UNITY_END();
 }

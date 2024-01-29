@@ -54,7 +54,7 @@ static void test_rna_complement(void)
 
 int main(void)
 {
-   UnityBegin("test_rna_transcription.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_empty_rna_sequence);
    RUN_TEST(test_rna_complement_of_cytosine_is_guanine);
@@ -63,5 +63,5 @@ int main(void)
    RUN_TEST(test_rna_complement_of_adenine_is_uracil);
    RUN_TEST(test_rna_complement);
 
-   return UnityEnd();
+   return UNITY_END();
 }

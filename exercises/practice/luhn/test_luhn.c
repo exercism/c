@@ -145,7 +145,7 @@ test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed(
 
 int main(void)
 {
-   UnityBegin("test_luhn.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_single_digit_strings_can_not_be_valid);
    RUN_TEST(test_a_single_zero_is_invalid);
@@ -172,5 +172,5 @@ int main(void)
    RUN_TEST(
        test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed);
 
-   return UnityEnd();
+   return UNITY_END();
 }

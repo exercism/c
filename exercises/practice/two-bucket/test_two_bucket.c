@@ -129,7 +129,7 @@ static void test_goal_larger_than_both_buckets_is_impossible(void)
 
 int main(void)
 {
-   UnityBegin("test_two_bucket.c");
+   UNITY_BEGIN();
 
    RUN_TEST(
        test_measure_using_bucket_one_of_size_3_and_bucket_two_of_size_5_start_with_bucket_one);
@@ -148,5 +148,5 @@ int main(void)
        test_with_the_same_buckets_but_a_different_goal_then_it_is_possible);
    RUN_TEST(test_goal_larger_than_both_buckets_is_impossible);
 
-   return UnityEnd();
+   return UNITY_END();
 }

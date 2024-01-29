@@ -207,7 +207,7 @@ static void test_both_bases_are_negative(void)
 
 int main(void)
 {
-   UnityBegin("test_all_your_base.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_single_bit_to_decimal);
    RUN_TEST(test_binary_to_single_decimal);
@@ -231,5 +231,5 @@ int main(void)
    RUN_TEST(test_output_base_is_negative);
    RUN_TEST(test_both_bases_are_negative);
 
-   return UnityEnd();
+   return UNITY_END();
 }

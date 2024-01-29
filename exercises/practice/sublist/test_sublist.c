@@ -212,7 +212,7 @@ static void test_different_signs(void)
 
 int main(void)
 {
-   UnityBegin("test_sublist.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_empty_lists);
    RUN_TEST(test_empty_list_within_non_empty_list);
@@ -234,5 +234,5 @@ int main(void)
    RUN_TEST(test_same_digits_but_different_numbers);
    RUN_TEST(test_different_signs);
 
-   return UnityEnd();
+   return UNITY_END();
 }

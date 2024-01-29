@@ -64,7 +64,7 @@ static void test_disallow_empty_second_strand(void)
 
 int main(void)
 {
-   UnityBegin("test_hamming.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_empty_strands);
    RUN_TEST(test_single_identical_strands);
@@ -76,5 +76,5 @@ int main(void)
    RUN_TEST(test_disallow_empty_first_strand);
    RUN_TEST(test_disallow_empty_second_strand);
 
-   return UnityEnd();
+   return UNITY_END();
 }

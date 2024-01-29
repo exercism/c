@@ -28,7 +28,7 @@ execute_test () {
         echo "Running tests for ${exercise_name}";
 
         #remove the ignore line
-        sed -i 's/TEST_IGNORE();//' ./test_*.c
+        sed -i='' 's/TEST_IGNORE();//' ./test_*.c
 
         # Copy the examples with the correct name for the exercise
         if [ -e ".meta/example.c" ]
@@ -56,14 +56,15 @@ copy_exercises () {
     then
         local directory="${1}"
         shift
-        echo "Copying ${directory} exercises ${*}"
         mkdir -p "build/${directory}"
         if [ $# -gt 0 ]
         then
+            echo "Copying ${directory} exercises ${*}"
             cd "exercises/${directory}"
             cp -r "$@" "../../build/${directory}/"
             cd "../.."
         else
+            echo "Copying all ${directory} exercises"
             cp -r "exercises/${directory}" "build"
         fi
     fi

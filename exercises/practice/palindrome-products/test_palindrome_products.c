@@ -229,7 +229,7 @@ static void test_error_result_for_largest_if_min_is_more_than_max(void)
 
 int main(void)
 {
-   UnityBegin("test_palindrome_products.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_smallest_palindrome_from_single_digit_factors);
    RUN_TEST(test_largest_palindrome_from_single_digit_factors);
@@ -249,5 +249,5 @@ int main(void)
    RUN_TEST(test_error_result_for_smallest_if_min_is_more_than_max);
    RUN_TEST(test_error_result_for_largest_if_min_is_more_than_max);
 
-   return UnityEnd();
+   return UNITY_END();
 }

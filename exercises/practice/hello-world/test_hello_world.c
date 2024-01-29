@@ -27,9 +27,9 @@ static void test_say_hi(void)
 // Runs the test(s)
 int main(void)
 {
-   UnityBegin("test_hello_world.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_say_hi);
 
-   return UnityEnd();
+   return UNITY_END();
 }

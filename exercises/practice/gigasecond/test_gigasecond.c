@@ -105,7 +105,7 @@ static void test_your_birthday(void)
 
 int main(void)
 {
-   UnityBegin("test_gigasecond.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_date);
    RUN_TEST(test_another_date);
@@ -114,5 +114,5 @@ int main(void)
    RUN_TEST(test_date_and_time_with_day_rollover);
    // RUN_TEST(test_your_birthday);
 
-   return UnityEnd();
+   return UNITY_END();
 }

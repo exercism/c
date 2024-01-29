@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-usage="check-unitybegin - checks UnityBegin() line for all exercises in a given directory
+usage="check-unitybegin - checks UNITY_BEGIN() line for all exercises in a given directory
 Usage:
   check-unitybegin <path-to-exercises>
 
@@ -20,8 +20,8 @@ check_exercises () {
     for f in "${1}"/*/test_*; do
         if [ -f "${f}" ]
         then
-            if ! grep -q UnityBegin\(\""$(basename "$f")"\"\) "$f"; then
-                echo "$f needs correct UnityBegin line"
+            if ! grep -q UNITY_BEGIN\(\) "$f"; then
+                echo "$f needs correct UNITY_BEGIN line"
                 (( ERROR_COUNT++ ))
             fi
         else

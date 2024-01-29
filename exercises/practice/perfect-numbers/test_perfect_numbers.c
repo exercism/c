@@ -89,7 +89,7 @@ static void test_negative_integer_is_rejected(void)
 
 int main(void)
 {
-   UnityBegin("test_perfect_numbers.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_smallest_perfect_number_is_classified_correctly);
    RUN_TEST(test_medium_perfect_number_is_classified_correctly);
@@ -105,5 +105,5 @@ int main(void)
    RUN_TEST(test_zero_is_rejected);
    RUN_TEST(test_negative_integer_is_rejected);
 
-   return UnityEnd();
+   return UNITY_END();
 }

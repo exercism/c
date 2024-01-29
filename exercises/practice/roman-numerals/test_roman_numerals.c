@@ -178,7 +178,7 @@ static void test_3999_is_MMMCMXCIX(void)
 
 int main(void)
 {
-   UnityBegin("test_roman_numerals.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_1_is_I);
    RUN_TEST(test_2_is_II);
@@ -207,5 +207,5 @@ int main(void)
    RUN_TEST(test_3001_is_MMMI);
    RUN_TEST(test_3999_is_MMMCMXCIX);
 
-   return UnityEnd();
+   return UNITY_END();
 }
