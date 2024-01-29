@@ -176,7 +176,7 @@ Firstly make sure you have the necessary applications installed (such as `clang-
 If you'd like to run only some of the tests to check your work, you can specify them as arguments to the run-tests script.
 
 ```bash
-~/git/c$ ./bin/run-tests acronym all-your-base allergies
+~/git/c$ ./bin/run-tests -p -e acronym -e all-your-base -e allergies
 ```
 
 ## Test Runner
