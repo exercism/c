@@ -98,7 +98,7 @@ test_a_to_m_and_A_to_M_are_26_different_characters_but_not_pangram(void)
 
 int main(void)
 {
-   UnityBegin("test_pangram.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_null);
    RUN_TEST(test_empty_sentence);
@@ -112,5 +112,5 @@ int main(void)
    RUN_TEST(test_mixed_case_and_punctuation);
    RUN_TEST(test_a_to_m_and_A_to_M_are_26_different_characters_but_not_pangram);
 
-   return UnityEnd();
+   return UNITY_END();
 }

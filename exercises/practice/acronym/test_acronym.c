@@ -112,7 +112,7 @@ static void test_underscore_emphasis(void)
 
 int main(void)
 {
-   UnityBegin("test_acronym.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_null_string);
    RUN_TEST(test_empty_string);
@@ -126,5 +126,5 @@ int main(void)
    RUN_TEST(test_apostrophes);
    RUN_TEST(test_underscore_emphasis);
 
-   return UnityEnd();
+   return UNITY_END();
 }

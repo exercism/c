@@ -89,7 +89,7 @@ static void test_personal_top_when_there_is_only_one(void)
 
 int main(void)
 {
-   UnityBegin("test_high_scores.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_latest_score);
    RUN_TEST(test_personal_best);
@@ -99,5 +99,5 @@ int main(void)
    RUN_TEST(test_personal_top_when_there_are_less_than_3);
    RUN_TEST(test_personal_top_when_there_is_only_one);
 
-   return UnityEnd();
+   return UNITY_END();
 }

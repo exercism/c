@@ -99,7 +99,7 @@ static void test_nothing_is_found_when_the_left_and_right_bounds_cross(void)
 
 int main(void)
 {
-   UnityBegin("test_binary_search.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_finds_a_value_in_an_array_with_one_element);
    RUN_TEST(test_a_value_in_the_middle_of_an_array);
@@ -113,5 +113,5 @@ int main(void)
    RUN_TEST(test_nothing_is_found_in_an_empty_array);
    RUN_TEST(test_nothing_is_found_when_the_left_and_right_bounds_cross);
 
-   return UnityEnd();
+   return UNITY_END();
 }

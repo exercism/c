@@ -46,7 +46,7 @@ static void test_root_of_65025(void)
 
 int main(void)
 {
-   UnityBegin("test_square_root.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_root_of_1);
    RUN_TEST(test_root_of_4);
@@ -55,5 +55,5 @@ int main(void)
    RUN_TEST(test_root_of_196);
    RUN_TEST(test_root_of_65025);
 
-   return UnityEnd();
+   return UNITY_END();
 }

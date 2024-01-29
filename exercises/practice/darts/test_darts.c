@@ -127,7 +127,7 @@ static void test_asymmetric_position_between_the_inner_and_middle_circles(void)
 
 int main(void)
 {
-   UnityBegin("test_darts.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_missed_target);
    RUN_TEST(test_on_the_outer_circle);
@@ -143,5 +143,5 @@ int main(void)
    RUN_TEST(test_just_outside_the_outer_circle);
    RUN_TEST(test_asymmetric_position_between_the_inner_and_middle_circles);
 
-   return UnityEnd();
+   return UNITY_END();
 }

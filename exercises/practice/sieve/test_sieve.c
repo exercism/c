@@ -111,7 +111,7 @@ static void test_find_primes_up_to_1000(void)
 
 int main(void)
 {
-   UnityBegin("test_sieve.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_no_primes_under_two);
    RUN_TEST(test_find_first_prime);
@@ -120,5 +120,5 @@ int main(void)
    RUN_TEST(test_limit_is_prime_and_small_max_primes);
    RUN_TEST(test_find_primes_up_to_1000);
 
-   return UnityEnd();
+   return UNITY_END();
 }

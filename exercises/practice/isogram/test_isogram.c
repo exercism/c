@@ -102,7 +102,7 @@ static void test_word_with_duplicated_character_and_with_two_hyphens(void)
 
 int main(void)
 {
-   UnityBegin("test_isogram.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_empty_string);
    RUN_TEST(test_null);
@@ -120,5 +120,5 @@ int main(void)
    RUN_TEST(test_same_first_and_last_characters);
    RUN_TEST(test_word_with_duplicated_character_and_with_two_hyphens);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -149,7 +149,7 @@ test_saddle_points_in_single_row_matrix_are_those_with_the_maximum_value(void)
 
 int main(void)
 {
-   UnityBegin("test_saddle_points.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_single_saddle_point);
    RUN_TEST(test_empty_matrix_has_no_saddle_points);
@@ -163,5 +163,5 @@ int main(void)
    RUN_TEST(
        test_saddle_points_in_single_row_matrix_are_those_with_the_maximum_value);
 
-   return UnityEnd();
+   return UNITY_END();
 }

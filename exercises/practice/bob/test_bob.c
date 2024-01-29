@@ -173,7 +173,7 @@ static void test_non_question_ending_with_whitespace(void)
 
 int main(void)
 {
-   UnityBegin("test_bob.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_stating_something);
    RUN_TEST(test_shouting);
@@ -201,5 +201,5 @@ int main(void)
    RUN_TEST(test_other_whitespace);
    RUN_TEST(test_non_question_ending_with_whitespace);
 
-   return UnityEnd();
+   return UNITY_END();
 }

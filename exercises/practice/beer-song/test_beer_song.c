@@ -464,7 +464,7 @@ static void test_all_verses(void)
 
 int main(void)
 {
-   UnityBegin("test_beer_song.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_first_generic_verse);
    RUN_TEST(test_last_generic_verse);
@@ -475,5 +475,5 @@ int main(void)
    RUN_TEST(test_last_three_verses);
    RUN_TEST(test_all_verses);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -171,7 +171,7 @@ static void test_numbers_above_999_999_999_999_are_out_of_range(void)
 
 int main(void)
 {
-   UnityBegin("test_say.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_zero);
    RUN_TEST(test_one);
@@ -193,5 +193,5 @@ int main(void)
    RUN_TEST(test_numbers_below_zero_are_out_of_range);
    RUN_TEST(test_numbers_above_999_999_999_999_are_out_of_range);
 
-   return UnityEnd();
+   return UNITY_END();
 }

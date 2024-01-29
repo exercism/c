@@ -64,7 +64,7 @@ static void test_difference_of_squares_100(void)
 
 int main(void)
 {
-   UnityBegin("test_difference_of_squares.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_square_of_sum_1);
    RUN_TEST(test_square_of_sum_5);
@@ -76,5 +76,5 @@ int main(void)
    RUN_TEST(test_difference_of_squares_5);
    RUN_TEST(test_difference_of_squares_100);
 
-   return UnityEnd();
+   return UNITY_END();
 }

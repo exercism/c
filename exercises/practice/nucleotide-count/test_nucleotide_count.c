@@ -67,7 +67,7 @@ static void test_invalid_nucleotide(void)
 
 int main(void)
 {
-   UnityBegin("test_nucleotide_count.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_empty_strand);
    RUN_TEST(test_can_count_one_nucleotide_in_single_character_input);
@@ -75,5 +75,5 @@ int main(void)
    RUN_TEST(test_multiple_nucleotides);
    RUN_TEST(test_invalid_nucleotide);
 
-   return UnityEnd();
+   return UNITY_END();
 }

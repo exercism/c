@@ -64,7 +64,7 @@ static void test_seven_digit_number_that_is_not_an_armstrong_number(void)
 
 int main(void)
 {
-   UnityBegin("test_armstrong_numbers.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_zero_is_an_armstrong_number);
    RUN_TEST(test_single_digit_numbers_are_armstrong_numbers);
@@ -76,5 +76,5 @@ int main(void)
    RUN_TEST(test_seven_digit_number_that_is_an_armstrong_number);
    RUN_TEST(test_seven_digit_number_that_is_not_an_armstrong_number);
 
-   return UnityEnd();
+   return UNITY_END();
 }

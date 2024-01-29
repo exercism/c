@@ -194,7 +194,7 @@ test_cannot_attack_if_falling_diagonals_only_same_when_reflected_across_longest_
 
 int main(void)
 {
-   UnityBegin("test_queen_attack.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_invalid_if_on_same_position);
    RUN_TEST(test_white_queen_must_have_row_on_board);
@@ -211,5 +211,5 @@ int main(void)
    RUN_TEST(
        test_cannot_attack_if_falling_diagonals_only_same_when_reflected_across_longest_falling_diagonal);
 
-   return UnityEnd();
+   return UNITY_END();
 }

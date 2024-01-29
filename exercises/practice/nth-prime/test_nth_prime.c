@@ -40,7 +40,7 @@ static void test_there_is_no_zeroth_prime(void)
 
 int main(void)
 {
-   UnityBegin("test_nth_prime.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_first_prime);
    RUN_TEST(test_second_prime);
@@ -48,5 +48,5 @@ int main(void)
    RUN_TEST(test_big_prime);
    RUN_TEST(test_there_is_no_zeroth_prime);
 
-   return UnityEnd();
+   return UNITY_END();
 }

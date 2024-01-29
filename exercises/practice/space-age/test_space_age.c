@@ -66,7 +66,7 @@ static void test_invalid_planet_causes_error(void)
 
 int main(void)
 {
-   UnityBegin("test_space_age.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_age_on_earth);
    RUN_TEST(test_age_on_mercury);
@@ -78,5 +78,5 @@ int main(void)
    RUN_TEST(test_age_on_neptune);
    RUN_TEST(test_invalid_planet_causes_error);
 
-   return UnityEnd();
+   return UNITY_END();
 }

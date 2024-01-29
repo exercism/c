@@ -214,7 +214,7 @@ static void test_follow_series_of_instructions_moving_east_and_north(void)
 
 int main(void)
 {
-   UnityBegin("test_robot_simulator.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_create_at_origin_facing_north);
    RUN_TEST(test_create_at_negative_position_facing_south);
@@ -236,5 +236,5 @@ int main(void)
    RUN_TEST(test_follow_series_of_instructions_moving_west_and_south);
    RUN_TEST(test_follow_series_of_instructions_moving_east_and_north);
 
-   return UnityEnd();
+   return UNITY_END();
 }

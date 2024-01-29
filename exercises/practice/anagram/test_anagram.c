@@ -273,7 +273,7 @@ static void test_words_other_than_themselves_can_be_anagrams(void)
 
 int main(void)
 {
-   UnityBegin("test_anagram.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_no_matches);
    RUN_TEST(test_detect_two_anagrams);
@@ -294,5 +294,5 @@ int main(void)
        test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_different);
    RUN_TEST(test_words_other_than_themselves_can_be_anagrams);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -38,12 +38,12 @@ static void test_13_eggs(void)
 
 int main(void)
 {
-   UnityBegin("test_pop_count.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_0_eggs);
    RUN_TEST(test_1_eggs);
    RUN_TEST(test_4_eggs);
    RUN_TEST(test_13_eggs);
 
-   return UnityEnd();
+   return UNITY_END();
 }

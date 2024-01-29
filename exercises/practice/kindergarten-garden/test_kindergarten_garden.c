@@ -176,7 +176,7 @@ static void test_full_garden_for_larry_last_student_s_garden(void)
 
 int main(void)
 {
-   UnityBegin("test_kindergarten_garden.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_partial_garden_garden_with_single_student);
    RUN_TEST(test_partial_garden_different_garden_with_single_student);
@@ -196,5 +196,5 @@ int main(void)
    RUN_TEST(test_full_garden_for_kincaid_second_to_last_student_s_garden);
    RUN_TEST(test_full_garden_for_larry_last_student_s_garden);
 
-   return UnityEnd();
+   return UNITY_END();
 }
