@@ -99,7 +99,7 @@ static void test_ignore_extra_colors(void)
 
 int main(void)
 {
-   UnityBegin("test_resistor_color_trio.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_orange_orange_black);
    RUN_TEST(test_blue_grey_brown);
@@ -112,5 +112,5 @@ int main(void)
    RUN_TEST(test_invalid_octal);
    RUN_TEST(test_ignore_extra_colors);
 
-   return UnityEnd();
+   return UNITY_END();
 }

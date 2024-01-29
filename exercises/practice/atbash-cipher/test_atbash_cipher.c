@@ -118,7 +118,7 @@ static void test_decode_with_no_spaces(void)
 
 int main(void)
 {
-   UnityBegin("test_atbash_cipher.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_encode_yes);
    RUN_TEST(test_encode_no);
@@ -136,5 +136,5 @@ int main(void)
    RUN_TEST(test_decode_with_too_many_spaces);
    RUN_TEST(test_decode_with_no_spaces);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -129,7 +129,7 @@ test_solutions_using_include_exclude_must_extend_to_cardinality_greater_than_3(
 
 int main(void)
 {
-   UnityBegin("test_sum_of_multiples.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_no_multiples_within_limit);
    RUN_TEST(test_one_factor_has_multiples_within_limit);
@@ -150,5 +150,5 @@ int main(void)
    RUN_TEST(
        test_solutions_using_include_exclude_must_extend_to_cardinality_greater_than_3);
 
-   return UnityEnd();
+   return UNITY_END();
 }

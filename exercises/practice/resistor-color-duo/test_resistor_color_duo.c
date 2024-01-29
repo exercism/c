@@ -59,7 +59,7 @@ static void test_black_and_brown_one_digit(void)
 
 int main(void)
 {
-   UnityBegin("test_resistor_color_duo.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_brown_and_black);
    RUN_TEST(test_blue_and_grey);
@@ -69,5 +69,5 @@ int main(void)
    RUN_TEST(test_ignore_additional_colors);
    RUN_TEST(test_black_and_brown_one_digit);
 
-   return UnityEnd();
+   return UNITY_END();
 }

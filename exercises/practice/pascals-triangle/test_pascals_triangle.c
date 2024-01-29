@@ -169,7 +169,7 @@ static void test_ten_rows(void)
 
 int main(void)
 {
-   UnityBegin("test_pascals_triangle.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_no_rows);
    RUN_TEST(test_single_row);
@@ -180,5 +180,5 @@ int main(void)
    RUN_TEST(test_six_rows);
    RUN_TEST(test_ten_rows);
 
-   return UnityEnd();
+   return UNITY_END();
 }

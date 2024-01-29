@@ -217,7 +217,7 @@ static void test_deletes_only_the_first_occurrence(void)
 
 int main(void)
 {
-   UnityBegin("test_linked_list.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_pop_gets_element_from_the_list);
    RUN_TEST(test_push_pop_respectively_add_remove_at_the_end_of_the_list);
@@ -241,5 +241,5 @@ int main(void)
    RUN_TEST(test_delete_does_not_modify_the_list_if_the_element_is_not_found);
    RUN_TEST(test_deletes_only_the_first_occurrence);
 
-   return UnityEnd();
+   return UNITY_END();
 }

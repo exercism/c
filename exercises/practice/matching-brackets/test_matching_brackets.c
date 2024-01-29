@@ -153,7 +153,7 @@ static void test_complex_latex_expression(void)
 
 int main(void)
 {
-   UnityBegin("test_matching_brackets.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_paired_square_brackets);
    RUN_TEST(test_empty_string);
@@ -176,5 +176,5 @@ int main(void)
    RUN_TEST(test_math_expression);
    RUN_TEST(test_complex_latex_expression);
 
-   return UnityEnd();
+   return UNITY_END();
 }

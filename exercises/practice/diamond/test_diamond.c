@@ -144,7 +144,7 @@ static void test_rows_largest_possible_diamond(void)
 
 int main(void)
 {
-   UnityBegin("test_diamond.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_rows_degenerate_case_with_a_single_a_row);
    RUN_TEST(
@@ -155,5 +155,5 @@ int main(void)
        test_rows_smallest_non_degenerate_case_with_even_diamond_side_length);
    RUN_TEST(test_rows_largest_possible_diamond);
 
-   return UnityEnd();
+   return UNITY_END();
 }

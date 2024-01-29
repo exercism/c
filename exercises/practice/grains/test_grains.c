@@ -70,7 +70,7 @@ static void test_total(void)
 
 int main(void)
 {
-   UnityBegin("test_grains.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_square_1);
    RUN_TEST(test_square_2);
@@ -83,5 +83,5 @@ int main(void)
    RUN_TEST(test_square_greater_than_64_does_not_exist);
    RUN_TEST(test_total);
 
-   return UnityEnd();
+   return UNITY_END();
 }

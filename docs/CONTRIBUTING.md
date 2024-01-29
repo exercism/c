@@ -138,7 +138,6 @@ If you would like the [`/format`][format-workflow] automated action to work corr
 * `checks.yml` runs `shellcheck` on the tool scripts and subsequently runs the following of those tools:
   * `./bin/check-unitybegin`
   * `./bin/verify-unity-version`
-  * `./bin/check-unitybegin`
   * `./bin/check-include-guards`
   * [Lychee link checker][lychee] action
 * `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
@@ -150,10 +149,9 @@ If you would like the [`/format`][format-workflow] automated action to work corr
 You can see from the [workflows][] that GitHub is instructed to run tools from the [`./bin`][bin] directory.
 The work the tools in this directory perform is described as follows:
 
-* `check-unitybegin` ensures that every test file correctly adds the `UnityBegin("{test-file-name}")` line at the start of its `main()` function.
+* `check-unitybegin` ensures that every test file correctly adds the `UNITY_BEGIN()` line at the start of its `main()` function.
 * `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
 * `verify-unity-version` checks the version of the Unity test framework used by every exercise. The version this file should check for is specified in [`./docs/VERSIONS.md`][versions]
-* `check-unitybegin` ensures that every test file correctly adds the `UnityBegin("{test-file-name}")` line at the start of its `main()` function.
 * `check-include-guards` checks that the include guards used in each exercises stub and example header are using the correct format, as follows:
 
     ```c
@@ -176,7 +174,7 @@ Firstly make sure you have the necessary applications installed (such as `clang-
 If you'd like to run only some of the tests to check your work, you can specify them as arguments to the run-tests script.
 
 ```bash
-~/git/c$ ./bin/run-tests acronym all-your-base allergies
+~/git/c$ ./bin/run-tests -p -e acronym -e all-your-base -e allergies
 ```
 
 ## Test Runner

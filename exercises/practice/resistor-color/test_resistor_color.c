@@ -39,12 +39,12 @@ static void test_colors(void)
 
 int main(void)
 {
-   UnityBegin("test_resistor_color.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_black);
    RUN_TEST(test_white);
    RUN_TEST(test_orange);
    RUN_TEST(test_colors);
 
-   return UnityEnd();
+   return UNITY_END();
 }

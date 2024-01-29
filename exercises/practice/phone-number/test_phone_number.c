@@ -218,7 +218,7 @@ test_invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number(void)
 
 int main(void)
 {
-   UnityBegin("test_phone_number.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_cleans_the_number);
    RUN_TEST(test_cleans_numbers_with_dots);
@@ -242,5 +242,5 @@ int main(void)
    RUN_TEST(
        test_invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number);
 
-   return UnityEnd();
+   return UNITY_END();
 }

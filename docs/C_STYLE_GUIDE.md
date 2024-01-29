@@ -148,19 +148,18 @@ static void test_the_third(void)
 
 Last in the file is the `main()` function.
 The function body of main follows a particular layout itself.
-First a call to `UnityBegin()` followed by an empty line, then the tests.
-The last test is followed by another empty line and then a call to `UnityEnd()`, before returning.
+First a call to `UNITY_BEGIN()` followed by an empty line, then the tests.
+The last test is followed by another empty line before returning the result of `UNITY_END()`.
 
 ```c
 int main(void)
 {
-    UnityBegin("test/test_file_name.c");
+    UNITY_BEGIN();
 
     RUN_TEST(test_foo);
     RUN_TEST(test_bar);
 
-    UnityEnd();
-    return 0;
+    return UNITY_END();
 }
 ```
 

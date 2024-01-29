@@ -483,7 +483,7 @@ static void test_quotation_for_word_with_apostrophe(void)
 
 int main(void)
 {
-   UnityBegin("test_word_count.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_count_one_word);
    RUN_TEST(test_count_one_of_each_word);
@@ -500,5 +500,5 @@ int main(void)
    RUN_TEST(test_alternating_word_separators_not_detected_as_a_word);
    RUN_TEST(test_quotation_for_word_with_apostrophe);
 
-   return UnityEnd();
+   return UNITY_END();
 }

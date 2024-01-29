@@ -133,7 +133,7 @@ static void test_empty_series_is_invalid(void)
 
 int main(void)
 {
-   UnityBegin("test_series.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_slices_of_one_from_one);
    RUN_TEST(test_slices_of_one_from_two);
@@ -146,5 +146,5 @@ int main(void)
    RUN_TEST(test_slice_length_cannot_be_zero);
    RUN_TEST(test_empty_series_is_invalid);
 
-   return UnityEnd();
+   return UNITY_END();
 }

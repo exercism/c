@@ -369,7 +369,7 @@ static void test_reverse_non_empty_list(void)
 
 int main(void)
 {
-   UnityBegin("test_list_ops.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_append_empty_lists);
    RUN_TEST(test_append_list_to_empty_list);
@@ -392,5 +392,5 @@ int main(void)
    RUN_TEST(test_reverse_empty_list);
    RUN_TEST(test_reverse_non_empty_list);
 
-   return UnityEnd();
+   return UNITY_END();
 }
