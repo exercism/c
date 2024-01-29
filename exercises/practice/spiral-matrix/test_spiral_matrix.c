@@ -117,7 +117,7 @@ static void test_spiral_of_size_5(void)
 
 int main(void)
 {
-   UnityBegin("test_spiral_matrix.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_empty_spiral);
    RUN_TEST(test_trivial_spiral);
@@ -126,5 +126,5 @@ int main(void)
    RUN_TEST(test_spiral_of_size_4);
    RUN_TEST(test_spiral_of_size_5);
 
-   return UnityEnd();
+   return UNITY_END();
 }
