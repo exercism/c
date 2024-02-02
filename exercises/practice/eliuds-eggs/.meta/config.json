@@ -4,11 +4,11 @@
   ],
   "files": {
     "solution": [
-      "pop_count.c",
-      "pop_count.h"
+      "eliuds_eggs.c",
+      "eliuds_eggs.h"
     ],
     "test": [
-      "test_pop_count.c"
+      "test_eliuds_eggs.c"
     ],
     "example": [
       ".meta/example.c",
