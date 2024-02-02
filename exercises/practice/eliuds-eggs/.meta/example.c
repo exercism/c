@@ -1,4 +1,4 @@
-#include "pop_count.h"
+#include "eliuds_eggs.h"
 
 unsigned int egg_count(unsigned int value)
 {
