@@ -567,6 +567,14 @@
         ]
       },
       {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "f1ad3d6e-7fc2-4461-8ea2-554c2fa9f1f0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "meetup",
         "name": "Meetup",
         "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
@@ -1026,7 +1034,7 @@
           "arrays",
           "control_flow_loops",
           "strings"
-        ]        
+        ]
       },
       {
         "slug": "eliuds-eggs",
