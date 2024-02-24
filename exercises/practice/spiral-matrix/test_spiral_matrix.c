@@ -12,24 +12,16 @@ void tearDown(void)
 {
 }
 
-static bool matrix_matches(int expected_size,
-                           int expected_matrix[][expected_size],
-                           const spiral_matrix_t *actual)
+static void assert_matrix_matches(int expected_size,
+                                  int expected_matrix[][expected_size],
+                                  const spiral_matrix_t *actual)
 {
-   if (expected_size != actual->size)
-      return false;
+   TEST_ASSERT_EQUAL_INT(expected_size, actual->size);
 
    for (int i = 0; i < expected_size; i++) {
-      for (int j = 0; j < expected_size; j++) {
-         if (expected_matrix[i][j] != actual->matrix[i][j]) {
-            printf("expected[%d][%d] = %d\n", i, j, expected_matrix[i][j]);
-            printf("actual[%d][%d] = %d\n", i, j, actual->matrix[i][j]);
-            return false;
-         }
-      }
+      TEST_ASSERT_EQUAL_INT_ARRAY(expected_matrix[i], actual->matrix[i],
+                                  expected_size);
    }
-
-   return true;
 }
 
 static void test_empty_spiral(void)
@@ -49,7 +41,7 @@ static void test_trivial_spiral(void)
    };
 
    spiral_matrix_t *actual = spiral_matrix_create(1);
-   TEST_ASSERT_TRUE(matrix_matches(1, expected_matrix, actual));
+   assert_matrix_matches(1, expected_matrix, actual);
    spiral_matrix_destroy(actual);
 }
 
@@ -63,7 +55,7 @@ static void test_spiral_of_size_2(void)
    };
 
    spiral_matrix_t *actual = spiral_matrix_create(2);
-   TEST_ASSERT_TRUE(matrix_matches(2, expected_matrix, actual));
+   assert_matrix_matches(2, expected_matrix, actual);
    spiral_matrix_destroy(actual);
 }
 
@@ -78,7 +70,7 @@ static void test_spiral_of_size_3(void)
    };
 
    spiral_matrix_t *actual = spiral_matrix_create(3);
-   TEST_ASSERT_TRUE(matrix_matches(3, expected_matrix, actual));
+   assert_matrix_matches(3, expected_matrix, actual);
    spiral_matrix_destroy(actual);
 }
 
@@ -94,7 +86,7 @@ static void test_spiral_of_size_4(void)
    };
 
    spiral_matrix_t *actual = spiral_matrix_create(4);
-   TEST_ASSERT_TRUE(matrix_matches(4, expected_matrix, actual));
+   assert_matrix_matches(4, expected_matrix, actual);
    spiral_matrix_destroy(actual);
 }
 
@@ -111,7 +103,7 @@ static void test_spiral_of_size_5(void)
    };
 
    spiral_matrix_t *actual = spiral_matrix_create(5);
-   TEST_ASSERT_TRUE(matrix_matches(5, expected_matrix, actual));
+   assert_matrix_matches(5, expected_matrix, actual);
    spiral_matrix_destroy(actual);
 }
 
