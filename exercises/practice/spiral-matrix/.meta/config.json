@@ -1,5 +1,6 @@
 {
   "authors": ["ryanplusplus"],
+  "contributors": ["wolf99"],
   "files": {
     "solution": [
       "spiral_matrix.c",
