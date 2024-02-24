@@ -1048,6 +1048,14 @@
           "control_flow_if_statements",
           "control_flow_loops"
         ]
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "caf3784a-400f-425d-b537-a903175503ff",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
       }
     ]
   },
