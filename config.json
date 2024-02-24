@@ -1056,6 +1056,19 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 7
+      },
+      {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "2e5f7544-68fc-4993-9ee0-27b74b1176e7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "pointers"
+        ]
       }
     ]
   },
