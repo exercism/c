@@ -1,0 +1,36 @@
+{
+  "introduction": {
+    "authors": [
+      "danilopiazza"
+    ]
+  },
+  "approaches": [
+    {
+      "uuid": "830f6fb9-cd91-4c53-8b73-cbcb4585ad51",
+      "slug": "if-statements",
+      "title": "if Statements",
+      "blurb": "Use multiple if statements.",
+      "authors": [
+        "danilopiazza"
+      ]
+    },
+    {
+      "uuid": "cac9cf42-cd7b-4070-8f86-5a9753d17d8e",
+      "slug": "sprintf",
+      "title": "sprintf Function",
+      "blurb": "Use the sprintf function.",
+      "authors": [
+        "danilopiazza"
+      ]
+    },
+    {
+      "uuid": "ec393164-0222-4bed-9234-fc25755d8746",
+      "slug": "data-driven",
+      "title": "Data-Driven Programming",
+      "blurb": "Use data-driven programming.",
+      "authors": [
+        "danilopiazza"
+      ]
+    }
+  ]
+}

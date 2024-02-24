@@ -8,7 +8,7 @@
 // 'const char *', i.e. a pointer to a character (in this case the first
 // character in a string). The function itself is defined in the hello_world.c
 // source file. This function is called by the test case(s) in the test source
-// file test/test_hello_world.c.
+// file test_hello_world.c.
 const char *hello(void);
 
 #endif
