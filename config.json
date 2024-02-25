@@ -1050,6 +1050,14 @@
         ]
       },
       {
+        "slug": "zebra-puzzle",
+        "name": "Zebra Puzzle",
+        "uuid": "2cae2796-5c05-4159-b3e7-9f5653f0bc9b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "caf3784a-400f-425d-b537-a903175503ff",

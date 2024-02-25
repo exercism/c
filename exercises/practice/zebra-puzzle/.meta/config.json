@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "siebenschlaefer"
+  ],
+  "files": {
+    "solution": [
+      "zebra_puzzle.c",
+      "zebra_puzzle.h"
+    ],
+    "test": [
+      "test_zebra_puzzle.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Solve the zebra puzzle.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Zebra_Puzzle"
+}
