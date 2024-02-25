@@ -7,4 +7,4 @@ const char *drinks_water(void);
 /// Determine the nationality of the resident who owns the zebra.
 const char *owns_zebra(void);
 
-#endif // ZEBRA_PUZZLE_H
+#endif
