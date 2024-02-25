@@ -62,7 +62,7 @@ static void test_decode_with_six_rails(void)
 
 int main(void)
 {
-   UnityBegin("test_rail_fence_cipher.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_encode_with_two_rails);
    RUN_TEST(test_encode_with_three_rails);
@@ -71,5 +71,5 @@ int main(void)
    RUN_TEST(test_decode_with_five_rails);
    RUN_TEST(test_decode_with_six_rails);
 
-   return UnityEnd();
+   return UNITY_END();
 }

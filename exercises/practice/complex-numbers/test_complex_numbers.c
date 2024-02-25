@@ -490,7 +490,7 @@ static void test_divide_real_number_by_complex_number(void)
 
 int main(void)
 {
-   UnityBegin("test_complex_numbers.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_real_part_of_a_purely_real_number);
    RUN_TEST(test_real_part_of_a_purely_imaginary_number);
@@ -544,5 +544,5 @@ int main(void)
    RUN_TEST(test_divide_complex_number_by_real_number);
    RUN_TEST(test_divide_real_number_by_complex_number);
 
-   return UnityEnd();
+   return UNITY_END();
 }

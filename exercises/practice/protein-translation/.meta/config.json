@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "ryanplusplus"
+  ],
+  "files": {
+    "solution": [
+      "protein_translation.c",
+      "protein_translation.h"
+    ],
+    "test": [
+      "test_protein_translation.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Translate RNA sequences into proteins.",
+  "source": "Tyler Long"
+}

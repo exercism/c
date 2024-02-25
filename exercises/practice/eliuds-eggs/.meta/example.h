@@ -1,5 +1,5 @@
-#ifndef POP_COUNT_H
-#define POP_COUNT_H
+#ifndef ELIUDS_EGGS_H
+#define ELIUDS_EGGS_H
 
 unsigned int egg_count(unsigned int value);
 

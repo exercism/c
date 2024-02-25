@@ -567,6 +567,14 @@
         ]
       },
       {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "f1ad3d6e-7fc2-4461-8ea2-554c2fa9f1f0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "meetup",
         "name": "Meetup",
         "uuid": "a7baa53f-e828-457e-a456-ba3471494d80",
@@ -1029,7 +1037,7 @@
         ]
       },
       {
-        "slug": "pop-count",
+        "slug": "eliuds-eggs",
         "name": "Eliud's Eggs",
         "uuid": "8a813e24-6263-437d-a610-7f5da1456b7f",
         "practices": [],
@@ -1048,6 +1056,27 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 6
+      },
+      }
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "caf3784a-400f-425d-b537-a903175503ff",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "2e5f7544-68fc-4993-9ee0-27b74b1176e7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_loops",
+          "pointers"
+        ]
       }
     ]
   },

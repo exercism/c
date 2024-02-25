@@ -154,7 +154,7 @@ static void test_a_whole_phrase(void)
 
 int main(void)
 {
-   UnityBegin("test_pig_latin.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_word_beginning_with_a);
    RUN_TEST(test_word_beginning_with_e);
@@ -179,5 +179,5 @@ int main(void)
    RUN_TEST(test_y_as_second_letter_in_two_letter_word);
    RUN_TEST(test_a_whole_phrase);
 
-   return UnityEnd();
+   return UNITY_END();
 }

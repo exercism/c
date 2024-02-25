@@ -131,7 +131,7 @@ static void test_factors_include_a_large_prime(void)
 
 int main(void)
 {
-   UnityBegin("test_prime_factors.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_no_factors);
    RUN_TEST(test_prime_number);
@@ -146,5 +146,5 @@ int main(void)
    RUN_TEST(test_product_of_primes);
    RUN_TEST(test_factors_include_a_large_prime);
 
-   return UnityEnd();
+   return UNITY_END();
 }

@@ -131,7 +131,7 @@ static void test_triplets_for_large_number(void)
 
 int main(void)
 {
-   UnityBegin("test_pythagorean_triplet.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_triplets_whose_sum_is_12);
    RUN_TEST(test_triplets_whose_sum_is_108);
@@ -141,5 +141,5 @@ int main(void)
    RUN_TEST(test_several_matching_triplets);
    RUN_TEST(test_triplets_for_large_number);
 
-   return UnityEnd();
+   return UNITY_END();
 }

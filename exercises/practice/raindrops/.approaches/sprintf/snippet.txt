@@ -1,0 +1,2 @@
+   sprintf(result, "%s%s%s", drops % 3 == 0 ? "Pling" : "",
+           drops % 5 == 0 ? "Plang" : "", drops % 7 == 0 ? "Plong" : "");

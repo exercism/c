@@ -65,7 +65,7 @@ static void test_year_divisible_by_200_not_divisible_by_400_in_common_year(void)
 
 int main(void)
 {
-   UnityBegin("test_leap.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_year_not_divisible_by_4_in_common_year);
    RUN_TEST(test_year_divisible_by_2_not_divisible_by_4_in_common_year);
@@ -77,5 +77,5 @@ int main(void)
    RUN_TEST(test_year_divisible_by_400_but_not_by_125_is_still_a_leap_year);
    RUN_TEST(test_year_divisible_by_200_not_divisible_by_400_in_common_year);
 
-   return UnityEnd();
+   return UNITY_END();
 }

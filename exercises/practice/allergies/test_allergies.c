@@ -398,7 +398,7 @@ static void test_no_allergen_score_parts_without_highest_valid_score(void)
 
 int main(void)
 {
-   UnityBegin("test_allergies.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_not_allergic_to_anything_for_eggs);
    RUN_TEST(test_allergic_only_to_eggs);
@@ -459,5 +459,5 @@ int main(void)
    RUN_TEST(test_no_allergen_score_parts);
    RUN_TEST(test_no_allergen_score_parts_without_highest_valid_score);
 
-   return UnityEnd();
+   return UNITY_END();
 }

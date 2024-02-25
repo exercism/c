@@ -326,7 +326,7 @@ test_callbacks_not_called_if_dependencies_change_but_output_value_doesnt_change(
 
 int main(void)
 {
-   UnityBegin("test_react.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_input_cells_have_value);
    RUN_TEST(test_input_cells_value_can_be_set);
@@ -346,5 +346,5 @@ int main(void)
    RUN_TEST(
        test_callbacks_not_called_if_dependencies_change_but_output_value_doesnt_change);
 
-   return UnityEnd();
+   return UNITY_END();
 }

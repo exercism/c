@@ -114,7 +114,7 @@ static void test_commands_do_nothing_for_zero(void)
 
 int main(void)
 {
-   UnityBegin("test_secret_handshake.c");
+   UNITY_BEGIN();
 
    RUN_TEST(test_commands_wink_for_1);
    RUN_TEST(test_commands_double_blink_for_10);
@@ -128,5 +128,5 @@ int main(void)
    RUN_TEST(test_commands_reverse_all_possible_actions);
    RUN_TEST(test_commands_do_nothing_for_zero);
 
-   return UnityEnd();
+   return UNITY_END();
 }
