@@ -1026,7 +1026,7 @@
           "arrays",
           "control_flow_loops",
           "strings"
-        ]        
+        ]
       },
       {
         "slug": "pop-count",
@@ -1040,6 +1040,14 @@
           "control_flow_if_statements",
           "control_flow_loops"
         ]
+      },
+      {
+        "slug": "zebra-puzzle",
+        "name": "Zebra Puzzle",
+        "uuid": "2cae2796-5c05-4159-b3e7-9f5653f0bc9b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
       }
     ]
   },
