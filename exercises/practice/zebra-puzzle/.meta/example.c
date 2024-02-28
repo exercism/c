@@ -165,7 +165,7 @@ struct solution solve_puzzle()
    } while (next_permutation(colors, house_by_color));
 
    assert(num_solutions == 1);
-   return (struct solution) {
+   return (struct solution){
       .drinks_water = nationality_to_string(drinks_water),
       .owns_zebra = nationality_to_string(owns_zebra),
    };
