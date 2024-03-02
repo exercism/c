@@ -11,13 +11,15 @@ void tearDown(void)
 
 static void test_who_drinks_water(void)
 {
-   TEST_ASSERT_EQUAL_STRING("Norwegian", drinks_water());
+   solution_t solution = solve_puzzle();
+   TEST_ASSERT_EQUAL_STRING("Norwegian", solution.drinks_water);
 }
 
 static void test_who_owns_the_zebra(void)
 {
    TEST_IGNORE();   // delete this line to run test
-   TEST_ASSERT_EQUAL_STRING("Japanese", owns_zebra());
+   solution_t solution = solve_puzzle();
+   TEST_ASSERT_EQUAL_STRING("Japanese", solution.owns_zebra);
 }
 
 int main(void)

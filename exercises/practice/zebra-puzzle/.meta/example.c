@@ -41,7 +41,7 @@ static bool next_permutation(int order[NUM_HOUSES], int by_value[NUM_HOUSES])
       swap(order + a, order + b);
 
    // update the affected elements of by_value
-   for (size_t i = idx1; i < NUM_HOUSES; ++i)
+   for (size_t i = idx1; i < len; ++i)
       by_value[order[i]] = i;
    return true;
 }
@@ -52,11 +52,28 @@ enum animal { DOG, FOX, HORSE, SNAILS, ZEBRA };
 enum drink { COFFEE, MILK, ORANGE_JUICE, TEA, WATER };
 enum smoke { CHESTERFIELD, KOOL, LUCKY_STRIKE, OLD_GOLD, PARLIAMENT };
 
-static void solve(const char **out_drinks_water, const char **out_owns_zebra)
+static const char *nationality_to_string(enum nationality nationality)
+{
+   switch (nationality) {
+      case ENGLISH:
+         return "English";
+      case JAPANESE:
+         return "Japanese";
+      case NORWEGIAN:
+         return "Norwegian";
+      case SPANISH:
+         return "Spanish";
+      case UKRAINIAN:
+         return "Ukrainian";
+   }
+   assert(false);
+}
+
+solution_t solve_puzzle()
 {
    int num_solutions = 0;
-   int drinks_water = -1;
-   int owns_zebra = -1;
+   enum nationality drinks_water = -1;
+   enum nationality owns_zebra = -1;
 
    int colors[] = { BLUE, GREEN, IVORY, RED, YELLOW };
    int house_by_color[] = { 0, 1, 2, 3, 4 };
@@ -148,56 +165,8 @@ static void solve(const char **out_drinks_water, const char **out_owns_zebra)
    } while (next_permutation(colors, house_by_color));
 
    assert(num_solutions == 1);
-   switch (drinks_water) {
-      case ENGLISH:
-         *out_drinks_water = "English";
-         break;
-      case JAPANESE:
-         *out_drinks_water = "Japanese";
-         break;
-      case NORWEGIAN:
-         *out_drinks_water = "Norwegian";
-         break;
-      case SPANISH:
-         *out_drinks_water = "Spanish";
-         break;
-      case UKRAINIAN:
-         *out_drinks_water = "Ukrainian";
-         break;
-      default:
-         assert(false);
-   }
-   switch (owns_zebra) {
-      case ENGLISH:
-         *out_owns_zebra = "English";
-         break;
-      case JAPANESE:
-         *out_owns_zebra = "Japanese";
-         break;
-      case NORWEGIAN:
-         *out_owns_zebra = "Norwegian";
-         break;
-      case SPANISH:
-         *out_owns_zebra = "Spanish";
-         break;
-      case UKRAINIAN:
-         *out_owns_zebra = "Ukrainian";
-         break;
-      default:
-         assert(false);
-   }
-}
-
-const char *drinks_water(void)
-{
-   const char *result, *dummy;
-   solve(&result, &dummy);
-   return result;
-}
-
-const char *owns_zebra(void)
-{
-   const char *result, *dummy;
-   solve(&dummy, &result);
-   return result;
+   return (solution_t){
+      .drinks_water = nationality_to_string(drinks_water),
+      .owns_zebra = nationality_to_string(owns_zebra),
+   };
 }

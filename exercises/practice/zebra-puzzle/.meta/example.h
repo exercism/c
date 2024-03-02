@@ -1,10 +1,11 @@
 #ifndef ZEBRA_PUZZLE_H
 #define ZEBRA_PUZZLE_H
 
-/// Determine the nationality of the resident who drinks water.
-const char *drinks_water(void);
+typedef struct {
+   const char *drinks_water;
+   const char *owns_zebra;
+} solution_t;
 
-/// Determine the nationality of the resident who owns the zebra.
-const char *owns_zebra(void);
+solution_t solve_puzzle(void);
 
 #endif
