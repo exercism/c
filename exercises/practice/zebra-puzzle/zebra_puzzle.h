@@ -6,6 +6,6 @@ typedef struct {
    const char *owns_zebra;
 } solution_t;
 
-struct solution solve_puzzle(void);
+solution_t solve_puzzle(void);
 
 #endif

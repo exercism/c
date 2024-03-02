@@ -69,7 +69,7 @@ static const char *nationality_to_string(enum nationality nationality)
    assert(false);
 }
 
-struct solution solve_puzzle()
+solution_t solve_puzzle()
 {
    int num_solutions = 0;
    enum nationality drinks_water = -1;
@@ -165,7 +165,7 @@ struct solution solve_puzzle()
    } while (next_permutation(colors, house_by_color));
 
    assert(num_solutions == 1);
-   return (struct solution){
+   return (solution_t){
       .drinks_water = nationality_to_string(drinks_water),
       .owns_zebra = nationality_to_string(owns_zebra),
    };

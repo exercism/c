@@ -1,11 +1,11 @@
 #ifndef ZEBRA_PUZZLE_H
 #define ZEBRA_PUZZLE_H
 
-struct solution {
+typedef struct {
    const char *drinks_water;
    const char *owns_zebra;
-};
+} solution_t;
 
-struct solution solve_puzzle(void);
+solution_t solve_puzzle(void);
 
 #endif
