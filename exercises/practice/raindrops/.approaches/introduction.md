@@ -24,7 +24,7 @@ The key to solving Raindrops is to know if the input is evenly divisible by `3`,
 #ifndef RAINDROPS_H
 #define RAINDROPS_H
 
-char *convert(char result[], int drops);
+void convert(char result[], int drops);
 
 #endif
 ```
@@ -37,7 +37,7 @@ char *convert(char result[], int drops);
 #include <stdio.h>
 #include <string.h>
 
-char *convert(char result[], int drops)
+void convert(char result[], int drops)
 {
    if (drops % 3 == 0)
       strcat(result, "Pling");
@@ -48,8 +48,6 @@ char *convert(char result[], int drops)
 
    if (strlen(result) == 0)
       sprintf(result, "%d", drops);
-
-   return result;
 }
 ```
 
@@ -64,7 +62,7 @@ For more information, check the [`if` statements approach][approach-if-statement
 #ifndef RAINDROPS_H
 #define RAINDROPS_H
 
-char *convert(char result[], int drops);
+void convert(char result[], int drops);
 
 #endif
 ```
@@ -82,15 +80,13 @@ char *convert(char result[], int drops);
 #include <stdio.h>
 #include <string.h>
 
-char *convert(char result[], int drops)
+void convert(char result[], int drops)
 {
    sprintf(result, "%s%s%s", drops % 3 == 0 ? "Pling" : "",
            drops % 5 == 0 ? "Plang" : "", drops % 7 == 0 ? "Plong" : "");
 
    if (strlen(result) == 0)
       sprintf(result, "%d", drops);
-
-   return result;
 }
 ```
 
@@ -106,7 +102,7 @@ For more information, check the [`sprintf` functon approach][approach-sprintf].
 #ifndef RAINDROPS_H
 #define RAINDROPS_H
 
-char *convert(char result[], int drops);
+void convert(char result[], int drops);
 
 #endif
 ```
@@ -132,7 +128,7 @@ static const sound_t SOUNDS[] = {
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
-char *convert(char result[], int drops)
+void convert(char result[], int drops)
 {
    for (size_t i = 0; i < ARRAY_SIZE(SOUNDS); i++) {
       if (drops % SOUNDS[i].factor == 0) {
@@ -143,8 +139,6 @@ char *convert(char result[], int drops)
    if (strlen(result) == 0) {
       sprintf(result, "%d", drops);
    }
-
-   return result;
 }
 ```
 

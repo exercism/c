@@ -6,7 +6,7 @@
 #ifndef RAINDROPS_H
 #define RAINDROPS_H
 
-char *convert(char result[], int drops);
+void convert(char result[], int drops);
 
 #endif
 ```
@@ -32,7 +32,7 @@ static const sound_t SOUNDS[] = {
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
-char *convert(char result[], int drops)
+void convert(char result[], int drops)
 {
    for (size_t i = 0; i < ARRAY_SIZE(SOUNDS); i++) {
       if (drops % SOUNDS[i].factor == 0) {
@@ -43,8 +43,6 @@ char *convert(char result[], int drops)
    if (strlen(result) == 0) {
       sprintf(result, "%d", drops);
    }
-
-   return result;
 }
 ```
 

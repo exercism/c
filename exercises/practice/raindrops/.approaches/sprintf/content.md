@@ -6,7 +6,7 @@
 #ifndef RAINDROPS_H
 #define RAINDROPS_H
 
-char *convert(char result[], int drops);
+void convert(char result[], int drops);
 
 #endif
 ```
@@ -19,20 +19,13 @@ char *convert(char result[], int drops);
 #include <stdio.h>
 #include <string.h>
 
-#include "raindrops.h"
-
-#include <stdio.h>
-#include <string.h>
-
-char *convert(char result[], int drops)
+void convert(char result[], int drops)
 {
    sprintf(result, "%s%s%s", drops % 3 == 0 ? "Pling" : "",
            drops % 5 == 0 ? "Plang" : "", drops % 7 == 0 ? "Plong" : "");
 
    if (strlen(result) == 0)
       sprintf(result, "%d", drops);
-
-   return result;
 }
 ```
 
