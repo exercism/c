@@ -1,9 +1,9 @@
 #include "raindrops.h"
-#include "stdio.h"
-#include "string.h"
-#include <stdlib.h>
 
-char *convert(char result[], int drops)
+#include <stdio.h>
+#include <string.h>
+
+void convert(char result[], int drops)
 {
    if (drops % 3 == 0) {
       strcat(result, "Pling");
@@ -19,5 +19,4 @@ char *convert(char result[], int drops)
       sprintf(drops_string, "%d", drops);
       strcat(result, drops_string);
    }
-   return result;
 }
