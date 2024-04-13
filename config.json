@@ -1084,7 +1084,7 @@
         "uuid": "dd360788-1dff-4a5d-89af-5bbd1199ae86",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 2,
+        "difficulty": 4,
         "topics": [
           "arrays",
           "control_flow_if_statements",
