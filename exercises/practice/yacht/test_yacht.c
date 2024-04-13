@@ -12,204 +12,204 @@ void tearDown(void)
 
 static void test_yacht(void)
 {
-   const dice_t dice = { 5, 5, 5, 5, 5 };
-   TEST_ASSERT(score(dice, YACHT) == 50);
+   const dice_t dice = { { 5, 5, 5, 5, 5 } };
+   TEST_ASSERT_EQUAL(50, score(dice, YACHT));
 }
 
 static void test_not_yacht(void)
 {
-   TEST_IGNORE();
-   const dice_t dice = { 1, 3, 3, 2, 5 };
-   TEST_ASSERT(score(dice, YACHT) == 0);
+   TEST_IGNORE();   // delete this line to run test
+   const dice_t dice = { { 1, 3, 3, 2, 5 } };
+   TEST_ASSERT_EQUAL(0, score(dice, YACHT));
 }
 
 static void test_ones(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 1, 1, 3, 5 };
-   TEST_ASSERT(score(dice, ONES) == 3);
+   const dice_t dice = { { 1, 1, 1, 3, 5 } };
+   TEST_ASSERT_EQUAL(3, score(dice, ONES));
 }
 
 static void test_ones_out_of_order(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 1, 1, 5, 1 };
-   TEST_ASSERT(score(dice, ONES) == 3);
+   const dice_t dice = { { 3, 1, 1, 5, 1 } };
+   TEST_ASSERT_EQUAL(3, score(dice, ONES));
 }
 
 static void test_no_ones(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 4, 3, 6, 5, 5 };
-   TEST_ASSERT(score(dice, ONES) == 0);
+   const dice_t dice = { { 4, 3, 6, 5, 5 } };
+   TEST_ASSERT_EQUAL(0, score(dice, ONES));
 }
 
 static void test_twos(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 2, 3, 4, 5, 6 };
-   TEST_ASSERT(score(dice, TWOS) == 2);
+   const dice_t dice = { { 2, 3, 4, 5, 6 } };
+   TEST_ASSERT_EQUAL(2, score(dice, TWOS));
 }
 
 static void test_fours(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 4, 1, 4, 1 };
-   TEST_ASSERT(score(dice, FOURS) == 8);
+   const dice_t dice = { { 1, 4, 1, 4, 1 } };
+   TEST_ASSERT_EQUAL(8, score(dice, FOURS));
 }
 
 static void test_yacht_counted_as_threes(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 3, 3, 3, 3 };
-   TEST_ASSERT(score(dice, THREES) == 15);
+   const dice_t dice = { { 3, 3, 3, 3, 3 } };
+   TEST_ASSERT_EQUAL(15, score(dice, THREES));
 }
 
 static void test_yacht_of_3s_counted_as_fives(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 3, 3, 3, 3 };
-   TEST_ASSERT(score(dice, FIVES) == 0);
+   const dice_t dice = { { 3, 3, 3, 3, 3 } };
+   TEST_ASSERT_EQUAL(0, score(dice, FIVES));
 }
 
 static void test_fives(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 5, 3, 5, 3 };
-   TEST_ASSERT(score(dice, FIVES) == 10);
+   const dice_t dice = { { 1, 5, 3, 5, 3 } };
+   TEST_ASSERT_EQUAL(10, score(dice, FIVES));
 }
 
 static void test_sixes(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 2, 3, 4, 5, 6 };
-   TEST_ASSERT(score(dice, SIXES) == 6);
+   const dice_t dice = { { 2, 3, 4, 5, 6 } };
+   TEST_ASSERT_EQUAL(6, score(dice, SIXES));
 }
 
 static void test_full_house_two_small_three_big(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 2, 2, 4, 4, 4 };
-   TEST_ASSERT(score(dice, FULL_HOUSE) == 16);
+   const dice_t dice = { { 2, 2, 4, 4, 4 } };
+   TEST_ASSERT_EQUAL(16, score(dice, FULL_HOUSE));
 }
 
 static void test_full_house_three_small_two_big(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 5, 3, 3, 5, 3 };
-   TEST_ASSERT(score(dice, FULL_HOUSE) == 19);
+   const dice_t dice = { { 5, 3, 3, 5, 3 } };
+   TEST_ASSERT_EQUAL(19, score(dice, FULL_HOUSE));
 }
 
 static void test_two_pair_is_not_a_full_house(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 2, 2, 4, 4, 5 };
-   TEST_ASSERT(score(dice, FULL_HOUSE) == 0);
+   const dice_t dice = { { 2, 2, 4, 4, 5 } };
+   TEST_ASSERT_EQUAL(0, score(dice, FULL_HOUSE));
 }
 
 static void test_four_of_a_kind_is_not_a_full_house(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 4, 4, 4, 4 };
-   TEST_ASSERT(score(dice, FULL_HOUSE) == 0);
+   const dice_t dice = { { 1, 4, 4, 4, 4 } };
+   TEST_ASSERT_EQUAL(0, score(dice, FULL_HOUSE));
 }
 
 static void test_yacht_is_not_a_full_house(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 2, 2, 2, 2, 2 };
-   TEST_ASSERT(score(dice, FULL_HOUSE) == 0);
+   const dice_t dice = { { 2, 2, 2, 2, 2 } };
+   TEST_ASSERT_EQUAL(0, score(dice, FULL_HOUSE));
 }
 
 static void test_four_of_a_kind(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 6, 6, 4, 6, 6 };
-   TEST_ASSERT(score(dice, FOUR_OF_A_KIND) == 24);
+   const dice_t dice = { { 6, 6, 4, 6, 6 } };
+   TEST_ASSERT_EQUAL(24, score(dice, FOUR_OF_A_KIND));
 }
 
 static void test_yacht_can_be_scored_as_four_of_a_kind(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 3, 3, 3, 3 };
-   TEST_ASSERT(score(dice, FOUR_OF_A_KIND) == 12);
+   const dice_t dice = { { 3, 3, 3, 3, 3 } };
+   TEST_ASSERT_EQUAL(12, score(dice, FOUR_OF_A_KIND));
 }
 
 static void test_full_house_is_not_four_of_a_kind(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 3, 3, 5, 5 };
-   TEST_ASSERT(score(dice, FOUR_OF_A_KIND) == 0);
+   const dice_t dice = { { 3, 3, 3, 5, 5 } };
+   TEST_ASSERT_EQUAL(0, score(dice, FOUR_OF_A_KIND));
 }
 
 static void test_little_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 5, 4, 1, 2 };
-   TEST_ASSERT(score(dice, LITTLE_STRAIGHT) == 30);
+   const dice_t dice = { { 3, 5, 4, 1, 2 } };
+   TEST_ASSERT_EQUAL(30, score(dice, LITTLE_STRAIGHT));
 }
 
 static void test_little_straight_as_big_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 2, 3, 4, 5 };
-   TEST_ASSERT(score(dice, BIG_STRAIGHT) == 0);
+   const dice_t dice = { { 1, 2, 3, 4, 5 } };
+   TEST_ASSERT_EQUAL(0, score(dice, BIG_STRAIGHT));
 }
 
 static void test_four_in_order_but_not_a_little_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 1, 2, 3, 4 };
-   TEST_ASSERT(score(dice, LITTLE_STRAIGHT) == 0);
+   const dice_t dice = { { 1, 1, 2, 3, 4 } };
+   TEST_ASSERT_EQUAL(0, score(dice, LITTLE_STRAIGHT));
 }
 
 static void test_no_pairs_but_not_a_little_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 2, 3, 4, 6 };
-   TEST_ASSERT(score(dice, LITTLE_STRAIGHT) == 0);
+   const dice_t dice = { { 1, 2, 3, 4, 6 } };
+   TEST_ASSERT_EQUAL(0, score(dice, LITTLE_STRAIGHT));
 }
 
 static void test_minimum_is_1_maximum_is_5_but_not_a_little_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 1, 1, 3, 4, 5 };
-   TEST_ASSERT(score(dice, LITTLE_STRAIGHT) == 0);
+   const dice_t dice = { { 1, 1, 3, 4, 5 } };
+   TEST_ASSERT_EQUAL(0, score(dice, LITTLE_STRAIGHT));
 }
 
 static void test_big_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 4, 6, 2, 5, 3 };
-   TEST_ASSERT(score(dice, BIG_STRAIGHT) == 30);
+   const dice_t dice = { { 4, 6, 2, 5, 3 } };
+   TEST_ASSERT_EQUAL(30, score(dice, BIG_STRAIGHT));
 }
 
 static void test_big_straight_as_little_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 6, 5, 4, 3, 2 };
-   TEST_ASSERT(score(dice, LITTLE_STRAIGHT) == 0);
+   const dice_t dice = { { 6, 5, 4, 3, 2 } };
+   TEST_ASSERT_EQUAL(0, score(dice, LITTLE_STRAIGHT));
 }
 
 static void test_no_pairs_but_not_a_big_straight(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 6, 5, 4, 3, 1 };
-   TEST_ASSERT(score(dice, BIG_STRAIGHT) == 0);
+   const dice_t dice = { { 6, 5, 4, 3, 1 } };
+   TEST_ASSERT_EQUAL(0, score(dice, BIG_STRAIGHT));
 }
 
 static void test_choice(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 3, 3, 5, 6, 6 };
-   TEST_ASSERT(score(dice, CHOICE) == 23);
+   const dice_t dice = { { 3, 3, 5, 6, 6 } };
+   TEST_ASSERT_EQUAL(23, score(dice, CHOICE));
 }
 
 static void test_yacht_as_choice(void)
 {
    TEST_IGNORE();
-   const dice_t dice = { 2, 2, 2, 2, 2 };
-   TEST_ASSERT(score(dice, CHOICE) == 10);
+   const dice_t dice = { { 2, 2, 2, 2, 2 } };
+   TEST_ASSERT_EQUAL(10, score(dice, CHOICE));
 }
 
 int main(void)
