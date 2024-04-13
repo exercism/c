@@ -1,7 +1,6 @@
 #include "yacht.h"
 
 #include <assert.h>
-#include <stdbool.h>
 #include <stdint.h>
 
 static int number_of_x(dice_t dice, int x)
