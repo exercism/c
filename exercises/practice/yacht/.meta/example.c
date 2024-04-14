@@ -1,7 +1,6 @@
 #include "yacht.h"
 
 #include <assert.h>
-#include <stdint.h>
 
 static int number_of_x(dice_t dice, int x)
 {
@@ -14,7 +13,7 @@ static int number_of_x(dice_t dice, int x)
 }
 
 typedef struct {
-   uint8_t faces[6];
+   int faces[6];
 } count_t;
 
 static count_t count(const dice_t dice)

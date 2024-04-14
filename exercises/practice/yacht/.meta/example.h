@@ -19,7 +19,7 @@ typedef enum {
 } category_t;
 
 typedef struct {
-   uint8_t faces[5];
+   int faces[5];
 } dice_t;
 
 int score(dice_t dice, category_t category);
