@@ -1,8 +1,6 @@
 #ifndef YACHT_H
 #define YACHT_H
 
-#include <stdint.h>
-
 typedef enum {
    ONES,
    TWOS,
