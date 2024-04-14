@@ -1077,6 +1077,20 @@
           "control_flow_loops",
           "pointers"
         ]
+      },
+      {
+        "slug": "yacht",
+        "name": "Yacht",
+        "uuid": "dd360788-1dff-4a5d-89af-5bbd1199ae86",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "structs"
+        ]
       }
     ]
   },
