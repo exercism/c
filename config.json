@@ -1091,6 +1091,20 @@
           "control_flow_loops",
           "structs"
         ]
+      },
+      {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "3adbc85c-7e7e-4122-a37d-c843196bc8af",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "memory_management",
+          "strings"
+        ]
       }
     ]
   },

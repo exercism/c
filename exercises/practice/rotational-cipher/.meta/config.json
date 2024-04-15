@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "ahans"
+  ],
+  "files": {
+    "solution": [
+      "rotational_cipher.c",
+      "rotational_cipher.h"
+    ],
+    "test": [
+      "test_rotational_cipher.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Create an implementation of the rotational cipher, also sometimes called the Caesar cipher.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Caesar_cipher"
+}
