@@ -427,7 +427,6 @@
         "difficulty": 4,
         "topics": [
           "control_flow_if_statements",
-          "preprocessor_x_macros_in_test",
           "strings",
           "text_formatting"
         ]
@@ -491,7 +490,12 @@
         "uuid": "f1ad3d6e-7fc2-4461-8ea2-554c2fa9f1f0",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4
+        "difficulty": 4,
+        "topics": [
+          "control_flow_if_else_statements",
+          "control_flow_loops",
+          "strings"
+        ]
       },
       {
         "slug": "beer-song",
