@@ -1105,6 +1105,20 @@
           "memory_management",
           "strings"
         ]
+      },
+      {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "aafdaf60-1b68-41f7-92ae-f2d548738be9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "math"
+        ]
       }
     ]
   },
