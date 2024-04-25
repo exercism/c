@@ -237,6 +237,20 @@
         ]
       },
       {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "aafdaf60-1b68-41f7-92ae-f2d548738be9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "math"
+        ]
+      },
+      {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "a1168a15-d46f-4541-8b58-68bca0c54733",
@@ -429,6 +443,20 @@
           "control_flow_if_statements",
           "strings",
           "text_formatting"
+        ]
+      },
+      {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "3adbc85c-7e7e-4122-a37d-c843196bc8af",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "topics": [
+          "control_flow_if_statements",
+          "control_flow_loops",
+          "memory_management",
+          "strings"
         ]
       },
       {
@@ -1105,34 +1133,6 @@
         "topics": [
           "functions",
           "memory_management"
-        ]
-      },
-      {
-        "slug": "rotational-cipher",
-        "name": "Rotational Cipher",
-        "uuid": "3adbc85c-7e7e-4122-a37d-c843196bc8af",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "topics": [
-          "control_flow_if_statements",
-          "control_flow_loops",
-          "memory_management",
-          "strings"
-        ]
-      },
-      {
-        "slug": "dnd-character",
-        "name": "D&D Character",
-        "uuid": "aafdaf60-1b68-41f7-92ae-f2d548738be9",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "topics": [
-          "arrays",
-          "control_flow_if_statements",
-          "control_flow_loops",
-          "math"
         ]
       }
     ]
