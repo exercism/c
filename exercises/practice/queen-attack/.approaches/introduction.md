@@ -55,6 +55,6 @@ attack_status_t can_attack(position_t queen_1, position_t queen_2)
 }
 ```
 
-For more information, check the [Helper functions approach][approach-complexity-helper-functions].
+For more information, check the [Helper functions approach](approach-helper-functions).
 
-[approach-helper-functions]: https://exercism.org/tracks/c/exercises/beer-song/approaches/helper-functions
+[approach-helper-functions]: https://exercism.org/tracks/c/exercises/queen-attack/approaches/helper-functions
