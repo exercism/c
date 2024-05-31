@@ -50,4 +50,4 @@ For more information, check the [Define consecutive values approach][approach-de
 
 
 [define]: https://www.techonthenet.com/c_language/constants/create_define.php
-[approach-define-consecutive-values]: https://exercism.org/tracks/c/exercises/resistor-colors/approaches/define-consecutive-values
+[approach-define-consecutive-values]: https://exercism.org/tracks/c/exercises/resistor-color/approaches/define-consecutive-values
