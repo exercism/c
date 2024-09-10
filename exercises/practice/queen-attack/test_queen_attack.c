@@ -192,6 +192,19 @@ test_cannot_attack_if_falling_diagonals_only_same_when_reflected_across_longest_
    TEST_ASSERT_EQUAL(CAN_NOT_ATTACK, can_attack(white_queen, black_queen));
 }
 
+static void
+test_can_attack_if_queens_crossed_sides_and_on_the_same_diagonal(void)
+{
+   TEST_IGNORE();
+   position_t white_queen;
+   position_t black_queen;
+
+   white_queen.column = 2;
+   white_queen.row = 7;
+   black_queen.column = 6;
+   black_queen.row = 1;
+   TEST_ASSERT_EQUAL(CAN_ATTACK, can_attack(white_queen, black_queen));
+}
 int main(void)
 {
    UNITY_BEGIN();
@@ -210,6 +223,7 @@ int main(void)
    RUN_TEST(test_can_attack_on_fourth_diagonal);
    RUN_TEST(
        test_cannot_attack_if_falling_diagonals_only_same_when_reflected_across_longest_falling_diagonal);
+   RUN_TEST(test_can_attack_if_queens_crossed_sides_and_on_the_same_diagonal);
 
    return UNITY_END();
 }
