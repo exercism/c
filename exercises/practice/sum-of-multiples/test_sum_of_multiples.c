@@ -24,7 +24,7 @@ static void test_one_factor_has_multiples_within_limit(void)
    TEST_ASSERT_EQUAL(3, sum(multiples, NUM_OF_ELEMENTS(multiples), 4));
 }
 
-static void test_more_than_one_multiple_withiin_limit(void)
+static void test_more_than_one_multiple_within_limit(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 3 };
@@ -133,7 +133,7 @@ int main(void)
 
    RUN_TEST(test_no_multiples_within_limit);
    RUN_TEST(test_one_factor_has_multiples_within_limit);
-   RUN_TEST(test_more_than_one_multiple_withiin_limit);
+   RUN_TEST(test_more_than_one_multiple_within_limit);
    RUN_TEST(test_more_than_one_factor_with_multiples_within_limit);
    RUN_TEST(test_each_multiple_is_only_counted_once);
    RUN_TEST(test_a_much_larger_limit);
