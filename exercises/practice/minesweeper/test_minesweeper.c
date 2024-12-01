@@ -28,7 +28,7 @@ static void test_annotate_no_columns(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_no_mines(void)
@@ -51,7 +51,7 @@ static void test_annotate_no_mines(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_minefield_with_only_mines(void)
@@ -74,7 +74,7 @@ static void test_annotate_minefield_with_only_mines(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_mine_surrounded_by_spaces(void)
@@ -97,7 +97,7 @@ static void test_annotate_mine_surrounded_by_spaces(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_space_surrounded_by_mines(void)
@@ -120,7 +120,7 @@ static void test_annotate_space_surrounded_by_mines(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_horizontal_line(void)
@@ -139,7 +139,7 @@ static void test_annotate_horizontal_line(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_horizontal_line_mines_at_edges(void)
@@ -158,7 +158,7 @@ static void test_annotate_horizontal_line_mines_at_edges(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_vertical_line(void)
@@ -185,7 +185,7 @@ static void test_annotate_vertical_line(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_vertical_line_mines_at_edges(void)
@@ -212,7 +212,7 @@ static void test_annotate_vertical_line_mines_at_edges(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_cross(void)
@@ -239,7 +239,7 @@ static void test_annotate_cross(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 static void test_annotate_large_minefield(void)
@@ -268,7 +268,7 @@ static void test_annotate_large_minefield(void)
    const size_t rows = ARRAY_SIZE(expected);
    char **actual = annotate(minefield, rows);
    TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, rows);
-   free_annotation(actual);
+   free_annotation(actual, rows);
 }
 
 int main(void)
