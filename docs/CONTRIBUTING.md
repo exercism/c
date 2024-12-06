@@ -200,7 +200,7 @@ Read more about [test runners].
 [style guide]: ./C_STYLE_GUIDE.md
 [clang-format]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
 [Homebrew]: https://brew.sh
-[implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md
+[implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises/add.md
 [Unity]: http://www.throwtheswitch.org/unity/
 [ThrowTheSwitch]: http://www.throwtheswitch.org/#intro-1-section
 [getting started with unity]: http://www.throwtheswitch.org/getting-started-with-unity/
