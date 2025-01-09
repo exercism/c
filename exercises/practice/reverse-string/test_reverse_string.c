@@ -50,6 +50,21 @@ static void test_an_even_sized_word(void)
    test_reverse("drawer", "reward");
 }
 
+static void test_wide_characters(void)
+{
+   test_reverse("子猫", "猫子");
+}
+
+static void test_grapheme_cluster_with_pre_combined_form(void)
+{
+   test_reverse("Würstchenstand", "dnatsnehctsrüW");
+}
+
+static void test_grapheme_clusters(void)
+{
+   test_reverse("ผู้เขียนโปรแกรม", "มรกแรปโนยขีเผู้");
+}
+
 int main(void)
 {
    UNITY_BEGIN();
