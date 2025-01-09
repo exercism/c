@@ -276,7 +276,7 @@ static void test_handles_case_of_greek_letters(void)
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = { "ΒΓΑ", "ΒΓΔ", "γβα", "αβγ" };
 
-   char subject[] = { "ΒΓΑ", "γβα" };
+   char subject[] = { "ΑΒΓ" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
