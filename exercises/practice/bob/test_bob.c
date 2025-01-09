@@ -140,7 +140,7 @@ static void test_multiple_line_question(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
-       "Whatever.",
+       "Sure.",
        hey_bob("\nDoes this cryogenic chamber make\n me look fat?"));
 }
 
