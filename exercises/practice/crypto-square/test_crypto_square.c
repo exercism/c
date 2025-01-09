@@ -19,9 +19,19 @@ static void test_empty_text_res_in_an_empty_ciphertext(void)
    free(res);
 }
 
-static void test_lowercase(void)
+static void normalization_res_in_empty_plaintext(void)
 {
    TEST_IGNORE();   // delete this line to run test
+   const char *input = "... --- ...";
+   const char *expected = "";
+   char *res = ciphertext(input);
+   TEST_ASSERT_EQUAL_STRING(expected, res);
+   free(res);
+}
+
+static void test_lowercase(void)
+{
+   TEST_IGNORE();
    const char *input = "A";
    const char *expected = "a";
    char *res = ciphertext(input);
@@ -88,6 +98,7 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_empty_text_res_in_an_empty_ciphertext);
+   RUN_TEST(normalization_res_in_empty_plaintext);
    RUN_TEST(test_lowercase);
    RUN_TEST(test_remove_spaces);
    RUN_TEST(test_remove_punctuation);
