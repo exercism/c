@@ -19,7 +19,7 @@ static void test_empty_text_res_in_an_empty_ciphertext(void)
    free(res);
 }
 
-static void normalization_res_in_empty_plaintext(void)
+static void test_normalization_results_in_empty_plaintext(void)
 {
    TEST_IGNORE();   // delete this line to run test
    const char *input = "... --- ...";
