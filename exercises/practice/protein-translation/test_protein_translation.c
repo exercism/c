@@ -333,6 +333,19 @@ test_translation_stops_if_stop_codon_in_middle_of_six_codon_sequence(void)
    assert_proteins_match(expected, actual);
 }
 
+static void
+test_seuence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon(void)
+{
+   TEST_IGNORE();
+   proteins_t expected = {
+      .valid = true,
+      .count = 2,
+      .proteins = { Methionine, Methionine },
+   };
+   proteins_t actual = proteins("AUGAUG");
+   assert_proteins_match(expected, actual);
+}
+
 static void test_non_existing_codon_cant_translate(void)
 {
    TEST_IGNORE();
@@ -407,6 +420,7 @@ int main(void)
    RUN_TEST(test_translation_stops_if_stop_codon_at_end_of_three_codon_sequence);
    RUN_TEST(test_translation_stops_if_stop_codon_in_middle_of_three_codon_sequence);
    RUN_TEST(test_translation_stops_if_stop_codon_in_middle_of_six_codon_sequence);
+   RUN_TEST(test_seuence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon);
    RUN_TEST(test_non_existing_codon_cant_translate);
    RUN_TEST(test_unknown_amino_acids_not_part_of_a_codon_cant_translate);
    RUN_TEST(test_invalid_codon_cant_translate);
