@@ -98,7 +98,7 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_empty_text_res_in_an_empty_ciphertext);
-   RUN_TEST(normalization_res_in_empty_plaintext);
+   RUN_TEST(test_normalization_results_in_empty_plaintext);
    RUN_TEST(test_lowercase);
    RUN_TEST(test_remove_spaces);
    RUN_TEST(test_remove_punctuation);
