@@ -94,6 +94,8 @@ product_t *get_palindrome_product(int from, int to)
                err = addfactors(&result->factors_lg, i, k);
             }
             if (err) {
+               free_ll(result->factors_lg);
+               free_ll(result->factors_sm);
                free(result);
                return NULL;
             }
