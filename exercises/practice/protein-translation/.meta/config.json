@@ -2,6 +2,9 @@
   "authors": [
     "ryanplusplus"
   ],
+  "contributors": [
+    "jagdish-15"
+  ],
   "files": {
     "solution": [
       "protein_translation.c",
