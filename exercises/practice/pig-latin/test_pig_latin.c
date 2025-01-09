@@ -79,6 +79,12 @@ static void test_word_beginning_with_q_without_a_following_u(void)
    check_transate("qat", "atqay");
 }
 
+static void test_word_beginning_with_consonant_and_vowel_containing_qu(void)
+{
+   TEST_IGNORE();
+   check_transate("liquid", "iquidlay");
+}
+
 static void test_word_beginning_with_ch(void)
 {
    TEST_IGNORE();
@@ -166,6 +172,7 @@ int main(void)
    RUN_TEST(test_word_beginning_with_k);
    RUN_TEST(test_word_beginning_with_x);
    RUN_TEST(test_word_beginning_with_q_without_a_following_u);
+   RUN_TEST(test_word_beginning_with_consonant_and_vowel_containing_qu);
    RUN_TEST(test_word_beginning_with_ch);
    RUN_TEST(test_word_beginning_with_qu);
    RUN_TEST(test_word_beginning_with_qu_and_a_preceding_consonant);
