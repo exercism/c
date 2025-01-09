@@ -75,6 +75,9 @@ int main(void)
    RUN_TEST(test_a_sentence_with_punctuation);
    RUN_TEST(test_a_palindrome);
    RUN_TEST(test_an_even_sized_word);
+   RUN_TEST(test_wide_characters);
+   RUN_TEST(test_grapheme_cluster_with_pre_combined_form);
+   RUN_TEST(test_grapheme_clusters);
 
    return UNITY_END();
 }
