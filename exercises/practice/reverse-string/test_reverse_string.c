@@ -80,7 +80,7 @@ int main(void)
       Commenting out the following tests for now because the current implementation
       does not support handling wide characters, grapheme clusters, or UTF characters.
       The implementation currently only handles 8-bit ASCII characters, so these tests
-      will cause failures when executed. Once support for wider character sets is added, 
+      will cause failures when executed. Once support for wider character sets is added,
       these tests can be re-enabled for proper validation.
    */
 
