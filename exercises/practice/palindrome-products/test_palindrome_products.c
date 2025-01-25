@@ -227,6 +227,19 @@ static void test_error_result_for_largest_if_min_is_more_than_max(void)
    free_product(product);
 }
 
+static void test_smallest_product_not_using_smallest_factor(void)
+{
+   TEST_IGNORE();   // delete this line to run test
+   product_t *product = get_palindrome_product(3215, 4000);
+   TEST_ASSERT_NOT_NULL(product);
+   TEST_ASSERT_EQUAL_INT(10988901, product->smallest);
+
+   factor_t expected_lg[] = { { 3297, 3333, NULL } };
+   check_factors(product->factors_sm, 1, expected_lg);
+
+   free_product(product);
+}
+
 int main(void)
 {
    UNITY_BEGIN();
@@ -248,6 +261,8 @@ int main(void)
 
    RUN_TEST(test_error_result_for_smallest_if_min_is_more_than_max);
    RUN_TEST(test_error_result_for_largest_if_min_is_more_than_max);
+
+   RUN_TEST(test_smallest_product_not_using_smallest_factor);
 
    return UNITY_END();
 }
