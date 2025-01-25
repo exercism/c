@@ -235,7 +235,7 @@ static void test_smallest_product_not_using_smallest_factor(void)
    TEST_ASSERT_EQUAL_INT(10988901, product->smallest);
 
    factor_t expected_lg[] = { { 3297, 3333, NULL } };
-   check_factors(product->factors_lg, 1, expected_lg);
+   check_factors(product->factors_sm, 1, expected_lg);
 
    free_product(product);
 }
