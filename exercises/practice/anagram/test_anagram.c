@@ -186,12 +186,12 @@ static void
 test_does_not_detect_an_anagram_if_the_original_word_is_repeated(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = { "go", "Go", "GO" };
+   char inputs[][MAX_STR_LEN] = { "goGoGO" };
 
-   char subject[] = { "orchestra" };
+   char subject[] = { "go" };
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { NOT_ANAGRAM, NOT_ANAGRAM, NOT_ANAGRAM };
+   enum anagram_status expected[] = { NOT_ANAGRAM };
 
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
