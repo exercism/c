@@ -29,6 +29,8 @@ description = "an even-sized word"
 
 [1bed0f8a-13b0-4bd3-9d59-3d0593326fa2]
 description = "wide characters"
+include = false
+comment = "track decision to only handle ASCII strings for this exercise"
 
 [93d7e1b8-f60f-4f3c-9559-4056e10d2ead]
 description = "grapheme cluster with pre-combined form"
