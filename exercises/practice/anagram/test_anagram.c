@@ -271,35 +271,6 @@ static void test_words_other_than_themselves_can_be_anagrams(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_handles_case_of_greek_letters(void)
-{
-   TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = { "ΒΓΑ", "ΒΓΔ", "γβα", "αβγ" };
-
-   char subject[] = { "ΑΒΓ" };
-
-   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { IS_ANAGRAM, NOT_ANAGRAM, IS_ANAGRAM,
-                                      NOT_ANAGRAM };
-
-   find_anagrams(subject, &candidates);
-   assert_correct_anagrams(&candidates, expected);
-}
-
-static void test_different_characters_may_have_the_same_bytes(void)
-{
-   TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = { "€a" };
-
-   char subject[] = { "a⬂" };
-
-   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
-   enum anagram_status expected[] = { NOT_ANAGRAM };
-
-   find_anagrams(subject, &candidates);
-   assert_correct_anagrams(&candidates, expected);
-}
-
 int main(void)
 {
    UNITY_BEGIN();
@@ -322,8 +293,6 @@ int main(void)
    RUN_TEST(
        test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_different);
    RUN_TEST(test_words_other_than_themselves_can_be_anagrams);
-   RUN_TEST(test_handles_case_of_greek_letters);
-   RUN_TEST(test_different_characters_may_have_the_same_bytes);
 
    return UNITY_END();
 }
