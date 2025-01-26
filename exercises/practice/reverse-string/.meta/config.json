@@ -2,6 +2,10 @@
   "authors": [
     "keiravillekode"
   ],
+  "contributors": [
+    "jagdish-15",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "reverse_string.c",
