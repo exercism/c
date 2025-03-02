@@ -34,7 +34,9 @@ If the buffer has 7 elements then it is completely full:
 [5][6][7][8][9][3][4]
 ```
 
-When the buffer is full an error will be raised, alerting the client that further writes are blocked until a slot becomes free.
+If the buffer is empty during a read attempt, an error is raised to alert the client.
+
+When the buffer is full, an error is raised to alert the client that further writes are blocked until a slot becomes available.
 
 When the buffer is full, the client can opt to overwrite the oldest data with a forced write.
 In this case, two more elements — A & B — are added and they overwrite the 3 & 4:
