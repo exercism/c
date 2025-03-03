@@ -1,6 +1,6 @@
 # Set `errno` to a special value
 If the buffer is empty during a read attempt, an error is raised to alert the client.
 
-These error values can be found in the `errno.h` header file.
+These error values can be found in the [`errno.h`][errno.h] header file.
 
-[Wikipedia](https://en.wikipedia.org/wiki/Errno.h)
+[errno.h]: https://en.wikipedia.org/wiki/Errno.h
