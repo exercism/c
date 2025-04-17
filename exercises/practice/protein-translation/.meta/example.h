@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define MAX_PROTEINS 10
+#define MAX_AMINOACIDS 10
 
 typedef enum {
    Methionine,
@@ -14,14 +14,14 @@ typedef enum {
    Tyrosine,
    Cysteine,
    Tryptophan,
-} protein_t;
+} aminoacid_t;
 
 typedef struct {
    bool valid;
    size_t count;
-   protein_t proteins[MAX_PROTEINS];
-} proteins_t;
+   aminoacid_t protein[MAX_AMINOACIDS];
+} protein_t;
 
-proteins_t proteins(const char *const rna);
+protein_t protein(const char *const rna);
 
 #endif
