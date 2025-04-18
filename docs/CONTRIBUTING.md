@@ -125,7 +125,7 @@ The simplest way to run these workflows on your own contribution is to open a PR
 GitHub runs the CI on virtual machines it refers to as [hosted runners][].
 Workflows can configure some aspects of the runners they would like to be run on.
 
-The workflows in this repository specify only that they each should be run on Ubuntu 20.04. The workflows are pinned to specific versions rather than refer to `latest` as some tools used can perform differently on different versions.
+The workflows in this repository specify only that they each should be run on Ubuntu 24.04. The workflows are pinned to specific versions rather than refer to `latest` as some tools used can perform differently on different versions.
 
 ### Run CI on Your Own Fork
 
