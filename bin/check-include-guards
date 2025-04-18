@@ -14,7 +14,7 @@ ERROR_COUNT=0
 check_guard() {
     # Check the include guards in a given file
     if [ -f "$1" ]; then
-        if grep -LPzo "$2" "$1" > /dev/null; then
+        if [ $(grep -LPzo "$2" "$1") ]; then
             printf "%s does not have correctly formatted include guards\n" "$1"
             return 1
         fi
