@@ -69,7 +69,7 @@ static const char *nationality_to_string(enum nationality nationality)
    assert(false);
 }
 
-solution_t solve_puzzle()
+solution_t solve_puzzle(void)
 {
    int num_solutions = 0;
    enum nationality drinks_water = -1;

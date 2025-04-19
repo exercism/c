@@ -5,7 +5,7 @@
 char *to_rna(const char *dna)
 {
    size_t len = strlen(dna);
-   char *rna = calloc(sizeof(char), len + 1);
+   char *rna = calloc(len + 1, sizeof(char));
 
    for (size_t i = 0; i < len; i++) {
       switch (dna[i]) {
