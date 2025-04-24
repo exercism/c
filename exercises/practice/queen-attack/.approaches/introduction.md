@@ -1,6 +1,6 @@
 # Introduction
 
-There are svceral ways to solve Queen Attack.
+There are several ways to solve Queen Attack.
 All of the code to validate the input and calculate the answer could be placed in the `can_attack` function.
 Another approach could break the logic up into some helper functions.
 
