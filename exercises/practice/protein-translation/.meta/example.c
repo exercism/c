@@ -5,11 +5,11 @@ enum { codon_length = 3 };
 
 typedef struct {
    const char *const codon;
-   aminoacid_t aminoacid;
+   amino_acid_t amino_acid;
    bool stop;
-} aminoacid_translation_t;
+} amino_acid_translation_t;
 
-static const aminoacid_translation_t translations[] = {
+static const amino_acid_translation_t translations[] = {
    { "AUG", Methionine, false },
    { "UUU", Phenylalanine, false },
    { "UUC", Phenylalanine, false },
@@ -45,7 +45,8 @@ protein_t protein(const char *const rna)
             if (translations[j].stop) {
                return protein;
             } else {
-               protein.protein[protein.count++] = translations[j].aminoacid;
+               protein.amino_acids[protein.count++] =
+                   translations[j].amino_acid;
                found_codon = true;
                break;
             }

@@ -16,7 +16,7 @@ static void assert_protein_match(protein_t expected, protein_t actual)
    if (expected.valid) {
       TEST_ASSERT_EQUAL_size_t(expected.count, actual.count);
       if (expected.count > 0) {
-         TEST_ASSERT_EQUAL_INT_ARRAY(expected.protein, actual.protein,
+         TEST_ASSERT_EQUAL_INT_ARRAY(expected.amino_acids, actual.amino_acids,
                                      expected.count);
       }
    }
@@ -38,7 +38,7 @@ static void test_methionine_rna_sequence(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Methionine },
+      .amino_acids = { Methionine },
    };
    protein_t actual = protein("AUG");
    assert_protein_match(expected, actual);
@@ -50,7 +50,7 @@ static void test_phenylalanine_rna_sequence_1(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Phenylalanine },
+      .amino_acids = { Phenylalanine },
    };
    protein_t actual = protein("UUU");
    assert_protein_match(expected, actual);
@@ -62,7 +62,7 @@ static void test_phenylalanine_rna_sequence_2(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Phenylalanine },
+      .amino_acids = { Phenylalanine },
    };
    protein_t actual = protein("UUC");
    assert_protein_match(expected, actual);
@@ -74,7 +74,7 @@ static void test_leucine_rna_sequence_1(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Leucine },
+      .amino_acids = { Leucine },
    };
    protein_t actual = protein("UUA");
    assert_protein_match(expected, actual);
@@ -86,7 +86,7 @@ static void test_leucine_rna_sequence_2(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Leucine },
+      .amino_acids = { Leucine },
    };
    protein_t actual = protein("UUG");
    assert_protein_match(expected, actual);
@@ -98,7 +98,7 @@ static void test_serine_rna_sequence_1(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Serine },
+      .amino_acids = { Serine },
    };
    protein_t actual = protein("UCU");
    assert_protein_match(expected, actual);
@@ -110,7 +110,7 @@ static void test_serine_rna_sequence_2(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Serine },
+      .amino_acids = { Serine },
    };
    protein_t actual = protein("UCC");
    assert_protein_match(expected, actual);
@@ -122,7 +122,7 @@ static void test_serine_rna_sequence_3(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Serine },
+      .amino_acids = { Serine },
    };
    protein_t actual = protein("UCA");
    assert_protein_match(expected, actual);
@@ -134,7 +134,7 @@ static void test_serine_rna_sequence_4(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Serine },
+      .amino_acids = { Serine },
    };
    protein_t actual = protein("UCG");
    assert_protein_match(expected, actual);
@@ -146,7 +146,7 @@ static void test_tyrosine_rna_sequence_1(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Tyrosine },
+      .amino_acids = { Tyrosine },
    };
    protein_t actual = protein("UAU");
    assert_protein_match(expected, actual);
@@ -158,7 +158,7 @@ static void test_tyrosine_rna_sequence_2(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Tyrosine },
+      .amino_acids = { Tyrosine },
    };
    protein_t actual = protein("UAC");
    assert_protein_match(expected, actual);
@@ -170,7 +170,7 @@ static void test_cysteine_rna_sequence_1(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Cysteine },
+      .amino_acids = { Cysteine },
    };
    protein_t actual = protein("UGU");
    assert_protein_match(expected, actual);
@@ -182,7 +182,7 @@ static void test_cysteine_rna_sequence_2(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Cysteine },
+      .amino_acids = { Cysteine },
    };
    protein_t actual = protein("UGC");
    assert_protein_match(expected, actual);
@@ -194,7 +194,7 @@ static void test_tryptophan_rna_sequence(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Tryptophan },
+      .amino_acids = { Tryptophan },
    };
    protein_t actual = protein("UGG");
    assert_protein_match(expected, actual);
@@ -239,7 +239,7 @@ static void test_sequence_of_two_protein_codons_translates_into_protein(void)
    protein_t expected = {
       .valid = true,
       .count = 2,
-      .protein = { Phenylalanine, Phenylalanine },
+      .amino_acids = { Phenylalanine, Phenylalanine },
    };
    protein_t actual = protein("UUUUUU");
    assert_protein_match(expected, actual);
@@ -252,7 +252,7 @@ test_sequence_of_two_different_protein_codons_translates_into_protein(void)
    protein_t expected = {
       .valid = true,
       .count = 2,
-      .protein = { Leucine, Leucine },
+      .amino_acids = { Leucine, Leucine },
    };
    protein_t actual = protein("UUAUUG");
    assert_protein_match(expected, actual);
@@ -264,7 +264,7 @@ static void test_translate_rna_strand_into_correct_protein_list(void)
    protein_t expected = {
       .valid = true,
       .count = 3,
-      .protein = { Methionine, Phenylalanine, Tryptophan },
+      .amino_acids = { Methionine, Phenylalanine, Tryptophan },
    };
    protein_t actual = protein("AUGUUUUGG");
    assert_protein_match(expected, actual);
@@ -288,7 +288,7 @@ test_translation_stops_if_stop_codon_at_end_of_two_codon_sequence(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Tryptophan },
+      .amino_acids = { Tryptophan },
    };
    protein_t actual = protein("UGGUAG");
    assert_protein_match(expected, actual);
@@ -301,7 +301,7 @@ test_translation_stops_if_stop_codon_at_end_of_three_codon_sequence(void)
    protein_t expected = {
       .valid = true,
       .count = 2,
-      .protein = { Methionine, Phenylalanine },
+      .amino_acids = { Methionine, Phenylalanine },
    };
    protein_t actual = protein("AUGUUUUAA");
    assert_protein_match(expected, actual);
@@ -314,7 +314,7 @@ test_translation_stops_if_stop_codon_in_middle_of_three_codon_sequence(void)
    protein_t expected = {
       .valid = true,
       .count = 1,
-      .protein = { Tryptophan },
+      .amino_acids = { Tryptophan },
    };
    protein_t actual = protein("UGGUAGUGG");
    assert_protein_match(expected, actual);
@@ -327,7 +327,7 @@ test_translation_stops_if_stop_codon_in_middle_of_six_codon_sequence(void)
    protein_t expected = {
       .valid = true,
       .count = 3,
-      .protein = { Tryptophan, Cysteine, Tyrosine },
+      .amino_acids = { Tryptophan, Cysteine, Tyrosine },
    };
    protein_t actual = protein("UGGUGUUAUUAAUGGUUU");
    assert_protein_match(expected, actual);
@@ -340,7 +340,7 @@ test_sequence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon(void)
    protein_t expected = {
       .valid = true,
       .count = 2,
-      .protein = { Methionine, Methionine },
+      .amino_acids = { Methionine, Methionine },
    };
    protein_t actual = protein("AUGAUG");
    assert_protein_match(expected, actual);
@@ -383,7 +383,7 @@ test_incomplete_rna_sequence_can_translate_if_valid_until_a_stop_codon(void)
    protein_t expected = {
       .valid = true,
       .count = 2,
-      .protein = { Phenylalanine, Phenylalanine },
+      .amino_acids = { Phenylalanine, Phenylalanine },
    };
    protein_t actual = protein("UUCUUCUAAUGGU");
    assert_protein_match(expected, actual);
