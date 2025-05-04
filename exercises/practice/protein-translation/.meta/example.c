@@ -5,11 +5,11 @@ enum { codon_length = 3 };
 
 typedef struct {
    const char *const codon;
-   protein_t protein;
+   amino_acid_t amino_acid;
    bool stop;
-} protein_translation_t;
+} amino_acid_translation_t;
 
-static const protein_translation_t translations[] = {
+static const amino_acid_translation_t translations[] = {
    { "AUG", Methionine, false },
    { "UUU", Phenylalanine, false },
    { "UUC", Phenylalanine, false },
@@ -31,9 +31,9 @@ static const protein_translation_t translations[] = {
 static const size_t translation_count =
     sizeof(translations) / sizeof(translations[0]);
 
-proteins_t proteins(const char *const rna)
+protein_t protein(const char *const rna)
 {
-   proteins_t proteins = { .valid = true, .count = 0 };
+   protein_t protein = { .valid = true, .count = 0 };
 
    size_t rna_length = strlen(rna);
 
@@ -43,9 +43,10 @@ proteins_t proteins(const char *const rna)
       for (size_t j = 0; j < translation_count; j++) {
          if (strncmp(rna + i, translations[j].codon, codon_length) == 0) {
             if (translations[j].stop) {
-               return proteins;
+               return protein;
             } else {
-               proteins.proteins[proteins.count++] = translations[j].protein;
+               protein.amino_acids[protein.count++] =
+                   translations[j].amino_acid;
                found_codon = true;
                break;
             }
@@ -53,10 +54,10 @@ proteins_t proteins(const char *const rna)
       }
 
       if (!found_codon) {
-         proteins.valid = false;
-         return proteins;
+         protein.valid = false;
+         return protein;
       }
    }
 
-   return proteins;
+   return protein;
 }
