@@ -11,7 +11,7 @@ int encode(const uint32_t *integers, size_t integers_len, uint8_t *output);
 
 /// Decode a Variable Length Quantity byte array into an array of integers.
 ///
-/// The function returns the size of the output buffer used, or -1 in an error
+/// The function returns the size of the output buffer used or -1 if an error
 /// occurred.
 int decode(const uint8_t *bytes, size_t buffer_len, uint32_t *output);
 
