@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "Wiguwbe"
+  ],
+  "files": {
+    "solution": [
+      "variable_length_quantity.c",
+      "variable_length_quantity.h"
+    ],
+    "test": [
+      "test_variable_length_quantity.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Implement variable length quantity encoding and decoding.",
+  "source": "A poor Splice developer having to implement MIDI encoding/decoding.",
+  "source_url": "https://splice.com"
+}

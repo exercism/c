@@ -636,6 +636,14 @@
         ]
       },
       {
+        "slug": "variable-length-quantity",
+        "name": "Variable Length Quantity",
+        "uuid": "318e1e7c-fc3a-4ec6-a47d-f8526d032b4f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "spiral-matrix",
         "name": "Spiral Matrix",
         "uuid": "2e5f7544-68fc-4993-9ee0-27b74b1176e7",
