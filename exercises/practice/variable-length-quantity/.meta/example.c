@@ -50,4 +50,3 @@ int decode(const uint8_t *bytes, size_t bytes_len, uint32_t *output)
       return -1;
    return output_index;
 }
-
