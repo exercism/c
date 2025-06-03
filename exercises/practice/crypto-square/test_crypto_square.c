@@ -81,7 +81,7 @@ test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space(void)
 }
 
 static void
-test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces(void)
+test_54_char_plaintext_gives_8_chunks_last_two_with_trailing_spaces(void)
 {
    TEST_IGNORE();
    const char *input =
@@ -105,7 +105,7 @@ int main(void)
    RUN_TEST(test_9_char_plaintext_gives_3_chunks_of_3_chars);
    RUN_TEST(test_8_char_plaintext_gives_3_chunks_last_one_with_trailing_space);
    RUN_TEST(
-       test_54_char_plaintext_gives_7_chunks_last_two_with_trailing_spaces);
+       test_54_char_plaintext_gives_8_chunks_last_two_with_trailing_spaces);
 
    return UNITY_END();
 }
