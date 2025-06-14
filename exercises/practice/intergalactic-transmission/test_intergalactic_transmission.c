@@ -6,7 +6,6 @@
 
 #define BUFFER_SIZE 100
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
-#define WRONG_PARITY -1
 
 void setUp(void)
 {
