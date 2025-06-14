@@ -1142,6 +1142,20 @@
           "functions",
           "memory_management"
         ]
+      },
+      {
+        "slug": "intergalactic-transmission",
+        "name": "Intergalactic Transmission",
+        "uuid": "aa30f9ef-014e-4abb-aee3-fc0613fe20ae",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6,
+        "topics": [
+          "arrays",
+          "bitwise_operations",
+          "control_flow_if_statements",
+          "control_flow_loops"
+        ]
       }
     ]
   },
