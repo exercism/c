@@ -888,12 +888,27 @@
         ]
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "746342b5-8e7f-4672-a323-e08d2ec89c4a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "arrays",
+          "control_flow_if_statements",
+          "memory_management",
+          "strings"
+        ]
+      },
+      {
         "slug": "minesweeper",
         "name": "Minesweeper",
         "uuid": "2e97072f-9e77-4ddd-9d75-6162a927bab1",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5,
+        "status": "deprecated",
         "topics": [
           "arrays",
           "control_flow_if_statements",
