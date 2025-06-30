@@ -1,0 +1,27 @@
+{
+  "authors": [
+    "vlzware"
+  ],
+  "contributors": [
+    "BNAndras",
+    "h-3-0",
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "wolf99"
+  ],
+  "files": {
+    "solution": [
+      "flower_field.c",
+      "flower_field.h"
+    ],
+    "test": [
+      "test_flower_field.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}
