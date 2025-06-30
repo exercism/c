@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-static void set_single_field(char **garden, const size_t row,
-                             const size_t col)
+static void set_single_field(char **garden, const size_t row, const size_t col)
 {
    if (garden[row][col] == '*')
       return;
