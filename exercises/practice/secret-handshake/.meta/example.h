@@ -2,6 +2,6 @@
 #define SECRET_HANDSHAKE_H
 #include <stddef.h>
 
-const char **commands(size_t number);
+const char** commands(size_t number);
 
 #endif
