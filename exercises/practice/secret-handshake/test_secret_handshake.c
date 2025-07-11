@@ -4,9 +4,6 @@
 
 #define ARRAY_SIZE 4
 
-#undef TEST_IGNORE
-#define TEST_IGNORE()
-
 void setUp(void)
 {
 }
