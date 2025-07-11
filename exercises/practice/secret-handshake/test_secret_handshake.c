@@ -1,6 +1,5 @@
 #include "secret_handshake.h"
 #include "test-framework/unity.h"
-#include "test-framework/unity_internals.h"
 #include <stdlib.h>
 
 #define ARRAY_SIZE 4
