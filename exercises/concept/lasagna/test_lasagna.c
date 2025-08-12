@@ -41,7 +41,7 @@ static void test_elapsed_time_in_minutes_for_multiple_layers(void)
 
 int main(void)
 {
-   UnityBegin("test_lucians_luscious_lasagna.c");
+   UnityBegin("test_lasagna.c");
 
    RUN_TEST(test_expected_minutes_in_oven);
    RUN_TEST(test_remaining_minutes_in_oven);
