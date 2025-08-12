@@ -50,5 +50,5 @@ int main(void)
    RUN_TEST(test_elapsed_time_in_minutes_for_one_layer);
    RUN_TEST(test_elapsed_time_in_minutes_for_multiple_layers);
 
-   return UnityEnd();
+   return UNITY_END();
 }
