@@ -1,7 +1,7 @@
 # About
 
 C is a statically typed language, which means that everything has a type at compile-time.
-Choosing a name for a [variable][] and setting its type is referred to as declaring a variable.
+Choosing a name for a [variable][variable] and setting its type is referred to as declaring a variable.
 
 A variable is declared by explicitly specifying its type.
 A variable name [must follow some rules][name-rules] like starting with either a letter or an underscore.
@@ -28,13 +28,13 @@ foo = 25;     // Update to new value
 foo = false;  // Compiler error when assigning value of a different type
 ```
 
-C is an [imperative][] [procedural][] language.
-All computation is carried out as part a series of [statements][] that are part of a [function][] or multiple functions.
+C is an [imperative][imperative] [procedural][procedural] language.
+All computation is carried out as part a series of [statements][statements] that are part of a [function][function] or multiple functions.
 
-Each function can have zero or more [parameters][].
+Each function can have zero or more [parameters][parameters].
 When defining a function all parameters, and the return value must be explicitly typed.
 Values are returned from functions using the [`return` keyword][return-keyword].
-Functions have external [storage class][] by default, meaning that it exists for the lifetime of the program and can be visible externally to the file.
+Functions have external [storage class][storage] by default, meaning that it exists for the lifetime of the program and can be visible externally to the file.
 To prevent this the `static` keyword can be added to specify internal visibility.
 
 ```c
@@ -44,7 +44,7 @@ static int add(int x, int y) {
 ```
 
 In the above example, the variables `x` and `y` can only be used within the function that is, they have function scope.
-[Scope][] is the idea that the value associated with a name (of a program element) is only accessible within the code "area" where it is defined.
+[Scope][scope] is the idea that the value associated with a name (of a program element) is only accessible within the code "area" where it is defined.
 The principal code areas in C are:
 
 - file
@@ -57,7 +57,7 @@ Functions are invoked by specifying the function name and passing arguments for 
 int sum = add(1, 2);
 ```
 
-C supports two types of [comments][].
+C supports two types of [comments][comments].
 Single line comments are preceded by `//` (since C99) and multi-line comments are inserted between `/*` and `*/`.
 
 [variable]: https://www.w3schools.in/c-tutorial/variables/
@@ -73,3 +73,4 @@ Single line comments are preceded by `//` (since C99) and multi-line comments ar
 [storage class]: https://www.programiz.com/c-programming/c-storage-class
 [scope]: https://www.geeksforgeeks.org/scope-rules-in-c/
 [comments]: https://en.wikipedia.org/wiki/Comment_(computer_programming)
+[function]: https://en.wikipedia.org/wiki/Function_(computer_programming)
