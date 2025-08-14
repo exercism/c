@@ -34,7 +34,7 @@ All computation is carried out as part a series of [statements][statements] that
 Each function can have zero or more [parameters][parameters].
 When defining a function all parameters, and the return value must be explicitly typed.
 Values are returned from functions using the [`return` keyword][return-keyword].
-Functions have external [storage class][storage] by default, meaning that it exists for the lifetime of the program and can be visible externally to the file.
+Functions have external [storage class][storage_class] by default, meaning that it exists for the lifetime of the program and can be visible externally to the file.
 To prevent this the `static` keyword can be added to specify internal visibility.
 
 ```c
