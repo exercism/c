@@ -79,6 +79,6 @@ a central location, such as `\usr\include` (on Ubuntu systems).
 
 Including system headers is very common in C code, even simple cases like an Exercism toy exercise.
 
-Common examples include `stdio.h` (_for printing, etc_), `strings.h`, `math.h`, `stdlib.h` (_for various C99 standard library functions_).
+Common examples include `stdio.h` (_for printing, etc_), `string.h`, `math.h`, `stdlib.h` (_for various C99 standard library functions_).
 
 Future Concepts will note which imports are necessary to use the desired functions.
