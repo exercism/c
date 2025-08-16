@@ -105,7 +105,8 @@ The structure of en exercise directory is as follows (note the differing hyphen 
   These are both skipped by the `exercism` CLI when downloading to the client, so it is imperative that you do not reference the names of the files in your code.
   If you need to provide a header file example that is necessary to run your tests it should be named `{my_exercise}.h` instead.
   Please also use [include guards][] in your header files.
-  The exercise tests can be run using the [`bin/run-tests`][run-tests] script which will rename the `example.{c|h}` files accordingly.
+  The exercise tests can be run using `make` from the repository root.
+  The top-level makefile will rename the `example.{c|h}` files accordingly (use `make help` to learn about individual targets).
 * `makefile` - is the makefile for the exercise as it would build using proper filenames (i.e. `{exercise_name}.c` and `{exercise_name}.h` instead of `example.c` and `example.h` respectively).
   Makefiles are expected to change very little between exercises so it should be easy to copy one from another exercise.
 * `README.md` - is the readme that relates to the exercise.
@@ -142,7 +143,7 @@ If you would like the [`/format`][format-workflow] automated action to work corr
   * [Lychee link checker][lychee] action
 * `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
 * `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `format.sh` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
-* `build.yml` runs the `./bin/run-tests` tool on all exercises
+* `test.yml` runs `make` in the repository root to test all exercises
 
 ### The Tools
 
@@ -160,7 +161,6 @@ The work the tools in this directory perform is described as follows:
     ```
 
 * `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
-* `run-tests` loops through each exercise, prepares the exercise for building and then builds it using `make`, runs the unit tests and then checks it for memory leaks with AddressSanitizer.
 
 ### Run Tools Locally
 
@@ -168,13 +168,13 @@ You can also run individual tools on your own machine before committing.
 Firstly make sure you have the necessary applications installed (such as `clang-format`, [`git`][git], [`sed`][sed], [`make`][make] and a C compiler), and then run the required tool from the repository root. For example:
 
 ```bash
-~/git/c$ ./bin/run-tests
+~/git/c$ make
 ```
 
-If you'd like to run only some of the tests to check your work, you can specify them as arguments to the run-tests script.
+If you'd like to run only some of the tests to check your work, you can specify them as targets to make.
 
 ```bash
-~/git/c$ ./bin/run-tests -p -e acronym -e all-your-base -e allergies
+~/git/c$ make acronym all-your-base allergies
 ```
 
 ## Test Runner
@@ -207,7 +207,6 @@ Read more about [test runners].
 [versions]: ./VERSIONS.md
 [test-file-layout]: ./C_STYLE_GUIDE.md#test-file-layout
 [include guards]: https://en.wikipedia.org/wiki/Include_guard
-[run-tests]: ../bin/run-tests
 [configlet]: https://github.com/exercism/configlet
 [configlet releases page]: https://github.com/exercism/configlet/releases
 [hosted runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
