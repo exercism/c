@@ -56,7 +56,7 @@ Many other things can be included in a header file, and you will see examples la
 Lines beginning with `#` are to ensure that the compiler only includes the header file once.
 
 - `HELLO_WORLD_H` is a constant, conventionally the file name converted to uppercase, with the dot replaced by underscore.
-- `#ifndef` is an abbreviated of "if not defined": only continue if the `HELLO_WORLD_H` constant does not already exist.
+- `#ifndef` is an abbreviation of "if not defined": only continue if the `HELLO_WORLD_H` constant does not already exist.
 - `#define` creates the constant.
 - `#endif` closes the `#ifndef` block.
 
