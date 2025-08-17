@@ -31,7 +31,7 @@ static size_t enc_helper(char *encoded, const char *text,
          const size_t cdigits = count_digits(count);
          enc_len += cdigits;
          if (mode == WRITE) {
-            sprintf(encoded, "%zu", count);
+            snprintf(encoded, cdigits + 1, "%zu", count);
             encoded += cdigits;
          }
       }

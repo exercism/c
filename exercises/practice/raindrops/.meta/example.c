@@ -16,7 +16,7 @@ void convert(char result[], int drops)
    }
    if (strlen(result) == 0) {
       char drops_string[12] = "\0";
-      sprintf(drops_string, "%d", drops);
+      snprintf(drops_string, sizeof(drops_string), "%d", drops);
       strcat(result, drops_string);
    }
 }
