@@ -26,7 +26,7 @@ clock_t clock_create(int hour, int minute)
 {
    clock_t clock = { { 0 } };
    normalize_clock(&hour, &minute);
-   sprintf(clock.text, CLOCK_FORMAT, hour, minute);
+   snprintf(clock.text, MAX_STR_LEN, CLOCK_FORMAT, hour, minute);
    return clock;
 }
 

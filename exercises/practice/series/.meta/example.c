@@ -16,8 +16,8 @@ slices_t slices(char *input_text, unsigned int substring_length)
       for (int index = 0; index < substring_count; index++) {
          results.substring[index] =
              malloc(sizeof(char) * (substring_length + 1));
-         sprintf(results.substring[index], "%.*s", substring_length,
-                 &input_text[index]);
+         snprintf(results.substring[index], MAX_SERIES_RESULTS, "%.*s",
+                  substring_length, &input_text[index]);
       }
    }
    return results;

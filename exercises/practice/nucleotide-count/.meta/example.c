@@ -12,7 +12,8 @@ char *count(const char *dna_strand)
    size_t nucleotide_c_count = 0;
    size_t nucleotide_g_count = 0;
    size_t nucleotide_t_count = 0;
-   char *count_results = calloc(1, 50);
+   static const int max_length = 50;
+   char *count_results = calloc(1, max_length);
 
    for (index = 0; (index < strlen(dna_strand)) && (invalid_char == false);
         index++) {
@@ -36,8 +37,9 @@ char *count(const char *dna_strand)
    }
 
    if (!invalid_char) {
-      sprintf(count_results, "A:%zu C:%zu G:%zu T:%zu", nucleotide_a_count,
-              nucleotide_c_count, nucleotide_g_count, nucleotide_t_count);
+      snprintf(count_results, max_length, "A:%zu C:%zu G:%zu T:%zu",
+               nucleotide_a_count, nucleotide_c_count, nucleotide_g_count,
+               nucleotide_t_count);
    }
    return count_results;
 }
