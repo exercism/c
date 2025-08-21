@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Shell script static analysis
-        run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin bin/run-tests format.sh
+        run: shellcheck bin/fetch-configlet bin/verify-unity-version bin/check-unitybegin format.sh
 
       - name: Check concept exercises formatting
         run: |

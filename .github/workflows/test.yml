@@ -20,7 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - name: Determine number of available hardware threads
+      run: echo "NUM_THREADS=$(nproc || sysctl -n hw.ncpu)" >> $GITHUB_ENV
     - name: Test Exercises
       env:
         CC: ${{ matrix.compiler }}
-      run: ./bin/run-tests -a
+      run: make -j ${{ env.NUM_THREADS }}
