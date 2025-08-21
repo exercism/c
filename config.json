@@ -1181,6 +1181,11 @@
       "name": "Basics"
     },
     {
+      "uuid": "95d7085c-69fd-4799-ae2a-bdc9306da436",
+      "slug": "headers-includes",
+      "name": "Headers and Includes"
+    },
+    {
       "uuid": "20948c69-20f7-498d-b743-fada00e5c79d",
       "slug": "bits",
       "name": "Bits"
