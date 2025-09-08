@@ -3,10 +3,6 @@
 Make sure you have read the [C track-specific documentation][c-track] on the Exercism site.
 This covers the basic information on setting up the development environment expected by the exercises.
 
-## Submitting Incomplete Solutions
-
-If you are struggling with a particular exercise, it is possible to submit an incomplete solution so you can see how others have completed the exercise.
-
 ## Resources
 
 To get help if having trouble, you can use the following resources:
