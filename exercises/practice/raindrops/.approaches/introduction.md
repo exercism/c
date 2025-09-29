@@ -75,11 +75,6 @@ void convert(char result[], int drops);
 #include <stdio.h>
 #include <string.h>
 
-#include "raindrops.h"
-
-#include <stdio.h>
-#include <string.h>
-
 void convert(char result[], int drops)
 {
    sprintf(result, "%s%s%s", drops % 3 == 0 ? "Pling" : "",
