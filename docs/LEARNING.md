@@ -28,7 +28,7 @@ These resources cover [Unity][] and [CppUTest][]; this track uses Unity.
 [Learn C]: https://www.learn-c.org/
 [CS50x]: https://www.edx.org/course/cs50s-introduction-to-computer-science
 [CodeChef]: https://www.codechef.com/ide
-[test-frameworks]: https://www.drdobbs.com/testing/unit-testing-in-c-tools-and-conventions/240156344
+[test-frameworks]: https://web.archive.org/web/20190726064009/https://www.drdobbs.com/testing/unit-testing-in-c-tools-and-conventions/240156344
 [tdd]: https://pragprog.com/titles/jgade/test-driven-development-for-embedded-c
 [Unity]: https://www.throwtheswitch.org/unity/
 [CppUTest]: https://cpputest.github.io/
