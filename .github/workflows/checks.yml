@@ -42,7 +42,7 @@ jobs:
         id: lychee
         with:
           args: >- 
-            --cache --max-retries 3 --retry-wait-time 5 --max-concurrency 30 --exclude "stackoverflow.com/*" "gnu.org/*" 
+            --cache --max-retries 3 --retry-wait-time 5 --max-concurrency 30 --exclude "stackoverflow\.com.*" "gnu\.org.*" 
             --require-https --insecure --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" 
             --no-progress **/*.md **/*.html
           fail: true
