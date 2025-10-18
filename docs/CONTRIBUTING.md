@@ -201,9 +201,9 @@ Read more about [test runners].
 [clang-format]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
 [Homebrew]: https://brew.sh
 [implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises/add.md
-[Unity]: http://www.throwtheswitch.org/unity/
-[ThrowTheSwitch]: http://www.throwtheswitch.org/#intro-1-section
-[getting started with unity]: http://www.throwtheswitch.org/getting-started-with-unity/
+[Unity]: https://www.throwtheswitch.org/unity/
+[ThrowTheSwitch]: https://www.throwtheswitch.org/#intro-1-section
+[getting started with unity]: https://www.throwtheswitch.org/getting-started-with-unity/
 [versions]: ./VERSIONS.md
 [test-file-layout]: ./C_STYLE_GUIDE.md#test-file-layout
 [include guards]: https://en.wikipedia.org/wiki/Include_guard
