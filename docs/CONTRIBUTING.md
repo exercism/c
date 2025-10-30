@@ -77,7 +77,7 @@ clang-format -i $(file)
 
 ## Exercise anatomy
 
-Each exercise should be contained in a directory `c/exercises/pactice/{exercise-name}`.
+Each exercise should be contained in a directory `c/exercises/practice/{exercise-name}`.
 See [implement-an-exercise-from-specification][] for in depth details on implementing an exercise that matches the specification
 
 The structure of en exercise directory is as follows (note the differing hyphen and underscore usage for directory names and file names respectively):
