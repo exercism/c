@@ -85,21 +85,6 @@ The structure of en exercise directory is as follows (note the differing hyphen 
 ```text
 +-- {exercise-name}
     +-- makefile
-    +-- README.md
-    +-- src
-    |   +-- example.c
-    |   +-- example.h | {exercise_name}.h
-    +-- test
-        +-- test_{exercise_name}.c
-        +-- vendor
-            +-- unity.c
-            +-- unity.h
-            +-- unity_internals.h
-```
-
-```text
-+-- {exercise-name}
-    +-- makefile
     +-- srcs
     |   +-- {exercise-name}.c
     |   +-- {exercise-name}.h
@@ -115,11 +100,11 @@ The structure of en exercise directory is as follows (note the differing hyphen 
   ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.
   The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].
   Tests should be written that satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository
-* `src` - contains the source files `{exercise-name}.c` and `[exercise-name].h`.
+* `srcs` - contains the source files `{exercise-name}.c` and `[exercise-name].h`.
   Please use [include guards][] in your header files.
   The exercise tests can be run using `make test` from the repository root.
 * `makefile` - is the makefile for the exercise as it would build.
-Two rules are required,
+Two rules are required,  
 test: compile test_{exercise-name}.c and run it.
 memcheck: compile test_{exercise-name} with -fsanitize=addres, -fno-common, -fno-omit-frame-pointer flag and run it
 Makefiles are expected to change very little between exercises so it should be easy to copy one from another exercise.
