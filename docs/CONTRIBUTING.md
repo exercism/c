@@ -90,10 +90,10 @@ The structure of en exercise directory is as follows (note the differing hyphen 
     |   +-- {exercise-name}.h
     +-- test
     |   +-- test_{exercise-name}.c
-    +-- test-framework
-        +-- unity.c
-        +-- unity.h
-        +-- unity_internals.h
+    |    +-- test-framework
+    |        +-- unity.c
+    |        +-- unity.h
+    |        +-- unity_internals.h
 ```
 
 * `test` - contains the test file `test_{exercise_name}.c` and a `test-framework` directory containing the test harness [Unity][] from [ThrowTheSwitch][].
