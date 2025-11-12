@@ -16,7 +16,7 @@ Curious, you picked number 12 to test and began the journey:
 
 12 ➜ 6 ➜ 3 ➜ 10 ➜ 5 ➜ 16 ➜ 8 ➜ 4 ➜ 2 ➜ 1
 
-Counting from the second number (6), it took 9 steps to reach 1, and each time the rules repeated, the number kept changing.
+Counting from the second number (6), it took 8 steps to reach 1, and each time the rules repeated, the number kept changing.
 At first, the sequence seemed unpredictable — jumping up, down, and all over.
 Yet, the conjecture claims that no matter the starting number, we'll always end at 1.
 
