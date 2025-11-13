@@ -105,7 +105,7 @@ The structure of an exercise directory is as follows (note the differing hyphen 
 * `makefile` - is the makefile for the exercise as it would build.  
 Two rules are required,  
 test: compile test_{exercise-name}.c and run it.
-memcheck: compile test_{exercise-name} with -fsanitize=addres, -fno-common, -fno-omit-frame-pointer flag and run it
+memcheck: compile test_{exercise-name} with -fsanitize=address, -fno-common, -fno-omit-frame-pointer flag and run it
 Makefiles are expected to change very little between exercises so it should be easy to copy one from another exercise.
 
 **Don't forget** to add the exercise to the track's `config.json`. For this you will need to determine the best place to add the exercise within the order of all other track exercises. You will also need to generate a UUID to add here. For both of these tasks you can use the [configlet][] tool; the tool will even lint and format the `config.json` for you after you've made these changes!
