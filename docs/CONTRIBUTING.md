@@ -85,25 +85,24 @@ The structure of an exercise directory is as follows (note the differing hyphen 
 ```text
 +-- {exercise-name}
     +-- makefile
-    +-- srcs
-    |   +-- {exercise-name}.c
-    |   +-- {exercise-name}.h
-    +-- test
-    |   +-- test_{exercise-name}.c
-    |    +-- test-framework
-    |        +-- unity.c
-    |        +-- unity.h
-    |        +-- unity_internals.h
+    +-- {exercise-name}.c
+    +-- {exercise-name}.h
+    +-- test_{exercise-name}.c
+    +-- test-framework
+    |   +-- unity.c
+    |   +-- unity.h
+    |   +-- unity_internals.h
 ```
 
-* `test` - contains the test file `test_{exercise_name}.c` and a `test-framework` directory containing the test harness [Unity][] from [ThrowTheSwitch][].
-  ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.
-  The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].
-  Tests should be written that satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository
-* `srcs` - contains the source files `{exercise-name}.c` and `[exercise-name].h`.
+`test_{exercise_name}.c` - This file contains all the tests for the exercise.  
+`test-framework` - directory containing the test harness [Unity][] from [ThrowTheSwitch][].  
+  ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.  
+  The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].  
+  Tests should be written to satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository  
+`{exercise-name}.c` / `{exercise-name}.h` - The exercise's source files.  
   Please use [include guards][] in your header files.
   The exercise tests can be run using `make test` from the repository root.
-* `makefile` - is the makefile for the exercise as it would build.
+* `makefile` - is the makefile for the exercise as it would build.  
 Two rules are required,  
 test: compile test_{exercise-name}.c and run it.
 memcheck: compile test_{exercise-name} with -fsanitize=addres, -fno-common, -fno-omit-frame-pointer flag and run it
