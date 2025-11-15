@@ -78,6 +78,6 @@ If you have any questions regarding implementing the exercise, please post them 
 [docs-rationale-for-v3]: https://github.com/exercism/v3/blob/main/docs/rationale-for-v3.md
 [docs-features-of-v3]: https://github.com/exercism/v3/blob/main/docs/features-of-v3.md
 [anatomy-of-a-concept-exercise]: https://www.youtube.com/watch?v=gkbBqd7hPrA
-[unity]: http://www.throwtheswitch.org/unity
+[unity]: https://www.throwtheswitch.org/unity
 [how-to-implement-a-concept-exercise]: https://github.com/exercism/v3/blob/main/docs/maintainers/generic-how-to-implement-a-concept-exercise.md
 [reference]: https://github.com/exercism/v3/blob/main/reference
