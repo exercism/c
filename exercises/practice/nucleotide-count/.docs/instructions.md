@@ -13,11 +13,11 @@ We represent a DNA sequence as an ordered collection of these four nucleotides a
 'A' for adenine, 'C' for cytosine, 'G' for guanine, and 'T' for thymine.
 
 Given a string representing a DNA sequence, count how many of each nucleotide is present.
-If the string contains characters that aren't A, C, G, or T then it is invalid and you should signal an error.
+If the string contains characters that aren't A, C, G, or T then it is invalid and you should signal an error by returning an empty string.
 
 For example:
 
 ```text
-"GATTACA" -> 'A': 3, 'C': 1, 'G': 1, 'T': 2
-"INVALID" -> error
+"GATTACA" -> "A:3, C:1, G:1, T:2"
+"INVALID" -> ""
 ```
