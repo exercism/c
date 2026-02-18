@@ -17,8 +17,6 @@ What are the prime factors of 60?
     So let's move on to our next divisor, 3.
 - 3 goes cleanly into 15, leaving 5.
   - 3 does not go cleanly into 5.
-    The next possible factor is 4.
-  - 4 does not go cleanly into 5.
     The next possible factor is 5.
 - 5 does go cleanly into 5.
 - We're left only with 1, so now, we're done.
