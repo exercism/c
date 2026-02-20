@@ -1,0 +1,22 @@
+{
+  "authors": [
+    "colinleach"
+  ],
+  "files": {
+    "solution": [
+      "pacman_rules.c",
+      "pacman_rules.h"
+    ],
+    "test": [
+      "test_pacman_rules.c"
+    ],
+    "exemplar": [
+      ".meta/exemplar.c"
+    ]
+  },
+  "language_versions": "c99",
+  "forked_from": [
+    "cpp/pacman_rules"
+  ],
+  "blurb": "In C, the boolean type enables working with logical values, allowing for boolean operations such as AND, OR, and NOT to evaluate and manipulate conditions."
+}
