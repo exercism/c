@@ -13,7 +13,7 @@ To get help if having trouble, you can use the following resources:
 - [The C Programming][K&R] book by K&R is the original source of the language and is still useful today.
 
 [c-track]: https://exercism.org/docs/tracks/c
-[stackoverflow]: http://stackoverflow.com/questions/tagged/c
+[stackoverflow]: https://stackoverflow.com/questions/tagged/c
 [cppreference]: https://en.cppreference.com/w/c
 [tutorialspoint]: https://www.tutorialspoint.com/cprogramming/
 [K&R]: https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/

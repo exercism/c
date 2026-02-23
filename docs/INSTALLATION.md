@@ -28,4 +28,4 @@ If you are using an earlier version of Windows or WSL Bash is not available to y
 [Homebrew]: https://brew.sh
 [Windows Subsystem for Linux]: https://docs.microsoft.com/en-gb/windows/wsl/about
 [MSYS]: https://www.msys2.org
-[mingw-w64]: http://mingw-w64.org
+[mingw-w64]: https://mingw-w64.org
