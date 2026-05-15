@@ -47,7 +47,10 @@ uint64_t square(uint8_t index)
 
 uint64_t total(void)
 {
-    return ((((uint64_t)1 << 63) - 1) << 1) + 1;
+     // '~' is the NOT bitwise operator in C
+     // By flipping all bits of 0 in a uint64_t container (000...0 -> 111...1)
+     // Can you guess what it returns?
+     return ~0ULL;
 }
 ```
 
