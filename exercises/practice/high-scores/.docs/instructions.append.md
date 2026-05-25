@@ -1,5 +1,7 @@
 # Instructions append
 
+## Implementation
+
 The functions in this exercise accept an array containing one or more numbers, each representing one 'game score'.
 
 The player's game scores can be read from
