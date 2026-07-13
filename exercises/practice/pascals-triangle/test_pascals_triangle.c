@@ -65,8 +65,7 @@ static void test_two_rows(void)
    uint8_t expected[2][2] = {
       // clang-format off
       {1, 0},
-      {1, 1}
-      // clang-format on
+      {1, 1}   // clang-format on
    };
    actual = create_triangle(2);
    TEST_ASSERT_TRUE(check_triangle((count = 2), expected, actual));
@@ -81,8 +80,7 @@ static void test_three_rows(void)
       // clang-format off
       {1, 0, 0},
       {1, 1, 0},
-      {1, 2, 1}
-      // clang-format on
+      {1, 2, 1}   // clang-format on
    };
    actual = create_triangle(3);
    TEST_ASSERT_TRUE(check_triangle((count = 3), expected, actual));
@@ -98,8 +96,7 @@ static void test_four_rows(void)
       {1, 0, 0, 0},
       {1, 1, 0, 0},
       {1, 2, 1, 0},
-      {1, 3, 3, 1}
-      // clang-format on
+      {1, 3, 3, 1}   // clang-format on
    };
    actual = create_triangle(4);
    TEST_ASSERT_TRUE(check_triangle((count = 4), expected, actual));
@@ -116,8 +113,7 @@ static void test_five_rows(void)
       {1, 1, 0, 0, 0},
       {1, 2, 1, 0, 0},
       {1, 3, 3, 1, 0},
-      {1, 4, 6, 4, 1}
-      // clang-format on
+      {1, 4, 6, 4, 1}   // clang-format on
    };
    actual = create_triangle(5);
    TEST_ASSERT_TRUE(check_triangle((count = 5), expected, actual));

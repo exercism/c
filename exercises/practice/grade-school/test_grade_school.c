@@ -8,10 +8,7 @@
    {                                                                           \
       1,                                                                       \
       {                                                                        \
-         (student_t)                                                           \
-         {                                                                     \
-            255, "DEADBEEF"                                                    \
-         }                                                                     \
+         (student_t){ 255, "DEADBEEF" }                                        \
       }                                                                        \
    }
 
