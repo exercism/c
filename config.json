@@ -1172,6 +1172,18 @@
           "control_flow_loops"
         ]
       }
+    ],
+    "concept": [
+      {
+        "slug": "lasagna",
+        "name": "Lasagna",
+        "uuid": "96c38bfb-4282-4de1-8995-23704d863e0f",
+        "concepts": [
+            "basics"
+        ],
+        "prerequisites": [],
+        "status": "wip"
+      }
     ]
   },
   "concepts": [
