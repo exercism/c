@@ -3,4 +3,7 @@
 
 #define DIGITS_ARRAY_SIZE 64
 
+size_t rebase(int8_t digits[DIGITS_ARRAY_SIZE], int16_t from_base,
+              int16_t to_base, size_t num_digits);
+
 #endif
