@@ -36,3 +36,15 @@ jobs:
 
       - name: Check include guards
         run: ./bin/check-include-guards ./exercises/concept ./exercises/practice
+        
+      - name: Check links
+        uses: lycheeverse/lychee-action@885c65f3dc543b57c898c8099f4e08c8afd178a2
+        id: lychee
+        with:
+          args: >- 
+            --cache --max-retries 3 --retry-wait-time 5 --max-concurrency 30 --exclude "stackoverflow\.com.*" "gnu\.org.*" 
+            --require-https --insecure --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" 
+            --no-progress **/*.md **/*.html
+          fail: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
