@@ -1172,6 +1172,16 @@
           "control_flow_loops"
         ]
       }
+    ],
+    "concept": [
+      {
+        "slug": "pacman-rules",
+        "name": "Pacman Rules",
+        "uuid": "9f14f611-e783-49a5-904e-6f8f1c4d1f51",
+        "concepts": [],
+        "prerequisites": [],
+        "status": "wip"
+      }
     ]
   },
   "concepts": [
