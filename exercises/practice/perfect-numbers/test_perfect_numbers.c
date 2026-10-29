@@ -44,6 +44,12 @@ static void test_large_abundant_number_is_classified_correctly(void)
    TEST_ASSERT_EQUAL(ABUNDANT_NUMBER, classify_number(33550335));
 }
 
+static void test_perfect_square_abundant_number_is_classified_correctly(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL(ABUNDANT_NUMBER, classify_number(196));
+}
+
 static void test_smallest_prime_deficient_number_is_classified_correctly(void)
 {
    TEST_IGNORE();
@@ -97,6 +103,7 @@ int main(void)
    RUN_TEST(test_smallest_abundant_number_is_classified_correctly);
    RUN_TEST(test_medium_abundant_number_is_classified_correctly);
    RUN_TEST(test_large_abundant_number_is_classified_correctly);
+   RUN_TEST(test_perfect_square_abundant_number_is_classified_correctly);
    RUN_TEST(test_smallest_prime_deficient_number_is_classified_correctly);
    RUN_TEST(test_smallest_non_prime_deficient_number_is_classified_correctly);
    RUN_TEST(test_medium_deficient_number_is_classified_correctly);
