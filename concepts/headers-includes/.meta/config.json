@@ -1,0 +1,7 @@
+{
+  "authors": [
+    "colinleach"
+  ],
+  "contributors": [],
+  "blurb": "C uses header files (*.h) for various declarations. #include statements incorporate these declarations into the .c file."
+}
