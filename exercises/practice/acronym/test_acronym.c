@@ -23,7 +23,6 @@ static void check_abbreviation(char *phrase, char *expected)
 
 static void test_null_string(void)
 {
-   TEST_IGNORE();   // delete this line to run test
    char *phrase = NULL;
    char *expected = NULL;
    check_abbreviation(phrase, expected);
@@ -31,13 +30,13 @@ static void test_null_string(void)
 
 static void test_empty_string(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();   // delete this line to run test
    char *phrase = "";
    char *expected = NULL;
    check_abbreviation(phrase, expected);
 }
 
-static void test_basic_abbreviation(void)
+static void test_basic(void)
 {
    TEST_IGNORE();
    char *phrase = "Portable Network Graphics";
@@ -61,7 +60,7 @@ static void test_punctuation(void)
    check_abbreviation(phrase, expected);
 }
 
-static void test_all_caps_words(void)
+static void test_all_caps_word(void)
 {
    TEST_IGNORE();
    char *phrase = "GNU Image Manipulation Program";
@@ -77,16 +76,15 @@ static void test_punctuation_without_whitespace(void)
    check_abbreviation(phrase, expected);
 }
 
-static void test_long_abbreviation(void)
+static void test_very_long_abbreviation(void)
 {
    TEST_IGNORE();
-   char *phrase = "Rolling On The Floor Laughing So Hard "
-                  "That My Dogs Came Over And Licked Me";
+   char *phrase = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me";
    char *expected = "ROTFLSHTMDCOALM";
    check_abbreviation(phrase, expected);
 }
 
-static void test_consecutive_delimiters_abbreviation(void)
+static void test_consecutive_delimiters(void)
 {
    TEST_IGNORE();
    char *phrase = "Something - I made up from thin air";
@@ -116,13 +114,13 @@ int main(void)
 
    RUN_TEST(test_null_string);
    RUN_TEST(test_empty_string);
-   RUN_TEST(test_basic_abbreviation);
+   RUN_TEST(test_basic);
    RUN_TEST(test_lowercase_words);
    RUN_TEST(test_punctuation);
-   RUN_TEST(test_all_caps_words);
+   RUN_TEST(test_all_caps_word);
    RUN_TEST(test_punctuation_without_whitespace);
-   RUN_TEST(test_long_abbreviation);
-   RUN_TEST(test_consecutive_delimiters_abbreviation);
+   RUN_TEST(test_very_long_abbreviation);
+   RUN_TEST(test_consecutive_delimiters);
    RUN_TEST(test_apostrophes);
    RUN_TEST(test_underscore_emphasis);
 

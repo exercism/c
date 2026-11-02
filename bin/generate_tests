@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+
+"""Test generator v1."""
+
+import argparse
+import json
+import os
+import pathlib
+import re
+import shlex
+import string
+import subprocess
+import sys
+import tomllib
+
+import jinja2
+
+
+def problem_spec_dir() -> pathlib.Path:
+    """Detect and return the problem specs."""
+    cache_dir = os.getenv("XDG_CACHE_HOME", os.getenv("HOME") + "/.cache")
+    specs = pathlib.Path(cache_dir) / "exercism/configlet/problem-specifications"
+    if specs.exists():
+        return specs
+    cur = pathlib.Path(os.getcwd())
+    for i in cur.parents:
+        if i.name == "problem-specifications":
+            return i
+    raise LookupError("Could not find problem specs")
+
+
+def flatten_cases(cases: list[dict]) -> list[tuple[list[str], dict]]:
+    """Recursive flatten test cases, returning individual cases with parent descriptions."""
+    for case_or_group in cases:
+        if "cases" in case_or_group:
+            for groups, child_case in flatten_cases(case_or_group["cases"]):
+                yield ([case_or_group["description"]] + groups, child_case)
+        else:
+            yield ([], case_or_group)
+
+
+def get_cases(specs: pathlib.Path, exercise: pathlib.Path) -> list[dict]:
+    """Return flattened, filtered cases with additional metadata attached."""
+    canonical_path = specs / "exercises" / exercise.name / "canonical-data.json"
+    with open(canonical_path, "r", encoding="utf-8") as f:
+        canonical = json.load(f)
+    with open(exercise / ".meta" / "tests.toml", "rb") as f:
+        tests = tomllib.load(f)
+
+    reimplemented = {
+        test["reimplements"]
+        for test in tests.values()
+        if test.get("include", True) and "reimplements" in test
+    }
+    cases = []
+    for groups, case in flatten_cases(canonical["cases"]):
+        # Filter out test cases with include=false or not listed.
+        if case["uuid"] not in tests or case["uuid"] in reimplemented:
+            continue
+        if not tests[case["uuid"]].get("include", True):
+            continue
+        # Add metadata.
+        case["descriptions"] = groups + [case["description"]]
+        case["expect_error"] = isinstance(case["expected"], dict) and "error" in case["expected"]
+        if case["expect_error"]:
+            case["expect_error_msg"] = case["expected"]["error"]
+        cases.append(case)
+    return cases
+
+
+def quote(obj) -> str:
+    """Filter `quote` that converts an arbitrary object to the GDScript version."""
+    if isinstance(obj, dict):
+        out = ", ".join(f"{quote(k)}: {quote(v)}" for k, v in obj.items())
+        return "{" + out + "}"
+    if isinstance(obj, list):
+        return "{ " + ", ".join(quote(i) for i in obj) + " }"
+    if obj is True:
+        return "true"
+    if obj is False:
+        return "false"
+    if obj is None:
+        return "null"
+    if isinstance(obj, (int, float)):
+        return f"{obj}"
+    if isinstance(obj, str):
+        obj = obj.replace("\\", "\\\\").replace("\n", "\\n")
+        if '"' not in obj:
+            return '"' + obj + '"'
+        if "'" not in obj:
+            return "'" + obj + "'"
+        return '"' + obj.replace('"', '\\"') + '"'
+    return TypeError(f"quote for type {type(obj)} not supported")
+
+
+def tojson(data, separators=(',', ':'), indent=None) -> str:
+    """Filter `tojson` that JSON encodes a string with flexible settings."""
+    return json.dumps(data, separators=separators, indent=indent)
+
+
+def camel_to_snake(name: str) -> str:
+    """Filter `camel_to_snake` that converts a camel case string to snake case."""
+    return re.sub(r"([a-z])([A-Z])", (lambda m: f"{m.group(1)}_{m.group(2).lower()}"), name)
+
+
+def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
+    """Return a configured Jinja env with filters added."""
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
+    # C quoting of arbitrary data objects.
+    env.filters["quote"] = quote
+    # String escaping, ANSI-C style.
+    env.filters["repr"] = repr
+    env.filters["camel_to_snake"] = camel_to_snake
+    return env
+
+
+def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
+    """Generate and write test file for a given spec and exercise."""
+    cases = get_cases(specs, exercise)
+    translation = str.maketrans({i: "_" for i in string.punctuation + " "})
+    for case in cases:
+        case["test_function"] = "test_" + re.sub("_+", "_", case["description"].lower().translate(translation))
+        case["property_function"] = camel_to_snake(case["property"])
+        if len(case.get("input", {}).values()) == 1:
+            case["given"] = list(case["input"].values())[0]
+
+    data = {
+        "cases": cases,
+        "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0]
+    }
+
+    # Render the template.
+    try:
+        template = jinja_env(exercise).get_template("template.j2")
+        out = template.render(data).strip()
+    except jinja2.exceptions.TemplateAssertionError as e:
+        e.add_note(f"Error rendering template for {exercise.name}")
+        raise
+
+    # Check for changes or the lack thereof.
+    test_file = exercise / json.loads((exercise / ".meta/config.json").read_text())["files"]["test"][0]
+    if test_file.exists():
+        old_content = test_file.read_text()
+        if old_content.strip() == out:
+            return
+
+    # Write the test file.
+    test_file.write_text(out + "\n")
+
+
+def argparser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--no-pull",
+        action="store_false",
+        dest="pull",
+        help="Do not run `git pull` on the problem specs repo",
+    )
+    parser.add_argument(
+        "exercises",
+        nargs="*",
+        help="exercises to generate tests; if none supplied, generate all"
+    )
+    return parser
+
+
+def main():
+    """Main entrypoint."""
+    specs = problem_spec_dir()
+    args = argparser().parse_args()
+    if args.pull:
+        subprocess.check_call(["git", "pull"], cwd=specs)
+    exercises = args.exercises
+    # Generate all exercises with templates if none are specified as args.
+    if not exercises:
+        exercises = [
+            i.parent.parent
+            for i in pathlib.Path("exercises/practice").glob("*/.meta/template.j2")
+        ]
+    else:
+        # Turn strings to paths and make them relative to the practice exercises.
+        out = []
+        practice = pathlib.Path("exercises/practice")
+        for exercise in exercises:
+            path = pathlib.Path(exercise)
+            if not path.is_relative_to(practice):
+                path = practice / path
+            out.append(path)
+        exercises = out
+
+    for exercise in exercises:
+        exercise_path = pathlib.Path(exercise)
+        if not exercise_path.exists():
+            raise ValueError(f"Exercise {exercise_path} does not exist")
+        generate(specs, exercise_path)
+
+
+if __name__ == "__main__":
+    main()

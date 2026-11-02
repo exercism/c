@@ -1,0 +1,61 @@
+#include "test-framework/unity.h"
+#include "acronym.h"
+#include <stdlib.h>
+#include <string.h>
+
+static char *actual = NULL;
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+   if (actual)
+      free(actual);
+   actual = NULL;
+}
+
+static void check_abbreviation(char *phrase, char *expected)
+{
+   actual = abbreviate(phrase);
+   TEST_ASSERT_EQUAL_STRING(expected, actual);
+}
+
+static void test_null_string(void)
+{
+   char *phrase = NULL;
+   char *expected = NULL;
+   check_abbreviation(phrase, expected);
+}
+
+static void test_empty_string(void)
+{
+   TEST_IGNORE();   // delete this line to run test
+   char *phrase = "";
+   char *expected = NULL;
+   check_abbreviation(phrase, expected);
+}
+{%- for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+   TEST_IGNORE();
+   char *phrase = {{ case.given | quote }};
+   char *expected = {{ case.expected | quote }};
+   check_abbreviation(phrase, expected);
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+   RUN_TEST(test_null_string);
+   RUN_TEST(test_empty_string);
+{%- for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
+

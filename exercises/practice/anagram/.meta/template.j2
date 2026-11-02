@@ -1,0 +1,69 @@
+#include <stdlib.h>
+#include <string.h>
+
+#include "test-framework/unity.h"
+#include "anagram.h"
+
+#define MAX_STR_LEN 20
+
+struct candidates candidates;
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+   free(candidates.candidate);
+   candidates.candidate = NULL;
+}
+
+static struct candidates build_candidates(char *inputs, size_t count)
+{
+   struct candidates result;
+   result.count = count;
+   result.candidate = malloc(sizeof(struct candidate) * count);
+   for (int i = 0; i < (int)count; i++) {
+      result.candidate[i].word = &inputs[i * MAX_STR_LEN];
+      result.candidate[i].is_anagram = UNCHECKED;
+   }
+
+   return result;
+}
+
+static void assert_correct_anagrams(struct candidates *candidates,
+                                    enum anagram_status expected[])
+{
+   for (int i = 0; i < (int)candidates->count; i++) {
+      TEST_ASSERT_EQUAL(expected[i], candidates->candidate[i].is_anagram);
+   }
+}
+{% for case in cases %}
+static void {{ case.test_function }}(void)
+{
+{%- if not loop.first %}
+   TEST_IGNORE();   // delete this line to run test
+{%- endif %}
+   char inputs[][MAX_STR_LEN] = {{ case.input.candidates | quote }};
+
+   char subject[] = { {{ case.input.subject | quote }} };
+
+   candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
+   enum anagram_status expected[] = {
+       {% for candidate in case.input.candidates%}{% if candidate in case.expected %}IS_ANAGRAM{% else %}NOT_ANAGRAM{% endif %}{% if not loop.last %}, {% endif %}{% endfor %} };
+
+   {{ case.property_function }}(subject, &candidates);
+   assert_correct_anagrams(&candidates, expected);
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
