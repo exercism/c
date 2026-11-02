@@ -41,8 +41,10 @@ static void assert_correct_anagrams(struct candidates *candidates,
 {% for case in cases %}
 static void {{ case.test_function }}(void)
 {
-{%- if not loop.first %}
+{%- if loop.index == 2 %}
    TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
 {%- endif %}
    char inputs[][MAX_STR_LEN] = {{ case.input.candidates | quote }};
 
