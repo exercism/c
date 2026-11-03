@@ -52,7 +52,14 @@ static void {{ case.test_function }}(void)
 
    candidates = build_candidates(*inputs, sizeof(inputs) / MAX_STR_LEN);
    enum anagram_status expected[] = {
-       {% for candidate in case.input.candidates%}{% if candidate in case.expected %}IS_ANAGRAM{% else %}NOT_ANAGRAM{% endif %}{% if not loop.last %}, {% endif %}{% endfor %} };
+       {% for candidate in case.input.candidates%}
+       {%- if candidate in case.expected -%}
+       IS_ANAGRAM
+       {%- else -%}
+       NOT_ANAGRAM
+       {%- endif -%}
+       {% if not loop.last %}, {% endif %}{% endfor %}
+       };
 
    {{ case.property_function }}(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
