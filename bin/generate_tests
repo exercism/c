@@ -69,10 +69,7 @@ def get_cases(specs: pathlib.Path, exercise: pathlib.Path) -> list[dict]:
 
 
 def quote(obj) -> str:
-    """Filter `quote` that converts an arbitrary object to the GDScript version."""
-    if isinstance(obj, dict):
-        out = ", ".join(f"{quote(k)}: {quote(v)}" for k, v in obj.items())
-        return "{" + out + "}"
+    """Filter `quote` that converts an arbitrary object to the C version."""
     if isinstance(obj, list):
         return "{ " + ", ".join(quote(i) for i in obj) + " }"
     if obj is True:
@@ -80,15 +77,11 @@ def quote(obj) -> str:
     if obj is False:
         return "false"
     if obj is None:
-        return "null"
+        return "NULL"
     if isinstance(obj, (int, float)):
         return f"{obj}"
     if isinstance(obj, str):
         obj = obj.replace("\\", r"\\").replace("\n", r"\n")
-        if '"' not in obj:
-            return '"' + obj + '"'
-        if "'" not in obj:
-            return "'" + obj + "'"
         return '"' + obj.replace('"', r'\"') + '"'
     return TypeError(f"quote for type {type(obj)} not supported")
 
