@@ -141,10 +141,10 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
 def argparser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--no-pull",
-        action="store_false",
+        "--pull",
+        action="store_true",
         dest="pull",
-        help="Do not run `git pull` on the problem specs repo",
+        help="Run `git pull` on the problem specs repo",
     )
     parser.add_argument(
         "exercises",
