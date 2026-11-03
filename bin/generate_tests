@@ -84,12 +84,12 @@ def quote(obj) -> str:
     if isinstance(obj, (int, float)):
         return f"{obj}"
     if isinstance(obj, str):
-        obj = obj.replace("\\", "\\\\").replace("\n", "\\n")
+        obj = obj.replace("\\", r"\\").replace("\n", r"\n")
         if '"' not in obj:
             return '"' + obj + '"'
         if "'" not in obj:
             return "'" + obj + "'"
-        return '"' + obj.replace('"', '\\"') + '"'
+        return '"' + obj.replace('"', r'\"') + '"'
     return TypeError(f"quote for type {type(obj)} not supported")
 
 
