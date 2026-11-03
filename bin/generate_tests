@@ -86,11 +86,6 @@ def quote(obj) -> str:
     return TypeError(f"quote for type {type(obj)} not supported")
 
 
-def tojson(data, separators=(',', ':'), indent=None) -> str:
-    """Filter `tojson` that JSON encodes a string with flexible settings."""
-    return json.dumps(data, separators=separators, indent=indent)
-
-
 def camel_to_snake(name: str) -> str:
     """Filter `camel_to_snake` that converts a camel case string to snake case."""
     return re.sub(r"([a-z])([A-Z])", (lambda m: f"{m.group(1)}_{m.group(2).lower()}"), name)
