@@ -96,8 +96,6 @@ def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
     # C quoting of arbitrary data objects.
     env.filters["quote"] = quote
-    # String escaping, ANSI-C style.
-    env.filters["repr"] = repr
     env.filters["camel_to_snake"] = camel_to_snake
     return env
 
