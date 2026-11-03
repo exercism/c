@@ -137,17 +137,11 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         e.add_note(f"Error rendering template for {exercise.name}")
         raise
 
-    # Check for changes or the lack thereof.
-    test_file = exercise / json.loads((exercise / ".meta/config.json").read_text())["files"]["test"][0]
-    if test_file.exists():
-        old_content = test_file.read_text()
-        if old_content.strip() == out:
-            return
-
     if shutil.which("clang-format"):
         out = subprocess.check_output("clang-format", input=out, text=True)
 
     # Write the test file.
+    test_file = exercise / json.loads((exercise / ".meta/config.json").read_text())["files"]["test"][0]
     test_file.write_text(out + "\n")
 
 
