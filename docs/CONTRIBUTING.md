@@ -92,23 +92,41 @@ The structure of an exercise directory is as follows (note the differing hyphen 
     |   +-- unity.c
     |   +-- unity.h
     |   +-- unity_internals.h
+    +-- .meta
+    |   +-- example.c
+    |   +-- example.h
+    |   +-- config.json
+    |   +-- tests.toml
+    |   +-- template.j2
+
 ```
 
-`test_{exercise_name}.c` - This file contains all the tests for the exercise.  
-`test-framework` - directory containing the test harness [Unity][] from [ThrowTheSwitch][].  
-  ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.  
-  The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].  
-  Tests should be written to satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository  
-`{exercise-name}.c` / `{exercise-name}.h` - The exercise's source files.  
-  Please use [include guards][] in your header files.
-  The exercise tests can be run using `make test` from the repository root.
-* `makefile` - is the makefile for the exercise as it would build.  
+- `test_{exercise_name}.c` - This file contains all the tests for the exercise.  
+- `test-framework` - directory containing the test harness [Unity][] from [ThrowTheSwitch][].  
+   ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.  
+   The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].  
+   Tests should be written to satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository  
+- `{exercise-name}.c` / `{exercise-name}.h` - The exercise's source files.  
+   Please use [include guards][] in your header files.
+   The exercise tests can be run using `make test` from the repository root.
+- `makefile` - is the makefile for the exercise as it would build.  
+- `.meta` contains metadata about the exercise
+  - `example.[ch]` - an example solution showing a solution is possible
+  - `config.json` - filepaths, authorship, and more.
+  - `tests.toml` - which tests from the problem spec are implemented.
+  * `template.j2` - an optional Jinja template used by the test generator.
+
 Two rules are required,  
-test: compile test_{exercise-name}.c and run it.
-memcheck: compile test_{exercise-name} with -fsanitize=address, -fno-common, -fno-omit-frame-pointer flag and run it
+
+- test: compile test_{exercise-name}.c and run it.
+- memcheck: compile test_{exercise-name} with -fsanitize=address, -fno-common, -fno-omit-frame-pointer flag and run it.
+
 Makefiles are expected to change very little between exercises so it should be easy to copy one from another exercise.
 
-**Don't forget** to add the exercise to the track's `config.json`. For this you will need to determine the best place to add the exercise within the order of all other track exercises. You will also need to generate a UUID to add here. For both of these tasks you can use the [configlet][] tool; the tool will even lint and format the `config.json` for you after you've made these changes!
+**Don't forget** to add the exercise to the track's `config.json`.
+For this you will need to determine the best place to add the exercise within the order of all other track exercises.
+You will also need to generate a UUID to add here.
+For both of these tasks you can use the [configlet][] tool; the tool will even lint and format the `config.json` for you after you've made these changes!
 
 FYI - to get the install artifact for the configlet tool, checkout the [configlet releases page][].
 
@@ -132,31 +150,32 @@ If you would like the [`/format`][format-workflow] automated action to work corr
 
 ### The Workflows
 
-* `checks.yml` runs `shellcheck` on the tool scripts and subsequently runs the following of those tools:
-  * `./bin/check-unitybegin`
-  * `./bin/verify-unity-version`
-  * `./bin/check-include-guards`
-  * [Lychee link checker][lychee] action
-* `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
-* `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `format.sh` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
-* `test.yml` runs `make` in the repository root to test all exercises
+- `checks.yml` runs `shellcheck` on the tool scripts and subsequently runs the following of those tools:
+  - `./bin/check-unitybegin`
+  - `./bin/verify-unity-version`
+  - `./bin/check-include-guards`
+  - [Lychee link checker][lychee] action
+- `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
+- `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `format.sh` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
+- `test.yml` runs `make` in the repository root to test all exercises
 
 ### The Tools
 
 You can see from the [workflows][] that GitHub is instructed to run tools from the [`./bin`][bin] directory.
 The work the tools in this directory perform is described as follows:
 
-* `check-unitybegin` ensures that every test file correctly adds the `UNITY_BEGIN()` line at the start of its `main()` function.
-* `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
-* `verify-unity-version` checks the version of the Unity test framework used by every exercise. The version this file should check for is specified in [`./docs/VERSIONS.md`][versions]
-* `check-include-guards` checks that the include guards used in each exercises stub and example header are using the correct format, as follows:
+- `check-unitybegin` ensures that every test file correctly adds the `UNITY_BEGIN()` line at the start of its `main()` function.
+- `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
+- `verify-unity-version` checks the version of the Unity test framework used by every exercise. The version this file should check for is specified in [`./docs/VERSIONS.md`][versions]
+- `check-include-guards` checks that the include guards used in each exercises stub and example header are using the correct format, as follows:
 
     ```c
     #ifndef {EXERCISE_NAME}_H
     #define {EXERCISE_NAME}_H
     ```
 
-* `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
+- `fetch-configlet` fetches the `configlet` tool from its [repository][configlet].
+- `generator-tests`, a Python test generator that uses Jinja2 templates to create test files.
 
 ### Run Tools Locally
 
@@ -172,6 +191,24 @@ If you'd like to run only some of the tests to check your work, you can specify 
 ```bash
 ~/git/c$ make acronym all-your-base allergies
 ```
+
+## Test Generator
+
+The test generator creates test files from templates.
+This is the preferred way to write tests as it makes it easy to keep exercises up to date with the problem specs.
+
+`bin/generate_tests` is a Python tool that generates the test file from an optional Jinja2 template.
+It scans exercises' `.meta` directory.
+If a template file is present, it writes out a test file.
+The canonical data is read from the problem spec, using the same directory that `configlet sync` creates.
+The `tests.toml` file is used to determine which tests to include.
+The `config.json` file is used to locate where the test file should be written.
+
+To run the generator, you will need Python3 and the Jinja package.
+The problem spec repo is also needed; make sure it is up to date.
+
+Running `./bin/generate_tests` will regenerate the test files.
+`git diff` can be used to see what changed.
 
 ## Test Runner
 
