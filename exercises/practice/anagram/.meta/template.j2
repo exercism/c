@@ -39,6 +39,7 @@ static void assert_correct_anagrams(struct candidates *candidates,
    }
 }
 {% for case in cases %}
+
 static void {{ case.test_function }}(void)
 {
 {%- if loop.index == 2 %}

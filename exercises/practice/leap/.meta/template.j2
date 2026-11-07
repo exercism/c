@@ -9,6 +9,7 @@ void tearDown(void)
 {
 }
 {% for case in cases %}
+
 static void {{ case.test_function }}(void)
 {
 {%- if loop.index == 2 %}

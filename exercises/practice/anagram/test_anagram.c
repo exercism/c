@@ -52,6 +52,7 @@ static void test_no_matches(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_two_anagrams(void)
 {
    TEST_IGNORE();   // delete this line to run test
@@ -65,6 +66,7 @@ static void test_detects_two_anagrams(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_does_not_detect_anagram_subsets(void)
 {
    TEST_IGNORE();
@@ -78,6 +80,7 @@ static void test_does_not_detect_anagram_subsets(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_anagram(void)
 {
    TEST_IGNORE();
@@ -92,6 +95,7 @@ static void test_detects_anagram(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_three_anagrams(void)
 {
    TEST_IGNORE();
@@ -107,6 +111,7 @@ static void test_detects_three_anagrams(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_multiple_anagrams_with_different_case(void)
 {
    TEST_IGNORE();
@@ -120,6 +125,7 @@ static void test_detects_multiple_anagrams_with_different_case(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_does_not_detect_non_anagrams_with_identical_checksum(void)
 {
    TEST_IGNORE();
@@ -133,6 +139,7 @@ static void test_does_not_detect_non_anagrams_with_identical_checksum(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_anagrams_case_insensitively(void)
 {
    TEST_IGNORE();
@@ -146,6 +153,7 @@ static void test_detects_anagrams_case_insensitively(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_anagrams_using_case_insensitive_subject(void)
 {
    TEST_IGNORE();
@@ -159,6 +167,7 @@ static void test_detects_anagrams_using_case_insensitive_subject(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_detects_anagrams_using_case_insensitive_possible_matches(void)
 {
    TEST_IGNORE();
@@ -172,6 +181,7 @@ static void test_detects_anagrams_using_case_insensitive_possible_matches(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void
 test_does_not_detect_an_anagram_if_the_original_word_is_repeated(void)
 {
@@ -186,6 +196,7 @@ test_does_not_detect_an_anagram_if_the_original_word_is_repeated(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_anagrams_must_use_all_letters_exactly_once(void)
 {
    TEST_IGNORE();
@@ -199,6 +210,7 @@ static void test_anagrams_must_use_all_letters_exactly_once(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_words_are_not_anagrams_of_themselves(void)
 {
    TEST_IGNORE();
@@ -212,6 +224,7 @@ static void test_words_are_not_anagrams_of_themselves(void)
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void
 test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_partially_different(
     void)
@@ -227,6 +240,7 @@ test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_partially_diffe
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void
 test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_different(
     void)
@@ -242,6 +256,7 @@ test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_diff
    find_anagrams(subject, &candidates);
    assert_correct_anagrams(&candidates, expected);
 }
+
 static void test_words_other_than_themselves_can_be_anagrams(void)
 {
    TEST_IGNORE();
