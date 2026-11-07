@@ -53,7 +53,7 @@ static void test_no_matches(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_detect_two_anagrams(void)
+static void test_detects_two_anagrams(void)
 {
    TEST_IGNORE();   // delete this line to run test
    char inputs[][MAX_STR_LEN] = { "lemons", "cherry", "melons" };
@@ -96,7 +96,7 @@ static void test_detects_anagram(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_three_anagrams(void)
+static void test_detects_three_anagrams(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = { "gallery", "ballerina", "regally",
@@ -154,7 +154,7 @@ static void test_detects_anagrams_case_insensitively(void)
    assert_correct_anagrams(&candidates, expected);
 }
 
-static void test_detects_anagram_using_case_insensitive_subject(void)
+static void test_detects_anagrams_using_case_insensitive_subject(void)
 {
    TEST_IGNORE();
    char inputs[][MAX_STR_LEN] = { "cashregister", "carthorse", "radishes" };
@@ -260,7 +260,7 @@ test_words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_diff
 static void test_words_other_than_themselves_can_be_anagrams(void)
 {
    TEST_IGNORE();
-   char inputs[][MAX_STR_LEN] = { "Listen", "Silent" };
+   char inputs[][MAX_STR_LEN] = { "LISTEN", "Silent" };
 
    char subject[] = { "LISTEN" };
 
@@ -276,14 +276,14 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_no_matches);
-   RUN_TEST(test_detect_two_anagrams);
+   RUN_TEST(test_detects_two_anagrams);
    RUN_TEST(test_does_not_detect_anagram_subsets);
    RUN_TEST(test_detects_anagram);
-   RUN_TEST(test_three_anagrams);
+   RUN_TEST(test_detects_three_anagrams);
    RUN_TEST(test_detects_multiple_anagrams_with_different_case);
    RUN_TEST(test_does_not_detect_non_anagrams_with_identical_checksum);
    RUN_TEST(test_detects_anagrams_case_insensitively);
-   RUN_TEST(test_detects_anagram_using_case_insensitive_subject);
+   RUN_TEST(test_detects_anagrams_using_case_insensitive_subject);
    RUN_TEST(test_detects_anagrams_using_case_insensitive_possible_matches);
    RUN_TEST(test_does_not_detect_an_anagram_if_the_original_word_is_repeated);
    RUN_TEST(test_anagrams_must_use_all_letters_exactly_once);
