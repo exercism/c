@@ -1,0 +1,17 @@
+void most_common_word(char *text, char *result, size_t size)
+{
+   char *words[100];
+   int counts[100] = { 0 }, unique = 0, best = 0;
+   for (char *c = text; *c; c++)
+      *c = tolower(*c);
+   for (char *word = strtok(text, " "); word; word = strtok(NULL, " ")) {
+      int i = 0;
+      while (i < unique && strcmp(words[i], word) != 0)
+         i++;
+      if (i == unique)
+         words[unique++] = word;
+      if (++counts[i] > counts[best])
+         best = i;
+   }
+   snprintf(result, size, "\"%s\" appears %d times", words[best], counts[best]);
+}
