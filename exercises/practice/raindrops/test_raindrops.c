@@ -68,7 +68,7 @@ static void test_the_sound_for_10_is_plang_as_it_has_a_factor_5(void)
    check_convert_drops(10, "Plang");
 }
 
-static void test_the_sound_for_14_is_plong_as_it_has_a_factor_7(void)
+static void test_the_sound_for_14_is_plong_as_it_has_a_factor_of_7(void)
 {
    TEST_IGNORE();
    check_convert_drops(14, "Plong");
@@ -86,10 +86,16 @@ static void test_the_sound_for_21_is_plingplong_as_it_has_factors_3_and_7(void)
    check_convert_drops(21, "PlingPlong");
 }
 
-static void test_the_sound_for_25_is_plingplang_as_it_has_a_factor_5(void)
+static void test_the_sound_for_25_is_plang_as_it_has_a_factor_5(void)
 {
    TEST_IGNORE();
    check_convert_drops(25, "Plang");
+}
+
+static void test_the_sound_for_27_is_pling_as_it_has_a_factor_3(void)
+{
+   TEST_IGNORE();
+   check_convert_drops(27, "Pling");
 }
 
 static void test_the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7(void)
@@ -111,7 +117,7 @@ static void test_the_sound_for_52_is_52(void)
 }
 
 static void
-test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7(void)
+test_the_sound_for_105_is_plingplangplong_as_it_has_factors_3_5_and_7(void)
 {
    TEST_IGNORE();
    check_convert_drops(105, "PlingPlangPlong");
@@ -136,15 +142,16 @@ int main(void)
        test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base);
    RUN_TEST(test_the_sound_for_9_is_pling_as_it_has_a_factor_3);
    RUN_TEST(test_the_sound_for_10_is_plang_as_it_has_a_factor_5);
-   RUN_TEST(test_the_sound_for_14_is_plong_as_it_has_a_factor_7);
+   RUN_TEST(test_the_sound_for_14_is_plong_as_it_has_a_factor_of_7);
    RUN_TEST(test_the_sound_for_15_is_plingplang_as_it_has_factors_3_and_5);
    RUN_TEST(test_the_sound_for_21_is_plingplong_as_it_has_factors_3_and_7);
-   RUN_TEST(test_the_sound_for_25_is_plingplang_as_it_has_a_factor_5);
+   RUN_TEST(test_the_sound_for_25_is_plang_as_it_has_a_factor_5);
+   RUN_TEST(test_the_sound_for_27_is_pling_as_it_has_a_factor_3);
    RUN_TEST(test_the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7);
    RUN_TEST(test_the_sound_for_49_is_plong_as_it_has_a_factor_7);
    RUN_TEST(test_the_sound_for_52_is_52);
    RUN_TEST(
-       test_the_sound_for_105_is_plangplangplong_as_it_has_factor_3_5_and_7);
+       test_the_sound_for_105_is_plingplangplong_as_it_has_factors_3_5_and_7);
    RUN_TEST(test_the_sound_for_3125_is_plang_as_it_has_a_factor_5);
 
    return UNITY_END();

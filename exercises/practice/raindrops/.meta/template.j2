@@ -1,0 +1,44 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+
+#define BUFFER_LENGTH 16
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static void check_convert_drops(int drops, char *expected)
+{
+   char actual[BUFFER_LENGTH] = { 0 };
+   convert(actual, drops);
+   TEST_ASSERT_EQUAL_STRING(expected, actual);
+}
+
+{%- for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   check_convert_drops({{ case.given }}, {{ case.expected | quote }});
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
