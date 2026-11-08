@@ -20,25 +20,25 @@ static void test_a_single_zero_is_invalid(void)
    TEST_ASSERT_FALSE(luhn("0"));
 }
 
-static void test_a_simple_valid_SIN_that_remains_valid_if_reversed(void)
+static void test_a_simple_valid_sin_that_remains_valid_if_reversed(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(luhn("059"));
 }
 
-static void test_a_simple_valid_SIN_that_becomes_invalid_if_reversed(void)
+static void test_a_simple_valid_sin_that_becomes_invalid_if_reversed(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(luhn("59"));
 }
 
-static void test_a_valid_Canadian_SIN(void)
+static void test_a_valid_canadian_sin(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(luhn("055 444 285"));
 }
 
-static void test_invalid_Canadian_SIN(void)
+static void test_invalid_canadian_sin(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn("055 444 286"));
@@ -56,7 +56,7 @@ static void test_invalid_long_number_with_an_even_remainder(void)
    TEST_ASSERT_FALSE(luhn("1 2345 6789 1234 5678 9012"));
 }
 
-static void invalid_long_number_with_a_remainder_divisible_by_5(void)
+static void test_invalid_long_number_with_a_remainder_divisible_by_5(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn("1 2345 6789 1234 5678 9013"));
@@ -75,7 +75,7 @@ static void test_valid_number_with_an_odd_number_of_spaces(void)
 }
 
 static void
-test_valid_string_with_a_non_digit_added_at_the_end_to_become_invalid(void)
+test_valid_strings_with_a_non_digit_added_at_the_end_become_invalid(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn("059a"));
@@ -90,7 +90,7 @@ static void test_valid_strings_with_punctuation_included_become_invalid(void)
 static void test_valid_strings_with_symbols_included_become_invalid(void)
 {
    TEST_IGNORE();
-   TEST_ASSERT_FALSE(luhn("055£ 444$ 285"));
+   TEST_ASSERT_FALSE(luhn("055# 444$ 285"));
 }
 
 static void test_single_zero_with_space_is_invalid(void)
@@ -117,26 +117,27 @@ static void test_very_long_input_is_valid(void)
    TEST_ASSERT_TRUE(luhn("9999999999 9999999999 9999999999 9999999999"));
 }
 
-static void test_number_with_odd_number_of_digits_and_non_zero_first_digit(void)
+static void
+test_valid_luhn_with_an_odd_number_of_digits_and_non_zero_first_digit(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_TRUE(luhn("109"));
 }
 
-static void test_ascii_value_for_non_doubled_non_digit_isnt_allowed(void)
+static void test_using_ascii_value_for_non_doubled_non_digit_isn_t_allowed(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn("055b 444 285"));
 }
 
-static void test_ascii_value_for_doubled_non_digit_isnt_allowed(void)
+static void test_using_ascii_value_for_doubled_non_digit_isn_t_allowed(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(luhn(":9"));
 }
 
 static void
-test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed(
+test_non_numeric_non_space_char_in_the_middle_with_a_sum_that_s_divisible_by_10_isn_t_allowed(
     void)
 {
    TEST_IGNORE();
@@ -149,28 +150,29 @@ int main(void)
 
    RUN_TEST(test_single_digit_strings_can_not_be_valid);
    RUN_TEST(test_a_single_zero_is_invalid);
-   RUN_TEST(test_a_simple_valid_SIN_that_remains_valid_if_reversed);
-   RUN_TEST(test_a_simple_valid_SIN_that_becomes_invalid_if_reversed);
-   RUN_TEST(test_a_valid_Canadian_SIN);
-   RUN_TEST(test_invalid_Canadian_SIN);
+   RUN_TEST(test_a_simple_valid_sin_that_remains_valid_if_reversed);
+   RUN_TEST(test_a_simple_valid_sin_that_becomes_invalid_if_reversed);
+   RUN_TEST(test_a_valid_canadian_sin);
+   RUN_TEST(test_invalid_canadian_sin);
    RUN_TEST(test_invalid_credit_card);
    RUN_TEST(test_invalid_long_number_with_an_even_remainder);
-   RUN_TEST(invalid_long_number_with_a_remainder_divisible_by_5);
+   RUN_TEST(test_invalid_long_number_with_a_remainder_divisible_by_5);
    RUN_TEST(test_valid_number_with_an_even_number_of_digits);
    RUN_TEST(test_valid_number_with_an_odd_number_of_spaces);
    RUN_TEST(
-       test_valid_string_with_a_non_digit_added_at_the_end_to_become_invalid);
+       test_valid_strings_with_a_non_digit_added_at_the_end_become_invalid);
    RUN_TEST(test_valid_strings_with_punctuation_included_become_invalid);
    RUN_TEST(test_valid_strings_with_symbols_included_become_invalid);
    RUN_TEST(test_single_zero_with_space_is_invalid);
    RUN_TEST(test_more_than_a_single_zero_is_valid);
    RUN_TEST(test_input_digit_9_is_correctly_converted_to_output_digit_9);
    RUN_TEST(test_very_long_input_is_valid);
-   RUN_TEST(test_number_with_odd_number_of_digits_and_non_zero_first_digit);
-   RUN_TEST(test_ascii_value_for_non_doubled_non_digit_isnt_allowed);
-   RUN_TEST(test_ascii_value_for_doubled_non_digit_isnt_allowed);
    RUN_TEST(
-       test_non_numeric_non_space_char_in_middle_with_sum_divisible_by_10_isnt_allowed);
+       test_valid_luhn_with_an_odd_number_of_digits_and_non_zero_first_digit);
+   RUN_TEST(test_using_ascii_value_for_non_doubled_non_digit_isn_t_allowed);
+   RUN_TEST(test_using_ascii_value_for_doubled_non_digit_isn_t_allowed);
+   RUN_TEST(
+       test_non_numeric_non_space_char_in_the_middle_with_a_sum_that_s_divisible_by_10_isn_t_allowed);
 
    return UNITY_END();
 }
