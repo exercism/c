@@ -15,9 +15,9 @@ static void test_0_eggs(void)
    TEST_ASSERT_EQUAL_UINT(expected, egg_count(0));
 }
 
-static void test_1_eggs(void)
+static void test_1_egg(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();   // delete this line to run test
    const unsigned int expected = 1;
    TEST_ASSERT_EQUAL_UINT(expected, egg_count(16));
 }
@@ -41,7 +41,7 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_0_eggs);
-   RUN_TEST(test_1_eggs);
+   RUN_TEST(test_1_egg);
    RUN_TEST(test_4_eggs);
    RUN_TEST(test_13_eggs);
 
