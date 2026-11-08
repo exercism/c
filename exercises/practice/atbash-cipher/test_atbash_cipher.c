@@ -36,11 +36,11 @@ static void test_encode_yes(void)
 
 static void test_encode_no(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();   // delete this line to run test
    test_encode("no", "ml");
 }
 
-static void test_encode_OMG(void)
+static void test_encode_omg(void)
 {
    TEST_IGNORE();
    test_encode("OMG", "lnt");
@@ -106,7 +106,7 @@ static void test_decode_all_the_letters(void)
 static void test_decode_with_too_many_spaces(void)
 {
    TEST_IGNORE();
-   test_decode("vc vix    rhn", "exercism");
+   test_decode("vc vix    r hn", "exercism");
 }
 
 static void test_decode_with_no_spaces(void)
@@ -122,13 +122,12 @@ int main(void)
 
    RUN_TEST(test_encode_yes);
    RUN_TEST(test_encode_no);
-   RUN_TEST(test_encode_OMG);
+   RUN_TEST(test_encode_omg);
    RUN_TEST(test_encode_spaces);
    RUN_TEST(test_encode_mindblowingly);
    RUN_TEST(test_encode_numbers);
    RUN_TEST(test_encode_deep_thought);
    RUN_TEST(test_encode_all_the_letters);
-
    RUN_TEST(test_decode_exercism);
    RUN_TEST(test_decode_a_sentence);
    RUN_TEST(test_decode_numbers);
