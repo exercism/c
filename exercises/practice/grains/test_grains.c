@@ -9,60 +9,66 @@ void tearDown(void)
 {
 }
 
-static void test_square_1(void)
+static void test_grains_on_square_1(void)
 {
    TEST_ASSERT_EQUAL_UINT64(1ull, square(1));
 }
 
-static void test_square_2(void)
+static void test_grains_on_square_2(void)
 {
    TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL_UINT64(2ull, square(2));
 }
 
-static void test_square_3(void)
+static void test_grains_on_square_3(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(4ull, square(3));
 }
 
-static void test_square_4(void)
+static void test_grains_on_square_4(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(8ull, square(4));
 }
 
-static void test_square_16(void)
+static void test_grains_on_square_16(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(32768ull, square(16));
 }
 
-static void test_square_32(void)
+static void test_grains_on_square_32(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(2147483648ull, square(32));
 }
 
-static void test_square_64(void)
+static void test_grains_on_square_64(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(9223372036854775808ull, square(64));
 }
 
-static void test_square_0_does_not_exist(void)
+static void test_square_0_is_invalid(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(0, square(0));
 }
 
-static void test_square_greater_than_64_does_not_exist(void)
+static void test_negative_square_is_invalid(void)
+{
+   TEST_IGNORE();
+   TEST_ASSERT_EQUAL_UINT64(0, square(-1));
+}
+
+static void test_square_greater_than_64_is_invalid(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(0, square(65));
 }
 
-static void test_total(void)
+static void test_returns_the_total_number_of_grains_on_the_board(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL_UINT64(18446744073709551615ull, total());
@@ -72,16 +78,17 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_square_1);
-   RUN_TEST(test_square_2);
-   RUN_TEST(test_square_3);
-   RUN_TEST(test_square_4);
-   RUN_TEST(test_square_16);
-   RUN_TEST(test_square_32);
-   RUN_TEST(test_square_64);
-   RUN_TEST(test_square_0_does_not_exist);
-   RUN_TEST(test_square_greater_than_64_does_not_exist);
-   RUN_TEST(test_total);
+   RUN_TEST(test_grains_on_square_1);
+   RUN_TEST(test_grains_on_square_2);
+   RUN_TEST(test_grains_on_square_3);
+   RUN_TEST(test_grains_on_square_4);
+   RUN_TEST(test_grains_on_square_16);
+   RUN_TEST(test_grains_on_square_32);
+   RUN_TEST(test_grains_on_square_64);
+   RUN_TEST(test_square_0_is_invalid);
+   RUN_TEST(test_negative_square_is_invalid);
+   RUN_TEST(test_square_greater_than_64_is_invalid);
+   RUN_TEST(test_returns_the_total_number_of_grains_on_the_board);
 
    return UNITY_END();
 }
