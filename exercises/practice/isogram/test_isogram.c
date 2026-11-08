@@ -10,15 +10,15 @@ void tearDown(void)
 {
 }
 
-static void test_empty_string(void)
-{
-   TEST_ASSERT_TRUE(is_isogram(""));
-}
-
 static void test_null(void)
 {
-   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_FALSE(is_isogram(NULL));
+}
+
+static void test_empty_string(void)
+{
+   TEST_IGNORE();   // delete this line to run test
+   TEST_ASSERT_TRUE(is_isogram(""));
 }
 
 static void test_isogram_with_only_lower_case_characters(void)
@@ -33,7 +33,8 @@ static void test_word_with_one_duplicated_character(void)
    TEST_ASSERT_FALSE(is_isogram("eleven"));
 }
 
-static void test_word_with_one_duplicated_character_from_end_of_alphabet(void)
+static void
+test_word_with_one_duplicated_character_from_the_end_of_the_alphabet(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("zzyzx"));
@@ -45,13 +46,14 @@ static void test_longest_reported_english_isogram(void)
    TEST_ASSERT_TRUE(is_isogram("subdermatoglyphic"));
 }
 
-static void test_word_with_duplicated_letter_in_mixed_case(void)
+static void test_word_with_duplicated_character_in_mixed_case(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("Alphabet"));
 }
 
-static void test_word_with_duplicated_letter_in_mixed_case_lowercase_first(void)
+static void
+test_word_with_duplicated_character_in_mixed_case_lowercase_first(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_FALSE(is_isogram("alphAbet"));
@@ -105,13 +107,13 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_empty_string);
-   RUN_TEST(test_null);
    RUN_TEST(test_isogram_with_only_lower_case_characters);
    RUN_TEST(test_word_with_one_duplicated_character);
-   RUN_TEST(test_word_with_one_duplicated_character_from_end_of_alphabet);
+   RUN_TEST(
+       test_word_with_one_duplicated_character_from_the_end_of_the_alphabet);
    RUN_TEST(test_longest_reported_english_isogram);
-   RUN_TEST(test_word_with_duplicated_letter_in_mixed_case);
-   RUN_TEST(test_word_with_duplicated_letter_in_mixed_case_lowercase_first);
+   RUN_TEST(test_word_with_duplicated_character_in_mixed_case);
+   RUN_TEST(test_word_with_duplicated_character_in_mixed_case_lowercase_first);
    RUN_TEST(test_hypothetical_isogrammic_word_with_hyphen);
    RUN_TEST(test_hypothetical_word_with_duplicated_character_following_hyphen);
    RUN_TEST(test_isogram_with_duplicated_hyphen);
