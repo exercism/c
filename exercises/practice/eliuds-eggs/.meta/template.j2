@@ -1,0 +1,35 @@
+
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   const unsigned int expected = {{ case.expected }};
+   TEST_ASSERT_EQUAL_UINT(expected, egg_count({{ case.given }}));
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
