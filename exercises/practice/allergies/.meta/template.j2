@@ -1,0 +1,64 @@
+{%- macro test_name(case) %}
+  {%- if case.property == "allergicTo" %}
+    {{-
+        [
+            "test",
+            case.description | replace(" ", "_") | replace(",", ""),
+            "for",
+            case.descriptions[0] | replace(" ", "_"),
+        ] | join("_")
+    }}
+  {%- else %}
+    {{ case.test_function }}
+  {%- endif %}
+{%- endmacro %}
+
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+{%- for case in cases %}
+{%- if case.property == "allergicTo" %}
+
+static void {{ test_name(case) }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   TEST_ASSERT_{{ case.expected | quote | upper }}(is_allergic_to(ALLERGEN_{{ case.input["item"] | upper }}, {{ case.input.score }}));
+}
+{%- else %}
+static void {{ test_name(case) }}(void)
+{
+   TEST_IGNORE();
+
+   allergen_list_t list = get_allergens({{ case.input.score }});
+   TEST_ASSERT_EQUAL({{ case.expected | length }}, list.count);
+   {%- for item in case.expected %}
+   TEST_ASSERT_TRUE(list.allergens[ALLERGEN_{{ item | upper }}]);
+   {%- endfor %}
+}
+{%- endif %}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{%- for case in cases %}
+   RUN_TEST({{ test_name(case) }});
+{%- endfor %}
+
+   return UNITY_END();
+}
+
