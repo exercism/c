@@ -16,26 +16,31 @@ static void test_zero_steps_for_one(void)
 
 static void test_divide_if_even(void)
 {
+   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL(4, steps(16));
 }
 
 static void test_even_and_odd_steps(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL(9, steps(12));
 }
 
 static void test_large_number_of_even_and_odd_steps(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL(152, steps(1000000));
 }
 
 static void test_zero_is_an_error(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL(ERROR_VALUE, steps(0));
 }
 
 static void test_negative_value_is_an_error(void)
 {
+   TEST_IGNORE();
    TEST_ASSERT_EQUAL(ERROR_VALUE, steps(-15));
 }
 
