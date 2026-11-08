@@ -119,7 +119,7 @@ static void test_just_outside_the_outer_circle(void)
 static void test_asymmetric_position_between_the_inner_and_middle_circles(void)
 {
    TEST_IGNORE();
-   coordinate_t landing_position = { -0.5F, -4.0F };
+   coordinate_t landing_position = { 0.5F, -4.0F };
    uint8_t expected = 5;
    uint8_t actual = score(landing_position);
    TEST_ASSERT_EQUAL_UINT8(expected, actual);
