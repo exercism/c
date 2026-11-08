@@ -1,0 +1,45 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+
+static char *res = NULL;
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+   if (res)
+      free(res);
+   res = NULL;
+}
+
+static void check_translate(const char *phrase, const char *expected)
+{
+   res = translate(phrase);
+   TEST_ASSERT_EQUAL_STRING(expected, res);
+}
+
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   check_translate({{ case.given | quote }}, {{ case.expected | quote }});
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
