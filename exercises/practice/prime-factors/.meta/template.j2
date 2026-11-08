@@ -1,0 +1,44 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdint.h>
+
+static uint64_t buf[MAXFACTORS] = { 0 };
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if case.expected %}
+   uint64_t expected_factors[] = {{ case.expected | quote }};
+{%- endif %}
+   size_t expected_len = {{ case.expected | length }};
+   size_t actual_len = find_factors({{ case.given }}, buf);
+   TEST_ASSERT_EQUAL_INT(expected_len, actual_len);
+{%- if case.expected %}
+   TEST_ASSERT_EQUAL_INT64_ARRAY(expected_factors, buf, expected_len);
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
