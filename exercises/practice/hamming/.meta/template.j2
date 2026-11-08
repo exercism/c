@@ -1,0 +1,37 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if not case.expect_error %}
+   TEST_ASSERT_EQUAL({{ case.expected }}, compute({{ case.input.strand1 | quote }}, {{ case.input.strand2 | quote }}));
+{%- else %}
+   TEST_ASSERT_EQUAL(-1, compute({{ case.input.strand1 | quote }}, {{ case.input.strand2 | quote }}));
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
