@@ -85,7 +85,7 @@ def quote(obj) -> str:
             obj = obj.replace(pattern, replace)
         return '"' + obj + '"'
     if isinstance(obj, list):
-        return "{ " + ", ".join(quote(i) for i in obj) + " }"
+        return "{ " + ", ".join(quote(i) for i in obj or [0]) + " }"
     if isinstance(obj, dict):
         return quote(" ".join(f"{key}:{value}" for key, value in obj.items()))
     return TypeError(f"quote for type {type(obj)} not supported")

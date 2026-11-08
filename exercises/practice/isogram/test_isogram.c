@@ -107,6 +107,7 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_null);
+
    RUN_TEST(test_empty_string);
    RUN_TEST(test_isogram_with_only_lower_case_characters);
    RUN_TEST(test_word_with_one_duplicated_character);
