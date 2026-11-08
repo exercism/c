@@ -111,9 +111,11 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         if len(case.get("input", {}).values()) == 1:
             case["given"] = list(case["input"].values())[0]
 
+    config = json.loads((exercise / ".meta/config.json").read_text())
     data = {
         "cases": cases,
-        "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0]
+        "solution": next(i for i in config["files"]["solution"] if i.endswith(".c")),
+        "header": next(i for i in config["files"]["solution"] if i.endswith(".h")),
     }
 
     # Render the template.
@@ -128,7 +130,7 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         out = subprocess.check_output("clang-format", input=out, text=True)
 
     # Write the test file.
-    test_file = exercise / json.loads((exercise / ".meta/config.json").read_text())["files"]["test"][0]
+    test_file = exercise / config["files"]["test"][0]
     test_file.write_text(out + "\n")
 
 
