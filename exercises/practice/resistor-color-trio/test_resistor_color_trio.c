@@ -9,7 +9,7 @@ void tearDown(void)
 {
 }
 
-static void test_orange_orange_black(void)
+static void test_orange_and_orange_and_black(void)
 {
    resistor_value_t actual =
        color_code((resistor_band_t[]){ ORANGE, ORANGE, BLACK });
@@ -17,7 +17,7 @@ static void test_orange_orange_black(void)
    TEST_ASSERT_EQUAL(OHMS, actual.unit);
 }
 
-static void test_blue_grey_brown(void)
+static void test_blue_and_grey_and_brown(void)
 {
    TEST_IGNORE();   // delete this line to run test
    resistor_value_t actual =
@@ -26,7 +26,7 @@ static void test_blue_grey_brown(void)
    TEST_ASSERT_EQUAL(OHMS, actual.unit);
 }
 
-static void test_red_black_red(void)
+static void test_red_and_black_and_red(void)
 {
    TEST_IGNORE();
    resistor_value_t actual = color_code((resistor_band_t[]){ RED, BLACK, RED });
@@ -34,7 +34,7 @@ static void test_red_black_red(void)
    TEST_ASSERT_EQUAL(KILOOHMS, actual.unit);
 }
 
-static void test_green_brown_orange(void)
+static void test_green_and_brown_and_orange(void)
 {
    TEST_IGNORE();
    resistor_value_t actual =
@@ -43,7 +43,7 @@ static void test_green_brown_orange(void)
    TEST_ASSERT_EQUAL(KILOOHMS, actual.unit);
 }
 
-static void test_yellow_violet_yellow(void)
+static void test_yellow_and_violet_and_yellow(void)
 {
    TEST_IGNORE();
    resistor_value_t actual =
@@ -52,7 +52,7 @@ static void test_yellow_violet_yellow(void)
    TEST_ASSERT_EQUAL(KILOOHMS, actual.unit);
 }
 
-static void test_blue_violet_blue(void)
+static void test_blue_and_violet_and_blue(void)
 {
    TEST_IGNORE();
    resistor_value_t actual =
@@ -79,7 +79,7 @@ static void test_maximum_possible_value(void)
    TEST_ASSERT_EQUAL(GIGAOHMS, actual.unit);
 }
 
-static void test_invalid_octal(void)
+static void test_first_two_colors_make_an_invalid_octal_number(void)
 {
    TEST_IGNORE();
    resistor_value_t actual =
@@ -101,15 +101,15 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_orange_orange_black);
-   RUN_TEST(test_blue_grey_brown);
-   RUN_TEST(test_red_black_red);
-   RUN_TEST(test_green_brown_orange);
-   RUN_TEST(test_yellow_violet_yellow);
-   RUN_TEST(test_blue_violet_blue);
+   RUN_TEST(test_orange_and_orange_and_black);
+   RUN_TEST(test_blue_and_grey_and_brown);
+   RUN_TEST(test_red_and_black_and_red);
+   RUN_TEST(test_green_and_brown_and_orange);
+   RUN_TEST(test_yellow_and_violet_and_yellow);
+   RUN_TEST(test_blue_and_violet_and_blue);
    RUN_TEST(test_minimum_possible_value);
    RUN_TEST(test_maximum_possible_value);
-   RUN_TEST(test_invalid_octal);
+   RUN_TEST(test_first_two_colors_make_an_invalid_octal_number);
    RUN_TEST(test_ignore_extra_colors);
 
    return UNITY_END();
