@@ -21,7 +21,6 @@ static void test_strand_count(const char *dna_strand, const char *expected)
 
 static void test_empty_strand(void)
 {
-   TEST_IGNORE();   // delete this line to run test
    const char *dna_strand = "";
    const char *expected = "A:0 C:0 G:0 T:0";
 
@@ -30,14 +29,14 @@ static void test_empty_strand(void)
 
 static void test_can_count_one_nucleotide_in_single_character_input(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();   // delete this line to run test
    const char *dna_strand = "G";
    const char *expected = "A:0 C:0 G:1 T:0";
 
    test_strand_count(dna_strand, expected);
 }
 
-static void test_repeated_nucleotide(void)
+static void test_strand_with_repeated_nucleotide(void)
 {
    TEST_IGNORE();
    const char *dna_strand = "GGGGGGG";
@@ -46,7 +45,7 @@ static void test_repeated_nucleotide(void)
    test_strand_count(dna_strand, expected);
 }
 
-static void test_multiple_nucleotides(void)
+static void test_strand_with_multiple_nucleotides(void)
 {
    TEST_IGNORE();
    const char *dna_strand =
@@ -56,7 +55,7 @@ static void test_multiple_nucleotides(void)
    test_strand_count(dna_strand, expected);
 }
 
-static void test_invalid_nucleotide(void)
+static void test_strand_with_invalid_nucleotides(void)
 {
    TEST_IGNORE();
    const char *dna_strand = "AGXXACT";
@@ -71,9 +70,9 @@ int main(void)
 
    RUN_TEST(test_empty_strand);
    RUN_TEST(test_can_count_one_nucleotide_in_single_character_input);
-   RUN_TEST(test_repeated_nucleotide);
-   RUN_TEST(test_multiple_nucleotides);
-   RUN_TEST(test_invalid_nucleotide);
+   RUN_TEST(test_strand_with_repeated_nucleotide);
+   RUN_TEST(test_strand_with_multiple_nucleotides);
+   RUN_TEST(test_strand_with_invalid_nucleotides);
 
    return UNITY_END();
 }

@@ -70,8 +70,6 @@ def get_cases(specs: pathlib.Path, exercise: pathlib.Path) -> list[dict]:
 
 def quote(obj) -> str:
     """Filter `quote` that converts an arbitrary object to the C version."""
-    if isinstance(obj, list):
-        return "{ " + ", ".join(quote(i) for i in obj) + " }"
     if obj is True:
         return "true"
     if obj is False:
@@ -84,6 +82,10 @@ def quote(obj) -> str:
         for pattern, replace in [("\\", r"\\"), ("\n", r"\n"), ('"', r'\"')]:
             obj = obj.replace(pattern, replace)
         return '"' + obj + '"'
+    if isinstance(obj, list):
+        return "{ " + ", ".join(quote(i) for i in obj) + " }"
+    if isinstance(obj, dict):
+        return quote(" ".join(f"{key}:{value}" for key, value in obj.items()))
     return TypeError(f"quote for type {type(obj)} not supported")
 
 
