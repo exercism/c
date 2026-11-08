@@ -1,0 +1,54 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+#include <string.h>
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static void test_encode(char *input, char *expected)
+{
+   char *result = atbash_encode(input);
+
+   TEST_ASSERT_EQUAL_STRING(expected, result);
+
+   free(result);
+}
+
+static void test_decode(char *input, char *expected)
+{
+   char *result = atbash_decode(input);
+
+   TEST_ASSERT_EQUAL_STRING(expected, result);
+
+   free(result);
+}
+
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   test_{{ case.property }}({{ case.given | quote }}, {{ case.expected | quote }});
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
