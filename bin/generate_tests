@@ -22,10 +22,6 @@ def problem_spec_dir() -> pathlib.Path:
     specs = pathlib.Path(cache_dir) / "exercism/configlet/problem-specifications"
     if specs.exists():
         return specs
-    cur = pathlib.Path(os.getcwd())
-    for i in cur.parents:
-        if i.name == "problem-specifications":
-            return i
     raise LookupError("Could not find problem specs")
 
 
