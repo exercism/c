@@ -1,6 +1,5 @@
-#include "yacht.h"
-
 #include "test-framework/unity.h"
+#include "yacht.h"
 
 void setUp(void)
 {
