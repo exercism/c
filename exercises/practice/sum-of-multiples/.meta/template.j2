@@ -1,0 +1,36 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+#define NUM_OF_ELEMENTS(a) (sizeof(a) / sizeof(a[0]))
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   const unsigned int multiples[] = {{ case.input.factors | quote }};
+   TEST_ASSERT_EQUAL({{ case.expected }}, sum(multiples, NUM_OF_ELEMENTS(multiples), {{ case.input.limit }}));
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
