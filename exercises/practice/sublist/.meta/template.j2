@@ -1,0 +1,58 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+#define ELEMENT_COUNT(array) (sizeof(array) / sizeof(array[0]))
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if case.input.listOne %}
+   int list_to_compare[] = {{ case.input.listOne | quote }};
+{%- endif %}
+{%- if case.input.listTwo %}
+   int base_list[] = {{ case.input.listTwo | quote }};
+{%- endif %}
+
+   TEST_ASSERT_EQUAL(
+      {{ case.expected | upper }},
+      check_lists(
+{%- if case.input.listOne %}
+         list_to_compare,
+{%- else %}
+         NULL,
+{%- endif %}
+{%- if case.input.listTwo %}
+         base_list,
+{%- else %}
+         NULL,
+{%- endif %}
+         {{ case.input.listOne | length }},
+         {{ case.input.listTwo | length }}
+      )
+   );
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
