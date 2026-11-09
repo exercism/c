@@ -131,8 +131,7 @@ static void test_one_million_two_thousand_three_hundred_forty_five(void)
    TEST_IGNORE();
    int res = say(1002345, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_EQUAL_STRING("one million two thousand three hundred "
-                            "forty-five",
+   TEST_ASSERT_EQUAL_STRING("one million two thousand three hundred forty-five",
                             ans);
 }
 
@@ -149,10 +148,9 @@ static void test_a_big_number(void)
    TEST_IGNORE();
    int res = say(987654321123, &ans);
    TEST_ASSERT_EQUAL_INT(0, res);
-   TEST_ASSERT_EQUAL_STRING("nine hundred eighty-seven billion six hundred "
-                            "fifty-four million three hundred twenty-one "
-                            "thousand one hundred twenty-three",
-                            ans);
+   TEST_ASSERT_EQUAL_STRING(
+       "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three",
+       ans);
 }
 
 static void test_numbers_below_zero_are_out_of_range(void)
@@ -183,8 +181,8 @@ int main(void)
    RUN_TEST(test_one_hundred);
    RUN_TEST(test_one_hundred_twenty_three);
    RUN_TEST(test_two_hundred);
-   RUN_TEST(test_one_thousand);
    RUN_TEST(test_nine_hundred_ninety_nine);
+   RUN_TEST(test_one_thousand);
    RUN_TEST(test_one_thousand_two_hundred_thirty_four);
    RUN_TEST(test_one_million);
    RUN_TEST(test_one_million_two_thousand_three_hundred_forty_five);
