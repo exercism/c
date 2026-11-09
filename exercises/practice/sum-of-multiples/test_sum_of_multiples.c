@@ -99,10 +99,10 @@ static void test_no_factors_means_an_empty_sum(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 0 };
-   TEST_ASSERT_EQUAL(0, sum(multiples, NUM_OF_ELEMENTS(multiples), 1000));
+   TEST_ASSERT_EQUAL(0, sum(multiples, NUM_OF_ELEMENTS(multiples), 10000));
 }
 
-static void test_the_only_multiple_of_zero_is_zero(void)
+static void test_the_only_multiple_of_0_is_0(void)
 {
    TEST_IGNORE();
    const unsigned int multiples[] = { 0 };
@@ -144,7 +144,7 @@ int main(void)
    RUN_TEST(test_much_larger_factors);
    RUN_TEST(test_all_numbers_are_multiples_of_1);
    RUN_TEST(test_no_factors_means_an_empty_sum);
-   RUN_TEST(test_the_only_multiple_of_zero_is_zero);
+   RUN_TEST(test_the_only_multiple_of_0_is_0);
    RUN_TEST(
        test_the_factor_0_does_not_affect_the_sum_of_multiples_of_other_factors);
    RUN_TEST(
