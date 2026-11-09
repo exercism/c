@@ -1,0 +1,63 @@
+#include <stdlib.h>
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+// helper routines to validate test results
+static void test_solution(slices_t *expected_solution,
+                          slices_t *actual_solution)
+{
+   // result count correct
+   TEST_ASSERT_EQUAL(expected_solution->substring_count,
+                     actual_solution->substring_count);
+
+   // test each substring...
+   for (unsigned int index = 0; index < expected_solution->substring_count;
+        index++) {
+      TEST_ASSERT_EQUAL_STRING(expected_solution->substring[index],
+                               actual_solution->substring[index]);
+      free(actual_solution->substring[index]);
+   }
+   if (actual_solution->substring_count) {
+      free(actual_solution->substring);
+   }
+}
+
+// Test cases
+{%- for case in cases %}
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if not case.expect_error %}
+   char *substrings[] = {{ case.expected | quote }};
+   slices_t expected = { {{ case.expected | length }}, &substrings[0] };
+{%- else %}
+   char *substrings[] = { "" };
+   slices_t expected = { 0, &substrings[0] };
+{%- endif %}
+   slices_t actual = slices({{ case.input.series | quote }}, {{ case.input.sliceLength }});
+
+   test_solution(&expected, &actual);
+}
+{% endfor %}
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
