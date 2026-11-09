@@ -15,7 +15,7 @@ static void test_equilateral_triangle_all_sides_are_equal(void)
    TEST_ASSERT_TRUE(is_equilateral(sides));
 }
 
-static void test_equilateral_triangle_if_any_side_is_unequal(void)
+static void test_equilateral_triangle_any_side_is_unequal(void)
 {
    TEST_IGNORE();   // delete this line to run test
    triangle_t sides = { 2, 3, 2 };
@@ -39,7 +39,7 @@ static void test_equilateral_triangle_all_zero_sides_is_not_a_triangle(void)
 static void test_equilateral_triangle_sides_may_be_floats(void)
 {
    TEST_IGNORE();
-   triangle_t sides = { 0.5, 0.5, 0.5 };
+   triangle_t sides = { 0.5F, 0.5F, 0.5F };
    TEST_ASSERT_TRUE(is_equilateral(sides));
 }
 
@@ -57,7 +57,7 @@ static void test_isosceles_triangle_first_two_sides_are_equal(void)
    TEST_ASSERT_TRUE(is_isosceles(sides));
 }
 
-static void test_isosceles_triangle_if_first_and_last_sides_are_equal(void)
+static void test_isosceles_triangle_first_and_last_sides_are_equal(void)
 {
    TEST_IGNORE();
    triangle_t sides = { 4, 3, 4 };
@@ -103,7 +103,7 @@ static void test_isosceles_triangle_third_triangle_inequality_violation(void)
 static void test_isosceles_triangle_sides_may_be_floats(void)
 {
    TEST_IGNORE();
-   triangle_t sides = { 0.5, 0.4, 0.5 };
+   triangle_t sides = { 0.5F, 0.4F, 0.5F };
    TEST_ASSERT_TRUE(is_isosceles(sides));
 }
 
@@ -152,7 +152,7 @@ static void test_scalene_triangle_may_not_violate_triangle_inequality(void)
 static void test_scalene_triangle_sides_may_be_floats(void)
 {
    TEST_IGNORE();
-   triangle_t sides = { 0.5, 0.4, 0.6 };
+   triangle_t sides = { 0.5F, 0.4F, 0.6F };
    TEST_ASSERT_TRUE(is_scalene(sides));
 }
 
@@ -161,13 +161,13 @@ int main(void)
    UNITY_BEGIN();
 
    RUN_TEST(test_equilateral_triangle_all_sides_are_equal);
-   RUN_TEST(test_equilateral_triangle_if_any_side_is_unequal);
+   RUN_TEST(test_equilateral_triangle_any_side_is_unequal);
    RUN_TEST(test_equilateral_triangle_no_sides_are_equal);
    RUN_TEST(test_equilateral_triangle_all_zero_sides_is_not_a_triangle);
    RUN_TEST(test_equilateral_triangle_sides_may_be_floats);
    RUN_TEST(test_isosceles_triangle_last_two_sides_are_equal);
    RUN_TEST(test_isosceles_triangle_first_two_sides_are_equal);
-   RUN_TEST(test_isosceles_triangle_if_first_and_last_sides_are_equal);
+   RUN_TEST(test_isosceles_triangle_first_and_last_sides_are_equal);
    RUN_TEST(test_isosceles_triangle_equilateral_triangles_are_also_isosceles);
    RUN_TEST(test_isosceles_triangle_no_sides_are_equal);
    RUN_TEST(test_isosceles_triangle_first_triangle_inequality_violation);

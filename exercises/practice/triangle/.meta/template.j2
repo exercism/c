@@ -1,0 +1,34 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void test_{{ case.property }}_triangle_{{ case.description | replace(" ", "_") }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   triangle_t sides = {{ case.given | quote }};
+   TEST_ASSERT_{{ case.expected | quote | upper }}(is_{{ case.property }}(sides));
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST(test_{{ case.property }}_triangle_{{ case.description | replace(" ", "_") }});
+{%- endfor %}
+
+   return UNITY_END();
+}
