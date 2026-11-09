@@ -32,6 +32,7 @@ int main(void)
 {
    UNITY_BEGIN();
 
+   RUN_TEST(test_null);
 {% for case in cases %}
    RUN_TEST({{ case.test_function }});
 {%- endfor %}
