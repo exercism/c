@@ -1,0 +1,44 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static void test_rotate(const char *expected, const char *text, int shift_key)
+{
+   char *rotated = rotate(text, shift_key);
+
+   TEST_ASSERT_EQUAL_STRING(expected, rotated);
+
+   free(rotated);
+}
+
+{%- for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   test_rotate({{ case.expected | quote }}, {{ case.input.text | quote }}, {{ case.input.shiftKey }});
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
