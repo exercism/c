@@ -1,0 +1,41 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static void test_null(void)
+{
+   TEST_ASSERT_FALSE(is_pangram(NULL));
+}
+
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.first %}
+   TEST_IGNORE();   // delete this line to run test
+{%- else %}
+   TEST_IGNORE();
+{%- endif %}
+   const char sentence[] = {{ case.given | quote }};
+   TEST_ASSERT_{{ case.expected | quote | upper }}(is_pangram(sentence));
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+   RUN_TEST(test_null);
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
