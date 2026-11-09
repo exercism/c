@@ -27,26 +27,31 @@ static void test_an_empty_string(void)
 
 static void test_a_word(void)
 {
+   TEST_IGNORE();   // delete this line to run test
    test_reverse("robot", "tobor");
 }
 
 static void test_a_capitalized_word(void)
 {
+   TEST_IGNORE();
    test_reverse("Ramen", "nemaR");
 }
 
 static void test_a_sentence_with_punctuation(void)
 {
+   TEST_IGNORE();
    test_reverse("I'm hungry!", "!yrgnuh m'I");
 }
 
 static void test_a_palindrome(void)
 {
+   TEST_IGNORE();
    test_reverse("racecar", "racecar");
 }
 
 static void test_an_even_sized_word(void)
 {
+   TEST_IGNORE();
    test_reverse("drawer", "reward");
 }
 
