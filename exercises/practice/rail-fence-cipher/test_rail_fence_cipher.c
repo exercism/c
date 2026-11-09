@@ -12,7 +12,6 @@ void tearDown(void)
 
 static void test_encode_with_two_rails(void)
 {
-   TEST_IGNORE();
    char *actual = encode("XOXOXOXOXOXOXOXOXO", 2);
    TEST_ASSERT_EQUAL_STRING("XXXXXXXXXOOOOOOOOO", actual);
    free(actual);
@@ -20,7 +19,7 @@ static void test_encode_with_two_rails(void)
 
 static void test_encode_with_three_rails(void)
 {
-   TEST_IGNORE();
+   TEST_IGNORE();   // delete this line to run test
    char *actual = encode("WEAREDISCOVEREDFLEEATONCE", 3);
    TEST_ASSERT_EQUAL_STRING("WECRLTEERDSOEEFEAOCAIVDEN", actual);
    free(actual);
