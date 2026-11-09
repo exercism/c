@@ -106,8 +106,7 @@ static void test_decode_lowercase_string(void)
    free(res);
 }
 
-static void
-test_consistency_encode_followed_by_decode_gives_original_string(void)
+static void test_encode_followed_by_decode_gives_original_string(void)
 {
    TEST_IGNORE();
    char *res_enc = encode("zzz ZZ  zZ");
