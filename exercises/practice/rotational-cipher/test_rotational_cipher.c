@@ -1,7 +1,5 @@
-#include "rotational_cipher.h"
-
 #include "test-framework/unity.h"
-
+#include "rotational_cipher.h"
 #include <stdlib.h>
 
 void setUp(void)
