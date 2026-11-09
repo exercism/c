@@ -1,0 +1,48 @@
+#include <string.h>
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+#define RESULT_ARRAY_LEN (1000)
+static uint32_t result_array[RESULT_ARRAY_LEN];
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   const uint32_t limit = {{ case.given }};
+{%- if case.expected %}
+   const uint32_t expected_prime_array[] = {{ case.expected | quote }};
+{%- endif %}
+   const uint32_t expected_prime_count = {{ case.expected | length }};
+   const uint32_t result_prime_count =
+       sieve(limit, result_array, RESULT_ARRAY_LEN);
+   TEST_ASSERT_EQUAL(expected_prime_count, result_prime_count);
+{%- if case.expected %}
+   TEST_ASSERT_EQUAL_UINT_ARRAY(expected_prime_array, result_array,
+                                expected_prime_count);
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
