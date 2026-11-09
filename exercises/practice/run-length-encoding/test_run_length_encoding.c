@@ -98,7 +98,7 @@ static void test_decode_multiple_whitespace_mixed_in_string(void)
    free(res);
 }
 
-static void test_decode_lower_case_string(void)
+static void test_decode_lowercase_string(void)
 {
    TEST_IGNORE();
    char *res = decode("2a3b4c");
@@ -106,8 +106,7 @@ static void test_decode_lower_case_string(void)
    free(res);
 }
 
-static void
-test_consistency_encode_followed_by_decode_gives_original_string(void)
+static void test_encode_followed_by_decode_gives_original_string(void)
 {
    TEST_IGNORE();
    char *res_enc = encode("zzz ZZ  zZ");
@@ -132,8 +131,8 @@ int main(void)
    RUN_TEST(test_decode_string_with_no_single_characters);
    RUN_TEST(test_decode_single_characters_with_repeated_characters);
    RUN_TEST(test_decode_multiple_whitespace_mixed_in_string);
-   RUN_TEST(test_decode_lower_case_string);
-   RUN_TEST(test_consistency_encode_followed_by_decode_gives_original_string);
+   RUN_TEST(test_decode_lowercase_string);
+   RUN_TEST(test_encode_followed_by_decode_gives_original_string);
 
    return UNITY_END();
 }
