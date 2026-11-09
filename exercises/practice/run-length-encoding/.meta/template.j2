@@ -1,0 +1,44 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void test_{{ case.property }}_{{ case.description | replace(" ", "_") }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if case.property in ["encode", "decode"] %}
+   char *res = {{ case.property }}({{ case.given | quote }});
+   TEST_ASSERT_EQUAL_STRING({{ case.expected | quote }}, res);
+   free(res);
+{%- else %}
+   char *res_enc = encode({{ case.given | quote }});
+   char *res_dec = decode(res_enc);
+   TEST_ASSERT_EQUAL_STRING({{ case.expected | quote }}, res_dec);
+   free(res_enc);
+   free(res_dec);
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
