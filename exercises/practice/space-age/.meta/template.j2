@@ -1,0 +1,49 @@
+{% set tolerance = {
+    "Earth": 1,
+    "Mercury": 3,
+    "Venus": 1,
+    "Mars": 1,
+    "Jupiter": 0.1,
+    "Saturn": 0.1,
+    "Uranus": 0.1,
+    "Neptune": 0.1,
+} -%}
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if not case.expect_error %}
+   TEST_ASSERT_FLOAT_WITHIN({{ tolerance[case.input.planet] }}, {{ case.expected }}, age({{ case.input.planet | upper }}, {{ case.input.seconds }}));
+{%- else %}
+   // Here, we chose -1 to indicate an error
+   // (because all valid inputs would result in positive ages)
+   TEST_ASSERT_EQUAL_FLOAT(-1.0, age((planet_t)-1, {{ case.input.seconds }}));
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
