@@ -22,7 +22,7 @@ static void assert_protein_match(protein_t expected, protein_t actual)
    }
 }
 
-static void test_empty_rna_sequence_results_in_no_protein(void)
+static void test_empty_rna_sequence_results_in_no_proteins(void)
 {
    protein_t expected = {
       .valid = true,
@@ -233,7 +233,7 @@ static void test_stop_codon_rna_sequence_3(void)
    assert_protein_match(expected, actual);
 }
 
-static void test_sequence_of_two_protein_codons_translates_into_protein(void)
+static void test_sequence_of_two_protein_codons_translates_into_proteins(void)
 {
    TEST_IGNORE();
    protein_t expected = {
@@ -246,7 +246,7 @@ static void test_sequence_of_two_protein_codons_translates_into_protein(void)
 }
 
 static void
-test_sequence_of_two_different_protein_codons_translates_into_protein(void)
+test_sequence_of_two_different_protein_codons_translates_into_proteins(void)
 {
    TEST_IGNORE();
    protein_t expected = {
@@ -346,32 +346,24 @@ test_sequence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon(void)
    assert_protein_match(expected, actual);
 }
 
-static void test_non_existing_codon_cant_translate(void)
+static void test_unknown_amino_acids_not_part_of_a_codon_can_t_translate(void)
 {
    TEST_IGNORE();
    protein_t expected = {
       .valid = false,
    };
-   protein_t actual = protein("AAA");
-   assert_protein_match(expected, actual);
-}
 
-static void test_unknown_amino_acids_not_part_of_a_codon_cant_translate(void)
-{
-   TEST_IGNORE();
-   protein_t expected = {
-      .valid = false,
-   };
    protein_t actual = protein("XYZ");
    assert_protein_match(expected, actual);
 }
 
-static void test_invalid_codon_cant_translate(void)
+static void test_incomplete_rna_sequence_can_t_translate(void)
 {
    TEST_IGNORE();
    protein_t expected = {
       .valid = false,
    };
+
    protein_t actual = protein("AUGU");
    assert_protein_match(expected, actual);
 }
@@ -393,8 +385,7 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   // clang-format off
-   RUN_TEST(test_empty_rna_sequence_results_in_no_protein);
+   RUN_TEST(test_empty_rna_sequence_results_in_no_proteins);
    RUN_TEST(test_methionine_rna_sequence);
    RUN_TEST(test_phenylalanine_rna_sequence_1);
    RUN_TEST(test_phenylalanine_rna_sequence_2);
@@ -412,20 +403,24 @@ int main(void)
    RUN_TEST(test_stop_codon_rna_sequence_1);
    RUN_TEST(test_stop_codon_rna_sequence_2);
    RUN_TEST(test_stop_codon_rna_sequence_3);
-   RUN_TEST(test_sequence_of_two_protein_codons_translates_into_protein);
-   RUN_TEST(test_sequence_of_two_different_protein_codons_translates_into_protein);
+   RUN_TEST(test_sequence_of_two_protein_codons_translates_into_proteins);
+   RUN_TEST(
+       test_sequence_of_two_different_protein_codons_translates_into_proteins);
    RUN_TEST(test_translate_rna_strand_into_correct_protein_list);
    RUN_TEST(test_translation_stops_if_stop_codon_at_beginning_of_sequence);
    RUN_TEST(test_translation_stops_if_stop_codon_at_end_of_two_codon_sequence);
-   RUN_TEST(test_translation_stops_if_stop_codon_at_end_of_three_codon_sequence);
-   RUN_TEST(test_translation_stops_if_stop_codon_in_middle_of_three_codon_sequence);
-   RUN_TEST(test_translation_stops_if_stop_codon_in_middle_of_six_codon_sequence);
-   RUN_TEST(test_sequence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon);
-   RUN_TEST(test_non_existing_codon_cant_translate);
-   RUN_TEST(test_unknown_amino_acids_not_part_of_a_codon_cant_translate);
-   RUN_TEST(test_invalid_codon_cant_translate);
-   RUN_TEST(test_incomplete_rna_sequence_can_translate_if_valid_until_a_stop_codon);
-   // clang-format on
+   RUN_TEST(
+       test_translation_stops_if_stop_codon_at_end_of_three_codon_sequence);
+   RUN_TEST(
+       test_translation_stops_if_stop_codon_in_middle_of_three_codon_sequence);
+   RUN_TEST(
+       test_translation_stops_if_stop_codon_in_middle_of_six_codon_sequence);
+   RUN_TEST(
+       test_sequence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon);
+   RUN_TEST(test_unknown_amino_acids_not_part_of_a_codon_can_t_translate);
+   RUN_TEST(test_incomplete_rna_sequence_can_t_translate);
+   RUN_TEST(
+       test_incomplete_rna_sequence_can_translate_if_valid_until_a_stop_codon);
 
    return UNITY_END();
 }
