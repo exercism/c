@@ -120,18 +120,18 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_empty_string);
-   RUN_TEST(test_single_characters_only_are_encoded_without_count);
-   RUN_TEST(test_string_with_no_single_characters);
-   RUN_TEST(test_single_characters_mixed_with_repeated_characters);
-   RUN_TEST(test_multiple_whitespace_mixed_in_string);
-   RUN_TEST(test_lowercase_characters);
-   RUN_TEST(test_empty_string);
-   RUN_TEST(test_single_characters_only);
-   RUN_TEST(test_string_with_no_single_characters);
-   RUN_TEST(test_single_characters_with_repeated_characters);
-   RUN_TEST(test_multiple_whitespace_mixed_in_string);
-   RUN_TEST(test_lowercase_string);
+   RUN_TEST(test_encode_empty_string);
+   RUN_TEST(test_encode_single_characters_only_are_encoded_without_count);
+   RUN_TEST(test_encode_string_with_no_single_characters);
+   RUN_TEST(test_encode_single_characters_mixed_with_repeated_characters);
+   RUN_TEST(test_encode_multiple_whitespace_mixed_in_string);
+   RUN_TEST(test_encode_lowercase_characters);
+   RUN_TEST(test_decode_empty_string);
+   RUN_TEST(test_decode_single_characters_only);
+   RUN_TEST(test_decode_string_with_no_single_characters);
+   RUN_TEST(test_decode_single_characters_with_repeated_characters);
+   RUN_TEST(test_decode_multiple_whitespace_mixed_in_string);
+   RUN_TEST(test_decode_lowercase_string);
    RUN_TEST(test_encode_followed_by_decode_gives_original_string);
 
    return UNITY_END();

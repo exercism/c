@@ -40,7 +40,11 @@ int main(void)
    UNITY_BEGIN();
 
 {% for case in cases %}
+{%- if case.property in ["encode", "decode"] %}
+   RUN_TEST(test_{{ case.property }}_{{ case.description | replace(" ", "_") }});
+{%- else %}
    RUN_TEST({{ case.test_function }});
+{%- endif %}
 {%- endfor %}
 
    return UNITY_END();
