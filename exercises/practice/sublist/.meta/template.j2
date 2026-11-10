@@ -23,7 +23,8 @@ static void {{ case.test_function }}(void)
 {%- if case.input.listTwo %}
    int base_list[] = {{ case.input.listTwo | quote }};
 {%- endif %}
-
+{%- if case.input.listOne or case.input.listTwo %}
+{% endif %}
    TEST_ASSERT_EQUAL(
       {{ case.expected | upper }},
       check_lists(

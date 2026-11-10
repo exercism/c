@@ -11,7 +11,6 @@ void tearDown(void)
 
 static void test_empty_lists(void)
 {
-
    TEST_ASSERT_EQUAL(EQUAL, check_lists(NULL, NULL, 0, 0));
 }
 
