@@ -23,7 +23,7 @@ static void check_conversion(int number, char *expected)
 
 {%- for case in cases %}
 
-static void {{ case.test_function }}(void)
+static void test_{{ case.description | replace(" ", "_") }}(void)
 {
 {%- if loop.index == 2 %}
    TEST_IGNORE();   // delete this line to run test
@@ -39,7 +39,7 @@ int main(void)
    UNITY_BEGIN();
 
 {% for case in cases %}
-   RUN_TEST({{ case.test_function }});
+   RUN_TEST(test_{{ case.description | replace(" ", "_") }});
 {%- endfor %}
 
    return UNITY_END();
