@@ -1,0 +1,46 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdlib.h>
+
+static char *result = NULL;
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+   if (result)
+      free(result);
+   result = NULL;
+}
+
+static void check_conversion(int number, char *expected)
+{
+   result = to_roman_numeral(number);
+   TEST_ASSERT_EQUAL_STRING(expected, result);
+}
+
+{%- for case in cases %}
+
+static void test_{{ case.description | replace(" ", "_") }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   check_conversion({{ case.given }}, {{ case.expected | quote }});
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST(test_{{ case.description | replace(" ", "_") }});
+{%- endfor %}
+
+   return UNITY_END();
+}
