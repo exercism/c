@@ -106,7 +106,7 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     cases = get_cases(specs, exercise)
     translation = str.maketrans({i: "_" for i in string.punctuation + " "})
     for case in cases:
-        case["test_function"] = "test_" + re.sub("_+", "_", case["description"].lower().translate(translation))
+        case["test_function"] = "test_" + re.sub("_+", "_", case["description"].lower().translate(translation).strip("_"))
         case["property_function"] = camel_to_snake(case["property"])
         if len(case.get("input", {}).values()) == 1:
             case["given"] = list(case["input"].values())[0]

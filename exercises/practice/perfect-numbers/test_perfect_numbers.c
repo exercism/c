@@ -82,14 +82,14 @@ test_edge_case_no_factors_other_than_itself_is_classified_correctly(void)
    TEST_ASSERT_EQUAL(DEFICIENT_NUMBER, classify_number(1));
 }
 
-static void test_zero_is_rejected_as_it_is_not_a_positive_integer_(void)
+static void test_zero_is_rejected_as_it_is_not_a_positive_integer(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(ERROR, classify_number(0));
 }
 
 static void
-test_negative_integer_is_rejected_as_it_is_not_a_positive_integer_(void)
+test_negative_integer_is_rejected_as_it_is_not_a_positive_integer(void)
 {
    TEST_IGNORE();
    TEST_ASSERT_EQUAL(ERROR, classify_number(-1));
@@ -112,8 +112,8 @@ int main(void)
    RUN_TEST(test_large_deficient_number_is_classified_correctly);
    RUN_TEST(
        test_edge_case_no_factors_other_than_itself_is_classified_correctly);
-   RUN_TEST(test_zero_is_rejected_as_it_is_not_a_positive_integer_);
-   RUN_TEST(test_negative_integer_is_rejected_as_it_is_not_a_positive_integer_);
+   RUN_TEST(test_zero_is_rejected_as_it_is_not_a_positive_integer);
+   RUN_TEST(test_negative_integer_is_rejected_as_it_is_not_a_positive_integer);
 
    return UNITY_END();
 }

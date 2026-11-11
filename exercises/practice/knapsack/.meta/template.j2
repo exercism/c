@@ -1,0 +1,46 @@
+#include <stddef.h>
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if case.input["items"] %}
+   item_t items[] = {
+{%- for item in case.input["items"] %}
+      { .weight = {{ item.weight }}, .value = {{ item.value }} },
+{%- endfor %}
+   };
+{%- else %}
+   item_t *items = NULL;
+{%- endif %}
+   size_t item_count = {{ case.input["items"] | length }};
+   unsigned int maximum_weight = {{ case.input.maximumWeight }};
+
+   TEST_ASSERT_EQUAL_UINT({{ case.expected }}, maximum_value(maximum_weight, items, item_count));
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
