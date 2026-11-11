@@ -1,0 +1,53 @@
+#include "{{ header }}"
+
+#include "test-framework/unity.h"
+
+#include <stdint.h>
+
+#define BUFFER_SIZE 100
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void test_{{ case.property | camel_to_snake }}_{{ case.description | replace(" ", "_") }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if case.given %}
+   const uint8_t message[] = { {{ case.given | join(", ") }} };
+{%- endif %}
+   uint8_t buffer[BUFFER_SIZE];
+{%- if case.expected and not case.expect_error %}
+   const uint8_t expected[] = { {{ case.expected | join(", ") }} };
+   TEST_ASSERT_EQUAL_INT(
+       ARRAY_SIZE(expected),
+       {{ case.property | camel_to_snake }}(buffer, {% if case.given %}message{% else %}NULL{% endif %}, ARRAY_SIZE(message)));
+   TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, buffer, {{ case.expected | length }});
+{%- elif case.expect_error %}
+   TEST_ASSERT_EQUAL_INT(WRONG_PARITY, {{ case.property | camel_to_snake }}(buffer, {% if case.given %}message{% else %}NULL{% endif %}, {{ case.given | length }}));
+{%- else %}
+   TEST_ASSERT_EQUAL_INT(0, {{ case.property | camel_to_snake }}(buffer, {% if case.given %}message{% else %}NULL{% endif %}, {{ case.given | length }}));
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST(test_{{ case.property | camel_to_snake }}_{{ case.description | replace(" ", "_") }});
+{%- endfor %}
+
+   return UNITY_END();
+}
