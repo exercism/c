@@ -49,6 +49,7 @@ static void check_solution(word_count_word_t *expected_solution,
 }
 
 // Tests Start here
+
 static void test_count_one_word(void)
 {
    int index = 0;
@@ -61,7 +62,6 @@ static void test_count_one_word(void)
           sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
-   // fill in the expected words
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "word", STRING_SIZE);
 
@@ -84,7 +84,6 @@ static void test_count_one_of_each_word(void)
           sizeof(expected_solution));   // clear to start with a known value
    memset(actual_solution, 0, sizeof(actual_solution));
 
-   // fill in the expected words
    expected_solution[index].count = 1;
    strncpy(expected_solution[index++].text, "one", STRING_SIZE);
 
@@ -282,7 +281,8 @@ static void test_with_apostrophes(void)
    TEST_IGNORE();
    int index = 0;
    int actual_word_count;
-   char *input_text = "First: don't laugh. Then: don't cry. You're getting it.";
+   char *input_text =
+       "'First: don't laugh. Then: don't cry. You're getting it.'";
    const int expected_word_count = 8;
 
    // build the expected solution
@@ -403,10 +403,9 @@ static void test_substrings_from_the_beginning(void)
 static void test_multiple_spaces_not_detected_as_a_word(void)
 {
    TEST_IGNORE();
-   int actual_word_count;
    int index = 0;
+   int actual_word_count;
    char *input_text = " multiple   whitespaces";
-
    const int expected_word_count = 2;
 
    // build the expected solution
@@ -429,10 +428,9 @@ static void test_multiple_spaces_not_detected_as_a_word(void)
 static void test_alternating_word_separators_not_detected_as_a_word(void)
 {
    TEST_IGNORE();
-   int actual_word_count;
    int index = 0;
+   int actual_word_count;
    char *input_text = ",\n,one,\n ,two \n 'three'";
-
    const int expected_word_count = 3;
 
    // build the expected solution
@@ -458,10 +456,9 @@ static void test_alternating_word_separators_not_detected_as_a_word(void)
 static void test_quotation_for_word_with_apostrophe(void)
 {
    TEST_IGNORE();
-   int actual_word_count;
    int index = 0;
+   int actual_word_count;
    char *input_text = "can, can't, 'can't'";
-
    const int expected_word_count = 2;
 
    // build the expected solution
