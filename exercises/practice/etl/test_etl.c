@@ -22,7 +22,7 @@ static int compare_map(new_map *a, new_map *b, int len)
    return !(len == -1);
 }
 
-static void test_a_single_letter(void)
+static void test_single_letter(void)
 {
    legacy_map input[] = { { 1, "A" } };
    int input_len = 1;
@@ -80,9 +80,9 @@ static void test_multiple_scores_with_multiple_letters(void)
 static void test_multiple_scores_with_differing_numbers_of_letters(void)
 {
    TEST_IGNORE();
-   legacy_map input[] = { { 10, "QZ" }, { 1, "AEIOULNRST" }, { 3, "BCMP" },
-                          { 2, "DG" },  { 5, "K" },          { 4, "FHVWY" },
-                          { 8, "JX" } };
+   legacy_map input[] = { { 1, "AEIOULNRST" }, { 2, "DG" }, { 3, "BCMP" },
+                          { 4, "FHVWY" },      { 5, "K" },  { 8, "JX" },
+                          { 10, "QZ" } };
    int input_len = 7;
 
    new_map expected_map[] = { { 'a', 1 },  { 'b', 3 }, { 'c', 3 }, { 'd', 2 },
@@ -107,7 +107,7 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_a_single_letter);
+   RUN_TEST(test_single_letter);
    RUN_TEST(test_single_score_with_multiple_letters);
    RUN_TEST(test_multiple_scores_with_multiple_letters);
    RUN_TEST(test_multiple_scores_with_differing_numbers_of_letters);
