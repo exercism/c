@@ -78,6 +78,7 @@ static void test_no_matching_triplets_for_1001(void)
    TEST_IGNORE();
    uint16_t sum = 1001;
    uint16_t expected_count = 0;
+
    triplets_t *triplets = triplets_with_sum(sum);
    check_count(expected_count, triplets->count);
    free_triplets(triplets);

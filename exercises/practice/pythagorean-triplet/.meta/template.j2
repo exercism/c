@@ -1,0 +1,71 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static void check_count(size_t expected, size_t actual)
+{
+   TEST_ASSERT_EQUAL_UINT64(expected, actual);
+}
+
+static void check_triplets(size_t count, triplet_t expected[],
+                           triplet_t actual[])
+{
+   // assumes array counts match
+   for (size_t i = 0; i < count; ++i) {
+      bool triplet_found = false;
+      for (size_t j = 0; j < count; ++j) {
+         if (expected[i].a == actual[j].a && expected[i].b == actual[j].b &&
+             expected[i].c == actual[j].c) {
+            triplet_found = true;
+            break;
+         }
+      }
+      if (!triplet_found)
+         TEST_FAIL();
+   }
+}
+
+{%- for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   uint16_t sum = {{ case.given }};
+   uint16_t expected_count = {{ case.expected | length }};
+{%- if case.expected %}
+   triplet_t expected_triplets[] = {{ case.expected | quote }};
+{%- endif %}
+
+   triplets_t *triplets = triplets_with_sum(sum);
+   check_count(expected_count, triplets->count);
+{%- if case.expected %}
+   check_triplets(expected_count, expected_triplets, triplets->triplets);
+{%- endif %}
+   free_triplets(triplets);
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
