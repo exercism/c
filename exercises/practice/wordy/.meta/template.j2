@@ -1,0 +1,42 @@
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   const char *question = {{ case.given | quote }};
+{%- if not case.expect_error %}
+   const int expected = {{ case.expected }};
+{%- endif %}
+   int result;
+   bool success = answer(question, &result);
+   TEST_ASSERT_{{ (not case.expect_error) | quote | upper }}(success);
+{%- if not case.expect_error %}
+   TEST_ASSERT_EQUAL_INT(expected, result);
+{%- endif %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}

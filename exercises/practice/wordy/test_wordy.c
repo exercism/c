@@ -191,7 +191,7 @@ static void test_non_math_question(void)
    TEST_ASSERT_FALSE(success);
 }
 
-static void test_reject_a_problem_missing_an_operand(void)
+static void test_reject_problem_missing_an_operand(void)
 {
    TEST_IGNORE();
    const char *question = "What is 1 plus?";
@@ -221,7 +221,7 @@ static void test_reject_two_operations_in_a_row(void)
 static void test_reject_two_numbers_in_a_row(void)
 {
    TEST_IGNORE();
-   const char *question = "What is 1 plus plus 2 1?";
+   const char *question = "What is 1 plus 2 1?";
    int result;
    bool success = answer(question, &result);
    TEST_ASSERT_FALSE(success);
@@ -266,7 +266,7 @@ int main(void)
    RUN_TEST(test_multiple_division);
    RUN_TEST(test_unknown_operation);
    RUN_TEST(test_non_math_question);
-   RUN_TEST(test_reject_a_problem_missing_an_operand);
+   RUN_TEST(test_reject_problem_missing_an_operand);
    RUN_TEST(test_reject_problem_with_no_operands_or_operators);
    RUN_TEST(test_reject_two_operations_in_a_row);
    RUN_TEST(test_reject_two_numbers_in_a_row);
