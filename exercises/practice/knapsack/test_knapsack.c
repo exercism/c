@@ -31,7 +31,7 @@ static void test_one_item_too_heavy(void)
    TEST_ASSERT_EQUAL_UINT(0, maximum_value(maximum_weight, items, item_count));
 }
 
-static void test_five_items_cannot_be_greedy_by_weight_(void)
+static void test_five_items_cannot_be_greedy_by_weight(void)
 {
    TEST_IGNORE();
    item_t items[] = {
@@ -45,7 +45,7 @@ static void test_five_items_cannot_be_greedy_by_weight_(void)
    TEST_ASSERT_EQUAL_UINT(21, maximum_value(maximum_weight, items, item_count));
 }
 
-static void test_five_items_cannot_be_greedy_by_value_(void)
+static void test_five_items_cannot_be_greedy_by_value(void)
 {
    TEST_IGNORE();
    item_t items[] = {
@@ -116,8 +116,8 @@ int main(void)
 
    RUN_TEST(test_no_items);
    RUN_TEST(test_one_item_too_heavy);
-   RUN_TEST(test_five_items_cannot_be_greedy_by_weight_);
-   RUN_TEST(test_five_items_cannot_be_greedy_by_value_);
+   RUN_TEST(test_five_items_cannot_be_greedy_by_weight);
+   RUN_TEST(test_five_items_cannot_be_greedy_by_value);
    RUN_TEST(test_example_knapsack);
    RUN_TEST(test_8_items);
    RUN_TEST(test_15_items);

@@ -35,7 +35,7 @@ static void test_only_lower_case(void)
    TEST_ASSERT_TRUE(is_pangram(sentence));
 }
 
-static void test_missing_the_letter_x_(void)
+static void test_missing_the_letter_x(void)
 {
    TEST_IGNORE();
    const char sentence[] =
@@ -43,7 +43,7 @@ static void test_missing_the_letter_x_(void)
    TEST_ASSERT_FALSE(is_pangram(sentence));
 }
 
-static void test_missing_the_letter_h_(void)
+static void test_missing_the_letter_h(void)
 {
    TEST_IGNORE();
    const char sentence[] = "five boxing wizards jump quickly at it";
@@ -94,8 +94,8 @@ int main(void)
    RUN_TEST(test_empty_sentence);
    RUN_TEST(test_perfect_lower_case);
    RUN_TEST(test_only_lower_case);
-   RUN_TEST(test_missing_the_letter_x_);
-   RUN_TEST(test_missing_the_letter_h_);
+   RUN_TEST(test_missing_the_letter_x);
+   RUN_TEST(test_missing_the_letter_h);
    RUN_TEST(test_with_underscores);
    RUN_TEST(test_with_numbers);
    RUN_TEST(test_missing_letters_replaced_by_numbers);
