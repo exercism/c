@@ -49,7 +49,7 @@ void tearDown(void)
 {
 }
 
-static void test_date(void)
+static void test_date_only_specification_of_time(void)
 {
    time_t before = construct_date(2011, 4, 25, 0, 0, 0);
    char after[BUFFER_SIZE] = { 0 };
@@ -57,7 +57,7 @@ static void test_date(void)
    TEST_ASSERT_EQUAL_STRING("2043-01-01 01:46:40", after);
 }
 
-static void test_another_date(void)
+static void test_second_test_for_date_only_specification_of_time(void)
 {
    TEST_IGNORE();   // delete this line to run test
    time_t before = construct_date(1977, 6, 13, 0, 0, 0);
@@ -66,7 +66,7 @@ static void test_another_date(void)
    TEST_ASSERT_EQUAL_STRING("2009-02-19 01:46:40", after);
 }
 
-static void test_third_date(void)
+static void test_third_test_for_date_only_specification_of_time(void)
 {
    TEST_IGNORE();
    time_t before = construct_date(1959, 7, 19, 0, 0, 0);
@@ -75,7 +75,7 @@ static void test_third_date(void)
    TEST_ASSERT_EQUAL_STRING("1991-03-27 01:46:40", after);
 }
 
-static void test_date_and_time(void)
+static void test_full_time_specified(void)
 {
    TEST_IGNORE();
    time_t before = construct_date(2015, 1, 24, 22, 0, 0);
@@ -84,7 +84,7 @@ static void test_date_and_time(void)
    TEST_ASSERT_EQUAL_STRING("2046-10-02 23:46:40", after);
 }
 
-static void test_date_and_time_with_day_rollover(void)
+static void test_full_time_with_day_roll_over(void)
 {
    TEST_IGNORE();
    time_t before = construct_date(2015, 1, 24, 23, 59, 59);
@@ -93,26 +93,15 @@ static void test_date_and_time_with_day_rollover(void)
    TEST_ASSERT_EQUAL_STRING("2046-10-03 01:46:39", after);
 }
 
-/*
-static void test_your_birthday(void)
-{
-   time_t birthday = construct_date(1989, 1, 1, 1, 1, 1);
-   char gigday[BUFFER_SIZE] = {0};
-   gigasecond(birthday, gigday, BUFFER_SIZE);
-   printf("%s", gigday);
-}
-*/
-
 int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_date);
-   RUN_TEST(test_another_date);
-   RUN_TEST(test_third_date);
-   RUN_TEST(test_date_and_time);
-   RUN_TEST(test_date_and_time_with_day_rollover);
-   // RUN_TEST(test_your_birthday);
+   RUN_TEST(test_date_only_specification_of_time);
+   RUN_TEST(test_second_test_for_date_only_specification_of_time);
+   RUN_TEST(test_third_test_for_date_only_specification_of_time);
+   RUN_TEST(test_full_time_specified);
+   RUN_TEST(test_full_time_with_day_roll_over);
 
    return UNITY_END();
 }
