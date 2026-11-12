@@ -1,0 +1,66 @@
+#include <stddef.h>
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+struct list *list = NULL;
+
+void setUp(void)
+{
+   list = list_create();
+}
+
+void tearDown(void)
+{
+   if (list) {
+      list_destroy(list);
+      list = NULL;
+   }
+}
+
+{%- for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+ {%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+ {%- elif not loop.first %}
+   TEST_IGNORE();
+ {%- endif %}
+ {%- for step in case.given %}
+  {%- if step.operation == "push" %}
+   list_push(list, {{ step.value }});
+  {%- elif step.operation == "pop" %}
+   {%- if step.expected %}
+   TEST_ASSERT_EQUAL({{ step.expected }}, list_pop(list));
+   {%- else %}
+   list_pop(list);
+   {%- endif %}
+  {%- elif step.operation == "unshift" %}
+   list_unshift(list, {{ step.value }});
+  {%- elif step.operation == "shift" %}
+   {%- if step.expected %}
+   TEST_ASSERT_EQUAL({{ step.expected }}, list_shift(list));
+   {%- else %}
+   list_shift(list);
+   {%- endif %}
+  {%- elif step.operation == "count" %}
+   TEST_ASSERT_EQUAL({{ step.expected }}, list_count(list));
+  {%- elif step.operation == "delete" %}
+   list_delete(list, {{ step.value }});
+  {%- else %}
+   UNSUPPORTED {{ step.operation }}
+  {%- endif %}
+ {%- endfor %}
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
