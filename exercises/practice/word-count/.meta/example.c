@@ -40,31 +40,34 @@ int count_words(const char *sentence, word_count_word_t *words)
 
    test_word = strtok(lower_case_sentence, delimiters);
    while (test_word != NULL) {
-      // account for leading/trailing single quote.
-      if (('\'' == test_word[0]) &&
-          ('\'' == test_word[strlen(test_word) - 1])) {
-         test_word[strlen(test_word) - 1] = '\0';
+      // account for leading/trailing single quotes.
+      while ('\'' == test_word[0]) {
          test_word++;
       }
-      // determine index of counted word.
-      index = word_match(test_word, unique_words, words);
+      while ('\'' == test_word[strlen(test_word) - 1]) {
+         test_word[strlen(test_word) - 1] = '\0';
+      }
+      if (strlen(test_word) != 0) {
+         // determine index of counted word.
+         index = word_match(test_word, unique_words, words);
 
-      // add if not yet counted else increment count.
-      if (-1 == index) {
-         // reject anything that would overrun buffers
-         if (MAX_WORD_LENGTH < strlen(test_word)) {
-            unique_words = EXCESSIVE_LENGTH_WORD;
-            break;
+         // add if not yet counted else increment count.
+         if (-1 == index) {
+            // reject anything that would overrun buffers
+            if (MAX_WORD_LENGTH < strlen(test_word)) {
+               unique_words = EXCESSIVE_LENGTH_WORD;
+               break;
+            }
+            if (MAX_WORDS == unique_words) {
+               unique_words = EXCESSIVE_NUMBER_OF_WORDS;
+               break;
+            }
+            words[unique_words].count = 1;
+            strncpy(words[unique_words].text, test_word, MAX_WORD_LENGTH);
+            unique_words++;
+         } else {
+            words[index].count++;
          }
-         if (MAX_WORDS == unique_words) {
-            unique_words = EXCESSIVE_NUMBER_OF_WORDS;
-            break;
-         }
-         words[unique_words].count = 1;
-         strncpy(words[unique_words].text, test_word, MAX_WORD_LENGTH);
-         unique_words++;
-      } else {
-         words[index].count++;
       }
       // get next word in string
       test_word = strtok(NULL, delimiters);

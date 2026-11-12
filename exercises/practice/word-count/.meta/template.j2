@@ -1,0 +1,90 @@
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+#define STRING_SIZE (MAX_WORD_LENGTH + 1)
+
+word_count_word_t actual_solution[MAX_WORDS];
+word_count_word_t expected_solution[MAX_WORDS + 1];
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static int compare_word(const void *a, const void *b)
+{
+   word_count_word_t *w1 = (word_count_word_t *)a;
+   word_count_word_t *w2 = (word_count_word_t *)b;
+   return strcmp(w1->text, w2->text);
+}
+
+static void check_solution(word_count_word_t *expected_solution,
+                           int expected_word_count,
+                           word_count_word_t *actual_solution,
+                           int actual_word_count)
+{
+   // All words counted?
+   TEST_ASSERT_EQUAL(expected_word_count, actual_word_count);
+
+   // Sort the words before comparing
+   qsort(expected_solution, expected_word_count, sizeof(word_count_word_t),
+         compare_word);
+   qsort(actual_solution, actual_word_count, sizeof(word_count_word_t),
+         compare_word);
+
+   // now test the word count for the words...
+   for (int index = 0; index < MAX_WORDS; index++) {
+      TEST_ASSERT_EQUAL(expected_solution[index].count,
+                        actual_solution[index].count);
+      TEST_ASSERT_EQUAL_STRING_LEN(expected_solution[index].text,
+                                   actual_solution[index].text,
+                                   strlen(expected_solution[index].text) + 1);
+   }
+}
+
+// Tests Start here
+{% for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+   int index = 0;
+   int actual_word_count;
+   char *input_text = {{ case.given | quote }};
+   const int expected_word_count = {{ case.expected | length }};
+
+   // build the expected solution
+   memset(expected_solution, 0,
+          sizeof(expected_solution));   // clear to start with a known value
+   memset(actual_solution, 0, sizeof(actual_solution));
+{% for word, count in case.expected.items() %}
+   expected_solution[index].count = {{ count }};
+   strncpy(expected_solution[index++].text, {{ word | quote }}, STRING_SIZE);
+{% endfor %}
+   actual_word_count = count_words(input_text, actual_solution);
+
+   check_solution(expected_solution, expected_word_count, actual_solution,
+                  actual_word_count);
+}
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
