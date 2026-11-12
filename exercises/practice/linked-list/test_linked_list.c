@@ -99,7 +99,7 @@ static void test_count_is_correct_after_mutation(void)
    TEST_ASSERT_EQUAL(0, list_count(list));
 }
 
-static void test_popping_to_empty_does_not_break_the_list(void)
+static void test_popping_to_empty_doesn_t_break_the_list(void)
 {
    TEST_IGNORE();
    list_push(list, 41);
@@ -111,7 +111,7 @@ static void test_popping_to_empty_does_not_break_the_list(void)
    TEST_ASSERT_EQUAL(47, list_pop(list));
 }
 
-static void test_shifting_to_empty_does_not_break_the_list(void)
+static void test_shifting_to_empty_doesn_t_break_the_list(void)
 {
    TEST_IGNORE();
    list_push(list, 41);
@@ -145,7 +145,7 @@ test_deletes_the_element_with_the_specified_value_from_the_list(void)
 }
 
 static void
-test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail(
+test_deletes_the_element_with_the_specified_value_from_the_list_re_assigns_tail(
     void)
 {
    TEST_IGNORE();
@@ -159,7 +159,7 @@ test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail(
 }
 
 static void
-test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head(
+test_deletes_the_element_with_the_specified_value_from_the_list_re_assigns_head(
     void)
 {
    TEST_IGNORE();
@@ -228,14 +228,14 @@ int main(void)
    RUN_TEST(test_count_an_empty_list);
    RUN_TEST(test_count_a_list_with_items);
    RUN_TEST(test_count_is_correct_after_mutation);
-   RUN_TEST(test_popping_to_empty_does_not_break_the_list);
-   RUN_TEST(test_shifting_to_empty_does_not_break_the_list);
+   RUN_TEST(test_popping_to_empty_doesn_t_break_the_list);
+   RUN_TEST(test_shifting_to_empty_doesn_t_break_the_list);
    RUN_TEST(test_deletes_the_only_element);
    RUN_TEST(test_deletes_the_element_with_the_specified_value_from_the_list);
    RUN_TEST(
-       test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_tail);
+       test_deletes_the_element_with_the_specified_value_from_the_list_re_assigns_tail);
    RUN_TEST(
-       test_deletes_the_element_with_the_specified_value_from_the_list_reassigns_head);
+       test_deletes_the_element_with_the_specified_value_from_the_list_re_assigns_head);
    RUN_TEST(test_deletes_the_first_of_two_elements);
    RUN_TEST(test_deletes_the_second_of_two_elements);
    RUN_TEST(test_delete_does_not_modify_the_list_if_the_element_is_not_found);
