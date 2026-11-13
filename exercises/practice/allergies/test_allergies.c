@@ -281,6 +281,7 @@ static void test_allergic_to_everything_for_testing_for_cats_allergy(void)
    TEST_IGNORE();
    TEST_ASSERT_TRUE(is_allergic_to(ALLERGEN_CATS, 255));
 }
+
 static void test_no_allergies(void)
 {
    TEST_IGNORE();
@@ -288,6 +289,7 @@ static void test_no_allergies(void)
    allergen_list_t list = get_allergens(0);
    TEST_ASSERT_EQUAL(0, list.count);
 }
+
 static void test_just_eggs(void)
 {
    TEST_IGNORE();
@@ -296,6 +298,7 @@ static void test_just_eggs(void)
    TEST_ASSERT_EQUAL(1, list.count);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
 }
+
 static void test_just_peanuts(void)
 {
    TEST_IGNORE();
@@ -304,6 +307,7 @@ static void test_just_peanuts(void)
    TEST_ASSERT_EQUAL(1, list.count);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
 }
+
 static void test_just_strawberries(void)
 {
    TEST_IGNORE();
@@ -312,6 +316,7 @@ static void test_just_strawberries(void)
    TEST_ASSERT_EQUAL(1, list.count);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_STRAWBERRIES]);
 }
+
 static void test_eggs_and_peanuts(void)
 {
    TEST_IGNORE();
@@ -321,6 +326,7 @@ static void test_eggs_and_peanuts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_PEANUTS]);
 }
+
 static void test_more_than_eggs_but_not_peanuts(void)
 {
    TEST_IGNORE();
@@ -330,6 +336,7 @@ static void test_more_than_eggs_but_not_peanuts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_EGGS]);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_SHELLFISH]);
 }
+
 static void test_lots_of_stuff(void)
 {
    TEST_IGNORE();
@@ -342,6 +349,7 @@ static void test_lots_of_stuff(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_POLLEN]);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
+
 static void test_everything(void)
 {
    TEST_IGNORE();
@@ -357,6 +365,7 @@ static void test_everything(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_POLLEN]);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
+
 static void test_no_allergen_score_parts(void)
 {
    TEST_IGNORE();
@@ -371,6 +380,7 @@ static void test_no_allergen_score_parts(void)
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_POLLEN]);
    TEST_ASSERT_TRUE(list.allergens[ALLERGEN_CATS]);
 }
+
 static void test_no_allergen_score_parts_without_highest_valid_score(void)
 {
    TEST_IGNORE();

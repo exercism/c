@@ -38,6 +38,7 @@ static void {{ test_name(case) }}(void)
    TEST_ASSERT_{{ case.expected | quote | upper }}(is_allergic_to(ALLERGEN_{{ case.input["item"] | upper }}, {{ case.input.score }}));
 }
 {%- else %}
+
 static void {{ test_name(case) }}(void)
 {
    TEST_IGNORE();
