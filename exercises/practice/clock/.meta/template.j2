@@ -1,0 +1,97 @@
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "test-framework/unity.h"
+#include "{{ header }}"
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+// test helper functions that test expected results
+static void test_create(clock_t expected, int hour, int minute)
+{
+   clock_t actual = clock_create(hour, minute);
+   TEST_ASSERT_EQUAL_STRING(expected.text, actual.text);
+}
+
+static void test_add(clock_t expected, int hour, int minute, int minute_add)
+{
+   clock_t actual = clock_create(hour, minute);
+   actual = clock_add(actual, minute_add);
+   TEST_ASSERT_EQUAL_STRING(expected.text, actual.text);
+}
+
+static void test_subtract(clock_t expected, int hour, int minute,
+                          int minute_subtract)
+{
+   clock_t actual = clock_create(hour, minute);
+   actual = clock_subtract(actual, minute_subtract);
+   TEST_ASSERT_EQUAL_STRING(expected.text, actual.text);
+}
+
+static void test_compare(bool expected, int a_hour, int a_minute, int b_hour,
+                         int b_minute)
+{
+   clock_t a = clock_create(a_hour, a_minute);
+   clock_t b = clock_create(b_hour, b_minute);
+   bool actual = clock_is_equal(a, b);
+
+   if (expected) {
+      TEST_ASSERT_TRUE(actual);
+   } else {
+      TEST_ASSERT_FALSE(actual);
+   }
+}
+
+// the tests
+{%- for case in cases %}
+static void {{ case.test_function }}(void)
+{
+{%- if loop.index == 2 %}
+   TEST_IGNORE();   // delete this line to run test
+{%- elif not loop.first %}
+   TEST_IGNORE();
+{%- endif %}
+{%- if case.property == "create" %}
+   int hour = {{ case.input.hour }}, minute = {{ case.input.minute }};
+   clock_t expected = { {{ case.expected | quote }} };
+
+   test_create(expected, hour, minute);
+{%- elif case.property == "add" %}
+   int hour = {{ case.input.hour }}, minute = {{ case.input.minute }}, minute_add = {{ case.input.value }};
+   clock_t expected = { {{ case.expected | quote }} };
+
+   test_add(expected, hour, minute, minute_add);
+{%- elif case.property == "subtract" %}
+   int hour = {{ case.input.hour }}, minute = {{ case.input.minute }}, minute_subtract = {{ case.input.value }};
+   clock_t expected = { {{ case.expected | quote }} };
+
+   test_subtract(expected, hour, minute, minute_subtract);
+{%- elif case.property == "equal" %}
+   int a_hour = {{ case.input.clock1.hour }}, a_minute = {{ case.input.clock1.minute }};
+   int b_hour = {{ case.input.clock2.hour }}, b_minute = {{ case.input.clock2.minute }};
+   bool expected = {{ case.expected | quote }};
+
+   test_compare(expected, a_hour, a_minute, b_hour, b_minute);
+{%- else %}
+   IMPLEMENTATION MISSING: {{ case.property }}
+{%- endif %}
+}
+{% endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
