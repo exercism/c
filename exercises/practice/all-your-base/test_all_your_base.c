@@ -39,12 +39,6 @@ static void check_rebase(int16_t input_base, int8_t input_digits[],
       TEST_ASSERT_EQUAL_INT8_ARRAY(expected_digits, digits, expected_length);
 }
 
-static void test_empty_list(void)
-{
-   int8_t input[DIGITS_ARRAY_SIZE] = { 0 };
-   TEST_ASSERT_EQUAL_size_t(0, rebase(input, 2, 10, 0));
-}
-
 static void test_single_bit_one_to_decimal(void)
 {
    TEST_IGNORE();   // delete this line to run test
@@ -109,6 +103,14 @@ static void test_15_bit_integer(void)
    check_rebase(97, input, LENGTH(input), 73, expected, LENGTH(expected));
 }
 
+static void test_empty_list(void)
+{
+   TEST_IGNORE();
+   int8_t input[] = { 0 };
+   int8_t expected[] = { 0 };
+   check_rebase(2, input, 0, 10, expected, 0);
+}
+
 static void test_single_zero(void)
 {
    TEST_IGNORE();
@@ -146,7 +148,7 @@ static void test_input_base_is_zero(void)
    TEST_IGNORE();
    int8_t input[] = { 0 };
    int8_t expected[] = { 0 };
-   check_rebase(0, input, LENGTH(input), 10, expected, 0);
+   check_rebase(0, input, 0, 10, expected, 0);
 }
 
 static void test_input_base_is_negative(void)
@@ -209,8 +211,6 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_empty_list);
-
    RUN_TEST(test_single_bit_one_to_decimal);
    RUN_TEST(test_binary_to_single_decimal);
    RUN_TEST(test_single_decimal_to_binary);
@@ -219,6 +219,7 @@ int main(void)
    RUN_TEST(test_trinary_to_hexadecimal);
    RUN_TEST(test_hexadecimal_to_trinary);
    RUN_TEST(test_15_bit_integer);
+   RUN_TEST(test_empty_list);
    RUN_TEST(test_single_zero);
    RUN_TEST(test_multiple_zeros);
    RUN_TEST(test_leading_zeros);

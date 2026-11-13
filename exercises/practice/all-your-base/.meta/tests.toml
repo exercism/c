@@ -28,7 +28,6 @@ description = "15-bit integer"
 
 [d68788f7-66dd-43f8-a543-f15b6d233f83]
 description = "empty list"
-include = false
 
 [5e27e8da-5862-4c5f-b2a9-26c0382b6be7]
 description = "single zero"

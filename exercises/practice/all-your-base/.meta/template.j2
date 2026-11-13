@@ -39,13 +39,7 @@ static void check_rebase(int16_t input_base, int8_t input_digits[],
       TEST_ASSERT_EQUAL_INT8_ARRAY(expected_digits, digits, expected_length);
 }
 
-static void test_empty_list(void)
-{
-   int8_t input[DIGITS_ARRAY_SIZE] = { 0 };
-   TEST_ASSERT_EQUAL_size_t(0, rebase(input, 2, 10, 0));
-}
-
-{% for case in cases %}
+{%- for case in cases %}
 
 static void {{ case.test_function }}(void)
 {
@@ -55,12 +49,12 @@ static void {{ case.test_function }}(void)
    TEST_IGNORE();
 {%- endif %}
    int8_t input[] = {{ case.input.digits | quote }};
-{%- if not case.expect_error %}
+{%- if not case.expect_error and case.input.digits %}
    int8_t expected[] = {{ case.expected | quote }};
 {%- else %}
    int8_t expected[] = { 0 };
 {%- endif %}
-   check_rebase({{ case.input.inputBase }}, input, LENGTH(input), {{ case.input.outputBase }}, expected, {% if not case.expect_error %}LENGTH(expected){% else %}0{% endif %});
+   check_rebase({{ case.input.inputBase }}, input, {% if case.input.digits %}LENGTH(input){% else %}0{% endif %}, {{ case.input.outputBase }}, expected, {% if not case.expect_error and case.input.digits %}LENGTH(expected){% else %}0{% endif %});
 }
 
 {%- endfor %}
@@ -69,7 +63,6 @@ int main(void)
 {
    UNITY_BEGIN();
 
-   RUN_TEST(test_empty_list);
 {% for case in cases %}
    RUN_TEST({{ case.test_function }});
 {%- endfor %}
