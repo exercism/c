@@ -42,7 +42,6 @@ static void {{ test_name(case) }}(void)
 static void {{ test_name(case) }}(void)
 {
    TEST_IGNORE();
-
    allergen_list_t list = get_allergens({{ case.input.score }});
    TEST_ASSERT_EQUAL({{ case.expected | length }}, list.count);
    {%- for item in case.expected %}
