@@ -283,7 +283,7 @@ static void test_add_across_midnight(void)
    test_add(expected, hour, minute, minute_add);
 }
 
-static void test_add_more_than_one_day(void)
+static void test_add_more_than_one_day_1500_min_25_hrs(void)
 {
    TEST_IGNORE();
    int hour = 5, minute = 32, minute_add = 1500;
@@ -355,7 +355,7 @@ static void test_subtract_more_than_two_hours_with_borrow(void)
    test_subtract(expected, hour, minute, minute_subtract);
 }
 
-static void test_subtract_more_than_one_day(void)
+static void test_subtract_more_than_one_day_1500_min_25_hrs(void)
 {
    TEST_IGNORE();
    int hour = 5, minute = 32, minute_subtract = 1500;
@@ -373,7 +373,7 @@ static void test_subtract_more_than_two_days(void)
    test_subtract(expected, hour, minute, minute_subtract);
 }
 
-static void test_compare_clocks_with_same_time(void)
+static void test_clocks_with_same_time(void)
 {
    TEST_IGNORE();
    int a_hour = 15, a_minute = 37;
@@ -383,7 +383,7 @@ static void test_compare_clocks_with_same_time(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_a_minute_apart(void)
+static void test_clocks_a_minute_apart(void)
 {
    TEST_IGNORE();
    int a_hour = 15, a_minute = 36;
@@ -393,7 +393,7 @@ static void test_compare_clocks_a_minute_apart(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_an_hour_apart(void)
+static void test_clocks_an_hour_apart(void)
 {
    TEST_IGNORE();
    int a_hour = 14, a_minute = 37;
@@ -403,7 +403,7 @@ static void test_compare_clocks_an_hour_apart(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_hour_overflow(void)
+static void test_clocks_with_hour_overflow(void)
 {
    TEST_IGNORE();
    int a_hour = 10, a_minute = 37;
@@ -413,7 +413,7 @@ static void test_compare_clocks_with_hour_overflow(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_hour_overflow_by_several_days(void)
+static void test_clocks_with_hour_overflow_by_several_days(void)
 {
    TEST_IGNORE();
    int a_hour = 3, a_minute = 11;
@@ -423,7 +423,7 @@ static void test_compare_clocks_with_hour_overflow_by_several_days(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_negative_hour(void)
+static void test_clocks_with_negative_hour(void)
 {
    TEST_IGNORE();
    int a_hour = 22, a_minute = 40;
@@ -433,7 +433,7 @@ static void test_compare_clocks_with_negative_hour(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_negative_hour_that_wraps(void)
+static void test_clocks_with_negative_hour_that_wraps(void)
 {
    TEST_IGNORE();
    int a_hour = 17, a_minute = 3;
@@ -443,8 +443,7 @@ static void test_compare_clocks_with_negative_hour_that_wraps(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void
-test_compare_clocks_with_negative_hour_that_wraps_multiple_times(void)
+static void test_clocks_with_negative_hour_that_wraps_multiple_times(void)
 {
    TEST_IGNORE();
    int a_hour = 13, a_minute = 49;
@@ -454,7 +453,7 @@ test_compare_clocks_with_negative_hour_that_wraps_multiple_times(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_minute_overflow(void)
+static void test_clocks_with_minute_overflow(void)
 {
    TEST_IGNORE();
    int a_hour = 0, a_minute = 1;
@@ -464,7 +463,7 @@ static void test_compare_clocks_with_minute_overflow(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_minute_overflow_by_several_days(void)
+static void test_clocks_with_minute_overflow_by_several_days(void)
 {
    TEST_IGNORE();
    int a_hour = 2, a_minute = 2;
@@ -474,7 +473,7 @@ static void test_compare_clocks_with_minute_overflow_by_several_days(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_negative_minute(void)
+static void test_clocks_with_negative_minute(void)
 {
    TEST_IGNORE();
    int a_hour = 2, a_minute = 40;
@@ -484,7 +483,7 @@ static void test_compare_clocks_with_negative_minute(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_negative_minute_that_wraps(void)
+static void test_clocks_with_negative_minute_that_wraps(void)
 {
    TEST_IGNORE();
    int a_hour = 4, a_minute = 10;
@@ -494,8 +493,7 @@ static void test_compare_clocks_with_negative_minute_that_wraps(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void
-test_compare_clocks_with_negative_minute_that_wraps_multiple_times(void)
+static void test_clocks_with_negative_minute_that_wraps_multiple_times(void)
 {
    TEST_IGNORE();
    int a_hour = 6, a_minute = 15;
@@ -505,7 +503,7 @@ test_compare_clocks_with_negative_minute_that_wraps_multiple_times(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_negative_hours_and_minute(void)
+static void test_clocks_with_negative_hours_and_minutes(void)
 {
    TEST_IGNORE();
    int a_hour = 7, a_minute = 32;
@@ -515,7 +513,7 @@ static void test_compare_clocks_with_negative_hours_and_minute(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_clocks_with_negative_hours_and_minute_that_wrap(void)
+static void test_clocks_with_negative_hours_and_minutes_that_wrap(void)
 {
    TEST_IGNORE();
    int a_hour = 18, a_minute = 7;
@@ -525,7 +523,7 @@ static void test_compare_clocks_with_negative_hours_and_minute_that_wrap(void)
    test_compare(expected, a_hour, a_minute, b_hour, b_minute);
 }
 
-static void test_compare_full_clock_and_zeroed_clock(void)
+static void test_full_clock_and_zeroed_clock(void)
 {
    TEST_IGNORE();
    int a_hour = 24, a_minute = 0;
@@ -565,7 +563,7 @@ int main(void)
    RUN_TEST(test_add_more_than_one_hour);
    RUN_TEST(test_add_more_than_two_hours_with_carry);
    RUN_TEST(test_add_across_midnight);
-   RUN_TEST(test_add_more_than_one_day);
+   RUN_TEST(test_add_more_than_one_day_1500_min_25_hrs);
    RUN_TEST(test_add_more_than_two_days);
    RUN_TEST(test_subtract_minutes);
    RUN_TEST(test_subtract_to_previous_hour);
@@ -573,24 +571,24 @@ int main(void)
    RUN_TEST(test_subtract_across_midnight);
    RUN_TEST(test_subtract_more_than_two_hours);
    RUN_TEST(test_subtract_more_than_two_hours_with_borrow);
-   RUN_TEST(test_subtract_more_than_one_day);
+   RUN_TEST(test_subtract_more_than_one_day_1500_min_25_hrs);
    RUN_TEST(test_subtract_more_than_two_days);
-   RUN_TEST(test_compare_clocks_with_same_time);
-   RUN_TEST(test_compare_clocks_a_minute_apart);
-   RUN_TEST(test_compare_clocks_an_hour_apart);
-   RUN_TEST(test_compare_clocks_with_hour_overflow);
-   RUN_TEST(test_compare_clocks_with_hour_overflow_by_several_days);
-   RUN_TEST(test_compare_clocks_with_negative_hour);
-   RUN_TEST(test_compare_clocks_with_negative_hour_that_wraps);
-   RUN_TEST(test_compare_clocks_with_negative_hour_that_wraps_multiple_times);
-   RUN_TEST(test_compare_clocks_with_minute_overflow);
-   RUN_TEST(test_compare_clocks_with_minute_overflow_by_several_days);
-   RUN_TEST(test_compare_clocks_with_negative_minute);
-   RUN_TEST(test_compare_clocks_with_negative_minute_that_wraps);
-   RUN_TEST(test_compare_clocks_with_negative_minute_that_wraps_multiple_times);
-   RUN_TEST(test_compare_clocks_with_negative_hours_and_minute);
-   RUN_TEST(test_compare_clocks_with_negative_hours_and_minute_that_wrap);
-   RUN_TEST(test_compare_full_clock_and_zeroed_clock);
+   RUN_TEST(test_clocks_with_same_time);
+   RUN_TEST(test_clocks_a_minute_apart);
+   RUN_TEST(test_clocks_an_hour_apart);
+   RUN_TEST(test_clocks_with_hour_overflow);
+   RUN_TEST(test_clocks_with_hour_overflow_by_several_days);
+   RUN_TEST(test_clocks_with_negative_hour);
+   RUN_TEST(test_clocks_with_negative_hour_that_wraps);
+   RUN_TEST(test_clocks_with_negative_hour_that_wraps_multiple_times);
+   RUN_TEST(test_clocks_with_minute_overflow);
+   RUN_TEST(test_clocks_with_minute_overflow_by_several_days);
+   RUN_TEST(test_clocks_with_negative_minute);
+   RUN_TEST(test_clocks_with_negative_minute_that_wraps);
+   RUN_TEST(test_clocks_with_negative_minute_that_wraps_multiple_times);
+   RUN_TEST(test_clocks_with_negative_hours_and_minutes);
+   RUN_TEST(test_clocks_with_negative_hours_and_minutes_that_wrap);
+   RUN_TEST(test_full_clock_and_zeroed_clock);
 
    return UNITY_END();
 }
