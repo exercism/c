@@ -1,0 +1,71 @@
+#include "test-framework/unity.h"
+#include <stddef.h>
+#include <stdint.h>
+#include "all_your_base.h"
+
+#include <stdio.h>
+
+#define LENGTH(A) (sizeof(A) / sizeof(A[0]))
+
+void setUp(void)
+{
+}
+
+void tearDown(void)
+{
+}
+
+static void copy_array(int8_t src[], int8_t dest[DIGITS_ARRAY_SIZE], size_t n)
+{
+   if (n > DIGITS_ARRAY_SIZE)
+      return;
+   for (size_t i = 0; i < n; ++i)
+      dest[i] = src[i];
+}
+
+static void check_rebase(int16_t input_base, int8_t input_digits[],
+                         size_t input_length, int16_t output_base,
+                         int8_t expected_digits[], size_t expected_length)
+{
+   int8_t digits[DIGITS_ARRAY_SIZE] = { 0 };
+
+   copy_array(input_digits, digits, input_length);
+
+   size_t actual_length = rebase(digits, input_base, output_base, input_length);
+
+   TEST_ASSERT_EQUAL_INT32(expected_length, actual_length);
+
+   if (expected_length > 0)
+      TEST_ASSERT_EQUAL_INT8_ARRAY(expected_digits, digits, expected_length);
+}
+
+{%- for case in cases %}
+
+static void {{ case.test_function }}(void)
+{
+{%- if loop.first %}
+   TEST_IGNORE();   // delete this line to run test
+{%- else %}
+   TEST_IGNORE();
+{%- endif %}
+   int8_t input[] = {{ case.input.digits | quote }};
+{%- if not case.expect_error and case.input.digits %}
+   int8_t expected[] = {{ case.expected | quote }};
+{%- else %}
+   int8_t expected[] = { 0 };
+{%- endif %}
+   check_rebase({{ case.input.inputBase }}, input, {% if case.input.digits %}LENGTH(input){% else %}0{% endif %}, {{ case.input.outputBase }}, expected, {% if not case.expect_error and case.input.digits %}LENGTH(expected){% else %}0{% endif %});
+}
+
+{%- endfor %}
+
+int main(void)
+{
+   UNITY_BEGIN();
+
+{% for case in cases %}
+   RUN_TEST({{ case.test_function }});
+{%- endfor %}
+
+   return UNITY_END();
+}
