@@ -40,11 +40,11 @@
         "description": "variable-names"
     },
     {
-        "url": "https://en.cppreference.com/w/c/keyword",
+        "url": "https://en.cppreference.com/c/keyword",
         "description": "c-keywords"
     },
     {
-        "url": "https://en.cppreference.com/w/c/language/identifier",
+        "url": "https://en.cppreference.com/c/language/identifier",
         "description": "reserved-identifiers"
     }
 ]

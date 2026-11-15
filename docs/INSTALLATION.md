@@ -26,6 +26,6 @@ Windows 10 users are recommended to use the [Windows Subsystem for Linux][], and
 If you are using an earlier version of Windows or WSL Bash is not available to you, you could use [MSYS][] or [mingw-w64][].
 
 [Homebrew]: https://brew.sh
-[Windows Subsystem for Linux]: https://docs.microsoft.com/en-gb/windows/wsl/about
+[Windows Subsystem for Linux]: https://learn.microsoft.com/en-gb/windows/wsl/about
 [MSYS]: https://www.msys2.org
-[mingw-w64]: http://mingw-w64.org
+[mingw-w64]: https://www.mingw-w64.org

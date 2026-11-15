@@ -16,7 +16,7 @@ int* binary_search(int value, const int *arr, size_t length);
 **binary_search.c**
 
 ```c
-#include "binary_search.h" 
+#include "binary_search.h"
 
 int* binary_search(int value, const int *arr, size_t length){
     if (!arr) return NULL;
@@ -66,5 +66,5 @@ If `left` and `right` are changed during the iterations so that `left` is no lon
 then the value being searched for is not in the array of `int`s.
 The loop exits and `NULL` is returned from the function.
 
-[size_t]: https://en.cppreference.com/w/c/types/size_t
+[size_t]: https://en.cppreference.com/c/types/size_t
 [mid-bug]: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
