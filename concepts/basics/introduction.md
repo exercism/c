@@ -60,5 +60,5 @@ int sum = add(1, 2);
 C supports two types of comments.
 Single line comments are preceded by `//` (since C99) and multi-line comments are inserted between `/*` and `*/`.
 
-[reserved-keywords]: https://en.cppreference.com/w/c/keyword
-[reserved-identifiers]: https://en.cppreference.com/w/c/language/identifier
+[reserved-keywords]: https://en.cppreference.com/c/keyword
+[reserved-identifiers]: https://en.cppreference.com/c/language/identifier

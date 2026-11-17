@@ -101,22 +101,22 @@ The structure of an exercise directory is as follows (note the differing hyphen 
 
 ```
 
-- `test_{exercise_name}.c` - This file contains all the tests for the exercise.  
-- `test-framework` - directory containing the test harness [Unity][] from [ThrowTheSwitch][].  
-   ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.  
-   The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].  
-   Tests should be written to satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository  
-- `{exercise-name}.c` / `{exercise-name}.h` - The exercise's source files.  
+- `test_{exercise_name}.c` - This file contains all the tests for the exercise.
+- `test-framework` - directory containing the test harness [Unity][] from [ThrowTheSwitch][].
+   ThrowTheSwitch has a decent guide on [getting started with Unity][] should you desire a tutorial.
+   The version of Unity used is indicated in [versions][]. The layout of the test file is described in the [style guide][test-file-layout].
+   Tests should be written to satisfy `canonical-data.json` file for the exercise in the [problem-specifications][] repository
+- `{exercise-name}.c` / `{exercise-name}.h` - The exercise's source files.
    Please use [include guards][] in your header files.
    The exercise tests can be run using `make test` from the repository root.
-- `makefile` - is the makefile for the exercise as it would build.  
+- `makefile` - is the makefile for the exercise as it would build.
 - `.meta` contains metadata about the exercise
   - `example.[ch]` - an example solution showing a solution is possible
   - `config.json` - filepaths, authorship, and more.
   - `tests.toml` - which tests from the problem spec are implemented.
   * `template.j2` - an optional Jinja template used by the test generator.
 
-Two rules are required,  
+Two rules are required,
 
 - test: compile test_{exercise-name}.c and run it.
 - memcheck: compile test_{exercise-name} with -fsanitize=address, -fno-common, -fno-omit-frame-pointer flag and run it.
@@ -223,7 +223,7 @@ Read more about [test runners].
 [contributing to a language track]: https://github.com/exercism/docs/tree/main/building
 [problem-specifications]: https://github.com/exercism/problem-specifications
 [issue]: ./CONTRIBUTING.md#issues
-[Code of Conduct]: https://exercism.io/code-of-conduct
+[Code of Conduct]: https://exercism.org/docs/using/legal/code-of-conduct
 [issues]: https://github.com/exercism/c/issues
 [discussions]: https://github.com/exercism/discussions/issues
 [good-first-patch]: https://github.com/exercism/c/labels/good%20first%20patch
@@ -234,15 +234,15 @@ Read more about [test runners].
 [clang-format]: https://releases.llvm.org/10.0.0/tools/clang/docs/ClangFormat.html
 [Homebrew]: https://brew.sh
 [implement-an-exercise-from-specification]: https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises/add.md
-[Unity]: http://www.throwtheswitch.org/unity/
-[ThrowTheSwitch]: http://www.throwtheswitch.org/#intro-1-section
-[getting started with unity]: http://www.throwtheswitch.org/getting-started-with-unity/
+[Unity]: https://www.throwtheswitch.org/unity/
+[ThrowTheSwitch]: https://www.throwtheswitch.org/#intro-1-section
+[getting started with unity]: https://www.throwtheswitch.org/getting-started-with-unity/
 [versions]: ./VERSIONS.md
 [test-file-layout]: ./C_STYLE_GUIDE.md#test-file-layout
 [include guards]: https://en.wikipedia.org/wiki/Include_guard
 [configlet]: https://github.com/exercism/configlet
 [configlet releases page]: https://github.com/exercism/configlet/releases
-[hosted runners]: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+[hosted runners]: https://docs.github.com/en/actions/concepts/runners/github-hosted-runners
 [actions/virtual-environments#1816]: https://github.com/actions/virtual-environments/issues/1816
 [workflows]: ../.github/workflows/
 [lychee]: https://github.com/lycheeverse/lychee-action

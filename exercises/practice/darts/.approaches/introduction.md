@@ -64,5 +64,5 @@ uint8_t score(coordinate_t dart_throw)
 For more information, check the [`hypot` for radius approach][approach-hypot-for-radius].
 
 [approach-hypot-for-radius]: https://exercism.org/tracks/c/exercises/darts/approaches/hypot-for-radius
-[hypot]: https://en.cppreference.com/w/c/numeric/math/hypot
+[hypot]: https://en.cppreference.com/c/numeric/math/hypot
 [radius]: https://www.mathopenref.com/coordbasiccircle.html

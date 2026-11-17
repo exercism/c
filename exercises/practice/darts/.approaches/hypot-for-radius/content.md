@@ -74,5 +74,5 @@ If the throw is not within a defined ring, then the function returns `0`.
 
 [magic-numbers]: https://en.wikipedia.org/wiki/Magic_number_(programming)
 [const]: https://www.geeksforgeeks.org/const-qualifier-in-c/
-[hypot]: https://en.cppreference.com/w/c/numeric/math/hypot
+[hypot]: https://en.cppreference.com/c/numeric/math/hypot
 [radius]: https://www.mathopenref.com/coordbasiccircle.html

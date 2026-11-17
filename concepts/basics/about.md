@@ -62,8 +62,8 @@ Single line comments are preceded by `//` (since C99) and multi-line comments ar
 
 [variable]: https://www.w3schools.in/c-tutorial/variables/
 [name-rules]: https://www.tutorialspoint.com/what-is-an-identifier-and-its-rules-in-c-language
-[reserved-keywords]: https://en.cppreference.com/w/c/keyword
-[reserved-identifiers]: https://en.cppreference.com/w/c/language/identifier
+[reserved-keywords]: https://en.cppreference.com/c/keyword
+[reserved-identifiers]: https://en.cppreference.com/c/language/identifier
 [assignment-operator]: https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html#Assignment-Operators
 [imperative]: https://en.wikipedia.org/wiki/Imperative_programming
 [procedural]: https://en.wikipedia.org/wiki/Procedural_programming
