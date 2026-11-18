@@ -1,0 +1,4 @@
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+GNU Make 3.81
+Python 3.15.2

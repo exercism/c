@@ -1,0 +1,60 @@
+./test_triangle.c:15:21: error: call to undeclared function 'is_equilateral'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   15 |    TEST_ASSERT_TRUE(is_equilateral(sides));
+      |                     ^
+./test_triangle.c:22:22: error: call to undeclared function 'is_equilateral'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   22 |    TEST_ASSERT_FALSE(is_equilateral(sides));
+      |                      ^
+./test_triangle.c:29:22: error: call to undeclared function 'is_equilateral'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   29 |    TEST_ASSERT_FALSE(is_equilateral(sides));
+      |                      ^
+./test_triangle.c:36:22: error: call to undeclared function 'is_equilateral'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   36 |    TEST_ASSERT_FALSE(is_equilateral(sides));
+      |                      ^
+./test_triangle.c:43:21: error: call to undeclared function 'is_equilateral'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   43 |    TEST_ASSERT_TRUE(is_equilateral(sides));
+      |                     ^
+./test_triangle.c:50:21: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   50 |    TEST_ASSERT_TRUE(is_isosceles(sides));
+      |                     ^
+./test_triangle.c:57:21: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   57 |    TEST_ASSERT_TRUE(is_isosceles(sides));
+      |                     ^
+./test_triangle.c:64:21: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   64 |    TEST_ASSERT_TRUE(is_isosceles(sides));
+      |                     ^
+./test_triangle.c:72:21: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   72 |    TEST_ASSERT_TRUE(is_isosceles(sides));
+      |                     ^
+./test_triangle.c:79:22: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   79 |    TEST_ASSERT_FALSE(is_isosceles(sides));
+      |                      ^
+./test_triangle.c:86:22: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   86 |    TEST_ASSERT_FALSE(is_isosceles(sides));
+      |                      ^
+./test_triangle.c:93:22: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   93 |    TEST_ASSERT_FALSE(is_isosceles(sides));
+      |                      ^
+./test_triangle.c:100:22: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  100 |    TEST_ASSERT_FALSE(is_isosceles(sides));
+      |                      ^
+./test_triangle.c:107:21: error: call to undeclared function 'is_isosceles'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  107 |    TEST_ASSERT_TRUE(is_isosceles(sides));
+      |                     ^
+./test_triangle.c:114:21: error: call to undeclared function 'is_scalene'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  114 |    TEST_ASSERT_TRUE(is_scalene(sides));
+      |                     ^
+./test_triangle.c:121:22: error: call to undeclared function 'is_scalene'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  121 |    TEST_ASSERT_FALSE(is_scalene(sides));
+      |                      ^
+./test_triangle.c:128:22: error: call to undeclared function 'is_scalene'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  128 |    TEST_ASSERT_FALSE(is_scalene(sides));
+      |                      ^
+./test_triangle.c:135:22: error: call to undeclared function 'is_scalene'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  135 |    TEST_ASSERT_FALSE(is_scalene(sides));
+      |                      ^
+./test_triangle.c:142:22: error: call to undeclared function 'is_scalene'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  142 |    TEST_ASSERT_FALSE(is_scalene(sides));
+      |                      ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [tests.out] Error 1
