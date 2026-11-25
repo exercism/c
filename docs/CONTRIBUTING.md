@@ -154,7 +154,6 @@ If you would like the [`/format`][format-workflow] automated action to work corr
   - `./bin/check-unitybegin`
   - `./bin/verify-unity-version`
   - `./bin/check-include-guards`
-  - [Lychee link checker][lychee] action
 - `configlet.yml` fetches the latest version of configlet from which it then runs the `lint` command on the track
 - `format-code.yml` checks for the string `/format` within any comment on a PR, if it finds it then `format.sh` is run on the exercises and any resulting changes are committed. A deploy key is required for the commit to be able to re-trigger CI. The deploy key is administered by Exercism directly.
 - `test.yml` runs `make` in the repository root to test all exercises
@@ -245,7 +244,6 @@ Read more about [test runners].
 [hosted runners]: https://docs.github.com/en/actions/concepts/runners/github-hosted-runners
 [actions/virtual-environments#1816]: https://github.com/actions/virtual-environments/issues/1816
 [workflows]: ../.github/workflows/
-[lychee]: https://github.com/lycheeverse/lychee-action
 [bin]: ../bin
 [format-workflow]: ../.github/workflows/format-code.yml
 [git]: https://git-scm.com/
