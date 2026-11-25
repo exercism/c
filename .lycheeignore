@@ -3,3 +3,5 @@ rosettacode\.com
 stackoverflow\.com
 exercism\.org
 gnu\.org
+cppreference\.com
+^https://en\.wikipedia\.org/$
